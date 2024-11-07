@@ -1,0 +1,60 @@
+---
+permalink: ilm/guidelines-for-creating-storage-pools.html 
+sidebar: sidebar 
+keywords: storage pool guidelines 
+summary: Configurare e utilizzare i pool di storage per proteggersi dalla perdita di dati distribuendo i dati su più siti. Le copie replicate e le copie con codice di cancellazione richiedono diverse configurazioni del pool di storage. 
+---
+= Linee guida per la creazione di pool di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configurare e utilizzare i pool di storage per proteggersi dalla perdita di dati distribuendo i dati su più siti. Le copie replicate e le copie con codice di cancellazione richiedono diverse configurazioni del pool di storage.
+
+Vedere link:using-multiple-storage-pools-for-cross-site-replication.html["Esempi di attivazione della protezione dalle perdite di sito mediante la replica e la cancellazione del codice"].
+
+
+
+== Linee guida per tutti i pool di storage
+
+* Le configurazioni del pool di storage sono il più semplici possibile. Non creare più pool di storage del necessario.
+* Creare pool di storage con il maggior numero possibile di nodi. Ogni pool di storage deve contenere due o più nodi. Un pool di storage con nodi insufficienti può causare backlog ILM se un nodo diventa non disponibile.
+* Evitare di creare o utilizzare pool di storage che si sovrappongono (contenenti uno o più degli stessi nodi). Se i pool di storage si sovrappongono, è possibile che più di una copia dei dati dell'oggetto venga salvata sullo stesso nodo.
+* In generale, non utilizzare il pool di storage All Storage Node (StorageGRID 11.6 e versioni precedenti) o il sito All Sites. Questi elementi vengono aggiornati automaticamente per includere i nuovi siti aggiunti in un'espansione, il che potrebbe non essere il comportamento desiderato.
+
+
+
+
+== Linee guida per i pool di storage utilizzati per le copie replicate
+
+* Per la protezione contro la perdita del sito mediante link:what-replication-is.html["replica"], specificare uno o più pool di archiviazione specifici del sito in link:create-ilm-rule-define-placements.html["Istruzioni di posizionamento per ogni regola ILM"].
++
+Un pool di storage viene creato automaticamente per ogni sito durante l'installazione di StorageGRID.
+
++
+L'utilizzo di un pool di storage per ciascun sito garantisce che le copie degli oggetti replicate vengano posizionate esattamente dove ci si aspetta (ad esempio, una copia di ogni oggetto in ogni sito per la protezione dalla perdita di sito).
+
+* Se si aggiunge un sito in un'espansione, creare un nuovo pool di storage che contenga solo il nuovo sito. Quindi, link:working-with-ilm-rules-and-ilm-policies.html#edit-an-ilm-rule["Aggiornare le regole ILM"] per controllare quali oggetti vengono memorizzati nel nuovo sito.
+* Se il numero di copie è inferiore al numero di pool di storage, il sistema distribuisce le copie per bilanciare l'utilizzo del disco tra i pool.
+* Se i pool di storage si sovrappongono (contengono gli stessi nodi di storage), tutte le copie dell'oggetto potrebbero essere salvate in un solo sito. È necessario assicurarsi che i pool di storage selezionati non contengano gli stessi nodi di storage.
+
+
+
+
+== Linee guida per i pool di storage utilizzati per le copie erasure-coded
+
+* Per la protezione delle perdite di sito mediante link:what-erasure-coding-is.html["erasure coding"], creare pool di archiviazione composti da almeno tre siti. Se un pool di storage include solo due siti, non è possibile utilizzare tale pool di storage per la cancellazione del codice. Non sono disponibili schemi di erasure coding per un pool di storage con due siti.
+* Il numero di nodi e siti di archiviazione contenuti nel pool di archiviazione determina quali link:what-erasure-coding-schemes-are.html["schemi di erasure coding"] sono disponibili.
+* Se possibile, un pool di storage deve includere un numero superiore al numero minimo di nodi di storage richiesto per lo schema di erasure coding selezionato. Ad esempio, se si utilizza uno schema di erasure coding 6+3, è necessario disporre di almeno nove nodi di storage. Tuttavia, si consiglia di disporre di almeno un nodo di storage aggiuntivo per sito.
+* Distribuire i nodi di storage tra i siti nel modo più uniforme possibile. Ad esempio, per supportare uno schema di erasure coding 6+3, configurare un pool di storage che includa almeno tre nodi di storage in tre siti.
+* Se si hanno requisiti di throughput elevati, si sconsiglia di utilizzare un pool di storage che include più siti se la latenza di rete tra siti è superiore a 100 ms. Con l'aumentare della latenza, la velocità con cui StorageGRID può creare, posizionare e recuperare frammenti di oggetti diminuisce drasticamente a causa della diminuzione del throughput di rete TCP.
++
+La diminuzione del throughput influisce sui tassi massimi raggiungibili di acquisizione e recupero degli oggetti (quando vengono selezionati come comportamento di acquisizione bilanciati o rigorosi) o può portare a backlog di coda ILM (quando viene selezionato il doppio commit come comportamento di acquisizione). Vedere link:what-ilm-rule-is.html#ilm-rule-ingest-behavior["Comportamento di acquisizione delle regole ILM"].
+
++
+
+NOTE: Se il grid include un solo sito, è impossibile utilizzare il pool di storage All Storage Nodes (StorageGRID 11,6 e versioni precedenti) o il sito All Sites in un profilo di erasure coding. Questo comportamento impedisce che il profilo diventi non valido se viene aggiunto un secondo sito.
+
+

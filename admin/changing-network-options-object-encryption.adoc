@@ -1,0 +1,74 @@
+---
+permalink: admin/changing-network-options-object-encryption.html 
+sidebar: sidebar 
+keywords: enable http, storage node connections 
+summary: È possibile configurare la protezione della rete e degli oggetti per crittografare gli oggetti archiviati, impedire determinate richieste S3 o consentire alle connessioni client ai nodi di archiviazione di utilizzare HTTP invece di HTTPS. 
+---
+= Configurare la sicurezza della rete e degli oggetti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare la protezione della rete e degli oggetti per crittografare gli oggetti archiviati, impedire determinate richieste S3 o consentire alle connessioni client ai nodi di archiviazione di utilizzare HTTP invece di HTTPS.
+
+
+
+== Crittografia degli oggetti memorizzati
+
+La crittografia degli oggetti memorizzati consente la crittografia di tutti i dati degli oggetti durante l'acquisizione tramite S3. Per impostazione predefinita, gli oggetti memorizzati non vengono crittografati, ma è possibile scegliere di crittografare gli oggetti utilizzando l'algoritmo di crittografia AES‐128 o AES‐256. Quando si attiva l'impostazione, tutti gli oggetti inseriti di recente vengono crittografati, ma non vengono apportate modifiche agli oggetti memorizzati esistenti. Se si disattiva la crittografia, gli oggetti attualmente crittografati rimangono crittografati, ma gli oggetti appena acquisiti non vengono crittografati.
+
+L'impostazione di crittografia degli oggetti memorizzati si applica solo agli oggetti S3 che non sono stati crittografati mediante crittografia a livello di bucket o a livello di oggetto.
+
+Per ulteriori informazioni sui metodi di crittografia StorageGRID, vedere link:../admin/reviewing-storagegrid-encryption-methods.html["Esaminare i metodi di crittografia StorageGRID"].
+
+
+
+== Impedire la modifica del client
+
+Impedisci modifica client è un'impostazione a livello di sistema. Quando si seleziona l'opzione *Impedisci modifica client*, le seguenti richieste vengono rifiutate.
+
+
+
+=== API REST S3
+
+* Richieste DeleteBucket
+* Qualsiasi richiesta di modifica dei dati di un oggetto esistente, dei metadati definiti dall'utente o del tagging degli oggetti S3
+
+
+
+
+== Abilitare HTTP per le connessioni dei nodi di storage
+
+Per impostazione predefinita, le applicazioni client utilizzano il protocollo di rete HTTPS per qualsiasi connessione diretta ai nodi di storage. È possibile attivare il protocollo HTTP per queste connessioni, ad esempio durante il test di un grid non di produzione.
+
+Utilizzare HTTP per le connessioni al nodo di archiviazione solo se i client S3 devono stabilire connessioni HTTP direttamente ai nodi di archiviazione. Non è necessario utilizzare questa opzione per i client che utilizzano solo connessioni HTTPS o per i client che si connettono al servizio Load Balancer (poiché è possibile link:../admin/configuring-load-balancer-endpoints.html["configurare ciascun endpoint del bilanciamento del carico"]utilizzare HTTP o HTTPS).
+
+Vedere link:summary-ip-addresses-and-ports-for-client-connections.html["Riepilogo: Indirizzi IP e porte per le connessioni client"] per informazioni sulle porte utilizzate dai client S3 durante la connessione ai nodi di archiviazione tramite HTTP o HTTPS.
+
+
+
+== Selezionare le opzioni
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone dell'autorizzazione di accesso root.
+
+
+.Fasi
+. Selezionare *CONFIGURATION* > *Security* > *Security settings*.
+. Selezionare la scheda *rete e oggetti*.
+. Per la crittografia degli oggetti memorizzati, utilizzare l'impostazione *None* (predefinita) se non si desidera crittografare gli oggetti memorizzati oppure selezionare *AES-128* o *AES-256* per crittografare gli oggetti memorizzati.
+. Se si desidera impedire ai client S3 di eseguire richieste specifiche, selezionare *Impedisci modifica client*.
++
+
+NOTE: Se si modifica questa impostazione, l'applicazione della nuova impostazione richiede circa un minuto. Il valore configurato viene memorizzato nella cache per le prestazioni e la scalabilità.
+
+. Se si desidera utilizzare connessioni HTTP, selezionare *Enable HTTP for Storage Node Connections* (attiva HTTP per connessioni nodo di storage) se i client si connettono direttamente ai nodi di storage.
++
+
+NOTE: Prestare attenzione quando si attiva HTTP per una griglia di produzione perché le richieste verranno inviate senza crittografia.
+
+. Selezionare *Salva*.
+

@@ -1,0 +1,39 @@
+---
+permalink: tenant/testing-connection-for-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to test platform services endpoint connection 
+summary: 'Se la connessione a un servizio della piattaforma è stata modificata, è possibile verificare la connessione per l"endpoint per verificare l"esistenza della risorsa di destinazione e che sia possibile raggiungerla utilizzando le credenziali specificate.' 
+---
+= Verifica della connessione per l'endpoint dei servizi della piattaforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se la connessione a un servizio della piattaforma è stata modificata, è possibile verificare la connessione per l'endpoint per verificare l'esistenza della risorsa di destinazione e che sia possibile raggiungerla utilizzando le credenziali specificate.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* L'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Gestire gli endpoint o l'autorizzazione di accesso root"].
+
+
+.A proposito di questa attività
+StorageGRID non convalida che le credenziali dispongano delle autorizzazioni corrette.
+
+.Fasi
+. Selezionare *STORAGE (S3)* > *Platform Services Endpoint*.
++
+Viene visualizzata la pagina Platform Services Endpoint (endpoint dei servizi della piattaforma) che mostra l'elenco degli endpoint dei servizi della piattaforma già configurati.
+
+. Selezionare l'endpoint di cui si desidera verificare la connessione.
++
+Viene visualizzata la pagina dei dettagli dell'endpoint.
+
+. Selezionare *Test di connessione*.
++
+** Se è possibile raggiungere l'endpoint utilizzando le credenziali specificate, viene visualizzato un messaggio di esito positivo. La connessione all'endpoint viene convalidata da un nodo in ogni sito.
+** Se la convalida dell'endpoint non riesce, viene visualizzato un messaggio di errore. Se è necessario modificare l'endpoint per correggere l'errore, selezionare *Configuration* (Configurazione) e aggiornare le informazioni. Quindi, selezionare *Test e salvare le modifiche*.
+
+
+

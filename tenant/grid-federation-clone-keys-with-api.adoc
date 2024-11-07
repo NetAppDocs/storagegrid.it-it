@@ -1,0 +1,94 @@
+---
+permalink: tenant/grid-federation-clone-keys-with-api.html 
+sidebar: sidebar 
+keywords: s3 access key, secret key id, account clone, tenant manager api 
+summary: 'Se l"account tenant dispone dell"autorizzazione di connessione Usa federazione griglia, è possibile utilizzare l"API di gestione tenant per clonare manualmente le chiavi di accesso S3 dal tenant sulla griglia di origine al tenant sulla griglia di destinazione.' 
+---
+= Clonare le chiavi di accesso S3 utilizzando l'API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, è possibile utilizzare l'API di gestione tenant per clonare manualmente le chiavi di accesso S3 dal tenant sulla griglia di origine al tenant sulla griglia di destinazione.
+
+.Prima di iniziare
+* L'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*.
+* La connessione a federazione di griglie ha uno stato *Connection* di *Connected*.
+* L'utente ha effettuato l'accesso a Tenant Manager nella griglia di origine del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* L'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Gestisci le tue credenziali S3 o l'autorizzazione di accesso root"].
+* Se si clonano le chiavi di accesso per un utente locale, l'utente esiste già su entrambe le griglie.
++
+
+NOTE: Quando si clonano le chiavi di accesso S3 per un utente federato, sia l'utente che le chiavi di accesso S3 vengono aggiunte al tenant di destinazione.
+
+
+
+
+
+== Clonare le proprie chiavi di accesso
+
+È possibile clonare le proprie chiavi di accesso se è necessario accedere agli stessi bucket su entrambe le griglie.
+
+.Fasi
+. Utilizzando Tenant Manager nella griglia di origine e link:creating-your-own-s3-access-keys.html["creare le proprie chiavi di accesso"]scaricare il `.csv` file.
+. Nella parte superiore di Tenant Manager, selezionare l'icona della guida e selezionare *documentazione API*.
+. Nella sezione *s3*, selezionare il seguente endpoint:
++
+`POST /org/users/current-user/replicate-s3-access-key`
+
++
+image::../media/grid-federation-post-current-user-replicate.png[POST endpoint per la replica della propria chiave di accesso]
+
+. Selezionare *Provalo*.
+. Nella casella di testo *body*, sostituire le voci di esempio per *accessKey* e *secretAccessKey* con i valori del file *.csv* scaricato.
++
+Assicurarsi di conservare le virgolette doppie intorno a ciascuna stringa.
+
++
+image::../media/grid-federation-clone-access-key.png[API di tenant Manager che immette i valori per clonare la chiave di accesso]
+
+. Se la chiave scade, sostituire la voce di esempio *Expires* con la data e l'ora di scadenza come stringa nel formato dati-ora ISO 8601 (ad esempio, `2024-02-28T22:46:33-08:00`). Se la chiave non scade, inserire *Null* come valore per la voce *Expires* (oppure rimuovere la riga *Expires* e la virgola precedente).
+. Selezionare *Esegui*.
+. Verificare che il codice di risposta del server sia *204*, a indicare che la chiave è stata clonata correttamente nella griglia di destinazione.
+
+
+
+
+== Clonare le chiavi di accesso di un altro utente
+
+È possibile clonare le chiavi di accesso di un altro utente se è necessario accedere agli stessi bucket su entrambe le griglie.
+
+.Fasi
+. Utilizzando Tenant Manager nella griglia di origine e link:creating-another-users-s3-access-keys.html["Creare le chiavi di accesso S3 dell'altro utente"]scaricare il `.csv` file.
+. Nella parte superiore di Tenant Manager, selezionare l'icona della guida e selezionare *documentazione API*.
+. Ottenere l'ID utente. Questo valore è necessario per clonare le chiavi di accesso degli altri utenti.
++
+.. Nella sezione *users*, selezionare il seguente endpoint:
++
+`GET /org/users`
+
+.. Selezionare *Provalo*.
+.. Specificare i parametri da utilizzare per la ricerca degli utenti.
+.. Selezionare *Esegui*.
+.. Individuare l'utente di cui si desidera clonare le chiavi e copiare il numero nel campo *id*.
+
+
+. Nella sezione *s3*, selezionare il seguente endpoint:
++
+`POST /org/users/{userId}/replicate-s3-access-key`
+
++
+image::../media/grid-federation-post-other-user.png[ENDPOINT POST per la replica della chiave di accesso di un altro utente]
+
+. Selezionare *Provalo*.
+. Nella casella di testo *ID utente*, incollare l'ID utente copiato.
+. Nella casella di testo *body*, sostituire le voci di esempio *example access key* e *secret access key* con i valori del file *.csv* dell'utente.
++
+Assicurarsi di conservare le virgolette doppie intorno alla stringa.
+
+. Se la chiave scade, sostituire la voce di esempio *Expires* con la data e l'ora di scadenza come stringa nel formato dati-ora ISO 8601 (ad esempio, `2023-02-28T22:46:33-08:00`). Se la chiave non scade, inserire *Null* come valore per la voce *Expires* (oppure rimuovere la riga *Expires* e la virgola precedente).
+. Selezionare *Esegui*.
+. Verificare che il codice di risposta del server sia *204*, a indicare che la chiave è stata clonata correttamente nella griglia di destinazione.
+

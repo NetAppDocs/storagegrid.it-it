@@ -1,0 +1,96 @@
+---
+permalink: ilm/creating-default-ilm-rule.html 
+sidebar: sidebar 
+keywords: create default ilm rule 
+summary: 'Prima di creare un criterio ILM, è necessario creare una regola predefinita per inserire nel criterio gli oggetti non corrispondenti a un"altra regola. La regola predefinita non può utilizzare alcun filtro. Deve essere applicato a tutti i tenant, a tutti i bucket e a tutte le versioni degli oggetti.' 
+---
+= Creare una regola ILM predefinita
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di creare un criterio ILM, è necessario creare una regola predefinita per inserire nel criterio gli oggetti non corrispondenti a un'altra regola. La regola predefinita non può utilizzare alcun filtro. Deve essere applicato a tutti i tenant, a tutti i bucket e a tutte le versioni degli oggetti.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+
+
+.A proposito di questa attività
+La regola predefinita è l'ultima regola da valutare in un criterio ILM, quindi non può utilizzare alcun filtro. Le istruzioni di posizionamento per la regola predefinita vengono applicate a tutti gli oggetti che non corrispondono a un'altra regola del criterio.
+
+In questo criterio di esempio, la prima regola si applica solo agli oggetti appartenenti a test-tenant-1. La regola predefinita, ultima, si applica agli oggetti appartenenti a tutti gli altri account tenant.
+
+image::../media/ilm_policies_page_default_rule.png[Regola predefinita della pagina Criteri ILM]
+
+Quando si crea la regola predefinita, tenere presenti i seguenti requisiti:
+
+* La regola predefinita viene posizionata automaticamente come ultima regola quando viene aggiunta a un criterio.
+* La regola predefinita non può utilizzare filtri di base o avanzati.
+* La regola predefinita deve essere applicata a tutte le versioni degli oggetti.
+* La regola predefinita dovrebbe creare copie replicate.
++
+
+NOTE: Non utilizzare una regola che crea copie con codice di cancellazione come regola predefinita per un criterio. Le regole di erasure coding devono utilizzare un filtro avanzato per evitare che gli oggetti più piccoli vengano sottoposti a erasure coding.
+
+* In generale, la regola predefinita deve conservare gli oggetti per sempre.
+* Se si utilizza (o si prevede di abilitare) l'impostazione blocco oggetti S3 globale, la regola predefinita deve essere conforme.
+
+
+.Fasi
+. Selezionare *ILM* > *regole*.
+. Selezionare *Crea*.
++
+Viene visualizzata la fase 1 (immettere i dettagli) della creazione guidata regola ILM.
+
+. Immettere un nome univoco per la regola nel campo *Nome regola*.
+. Se si desidera, inserire una breve descrizione per la regola nel campo *Descrizione*.
+. Lasciare vuoto il campo *account tenant*.
++
+La regola predefinita deve essere applicata a tutti gli account tenant.
+
+. Lasciare la selezione a discesa Nome bucket come *si applica a tutti i bucket*.
++
+La regola predefinita deve essere applicata a tutti i bucket S3.
+
+. Mantenere la risposta predefinita, *No*, per la domanda, "applicare questa regola solo alle versioni di oggetti precedenti (nei bucket S3 con versione abilitata)?"
+. Non aggiungere filtri avanzati.
++
+La regola predefinita non può specificare alcun filtro.
+
+. Selezionare *Avanti*.
++
+Viene visualizzato il punto 2 (definizione delle posizioni).
+
+. Per Reference Time (ora di riferimento), selezionare un'opzione qualsiasi.
++
+Se è stata mantenuta la risposta predefinita, *No*, per la domanda "applicare questa regola solo alle versioni precedenti degli oggetti?" L'ora non corrente non verrà inclusa nell'elenco a discesa. La regola predefinita deve applicare tutte le versioni degli oggetti.
+
+. Specificare le istruzioni di posizionamento per la regola predefinita.
++
+** La regola predefinita deve conservare gli oggetti per sempre. Quando si attiva un nuovo criterio, viene visualizzato un avviso se la regola predefinita non conserva gli oggetti per sempre. Devi confermare che questo è il comportamento che ti aspetti.
+** La regola predefinita dovrebbe creare copie replicate.
++
+
+NOTE: Non utilizzare una regola che crea copie con codice di cancellazione come regola predefinita per un criterio. Le regole di erasure coding devono includere il filtro avanzato *dimensione oggetto (MB) maggiore di 200 KB* per evitare che gli oggetti più piccoli vengano sottoposti a erasure coding.
+
+** Se si utilizza (o si intende attivare) l'impostazione globale S3 Object Lock (blocco oggetto S3), la regola predefinita deve essere conforme:
++
+*** Deve creare almeno due copie di oggetti replicate o una copia con codice di cancellazione.
+*** Queste copie devono esistere nei nodi di storage per l'intera durata di ciascuna riga nelle istruzioni di posizionamento.
+*** Impossibile salvare le copie degli oggetti in un Cloud Storage Pool.
+*** Almeno una riga delle istruzioni di posizionamento deve iniziare al giorno 0, utilizzando l'ora di inizio come ora di riferimento.
+*** Almeno una riga delle istruzioni di posizionamento deve essere "per sempre".
+
+
+
+
+. Consultare il diagramma di conservazione per confermare le istruzioni di posizionamento.
+. Selezionare *continua*.
++
+Viene visualizzato il passaggio 3 (selezionare il comportamento di acquisizione).
+
+. Selezionare l'opzione di acquisizione da utilizzare e selezionare *Crea*.
+

@@ -1,0 +1,83 @@
+---
+permalink: tenant/understanding-tenant-management-api.html 
+sidebar: sidebar 
+keywords: how to understand tenant management api 
+summary: 'È possibile eseguire attività di gestione del sistema utilizzando l"API REST di Tenant Management invece dell"interfaccia utente di Tenant Manager. Ad esempio, è possibile utilizzare l"API per automatizzare le operazioni o creare più entità, ad esempio gli utenti, più rapidamente.' 
+---
+= Comprendere l'API di gestione dei tenant
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eseguire attività di gestione del sistema utilizzando l'API REST di Tenant Management invece dell'interfaccia utente di Tenant Manager. Ad esempio, è possibile utilizzare l'API per automatizzare le operazioni o creare più entità, ad esempio gli utenti, più rapidamente.
+
+L'API di gestione dei tenant:
+
+* Utilizza la piattaforma API open source Swagger. Swagger offre un'interfaccia utente intuitiva che consente a sviluppatori e non sviluppatori di interagire con l'API. L'interfaccia utente di Swagger fornisce dettagli completi e documentazione per ogni operazione API.
+* Usi link:tenant-management-api-versioning.html["versione per supportare aggiornamenti senza interruzioni"].
+
+
+Per accedere alla documentazione Swagger per l'API di gestione tenant:
+
+. Accedi al tenant manager.
+. Nella parte superiore di Tenant Manager, selezionare l'icona della guida e selezionare *documentazione API*.
+
+
+
+
+== Operazioni API
+
+L'API di gestione tenant organizza le operazioni API disponibili nelle seguenti sezioni:
+
+* *Account*: Operazioni sull'account tenant corrente, incluso il recupero delle informazioni sull'utilizzo dello storage.
+* *Auth*: Operazioni per l'autenticazione della sessione utente.
++
+L'API di gestione tenant supporta lo schema di autenticazione del token del bearer. Per un accesso tenant, è necessario fornire un nome utente, una password e un ID account nel corpo JSON della richiesta di autenticazione (ovvero, `POST /api/v3/authorize`). Se l'utente viene autenticato correttamente, viene restituito un token di sicurezza. Questo token deve essere fornito nell'intestazione delle richieste API successive ("autorizzazione: Token portante").
+
++
+Per informazioni sul miglioramento della protezione dell'autenticazione, vedere link:protecting-against-cross-site-request-forgery-csrf.html["Protezione contro la falsificazione di richieste cross-site"].
+
++
+
+NOTE: Se per il sistema StorageGRID è attivato il Single Sign-on (SSO), è necessario eseguire diversi passaggi per l'autenticazione. Consultare la link:../admin/using-grid-management-api.html["Istruzioni per l'utilizzo dell'API Grid Management"].
+
+* *Config*: Operazioni relative alla release del prodotto e alle versioni dell'API di gestione tenant. È possibile elencare la versione di release del prodotto e le principali versioni dell'API supportate da tale release.
+* *Container*: Operazioni su bucket S3 o container Swift.
+* *Disattivato-funzioni*: Operazioni per visualizzare le funzioni che potrebbero essere state disattivate.
+* *Endpoint*: Operazioni per gestire un endpoint. Gli endpoint consentono a un bucket S3 di utilizzare un servizio esterno per la replica, le notifiche o l'integrazione della ricerca di StorageGRID CloudMirror.
+* *Grid-Federation-Connections*: Operazioni su connessioni di federazione di grid e replica cross-grid.
+* *Groups*: Operazioni per gestire gruppi tenant locali e recuperare gruppi tenant federati da un'origine di identità esterna.
+* *Identity-source*: Operazioni per configurare un'origine di identità esterna e sincronizzare manualmente le informazioni di utenti e gruppi federati.
+* *ilm*: Operazioni sulle impostazioni ILM (Information Lifecycle Management).
+* *Regioni*: Operazioni per determinare quali regioni sono state configurate per il sistema StorageGRID.
+* *s3*: Operazioni per gestire le chiavi di accesso S3 per gli utenti del tenant.
+* *s3-Object-lock*: Operazioni sulle impostazioni globali S3 Object Lock, utilizzate per supportare la conformità alle normative.
+* *Utenti*: Operazioni per visualizzare e gestire gli utenti del tenant.
+
+
+
+
+== Dettagli dell'operazione
+
+Quando si espandono le operazioni API, è possibile visualizzare l'azione HTTP, l'URL dell'endpoint, un elenco di eventuali parametri obbligatori o facoltativi, un esempio del corpo della richiesta (se necessario) e le possibili risposte.
+
+image::../media/tenant_api_swagger_example.gif[Esempio che mostra l'operazione GET groups nell'API Swagger]
+
+
+
+== Emettere richieste API
+
+
+CAUTION: Tutte le operazioni API eseguite utilizzando la pagina Web documentazione API sono operazioni in tempo reale. Fare attenzione a non creare, aggiornare o eliminare per errore i dati di configurazione o altri dati.
+
+.Fasi
+. Selezionare l'azione HTTP per visualizzare i dettagli della richiesta.
+. Determinare se la richiesta richiede parametri aggiuntivi, ad esempio un ID utente o un gruppo. Quindi, ottenere questi valori. Potrebbe essere necessario emettere prima una richiesta API diversa per ottenere le informazioni necessarie.
+. Determinare se è necessario modificare il corpo della richiesta di esempio. In tal caso, è possibile selezionare *modello* per conoscere i requisiti di ciascun campo.
+. Selezionare *Provalo*.
+. Fornire i parametri richiesti o modificare il corpo della richiesta secondo necessità.
+. Selezionare *Esegui*.
+. Esaminare il codice di risposta per determinare se la richiesta ha avuto esito positivo.
+

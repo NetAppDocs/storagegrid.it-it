@@ -1,0 +1,96 @@
+---
+permalink: audit/lkdm-leaked-object-cleanup.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, LKDM, Leaked Object Cleanup 
+summary:  
+---
+= LKDM: Pulizia degli oggetti con perdite
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questo messaggio viene generato quando un frammento fuoriuscito è stato pulito o eliminato. Un blocco può far parte di un oggetto replicato o di un oggetto codificato per la cancellazione.
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+CLOC
+ a| 
+Posizione del frammento
+ a| 
+Il percorso del file del blocco fuoriuscito che è stato eliminato.
+
+
+
+ a| 
+CTYP
+ a| 
+Tipo di frammento
+ a| 
+Tipo di pezzo:
+
+`ec: Erasure-coded object chunk`
+
+`repl: Replicated object chunk`
+
+
+
+ a| 
+LTYP
+ a| 
+Tipo di perdita
+ a| 
+I cinque tipi di perdite che possono essere rilevate:
+
+`object_leaked: Object doesn’t exist in the grid`
+
+`location_leaked: Object exists in the grid, but found location doesn’t belong to object`
+
+`mup_seg_leaked: Multipart upload was stopped or not completed, and the segment/part was left out`
+
+`segment_leaked: Parent UUID/CBID (associated container object) is valid but doesn't contain this segment`
+
+`no_parent: Container object is deleted, but object segment was left out and not deleted`
+
+
+
+ a| 
+CTIM
+ a| 
+Crea il tempo
+ a| 
+Ora in cui è stato creato il frammento fuoriuscito.
+
+
+
+ a| 
+UUID
+ a| 
+Universally Unique Identifier
+ a| 
+L'identificatore dell'oggetto a cui appartiene il blocco.
+
+
+
+ a| 
+CBID
+ a| 
+Identificatore del blocco di contenuto
+ a| 
+CBID dell'oggetto a cui appartiene il blocco fuoriuscito.
+
+
+
+ a| 
+CSIZ
+ a| 
+Dimensione del contenuto
+ a| 
+La dimensione del blocco in byte.
+
+|===

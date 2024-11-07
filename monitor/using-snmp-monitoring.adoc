@@ -1,0 +1,122 @@
+---
+permalink: monitor/using-snmp-monitoring.html 
+sidebar: sidebar 
+keywords: snmp, monitoring 
+summary: 'Se si desidera monitorare StorageGRID utilizzando il protocollo SNMP (Simple Network Management Protocol), è necessario configurare l"agente SNMP incluso in StorageGRID.' 
+---
+= Utilizzare il monitoraggio SNMP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si desidera monitorare StorageGRID utilizzando il protocollo SNMP (Simple Network Management Protocol), è necessario configurare l'agente SNMP incluso in StorageGRID.
+
+* link:configuring-snmp-agent.html["Configurare l'agente SNMP"]
+* link:updating-snmp-agent.html["Aggiornare l'agente SNMP"]
+
+
+
+
+== Funzionalità
+
+Ogni nodo StorageGRID esegue un agente SNMP, o daemon, che fornisce un MIB. StorageGRID MIB contiene definizioni di tabella e di notifica per gli avvisi. Il MIB contiene anche informazioni sulla descrizione del sistema, come il numero di piattaforma e il numero di modello per ciascun nodo. Ogni nodo StorageGRID supporta anche un sottoinsieme di oggetti MIB-II.
+
+
+NOTE: Vedere link:access-snmp-mib.html["Accedere ai file MIB"] se si desidera scaricare i file MIB sui nodi griglia.
+
+Inizialmente, SNMP viene disattivato su tutti i nodi. Quando si configura l'agente SNMP, tutti i nodi StorageGRID ricevono la stessa configurazione.
+
+L'agente SNMP StorageGRID supporta tutte e tre le versioni del protocollo SNMP. Fornisce accesso MIB di sola lettura per le query e può inviare due tipi di notifiche basate sugli eventi a un sistema di gestione:
+
+Trappole:: I trap sono notifiche inviate dall'agente SNMP che non richiedono un riconoscimento da parte del sistema di gestione. Le trap servono a notificare al sistema di gestione che si è verificato qualcosa all'interno di StorageGRID, ad esempio un avviso attivato.
++
+--
+I trap sono supportati in tutte e tre le versioni di SNMP.
+
+--
+Informa:: Le informazioni sono simili alle trap, ma richiedono un riconoscimento da parte del sistema di gestione. Se l'agente SNMP non riceve una conferma entro un determinato periodo di tempo, invia nuovamente l'informazione fino a quando non viene ricevuta una conferma o non viene raggiunto il valore massimo di tentativi.
++
+--
+Le informazioni sono supportate in SNMPv2c e SNMPv3.
+
+--
+
+
+Le notifiche trap e inform vengono inviate nei seguenti casi:
+
+* Viene attivato un avviso predefinito o personalizzato a qualsiasi livello di severità. Per eliminare le notifiche SNMP per un avviso, è necessario link:silencing-alert-notifications.html["configurare un silenzio"] per tale avviso. Le notifiche di avviso vengono inviate da link:../primer/what-admin-node-is.html["Nodo Admin mittente preferito"].
++
+Ogni avviso viene associato a uno dei tre tipi di trap in base al livello di gravità dell'avviso: ActiveMinorAlert, activeMajorAlert e activeCriticalAlert. Per un elenco degli avvisi che possono attivare questi trap, vedere la link:alerts-reference.html["Riferimenti agli avvisi"].
+
+
+
+
+
+== Supporto della versione SNMP
+
+La tabella fornisce un riepilogo generale dei contenuti supportati per ciascuna versione SNMP.
+
+[cols="1a,2a,2a,2a"]
+|===
+|  | SNMPv1 | SNMPv2c | SNMPv3 
+
+
+ a| 
+Query
+
+(GET e GETNEXT)
+ a| 
+Query MIB di sola lettura
+ a| 
+Query MIB di sola lettura
+ a| 
+Query MIB di sola lettura
+
+
+
+ a| 
+Autenticazione delle query
+ a| 
+Stringa di comunità
+ a| 
+Stringa di comunità
+ a| 
+Utente del modello di sicurezza basato sull'utente (USM)
+
+
+
+ a| 
+Notifiche
+
+(INTRAPPOLARE e INFORMARE)
+ a| 
+Solo trap
+ a| 
+Trap e informa
+ a| 
+Trap e informa
+
+
+
+ a| 
+Autenticazione delle notifiche
+ a| 
+Community trap predefinita o stringa di comunità personalizzata per ciascuna destinazione trap
+ a| 
+Community trap predefinita o stringa di comunità personalizzata per ciascuna destinazione trap
+ a| 
+Utente USM per ciascuna destinazione trap
+
+|===
+
+
+== Limitazioni
+
+* StorageGRID supporta l'accesso MIB di sola lettura. L'accesso in lettura/scrittura non è supportato.
+* Tutti i nodi della griglia ricevono la stessa configurazione.
+* SNMPv3: StorageGRID non supporta la modalità di supporto per il trasporto (TSM).
+* SNMPv3: L'unico protocollo di autenticazione supportato è SHA (HMAC-SHA-96).
+* SNMPv3: L'unico protocollo per la privacy supportato è AES.
+

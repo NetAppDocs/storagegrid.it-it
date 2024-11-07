@@ -1,0 +1,29 @@
+---
+permalink: maintain/recovering-storagegrid-appliance-storage-node.html 
+sidebar: sidebar 
+keywords: recover, appliance storage node failure, workflow 
+summary: 'La procedura per il ripristino di un nodo di storage dell"appliance StorageGRID guasto è la stessa, sia che si stia ripristinando dalla perdita del disco di sistema che dalla perdita dei soli volumi di storage.' 
+---
+= Avvisi per il ripristino dei nodi di archiviazione dell'appliance
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La procedura per il ripristino di un nodo di storage dell'appliance StorageGRID guasto è la stessa, sia che si stia ripristinando dalla perdita del disco di sistema che dalla perdita dei soli volumi di storage.
+
+
+CAUTION: Se più di un nodo di storage si è guastato (o non è in linea), contattare il supporto tecnico. Non eseguire la seguente procedura di ripristino. Potrebbe verificarsi una perdita di dati.
+
+
+CAUTION: Se si tratta del secondo guasto del nodo di storage in meno di 15 giorni dopo un guasto o un ripristino del nodo di storage, contattare il supporto tecnico. La ricostruzione di Cassandra su due o più nodi di storage entro 15 giorni può causare la perdita di dati.
+
+
+NOTE: Se più di un nodo di storage in un sito si è guastato, potrebbe essere necessaria una procedura di ripristino del sito. Vedere link:how-site-recovery-is-performed-by-technical-support.html["Come il supporto tecnico recupera un sito"].
+
+
+CAUTION: Se le regole ILM sono configurate in modo da memorizzare una sola copia replicata e la copia esiste su un volume di storage che ha avuto esito negativo, non sarà possibile ripristinare l'oggetto.
+
+
+NOTE: Per le procedure di manutenzione dell'hardware, ad esempio le istruzioni per la sostituzione di un controller o la reinstallazione di SANtricity OS, consultare la https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html["istruzioni di manutenzione per l'apparecchio di stoccaggio"^].

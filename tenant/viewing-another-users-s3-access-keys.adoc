@@ -1,0 +1,41 @@
+---
+permalink: tenant/viewing-another-users-s3-access-keys.html 
+sidebar: sidebar 
+keywords: how to view other user access key 
+summary: 'Se si utilizza un tenant S3 e si dispone delle autorizzazioni appropriate, è possibile visualizzare le chiavi di accesso S3 di un altro utente. È possibile ordinare l"elenco in base all"ora di scadenza, in modo da determinare quali chiavi scadranno a breve. Se necessario, è possibile creare nuove chiavi ed eliminare chiavi che non sono più in uso.' 
+---
+= Visualizzare le chiavi di accesso S3 di un altro utente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si utilizza un tenant S3 e si dispone delle autorizzazioni appropriate, è possibile visualizzare le chiavi di accesso S3 di un altro utente. È possibile ordinare l'elenco in base all'ora di scadenza, in modo da determinare quali chiavi scadranno a breve. Se necessario, è possibile creare nuove chiavi ed eliminare chiavi che non sono più in uso.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:tenant-management-permissions.html["Autorizzazione di accesso root"].
+
+
+
+CAUTION: È possibile accedere ai bucket S3 e agli oggetti appartenenti a un utente utilizzando l'ID della chiave di accesso e la chiave di accesso segreta visualizzati per tale utente in Tenant Manager. Per questo motivo, proteggere le chiavi di accesso come se si trattasse di una password. Ruotare regolarmente le chiavi di accesso, rimuovere eventuali chiavi inutilizzate dall'account e non condividerle mai con altri utenti.
+
+.Fasi
+. Selezionare *ACCESS MANAGEMENT* > *Users*.
+. Nella pagina utenti, selezionare l'utente di cui si desidera visualizzare i tasti di accesso S3.
+. Nella pagina User details (Dettagli utente), selezionare *Access keys* (chiavi di accesso).
+. Ordinare le chiavi in base a *scadenza* o *ID chiave di accesso*.
+. Se necessario, creare nuove chiavi ed eliminare manualmente le chiavi che non sono più in uso.
++
+Se si creano nuove chiavi prima della scadenza delle chiavi esistenti, l'utente può iniziare a utilizzare le nuove chiavi senza perdere temporaneamente l'accesso agli oggetti dell'account.
+
++
+Le chiavi scadute vengono rimosse automaticamente.
+
+
+
+.Informazioni correlate
+* link:creating-another-users-s3-access-keys.html["Creare le chiavi di accesso S3 di un altro utente"]
+* link:deleting-another-users-s3-access-keys.html["Eliminare le chiavi di accesso S3 di un altro utente"]
+

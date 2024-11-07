@@ -1,0 +1,123 @@
+---
+permalink: maintain/applying-hotfix.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix, software update 
+summary: 'La correzione rapida viene applicata automaticamente al nodo di amministrazione primario. Quindi, è necessario approvare l"applicazione della correzione rapida ad altri nodi della griglia fino a quando tutti i nodi non eseguono la stessa versione software. È possibile personalizzare la sequenza di approvazione selezionando per approvare singoli nodi della griglia, gruppi di nodi della griglia o tutti i nodi della griglia.' 
+---
+= Applicare la correzione rapida
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La correzione rapida viene applicata automaticamente al nodo di amministrazione primario. Quindi, è necessario approvare l'applicazione della correzione rapida ad altri nodi della griglia fino a quando tutti i nodi non eseguono la stessa versione software. È possibile personalizzare la sequenza di approvazione selezionando per approvare singoli nodi della griglia, gruppi di nodi della griglia o tutti i nodi della griglia.
+
+.Prima di iniziare
+* È stata esaminata la link:storagegrid-hotfix-procedure.html["considerazioni per l'applicazione di una correzione rapida"].
+* Si dispone della passphrase di provisioning.
+* Si dispone dell'autorizzazione di accesso root o di manutenzione.
+
+
+.A proposito di questa attività
+* È possibile ritardare l'applicazione di una hotfix a un nodo, ma il processo di hotfix non viene completato fino a quando non si applica la hotfix a tutti i nodi.
+* Non è possibile eseguire un aggiornamento del software StorageGRID o del sistema operativo SANtricity fino a quando non viene completata la procedura di correzione rapida.
+
+
+.Fasi
+. Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+. Selezionare *MANUTENZIONE* > *sistema* > *aggiornamento software*.
++
+Viene visualizzata la pagina Software Update (aggiornamento software).
+
++
+image::../media/software_update_landing.png[Landing page per l'aggiornamento del software]
+
+. Selezionare *Apply Hotfix* (Applica correzione rapida).
++
+Viene visualizzata la pagina Hotfix StorageGRID.
+
++
+image::../media/hotfix_choose_file.png[Hotfix Scegli file]
+
+. Selezionare il file hotfix scaricato dal NetApp Support Site.
++
+.. Selezionare *Sfoglia*.
+.. Individuare e selezionare il file.
++
+`hotfix-install-_version_`
+
+.. Selezionare *Apri*.
++
+Il file viene caricato. Al termine del caricamento, il nome del file viene visualizzato nel campo Dettagli.
+
++
+
+NOTE: Non modificare il nome del file perché fa parte del processo di verifica.
+
+
+
+. Inserire la passphrase di provisioning nella casella di testo.
++
+Il pulsante *Start* viene attivato.
+
+. Selezionare *Start*.
++
+Viene visualizzato un avviso che indica che la connessione del browser potrebbe andare persa temporaneamente quando i servizi sul nodo di amministrazione primario vengono riavviati.
+
+. Selezionare *OK* per avviare l'applicazione della correzione rapida al nodo di amministrazione primario.
++
+All'avvio della correzione rapida:
+
++
+.. Vengono eseguite le validazioni della correzione rapida.
++
+
+NOTE: Se vengono segnalati errori, risolverli, caricare nuovamente il file di correzione rapida e selezionare di nuovo *Avvia*.
+
+.. Viene visualizzata la tabella di avanzamento dell'installazione della correzione rapida.
++
+Questa tabella mostra tutti i nodi della griglia e la fase corrente dell'installazione della correzione rapida per ciascun nodo. I nodi nella tabella sono raggruppati per tipo (nodi amministrativi, nodi gateway e nodi storage).
+
+.. La barra di avanzamento raggiunge il completamento, quindi il nodo amministrativo primario viene visualizzato come "completo".
++
+image::../media/hotfix_progress_table.png[Tabella di avanzamento della correzione rapida]
+
+
+
+. Facoltativamente, ordinare gli elenchi di nodi in ciascun raggruppamento in ordine crescente o decrescente per *Sito*, *Nome*, *avanzamento*, *fase* o *Dettagli*. In alternativa, inserire un termine nella casella *Search* per cercare nodi specifici.
+. Approvare i nodi della griglia pronti per l'aggiornamento. I nodi approvati dello stesso tipo vengono aggiornati uno alla volta.
++
+
+CAUTION: Non approvare la correzione rapida per un nodo a meno che non si sia certi che il nodo sia pronto per l'aggiornamento. Quando la correzione rapida viene applicata a un nodo Grid, alcuni servizi su tale nodo potrebbero essere riavviati. Queste operazioni potrebbero causare interruzioni del servizio per i client che comunicano con il nodo.
+
++
+** Selezionare uno o più pulsanti *approva* per aggiungere uno o più singoli nodi alla coda degli aggiornamenti rapidi.
+** Selezionare il pulsante *approva tutto* all'interno di ciascun gruppo per aggiungere tutti i nodi dello stesso tipo alla coda degli hotfix. Se sono stati immessi criteri di ricerca nella casella *Cerca*, il pulsante *approva tutto* si applica a tutti i nodi selezionati dai criteri di ricerca.
++
+
+NOTE: Il pulsante *approva tutto* nella parte superiore della pagina approva tutti i nodi elencati nella pagina, mentre il pulsante *approva tutto* nella parte superiore di un raggruppamento di tabelle approva solo tutti i nodi di quel gruppo. Se l'ordine in cui i nodi vengono aggiornati è importante, approvare i nodi o i gruppi di nodi uno alla volta e attendere il completamento dell'aggiornamento su ciascun nodo prima di approvare i nodi successivi.
+
+** Selezionare il pulsante di primo livello *approva tutto* nella parte superiore della pagina per aggiungere tutti i nodi della griglia alla coda degli aggiornamenti rapidi.
++
+
+NOTE: È necessario completare la correzione rapida StorageGRID prima di poter avviare un aggiornamento software diverso. Se non si riesce a completare la correzione rapida, contattare il supporto tecnico.
+
+** Selezionare *Remove* o *Remove All* per rimuovere un nodo o tutti i nodi dalla coda di hotfix.
++
+Quando Stage va oltre "in coda", il pulsante *Rimuovi* è nascosto e non è più possibile rimuovere il nodo dal processo di correzione rapida.
+
++
+image::../media/approve_all_progresstable.png[Aggiornamento rapido in corso con il pulsante di rimozione]
+
+
+
+. Attendere che la correzione rapida venga applicata a ciascun nodo della griglia approvato.
++
+Una volta che la correzione rapida è stata installata correttamente su tutti i nodi, la tabella di avanzamento dell'installazione della correzione rapida si chiude. Un banner verde mostra la data e l'ora in cui la correzione rapida è stata completata.
+
+. Se la correzione rapida non può essere applicata a nessun nodo, esaminare l'errore per ciascun nodo, risolvere il problema e ripetere la procedura.
++
+La procedura non è completa fino a quando la correzione rapida non viene applicata correttamente a tutti i nodi. È possibile riprovare il processo di correzione rapida tutte le volte necessarie fino al completamento.
+
+

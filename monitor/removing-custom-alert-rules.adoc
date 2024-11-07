@@ -1,0 +1,38 @@
+---
+permalink: monitor/removing-custom-alert-rules.html 
+sidebar: sidebar 
+keywords: how to disable alert rules, how to remove a custom alert rule 
+summary: È possibile rimuovere una regola di avviso personalizzata se non si desidera più utilizzarla. 
+---
+= Rimuovere le regole di avviso personalizzate
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile rimuovere una regola di avviso personalizzata se non si desidera più utilizzarla.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["Gestire gli avvisi o l'autorizzazione di accesso principale"].
+
+
+.Fasi
+. Selezionare *ALERTS* > *regole*.
++
+Viene visualizzata la pagina regole di avviso.
+
+. Selezionare il pulsante di opzione per la regola di avviso personalizzata che si desidera rimuovere.
++
+Non è possibile rimuovere una regola di avviso predefinita.
+
+. Selezionare *Rimuovi regola personalizzata*.
++
+Viene visualizzata una finestra di dialogo di conferma.
+
+. Selezionare *OK* per rimuovere la regola di avviso.
++
+Tutte le istanze attive dell'avviso verranno risolte entro 10 minuti.
+
+

@@ -1,0 +1,55 @@
+---
+permalink: expand/adding-metadata-capacity.html 
+sidebar: sidebar 
+keywords: metadata capacity, add, adding, expand, expansion, guidelines, Storage Nodes, metadata storage 
+summary: Per garantire che sia disponibile spazio adeguato per i metadati degli oggetti, potrebbe essere necessario eseguire una procedura di espansione per aggiungere nuovi nodi di storage in ogni sito. 
+---
+= Aggiungere capacità di metadati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per garantire che sia disponibile spazio adeguato per i metadati degli oggetti, potrebbe essere necessario eseguire una procedura di espansione per aggiungere nuovi nodi di storage in ogni sito.
+
+StorageGRID riserva spazio per i metadati degli oggetti sul volume 0 di ciascun nodo di storage. In ogni sito vengono conservate tre copie di tutti i metadati degli oggetti, distribuite uniformemente in tutti i nodi di storage.
+
+È possibile utilizzare Grid Manager per monitorare la capacità dei metadati dei nodi di storage e stimare la velocità di utilizzo della capacità dei metadati. Inoltre, l'avviso *Low metadata storage* viene attivato per un nodo di storage quando lo spazio di metadati utilizzato raggiunge determinate soglie.
+
+Si noti che la capacità dei metadati degli oggetti di una griglia potrebbe essere consumata più rapidamente rispetto alla capacità dello storage a oggetti, a seconda di come si utilizza la griglia. Ad esempio, se in genere si acquisiscono grandi quantità di oggetti di piccole dimensioni o si aggiungono grandi quantità di metadati o tag utente agli oggetti, potrebbe essere necessario aggiungere nodi di storage per aumentare la capacità dei metadati anche se rimane sufficiente capacità di storage a oggetti.
+
+Per ulteriori informazioni, vedere quanto segue:
+
+* link:../admin/managing-object-metadata-storage.html["Gestire lo storage dei metadati degli oggetti"]
+* link:../monitor/monitoring-storage-capacity.html#monitor-object-metadata-capacity-for-each-storage-node["Monitorare la capacità dei metadati degli oggetti per ciascun nodo di storage"]
+
+
+
+
+== Linee guida per aumentare la capacità dei metadati
+
+Prima di aggiungere nodi di storage per aumentare la capacità dei metadati, consultare le seguenti linee guida e limitazioni:
+
+* Supponendo che sia disponibile una capacità di storage a oggetti sufficiente, avere più spazio disponibile per i metadati a oggetti aumenta il numero di oggetti che è possibile memorizzare nel sistema StorageGRID.
+* È possibile aumentare la capacità dei metadati di un grid aggiungendo uno o più nodi di storage a ciascun sito.
+* Lo spazio effettivo riservato ai metadati dell'oggetto su qualsiasi nodo di storage specifico dipende dall'opzione di storage Metadata Reserved Space (impostazione a livello di sistema), dalla quantità di RAM allocata al nodo e dalla dimensione del volume 0 del nodo.
+* Non è possibile aumentare la capacità dei metadati aggiungendo volumi di storage ai nodi di storage esistenti, perché i metadati vengono memorizzati solo sul volume 0.
+* Non è possibile aumentare la capacità dei metadati aggiungendo un nuovo sito.
+* StorageGRID conserva tre copie di tutti i metadati degli oggetti in ogni sito. Per questo motivo, la capacità dei metadati del sistema è limitata dalla capacità dei metadati del sito più piccolo.
+* Quando si aggiunge la capacità dei metadati, è necessario aggiungere lo stesso numero di nodi di storage a ciascun sito.
+
+
+Consultare la link:../admin/managing-object-metadata-storage.html["Descrizione di Metadata Reserved Space"].
+
+
+
+== Come vengono ridistribuiti i metadati quando si aggiungono nodi di storage
+
+Quando si aggiungono nodi di storage in un'espansione, StorageGRID ridistribuisce i metadati degli oggetti esistenti nei nuovi nodi di ciascun sito, aumentando così la capacità complessiva dei metadati del grid. Non è richiesta alcuna azione da parte dell'utente.
+
+La figura seguente mostra come StorageGRID ridistribuisce i metadati degli oggetti quando si aggiungono nodi di storage in un'espansione. Il lato sinistro della figura rappresenta il volume 0 di tre nodi di storage prima di un'espansione. I metadati consumano una porzione relativamente grande dello spazio di metadati disponibile di ciascun nodo ed è stato attivato l'avviso *Low metadata storage*.
+
+Il lato destro della figura mostra come vengono ridistribuiti i metadati esistenti dopo l'aggiunta di due nodi di storage al sito. La quantità di metadati su ciascun nodo è diminuita, l'avviso *Low metadata storage* non viene più attivato e lo spazio disponibile per i metadati è aumentato.
+
+image::../media/metadata_space_after_expansion.png[Diagramma dei metadati ridistribuiti dopo l'aggiunta di due nodi di storage]

@@ -1,0 +1,171 @@
+---
+permalink: maintain/considerations-for-removing-site.html 
+sidebar: sidebar 
+keywords: how to remove site 
+summary: Prima di utilizzare la procedura di decommissionamento del sito per rimuovere un sito, è necessario esaminare le considerazioni. 
+---
+= Considerazioni per la rimozione di un sito
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di utilizzare la procedura di decommissionamento del sito per rimuovere un sito, è necessario esaminare le considerazioni.
+
+
+
+== Cosa accade quando si decommissiona un sito
+
+Quando si decommissiona un sito, StorageGRID rimuove in modo permanente tutti i nodi del sito e del sito stesso dal sistema StorageGRID.
+
+Una volta completata la procedura di decommissionamento del sito:
+
+* Non è più possibile utilizzare StorageGRID per visualizzare o accedere al sito o a uno qualsiasi dei nodi del sito.
+* Non puoi più utilizzare pool di storage o profili di erasure coding riferiti al sito. Quando StorageGRID disimpegna un sito, rimuove automaticamente questi pool di storage e disattiva questi profili di erasure coding.
+
+
+
+
+== Differenze tra le procedure di decommissionamento del sito connesso e disconnesso
+
+È possibile utilizzare la procedura di decommissionamento del sito per rimuovere un sito in cui tutti i nodi sono connessi a StorageGRID (chiamata decommissionazione di un sito connesso) o per rimuovere un sito in cui tutti i nodi sono disconnessi da StorageGRID (chiamata decommissionazione di un sito disconnesso). Prima di iniziare, è necessario comprendere le differenze tra queste procedure.
+
+
+NOTE: Se un sito contiene una combinazione di nodi connessi (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]) e disconnessi (image:../media/icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"] o image:../media/icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"]), è necessario riportare tutti i nodi non in linea.
+
+* La decommissionazione di un sito connesso consente di rimuovere un sito operativo dal sistema StorageGRID. Ad esempio, è possibile eseguire la decommissionazione di un sito connesso per rimuovere un sito funzionante ma non più necessario.
+* Quando StorageGRID rimuove un sito connesso, utilizza ILM per gestire i dati dell'oggetto nel sito. Prima di avviare la decommissionazione di un sito connesso, è necessario rimuovere il sito da tutte le regole ILM e attivare una nuova policy ILM. I processi ILM per la migrazione dei dati degli oggetti e i processi interni per la rimozione di un sito possono essere eseguiti contemporaneamente, ma la procedura consigliata consiste nel consentire il completamento dei passaggi ILM prima di avviare la procedura di decommissionamento effettiva.
+* La decommissionazione di un sito disconnesso consente di rimuovere un sito guasto dal sistema StorageGRID. Ad esempio, è possibile eseguire la decommissionazione di un sito disconnesso per rimuovere un sito distrutto da un incendio o un'inondazione.
++
+Quando StorageGRID rimuove un sito disconnesso, considera tutti i nodi irripristinabili e non tenta di conservare i dati. Tuttavia, prima di avviare una decommissionazione disconnessa del sito, è necessario rimuovere il sito da tutte le regole ILM e attivare una nuova policy ILM.
+
++
+
+CAUTION: Prima di eseguire una procedura di decommissionamento del sito disconnesso, è necessario contattare il rappresentante commerciale NetApp. NetApp esaminerà i tuoi requisiti prima di attivare tutte le fasi della procedura guidata Decommission Site. Non tentare di decommissionare un sito disconnesso se si ritiene possibile ripristinare il sito o i dati degli oggetti dal sito.
+
+
+
+
+
+== Requisiti generali per la rimozione di un sito connesso o disconnesso
+
+Prima di rimuovere un sito connesso o disconnesso, è necessario conoscere i seguenti requisiti:
+
+* Non è possibile decommissionare un sito che include il nodo di amministrazione primario.
+* Non è possibile decommissionare un sito se uno dei nodi dispone di un'interfaccia che appartiene a un gruppo ad alta disponibilità (ha). È necessario modificare il gruppo ha per rimuovere l'interfaccia del nodo o rimuovere l'intero gruppo ha.
+* Non è possibile smantellare un sito se contiene una combinazione diimage:../media/icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"] nodi connessi () e disconnessiimage:../media/icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"] (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"] o ).
+* Non è possibile decommissionare un sito se un nodo di un altro sito è disconnesso (image:../media/icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"] o image:../media/icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"]).
+* Non è possibile avviare la procedura di decommissionamento del sito se è in corso un'operazione di riparazione del nodo ec. Vedere link:checking-data-repair-jobs.html["Controllare i lavori di riparazione dei dati"] per tenere traccia delle riparazioni dei dati sottoposti a erasure coding.
+* Durante l'esecuzione della procedura di decommissionamento del sito:
++
+** Non è possibile creare regole ILM che si riferiscono al sito da smantellare. Inoltre, non è possibile modificare una regola ILM esistente per fare riferimento al sito.
+** Non è possibile eseguire altre procedure di manutenzione, ad esempio l'espansione o l'aggiornamento.
++
+
+NOTE: Se è necessario eseguire un'altra procedura di manutenzione durante lo smantellamento di un sito connesso, è possibile link:pausing-and-resuming-decommission-process-for-storage-nodes.html["Sospendere la procedura durante la rimozione dei nodi di storage"]. Il pulsante *Pause* (Pausa) viene attivato solo quando vengono raggiunte le fasi di decommissionamento dei dati con codifica di cancellazione o valutazione ILM; tuttavia, la valutazione ILM (migrazione dei dati) continuerà a essere eseguita in background. Una volta completata la seconda procedura di manutenzione, è possibile riprendere la decommissionamento.
+
+** Se è necessario ripristinare un nodo dopo aver avviato la procedura di decommissionamento del sito, contattare il supporto.
+
+
+* Non è possibile decommissionare più di un sito alla volta.
+* Se il sito include uno o più nodi di amministrazione ed è abilitato il Single Sign-on (SSO) per il sistema StorageGRID, è necessario rimuovere tutti i trust delle parti che si basano sul sito dai servizi di federazione Active Directory (ad FS).
+
+
+
+
+== Requisiti per la gestione del ciclo di vita delle informazioni (ILM)
+
+Durante la rimozione di un sito, è necessario aggiornare la configurazione ILM. La procedura guidata Decommission Site (Sito di rimozione) guida l'utente attraverso una serie di passaggi necessari per garantire quanto segue:
+
+* Il sito non è oggetto di alcuna politica ILM. In tal caso, è necessario modificare i criteri o creare e attivare i criteri con nuove regole ILM.
+* Nessuna regola ILM si riferisce al sito, anche se tali regole non sono utilizzate in alcuna politica. È necessario eliminare o modificare tutte le regole che fanno riferimento al sito.
+
+
+Quando StorageGRID decomprime il sito, disattiva automaticamente tutti i profili di erasure coding inutilizzati che fanno riferimento al sito ed elimina automaticamente eventuali pool di storage inutilizzati che fanno riferimento al sito. Se il pool di storage di tutti i nodi di storage esiste (StorageGRID 11.6 e versioni precedenti), viene rimosso perché utilizza tutti i siti.
+
+
+CAUTION: Prima di rimuovere un sito, potrebbe essere necessario creare nuove regole ILM e attivare un nuovo criterio ILM. Queste istruzioni presuppongono una buona comprensione del funzionamento di ILM e la sua conoscenza della creazione di pool di storage, dei profili di erasure coding, delle regole ILM e della simulazione e attivazione di un criterio ILM. Vedere link:../ilm/index.html["Gestire gli oggetti con ILM"].
+
+
+
+== Considerazioni per i dati dell'oggetto in un sito connesso
+
+Se si sta eseguendo una decommissionazione del sito connesso, è necessario decidere cosa fare con i dati dell'oggetto esistenti nel sito quando si creano nuove regole ILM e un nuovo criterio ILM. È possibile eseguire una o entrambe le operazioni seguenti:
+
+* Sposta i dati degli oggetti dal sito selezionato a uno o più altri siti della griglia.
++
+*Esempio per lo spostamento dei dati*: Supponiamo di voler decommissionare un sito in Raleigh perché hai aggiunto un nuovo sito in Sunnyvale. In questo esempio, si desidera spostare tutti i dati dell'oggetto dal sito precedente al nuovo sito. Prima di aggiornare le regole ILM e i criteri ILM, è necessario esaminare la capacità in entrambi i siti. È necessario assicurarsi che il sito Sunnyvale disponga di capacità sufficiente per ospitare i dati dell'oggetto provenienti dal sito Raleigh e che la capacità di Sunnyvale rimanga adeguata per la crescita futura.
+
++
+
+NOTE: Per garantire la disponibilità di una capacità adeguata, potrebbe essere necessario link:../expand/index.html["espandere una griglia"]aggiungere volumi di archiviazione o nodi di archiviazione a un sito esistente o aggiungere un nuovo sito prima di eseguire questa procedura.
+
+* Elimina le copie degli oggetti dal sito selezionato.
++
+*Esempio per l'eliminazione dei dati*: Si supponga di utilizzare una regola ILM a 3 copie per replicare i dati degli oggetti su tre siti. Prima di smantellare un sito, è possibile creare una regola ILM equivalente a 2 copie per memorizzare i dati solo in due siti. Quando si attiva un nuovo criterio ILM che utilizza la regola 2-copy, StorageGRID elimina le copie dal terzo sito perché non soddisfano più i requisiti ILM. Tuttavia, i dati dell'oggetto rimangono protetti e la capacità dei due siti rimanenti rimane invariata.
+
++
+
+CAUTION: Non creare mai una regola ILM a copia singola per consentire la rimozione di un sito. Una regola ILM che crea una sola copia replicata per qualsiasi periodo di tempo mette i dati a rischio di perdita permanente. Se esiste una sola copia replicata di un oggetto, quest'ultimo viene perso in caso di errore o errore significativo di un nodo di storage. Inoltre, durante le procedure di manutenzione, ad esempio gli aggiornamenti, si perde temporaneamente l'accesso all'oggetto.
+
+
+
+
+
+== Requisiti aggiuntivi per la decommissionazione di un sito connesso
+
+Prima che StorageGRID possa rimuovere un sito connesso, è necessario assicurarsi che:
+
+* Tutti i nodi nel sistema StorageGRID devono avere uno stato di connessione *connesso* (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]); tuttavia, i nodi possono avere avvisi attivi.
++
+
+NOTE: Se uno o più nodi sono disconnessi, è possibile completare i passaggi 1-4 della procedura guidata Smantella sito. Tuttavia, non è possibile completare la fase 5 della procedura guidata, che avvia il processo di decommissionamento, a meno che tutti i nodi non siano connessi.
+
+* Se il sito che si intende rimuovere contiene un nodo gateway o un nodo amministrativo utilizzato per il bilanciamento del carico, potrebbe essere necessario link:../expand/index.html["espandere una griglia"]aggiungere un nuovo nodo equivalente in un altro sito. Assicurarsi che i client possano connettersi al nodo sostitutivo prima di avviare la procedura di decommissionamento del sito.
+* Se il sito che si intende rimuovere contiene nodi gateway o nodi amministratore che si trovano in un gruppo ad alta disponibilità (ha), è possibile completare i passaggi 1-4 della procedura guidata Decommission Site. Tuttavia, non è possibile completare la fase 5 della procedura guidata, che avvia il processo di decommissionamento, fino a quando non si rimuovono questi nodi da tutti i gruppi ha. Se i client esistenti si connettono a un gruppo ha che include nodi dal sito, è necessario assicurarsi che possano continuare a connettersi a StorageGRID dopo la rimozione del sito.
+* Se i client si connettono direttamente ai nodi di storage nel sito che si intende rimuovere, è necessario assicurarsi che possano connettersi ai nodi di storage in altri siti prima di avviare la procedura di decommissionamento del sito.
+* È necessario fornire spazio sufficiente sugli altri siti per ospitare i dati degli oggetti che verranno spostati a causa di modifiche a qualsiasi policy ILM attiva. In alcuni casi, potrebbe essere necessario link:../expand/index.html["espandere una griglia"]aggiungere nodi di storage, volumi di storage o nuovi siti prima di poter completare la disattivazione di un sito connesso.
+* Per completare la procedura di decommissionamento, è necessario attendere il tempo necessario. I processi ILM di StorageGRID potrebbero richiedere giorni, settimane o persino mesi per spostare o eliminare i dati degli oggetti dal sito prima che il sito possa essere disattivato.
++
+
+NOTE: Lo spostamento o l'eliminazione dei dati degli oggetti da un sito potrebbe richiedere giorni, settimane o persino mesi, a seconda della quantità di dati nel sito, del carico sul sistema, delle latenze di rete e della natura delle modifiche ILM richieste.
+
+* Se possibile, completare i passaggi 1-4 della procedura guidata Decommission Site il prima possibile. La procedura di decommissionamento viene completata più rapidamente e con meno interruzioni e impatti sulle performance se si consente lo spostamento dei dati dal sito prima di avviare la procedura di decommissionamento effettiva (selezionando *Avvia decommissionamento* nella fase 5 della procedura guidata).
+
+
+
+
+== Requisiti aggiuntivi per la decommissionazione di un sito disconnesso
+
+Prima che StorageGRID possa rimuovere un sito disconnesso, è necessario assicurarsi che:
+
+* Hai contattato il tuo rappresentante commerciale NetApp. NetApp esaminerà i tuoi requisiti prima di attivare tutte le fasi della procedura guidata Decommission Site.
++
+
+CAUTION: Non tentare di decommissionare un sito disconnesso se si ritiene che sia possibile ripristinare il sito o i dati degli oggetti dal sito. Vedere link:how-site-recovery-is-performed-by-technical-support.html["Come il supporto tecnico recupera un sito"].
+
+* Tutti i nodi del sito devono avere uno stato di connessione di uno dei seguenti:
++
+** *Sconosciuto* (image:../media/icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"]): Per un motivo sconosciuto, un nodo è disconnesso o i servizi sul nodo sono inaspettatamente inattivi. Ad esempio, un servizio sul nodo potrebbe essere stato arrestato o il nodo potrebbe aver perso la connessione di rete a causa di un'interruzione dell'alimentazione o di un'interruzione imprevista.
+** *Amministrativamente inattivo* (image:../media/icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"]): Il nodo non è connesso alla rete per un motivo previsto. Ad esempio, il nodo o i servizi sul nodo sono stati normalmente chiusi.
+
+
+* Tutti i nodi di tutti gli altri siti devono avere uno stato di connessione *connesso* (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]); tuttavia, questi altri nodi possono avere avvisi attivi.
+* È necessario comprendere che non sarà più possibile utilizzare StorageGRID per visualizzare o recuperare i dati degli oggetti memorizzati nel sito. Quando StorageGRID esegue questa procedura, non tenta di conservare i dati del sito disconnesso.
++
+
+NOTE: Se le regole e i criteri ILM sono stati progettati per proteggere dalla perdita di un singolo sito, le copie degli oggetti rimangono nei siti rimanenti.
+
+* È necessario comprendere che se il sito conteneva l'unica copia di un oggetto, l'oggetto viene perso e non può essere recuperato.
+
+
+
+
+== Considerazioni per la coerenza quando si rimuove un sito
+
+La coerenza per un bucket S3 determina se StorageGRID replica completamente i metadati degli oggetti su tutti i nodi e i siti prima di informare il client del successo dell'acquisizione degli oggetti. La coerenza fornisce un equilibrio tra la disponibilità degli oggetti e la loro coerenza in diversi nodi e siti storage.
+
+Quando StorageGRID rimuove un sito, deve assicurarsi che non vengano scritti dati sul sito da rimuovere. Di conseguenza, sovrascrive temporaneamente la consistenza per ciascun contenitore o bucket. Dopo aver avviato il processo di decommissionamento del sito, StorageGRID utilizza temporaneamente una forte coerenza del sito per impedire che i metadati degli oggetti vengano scritti nel sito.
+
+Come risultato di questa override temporanea, tenere presente che le operazioni di scrittura, aggiornamento ed eliminazione dei client che si verificano durante la decommissionazione di un sito possono avere esito negativo se più nodi diventano non disponibili negli altri siti.

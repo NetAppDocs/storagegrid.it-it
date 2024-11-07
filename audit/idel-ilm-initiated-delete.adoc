@@ -1,0 +1,161 @@
+---
+permalink: audit/idel-ilm-initiated-delete.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, IDEL, ILM Initiated Delete 
+summary: Questo messaggio viene generato quando ILM avvia il processo di eliminazione di un oggetto. 
+---
+= IDEL: Eliminazione avviata da ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questo messaggio viene generato quando ILM avvia il processo di eliminazione di un oggetto.
+
+Il messaggio IDEL viene generato in una delle seguenti situazioni:
+
+* *Per gli oggetti nei bucket S3 conformi*: Questo messaggio viene generato quando ILM avvia il processo di eliminazione automatica di un oggetto perché il relativo periodo di conservazione è scaduto (supponendo che l'impostazione di eliminazione automatica sia attivata e che la sospensione legale sia disattivata).
+* *Per oggetti in bucket S3 non conformi*. Questo messaggio viene generato quando ILM avvia il processo di eliminazione di un oggetto poiché all'oggetto non sono attualmente applicate istruzioni di posizionamento nei criteri ILM attivi.
+
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+CBID
+ a| 
+Identificatore del blocco di contenuto
+ a| 
+Il CBID dell'oggetto.
+
+
+
+ a| 
+CMPA
+ a| 
+Compliance: Eliminazione automatica
+ a| 
+Solo per oggetti nei bucket S3 conformi. 0 (false) o 1 (true), che indica se un oggetto conforme deve essere cancellato automaticamente al termine del periodo di conservazione, a meno che il bucket non sia sottoposto a una conservazione legale.
+
+
+
+ a| 
+CMPL
+ a| 
+Compliance: Conservazione a fini legali
+ a| 
+Solo per oggetti nei bucket S3 conformi. 0 (falso) o 1 (vero), che indica se il bucket è attualmente in stato di conservazione legale.
+
+
+
+ a| 
+CMPR
+ a| 
+Conformità: Periodo di conservazione
+ a| 
+Solo per oggetti nei bucket S3 conformi. La durata del periodo di conservazione dell'oggetto in minuti.
+
+
+
+ a| 
+CTME
+ a| 
+Compliance: Tempo di acquisizione
+ a| 
+Solo per oggetti nei bucket S3 conformi. Il tempo di acquisizione dell'oggetto. È possibile aggiungere il periodo di conservazione in minuti a questo valore per determinare quando l'oggetto può essere cancellato dal bucket.
+
+
+
+ a| 
+DMRK
+ a| 
+Elimina ID versione marker
+ a| 
+L'ID versione del marker di eliminazione creato quando si elimina un oggetto da un bucket con versione. Le operazioni sui bucket non includono questo campo.
+
+
+
+ a| 
+CSIZ
+ a| 
+Dimensione del contenuto
+ a| 
+La dimensione dell'oggetto in byte.
+
+
+
+ a| 
+LOCS
+ a| 
+Posizioni
+ a| 
+La posizione di storage dei dati oggetto all'interno del sistema StorageGRID. Il valore per LOCS è "" se l'oggetto non ha posizioni (ad esempio, è stato cancellato).
+
+CLEC: Per gli oggetti sottoposti a erasure coding, l'ID del profilo di erasure coding e l'ID del gruppo di erasure coding applicati ai dati dell'oggetto.
+
+CLDI: Per gli oggetti replicati, l'ID del nodo LDR e l'ID del volume della posizione dell'oggetto.
+
+CLNL: ID nodo ARCO della posizione dell'oggetto se i dati dell'oggetto sono archiviati.
+
+
+
+ a| 
+PERCORSO
+ a| 
+Bucket/chiave S3
+ a| 
+Il nome del bucket S3 e il nome della chiave S3.
+
+
+
+ a| 
+RSLT
+ a| 
+Risultato
+ a| 
+Risultato dell'operazione ILM.
+
+SUCS: Operazione ILM riuscita.
+
+
+
+ a| 
+REGOLA
+ a| 
+Etichetta regole
+ a| 
+* Se un oggetto in un bucket S3 conforme viene cancellato automaticamente perché il suo periodo di conservazione è scaduto, questo campo è vuoto.
+* Se l'oggetto viene eliminato perché non sono presenti ulteriori istruzioni di posizionamento attualmente applicabili all'oggetto, questo campo mostra l'etichetta leggibile dell'ultima regola ILM applicata all'oggetto.
+
+
+
+
+ a| 
+SGRP
+ a| 
+Sito (gruppo)
+ a| 
+Se presente, l'oggetto è stato eliminato nel sito specificato, che non è il sito in cui è stato acquisito l'oggetto.
+
+
+
+ a| 
+UUID
+ a| 
+Universally Unique Identifier
+ a| 
+L'identificatore dell'oggetto all'interno del sistema StorageGRID.
+
+
+
+ a| 
+VSID
+ a| 
+ID versione
+ a| 
+L'ID versione della versione specifica di un oggetto eliminato. Le operazioni su bucket e oggetti in bucket senza versione non includono questo campo.
+
+|===

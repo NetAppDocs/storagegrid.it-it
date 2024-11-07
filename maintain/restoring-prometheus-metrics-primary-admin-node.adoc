@@ -1,0 +1,66 @@
+---
+permalink: maintain/restoring-prometheus-metrics-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, restore metrics, restore prometheus, primary admin node 
+summary: Facoltativamente, è possibile conservare le metriche storiche gestite da Prometheus su un nodo di amministrazione primario che ha avuto problemi. Le metriche Prometheus possono essere ripristinate solo se il sistema StorageGRID include un altro nodo di amministrazione. 
+---
+= Ripristinare le metriche Prometheus durante il ripristino del nodo di amministrazione primario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Facoltativamente, è possibile conservare le metriche storiche gestite da Prometheus su un nodo di amministrazione primario che ha avuto problemi. Le metriche Prometheus possono essere ripristinate solo se il sistema StorageGRID include un altro nodo di amministrazione.
+
+.Prima di iniziare
+* Il nodo Admin recuperato è installato e in esecuzione.
+* Il sistema StorageGRID include almeno due nodi di amministrazione.
+* Si dispone del `Passwords.txt` file.
+* Si dispone della passphrase di provisioning.
+
+
+.A proposito di questa attività
+In caso di guasto di un nodo di amministrazione, le metriche mantenute nel database Prometheus sul nodo di amministrazione andranno perse. Quando si ripristina l'Admin Node, il processo di installazione del software crea un nuovo database Prometheus. Una volta avviato il nodo di amministrazione recuperato, vengono registrate le metriche come se fosse stata eseguita una nuova installazione del sistema StorageGRID.
+
+Se è stato ripristinato un nodo di amministrazione primario e il sistema StorageGRID dispone di un altro nodo di amministrazione, è possibile ripristinare le metriche storiche copiando il database Prometheus da un nodo di amministrazione non primario (il _nodo di amministrazione di origine_) al nodo di amministrazione primario recuperato. Se il sistema dispone solo di un nodo di amministrazione primario, non è possibile ripristinare il database Prometheus.
+
+
+NOTE: La copia del database Prometheus potrebbe richiedere un'ora o più. Alcune funzionalità di Grid Manager non saranno disponibili mentre i servizi vengono arrestati sul nodo di amministrazione di origine.
+
+.Fasi
+. Accedere al nodo di amministrazione di origine:
++
+.. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
+. Dal nodo di amministrazione di origine, arrestare il servizio Prometheus: `service prometheus stop`
+. Completare i seguenti passaggi sul nodo di amministrazione ripristinato:
++
+.. Accedere al nodo di amministrazione recuperato:
++
+... Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+... Immettere la password elencata nel `Passwords.txt` file.
+... Immettere il seguente comando per passare alla directory principale: `su -`
+... Immettere la password elencata nel `Passwords.txt` file.
+
+
+.. Arrestare il servizio Prometheus: `service prometheus stop`
+.. Aggiungere la chiave privata SSH all'agente SSH. Immettere:``ssh-add``
+.. Immettere la password di accesso SSH elencata nel `Passwords.txt` file.
+.. Copiare il database Prometheus dal nodo amministrativo di origine al nodo amministrativo recuperato: `/usr/local/prometheus/bin/prometheus-clone-db.sh Source_Admin_Node_IP`
+.. Quando richiesto, premere *Invio* per confermare che si desidera distruggere il nuovo database Prometheus nel nodo di amministrazione recuperato.
++
+Il database Prometheus originale e i relativi dati storici vengono copiati nel nodo Admin recuperato. Al termine dell'operazione di copia, lo script avvia il nodo Admin recuperato. Viene visualizzato il seguente stato:
+
++
+Database clonato, avvio dei servizi
+
+.. Se non si richiede più l'accesso senza password ad altri server, rimuovere la chiave privata dall'agente SSH. Immettere:``ssh-add -D``
+
+
+. Riavviare il servizio Prometheus sul nodo di amministrazione di origine.`service prometheus start`
+

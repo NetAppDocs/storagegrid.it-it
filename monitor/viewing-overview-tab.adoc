@@ -1,0 +1,62 @@
+---
+permalink: monitor/viewing-overview-tab.html 
+sidebar: sidebar 
+keywords: overview tab 
+summary: La scheda Panoramica fornisce informazioni di base su ciascun nodo. Inoltre, vengono visualizzati tutti gli avvisi che attualmente influiscono sul nodo. 
+---
+= Visualizzare la scheda Panoramica
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La scheda Panoramica fornisce informazioni di base su ciascun nodo. Inoltre, vengono visualizzati tutti gli avvisi che attualmente influiscono sul nodo.
+
+Viene visualizzata la scheda Overview (Panoramica) per tutti i nodi.
+
+
+
+== Informazioni sul nodo
+
+La sezione Node Information (informazioni nodo) della scheda Overview (Panoramica) elenca le informazioni di base sul nodo.
+
+image::../media/nodes_page_overview_tab.png[Scheda Panoramica pagina nodi]
+
+Le informazioni generali per un nodo includono quanto segue:
+
+* *Nome visualizzato* (visualizzato solo se il nodo è stato rinominato): Il nome visualizzato corrente per il nodo. Utilizzare la link:../maintain/rename-grid-site-node-overview.html["Rinominare la griglia, i siti e i nodi"] procedura per aggiornare questo valore.
+* *Nome sistema*: Il nome immesso per il nodo durante l'installazione. I nomi di sistema vengono utilizzati per le operazioni StorageGRID interne e non possono essere modificati.
+* *Tipo*: Il tipo di nodo -- nodo amministrativo, nodo amministrativo primario, nodo di archiviazione o nodo gateway.
+* *ID*: Identificatore univoco del nodo, chiamato anche UUID.
+* *Stato connessione*: Uno dei tre stati. Viene visualizzata l'icona dello stato più grave.
++
+** *Sconosciuto* image:../media/icon_alarm_blue_unknown.png["icona del punto interrogativo blu"]: per un motivo sconosciuto, il nodo non è connesso alla rete oppure uno o più servizi sono inattesi. Ad esempio, la connessione di rete tra i nodi è stata persa, l'alimentazione è inattiva o un servizio è inattivo. Potrebbe essere attivato anche l'avviso *Impossibile comunicare con il nodo*. Potrebbero essere attivi anche altri avvisi. Questa situazione richiede un'attenzione immediata.
++
+
+NOTE: Un nodo potrebbe apparire come sconosciuto durante le operazioni di shutdown gestite. In questi casi, è possibile ignorare lo stato Unknown (Sconosciuto).
+
+** *Amministrativamente inattivo* image:../media/icon_alarm_gray_administratively_down.png["icona del punto interrogativo grigio"]: il nodo non è connesso alla rete per un motivo previsto. Ad esempio, il nodo o i servizi sul nodo sono stati normalmente spenti, il nodo è in fase di riavvio o il software è in fase di aggiornamento. Potrebbero essere attivi anche uno o più avvisi.
+** *Connesso* image:../media/icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"]: il nodo è collegato alla rete.
+
+
+* *Storage utilizzato*: Solo per nodi di storage.
++
+** *Dati oggetto*: Percentuale dello spazio utilizzabile totale per i dati oggetto che è stato utilizzato nel nodo di storage.
+** *Metadati oggetto*: Percentuale dello spazio totale consentito per i metadati oggetto utilizzati nel nodo di storage.
+
+
+* *Versione software*: La versione di StorageGRID installata sul nodo.
+* *Gruppi ha*: Solo per nodi Admin Node e Gateway. Viene visualizzato se un'interfaccia di rete sul nodo è inclusa in un gruppo ad alta disponibilità e se tale interfaccia è l'interfaccia primaria.
+* *Indirizzi IP*: Gli indirizzi IP del nodo. Fare clic su *Show additional IP addresses* (Mostra indirizzi IP aggiuntivi) per visualizzare gli indirizzi IPv4 e IPv6 e le mappature dell'interfaccia del nodo.
+
+
+
+
+== Avvisi
+
+La sezione Avvisi della scheda Panoramica elenca qualsiasi link:monitoring-system-health.html#view-current-and-resolved-alerts["avvisi che attualmente interessano questo nodo e che non sono stati tacitati"]. Selezionare il nome dell'avviso per visualizzare ulteriori dettagli e le azioni consigliate.
+
+image::../media/nodes_page_alerts_table.png[Tabella Notifiche pagina nodi]
+
+Gli avvisi sono inclusi anche per link:monitoring-system-health.html#monitor-node-connection-states["stati di connessione del nodo"].

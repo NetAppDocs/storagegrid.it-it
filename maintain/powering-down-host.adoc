@@ -1,0 +1,126 @@
+---
+permalink: maintain/powering-down-host.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, stop services, power down host, power off host 
+summary: Prima di spegnere un host, è necessario interrompere i servizi su tutti i nodi della rete su tale host. 
+---
+= Spegnere l'host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di spegnere un host, è necessario interrompere i servizi su tutti i nodi della rete su tale host.
+
+.Fasi
+. Accedere al nodo Grid:
++
+.. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+. Arrestare tutti i servizi in esecuzione sul nodo: `service servermanager stop`
++
+L'arresto dei servizi può richiedere fino a 15 minuti e potrebbe essere necessario accedere al sistema in remoto per monitorare il processo di arresto.
+
+. Ripetere i passaggi 1 e 2 per ciascun nodo dell'host.
+. Se si dispone di un host Linux:
++
+.. Accedere al sistema operativo host.
+.. Arrestare il nodo: `storagegrid node stop`
+.. Arrestare il sistema operativo host.
+
+
+. Se il nodo è in esecuzione su una macchina virtuale VMware o si tratta di un nodo appliance, eseguire il comando shutdown: `shutdown -h now`
++
+Eseguire questa operazione indipendentemente dal risultato del `service servermanager stop` comando.
+
++
+
+NOTE: Dopo aver inviato il `shutdown -h now` comando su un nodo appliance, è necessario spegnere e riaccendere l'appliance per riavviare il nodo.
+
++
+Per l'appliance, questo comando spegne il controller, ma l'appliance è ancora accesa. Completare la fase successiva.
+
+. Se si sta spegnendo un nodo appliance, seguire la procedura relativa all'appliance.
++
+[role="tabbed-block"]
+====
+.SG6160
+--
+.. Spegnere il controller di storage SG6100-CN.
+.. Attendere lo spegnimento del LED di alimentazione blu sul controller di archiviazione SG6100-CN.
+
+
+--
+.SGF6112
+--
+.. Spegnere l'apparecchio.
+.. Attendere che il LED di alimentazione blu si spenga.
+
+
+--
+.SG6000
+--
+.. Attendere che il LED verde cache Active (cache attiva) sul retro dei controller dello storage si spenga.
++
+Questo LED si accende quando i dati memorizzati nella cache devono essere scritti sui dischi. Prima di spegnere il prodotto, attendere che il LED si spenga.
+
+.. Spegnere l'apparecchio e attendere che il LED di alimentazione blu si spenga.
+
+
+--
+.SG5800
+--
+.. Attendere che il LED verde cache Active (cache attiva) sul retro del controller dello storage si spenga.
++
+Questo LED si accende quando i dati memorizzati nella cache devono essere scritti sui dischi. Prima di spegnere il prodotto, attendere che il LED si spenga.
+
+.. Dalla home page di Gestione sistema SANtricity, selezionare *Visualizza operazioni in corso*.
+.. Confermare che tutte le operazioni sono state completate prima di passare alla fase successiva.
+.. Spegnere entrambi gli interruttori di alimentazione sul ripiano del controller e attendere lo spegnimento di tutti i LED sul ripiano del controller.
+
+
+--
+.SG5700
+--
+.. Attendere che il LED verde cache Active (cache attiva) sul retro del controller dello storage si spenga.
++
+Questo LED si accende quando i dati memorizzati nella cache devono essere scritti sui dischi. Prima di spegnere il prodotto, attendere che il LED si spenga.
+
+.. Spegnere l'apparecchio e attendere che il LED e il display a sette segmenti si interrompano.
+
+
+--
+.SG110 o SG1100
+--
+.. Spegnere l'apparecchio.
+.. Attendere che il LED di alimentazione blu si spenga.
+
+
+--
+.SG100 o SG1000
+--
+.. Spegnere l'apparecchio.
+.. Attendere che il LED di alimentazione blu si spenga.
+
+
+--
+====
+. Disconnettersi dalla shell dei comandi: `exit`
+
+
+.Informazioni correlate
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["Appliance di storage SGF6112 e SG6160"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000 appliance di storage"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700 appliance di storage"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG5800 appliance di storage"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["Appliance per i servizi SG110 e SG1100"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["Appliance per i servizi SG100 e SG1000"^]
+

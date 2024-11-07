@@ -1,0 +1,21 @@
+---
+permalink: maintain/decommissioning-multiple-storage-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission nodes, storage node, multiple storage nodes 
+summary: Se è necessario rimuovere più di un nodo di storage, è possibile decommissionarli in sequenza o in parallelo. 
+---
+= Decommissionare più nodi di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se è necessario rimuovere più di un nodo di storage, è possibile decommissionarli in sequenza o in parallelo.
+
+
+CAUTION: Prestare attenzione quando si disattivano i nodi di storage in un grid che contiene nodi solo metadati basati su software. Se tutti i nodi configurati per l'archiviazione di _entrambi_ oggetti e metadati vengono dismessi, la possibilità di archiviare oggetti viene rimossa dalla griglia. Per ulteriori informazioni sui nodi di storage solo per metadati, vedere link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipi di nodi storage"].
+
+* Se si decommissionano i nodi di storage in modo sequenziale, è necessario attendere che il primo nodo di storage completi la decommissionamento prima di iniziare a decommissionare il nodo di storage successivo.
+* Se i nodi di storage vengono decommissionati in parallelo, i nodi di storage elaborano contemporaneamente le attività di decommissionamento per tutti i nodi di storage da decommissionare. Ciò può causare una situazione in cui tutte le copie permanenti di un file sono contrassegnate come "sola lettura", disattivando temporaneamente l'eliminazione nelle griglie in cui questa funzionalità è attivata.
+

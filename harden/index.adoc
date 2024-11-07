@@ -1,0 +1,28 @@
+---
+permalink: harden/index.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, system, security 
+summary: La protezione avanzata del sistema è il processo che consente di eliminare il maggior numero possibile di rischi per la sicurezza da un sistema StorageGRID. 
+---
+= Considerazioni generali per l'indurimento del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La protezione avanzata del sistema è il processo che consente di eliminare il maggior numero possibile di rischi per la sicurezza da un sistema StorageGRID.
+
+Durante l'installazione e la configurazione di StorageGRID, è possibile utilizzare queste linee guida per raggiungere gli obiettivi di protezione prescritti in termini di riservatezza, integrità e disponibilità.
+
+È necessario utilizzare già le Best practice standard del settore per la protezione avanzata dei sistemi. Ad esempio, si utilizzano password complesse per StorageGRID, HTTPS anziché HTTP e si abilita l'autenticazione basata su certificati, se disponibile.
+
+StorageGRID segue la https://security.netapp.com/policy/["Policy di gestione delle vulnerabilità di NetApp"^]. Le vulnerabilità segnalate vengono verificate e risolte in base al processo di risposta agli incidenti di sicurezza del prodotto.
+
+Per la protezione avanzata di un sistema StorageGRID, tenere presente quanto segue:
+
+* *Quale delle tre reti StorageGRID* è stata implementata. Tutti i sistemi StorageGRID devono utilizzare la rete griglia, ma è possibile utilizzare anche la rete di amministrazione, la rete client o entrambi. Ogni rete ha considerazioni di sicurezza diverse.
+* *Il tipo di piattaforme* utilizzato per i singoli nodi nel sistema StorageGRID. I nodi StorageGRID possono essere implementati su macchine virtuali VMware, all'interno di un motore di container su host Linux o come appliance hardware dedicate. Ogni tipo di piattaforma dispone di un proprio set di Best practice per la protezione avanzata.
+* *Quanto sono attendibili gli account tenant*. Se sei un provider di servizi con account tenant non attendibili, avrai problemi di sicurezza diversi rispetto all'utilizzo di tenant interni affidabili.
+* *Quali sono i requisiti e le convenzioni di protezione* che la vostra organizzazione segue. Potrebbe essere necessario rispettare requisiti normativi o aziendali specifici.
+

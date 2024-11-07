@@ -1,0 +1,38 @@
+---
+permalink: maintain/viewing-current-status-of-service.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, service, status 
+summary: È possibile visualizzare lo stato corrente di un servizio in esecuzione su un nodo Grid in qualsiasi momento. 
+---
+= Visualizzare lo stato corrente del servizio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile visualizzare lo stato corrente di un servizio in esecuzione su un nodo Grid in qualsiasi momento.
+
+.Prima di iniziare
+Si dispone del `Passwords.txt` file.
+
+.Fasi
+. Accedere al nodo Grid:
++
+.. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+. Visualizzare lo stato corrente di un servizio in esecuzione su un nodo grid: `*service _servicename_ status* lo stato corrente del servizio richiesto in esecuzione sul nodo grid viene segnalato (in esecuzione o meno). Ad esempio:
++
+[listing]
+----
+cmn running for 1d, 14h, 21m, 2s
+----
+. Disconnettersi dalla shell dei comandi: `*exit*`
+

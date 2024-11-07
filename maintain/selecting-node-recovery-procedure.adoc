@@ -1,0 +1,62 @@
+---
+permalink: maintain/selecting-node-recovery-procedure.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, procedure 
+summary: Selezionare la procedura di ripristino corretta per il tipo di nodo che ha avuto esito negativo. 
+---
+= Selezionare la procedura di ripristino del nodo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Selezionare la procedura di ripristino corretta per il tipo di nodo che ha avuto esito negativo.
+
+[cols="1a,2a"]
+|===
+| Nodo della griglia | Procedura di recovery 
+
+
+ a| 
+Più di un nodo di storage
+ a| 
+Contattare il supporto tecnico. Se più di un nodo di storage si è guastato, il supporto tecnico deve fornire assistenza per il ripristino per evitare incoerenze del database che potrebbero causare la perdita di dati. Potrebbe essere necessaria una procedura di ripristino del sito.
+
+link:how-site-recovery-is-performed-by-technical-support.html["Come il supporto tecnico recupera un sito"]
+
+
+
+ a| 
+Un singolo nodo di storage
+ a| 
+La procedura di recovery di Storage Node dipende dal tipo e dalla durata dell'errore.
+
+link:recovering-from-storage-node-failures.html["Ripristino da guasti del nodo di storage"]
+
+
+
+ a| 
+Nodo Admin
+ a| 
+La procedura Admin Node (nodo amministratore) dipende dalla necessità di ripristinare il nodo amministratore primario o un nodo amministratore non primario.
+
+link:recovering-from-admin-node-failures.html["Ripristino da errori del nodo di amministrazione"]
+
+
+
+ a| 
+Nodo gateway
+ a| 
+link:replacing-gateway-node.html["Ripristino da guasti del nodo gateway"]
+
+
+
+ a| 
+Nodo di archiviazione
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-from-archive-node-failures.html["Ripristino da guasti al nodo di archivio (sito di documentazione StorageGRID 11,8)"^]
+
+|===
+
+NOTE: Se un server che ospita più di un nodo di rete si guasta, è possibile ripristinare i nodi in qualsiasi ordine. Tuttavia, se il server guasto ospita il nodo di amministrazione primario, è necessario ripristinare prima tale nodo. Il ripristino del nodo di amministrazione primario impedisce prima agli altri ripristini del nodo di interrompere l'attesa di contattare il nodo di amministrazione primario.

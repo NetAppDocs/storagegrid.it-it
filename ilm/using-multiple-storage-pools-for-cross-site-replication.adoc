@@ -1,0 +1,79 @@
+---
+permalink: ilm/using-multiple-storage-pools-for-cross-site-replication.html 
+sidebar: sidebar 
+keywords: site-loss protection, cross-site replication, storage pools 
+summary: 'Se l"implementazione di StorageGRID include più di un sito, è possibile utilizzare la replica e la cancellazione del codice con pool di storage configurati in modo appropriato per abilitare la protezione dalla perdita di sito.' 
+---
+= Abilita la protezione contro la perdita di sito
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se l'implementazione di StorageGRID include più di un sito, è possibile utilizzare la replica e la cancellazione del codice con pool di storage configurati in modo appropriato per abilitare la protezione dalla perdita di sito.
+
+La replica e l'erasure coding richiedono diverse configurazioni del pool di storage:
+
+* Per utilizzare la replica per la protezione dalla perdita di sito, utilizzare i pool di storage specifici del sito creati automaticamente durante l'installazione di StorageGRID. Quindi, creare regole ILM link:create-ilm-rule-define-placements.html["istruzioni per il posizionamento"]che specificano più pool di storage in modo da collocare una copia di ciascun oggetto in ogni sito.
+* Per utilizzare l'erasure coding per la protezione in caso di perdita del sito, link:guidelines-for-creating-storage-pools.html#guidelines-for-storage-pools-used-for-erasure-coded-copies["creare pool di storage composti da più siti"]. Quindi, creare regole ILM che utilizzano un pool di storage costituito da più siti e qualsiasi schema di erasure coding disponibile.
+
+
+
+CAUTION: Quando si configura la distribuzione di StorageGRID per la protezione contro la perdita di siti, è necessario tenere conto anche degli effetti di link:data-protection-options-for-ingest.html["opzioni di acquisizione"] e link:../s3/consistency-controls.html["coerenza"].
+
+
+
+== Esempio di replica
+
+Per impostazione predefinita, viene creato un pool di storage per ciascun sito durante l'installazione di StorageGRID. La disponibilità di pool di storage costituiti da un solo sito consente di configurare le regole ILM che utilizzano la replica per la protezione dalla perdita di sito. In questo esempio:
+
+* Il pool di archiviazione 1 contiene il sito 1
+* Il pool di archiviazione 2 contiene il sito 2
+* La regola ILM contiene due posizioni:
++
+** Memorizzare gli oggetti replicando 1 copia nel sito 1
+** Memorizzare gli oggetti replicando 1 copia nel sito 2
+
+
+
+
+Posizionamento delle regole ILM:
+
+image::../media/ilm_replication_at_2_sites.png[Replica di 1 copia ciascuno in 2 siti]
+
+image::../media/ilm_replication_make_2_copies_2_pools_2_sites.png[Eseguire una copia in ciascuno dei 2 siti: Pool di storage specifico del sito]
+
+In caso di perdita di un sito, le copie degli oggetti sono disponibili nell'altro sito.
+
+
+
+== Esempio di erasure coding
+
+La disponibilità di pool di storage costituiti da più di un sito per pool di storage consente di configurare le regole ILM che utilizzano la codifica di cancellazione per la protezione dalla perdita di sito. In questo esempio:
+
+* Il pool di storage 1 contiene i siti da 1 a 3
+* La regola ILM contiene un unico posizionamento: Memorizzare gli oggetti tramite erasure coding utilizzando uno schema EC 4+2 nello Storage Pool 1, che contiene tre siti
+
+
+Posizionamento delle regole ILM:
+
+image::../media/ilm_erasure_coding_site_loss_protection_4+2.png[Pool di storage EC 1 9 nodi di storage 3 siti]
+
+In questo esempio:
+
+* La regola ILM utilizza uno schema di erasure coding 4+2.
+* Ciascun oggetto viene suddiviso in quattro frammenti di dati uguali e due frammenti di parità vengono calcolati dai dati dell'oggetto.
+* Ciascuno dei sei frammenti viene memorizzato su un nodo diverso in tre siti del data center per fornire protezione dei dati in caso di guasti al nodo o perdita del sito.
+
+
+
+NOTE: La codifica di cancellazione è consentita nei pool di storage contenenti un numero qualsiasi di siti, ad eccezione di due siti.
+
+Regola ILM con schema di erasure coding 4+2:
+
+image::../media/ec_three_sites_4_plus_2_site_loss_example_template.png[Memorizzare gli oggetti cancellando il codice utilizzando uno schema EC 4+2 in 3 siti]
+
+In caso di perdita di un sito, è possibile recuperare i dati:
+
+image::../media/ec_three_sites_4_plus_2_site_loss_example.png[Erasure coding 4+2 EC schema 1 sito perso]

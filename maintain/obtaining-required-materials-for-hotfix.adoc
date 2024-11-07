@@ -1,0 +1,61 @@
+---
+permalink: maintain/obtaining-required-materials-for-hotfix.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix 
+summary: Prima di applicare una hotfix, è necessario procurarsi tutti i materiali necessari. 
+---
+= Ottenere il materiale necessario per la correzione rapida
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di applicare una hotfix, è necessario procurarsi tutti i materiali necessari.
+
+[cols="1a,2a"]
+|===
+| Elemento | Note 
+
+
+ a| 
+File di hotfix StorageGRID
+ a| 
+È necessario scaricare il file di hotfix StorageGRID.
+
+
+
+ a| 
+* Porta di rete
+* link:../admin/web-browser-requirements.html["Browser Web supportato"]
+* Client SSH (ad esempio, putty)
+
+ a| 
+
+
+
+ a| 
+(`.zip`File pacchetto di ripristino )
+ a| 
+Prima di applicare una correzione rapida, link:downloading-recovery-package.html["Scaricare il file del pacchetto di ripristino più recente"] in caso di problemi durante la correzione rapida. Quindi, dopo aver applicato la correzione rapida, scaricare una nuova copia del file del pacchetto di ripristino e salvarlo in un luogo sicuro. Il file Recovery Package aggiornato consente di ripristinare il sistema in caso di errore.
+
+
+
+| File Passwords.txt  a| 
+Facoltativo e utilizzato solo se si applica manualmente una correzione rapida utilizzando il client SSH. Il `Passwords.txt` file fa parte del file del pacchetto di ripristino `.zip`.
+
+
+
+ a| 
+Passphrase di provisioning
+ a| 
+La passphrase viene creata e documentata al momento dell'installazione del sistema StorageGRID. La passphrase di provisioning non è elencata nel `Passwords.txt` file.
+
+
+
+ a| 
+Documentazione correlata
+ a| 
+`readme.txt` file per la correzione rapida. Questo file è incluso nella pagina di download della correzione rapida. Assicurarsi di esaminare attentamente il `readme` file prima di applicare la correzione rapida.
+
+|===

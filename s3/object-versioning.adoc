@@ -1,0 +1,39 @@
+---
+permalink: s3/object-versioning.html 
+sidebar: sidebar 
+keywords: object version, object versioning 
+summary: 'È possibile impostare lo stato di versione di un bucket se si desidera mantenere più versioni di un oggetto. L"abilitazione della versione per un bucket può aiutare a proteggere dalla cancellazione accidentale di oggetti e consente di recuperare e ripristinare le versioni precedenti di un oggetto.' 
+---
+= Versione degli oggetti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile impostare lo stato di versione di un bucket se si desidera mantenere più versioni di ciascun oggetto. L'abilitazione della versione per un bucket può aiutare a proteggere dalla cancellazione accidentale di oggetti e consente di recuperare e ripristinare le versioni precedenti di un oggetto.
+
+Il sistema StorageGRID implementa il controllo delle versioni con il supporto per la maggior parte delle funzionalità e con alcune limitazioni. StorageGRID supporta fino a 10,000 versioni di ciascun oggetto.
+
+La versione degli oggetti può essere combinata con la gestione del ciclo di vita delle informazioni di StorageGRID (ILM) o con la configurazione del ciclo di vita del bucket S3. È necessario attivare esplicitamente il controllo delle versioni per ogni bucket. Quando la versione è abilitata per un bucket, a ogni oggetto aggiunto al bucket viene assegnato un ID di versione, che viene generato dal sistema StorageGRID.
+
+L'utilizzo dell'autenticazione MFA (multi-factor Authentication) Delete non è supportato.
+
+
+NOTE: Il controllo delle versioni può essere attivato solo sui bucket creati con StorageGRID versione 10.3 o successiva.
+
+
+
+== ILM e versione
+
+I criteri ILM vengono applicati a ogni versione di un oggetto. Un processo di scansione ILM esegue una scansione continua di tutti gli oggetti e li rivaluti in base al criterio ILM corrente. Qualsiasi modifica apportata ai criteri ILM viene applicata a tutti gli oggetti precedentemente acquisiti. Sono incluse le versioni precedentemente ingerite se è abilitato il controllo delle versioni. La scansione ILM applica le nuove modifiche ILM agli oggetti acquisiti in precedenza.
+
+Per gli oggetti S3 nei bucket abilitati per le versioni, il supporto per le versioni consente di creare regole ILM che utilizzano "tempo non corrente" come ora di riferimento (selezionare *Sì* per la domanda "Applica questa regola solo alle versioni precedenti degli oggetti?" in link:../ilm/create-ilm-rule-enter-details.html["Passaggio 1 della creazione guidata di una regola ILM"]). Quando un oggetto viene aggiornato, le sue versioni precedenti diventano non aggiornate. L'utilizzo di un filtro "tempo non corrente" consente di creare policy per ridurre l'impatto sullo storage delle versioni precedenti di oggetti.
+
+
+NOTE: Quando si carica una nuova versione di un oggetto utilizzando un'operazione di caricamento multiparte, l'ora non corrente per la versione originale dell'oggetto si riflette quando il caricamento multiparte è stato creato per la nuova versione, non quando il caricamento multiparte è stato completato. In casi limitati, il tempo non corrente per la versione originale potrebbe essere di ore o giorni prima del tempo per la versione corrente.
+
+.Informazioni correlate
+* link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Modalità di eliminazione degli oggetti con versione S3"]
+* link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["Regole e criteri ILM per gli oggetti con versione S3 (esempio 4)"].
+

@@ -1,0 +1,49 @@
+---
+permalink: maintain/replacing-gateway-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace gateway node, replacing gateway node 
+summary: 'È possibile sostituire un nodo gateway guasto con un nodo gateway in esecuzione sullo stesso hardware fisico o virtuale oppure sostituire un nodo gateway in esecuzione su VMware o su un host Linux con un nodo gateway in hosting su un"appliance di servizi.' 
+---
+= Sostituire il nodo gateway
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile sostituire un nodo gateway guasto con un nodo gateway in esecuzione sullo stesso hardware fisico o virtuale oppure sostituire un nodo gateway in esecuzione su VMware o su un host Linux con un nodo gateway in hosting su un'appliance di servizi.
+
+La procedura di sostituzione del nodo da seguire dipende dalla piattaforma utilizzata dal nodo sostitutivo. Una volta completata la procedura di sostituzione del nodo (adatta a tutti i tipi di nodo), questa procedura indirizzerà l'utente al passaggio successivo per il ripristino del nodo gateway.
+
+[cols="1a,2a"]
+|===
+| Piattaforma sostitutiva | Procedura 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["Sostituire un nodo VMware"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["Sostituire un nodo Linux"]
+
+
+
+ a| 
+Appliance di servizi
+ a| 
+link:replacing-failed-node-with-services-appliance.html["Sostituire un'appliance di servizi"]
+
+
+
+ a| 
+OpenStack
+ a| 
+I file e gli script dei dischi delle macchine virtuali forniti da NetApp per OpenStack non sono più supportati per le operazioni di recovery. Se è necessario ripristinare un nodo in esecuzione in un'implementazione OpenStack, scaricare i file per il sistema operativo Linux in uso. Quindi, seguire la procedura per link:all-node-types-replacing-linux-node.html["Sostituzione di un nodo Linux"].
+
+|===

@@ -1,0 +1,71 @@
+---
+permalink: vmware/download-files-verify.html 
+sidebar: sidebar 
+keywords: vmware installation files, how to verify files 
+summary: 'Se necessario, è possibile verificare manualmente i file nell"archivio di installazione di StorageGRID.' 
+---
+= Verifica manuale dei file di installazione (opzionale)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se necessario, è possibile verificare manualmente i file nell'archivio di installazione di StorageGRID.
+
+.Prima di iniziare
+Avete link:../vmware/downloading-and-extracting-storagegrid-installation-files.html#vmware-download-verification-package["scaricato il pacchetto di verifica"] da https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Pagina dei download NetApp per StorageGRID"^] .
+
+.Fasi
+. Estrarre gli artefatti dal pacchetto di verifica:
++
+`tar -xf StorageGRID_11.9.0_Code_Signature_Verification_Package.tar.gz`
+
+. Assicurarsi che questi artefatti siano stati estratti:
++
+** Certificato Leaf: `Leaf-Cert.pem`
+** Catena del certificato: `CA-Int-Cert.pem`
+** Sequenza di risposta con indicazione temporale: `TS-Cert.pem`
+** File checksum: `sha256sum`
+** Firma checksum: `sha256sum.sig`
+** File di risposta indicatore data e ora: `sha256sum.sig.tsr`
+
+
+. Utilizzare la catena per verificare che il certificato foglia sia valido.
++
+*Esempio*: `openssl verify -CAfile CA-Int-Cert.pem Leaf-Cert.pem`
+
++
+*Uscita prevista*: `Leaf-Cert.pem: OK`
+
+. Se il passaggio _2_ non è riuscito a causa di un certificato foglia scaduto, utilizzare il `tsr` file per eseguire la verifica.
++
+*Esempio*: `openssl ts -CAfile CA-Int-Cert.pem -untrusted TS-Cert.pem -verify -data sha256sum.sig -in sha256sum.sig.tsr`
+
++
+*L'output previsto include*: `Verification: OK`
+
+. Creare un file di chiave pubblica dal certificato leaf.
++
+*Esempio*: `openssl x509 -pubkey -noout -in Leaf-Cert.pem > Leaf-Cert.pub`
+
++
+*Output previsto*: _None_
+
+. Utilizzare la chiave pubblica per verificare il `sha256sum` file con `sha256sum.sig`.
++
+*Esempio*: `openssl dgst -sha256 -verify Leaf-Cert.pub -signature sha256sum.sig sha256sum`
+
++
+*Uscita prevista*: `Verified OK`
+
+. Verificare il `sha256sum` contenuto del file in base ai checksum appena creati.
++
+*Esempio*: `sha256sum -c sha256sum`
+
++
+*Output previsto*: `_<filename>_: OK` +
+`_<filename>_` è il nome del file di archivio scaricato.
+
+. link:../vmware/downloading-and-extracting-storagegrid-installation-files.html["Completare i passaggi rimanenti"] per estrarre e scegliere i file di installazione appropriati.
+

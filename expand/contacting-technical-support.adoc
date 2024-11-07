@@ -1,0 +1,60 @@
+---
+permalink: expand/contacting-technical-support.html 
+sidebar: sidebar 
+keywords: troubleshoot expansion, contact technical support 
+summary: 'Se si verificano errori durante il processo di espansione della griglia che non è possibile risolvere o se un"operazione della griglia non riesce, raccogliere i file di registro e contattare il supporto tecnico.' 
+---
+= Risolvere i problemi di espansione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si verificano errori durante il processo di espansione della griglia che non è possibile risolvere o se un'operazione della griglia non riesce, raccogliere i file di registro e contattare il supporto tecnico.
+
+Prima di contattare il supporto tecnico, raccogliere i file di registro necessari per agevolare la risoluzione dei problemi.
+
+.Fasi
+. Connettersi al nodo di espansione che ha riscontrato errori:
++
+.. Immettere il seguente comando:``ssh -p 8022 admin@_grid_node_IP_``
++
+
+NOTE: La porta 8022 è la porta SSH del sistema operativo di base, mentre la porta 22 è la porta SSH del motore dei container che esegue StorageGRID.
+
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Dopo aver effettuato l'accesso come root, il prompt passa da `$` a `#`.
+
+. A seconda della fase di installazione raggiunta, recuperare uno dei seguenti log disponibili nel nodo grid:
++
+[cols="1a,2a"]
+|===
+| Piattaforma | Registri 
+
+
+ a| 
+VMware
+ a| 
+** `/var/log/daemon.log`
+** `/var/log/storagegrid/daemon.log`
+** `/var/log/storagegrid/nodes/<node-name>.log`
+
+
+
+
+ a| 
+Linux
+ a| 
+** `/var/log/storagegrid/daemon.log`
+** `/etc/storagegrid/nodes/<node-name>.conf` (per ogni nodo guasto)
+** `/var/log/storagegrid/nodes/<node-name>.log` (per ogni nodo guasto; potrebbe non esistere)
+
+
+|===
+

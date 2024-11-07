@@ -1,0 +1,174 @@
+---
+permalink: maintain/restoring-volume.html 
+sidebar: sidebar 
+keywords: storagegrid, restore, volume 
+summary: È possibile ripristinare i dati degli oggetti per un volume di storage o un nodo di storage guasto utilizzando Grid Manager. È inoltre possibile utilizzare Grid Manager per monitorare i processi di ripristino in corso e visualizzare una cronologia di ripristino. 
+---
+= Ripristinare i dati degli oggetti utilizzando Grid Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile ripristinare i dati degli oggetti per un volume di storage o un nodo di storage guasto utilizzando Grid Manager. È inoltre possibile utilizzare Grid Manager per monitorare i processi di ripristino in corso e visualizzare una cronologia di ripristino.
+
+.Prima di iniziare
+* Una di queste procedure è stata completata per formattare i volumi guasti:
++
+** link:../maintain/remounting-and-reformatting-appliance-storage-volumes.html["Rimontare e riformattare i volumi di storage delle appliance (procedura manuale)"]
+** link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["Rimontare e riformattare i volumi di storage (procedura manuale)"]
+
+
+* È stato confermato che il nodo di archiviazione in cui si stanno ripristinando gli oggetti ha uno stato di connessione *connessoimage:../media/icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"]* nella scheda *NODI* > *Panoramica* in Grid Manager.
+* Hai confermato quanto segue:
++
+** Non è in corso un'espansione della griglia per aggiungere un nodo di storage.
+** La decommissionazione di un nodo di storage non è in corso o non è riuscita.
+** Non è in corso il ripristino di un volume di storage guasto.
+** Non è in corso il ripristino di un nodo di storage con un disco di sistema guasto.
+** Un lavoro di ribilanciamento EC non è in corso.
+** La clonazione del nodo dell'appliance non è in corso.
+
+
+
+
+.A proposito di questa attività
+Dopo aver sostituito i dischi ed eseguito le procedure manuali per la formattazione dei volumi, Grid Manager visualizza i volumi come candidati per il ripristino nella scheda *MANUTENZIONE* > *Ripristino volume* > *nodi da ripristinare*.
+
+Se possibile, ripristinare i dati degli oggetti utilizzando la pagina di ripristino del volume in Grid Manager. È possibile <<enable-auto-restore-mode,attivare la modalità di ripristino automatico>>avviare automaticamente il ripristino del volume quando i volumi sono pronti per essere ripristinati o <<manually-restore,eseguire manualmente il ripristino del volume>>. Attenersi alle seguenti linee guida:
+
+* Se i volumi sono elencati in *MANUTENZIONE* > *Ripristino volume* > *nodi da ripristinare*, ripristinare i dati degli oggetti come descritto di seguito. I volumi vengono elencati se:
++
+** Alcuni, ma non tutti, volumi di storage in un nodo sono guasti
+** Tutti i volumi di storage in un nodo sono guasti e vengono sostituiti con lo stesso numero di volumi o più volumi
+
+
++
+La pagina di ripristino del volume in Grid Manager consente inoltre di <<view-restoration-progress,monitorare il processo di ripristino del volume>> e <<view-restoration-history,visualizzare la cronologia del ripristino>>.
+
+* Se i volumi non sono elencati in Grid Manager come candidati per il ripristino, seguire i passaggi appropriati per utilizzare `repair-data` lo script per ripristinare i dati dell'oggetto:
++
+** link:restoring-object-data-to-storage-volume.html["Ripristino dei dati degli oggetti nel volume di storage (errore del disco di sistema)"]
+** link:restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Ripristinare i dati degli oggetti nel volume di storage in cui il disco di sistema è intatto"]
+** link:restoring-object-data-to-storage-volume-for-appliance.html["Ripristinare i dati dell'oggetto nel volume di storage per l'appliance"]
++
+
+NOTE: Lo script dei dati di riparazione è obsoleto e verrà rimosso in una versione futura.
+
+
+
++
+Se il nodo di archiviazione recuperato contiene un numero inferiore di volumi rispetto al nodo da sostituire, è necessario utilizzare `repair-data` lo script.
+
+
+
+È possibile ripristinare due tipi di dati oggetto:
+
+* Gli oggetti dati replicati vengono ripristinati da altre posizioni, supponendo che le regole ILM della griglia siano state configurate per rendere disponibili le copie degli oggetti.
++
+** Se una regola ILM è stata configurata per memorizzare solo una copia replicata e tale copia esisteva su un volume di storage che non ha superato il test, non sarà possibile ripristinare l'oggetto.
+** Se l'unica copia rimanente di un oggetto si trova in un pool di storage cloud, StorageGRID deve inviare più richieste all'endpoint del pool di storage cloud per ripristinare i dati dell'oggetto.
+
+
+* Gli oggetti dati con erasure coding (EC) vengono ripristinati riassemblando i frammenti memorizzati. I frammenti corrotti o persi vengono ricreati dall'algoritmo di erasure coding dai dati rimanenti e dai frammenti di parità.
++
+Le riparazioni dei dati con codifica erasure possono iniziare mentre alcuni nodi di storage sono offline. Tuttavia, se non è possibile tenere conto di tutti i dati sottoposti a erasure coding, la riparazione non può essere completata. La riparazione verrà completata dopo che tutti i nodi saranno disponibili.
+
+
+
+
+NOTE: Il ripristino dei volumi dipende dalla disponibilità delle risorse in cui sono memorizzate le copie a oggetti. L'avanzamento del ripristino dei volumi non è lineare e potrebbe richiedere giorni o settimane.
+
+
+
+== [[enable-auto-restore-mode]]attiva la modalità di ripristino automatico
+
+Quando si attiva la modalità di ripristino automatico, il ripristino del volume si avvia automaticamente quando i volumi sono pronti per essere ripristinati.
+
+.Fasi
+. In Grid Manager, andare a *MANUTENZIONE* > *Volume repristino*.
+. Selezionare la scheda *nodi da ripristinare*, quindi spostare l'interruttore per *modalità di ripristino automatico* sulla posizione abilitata.
+. Quando viene visualizzata la finestra di dialogo di conferma, rivedere i dettagli.
++
+[NOTE]
+====
+** Non sarà possibile avviare manualmente i processi di ripristino dei volumi su nessun nodo.
+** I ripristini del volume inizieranno automaticamente solo quando non sono in corso altre procedure di manutenzione.
+** È possibile monitorare lo stato del lavoro dalla pagina di monitoraggio dell'avanzamento.
+** StorageGRID ritenta automaticamente il ripristino del volume che non si avvia.
+
+
+====
+. Una volta compresi i risultati dell'attivazione della modalità di ripristino automatico, selezionare *Sì* nella finestra di dialogo di conferma.
++
+È possibile disattivare la modalità di ripristino automatico in qualsiasi momento.
+
+
+
+
+
+== [[manually-restore]]Ripristino manuale di un volume o nodo non riuscito
+
+Per ripristinare un volume o un nodo guasto, procedere come segue.
+
+.Fasi
+. In Grid Manager, andare a *MANUTENZIONE* > *Volume repristino*.
+. Selezionare la scheda *nodi da ripristinare*, quindi far scorrere l'interruttore per *modalità di ripristino automatico* sulla posizione disattivata.
++
+Il numero sulla scheda indica il numero di nodi con volumi che richiedono il ripristino.
+
+. Espandere ciascun nodo per visualizzare i volumi in esso che richiedono il ripristino e il relativo stato.
+. Correggere eventuali problemi che impediscono il ripristino di ciascun volume. I problemi saranno indicati quando si seleziona *in attesa di passaggi manuali*, se viene visualizzato come stato del volume.
+. Selezionare un nodo da ripristinare in cui tutti i volumi indicano uno stato Pronto per il ripristino.
++
+È possibile ripristinare i volumi solo per un nodo alla volta.
+
++
+Ogni volume nel nodo deve indicare che è pronto per il ripristino.
+
+. Selezionare *Avvia ripristino*.
+. Risolvere eventuali avvisi che potrebbero essere visualizzati o selezionare *Avvia comunque* per ignorare gli avvisi e avviare il ripristino.
+
+
+I nodi vengono spostati dalla scheda *Nodes to restore* (nodi da ripristinare) alla scheda *Restoration Progress* (avanzamento ripristino) all'avvio del ripristino.
+
+Se non è possibile avviare il ripristino di un volume, il nodo torna alla scheda *nodi da ripristinare*.
+
+
+
+== [[view-ripristino-progresso]]Visualizza l'avanzamento del ripristino
+
+La scheda *Restoration Progress* (avanzamento ripristino) mostra lo stato del processo di ripristino del volume e le informazioni sui volumi di un nodo da ripristinare.
+
+I tassi di riparazione dei dati per gli oggetti replicati e con erasure coding in tutti i volumi sono la media che riepiloga tutti i ripristini in corso, inclusi quelli avviati utilizzando `repair-data` lo script. Viene indicata anche la percentuale di oggetti in quei volumi che sono intatti e non richiedono il ripristino.
+
+
+NOTE: Il ripristino dei dati replicati dipende dalla disponibilità delle risorse in cui sono memorizzate le copie replicate. L'avanzamento del ripristino dei dati replicati non è lineare e potrebbe richiedere giorni o settimane.
+
+La sezione lavori di ripristino visualizza informazioni sui ripristini dei volumi avviati da Grid Manager.
+
+* Il numero nell'intestazione della sezione lavori di ripristino indica il numero di volumi che vengono ripristinati o messi in coda per il ripristino.
+* La tabella visualizza le informazioni relative a ciascun volume di un nodo da ripristinare e al relativo stato di avanzamento.
++
+** L'avanzamento per ciascun nodo visualizza la percentuale per ciascun lavoro.
+** Espandere la colonna Dettagli per visualizzare l'ora di inizio del ripristino e l'ID del processo.
+
+
+* Se il ripristino di un volume non riesce:
++
+** La colonna Stato indica `failed (attempting retry)`, e verrà riavviata automaticamente.
+** Se più lavori di ripristino non hanno avuto esito positivo, il lavoro più recente verrà rielaborato automaticamente per primo.
+** L'avviso *guasto riparazione EC* viene attivato se i tentativi continuano a non riuscire. Per risolvere il problema, attenersi alla procedura riportata nell'avviso.
+
+
+
+
+
+
+== [[view-restaurazione-storia]]Visualizza la cronologia del ripristino
+
+La scheda *Restoration history* (Cronologia ripristino) mostra informazioni su tutti i ripristini dei volumi completati correttamente.
+
+
+NOTE: Le dimensioni non sono applicabili agli oggetti replicati e vengono visualizzate solo per i ripristini che contengono oggetti di dati EC (erasure coding).

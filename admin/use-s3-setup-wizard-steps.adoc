@@ -1,0 +1,448 @@
+---
+permalink: admin/use-s3-setup-wizard-steps.html 
+sidebar: sidebar 
+keywords: FabricPool and S3 setup wizard, object storage system, S3 application 
+summary: 'È possibile utilizzare l"installazione guidata S3 per configurare StorageGRID come sistema di storage a oggetti per un"applicazione S3.' 
+---
+= Accedere e completare l'installazione guidata di S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare l'installazione guidata S3 per configurare StorageGRID per l'utilizzo con un'applicazione S3. L'installazione guidata fornisce i valori necessari all'applicazione per accedere a un bucket StorageGRID e per salvare gli oggetti.
+
+.Prima di iniziare
+* Si dispone di link:admin-group-permissions.html["Autorizzazione di accesso root"].
+* È stata esaminata la link:use-s3-setup-wizard.html["considerazioni e requisiti"] per l'utilizzo della procedura guidata.
+
+
+
+
+== Accedere alla procedura guidata
+
+.Fasi
+. Accedere a Grid Manager utilizzando un link:web-browser-requirements.html["browser web supportato"].
+. Se nella dashboard viene visualizzato il banner *FabricPool and S3 setup wizard*, selezionare il link nel banner. Se il banner non viene più visualizzato, selezionare l'icona della guida dalla barra di intestazione in Gestione griglia e selezionare *Installazione guidata FabricPool and S3*.
++
+image::../media/help_menu.png[menu guida]
+
+. Nella sezione dell'applicazione S3 della pagina di installazione guidata di FabricPool e S3, selezionare *Configura ora*.
+
+
+
+
+== Fase 1 di 6: Configurare il gruppo ha
+
+Un gruppo ha è un insieme di nodi che contengono ciascuno il servizio bilanciamento del carico StorageGRID. Un gruppo ha può contenere nodi gateway, nodi di amministrazione o entrambi.
+
+È possibile utilizzare un gruppo ha per mantenere disponibili le connessioni dati S3. Se l'interfaccia attiva nel gruppo ha si guasta, un'interfaccia di backup può gestire il carico di lavoro con un impatto minimo sulle operazioni S3.
+
+Per ulteriori informazioni su questa attività, vedere link:managing-high-availability-groups.html["Gestire i gruppi ad alta disponibilità"].
+
+.Fasi
+. Se si prevede di utilizzare un bilanciamento del carico esterno, non è necessario creare un gruppo ha. Selezionare *Salta questo passaggio* e andare a <<Fase 2 di 6: Configurare l'endpoint del bilanciamento del carico>>.
+. Per utilizzare il bilanciamento del carico StorageGRID, è possibile creare un nuovo gruppo ha o utilizzare un gruppo ha esistente.
++
+[role="tabbed-block"]
+====
+.Creare un gruppo ha
+--
+.. Per creare un nuovo gruppo ha, selezionare *Crea gruppo ha*.
+.. Per la fase *inserire i dettagli*, completare i seguenti campi.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome del gruppo HA
+ a| 
+Un nome di visualizzazione univoco per questo gruppo ha.
+
+
+
+ a| 
+Descrizione (opzionale)
+ a| 
+La descrizione di questo gruppo ha.
+
+|===
+.. Per il passo *Add interfaces*, selezionare le interfacce di nodo che si desidera utilizzare in questo gruppo ha.
++
+Utilizzare le intestazioni di colonna per ordinare le righe o inserire un termine di ricerca per individuare le interfacce più rapidamente.
+
++
+È possibile selezionare uno o più nodi, ma è possibile selezionare una sola interfaccia per ciascun nodo.
+
+.. Per la fase *prioritize interfaces*, determinare l'interfaccia primaria e le interfacce di backup per questo gruppo ha.
++
+Trascinare le righe per modificare i valori nella colonna *Ordine di priorità*.
+
++
+La prima interfaccia nell'elenco è l'interfaccia primaria. L'interfaccia principale è l'interfaccia attiva a meno che non si verifichi un errore.
+
++
+Se il gruppo ha include più di un'interfaccia e l'interfaccia attiva non riesce, gli indirizzi IP virtuali (VIP) si spostano nella prima interfaccia di backup nell'ordine di priorità. Se l'interfaccia non funziona, gli indirizzi VIP passano all'interfaccia di backup successiva e così via. Quando i guasti vengono risolti, gli indirizzi VIP tornano all'interfaccia con la priorità più alta disponibile.
+
+.. Per il passo *inserire gli indirizzi IP*, completare i seguenti campi.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Subnet CIDR
+ a| 
+L'indirizzo della subnet VIP nella notazione CIDR e n. 8212; un indirizzo IPv4 seguito da una barra e dalla lunghezza della subnet (0-32).
+
+L'indirizzo di rete non deve avere bit host impostati. Ad esempio, `192.16.0.0/22`.
+
+
+
+ a| 
+Indirizzo IP del gateway (opzionale)
+ a| 
+Se gli indirizzi IP S3 utilizzati per accedere a StorageGRID non si trovano sulla stessa sottorete degli indirizzi VIP StorageGRID, inserire l'indirizzo IP del gateway locale VIP StorageGRID. L'indirizzo IP del gateway locale deve trovarsi all'interno della subnet VIP.
+
+
+
+ a| 
+Virtual IP address (Indirizzo IP virtuale)
+ a| 
+Inserire almeno uno e non più di dieci indirizzi VIP per l'interfaccia attiva nel gruppo ha. Tutti gli indirizzi VIP devono trovarsi all'interno della subnet VIP.
+
+Almeno un indirizzo deve essere IPv4. In alternativa, è possibile specificare ulteriori indirizzi IPv4 e IPv6.
+
+|===
+.. Selezionare *Create ha group* (Crea gruppo ha), quindi selezionare *Finish* (fine) per tornare all'installazione guidata S3.
+.. Selezionare *continua* per passare alla fase di bilanciamento del carico.
+
+
+--
+.Utilizzare il gruppo ha esistente
+--
+.. Per utilizzare un gruppo ha esistente, selezionare il nome del gruppo ha dal menu *Select an ha group* (Seleziona un gruppo ha).
+.. Selezionare *continua* per passare alla fase di bilanciamento del carico.
+
+
+--
+====
+
+
+
+
+== Fase 2 di 6: Configurare l'endpoint del bilanciamento del carico
+
+StorageGRID utilizza un bilanciamento del carico per gestire il carico di lavoro dalle applicazioni client. Il bilanciamento del carico massimizza la velocità e la capacità di connessione tra più nodi di storage.
+
+È possibile utilizzare il servizio bilanciamento del carico StorageGRID, disponibile su tutti i nodi gateway e di amministrazione, oppure connettersi a un bilanciamento del carico esterno (di terze parti). Si consiglia di utilizzare il bilanciamento del carico StorageGRID.
+
+Per ulteriori informazioni su questa attività, vedere link:managing-load-balancing.html["Considerazioni per il bilanciamento del carico"].
+
+Per utilizzare il servizio bilanciamento del carico di StorageGRID, selezionare la scheda *StorageGRID load balancer*, quindi creare o selezionare l'endpoint di bilanciamento del carico che si desidera utilizzare. Per utilizzare un bilanciamento del carico esterno, selezionare la scheda *bilanciamento del carico esterno* e fornire i dettagli sul sistema già configurato.
+
+[role="tabbed-block"]
+====
+.Creare l'endpoint
+--
+.Fasi
+. Per creare un endpoint di bilanciamento del carico, selezionare *Crea endpoint*.
+. Per il passo *inserire i dettagli dell'endpoint*, completare i seguenti campi.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome
+ a| 
+Un nome descrittivo per l'endpoint.
+
+
+
+ a| 
+Porta
+ a| 
+La porta StorageGRID che si desidera utilizzare per il bilanciamento del carico. Per impostazione predefinita, questo campo è 10433 per il primo endpoint creato, ma è possibile inserire qualsiasi porta esterna non utilizzata. Se si immette 80 o 443, l'endpoint viene configurato solo sui nodi gateway, poiché queste porte sono riservate sui nodi Admin.
+
+*Nota:* le porte utilizzate da altri servizi di rete non sono consentite. Consultare la link:../network/network-port-reference.html["Riferimento porta di rete"].
+
+
+
+ a| 
+Tipo di client
+ a| 
+Deve essere *S3*.
+
+
+
+ a| 
+Protocollo di rete
+ a| 
+Selezionare *HTTPS*.
+
+*Nota*: La comunicazione con StorageGRID senza crittografia TLS è supportata ma non consigliata.
+
+|===
+. Per il passo *Select binding mode*, specificare la modalità di binding. La modalità di associazione controlla l'accesso all'endpoint utilizzando qualsiasi indirizzo IP o specifici indirizzi IP e interfacce di rete.
++
+[cols="1a,3a"]
+|===
+| Modalità | Descrizione 
+
+
+ a| 
+Globale (impostazione predefinita)
+ a| 
+I client possono accedere all'endpoint utilizzando l'indirizzo IP di qualsiasi nodo gateway o nodo amministratore, l'indirizzo IP virtuale (VIP) di qualsiasi gruppo ha su qualsiasi rete o un FQDN corrispondente.
+
+Utilizzare l'impostazione *Global* (predefinita) a meno che non sia necessario limitare l'accessibilità di questo endpoint.
+
+
+
+ a| 
+IP virtuali dei gruppi ha
+ a| 
+Per accedere a questo endpoint, i client devono utilizzare un indirizzo IP virtuale (o un FQDN corrispondente) di un gruppo ha.
+
+Gli endpoint con questa modalità di binding possono utilizzare tutti lo stesso numero di porta, purché i gruppi ha selezionati per gli endpoint non si sovrappongano.
+
+
+
+ a| 
+Interfacce di nodo
+ a| 
+I client devono utilizzare gli indirizzi IP (o gli FQDN corrispondenti) delle interfacce dei nodi selezionate per accedere a questo endpoint.
+
+
+
+ a| 
+Tipo di nodo
+ a| 
+In base al tipo di nodo selezionato, i client devono utilizzare l'indirizzo IP (o il corrispondente FQDN) di qualsiasi nodo di amministrazione o l'indirizzo IP (o il corrispondente FQDN) di qualsiasi nodo di gateway per accedere a questo endpoint.
+
+|===
+. Per la fase di accesso del tenant, selezionare una delle seguenti opzioni:
++
+[cols="1a,2a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Allow all tenant (Consenti tutti i tenant) (impostazione predefinita
+ a| 
+Tutti gli account tenant possono utilizzare questo endpoint per accedere ai bucket.
+
+
+
+ a| 
+Consenti tenant selezionati
+ a| 
+Solo gli account tenant selezionati possono utilizzare questo endpoint per accedere ai bucket.
+
+
+
+ a| 
+Blocca i tenant selezionati
+ a| 
+Gli account tenant selezionati non possono utilizzare questo endpoint per accedere ai bucket. Tutti gli altri tenant possono utilizzare questo endpoint.
+
+|===
+. Per il passo *Allega certificato*, selezionare una delle seguenti opzioni:
++
+[cols="1a,2a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Carica certificato (consigliato)
+ a| 
+Utilizzare questa opzione per caricare un certificato server firmato dalla CA, una chiave privata del certificato e un bundle CA opzionale.
+
+
+
+ a| 
+Generare un certificato
+ a| 
+Utilizzare questa opzione per generare un certificato autofirmato. Vedere link:configuring-load-balancer-endpoints.html["Configurare gli endpoint del bilanciamento del carico"] per i dettagli su cosa immettere.
+
+
+
+ a| 
+USA certificato StorageGRID S3
+ a| 
+Utilizzare questa opzione solo se è già stata caricata o generata una versione personalizzata del certificato globale StorageGRID. Per ulteriori informazioni, vedere link:configuring-custom-server-certificate-for-storage-node.html["Configurare i certificati API S3"] .
+
+|===
+. Selezionare *fine* per tornare all'installazione guidata S3.
+. Selezionare *continua* per passare al punto tenant e bucket.
+
+
+
+NOTE: Le modifiche a un certificato endpoint possono richiedere fino a 15 minuti per essere applicate a tutti i nodi.
+
+--
+.Utilizzare l'endpoint del bilanciamento del carico esistente
+--
+.Fasi
+. Per utilizzare un endpoint esistente, selezionarne il nome dal campo *Select a load balancer endpoint*.
+. Selezionare *continua* per passare al punto tenant e bucket.
+
+
+--
+.Utilizzare un bilanciamento del carico esterno
+--
+.Fasi
+. Per utilizzare un bilanciamento del carico esterno, completare i seguenti campi.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+FQDN
+ a| 
+Il nome di dominio completo (FQDN) del bilanciamento del carico esterno.
+
+
+
+ a| 
+Porta
+ a| 
+Il numero di porta che l'applicazione S3 utilizzerà per connettersi al bilanciamento del carico esterno.
+
+
+
+ a| 
+Certificato
+ a| 
+Copiare il certificato del server per il bilanciamento del carico esterno e incollarlo in questo campo.
+
+|===
+. Selezionare *continua* per passare al punto tenant e bucket.
+
+
+--
+====
+
+
+== Fase 3 di 6: Creazione di tenant e bucket
+
+Un tenant è un'entità che può utilizzare le applicazioni S3 per memorizzare e recuperare oggetti in StorageGRID. Ogni tenant dispone di utenti, chiavi di accesso, bucket, oggetti e un set specifico di funzionalità.
+
+Un bucket è un container utilizzato per memorizzare gli oggetti e i metadati degli oggetti di un tenant. Anche se i tenant potrebbero avere molti bucket, la procedura guidata ti aiuta a creare un tenant e un bucket nel modo più rapido e semplice. Se è necessario aggiungere bucket o impostare opzioni in un secondo momento, è possibile utilizzare Tenant Manager.
+
+Per ulteriori informazioni su questa attività, vedere link:creating-tenant-account.html["Creare un account tenant"] e link:../tenant/creating-s3-bucket.html["Creare un bucket S3"].
+
+.Fasi
+. Immettere un nome per l'account tenant.
++
+I nomi dei tenant non devono essere univoci. Una volta creato, l'account tenant riceve un ID account numerico univoco.
+
+. Definire l'accesso root per l'account tenant, a seconda che il sistema StorageGRID utilizzi link:using-identity-federation.html["federazione delle identità"], link:configuring-sso.html["SSO (Single Sign-on)"]o entrambi.
++
+[cols="1a,2a"]
+|===
+| Opzione | Eseguire questa operazione 
+
+
+ a| 
+Se la federazione delle identità non è attivata
+ a| 
+Specificare la password da utilizzare quando si effettua l'accesso al tenant come utente root locale.
+
+
+
+ a| 
+Se è attivata la federazione delle identità
+ a| 
+.. Selezionare un gruppo federated esistente da assegnare link:../tenant/tenant-management-permissions.html["Autorizzazione di accesso root"]al tenant.
+.. Facoltativamente, specificare la password da utilizzare quando si effettua l'accesso al tenant come utente root locale.
+
+
+
+
+ a| 
+Se sono attivate sia la federazione di identità che il single sign-on (SSO)
+ a| 
+Selezionare un gruppo federated esistente da assegnare link:../tenant/tenant-management-permissions.html["Autorizzazione di accesso root"]al tenant. Nessun utente locale può accedere.
+
+|===
+. Se si desidera che la procedura guidata crei l'ID della chiave di accesso e la chiave di accesso segreta per l'utente root, selezionare *Crea automaticamente la chiave di accesso S3 dell'utente root*.
++
+Selezionare questa opzione se l'unico utente per il tenant sarà l'utente root. Se altri utenti utilizzeranno questo tenant, link:../tenant/index.html["Utilizzare Tenant Manager"] per configurare chiavi e autorizzazioni.
+
+. Se si desidera creare un bucket per questo tenant ora, selezionare *Crea bucket per questo tenant*.
++
+
+TIP: Se S3 Object Lock è attivato per la griglia, il bucket creato in questa fase non ha S3 Object Lock abilitato. Se è necessario utilizzare un bucket blocco oggetti S3 per questa applicazione S3, non selezionare per creare un bucket ora. Utilizzare invece Tenant Manager in link:../tenant/creating-s3-bucket.html["creare il bucket"] un secondo momento.
+
++
+.. Immettere il nome del bucket utilizzato dall'applicazione S3. Ad esempio, `s3-bucket`.
++
+Non è possibile modificare il nome del bucket dopo averlo creato.
+
+.. Selezionare *Region* per questo bucket.
++
+Utilizzare l'area predefinita (`us-east-1`) a meno che non si preveda di utilizzare ILM in futuro per filtrare gli oggetti in base all'area del bucket.
+
+
+
+. Selezionare *Crea e continua*.
+
+
+
+
+== [[download-data]]fase 4 di 6: Download dei dati
+
+Nella fase di download dei dati, è possibile scaricare uno o due file per salvare i dettagli di ciò che si è appena configurato.
+
+.Fasi
+. Se è stato selezionato *Create root user S3 access key automatically* (Crea chiave di accesso S3 utente root automaticamente), eseguire una o entrambe le operazioni seguenti:
++
+** Selezionare *Scarica chiavi di accesso* per scaricare un `.csv` file contenente il nome dell'account del tenant, l'ID della chiave di accesso e la chiave di accesso segreta.
+** Selezionare l'icona di copia (image:../media/icon_tenant_copy_url.png["icona di copia"]) per copiare l'ID della chiave di accesso e la chiave di accesso segreta negli Appunti.
+
+
+. Selezionare *Scarica valori di configurazione* per scaricare un `.txt` file contenente le impostazioni per l'endpoint del bilanciamento del carico, il tenant, il bucket e l'utente root.
+. Salvare queste informazioni in una posizione sicura.
++
+
+CAUTION: Non chiudere questa pagina prima di aver copiato entrambi i tasti di accesso. I tasti non saranno disponibili dopo la chiusura di questa pagina. Assicurarsi di salvare queste informazioni in una posizione sicura perché possono essere utilizzate per ottenere dati dal sistema StorageGRID.
+
+. Se richiesto, selezionare la casella di controllo per confermare che le chiavi sono state scaricate o copiate.
+. Selezionare *continua* per passare alla regola ILM e al passaggio del criterio.
+
+
+
+
+== Fase 5 di 6: Esaminare la regola ILM e il criterio ILM per S3
+
+Le regole ILM (Information Lifecycle Management) controllano il posizionamento, la durata e il comportamento di acquisizione di tutti gli oggetti nel sistema StorageGRID. Il criterio ILM incluso in StorageGRID crea due copie replicate di tutti gli oggetti. Questo criterio è attivo fino a quando non si attiva almeno un nuovo criterio.
+
+.Fasi
+. Esaminare le informazioni fornite nella pagina.
+. Se si desidera aggiungere istruzioni specifiche per gli oggetti appartenenti al nuovo tenant o bucket, creare una nuova regola e una nuova policy. Vedere link:../ilm/access-create-ilm-rule-wizard.html["Creare una regola ILM"] e link:../ilm/ilm-policy-overview.html["Utilizzare i criteri ILM"].
+. Selezionare *ho esaminato questi passaggi e ho compreso cosa devo fare*.
+. Selezionare la casella di controllo per indicare che si comprende cosa fare in seguito.
+. Selezionare *continua* per accedere a *Riepilogo*.
+
+
+
+
+== Fase 6 di 6: Riepilogo
+
+.Fasi
+. Esaminare il riepilogo.
+. Prendere nota dei dettagli nei passaggi successivi, che descrivono la configurazione aggiuntiva che potrebbe essere necessaria prima di connettersi al client S3. Ad esempio, selezionando *Accedi come root* si passa a Tenant Manager, dove è possibile aggiungere utenti tenant, creare bucket aggiuntivi e aggiornare le impostazioni del bucket.
+. Selezionare *fine*.
+. Configurare l'applicazione utilizzando il file scaricato da StorageGRID o i valori ottenuti manualmente.
+

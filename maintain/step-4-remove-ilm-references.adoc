@@ -1,0 +1,44 @@
+---
+permalink: maintain/step-4-remove-ilm-references.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, remove ilm reference 
+summary: 'Dal passaggio 4 \(Rimuovi riferimenti ILM\) della procedura guidata Decommission Site, è necessario eliminare o modificare eventuali regole ILM non utilizzate che fanno riferimento al sito, anche se le regole non sono utilizzate in alcun criterio ILM.' 
+---
+= Fase 4: Rimuovere i riferimenti ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dal passaggio 4 (Rimuovi riferimenti ILM) della procedura guidata Decommission Site (Sito di decontaminazione), è necessario eliminare o modificare eventuali regole ILM non utilizzate che fanno riferimento al sito, anche se le regole non sono utilizzate in alcun criterio ILM.
+
+.Fasi
+. Determinare se eventuali regole ILM inutilizzate fanno riferimento al sito.
++
+Se sono elencate regole ILM, tali regole fanno ancora riferimento al sito ma non vengono utilizzate in alcuna politica.
+
++
+
+NOTE: Quando StorageGRID decomprime il sito, disattiva automaticamente tutti i profili di erasure coding inutilizzati che fanno riferimento al sito ed elimina automaticamente eventuali pool di storage inutilizzati che fanno riferimento al sito. Il pool di storage All Storage Node (StorageGRID 11.6 e versioni precedenti) viene rimosso perché utilizza il sito All Sites.
+
+. Modificare o eliminare ogni regola inutilizzata:
++
+** Per modificare una regola, andare alla pagina ILM rules (regole ILM) e aggiornare tutti i posizionamenti che utilizzano un profilo di erasure coding o un pool di storage che fa riferimento al sito. Quindi, tornare al *Passo 4 (Rimozione dei riferimenti ILM)*.
+** Per eliminare una regola, selezionare l'icona del cestino image:../media/icon_trash_can.png["Il Cestino delle icone può"]e selezionare *OK*.
++
+
+NOTE: È necessario eliminare la regola *Make 2 copies* prima di poter decommissionare un sito.
+
+
+
+. Verificare che nessuna regola ILM non utilizzata faccia riferimento al sito e che il pulsante *Avanti* sia attivato.
+. Selezionare *Avanti*.
++
+
+NOTE: Tutti i pool storage rimanenti e i profili di erasure coding relativi al sito non saranno più validi quando il sito viene rimosso. Quando StorageGRID decomprime il sito, disattiva automaticamente tutti i profili di erasure coding inutilizzati che fanno riferimento al sito ed elimina automaticamente eventuali pool di storage inutilizzati che fanno riferimento al sito. Il pool di storage All Storage Node (StorageGRID 11.6 e versioni precedenti) viene rimosso perché utilizza il sito All Sites.
+
++
+Viene visualizzato il punto 5 (Risolvi conflitti di nodi).
+
+

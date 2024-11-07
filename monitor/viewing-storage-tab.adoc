@@ -1,0 +1,38 @@
+---
+permalink: monitor/viewing-storage-tab.html 
+sidebar: sidebar 
+keywords: storage tab 
+summary: La scheda Storage riepiloga la disponibilità dello storage e altre metriche di storage. 
+---
+= Visualizzare la scheda Storage (archiviazione)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La scheda Storage riepiloga la disponibilità dello storage e altre metriche di storage.
+
+Viene visualizzata la scheda Storage (archiviazione) per tutti i nodi, ciascun sito e l'intera griglia.
+
+
+
+== Grafici utilizzati per lo storage
+
+Per i nodi di storage, ciascun sito e l'intero grid, la scheda Storage include grafici che mostrano la quantità di storage utilizzata dai dati degli oggetti e dai metadati degli oggetti nel tempo.
+
+
+NOTE: Quando un nodo non è connesso alla griglia, ad esempio durante l'aggiornamento o uno stato disconnesso, alcune metriche potrebbero non essere disponibili o essere escluse dai totali del sito e della griglia. Dopo che un nodo si ricollega alla griglia, attendere alcuni minuti per consentire la stabilizzazione dei valori.
+
+image::../media/nodes_storage_node_storage_tab.png[Nodes (nodi) > Storage Node (nodo storage) > scheda Storage]
+
+
+
+== Dischi, volumi e tabelle di archiviazione degli oggetti
+
+Per tutti i nodi, la scheda Storage contiene i dettagli relativi ai dischi e ai volumi sul nodo. Per i nodi di storage, la tabella degli archivi di oggetti fornisce informazioni su ciascun volume di storage.
+
+image::../media/nodes_page_storage_tables.png[Tabelle di archiviazione delle pagine dei nodi]
+
+.Informazioni correlate
+link:monitoring-storage-capacity.html["Monitorare la capacità dello storage"]

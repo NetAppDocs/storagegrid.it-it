@@ -1,0 +1,154 @@
+---
+permalink: s3/initiate-multipart-upload.html 
+sidebar: sidebar 
+keywords: initiate multipart upload, CreateMultipartUpload, upload ID 
+summary: 'L"operazione CreateMultipartUpload avvia un caricamento multiparte per un oggetto e restituisce un ID di caricamento.' 
+---
+= CreateMultipartUpload
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'operazione CreateMultipartUpload (precedentemente denominata Initiate Multipart Upload) avvia un caricamento multiparte per un oggetto e restituisce un ID di caricamento.
+
+L' `x-amz-storage-class`intestazione della richiesta è supportata. Il valore inviato per `x-amz-storage-class` influisce sul modo in cui StorageGRID protegge i dati degli oggetti durante l'acquisizione e non sul numero di copie persistenti dell'oggetto memorizzate nel sistema StorageGRID (determinato da ILM).
+
+Se la regola ILM corrispondente a un oggetto acquisito utilizza Strict link:../ilm/data-protection-options-for-ingest.html["opzione di acquisizione"], l' `x-amz-storage-class`intestazione non ha alcun effetto.
+
+I seguenti valori possono essere utilizzati per `x-amz-storage-class`:
+
+* `STANDARD` (Impostazione predefinita)
++
+** *Dual Commit*: Se la regola ILM specifica l'opzione di acquisizione Dual Commit, non appena un oggetto viene acquisito una seconda copia di tale oggetto viene creata e distribuita in un nodo di archiviazione diverso (dual commit). Quando viene valutato ILM, StorageGRID determina se queste copie intermedie iniziali soddisfano le istruzioni di posizionamento della regola. In caso contrario, potrebbe essere necessario creare nuove copie degli oggetti in posizioni diverse e eliminare le copie intermedie iniziali.
+** *Balanced*: Se la regola ILM specifica l'opzione Balanced (bilanciamento) e StorageGRID non può eseguire immediatamente tutte le copie specificate nella regola, StorageGRID esegue due copie intermedie su nodi di storage diversi.
++
+Se StorageGRID è in grado di creare immediatamente tutte le copie dell'oggetto specificate nella regola ILM (posizionamento sincrono), l' `x-amz-storage-class`intestazione non ha effetto.
+
+
+
+* `REDUCED_REDUNDANCY`
++
+** *Dual Commit*: Se la regola ILM specifica l'opzione Dual Commit, StorageGRID crea una singola copia provvisoria quando l'oggetto viene acquisito (Single Commit).
+** *Balanced*: Se la regola ILM specifica l'opzione Balanced, StorageGRID crea una singola copia provvisoria solo se il sistema non è in grado di eseguire immediatamente tutte le copie specificate nella regola. Se StorageGRID è in grado di eseguire il posizionamento sincrono, questa intestazione non ha alcun effetto. L' `REDUCED_REDUNDANCY`opzione viene utilizzata in modo ottimale quando la regola ILM corrispondente all'oggetto crea una singola copia replicata. In questo caso l'utilizzo di `REDUCED_REDUNDANCY` elimina la creazione e la cancellazione non necessarie di una copia degli oggetti extra per ogni operazione di acquisizione.
+
+
++
+L'uso dell' `REDUCED_REDUNDANCY`opzione non è consigliato in altre circostanze. `REDUCED_REDUNDANCY` aumenta il rischio di perdita di dati degli oggetti durante l'acquisizione. Ad esempio, è possibile che si verifichino perdite di dati se la singola copia viene inizialmente memorizzata su un nodo di storage che non riesce prima che si verifichi la valutazione ILM.
+
+
+
+
+CAUTION: Avere una sola copia replicata per qualsiasi periodo di tempo mette i dati a rischio di perdita permanente. Se esiste una sola copia replicata di un oggetto, quest'ultimo viene perso in caso di errore o errore significativo di un nodo di storage. Inoltre, durante le procedure di manutenzione, ad esempio gli aggiornamenti, si perde temporaneamente l'accesso all'oggetto.
+
+La specifica `REDUCED_REDUNDANCY` influisce solo sul numero di copie create al momento della prima acquisizione di un oggetto. Non influisce sul numero di copie dell'oggetto create quando l'oggetto viene valutato dalle policy ILM attive e non comporta l'archiviazione dei dati a livelli inferiori di ridondanza nel sistema StorageGRID.
+
+
+NOTE: Se si sta inserendo un oggetto in un bucket con S3 Object Lock attivato, l' `REDUCED_REDUNDANCY`opzione viene ignorata. Se si sta acquisendo un oggetto in un bucket di conformità legacy, `REDUCED_REDUNDANCY` l'opzione restituisce un errore. StorageGRID eseguirà sempre un ingest dual-commit per garantire che i requisiti di conformità siano soddisfatti.
+
+
+
+== Intestazioni di richiesta supportate
+
+Sono supportate le seguenti intestazioni di richiesta:
+
+* `Content-Type`
+* `x-amz-checksum-algorithm`
++
+Attualmente, è supportato solo il valore SHA256 per `x-amz-checksum-algorithm`.
+
+* `x-amz-meta-`, seguito da una coppia nome-valore contenente metadati definiti dall'utente
++
+Quando si specifica la coppia nome-valore per i metadati definiti dall'utente, utilizzare questo formato generale:
+
++
+[listing]
+----
+x-amz-meta-_name_: `value`
+----
++
+Se si desidera utilizzare l'opzione *tempo di creazione definito dall'utente* come tempo di riferimento per una regola ILM, è necessario utilizzare `creation-time` come nome dei metadati che registrano al momento della creazione dell'oggetto. Ad esempio:
+
++
+[listing]
+----
+x-amz-meta-creation-time: 1443399726
+----
++
+Il valore per `creation-time` viene valutato in secondi dal 1 gennaio 1970.
+
++
+
+NOTE: L'aggiunta `creation-time` come metadati definiti dall'utente non è consentita se si aggiunge un oggetto a un bucket in cui è abilitata la conformità legacy. Viene restituito un errore.
+
+* Intestazioni della richiesta di blocco oggetti S3:
++
+** `x-amz-object-lock-mode`
+** `x-amz-object-lock-retain-until-date`
+** `x-amz-object-lock-legal-hold`
++
+Se viene effettuata una richiesta senza queste intestazioni, le impostazioni di conservazione predefinite del bucket vengono utilizzate per calcolare la versione dell'oggetto che resta aggiornata.
+
++
+link:../s3/use-s3-api-for-s3-object-lock.html["Utilizzare l'API REST S3 per configurare il blocco oggetti S3"]
+
+
+
+* Intestazioni di richiesta SSE:
++
+** `x-amz-server-side-encryption`
+** `x-amz-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption-customer-key`
+** `x-amz-server-side-encryption-customer-algorithm`
++
+<<Intestazioni di richiesta per la crittografia lato server>>
+
+
+
++
+
+NOTE: Per informazioni sul modo in cui StorageGRID gestisce i caratteri UTF-8, vedere link:put-object.html["PutObject"].
+
+
+
+
+
+== Intestazioni di richiesta per la crittografia lato server
+
+È possibile utilizzare le seguenti intestazioni di richiesta per crittografare un oggetto multiparte con crittografia lato server. Le opzioni SSE e SSE-C si escludono a vicenda.
+
+* *SSE*: Utilizzare la seguente intestazione nella richiesta CreateMultipartUpload se si desidera crittografare l'oggetto con una chiave univoca gestita da StorageGRID. Non specificare questa intestazione in nessuna delle richieste UploadPart.
++
+** `x-amz-server-side-encryption`
+
+
+* *SSE-C*: Utilizzare tutte e tre le intestazioni nella richiesta CreateMultipartUpload (e in ogni richiesta UploadPart successiva) se si desidera crittografare l'oggetto con una chiave univoca fornita e gestita dall'utente.
++
+** `x-amz-server-side-encryption-customer-algorithm`: Specificare `AES256`.
+** `x-amz-server-side-encryption-customer-key`: Specificare la chiave di crittografia per il nuovo oggetto.
+** `x-amz-server-side-encryption-customer-key-MD5`: Specificare il digest MD5 della chiave di crittografia del nuovo oggetto.
+
+
+
+
+
+CAUTION: Le chiavi di crittografia fornite non vengono mai memorizzate. Se si perde una chiave di crittografia, si perde l'oggetto corrispondente. Prima di utilizzare le chiavi fornite dal cliente per proteggere i dati degli oggetti, esaminare le considerazioni relative a link:using-server-side-encryption.html["utilizzo della crittografia lato server"].
+
+
+
+== Intestazioni di richiesta non supportate
+
+La seguente intestazione della richiesta non è supportata:
+
+* `x-amz-website-redirect-location`
++
+La `x-amz-website-redirect-location` testata ritorna `XNotImplemented`.
+
+
+
+
+
+== Versione
+
+Il caricamento multiparte consiste in operazioni separate per l'avvio del caricamento, l'elenco dei caricamenti, il caricamento delle parti, l'assemblaggio delle parti caricate e il completamento del caricamento. Quando si esegue l'operazione CompleteMultipartUpload, gli oggetti vengono creati (e, se applicabile, vengono aggiornati).

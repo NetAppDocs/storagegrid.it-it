@@ -1,0 +1,71 @@
+---
+permalink: ilm/removing-cloud-storage-pool.html 
+sidebar: sidebar 
+keywords: remove cloud storage pool 
+summary: È possibile rimuovere un Cloud Storage Pool se non utilizzato in una regola ILM e non contiene dati oggetto. 
+---
+= Rimuovere un pool di storage cloud
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile rimuovere un Cloud Storage Pool se non utilizzato in una regola ILM e non contiene dati oggetto.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso richieste"].
+
+
+
+
+== Se necessario, utilizzare ILM per spostare i dati dell'oggetto
+
+Se il Cloud Storage Pool che si desidera rimuovere contiene dati a oggetti, è necessario utilizzare ILM per spostare i dati in una posizione diversa. Ad esempio, è possibile spostare i dati su nodi di storage nel proprio grid o su un pool di storage cloud diverso.
+
+.Fasi
+. Selezionare *ILM* > *Storage Pools* > *Cloud Storage Pools*.
+. Esaminare la colonna relativa all'utilizzo di ILM nella tabella per determinare se è possibile rimuovere il Cloud Storage Pool.
++
+Non puoi rimuovere un Cloud Storage Pool se viene utilizzato in una regola ILM o in un profilo di erasure coding.
+
+. Se si utilizza il Cloud Storage Pool, selezionare *_cloud storage pool name_* > *ILM usage*.
+. link:working-with-ilm-rules-and-ilm-policies.html["Clonare ogni regola ILM"] Che attualmente colloca gli oggetti nel pool di cloud storage da rimuovere.
+. Determinare dove si desidera spostare gli oggetti esistenti gestiti da ciascuna regola clonata.
++
+È possibile utilizzare uno o più pool di storage o un pool di storage cloud diverso.
+
+. Modificare ciascuna regola clonata.
++
+Per la fase 2 della creazione guidata regola ILM, selezionare la nuova posizione dal campo *copie at*.
+
+. link:creating-ilm-policy.html["Creare un nuovo criterio ILM"] e sostituire ciascuna delle vecchie regole con una regola clonata.
+. Attivare la nuova policy.
+. Attendere che ILM rimuova gli oggetti dal Cloud Storage Pool e li inseri nella nuova posizione.
+
+
+
+
+== Eliminare il pool di storage cloud
+
+Quando il Cloud Storage Pool è vuoto e non viene utilizzato in alcuna regola ILM, è possibile eliminarlo.
+
+.Prima di iniziare
+* Sono state rimosse tutte le regole ILM che potrebbero aver utilizzato il pool.
+* Hai confermato che il bucket S3 o il container Azure non contiene oggetti.
++
+Si verifica un errore se si tenta di rimuovere un Cloud Storage Pool se contiene oggetti. Vedere link:troubleshooting-cloud-storage-pools.html["Risolvere i problemi dei pool di storage cloud"].
+
++
+
+NOTE: Quando crei un pool di storage cloud, StorageGRID scrive un file di marker nel bucket o nel container per identificarlo come pool di storage cloud. Non rimuovere questo file, che è denominato `x-ntap-sgws-cloud-pool-uuid`.
+
+
+
+.Fasi
+. Selezionare *ILM* > *Storage Pools* > *Cloud Storage Pools*.
+. Se la colonna ILM Usage (utilizzo ILM) indica che il Cloud Storage Pool non è in uso, selezionare la casella di controllo.
+. Selezionare *azioni* > *Rimuovi*.
+. Selezionare *OK*.
+

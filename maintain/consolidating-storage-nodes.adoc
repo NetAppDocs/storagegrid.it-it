@@ -1,0 +1,23 @@
+---
+permalink: maintain/consolidating-storage-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage node, consolidate storage node, consolidating storage node 
+summary: 'È possibile consolidare i nodi di storage per ridurre il numero di nodi di storage per un sito o un"implementazione, aumentando al contempo la capacità di storage.' 
+---
+= Consolidare i nodi di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile consolidare i nodi di storage per ridurre il numero di nodi di storage per un sito o un'implementazione, aumentando al contempo la capacità di storage.
+
+Quando si consolidano i nodi di storage, si link:../expand/index.html["Espandere il sistema StorageGRID"]aggiungono nuovi nodi di storage con capacità maggiore e si disattivano i vecchi nodi di storage con capacità minore. Durante la procedura di decommissionamento, gli oggetti vengono migrati dai vecchi nodi di storage ai nuovi nodi di storage.
+
+
+NOTE: Se si consolidano appliance più vecchie e più piccole con nuovi modelli o appliance con capacità maggiore, prendere in considerazione https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/how-appliance-node-cloning-works.html["clonare il nodo appliance"^] (o utilizzare la clonazione dei nodi di appliance e la procedura di decommissionamento se non si esegue una sostituzione one-to-one).
+
+Ad esempio, è possibile aggiungere due nuovi nodi di storage con capacità maggiore per sostituire tre nodi di storage meno recenti. Prima di tutto, utilizzare la procedura di espansione per aggiungere i due nuovi nodi di storage di dimensioni maggiori, quindi utilizzare la procedura di decommissionamento per rimuovere i tre nodi di storage di capacità inferiore.
+
+Aggiungendo nuova capacità prima di rimuovere i nodi di storage esistenti, è possibile garantire una distribuzione più equilibrata dei dati nel sistema StorageGRID. Inoltre, si riduce la possibilità che un nodo di storage esistente venga spinto oltre il livello di filigrana dello storage.

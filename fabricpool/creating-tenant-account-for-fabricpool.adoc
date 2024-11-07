@@ -1,0 +1,106 @@
+---
+permalink: fabricpool/creating-tenant-account-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, tenant, SSO 
+summary: 'È necessario creare un account tenant in Grid Manager per l"utilizzo con FabricPool.' 
+---
+= Creare un account tenant per FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario creare un account tenant in Grid Manager per l'utilizzo con FabricPool.
+
+Gli account tenant consentono alle applicazioni client di memorizzare e recuperare oggetti su StorageGRID. Ogni account tenant dispone di un proprio ID account, gruppi e utenti autorizzati, bucket e oggetti.
+
+Per ulteriori informazioni su questa attività, vedere link:../admin/creating-tenant-account.html["Creare un account tenant"]. Per completare questa attività mediante la procedura guidata di installazione di FabricPool, andare a link:use-fabricpool-setup-wizard-steps.html["Accedere e completare l'installazione guidata di FabricPool"].
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+
+
+.Fasi
+. Selezionare *TENANT*.
+. Selezionare *Crea*.
+. Per la procedura di inserimento dei dettagli, immettere le seguenti informazioni.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome
+ a| 
+Un nome per l'account tenant. I nomi dei tenant non devono essere univoci. Una volta creato, l'account tenant riceve un ID account numerico univoco.
+
+
+
+ a| 
+Descrizione (opzionale)
+ a| 
+Una descrizione che aiuta a identificare il tenant.
+
+
+
+ a| 
+Tipo di client
+ a| 
+Deve essere *S3* per FabricPool.
+
+
+
+ a| 
+Quota di storage (opzionale)
+ a| 
+Lasciare vuoto questo campo per FabricPool.
+
+|===
+. Per il passo Select permissions:
++
+.. Non selezionare *Allow platform Services* (Consenti servizi piattaforma).
++
+I tenant FabricPool non devono in genere utilizzare servizi di piattaforma, come la replica di CloudMirror.
+
+.. Facoltativamente, selezionare *Usa origine identità propria*.
+.. Non selezionare *Allow S3 Select* (Consenti selezione S3).
++
+I tenant FabricPool in genere non devono utilizzare S3 Select.
+
+.. In alternativa, selezionare *Usa connessione federazione griglia* per consentire al tenant di utilizzare un link:../admin/grid-federation-overview.html["connessione a federazione di griglie"]clone per account e la replica cross-grid. Quindi, selezionare la connessione a federazione di griglie da utilizzare.
+
+
+. Per l'operazione Definisci accesso root, specificare quale utente avrà l'autorizzazione di accesso root iniziale per l'account tenant, a seconda che il sistema StorageGRID utilizzi link:../admin/using-identity-federation.html["federazione delle identità"], link:../admin/configuring-sso.html["SSO (Single Sign-on)"]o entrambi.
++
+[cols="1a,2a"]
+|===
+| Opzione | Eseguire questa operazione 
+
+
+ a| 
+Se la federazione delle identità non è attivata
+ a| 
+Specificare la password da utilizzare quando si effettua l'accesso al tenant come utente root locale.
+
+
+
+ a| 
+Se è attivata la federazione delle identità
+ a| 
+.. Selezionare un gruppo federated esistente per disporre dell'autorizzazione di accesso root per il tenant.
+.. Facoltativamente, specificare la password da utilizzare quando si effettua l'accesso al tenant come utente root locale.
+
+
+
+
+ a| 
+Se sono attivate sia la federazione di identità che il single sign-on (SSO)
+ a| 
+Selezionare un gruppo federated esistente per disporre dell'autorizzazione di accesso root per il tenant. Nessun utente locale può accedere.
+
+|===
+. Selezionare *Crea tenant*.
+

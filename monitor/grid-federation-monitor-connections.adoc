@@ -1,0 +1,120 @@
+---
+permalink: monitor/grid-federation-monitor-connections.html 
+sidebar: sidebar 
+keywords: grid federation, monitor connection, cross grid replication metrics 
+summary: È possibile monitorare informazioni di base su tutte le connessioni di federazione di griglie, informazioni dettagliate su una connessione specifica o metriche Prometheus sulle operazioni di replica cross-grid. È possibile monitorare una connessione da entrambe le griglie. 
+---
+= Monitorare le connessioni a federazione di griglie
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile monitorare le informazioni di base su tutto link:../admin/grid-federation-overview.html["connessioni a federazione di griglie"], le informazioni dettagliate su una connessione specifica o le metriche Prometheus sulle operazioni di replica cross-grid. È possibile monitorare una connessione da entrambe le griglie.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager su una delle due griglie utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone del link:../admin/admin-group-permissions.html["Autorizzazione di accesso root"] per la griglia a cui si è effettuato l'accesso.
+
+
+
+
+== Visualizza tutte le connessioni
+
+La pagina Grid Federation mostra informazioni di base su tutte le connessioni a federazione di griglie e su tutti gli account tenant autorizzati a utilizzare le connessioni a federazione di griglie.
+
+.Fasi
+. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
++
+Viene visualizzata la pagina Grid Federation.
+
+. Per visualizzare le informazioni di base su tutte le connessioni in questa griglia, selezionare la scheda *connessioni*.
++
+Da questa scheda è possibile:
+
++
+** link:../admin/grid-federation-create-connection.html["Creare una nuova connessione"].
+** Selezionare una connessione esistente a link:../admin/grid-federation-manage-connection.html["modifica o verifica"].
+
+
++
+image::../media/grid-federation-connections-tab.png[Scheda Grid Federation Connections]
+
+. Per visualizzare le informazioni di base per tutti gli account tenant di questa griglia che dispongono dell'autorizzazione *Usa connessione federazione griglia*, selezionare la scheda *tenant consentiti*.
++
+Da questa scheda è possibile:
+
++
+** link:../monitor/monitoring-tenant-activity.html["Visualizza la pagina dei dettagli per ciascun tenant consentito"].
+** Visualizzare la pagina dei dettagli per ciascuna connessione. Vedere <<view-specific-connection,Visualizzare una connessione specifica>>.
+** Selezionare un tenant consentito e link:../admin/grid-federation-manage-tenants.html["rimuovere l'autorizzazione"].
+** Verificare la presenza di errori di replica tra griglie e cancellare l'ultimo errore, se presente. Vedere link:../admin/grid-federation-troubleshoot.html["Risolvere i problemi relativi agli errori di federazione della griglia"].
++
+image::../media/grid-federation-permitted-tenants-tab.png[Scheda tenant consentiti per la federazione di griglie]
+
+
+
+
+
+
+
+== [[view-specific-Connection]]Visualizza una connessione specifica
+
+È possibile visualizzare i dettagli di una connessione a federazione di griglie specifica.
+
+.Fasi
+. Selezionare una delle schede dalla pagina Grid Federation, quindi selezionare il nome della connessione dalla tabella.
++
+Dalla pagina dei dettagli per la connessione, è possibile:
+
++
+** Consultare le informazioni di base sullo stato della connessione, inclusi i nomi host locali e remoti, la porta e lo stato della connessione.
+** Selezionare una connessione a link:../admin/grid-federation-manage-connection.html["modifica, verifica o rimozione"].
+
+
+. Quando si visualizza una connessione specifica, selezionare la scheda *tenant consentiti* per visualizzare i dettagli relativi ai tenant consentiti per la connessione.
++
+Da questa scheda è possibile:
+
++
+** link:../monitor/monitoring-tenant-activity.html["Visualizza la pagina dei dettagli per ciascun tenant consentito"].
+** link:../admin/grid-federation-manage-tenants.html["Rimuovere l'autorizzazione di un tenant"] per utilizzare la connessione.
+** Verificare la presenza di errori di replica tra griglie e cancellare l'ultimo errore. Vedere link:../admin/grid-federation-troubleshoot.html["Risolvere i problemi relativi agli errori di federazione della griglia"].
++
+image::../media/grid-federation-permitted-tenants-tab-for-connection.png[grid-federation-permitted-tenants-tab-for-connection]
+
+
+
+. Quando si visualizza una connessione specifica, selezionare la scheda *certificati* per visualizzare i certificati server e client generati dal sistema per questa connessione.
++
+Da questa scheda è possibile:
+
++
+** link:../admin/grid-federation-manage-connection.html["Ruotare i certificati di connessione"].
+** Selezionare *Server* o *Client* per visualizzare o scaricare il certificato associato o copiare il PEM del certificato.
++
+image::../media/grid-federation-certificates-tab.png[grid-federation-certificates-tab]
+
+
+
+
+
+
+
+== Analisi delle metriche di replica cross-grid
+
+Puoi utilizzare la dashboard di replica cross-grid di Grafana per visualizzare le metriche Prometheus sulle operazioni di replica cross-grid sul tuo grid.
+
+.Fasi
+. Da Grid Manager, selezionare *SUPPORT* > *Tools* > *Metrics*.
++
+
+NOTE: Gli strumenti disponibili nella pagina metriche sono destinati all'utilizzo da parte del supporto tecnico. Alcune funzioni e voci di menu di questi strumenti sono intenzionalmente non funzionali e sono soggette a modifiche. Vedere l'elenco di link:../monitor/commonly-used-prometheus-metrics.html["Metriche Prometheus comunemente utilizzate"].
+
+. Nella sezione Grafana della pagina, selezionare *Cross Grid Replication*.
++
+Per istruzioni dettagliate, vedere link:../monitor/reviewing-support-metrics.html["Rivedere le metriche di supporto"].
+
+. Per riprovare la replica degli oggetti che non sono stati replicati, vedere link:../admin/grid-federation-retry-failed-replication.html["Identificare e riprovare le operazioni di replica non riuscite"].
+

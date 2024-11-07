@@ -1,0 +1,62 @@
+---
+permalink: maintain/grid-node-decommissioning.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission, remove grid node 
+summary: È possibile utilizzare la procedura di decommissionamento dei nodi per rimuovere uno o più nodi della griglia in uno o più siti. Non è possibile decommissionare il nodo di amministrazione primario. 
+---
+= Decommissionare il nodo di rete
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare la procedura di decommissionamento dei nodi per rimuovere uno o più nodi della griglia in uno o più siti. Impossibile decommissionare il nodo di amministrazione primario.
+
+
+
+== Quando decommissionare un nodo
+
+Utilizzare la procedura di decommissionamento del nodo quando si verifica una delle seguenti condizioni:
+
+* È stato aggiunto un nodo di archiviazione più grande in un'espansione e si desidera rimuovere uno o più nodi di archiviazione più piccoli, conservando al tempo stesso gli oggetti.
++
+
+TIP: Se si desidera sostituire un vecchio apparecchio con un nuovo apparecchio, è consigliabile https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/how-appliance-node-cloning-works.html["clonare il nodo appliance"^] non aggiungere un nuovo apparecchio in un'espansione e quindi smantellare il vecchio apparecchio.
+
+* Richiede meno storage totale.
+* Non è più necessario un nodo gateway.
+* Non è più necessario un nodo di amministrazione non primario.
+* La griglia include un nodo disconnesso che non è possibile ripristinare o ripristinare online.
+* La griglia include un nodo di archiviazione.
+
+
+
+
+== Come decommissionare un nodo
+
+È possibile dismettere nodi di rete connessi o nodi di rete disconnessi.
+
+Decommissiona i nodi connessi:: In generale, è necessario disattivare i nodi della griglia solo quando sono connessi al sistema StorageGRID e solo quando tutti i nodi sono in condizioni normali (le icone verdi sono presenti nelle pagine *NODI* e nella pagina *nodi di decompressione*).
++
+--
+Per istruzioni, vedere link:decommissioning-connected-grid-nodes.html["Decommissionare i nodi di rete connessi"].
+
+--
+Decommissiona i nodi disconnessi:: In alcuni casi, potrebbe essere necessario smantellare un nodo di rete che non è attualmente connesso alla rete (uno il cui stato è sconosciuto o amministrativamente inattivo).
++
+--
+Per istruzioni, vedere link:decommissioning-disconnected-grid-nodes.html["Decommissionare nodi di rete disconnessi"].
+
+--
+
+
+
+
+== Cosa considerare prima del decommissionamento di un nodo
+
+Prima di eseguire una delle due procedure, esaminare le considerazioni relative a ciascun tipo di nodo:
+
+* link:considerations-for-decommissioning-admin-or-gateway-nodes.html["Considerazioni per il decommissionamento del nodo Admin o Gateway"]
+* link:considerations-for-decommissioning-storage-nodes.html["Considerazioni per la decommissionazione del nodo di storage"]
+

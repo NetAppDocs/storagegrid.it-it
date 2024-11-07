@@ -1,0 +1,100 @@
+---
+permalink: maintain/step-3-revise-ilm-policy.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, revise ilm policies 
+summary: 'Dal passaggio 3 \(Revisiona criteri ILM\) della procedura guidata Decommission Site, è possibile determinare se il sito è referenziato da qualsiasi criterio ILM.' 
+---
+= Fase 3: Revisione dei criteri ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dal passaggio 3 (Rivedi criteri ILM) della procedura guidata Decommission Site, è possibile determinare se il sito è referenziato da qualsiasi criterio ILM.
+
+.Prima di iniziare
+Avete una buona comprensione di come link:../ilm/index.html["Gestire gli oggetti con ILM"]. Hai familiarità con la creazione di pool di storage e regole ILM e con la simulazione e l'attivazione di una policy ILM.
+
+.A proposito di questa attività
+StorageGRID non può decommissionare un sito se una regola ILM di qualsiasi policy (attiva o inattiva) fa riferimento a quel sito.
+
+Se un criterio ILM fa riferimento al sito che si desidera decommissionare, è necessario rimuovere tali criteri o modificarli in modo che soddisfino i seguenti requisiti:
+
+* Proteggere completamente tutti i dati degli oggetti.
+* Non fare riferimento al sito che si sta smantellando.
+* Non utilizzare pool di archiviazione che si riferiscono al sito o utilizzare l'opzione tutti i siti.
+* Non utilizzare profili di erasure coding che fanno riferimento al sito.
+* Non utilizzare la regola Crea 2 copie da StorageGRID 11,6 o da installazioni precedenti.
+
+
+
+CAUTION: Non creare mai una regola ILM a copia singola per consentire la rimozione di un sito. Una regola ILM che crea una sola copia replicata per qualsiasi periodo di tempo mette i dati a rischio di perdita permanente. Se esiste una sola copia replicata di un oggetto, quest'ultimo viene perso in caso di errore o errore significativo di un nodo di storage. Inoltre, durante le procedure di manutenzione, ad esempio gli aggiornamenti, si perde temporaneamente l'accesso all'oggetto.
+
+
+TIP: Se si esegue un _sito connesso decommissionamento_, è necessario considerare come StorageGRID deve gestire i dati dell'oggetto attualmente presenti nel sito che si desidera rimuovere. A seconda dei requisiti di data Protection, nuove regole possono spostare i dati degli oggetti esistenti in siti diversi o possono eliminare eventuali copie aggiuntive degli oggetti che non sono più necessarie.
+
+Contatta il supporto tecnico se hai bisogno di assistenza nella progettazione di una nuova policy.
+
+.Fasi
+. Dalla fase 3 (revisione dei criteri ILM), determinare se i criteri ILM fanno riferimento al sito selezionato per la disattivazione.
+. Se non sono elencati criteri, selezionare *Avanti* per passare a link:step-4-remove-ilm-references.html["Fase 4: Rimuovere i riferimenti ILM"].
+. Se sono elencati uno o più criteri ILM _Active_, clonare ogni criterio esistente o creare nuovi criteri che non fanno riferimento al sito da smantellare:
++
+.. Selezionare il collegamento per il criterio nella colonna Nome criterio.
++
+La pagina dei dettagli del criterio ILM per il criterio viene visualizzata in una nuova scheda del browser. La pagina Decommission Site rimane aperta nella scheda Other (Altro).
+
+.. Attenersi alle seguenti linee guida e istruzioni, se necessario:
++
+*** Utilizzare le regole ILM:
++
+**** link:../ilm/creating-storage-pool.html["Creare uno o più pool di storage"] che non si riferiscono al sito.
+**** link:../ilm/working-with-ilm-rules-and-ilm-policies.html["Modificare o sostituire le regole"] che fanno riferimento al sito.
++
+
+NOTE: Non selezionare la regola *Crea 2 copie* perché questa regola utilizza il pool di storage *tutti i nodi di storage*, che non è consentito.
+
+
+
+*** Utilizzare i criteri ILM:
++
+**** link:../ilm/working-with-ilm-rules-and-ilm-policies.html#clone-ilm-policy["Clonazione di una policy ILM esistente"] o link:../ilm/creating-ilm-policy.html["Creare una nuova policy ILM"].
+**** Assicurarsi che la regola predefinita e le altre regole non facciano riferimento al sito.
++
+
+CAUTION: Verificare che le regole ILM siano nell'ordine corretto. Una volta attivato il criterio, gli oggetti nuovi ed esistenti vengono valutati dalle regole nell'ordine elencato, iniziando dall'inizio.
+
+
+
+
+
+.. Acquisire gli oggetti di test e simulare la policy per applicare le regole corrette.
++
+
+CAUTION: Gli errori in un criterio ILM possono causare una perdita di dati irrecuperabile. Esaminare attentamente e simulare la policy prima di attivarla per confermare che funzionerà come previsto.
+
++
+
+CAUTION: Quando si attiva un nuovo criterio ILM, StorageGRID lo utilizza per gestire tutti gli oggetti, inclusi quelli esistenti e quelli acquisiti di recente. Prima di attivare un nuovo criterio ILM, esaminare le eventuali modifiche apportate al posizionamento degli oggetti replicati e codificati in cancellazione esistenti. La modifica della posizione di un oggetto esistente potrebbe causare problemi di risorse temporanee quando i nuovi posizionamenti vengono valutati e implementati.
+
+.. Attivare le nuove policy e assicurarsi che le vecchie policy siano ora inattive.
++
+Se si desidera attivare più criteri, link:../ilm/creating-ilm-policy.html#activate-ilm-policy["Seguire la procedura per creare i tag dei criteri ILM"].
+
++
+Se si sta eseguendo una decommissionazione del sito connesso, StorageGRID inizia a rimuovere i dati dell'oggetto dal sito selezionato non appena si attiva il nuovo criterio ILM. Lo spostamento o l'eliminazione di tutte le copie degli oggetti potrebbe richiedere settimane. Sebbene sia possibile avviare in sicurezza la decommissionazione di un sito mentre i dati degli oggetti sono ancora presenti nel sito, la procedura di decommissionazione viene completata più rapidamente e con meno interruzioni e impatti sulle performance se si consente di spostare i dati dal sito prima di avviare la procedura di decommissionazione effettiva (Selezionando *Avvia decommissionazione* nella fase 5 della procedura guidata).
+
+
+
+. Per ciascun criterio _inattivo_, modificarlo o rimuoverlo selezionando prima il collegamento per ciascun criterio come descritto nei passaggi precedenti.
++
+** link:../ilm/working-with-ilm-rules-and-ilm-policies.html#edit-ilm-policy["Modificare il criterio"] quindi non fa riferimento al sito da smantellare.
+** link:../ilm/working-with-ilm-rules-and-ilm-policies.html#remove-ilm-policy["Rimuovere un criterio"].
+
+
+. Al termine delle modifiche alle regole e ai criteri ILM, non dovrebbero essere più elencati nel passaggio 3 (revisione dei criteri ILM). Selezionare *Avanti*.
++
+Viene visualizzato il punto 4 (Rimuovi riferimenti ILM).
+
+

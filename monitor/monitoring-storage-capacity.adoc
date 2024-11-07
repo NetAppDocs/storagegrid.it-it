@@ -1,0 +1,205 @@
+---
+permalink: monitor/monitoring-storage-capacity.html 
+sidebar: sidebar 
+keywords: how to monitor storage capacity 
+summary: Monitorare lo spazio utilizzabile totale disponibile per garantire che il sistema StorageGRID non esaurisca lo spazio di storage per gli oggetti o per i metadati degli oggetti. 
+---
+= Monitorare la capacità dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Monitorare lo spazio utilizzabile totale disponibile per garantire che il sistema StorageGRID non esaurisca lo spazio di storage per gli oggetti o per i metadati degli oggetti.
+
+StorageGRID memorizza i dati degli oggetti e i metadati degli oggetti separatamente e riserva una quantità specifica di spazio per un database Cassandra distribuito che contiene metadati degli oggetti. Monitorare la quantità totale di spazio consumata per gli oggetti e per i metadati degli oggetti, nonché le tendenze della quantità di spazio consumata per ciascuno di essi. Ciò consente di pianificare in anticipo l'aggiunta di nodi ed evitare interruzioni del servizio.
+
+È possibile link:viewing-storage-tab.html["visualizzare le informazioni sulla capacità dello storage"] per l'intero grid, per ogni sito e per ogni nodo di storage nel sistema StorageGRID.
+
+
+
+== Monitorare la capacità di storage per l'intero grid
+
+Monitorare la capacità di storage complessiva del grid per garantire che rimanga spazio libero adeguato per i dati degli oggetti e i metadati degli oggetti. Comprendere come la capacità dello storage cambia nel tempo può aiutarti a pianificare l'aggiunta di nodi o volumi di storage prima che la capacità dello storage utilizzabile del grid venga consumata.
+
+La dashboard di Grid Manager consente di valutare rapidamente la quantità di storage disponibile per l'intero grid e per ciascun data center. La pagina nodi fornisce valori più dettagliati per i dati degli oggetti e i metadati degli oggetti.
+
+.Fasi
+. Valutare la quantità di storage disponibile per l'intero grid e per ciascun data center.
++
+.. Selezionare *Dashboard > Overview*.
+.. Prendere nota dei valori riportati nelle schede di analisi dell'utilizzo dello spazio dati e delle schede di analisi dell'utilizzo dello spazio consentito dai metadati. Ciascuna scheda elenca una percentuale di utilizzo dello storage, la capacità dello spazio utilizzato e lo spazio totale disponibile o consentito dal sito.
++
+
+NOTE: Il riepilogo non include i supporti di archiviazione.
+
++
+image::../media/dashboard_data_and_metadata_space_usage_breakdown.png[Analisi dell'utilizzo dello spazio di dati e metadati]
+
+.. Annotare il grafico sulla scheda Storage over Time (archiviazione nel tempo). Utilizzare il menu a discesa Time Period (periodo di tempo) per determinare la velocità di utilizzo dello storage.
++
+image::../media/dashboard_storage_over_time.png[Grafico dello storage nel tempo]
+
+
+
+. Utilizzare la pagina nodi per ulteriori dettagli sulla quantità di storage utilizzata e sulla quantità di storage disponibile nella griglia per i dati degli oggetti e i metadati degli oggetti.
++
+.. Selezionare *NODI*.
+.. Selezionare *_grid_* > *Storage*.
++
+image::../media/nodes_deployment_storage_tab.png[Scheda Node Deployment Storage (Storage di implementazione]
+
+.. Posizionare il cursore sui grafici *Storage used - Object data* e *Storage used - Object metadata* per verificare la quantità di storage a oggetti e metadati a oggetti disponibile per l'intera griglia e la quantità di storage utilizzata nel tempo.
++
+
+NOTE: I valori totali di un sito o di un grid non includono nodi che non hanno riportato metriche per almeno cinque minuti, come i nodi offline.
+
+
+
+. Pianificare un'espansione per aggiungere nodi di storage o volumi di storage prima che la capacità di storage utilizzabile del grid venga consumata.
++
+Quando si pianifica la tempistica di un'espansione, considerare quanto tempo sarà necessario per procurarsi e installare storage aggiuntivo.
+
++
+
+NOTE: Se la policy ILM utilizza la codifica erasure, è preferibile eseguire un'espansione quando i nodi di storage esistenti sono pieni al 70% circa per ridurre il numero di nodi da aggiungere.
+
++
+Per ulteriori informazioni sulla pianificazione di un'espansione di archiviazione, vedere link:../expand/index.html["Istruzioni per espandere StorageGRID"].
+
+
+
+
+
+== Monitorare la capacità di storage per ciascun nodo di storage
+
+Monitorare lo spazio totale utilizzabile per ciascun nodo di storage per garantire che il nodo disponga di spazio sufficiente per i nuovi dati dell'oggetto.
+
+.A proposito di questa attività
+Lo spazio utilizzabile è la quantità di spazio di storage disponibile per memorizzare gli oggetti. Lo spazio totale utilizzabile per un nodo di storage viene calcolato sommando lo spazio disponibile in tutti gli archivi di oggetti all'interno del nodo.
+
+image::../media/calculating_watermarks.gif[Disegno concettuale per lo spazio utilizzabile totale]
+
+.Fasi
+. Selezionare *NODES* > *_Storage Node_* > *Storage*.
++
+Vengono visualizzati i grafici e le tabelle del nodo.
+
+. Posizionare il cursore sul grafico Storage Used - Object data (Storage utilizzato - dati oggetto).
++
+Vengono visualizzati i seguenti valori:
+
++
+** *Used (%)*: Percentuale dello spazio utilizzabile totale utilizzato per i dati dell'oggetto.
+** *Used*: Quantità di spazio utilizzabile totale utilizzata per i dati dell'oggetto.
+** *Dati replicati*: Stima della quantità di dati degli oggetti replicati su questo nodo, sito o griglia.
+** *Erasure-coded data*: Stima della quantità di dati dell'oggetto con codifica di cancellazione su questo nodo, sito o griglia.
+** *Total*: Quantità totale di spazio utilizzabile su questo nodo, sito o griglia. Il valore utilizzato è la `storagegrid_storage_utilization_data_bytes` metrica.
++
+image::../media/nodes_page_storage_used_object_data.png[Nodes Page Storage Uused Object Data]
+
+
+
+. Esaminare i valori disponibili nelle tabelle volumi e archivi di oggetti, sotto i grafici.
++
+
+NOTE: Per visualizzare i grafici di questi valori, fare clic sulle icone del grafico image:../media/icon_chart_new_for_11_5.png["Icona del grafico"]nelle colonne disponibili.
+
++
+image::../media/nodes_page_storage_tables.png[L'oggetto memorizza le tabelle]
+
+. Monitorare i valori nel tempo per stimare il tasso di consumo dello spazio di storage utilizzabile.
+. Per mantenere le normali operazioni di sistema, aggiungere nodi di storage, aggiungere volumi di storage o archiviare i dati degli oggetti prima di consumare lo spazio utilizzabile.
++
+Quando si pianifica la tempistica di un'espansione, considerare quanto tempo sarà necessario per procurarsi e installare storage aggiuntivo.
+
++
+
+NOTE: Se la policy ILM utilizza la codifica erasure, è preferibile eseguire un'espansione quando i nodi di storage esistenti sono pieni al 70% circa per ridurre il numero di nodi da aggiungere.
+
++
+Per ulteriori informazioni sulla pianificazione di un'espansione di archiviazione, vedere link:../expand/index.html["Istruzioni per espandere StorageGRID"].
+
++
+L'link:../troubleshoot/troubleshooting-low-object-data-storage-alert.html["Storage dei dati a oggetti basso"]avviso viene attivato quando rimane spazio insufficiente per l'archiviazione dei dati oggetto su un nodo di archiviazione.
+
+
+
+
+
+== Monitorare la capacità dei metadati degli oggetti per ciascun nodo di storage
+
+Monitorare l'utilizzo dei metadati per ciascun nodo di storage per garantire che rimanga spazio sufficiente per le operazioni essenziali del database. È necessario aggiungere nuovi nodi di storage in ogni sito prima che i metadati dell'oggetto superino il 100% dello spazio consentito per i metadati.
+
+.A proposito di questa attività
+StorageGRID conserva tre copie dei metadati degli oggetti in ogni sito per garantire la ridondanza e proteggere i metadati degli oggetti dalla perdita. Le tre copie vengono distribuite uniformemente su tutti i nodi di storage di ogni sito utilizzando lo spazio riservato ai metadati sul volume di storage 0 di ogni nodo di storage.
+
+In alcuni casi, la capacità dei metadati degli oggetti della griglia potrebbe essere consumata più rapidamente della capacità dello storage a oggetti. Ad esempio, se in genere si acquisiscono grandi quantità di oggetti di piccole dimensioni, potrebbe essere necessario aggiungere nodi di storage per aumentare la capacità dei metadati anche se rimane sufficiente capacità di storage a oggetti.
+
+Alcuni dei fattori che possono aumentare l'utilizzo dei metadati includono la dimensione e la quantità di tag e metadati dell'utente, il numero totale di parti in un caricamento multiparte e la frequenza delle modifiche alle posizioni di storage ILM.
+
+.Fasi
+. Selezionare *NODES* > *_Storage Node_* > *Storage*.
+. Posizionare il cursore sul grafico Storage Used - Object metadata (Storage utilizzato - metadati oggetto) per visualizzare i valori relativi a un orario specifico.
++
+image::../media/storage_used_object_metadata.png[Storage utilizzato - metadati oggetto]
+
++
+Utilizzato (%):: La percentuale dello spazio consentito per i metadati che è stato utilizzato su questo nodo di storage.
++
+--
+Metriche Prometheus: `storagegrid_storage_utilization_metadata_bytes` E. `storagegrid_storage_utilization_metadata_allowed_bytes`
+
+--
+Utilizzato:: I byte dello spazio di metadati consentito che sono stati utilizzati su questo nodo di storage.
++
+--
+Metrica Prometheus: `storagegrid_storage_utilization_metadata_bytes`
+
+--
+Consentito:: Lo spazio consentito per i metadati dell'oggetto su questo nodo di storage. Per informazioni su come questo valore è determinato per ogni nodo di archiviazione, vedere la link:../admin/managing-object-metadata-storage.html#allowed-metadata-space["Descrizione completa dello spazio consentito per i metadati"].
++
+--
+Metrica Prometheus: `storagegrid_storage_utilization_metadata_allowed_bytes`
+
+--
+Riservato:: Lo spazio effettivo riservato ai metadati su questo nodo di storage. Include lo spazio consentito e lo spazio richiesto per le operazioni essenziali dei metadati. Per informazioni su come viene calcolato questo valore per ciascun nodo di archiviazione, vedere la link:../admin/managing-object-metadata-storage.html#actual-reserved-space-for-metadata["Descrizione completa dello spazio riservato effettivo per i metadati"].
++
+--
+_La metrica Prometheus verrà aggiunta in una release futura._
+
+--
+
+
++
+
+NOTE: I valori totali di un sito o di un grid non includono nodi che non hanno riportato metriche per almeno cinque minuti, come i nodi offline.
+
+. Se il valore *utilizzato (%)* è pari o superiore al 70%, espandere il sistema StorageGRID aggiungendo nodi di storage a ciascun sito.
++
+
+CAUTION: L'avviso *Low metadata storage* viene attivato quando il valore *used (%)* raggiunge determinate soglie. I risultati indesiderati possono verificarsi se i metadati dell'oggetto utilizzano più del 100% dello spazio consentito.
+
++
+Quando si aggiungono nuovi nodi, il sistema ribilancia automaticamente i metadati degli oggetti in tutti i nodi di storage all'interno del sito. Consultare la link:../expand/index.html["Istruzioni per espandere un sistema StorageGRID"].
+
+
+
+
+
+== Monitorare le previsioni di utilizzo dello spazio
+
+Monitorare le previsioni di utilizzo dello spazio per i dati utente e i metadati per stimare quando sarà necessario link:../expand/index.html["espandere una griglia"].
+
+Se si nota che il tasso di consumo cambia nel tempo, selezionare un intervallo più breve dal menu a discesa *mediato su* per riflettere solo i modelli di acquisizione più recenti. Se si notano schemi stagionali, selezionare un intervallo più lungo.
+
+Se si dispone di una nuova installazione StorageGRID, consentire l'accumulo di dati e metadati prima di valutare le previsioni di utilizzo dello spazio.
+
+.Fasi
+. Nella dashboard, selezionare *Storage*.
+. Visualizza le schede della dashboard, la previsione dell'utilizzo dei dati per pool di storage e la previsione dell'utilizzo dei metadati per sito.
+. Utilizza questi valori per valutare quando sarà necessario aggiungere nuovi nodi di storage per lo storage di dati e metadati.
+
+
+image::../media/forecast-metadata-usage.png[Previsione dell'utilizzo dei metadati per sito]

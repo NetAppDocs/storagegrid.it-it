@@ -1,0 +1,32 @@
+---
+permalink: vmware/how-grid-nodes-discover-primary-admin-node.html 
+sidebar: sidebar 
+keywords: how grid nodes discover the primary Admin Node 
+summary: 'I nodi Grid comunicano con il nodo Admin primario per la configurazione e la gestione. Ciascun nodo della griglia deve conoscere l"indirizzo IP del nodo di amministrazione primario sulla rete di griglia.' 
+---
+= In che modo i nodi della griglia rilevano il nodo di amministrazione primario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I nodi Grid comunicano con il nodo Admin primario per la configurazione e la gestione. Ciascun nodo della griglia deve conoscere l'indirizzo IP del nodo di amministrazione primario sulla rete di griglia.
+
+Per garantire che un nodo Grid possa accedere al nodo Admin primario, è possibile eseguire una delle seguenti operazioni durante l'implementazione del nodo:
+
+* È possibile utilizzare IL parametro ADMIN_IP per inserire manualmente l'indirizzo IP del nodo di amministrazione primario.
+* È possibile omettere il parametro ADMIN_IP per fare in modo che il nodo Grid rilevi automaticamente il valore. Il rilevamento automatico è particolarmente utile quando Grid Network utilizza DHCP per assegnare l'indirizzo IP al nodo di amministrazione primario.
+
+
+Il rilevamento automatico del nodo di amministrazione primario viene eseguito utilizzando un sistema di nomi di dominio multicast (mDNS). Al primo avvio, il nodo di amministrazione primario pubblica il proprio indirizzo IP utilizzando mDNS. Gli altri nodi della stessa sottorete possono quindi ricercare l'indirizzo IP e acquisirlo automaticamente. Tuttavia, poiché il traffico IP multicast non è normalmente instradabile attraverso le sottoreti, i nodi su altre sottoreti non possono acquisire direttamente l'indirizzo IP del nodo di amministrazione primario.
+
+[NOTE]
+====
+Se si utilizza la ricerca automatica:
+
+* È necessario includere l'impostazione ADMIN_IP per almeno un nodo Grid su qualsiasi subnet a cui non è collegato direttamente il nodo Admin primario. Questo nodo della griglia pubblicherà quindi l'indirizzo IP del nodo di amministrazione primario per gli altri nodi della subnet da rilevare con mDNS.
+* Assicurarsi che l'infrastruttura di rete supporti il passaggio del traffico IP multi-cast all'interno di una subnet.
+
+
+====

@@ -1,0 +1,118 @@
+---
+permalink: ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html 
+sidebar: sidebar 
+keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
+summary: A seconda della configurazione del ciclo di vita, gli oggetti seguono le impostazioni di conservazione del ciclo di vita del bucket S3 o di un criterio ILM. 
+---
+= Esempio 8: Priorità per il ciclo di vita dei bucket S3 e la politica ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A seconda della configurazione del ciclo di vita, gli oggetti seguono le impostazioni di conservazione del ciclo di vita del bucket S3 o di un criterio ILM.
+
+
+
+== Esempio di priorità del ciclo di vita dei bucket rispetto alla policy ILM
+
+Policy ILM::
++
+--
+* Regola basata sul riferimento non corrente: Il giorno 0, tenere X copie per 20 giorni
+* Regola basata sul riferimento al tempo di acquisizione (impostazione predefinita): Il giorno 0, conservare le X copie per 50 giorni
+
+
+--
+Ciclo di vita della benna:: `"Filter": {"Prefix": "docs/"}, "Expiration": {"Days": 100}, "NoncurrentVersionExpiration": {"NoncurrentDays": 5}`
+Risultato::
++
+--
+* Viene acquisito un oggetto denominato "docs/text". Corrisponde al filtro del ciclo di vita del bucket del prefisso "docs/".
++
+** Dopo 100 giorni viene creato un marker di eliminazione e "documenti/testo" diventa non corrente.
+** Dopo 5 giorni, un totale di 105 giorni dall'acquisizione, "documenti/testo" viene eliminato.
+** Dopo 95 giorni, per un totale di 200 giorni dall'acquisizione e 100 giorni dalla creazione del marker di eliminazione, il marker di eliminazione scaduto viene eliminato.
+
+
+* Viene acquisito un oggetto denominato "video/filmato". Non corrisponde al filtro e utilizza il criterio di conservazione ILM.
++
+** Dopo 50 giorni viene creato un marker di eliminazione e "video/filmato" diventa non corrente.
+** Dopo 20 giorni, un totale di 70 giorni dall'acquisizione, "video/film" viene eliminato.
+** Dopo 30 giorni, per un totale di 100 giorni dall'acquisizione e 50 giorni dalla creazione del marker di eliminazione, il marker di eliminazione scaduto viene eliminato.
+
+
+
+
+--
+
+
+
+
+== Esempio di ciclo di vita del bucket che mantiene implicitamente per sempre
+
+Policy ILM::
++
+--
+* Regola basata sul riferimento non corrente: Il giorno 0, tenere X copie per 20 giorni
+* Regola basata sul riferimento al tempo di acquisizione (impostazione predefinita): Il giorno 0, conservare le X copie per 50 giorni
+
+
+--
+Ciclo di vita della benna:: `"Filter": {"Prefix": "docs/"}, "Expiration": {"ExpiredObjectDeleteMarker": true}`
+Risultato::
++
+--
+* Viene acquisito un oggetto denominato "docs/text". Corrisponde al filtro del ciclo di vita del bucket del prefisso "docs/".
++
+L' `Expiration`azione si applica solo ai marcatori di cancellazione scaduti, il che implica mantenere tutto il resto per sempre (a partire da "docs/").
+
++
+I marcatori di eliminazione che iniziano con "docs/" vengono rimossi quando diventano scaduti.
+
+* Viene acquisito un oggetto denominato "video/filmato". Non corrisponde al filtro e utilizza il criterio di conservazione ILM.
++
+** Dopo 50 giorni viene creato un marker di eliminazione e "video/filmato" diventa non corrente.
+** Dopo 20 giorni, un totale di 70 giorni dall'acquisizione, "video/film" viene eliminato.
+** Dopo 30 giorni, per un totale di 100 giorni dall'acquisizione e 50 giorni dalla creazione del marker di eliminazione, il marker di eliminazione scaduto viene eliminato.
+
+
+
+
+--
+
+
+
+
+== Esempio di utilizzo del ciclo di vita bucket per duplicare ILM e ripulire i marcatori di eliminazione scaduti
+
+Policy ILM::
++
+--
+* Regola basata sul riferimento non corrente: Il giorno 0, tenere X copie per 20 giorni
+* Regola basata sul riferimento al tempo di acquisizione (impostazione predefinita): Il giorno 0, conservare le copie X per sempre
+
+
+--
+Ciclo di vita della benna:: `"Filter": {}, "Expiration": {"ExpiredObjectDeleteMarker": true}, "NoncurrentVersionExpiration": {"NoncurrentDays": 20}`
+Risultato::
++
+--
+* Il criterio ILM viene duplicato nel ciclo di vita del bucket.
++
+** La regola per sempre della policy ILM è progettata per la rimozione manuale degli oggetti e la pulizia delle versioni non correnti dopo 20 giorni. Di conseguenza, la regola del tempo di acquisizione manterrà sempre i marcatori di eliminazione scaduti.
+** Il ciclo di vita del bucket duplica il comportamento del criterio ILM durante l'aggiunta di `"ExpiredObjectDeleteMarker": true`, che rimuove i marcatori di eliminazione una volta scaduti
+
+
+* Un oggetto viene acquisito. Nessun filtro significa che il ciclo di vita del bucket si applica a tutti gli oggetti e sovrascrive le impostazioni di conservazione ILM.
++
+** Quando un tenant invia una richiesta di eliminazione di un oggetto, viene creato un marcatore di eliminazione e l'oggetto diventa non corrente.
+** Dopo 20 giorni, l'oggetto non corrente viene eliminato e il marker di eliminazione viene scaduto.
+** Poco dopo, il marker di eliminazione scaduto viene eliminato.
+
+
+
+
+--
+

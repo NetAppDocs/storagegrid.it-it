@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: L'applicazione delle impostazioni del tenant sulla griglia potrebbe richiedere 15 minuti o più in base a connettività di rete, stato dei nodi e operazioni Cassandra.

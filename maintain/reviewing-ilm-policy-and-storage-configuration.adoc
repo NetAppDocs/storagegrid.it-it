@@ -1,0 +1,65 @@
+---
+permalink: maintain/reviewing-ilm-policy-and-storage-configuration.html 
+sidebar: sidebar 
+keywords: storagegrid, restore, ilm policy, storage configuration 
+summary: Se si prevede di decommissionare un nodo di storage, è necessario rivedere la policy ILM del sistema StorageGRID prima di avviare il processo di decommissionamento. 
+---
+= Esaminare i criteri ILM e la configurazione dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si prevede di decommissionare un nodo di storage, è necessario rivedere la policy ILM del sistema StorageGRID prima di avviare il processo di decommissionamento.
+
+Durante lo smantellamento, tutti i dati degli oggetti vengono migrati dal nodo di storage decommissionato ad altri nodi di storage.
+
+
+NOTE: La policy ILM di cui disponi _durante_ la decommissionazione sarà quella utilizzata _dopo_ la decommissionazione. È necessario assicurarsi che questa policy soddisfi i requisiti dei dati prima di iniziare la decommissionazione e dopo il completamento della decommissionazione.
+
+È necessario rivedere le regole in ciascuna link:../ilm/creating-ilm-policy.html["Criterio ILM attivo"] di esse per assicurarsi che il sistema StorageGRID continui a disporre di capacità sufficiente del tipo corretto e nelle posizioni corrette per consentire lo smantellamento di un nodo di archiviazione.
+
+Considerare quanto segue:
+
+* I servizi di valutazione ILM potranno copiare i dati degli oggetti in modo che le regole ILM siano soddisfatte?
+* Cosa succede se un sito diventa temporaneamente non disponibile mentre è in corso la disattivazione? È possibile eseguire copie aggiuntive in una posizione alternativa?
+* In che modo il processo di disattivazione influirà sulla distribuzione finale dei contenuti? Come descritto in link:consolidating-storage-nodes.html["Consolidare i nodi di storage"], è necessario link:../expand/index.html["Aggiungere nuovi nodi di storage"] prima di mettere fuori servizio quelli vecchi. Se si aggiunge un nodo di storage sostitutivo più grande dopo la disattivazione di un nodo di storage più piccolo, i vecchi nodi di storage potrebbero essere vicini alla capacità e il nuovo nodo di storage potrebbe non avere quasi alcun contenuto. La maggior parte delle operazioni di scrittura per i nuovi dati a oggetti verrebbe quindi indirizzata al nuovo nodo di storage, riducendo l'efficienza complessiva delle operazioni di sistema.
+* Il sistema includerà sempre nodi storage sufficienti per soddisfare le policy ILM attive?
++
+
+NOTE: Un criterio ILM che non può essere soddisfatto porterà a backlog e avvisi e potrebbe arrestare il funzionamento del sistema StorageGRID.
+
+
+
+Verificare che la topologia proposta risultante dal processo di disattivazione soddisfi la politica ILM valutando le aree elencate nella tabella.
+
+[cols="1a,2a"]
+|===
+| Area da valutare | Che cosa considerare 
+
+
+ a| 
+Capacità disponibile
+ a| 
+Ci sarà una capacità storage sufficiente per ospitare tutti i dati a oggetti archiviati nel sistema StorageGRID, incluse le copie permanenti dei dati a oggetti attualmente archiviati nel nodo storage da dismettere?
+
+Ci sarà capacità sufficiente per gestire la crescita prevista dei dati degli oggetti memorizzati per un ragionevole intervallo di tempo dopo il completamento del decommissionamento?
+
+
+
+ a| 
+Ubicazione dello storage
+ a| 
+Se nel sistema StorageGRID rimane una capacità sufficiente, la capacità è nelle posizioni giuste per soddisfare le regole di business del sistema StorageGRID?
+
+
+
+ a| 
+Tipo di storage
+ a| 
+Sarà disponibile uno storage sufficiente del tipo appropriato dopo il completamento dello smantellamento?
+
+Ad esempio, le regole ILM possono spostare i contenuti da un tipo di storage a un altro in base al tempo in cui i contenuti diventano obsoleti. In questo caso, è necessario assicurarsi che nella configurazione finale del sistema StorageGRID sia disponibile una quantità sufficiente di spazio di archiviazione del tipo appropriato.
+
+|===

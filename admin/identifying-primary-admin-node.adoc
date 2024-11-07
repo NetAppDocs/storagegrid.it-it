@@ -1,0 +1,29 @@
+---
+permalink: admin/identifying-primary-admin-node.html 
+sidebar: sidebar 
+keywords: primary admin node, configuration management node 
+summary: Il nodo amministrativo primario fornisce più funzionalità rispetto ai nodi amministrativi non primari. Ad esempio, alcune procedure di manutenzione devono essere eseguite utilizzando il nodo amministrativo primario. 
+---
+= Identificare il nodo di amministrazione principale
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il nodo amministrativo primario fornisce più funzionalità rispetto ai nodi amministrativi non primari. Ad esempio, alcune procedure di manutenzione devono essere eseguite utilizzando il nodo amministrativo primario.
+
+Per ulteriori informazioni sui nodi amministrativi, vedere link:../primer/what-admin-node-is.html["Che cos'è un nodo amministrativo"].
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+
+
+.Fasi
+. Selezionare *NODI*.
+. Immettere *primary* nella casella di ricerca.
++
+Nei risultati della ricerca, identificare il nodo con "nodo amministrativo primario" visualizzato nella colonna tipo. Dovrebbe essere elencato un nodo amministrativo primario.
+
+

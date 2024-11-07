@@ -1,0 +1,221 @@
+---
+permalink: troubleshoot/searching-for-and-restoring-potentially-lost-objects.html 
+sidebar: sidebar 
+keywords: how to search lost object, how to restore lost object, how to find lost object 
+summary: 'Potrebbe essere possibile trovare e ripristinare gli oggetti che hanno attivato un avviso *Object lost* e un allarme legacy Lost Objects (LOST) e che sono stati identificati come potenzialmente persi.' 
+---
+= Cercare e ripristinare oggetti potenzialmente persi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Potrebbe essere possibile trovare e ripristinare gli oggetti che hanno attivato un avviso *Object lost* e un allarme legacy Lost Objects (LOST) e che sono stati identificati come potenzialmente persi.
+
+.Prima di iniziare
+* Si dispone dell'UUID di qualsiasi oggetto perso, come identificato in link:../troubleshoot/investigating-lost-objects.html["Esaminare gli oggetti persi"].
+* Si dispone del `Passwords.txt` file.
+
+
+.A proposito di questa attività
+È possibile seguire questa procedura per cercare copie replicate dell'oggetto perso in un altro punto della griglia. Nella maggior parte dei casi, l'oggetto perso non viene trovato. Tuttavia, in alcuni casi, potrebbe essere possibile trovare e ripristinare un oggetto replicato perso se si esegue un'azione rapida.
+
+
+CAUTION: Contattare il supporto tecnico per assistenza con questa procedura.
+
+.Fasi
+. Da un nodo amministratore, cercare nei registri di controllo le posizioni possibili degli oggetti:
++
+.. Accedere al nodo Grid:
++
+... Immettere il seguente comando: `ssh admin@grid_node_IP`
+... Immettere la password elencata nel `Passwords.txt` file.
+... Immettere il seguente comando per passare alla directory principale: `su -`
+... Immettere la password elencata nel `Passwords.txt` file. Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+.. Passare alla directory in cui si trovano i registri di controllo: `cd /var/local/log/`
++
+[NOTE]
+====
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Informazioni sulle destinazioni per le informazioni di verifica"].
+
+====
+.. Utilizzare grep per estrarre link:../audit/object-ingest-transactions.html["messaggi di audit associati all'oggetto potenzialmente perso"]e inviarli a un file di output. Immettere: `grep uuid-value audit_file_name > output_file_name`
++
+Ad esempio:
+
++
+[listing]
+----
+Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > messages_about_lost_object.txt
+----
+.. Utilizzare grep per estrarre i messaggi di controllo LLST (Location Lost) da questo file di output. Immettere: `grep LLST output_file_name`
++
+Ad esempio:
+
++
+[listing]
+----
+Admin: # grep LLST messages_about_lost_objects.txt
+----
++
+Un messaggio di controllo LLST è simile a questo messaggio di esempio.
+
++
+[listing]
+----
+[AUDT:\[NOID\(UI32\):12448208\][CBIL(UI64):0x38186FE53E3C49A5]
+[UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"][LTYP(FC32):CLDI]
+[PCLD\(CSTR\):"/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA%\#3tN6"\]
+[TSRC(FC32):SYST][RSLT(FC32):NONE][AVER(UI32):10][ATIM(UI64):
+1581535134379225][ATYP(FC32):LLST][ANID(UI32):12448208][AMID(FC32):CLSM]
+[ATID(UI64):7086871083190743409]]
+----
+.. Individuare il campo PCLD e IL campo NOID nel messaggio LLST.
++
+Se presente, il valore di PCLD è il percorso completo sul disco verso la copia dell'oggetto replicato mancante. IL valore DI NOID è l'id del nodo dell'LDR in cui è possibile trovare una copia dell'oggetto.
+
++
+Se si trova una posizione dell'oggetto, potrebbe essere possibile ripristinarlo.
+
+.. Trova il nodo di storage associato a questo ID nodo LDR. In Grid Manager, selezionare *SUPPORT* > *Tools* > *Grid topology*. Quindi selezionare *_Data Center_* > *_Storage Node_* > *LDR*.
++
+L'ID nodo per il servizio LDR si trova nella tabella Node Information (informazioni nodo). Esaminare le informazioni relative a ciascun nodo di storage fino a individuare quello che ospita questo LDR.
+
+
+
+. Determinare se l'oggetto esiste sul nodo di storage indicato nel messaggio di audit:
++
+.. Accedere al nodo Grid:
++
+... Immettere il seguente comando: `ssh admin@grid_node_IP`
+... Immettere la password elencata nel `Passwords.txt` file.
+... Immettere il seguente comando per passare alla directory principale: `su -`
+... Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+
+.. Determinare se il percorso del file per l'oggetto esiste.
++
+Per il percorso file dell'oggetto, utilizzare il valore PCLD del messaggio di audit LLST.
+
++
+Ad esempio, immettere:
+
++
+[listing]
+----
+ls '/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA%#3tN6'
+----
++
+
+NOTE: Racchiudere sempre il percorso del file oggetto tra virgolette singole nei comandi per escapire eventuali caratteri speciali.
+
++
+*** Se il percorso dell'oggetto non viene trovato, l'oggetto viene perso e non può essere ripristinato utilizzando questa procedura. Contattare il supporto tecnico.
+*** Se viene trovato il percorso dell'oggetto, passare alla fase successiva. È possibile tentare di ripristinare l'oggetto trovato in StorageGRID.
+
+
+
+
+. Se il percorso dell'oggetto è stato trovato, tentare di ripristinare l'oggetto in StorageGRID:
++
+.. Dallo stesso nodo di storage, modificare la proprietà del file a oggetti in modo che possa essere gestito da StorageGRID. Immettere: `chown ldr-user:bycast 'file_path_of_object'`
+.. Telnet all'host locale 1402 per accedere alla console LDR. Immettere: `telnet 0 1402`
+.. Immettere: `cd /proc/STOR`
+.. Immettere: `Object_Found 'file_path_of_object'`
++
+Ad esempio, immettere:
+
++
+[listing]
+----
+Object_Found '/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA%#3tN6'
+----
++
+L'emissione del `Object_Found` comando notifica alla griglia la posizione dell'oggetto. Attiva inoltre i criteri ILM attivi, che eseguono copie aggiuntive come specificato in ciascun criterio.
+
++
+
+NOTE: Se il nodo di storage in cui è stato trovato l'oggetto non è in linea, è possibile copiare l'oggetto in qualsiasi nodo di storage in linea. Posizionare l'oggetto in qualsiasi directory /var/local/rangedb del nodo di storage online. Quindi, eseguire il `Object_Found` comando utilizzando il percorso del file all'oggetto.
+
++
+*** Se l'oggetto non può essere ripristinato, il `Object_Found` comando non riesce. Contattare il supporto tecnico.
+*** Se l'oggetto è stato ripristinato correttamente in StorageGRID, viene visualizzato un messaggio di esito positivo. Ad esempio:
++
+[listing]
+----
+ade 12448208: /proc/STOR > Object_Found '/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA%#3tN6'
+
+ade 12448208: /proc/STOR > Object found succeeded.
+First packet of file was valid. Extracted key: 38186FE53E3C49A5
+Renamed '/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA%#3tN6' to '/var/local/rangedb/1/p/17/11/00rH0%DkRt78Ila#3udu'
+----
++
+Passare alla fase successiva.
+
+
+
+
+
+. Se l'oggetto è stato ripristinato correttamente in StorageGRID, verificare che siano state create le nuove posizioni:
++
+.. Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+.. Selezionare *ILM* > *Object metadata lookup*.
+.. Immettere l'UUID e selezionare *Cerca*.
+.. Rivedere i metadati e verificare le nuove posizioni.
+
+
+. Da un nodo di amministrazione, cercare nei registri di controllo il messaggio di audit ORLM relativo a questo oggetto per confermare che ILM (Information Lifecycle Management) ha inserito le copie come richiesto.
++
+.. Accedere al nodo Grid:
++
+... Immettere il seguente comando: `ssh admin@grid_node_IP`
+... Immettere la password elencata nel `Passwords.txt` file.
+... Immettere il seguente comando per passare alla directory principale: `su -`
+... Immettere la password elencata nel `Passwords.txt` file. Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+.. Passare alla directory in cui si trovano i registri di controllo: `cd /var/local/log/`
+.. Utilizzare grep per estrarre i messaggi di audit associati all'oggetto in un file di output. Immettere: `grep uuid-value audit_file_name > output_file_name`
++
+Ad esempio:
+
++
+[listing]
+----
+Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > messages_about_restored_object.txt
+----
+.. Utilizzare grep per estrarre i messaggi di audit ORLM (Object Rules Met) da questo file di output. Immettere: `grep ORLM output_file_name`
++
+Ad esempio:
+
++
+[listing]
+----
+Admin: # grep ORLM messages_about_restored_object.txt
+----
++
+Un messaggio di controllo ORLM è simile a questo messaggio di esempio.
+
++
+[listing]
+----
+[AUDT:[CBID(UI64):0x38186FE53E3C49A5][RULE(CSTR):"Make 2 Copies"]
+[STAT(FC32):DONE][CSIZ(UI64):0][UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"]
+[LOCS(CSTR):"**CLDI 12828634 2148730112**, CLDI 12745543 2147552014"]
+[RSLT(FC32):SUCS][AVER(UI32):10][ATYP(FC32):ORLM][ATIM(UI64):1563398230669]
+[ATID(UI64):15494889725796157557][ANID(UI32):13100453][AMID(FC32):BCMS]]
+----
+.. Individuare il campo LOCS (POSIZIONI) nel messaggio di audit.
++
+Se presente, il valore di CLDI in LOCS è l'ID del nodo e l'ID del volume in cui è stata creata una copia dell'oggetto. Questo messaggio indica che l'ILM è stato applicato e che sono state create due copie di oggetti in due posizioni nella griglia.
+
+
+
+. link:resetting-lost-and-missing-object-counts.html["Ripristinare i conteggi degli oggetti persi e mancanti"] In Grid Manager.
+

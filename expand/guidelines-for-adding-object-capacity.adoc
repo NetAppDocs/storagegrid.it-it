@@ -1,0 +1,65 @@
+---
+permalink: expand/guidelines-for-adding-object-capacity.html 
+sidebar: sidebar 
+keywords: adding storage capacity, guidelines, storage volumes, expansion 
+summary: 'È possibile espandere la capacità dello storage a oggetti del sistema StorageGRID aggiungendo volumi di storage ai nodi di storage esistenti o aggiungendo nuovi nodi di storage ai siti esistenti. È necessario aggiungere capacità di storage in modo che soddisfi i requisiti della policy ILM (Information Lifecycle Management).' 
+---
+= Linee guida per l'aggiunta della capacità degli oggetti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile espandere la capacità dello storage a oggetti del sistema StorageGRID aggiungendo volumi di storage ai nodi di storage esistenti o aggiungendo nuovi nodi di storage ai siti esistenti. È necessario aggiungere capacità di storage in modo che soddisfi i requisiti della policy ILM (Information Lifecycle Management).
+
+
+
+== Linee guida per l'aggiunta di volumi di storage
+
+Prima di aggiungere volumi di storage ai nodi di storage esistenti, consultare le seguenti linee guida e limitazioni:
+
+* È necessario esaminare le regole ILM correnti per determinare dove e quando link:../expand/adding-storage-volumes-to-storage-nodes.html["aggiungere volumi di storage"]aumentare lo spazio di archiviazione disponibile per link:../ilm/what-replication-is.html["oggetti replicati"] o link:../ilm/what-erasure-coding-schemes-are.html["oggetti con codifica erasure"].
+* Non è possibile aumentare la capacità dei metadati del sistema aggiungendo volumi di storage perché i metadati degli oggetti vengono memorizzati solo sul volume 0.
+* Ogni nodo di storage basato su software può supportare un massimo di 16 volumi di storage. Se è necessario aggiungere capacità oltre tale limite, è necessario aggiungere nuovi nodi di storage.
+* Puoi aggiungere uno o due shelf di espansione a ogni appliance SG6060. Ogni shelf di espansione aggiunge 16 volumi di storage. Con i due shelf di espansione installati, SG6060 supporta un totale di 48 volumi di storage.
+* Puoi aggiungere uno o due shelf di espansione a ogni appliance SG6160. Ogni shelf di espansione aggiunge 60 volumi di storage. Con i due shelf di espansione installati, SG6160 supporta un totale di 180 volumi di storage.
+* Non è possibile aggiungere volumi di storage ad altre appliance di storage.
+* Non è possibile aumentare le dimensioni di un volume di storage esistente.
+* Non è possibile aggiungere volumi di storage a un nodo di storage contemporaneamente all'aggiornamento del sistema, all'operazione di recovery o a un'altra espansione.
+
+
+Dopo aver deciso di aggiungere volumi di storage e aver determinato i nodi di storage da espandere per soddisfare la policy ILM, seguire le istruzioni relative al tipo di nodo di storage:
+
+* Per aggiungere uno o due shelf di espansione a un'appliance di archiviazione SG6060, visitare il sito https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["Aggiungi shelf di espansione alla piattaforma SG6060 implementata"^].
+* Per aggiungere uno o due shelf di espansione a un'appliance di storage SG6160, passare al https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["Aggiungi shelf di espansione alla piattaforma SG6160 implementata"^]
+* Per un nodo basato su software, seguire le istruzioni per link:adding-storage-volumes-to-storage-nodes.html["Aggiunta di volumi di storage ai nodi di storage"].
+
+
+
+
+== Linee guida per l'aggiunta di nodi di storage
+
+Prima di aggiungere nodi di storage ai siti esistenti, consultare le seguenti linee guida e limitazioni:
+
+* È necessario esaminare le regole ILM correnti per determinare dove e quando aggiungere nodi di archiviazione per aumentare lo spazio di archiviazione disponibile per link:../ilm/what-replication-is.html["oggetti replicati"] o link:../ilm/what-erasure-coding-schemes-are.html["oggetti con codifica erasure"].
+* Non aggiungere più di 10 nodi di storage in una singola procedura di espansione.
+* È possibile aggiungere nodi di storage a più siti in una singola procedura di espansione.
+* È possibile aggiungere nodi di storage e altri tipi di nodi in una singola procedura di espansione.
+* Prima di avviare la procedura di espansione, è necessario confermare che tutte le operazioni di riparazione dei dati eseguite nell'ambito di un ripristino sono state completate. Vedere link:../maintain/checking-data-repair-jobs.html["Controllare i lavori di riparazione dei dati"].
+* Se è necessario rimuovere i nodi di storage prima o dopo l'esecuzione di un'espansione, non è necessario decommissionare più di 10 nodi di storage in una singola procedura Decommission Node.
+
+
+
+
+== Linee guida per il servizio ADC sui nodi di storage
+
+Quando si configura l'espansione, è necessario scegliere se includere il servizio ADC (Administrative Domain Controller) in ogni nuovo nodo di storage. Il servizio ADC tiene traccia della posizione e della disponibilità dei servizi grid.
+
+* Il sistema StorageGRID richiede che un link:../maintain/understanding-adc-service-quorum.html["Quorum dei servizi ADC"]sia sempre disponibile in ogni sito.
+* Almeno tre nodi di storage in ogni sito devono includere il servizio ADC.
+* Si sconsiglia di aggiungere il servizio ADC a ogni nodo di storage. L'inclusione di un numero eccessivo di servizi ADC può causare rallentamenti dovuti all'aumento della comunicazione tra i nodi.
+* Un singolo grid non deve avere più di 48 nodi di storage con il servizio ADC. Ciò equivale a 16 siti con tre servizi ADC in ogni sito.
+* In generale, quando si seleziona l'impostazione *Servizio ADC* per un nuovo nodo, selezionare *automatico*. Selezionare *Sì* solo se il nuovo nodo sostituirà un altro nodo di storage che include il servizio ADC. Poiché non è possibile decommissionare un nodo di storage se rimangono pochi servizi ADC, questo garantisce che sia disponibile un nuovo servizio ADC prima che il vecchio servizio venga rimosso.
+* Non è possibile aggiungere il servizio ADC a un nodo dopo averlo implementato.
+

@@ -1,0 +1,60 @@
+---
+permalink: ilm/when-to-use-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords: use cloud storage pool, benefits of cloud storage pools 
+summary: Utilizzando i Cloud Storage Pools, è possibile eseguire il backup o il tiering dei dati in una posizione esterna. Inoltre, puoi eseguire il backup o il Tier dei dati in più cloud. 
+---
+= Quando utilizzare i Cloud Storage Pools
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizzando i Cloud Storage Pools, è possibile eseguire il backup o il tiering dei dati in una posizione esterna. Inoltre, puoi eseguire il backup o il Tier dei dati in più cloud.
+
+
+
+== Eseguire il backup dei dati StorageGRID in una posizione esterna
+
+È possibile utilizzare un pool di storage cloud per eseguire il backup degli oggetti StorageGRID in una posizione esterna.
+
+Se le copie in StorageGRID non sono accessibili, i dati dell'oggetto nel pool di storage cloud possono essere utilizzati per soddisfare le richieste dei client. Tuttavia, potrebbe essere necessario emettere la richiesta S3 RestoreObject per accedere alla copia dell'oggetto di backup nel Cloud Storage Pool.
+
+I dati dell'oggetto in un pool di storage cloud possono essere utilizzati anche per recuperare i dati persi da StorageGRID a causa di un guasto di un volume di storage o di un nodo di storage. Se l'unica copia rimanente di un oggetto si trova in un pool di storage cloud, StorageGRID ripristina temporaneamente l'oggetto e crea una nuova copia sul nodo di storage ripristinato.
+
+Per implementare una soluzione di backup:
+
+. Creare un singolo pool di storage cloud.
+. Configurare una regola ILM che memorizzi simultaneamente le copie degli oggetti sui nodi di storage (come copie replicate o codificate in cancellazione) e una singola copia degli oggetti nel Cloud Storage Pool.
+. Aggiungere la regola al criterio ILM. Quindi, simulare e attivare la policy.
+
+
+
+
+== Dati di Tier da StorageGRID a posizione esterna
+
+È possibile utilizzare un pool di storage cloud per memorizzare oggetti all'esterno del sistema StorageGRID. Si supponga, ad esempio, di disporre di un elevato numero di oggetti da conservare, ma si prevede di accedervi raramente, se mai. È possibile utilizzare un pool di storage cloud per tierare gli oggetti in modo da ridurre il costo dello storage e liberare spazio in StorageGRID.
+
+Per implementare una soluzione di tiering:
+
+. Creare un singolo pool di storage cloud.
+. Configurare una regola ILM che sposti gli oggetti utilizzati raramente dai nodi di storage al Cloud Storage Pool.
+. Aggiungere la regola al criterio ILM. Quindi, simulare e attivare la policy.
+
+
+
+
+== Mantenere più endpoint cloud
+
+È possibile configurare più endpoint del Cloud Storage Pool se si desidera eseguire il Tier o il backup dei dati degli oggetti in più cloud. I filtri nelle regole ILM consentono di specificare quali oggetti sono memorizzati in ciascun Cloud Storage Pool. Ad esempio, è possibile memorizzare oggetti di alcuni tenant o bucket in Amazon S3 Glacier e oggetti di altri tenant o bucket nello storage Azure Blob. In alternativa, puoi spostare i dati tra lo storage Amazon S3 Glacier e Azure Blob.
+
+
+NOTE: Quando si utilizzano endpoint multipli del Cloud Storage Pool, tenere presente che un oggetto può essere memorizzato in un solo Cloud Storage Pool alla volta.
+
+Per implementare più endpoint cloud:
+
+. Crea fino a 10 pool di cloud storage.
+. Configurare le regole ILM in modo che memorizzino i dati dell'oggetto appropriati all'ora appropriata in ciascun Cloud Storage Pool. Ad esempio, memorizzare gli oggetti dal bucket A nel pool di cloud storage A e gli oggetti dal bucket B nel pool di cloud storage B. oppure gli oggetti nel pool di cloud storage A per un certo periodo di tempo, quindi spostarli nel pool di cloud storage B.
+. Aggiungere le regole alla policy ILM. Quindi, simulare e attivare la policy.
+

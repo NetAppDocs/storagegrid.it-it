@@ -1,0 +1,96 @@
+---
+permalink: maintain/monitor-repairs.html 
+sidebar: sidebar 
+keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
+summary: 'È possibile monitorare lo stato dei lavori di riparazione utilizzando `repair-data` lo script dalla riga di comando.' 
+---
+= Monitorare i lavori dei dati di riparazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile monitorare lo stato dei lavori di riparazione utilizzando `repair-data` lo script dalla riga di comando.
+
+Questi includono i processi avviati manualmente o quelli avviati automaticamente da StorageGRID nell'ambito di una procedura di decommissionamento.
+
+
+NOTE: Se invece sono in esecuzione processi di ripristino dei volumi,link:../maintain/restoring-volume.html["Monitorare l'avanzamento e visualizzare una cronologia di tali lavori in Grid Manager"]
+
+Monitorare lo stato dei `repair-data` lavori in base all'utilizzo di *dati replicati*, *dati con erasure coding (EC)* o entrambi.
+
+[role="tabbed-block"]
+====
+.Dati replicati
+--
+* Per ottenere un completamento percentuale stimato per la riparazione replicata, aggiungere `show-replicated-repair-status` l'opzione al comando Repair-data.
++
+`repair-data show-replicated-repair-status`
+
+* Per determinare se le riparazioni sono state completate:
++
+.. Selezionare *NODI* > *_nodo di storage in riparazione_* > *ILM*.
+.. Esaminare gli attributi nella sezione Valutazione. Al termine delle riparazioni, l'attributo *in attesa - tutto* indica 0 oggetti.
+
+
+* Per monitorare la riparazione in modo più dettagliato:
++
+.. Selezionare *SUPPORT* > *Tools* > *Grid topology*.
+.. Selezionare *_Grid_* > *_Storage Node in riparazione_* > *LDR* > *Data Store*.
+.. Utilizzare una combinazione dei seguenti attributi per determinare, come possibile, se le riparazioni replicate sono complete.
++
+
+NOTE: Le incongruenze di Cassandra potrebbero essere presenti e le riparazioni non riuscite non vengono monitorate.
+
++
+*** *Tentativi di riparazione (XRPA)*: Utilizzare questo attributo per tenere traccia dell'avanzamento delle riparazioni replicate. Questo attributo aumenta ogni volta che un nodo di storage tenta di riparare un oggetto ad alto rischio. Quando questo attributo non aumenta per un periodo superiore al periodo di scansione corrente (fornito dall'attributo *Scan Period -- Estimated*), significa che la scansione ILM non ha rilevato oggetti ad alto rischio che devono essere riparati su alcun nodo.
++
+
+NOTE: Gli oggetti ad alto rischio sono oggetti che rischiano di essere completamente persi. Non sono inclusi oggetti che non soddisfano la configurazione ILM.
+
+*** *Periodo di scansione -- stimato (XSCM)*: Utilizzare questo attributo per stimare quando verrà applicata una modifica di policy agli oggetti precedentemente acquisiti. Se l'attributo *riparazioni tentate* non aumenta per un periodo superiore al periodo di scansione corrente, è probabile che vengano eseguite riparazioni replicate. Si noti che il periodo di scansione può cambiare. L'attributo *Scan Period -- Estimated (XSCM)* si applica all'intera griglia ed è il massimo di tutti i periodi di scansione del nodo. È possibile eseguire una query nella cronologia degli attributi *Scan Period -- Estimated* per la griglia per determinare un intervallo di tempo appropriato.
+
+
+
+
+
+
+--
+.Dati con erasure coding (EC)
+--
+Per monitorare la riparazione dei dati con codifica erasure e riprovare eventuali richieste che potrebbero non essere riuscite:
+
+. Determinare lo stato delle riparazioni dei dati con codice di cancellazione:
++
+** Selezionare *SUPPORTO* > *Strumenti* > *metriche* per visualizzare il tempo stimato per il completamento e la percentuale di completamento per il lavoro corrente. Quindi, selezionare *EC Overview* (Panoramica EC) nella sezione Grafana. Esaminare le dashboard *Grid EC Job Estimated Time to Completion* (tempo stimato per il completamento della commessa EC) e *Grid EC Job Percentage Completed* (percentuale lavoro EC completata).
+** Utilizzare questo comando per visualizzare lo stato di un'operazione specifica `repair-data`:
++
+`repair-data show-ec-repair-status --repair-id repair ID`
+
+** Utilizzare questo comando per elencare tutte le riparazioni:
++
+`repair-data show-ec-repair-status`
+
++
+L'output elenca le informazioni, tra cui `repair ID`, per tutte le riparazioni in esecuzione in precedenza e in corso.
+
+
+
+. Se l'output mostra che l'operazione di riparazione non è riuscita, utilizzare `--repair-id` l'opzione per riprovare la riparazione.
++
+Questo comando prova di nuovo una riparazione del nodo non riuscita, utilizzando l'ID riparazione 6949309319275667690:
+
++
+`repair-data start-ec-node-repair --repair-id 6949309319275667690`
+
++
+Questo comando prova di nuovo una riparazione del volume non riuscita, utilizzando l'ID riparazione 6949309319275667690:
+
++
+`repair-data start-ec-volume-repair --repair-id 6949309319275667690`
+
+
+
+--
+====

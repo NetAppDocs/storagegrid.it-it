@@ -1,0 +1,114 @@
+---
+permalink: audit/gtsu-grid-task-submitted.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, GTSU, Grid Task Submitted 
+summary: 'Questo messaggio di audit indica che un"attività Grid è stata inviata al servizio CMN.' 
+---
+= GTSU: Task Grid inviato
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questo messaggio di audit indica che un'attività Grid è stata inviata al servizio CMN.
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+TSID
+ a| 
+ID attività
+ a| 
+Identifica in modo univoco un'attività grid generata e consente di gestarla per l'intero ciclo di vita.
+
+*Nota:* l'ID attività viene assegnato al momento in cui viene generata un'attività di griglia, non al momento in cui viene inviata. È possibile che un'attività di griglia venga inviata più volte e, in questo caso, il campo ID attività non è sufficiente per collegare in modo univoco i messaggi di audit inviati, avviati e terminati.
+
+
+
+ a| 
+TTIP
+ a| 
+Tipo di attività
+ a| 
+Il tipo di attività della griglia.
+
+
+
+ a| 
+VER
+ a| 
+Versione attività
+ a| 
+Un numero che indica la versione dell'attività Grid.
+
+
+
+ a| 
+TDSC
+ a| 
+Descrizione dell'attività
+ a| 
+Una descrizione leggibile dell'attività Grid.
+
+
+
+ a| 
+VAT
+ a| 
+Valido dopo l'indicatore di data e ora
+ a| 
+Il primo tempo (microsecondi UINT64 dal 1° gennaio 1970 - ora UNIX) in cui l'attività grid è valida.
+
+
+
+ a| 
+VBTS
+ a| 
+Valido prima dell'indicatore di data e ora
+ a| 
+L'ultima ora (microsecondi UINT64 dal 1° gennaio 1970 - ora UNIX) in cui è valida l'attività grid.
+
+
+
+ a| 
+TSRC
+ a| 
+Origine
+ a| 
+L'origine dell'attività:
+
+* TXTB: L'attività Grid è stata inviata tramite il sistema StorageGRID come blocco di testo firmato.
+* GRID: L'attività Grid è stata inviata tramite il Grid Task Submission Service interno.
+
+
+
+
+ a| 
+ACTV
+ a| 
+Tipo di attivazione
+ a| 
+Il tipo di attivazione:
+
+* AUTO: L'attività della griglia è stata inviata per l'attivazione automatica.
+* PEND: L'attività Grid è stata inviata alla tabella in sospeso. Questa è l'unica possibilità per l'origine TXTB.
+
+
+
+
+ a| 
+RSLT
+ a| 
+Risultato
+ a| 
+Risultato dell'invio:
+
+* SUCS: L'attività Grid è stata inviata correttamente.
+* ERRORE: L'attività è stata spostata direttamente nella tabella storica.
+
+
+|===

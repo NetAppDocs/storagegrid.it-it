@@ -1,0 +1,53 @@
+---
+permalink: maintain/stopping-service.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, stop service, service 
+summary: 'Alcune procedure di manutenzione richiedono l"interruzione di un singolo servizio mantenendo in esecuzione altri servizi sul nodo grid. Interrompere i singoli servizi solo quando richiesto da una procedura di manutenzione.' 
+---
+= Interrompere il servizio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Alcune procedure di manutenzione richiedono l'interruzione di un singolo servizio mantenendo in esecuzione altri servizi sul nodo grid. Interrompere i singoli servizi solo quando richiesto da una procedura di manutenzione.
+
+.Prima di iniziare
+Si dispone del `Passwords.txt` file.
+
+.A proposito di questa attività
+Quando si utilizza questa procedura per "arrestare amministrativamente" un servizio, Server Manager non riavvia automaticamente il servizio. È necessario avviare il servizio singolo manualmente o riavviare Server Manager.
+
+Se è necessario arrestare il servizio LDR su un nodo di storage, tenere presente che potrebbe essere necessario un po' di tempo per arrestare il servizio in presenza di connessioni attive.
+
+.Fasi
+. Accedere al nodo Grid:
++
+.. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+. Interruzione di un servizio individuale: `service _servicename_ stop`
++
+Ad esempio:
+
++
+[listing]
+----
+service ldr stop
+----
++
+
+NOTE: L'interruzione dei servizi può richiedere fino a 11 minuti.
+
+. Disconnettersi dalla shell dei comandi: `exit`
+
+
+.Informazioni correlate
+link:forcing-service-to-terminate.html["Forzare l'interruzione del servizio"]

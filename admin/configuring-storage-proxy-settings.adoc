@@ -1,0 +1,46 @@
+---
+permalink: admin/configuring-storage-proxy-settings.html 
+sidebar: sidebar 
+keywords: storage proxy, non-transparent proxy, platform service endpoint 
+summary: 'Se si utilizzano servizi di piattaforma o Cloud Storage Pool, è possibile configurare un proxy non trasparente tra i nodi di storage e gli endpoint S3 esterni. Ad esempio, potrebbe essere necessario un proxy non trasparente per consentire l"invio dei messaggi dei servizi della piattaforma a endpoint esterni, ad esempio un endpoint su Internet.' 
+---
+= Configurare il proxy di archiviazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si utilizzano servizi di piattaforma o Cloud Storage Pool, è possibile configurare un proxy non trasparente tra i nodi di storage e gli endpoint S3 esterni. Ad esempio, potrebbe essere necessario un proxy non trasparente per consentire l'invio dei messaggi dei servizi della piattaforma a endpoint esterni, ad esempio un endpoint su Internet.
+
+
+NOTE: Le impostazioni proxy di storage configurate non si applicano agli endpoint dei servizi della piattaforma Kafka.
+
+.Prima di iniziare
+* Si dispone di link:admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+
+
+.A proposito di questa attività
+È possibile configurare le impostazioni per un singolo proxy di archiviazione.
+
+.Fasi
+. Selezionare *CONFIGURAZIONE* > *sicurezza* > *Impostazioni proxy*.
+. Nella scheda *archiviazione*, selezionare la casella di controllo *Abilita proxy di archiviazione*.
+. Selezionare il protocollo per il proxy di archiviazione.
+. Immettere il nome host o l'indirizzo IP del server proxy.
+. Facoltativamente, inserire la porta utilizzata per connettersi al server proxy.
++
+Lasciare vuoto questo campo per utilizzare la porta predefinita per il protocollo: 80 per HTTP o 1080 per SOCKS5.
+
+. Selezionare *Salva*.
++
+Dopo il salvataggio del proxy di storage, è possibile configurare e testare nuovi endpoint per i servizi della piattaforma o i pool di cloud storage.
+
++
+
+NOTE: Le modifiche del proxy possono richiedere fino a 10 minuti.
+
+. Controllare le impostazioni del server proxy per assicurarsi che i messaggi relativi al servizio della piattaforma da StorageGRID non vengano bloccati.
+. Se è necessario disattivare un proxy di archiviazione, deselezionare la casella di controllo e selezionare *Salva*.
+

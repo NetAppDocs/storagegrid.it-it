@@ -1,0 +1,58 @@
+---
+permalink: admin/use-s3-setup-wizard.html 
+sidebar: sidebar 
+keywords: S3, S3 setup wizard 
+summary: 'È possibile utilizzare l"installazione guidata S3 per configurare StorageGRID come sistema di storage a oggetti per un"applicazione S3.' 
+---
+= Utilizzare l'installazione guidata S3: Considerazioni e requisiti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare l'installazione guidata S3 per configurare StorageGRID come sistema di storage a oggetti per un'applicazione S3.
+
+
+
+== Quando utilizzare l'installazione guidata S3
+
+L'installazione guidata S3 guida l'utente attraverso ogni fase della configurazione di StorageGRID per l'utilizzo con un'applicazione S3. Durante il completamento della procedura guidata, è possibile scaricare i file da utilizzare per immettere i valori nell'applicazione S3. Utilizzare la procedura guidata per configurare il sistema più rapidamente e per assicurarsi che le impostazioni siano conformi alle Best practice StorageGRID.
+
+Se si dispone di link:admin-group-permissions.html["Autorizzazione di accesso root"], è possibile completare l'installazione guidata di S3 quando si inizia a utilizzare il Gestore griglie StorageGRID oppure è possibile accedere e completare la procedura guidata in un secondo momento. A seconda dei requisiti, è possibile configurare manualmente alcuni o tutti gli elementi richiesti e utilizzare la procedura guidata per assemblare i valori richiesti da un'applicazione S3.
+
+
+
+== Prima di utilizzare la procedura guidata
+
+Prima di utilizzare la procedura guidata, verificare di aver completato questi prerequisiti.
+
+Ottenere gli indirizzi IP e configurare le interfacce VLAN:: Se si configura un gruppo ad alta disponibilità (ha), si conoscono i nodi a cui si connetterà l'applicazione S3 e la rete StorageGRID da utilizzare. Si conoscono anche i valori da inserire per la subnet CIDR, l'indirizzo IP del gateway e gli indirizzi IP virtuali (VIP).
++
+--
+Se si intende utilizzare una LAN virtuale per separare il traffico dall'applicazione S3, l'interfaccia VLAN è già stata configurata. Vedere link:../admin/configure-vlan-interfaces.html["Configurare le interfacce VLAN"].
+
+--
+Configurare la federazione di identità e SSO:: Se si prevede di utilizzare la federazione di identità o il Single Sign-on (SSO) per il sistema StorageGRID, queste funzionalità sono state attivate. Si sa anche quale gruppo federato deve disporre dell'accesso root per l'account tenant utilizzato dall'applicazione S3. Vedere link:../admin/using-identity-federation.html["USA la federazione delle identità"] e link:../admin/configuring-sso.html["Configurare il single sign-on"].
+Ottenere e configurare i nomi di dominio:: Si conosce il nome di dominio completo (FQDN) da utilizzare per StorageGRID. Le voci DNS (Domain Name Server) associano questo FQDN agli indirizzi IP virtuali (VIP) del gruppo ha creato utilizzando la procedura guidata.
++
+--
+Se si prevede di utilizzare S3 richieste in stile host virtuale, è necessario disporre di link:../admin/configuring-s3-api-endpoint-domain-names.html["Nomi di dominio degli endpoint S3 configurati"]. Si consiglia di utilizzare richieste virtuali in stile host.
+
+--
+Esaminare i requisiti del bilanciamento del carico e del certificato di sicurezza:: Se si intende utilizzare il bilanciamento del carico StorageGRID, sono state esaminate le considerazioni generali sul bilanciamento del carico. Si dispone dei certificati da caricare o dei valori necessari per generare un certificato.
++
+--
+Se si intende utilizzare un endpoint esterno (di terze parti) per il bilanciamento del carico, si dispone del nome di dominio completo (FQDN), della porta e del certificato per il bilanciamento del carico.
+
+--
+Configurare le connessioni di federazione di griglie:: Se si desidera consentire al tenant S3 di clonare i dati dell'account e replicare gli oggetti bucket in un'altra griglia utilizzando una connessione a federazione di griglie, prima di avviare la procedura guidata, confermare quanto segue:
++
+--
+* Si dispone di link:grid-federation-manage-connection.html["configurazione della connessione a federazione di griglie"].
+* Lo stato della connessione è *connesso*.
+* Si dispone dell'autorizzazione di accesso root.
+
+
+--
+

@@ -1,0 +1,54 @@
+---
+permalink: harden/hardening-guidelines-for-storagegrid-networks.html 
+sidebar: sidebar 
+keywords: hardening guidelines, networks, networking, security 
+summary: Il sistema StorageGRID supporta fino a tre interfacce di rete per nodo di rete, consentendo di configurare la rete per ogni singolo nodo di rete in modo che corrisponda ai requisiti di sicurezza e accesso. 
+---
+= Linee guida per la protezione avanzata delle reti StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il sistema StorageGRID supporta fino a tre interfacce di rete per nodo di rete, consentendo di configurare la rete per ogni singolo nodo di rete in modo che corrisponda ai requisiti di sicurezza e accesso.
+
+Per informazioni dettagliate sulle reti StorageGRID, consultare link:../network/storagegrid-network-types.html["Tipi di rete StorageGRID"].
+
+
+
+== Linee guida per Grid Network
+
+È necessario configurare una rete griglia per tutto il traffico StorageGRID interno. Tutti i nodi Grid si trovano sulla rete Grid e devono essere in grado di comunicare con tutti gli altri nodi.
+
+Durante la configurazione della rete Grid, attenersi alle seguenti linee guida:
+
+* Assicurarsi che la rete sia protetta da client non attendibili, ad esempio quelli su Internet aperto.
+* Se possibile, utilizzare Grid Network esclusivamente per il traffico interno. Sia la rete di amministrazione che la rete client presentano ulteriori restrizioni firewall che bloccano il traffico esterno verso i servizi interni. È supportato l'utilizzo di Grid Network per il traffico client esterno, ma questo tipo di utilizzo offre meno livelli di protezione.
+* Se l'implementazione di StorageGRID si estende su più data center, utilizzare una rete privata virtuale (VPN) o equivalente sulla rete grid per fornire una protezione aggiuntiva per il traffico interno.
+* Alcune procedure di manutenzione richiedono l'accesso Secure shell (SSH) sulla porta 22 tra il nodo di amministrazione primario e tutti gli altri nodi della griglia. Utilizzare un firewall esterno per limitare l'accesso SSH ai client attendibili.
+
+
+
+
+== Linee guida per la rete amministrativa
+
+La rete di amministrazione viene generalmente utilizzata per le attività amministrative (dipendenti attendibili che utilizzano Grid Manager o SSH) e per la comunicazione con altri servizi attendibili come LDAP, DNS, NTP o KMS (o server KMIP). Tuttavia, StorageGRID non applica questo utilizzo internamente.
+
+Se si utilizza la rete di amministrazione, attenersi alle seguenti linee guida:
+
+* Bloccare tutte le porte di traffico interne sulla rete di amministrazione. Consultare la link:../network/internal-grid-node-communications.html["elenco delle porte interne"].
+* Se i client non attendibili possono accedere alla rete di amministrazione, bloccare l'accesso a StorageGRID sulla rete di amministrazione con un firewall esterno.
+
+
+
+
+== Linee guida per la rete client
+
+La rete client viene generalmente utilizzata per i tenant e per le comunicazioni con servizi esterni, come il servizio di replica CloudMirror o un altro servizio della piattaforma. Tuttavia, StorageGRID non applica questo utilizzo internamente.
+
+Se si utilizza la rete client, attenersi alle seguenti linee guida:
+
+* Bloccare tutte le porte di traffico interne sulla rete client. Consultare la link:../network/internal-grid-node-communications.html["elenco delle porte interne"].
+* Accettare il traffico client in entrata solo su endpoint configurati esplicitamente. Vedere le informazioni su link:../admin/manage-firewall-controls.html["gestione dei controlli firewall"].
+

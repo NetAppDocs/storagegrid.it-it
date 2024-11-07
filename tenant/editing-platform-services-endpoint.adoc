@@ -1,0 +1,58 @@
+---
+permalink: tenant/editing-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to edit platform services endpoint 
+summary: 'È possibile modificare la configurazione di un endpoint di servizi di piattaforma per modificarne il nome, l"URI o altri dettagli. Ad esempio, potrebbe essere necessario aggiornare le credenziali scadute o modificare l"URI in modo che punti a un indice Elasticsearch di backup per il failover. Non è possibile modificare l"URN per un endpoint di servizi di piattaforma.' 
+---
+= Modifica dell'endpoint dei servizi della piattaforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare la configurazione di un endpoint di servizi di piattaforma per modificarne il nome, l'URI o altri dettagli. Ad esempio, potrebbe essere necessario aggiornare le credenziali scadute o modificare l'URI in modo che punti a un indice Elasticsearch di backup per il failover. Non è possibile modificare l'URN per un endpoint di servizi di piattaforma.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* L'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Gestire gli endpoint o l'autorizzazione di accesso root"].
+
+
+.Fasi
+. Selezionare *STORAGE (S3)* > *Platform Services Endpoint*.
++
+Viene visualizzata la pagina Platform Services Endpoint (endpoint dei servizi della piattaforma) che mostra l'elenco degli endpoint dei servizi della piattaforma già configurati.
+
+. Selezionare l'endpoint che si desidera modificare.
++
+Viene visualizzata la pagina dei dettagli dell'endpoint.
+
+. Selezionare *Configurazione*.
+. Se necessario, modificare la configurazione dell'endpoint.
++
+
+NOTE: Non è possibile modificare l'URN di un endpoint dopo la creazione dell'endpoint.
+
++
+.. Per modificare il nome di visualizzazione per l'endpoint, selezionare l'icona di modifica image:../media/icon_edit_tm.png["Icona Edit (Modifica)"].
+.. Se necessario, modificare l'URI.
+.. Se necessario, modificare il tipo di autenticazione.
++
+*** Per l'autenticazione della chiave di accesso, modificare la chiave in base alle necessità selezionando *Modifica chiave S3* e incollando un nuovo ID della chiave di accesso e una chiave di accesso segreta. Se si desidera annullare le modifiche, selezionare *Ripristina modifica tasto S3*.
+*** Per l'autenticazione CAP (C2S Access Portal), modificare l'URL delle credenziali temporanee o la passphrase della chiave privata del client opzionale e caricare nuovi file di certificato e chiavi in base alle necessità.
++
+
+NOTE: La chiave privata del client deve essere in formato crittografato OpenSSL o non crittografato.
+
+
+
+.. Se necessario, modificare il metodo di verifica del server.
+
+
+. Selezionare *Test e salvare le modifiche*.
++
+** Se è possibile raggiungere l'endpoint utilizzando le credenziali specificate, viene visualizzato un messaggio di esito positivo. La connessione all'endpoint viene verificata da un nodo in ogni sito.
+** Se la convalida dell'endpoint non riesce, viene visualizzato un messaggio di errore. Modificare l'endpoint per correggere l'errore, quindi selezionare *Test e salvare le modifiche*.
+
+
+

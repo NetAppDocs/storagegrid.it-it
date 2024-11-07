@@ -1,0 +1,109 @@
+---
+permalink: admin/managing-traffic-classification-policies.html 
+sidebar: sidebar 
+keywords: QoS, quality of service, traffic classification, best practices, limit traffic, monitor traffic 
+summary: I criteri di classificazione del traffico consentono di identificare e monitorare diversi tipi di traffico di rete. Queste policy possono aiutarti a limitare il traffico e a monitorarle per migliorare le tue offerte di qualità del servizio. 
+---
+= Cosa sono le policy di classificazione del traffico?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I criteri di classificazione del traffico consentono di identificare e monitorare diversi tipi di traffico di rete. Queste policy possono aiutarti a limitare il traffico e a monitorarle per migliorare le tue offerte di qualità del servizio.
+
+I criteri di classificazione del traffico vengono applicati agli endpoint del servizio bilanciamento del carico StorageGRID per i nodi gateway e i nodi di amministrazione. Per creare criteri di classificazione del traffico, è necessario aver già creato endpoint di bilanciamento del carico.
+
+
+
+== Regole corrispondenti
+
+Ogni policy di classificazione del traffico contiene una o più regole corrispondenti per identificare il traffico di rete correlato a una o più delle seguenti entità:
+
+* Bucket
+* Subnet
+* Tenant
+* Endpoint del bilanciamento del carico
+
+
+StorageGRID monitora il traffico che corrisponde a qualsiasi regola all'interno del criterio in base agli obiettivi della regola. Qualsiasi traffico corrispondente a qualsiasi regola di un criterio viene gestito da tale criterio. Al contrario, è possibile impostare le regole in modo che corrispondano a tutto il traffico ad eccezione di un'entità specificata.
+
+
+
+== Limitazione del traffico
+
+In alternativa, è possibile aggiungere i seguenti tipi di limite a un criterio:
+
+* Larghezza di banda aggregata
+* Larghezza di banda per richiesta
+* Richieste simultanee
+* Tasso di richiesta
+
+
+I valori limite vengono applicati in base al bilanciamento del carico. Se il traffico viene distribuito simultaneamente tra più bilanciatori di carico, i tassi massimi totali sono un multiplo dei limiti di velocità specificati.
+
+
+NOTE: È possibile creare policy per limitare la larghezza di banda aggregata o per limitare la larghezza di banda per richiesta. Tuttavia, StorageGRID non può limitare entrambi i tipi di larghezza di banda contemporaneamente. I limiti di larghezza di banda aggregati potrebbero imporre un ulteriore impatto minore sulle performance sul traffico non limitato.
+
+Per i limiti di larghezza di banda aggregati o per richiesta, le richieste vengono trasmesse in streaming alla velocità impostata. StorageGRID può applicare una sola velocità, quindi la corrispondenza di policy più specifica, in base al tipo di matcher, è quella applicata. La larghezza di banda consumata dalla richiesta non viene contata rispetto ad altre policy di corrispondenza meno specifiche contenenti policy di limite della larghezza di banda aggregate. Per tutti gli altri tipi di limite, le richieste client vengono ritardate di 250 millisecondi e ricevono una risposta lenta di 503 per le richieste che superano qualsiasi limite di policy corrispondente.
+
+In Grid Manager, è possibile visualizzare i diagrammi di traffico e verificare che i criteri stiano applicando i limiti di traffico previsti.
+
+
+
+== Utilizzare i criteri di classificazione del traffico con gli SLA
+
+È possibile utilizzare le policy di classificazione del traffico insieme ai limiti di capacità e alla protezione dei dati per applicare gli SLA (Service-Level Agreement) che forniscono specifiche per capacità, protezione dei dati e performance.
+
+Nell'esempio riportato di seguito vengono illustrati tre livelli di uno SLA. È possibile creare criteri di classificazione del traffico per raggiungere gli obiettivi di performance di ciascun livello SLA.
+
+[cols="1a,1a,1a,1a,1a"]
+|===
+| Livello di servizio | Capacità | Protezione dei dati | Massime performance consentite | Costo 
+
+
+ a| 
+Oro
+ a| 
+1 PB di storage consentito
+ a| 
+3 copia regola ILM
+ a| 
+25 richieste K/sec
+
+5 GB/sec (40 Gbps) di larghezza di banda
+ a| 
+€ al mese
+
+
+
+ a| 
+Argento
+ a| 
+250 TB di storage consentito
+ a| 
+2 copia regola ILM
+ a| 
+10 richieste K/sec
+
+1,25 GB/sec (10 Gbps) di larghezza di banda
+ a| 
+dollari al mese
+
+
+
+ a| 
+Bronzo
+ a| 
+100 TB di storage consentito
+ a| 
+2 copia regola ILM
+ a| 
+5 richieste K/sec
+
+1 GB/sec (8 Gbps) di larghezza di banda
+ a| 
+dollari al mese
+
+|===

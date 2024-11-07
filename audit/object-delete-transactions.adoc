@@ -1,0 +1,78 @@
+---
+permalink: audit/object-delete-transactions.html 
+sidebar: sidebar 
+keywords: object delete transaction, S3 delete, SDEL, WDEL 
+summary: È possibile identificare le transazioni di eliminazione degli oggetti nel registro di controllo individuando i messaggi di audit S3 specifici per API. 
+---
+= Transazioni di eliminazione degli oggetti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile identificare le transazioni di eliminazione degli oggetti nel registro di controllo individuando i messaggi di audit S3 specifici per API.
+
+Non tutti i messaggi di audit generati durante una transazione di eliminazione sono elencati nelle tabelle seguenti. Sono inclusi solo i messaggi necessari per tracciare la transazione di eliminazione.
+
+
+
+== S3 eliminare i messaggi di audit
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| Codice | Nome | Descrizione | Traccia | Vedere 
+
+
+ a| 
+SDEL
+ a| 
+S3 Elimina
+ a| 
+Richiesta di eliminazione dell'oggetto da un bucket.
+ a| 
+CBID, S3KY
+ a| 
+link:sdel-s3-delete.html["SDEL: ELIMINAZIONE S3"]
+
+|===
+
+
+== Eliminazione rapida dei messaggi di audit
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| Codice | Nome | Descrizione | Traccia | Vedere 
+
+
+ a| 
+WDEL
+ a| 
+Eliminazione rapida
+ a| 
+Richiesta di eliminazione dell'oggetto da un container o dal container.
+ a| 
+CBID, WOBJ
+ a| 
+link:wdel-swift-delete.html["WDEL: ELIMINAZIONE rapida"]
+
+|===
+
+
+== Esempio: Eliminazione di oggetti S3
+
+Quando un client S3 elimina un oggetto da un nodo di storage (servizio LDR), viene generato un messaggio di audit e salvato nel registro di audit.
+
+
+NOTE: Non tutti i messaggi di audit generati durante una transazione di eliminazione sono elencati nell'esempio seguente. Vengono elencati solo quelli relativi alla transazione di eliminazione S3 (SDEL).
+
+
+
+=== SDEL: S3 Elimina
+
+L'eliminazione degli oggetti ha inizio quando il client invia una richiesta DeleteObject a un servizio LDR. Il messaggio contiene il bucket da cui eliminare l'oggetto e la chiave S3 dell'oggetto, utilizzata per identificare l'oggetto.
+
+[listing, subs="specialcharacters,quotes"]
+----
+2017-07-17T21:17:58.959669[AUDT:[RSLT(FC32):SUCS][TIME(UI64):14316][SAIP(IPAD):"10.96.112.29"][S3AI(CSTR):"70899244468554783528"][SACC(CSTR):"test"][S3AK(CSTR):"SGKHyalRU_5cLflqajtaFmxJn946lAWRJfBF33gAOg=="][SUSR(CSTR):"urn:sgws:identity::70899244468554783528:root"][SBAI(CSTR):"70899244468554783528"][SBAC(CSTR):"test"]\[S3BK\(CSTR\):"example"\]\[S3KY\(CSTR\):"testobject-0-7"\][CBID\(UI64\):0x339F21C5A6964D89][CSIZ(UI64):30720][AVER(UI32):10][ATIM(UI64):150032627859669][ATYP\(FC32\):SDEL][ANID(UI32):12086324][AMID(FC32):S3RQ][ATID(UI64):4727861330952970593]]
+----

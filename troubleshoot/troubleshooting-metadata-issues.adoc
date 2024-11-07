@@ -1,0 +1,62 @@
+---
+permalink: troubleshoot/troubleshooting-metadata-issues.html 
+sidebar: sidebar 
+keywords: how to troubleshoot metadata issues 
+summary: 'Se si verificano problemi relativi ai metadati, gli avvisi ti informeranno sull"origine dei problemi e sulle azioni consigliate da intraprendere. In particolare, è necessario aggiungere nuovi nodi di archiviazione se viene attivato l"avviso archiviazione metadati bassa.' 
+---
+= Risolvere i problemi relativi ai metadati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si verificano problemi relativi ai metadati, gli avvisi ti informeranno sull'origine dei problemi e sulle azioni consigliate da intraprendere. In particolare, è necessario aggiungere nuovi nodi di archiviazione se viene attivato l'avviso archiviazione metadati bassa.
+
+.Prima di iniziare
+L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+
+.A proposito di questa attività
+Seguire le azioni consigliate per ogni avviso relativo ai metadati attivato. Se viene attivato l'avviso *Low metadata storage*, è necessario aggiungere nuovi nodi di storage.
+
+StorageGRID riserva una certa quantità di spazio sul volume 0 di ciascun nodo di storage per i metadati dell'oggetto. Questo spazio, noto come _spazio riservato effettivo_, è suddiviso nello spazio consentito per i metadati dell'oggetto (lo spazio dei metadati consentito) e nello spazio richiesto per le operazioni essenziali del database, come la compattazione e la riparazione. Lo spazio consentito per i metadati regola la capacità complessiva degli oggetti.
+
+image::../media/metadata_allowed_space_volume_0.png[Volume spazio consentito metadati 0]
+
+Se i metadati degli oggetti consumano più del 100% dello spazio consentito per i metadati, le operazioni del database non possono essere eseguite in modo efficiente e si verificano errori.
+
+Puoi link:../monitor/monitoring-storage-capacity.html#monitor-object-metadata-capacity-for-each-storage-node["Monitorare la capacità dei metadati degli oggetti per ciascun nodo di storage"]aiutarti ad anticipare gli errori e correggerli prima che si verifichino.
+
+StorageGRID utilizza la seguente metrica Prometheus per misurare la quantità di spazio consentito per i metadati:
+
+[listing]
+----
+storagegrid_storage_utilization_metadata_bytes/storagegrid_storage_utilization_metadata_allowed_bytes
+----
+Quando l'espressione Prometheus raggiunge determinate soglie, viene attivato l'avviso *Low metadata storage*.
+
+* *Minore*: I metadati degli oggetti utilizzano almeno il 70% dello spazio consentito per i metadati. È necessario aggiungere nuovi nodi di storage il prima possibile.
+* *Major*: I metadati degli oggetti utilizzano almeno il 90% dello spazio consentito per i metadati. È necessario aggiungere immediatamente nuovi nodi di storage.
++
+
+CAUTION: Quando i metadati dell'oggetto utilizzano almeno il 90% dello spazio consentito per i metadati, viene visualizzato un avviso sul dashboard. Se viene visualizzato questo avviso, è necessario aggiungere immediatamente nuovi nodi di storage. Non è mai necessario consentire ai metadati degli oggetti di utilizzare più del 100% dello spazio consentito.
+
+* *Critico*: I metadati degli oggetti utilizzano almeno il 100% dello spazio consentito e stanno iniziando a consumare lo spazio necessario per le operazioni essenziali del database. È necessario interrompere l'acquisizione di nuovi oggetti e aggiungere immediatamente nuovi nodi di storage.
+
+
+
+CAUTION: Se la dimensione del volume 0 è inferiore all'opzione di storage Metadata Reserved Space (ad esempio, in un ambiente non in produzione), il calcolo dell'avviso *Low metadata storage* potrebbe essere impreciso.
+
+.Fasi
+. Selezionare *ALERTS* > *current*.
+. Dalla tabella degli avvisi, espandere il gruppo di avvisi *Low metadata storage*, se necessario, e selezionare l'avviso specifico che si desidera visualizzare.
+. Esaminare i dettagli nella finestra di dialogo degli avvisi.
+. Se è stato attivato un avviso importante o critico *Low metadata storage*, eseguire un'espansione per aggiungere immediatamente i nodi di storage.
++
+
+NOTE: Poiché StorageGRID conserva copie complete di tutti i metadati degli oggetti in ogni sito, la capacità dei metadati dell'intera griglia è limitata dalla capacità dei metadati del sito più piccolo. Se è necessario aggiungere capacità di metadati a un sito, è necessario utilizzare anche link:../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html["espandere qualsiasi altro sito"]lo stesso numero di nodi di archiviazione.
+
++
+Dopo aver eseguito l'espansione, StorageGRID ridistribuisce i metadati degli oggetti esistenti nei nuovi nodi, aumentando così la capacità complessiva dei metadati della griglia. Non è richiesta alcuna azione da parte dell'utente. L'avviso *Low metadata storage* viene cancellato.
+
+

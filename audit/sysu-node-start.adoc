@@ -1,0 +1,39 @@
+---
+permalink: audit/sysu-node-start.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SYSU, Node Start 
+summary: 'Quando un servizio viene riavviato, questo messaggio viene generato per indicare se lo spegnimento precedente era pulito (comando) o disordinato (imprevisto).' 
+---
+= SYSU: Avvio nodo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando un servizio viene riavviato, questo messaggio viene generato per indicare se l'arresto precedente era pulito (comandato) o disordinato (imprevisto).
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+RSLT
+ a| 
+Pulizia dello spegnimento
+ a| 
+La natura dello shutdown:
+
+SUCS: Il sistema è stato spento in modo pulito.
+
+DSDN: Il sistema non è stato spento correttamente.
+
+VRGN: Il sistema è stato avviato per la prima volta dopo l'installazione (o la reinstallazione) del server.
+
+|===
+Il messaggio non indica se il server host è stato avviato, ma solo il servizio di reporting. Questo messaggio può essere utilizzato per:
+
+* Rilevare la discontinuità nel registro di controllo.
+* Determinare se un servizio si guasta durante il funzionamento (poiché la natura distribuita del sistema StorageGRID può mascherare questi guasti). Server Manager riavvia automaticamente un servizio guasto.
+

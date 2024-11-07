@@ -1,0 +1,90 @@
+---
+permalink: primer/using-information-lifecycle-management.html 
+sidebar: sidebar 
+keywords: what is information lifecycle management, how to use ilm 
+summary: Si utilizza la gestione del ciclo di vita delle informazioni per controllare il posizionamento, la durata e il comportamento di acquisizione di tutti gli oggetti nel sistema StorageGRID. Le regole ILM determinano il modo in cui StorageGRID memorizza gli oggetti nel tempo. Configurare una o più regole ILM e aggiungerle a un criterio ILM. 
+---
+= Gestione del ciclo di vita delle informazioni
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utilizza la gestione del ciclo di vita delle informazioni (ILM) per controllare il posizionamento, la durata e il comportamento di acquisizione di tutti gli oggetti nel sistema StorageGRID. Le regole ILM determinano il modo in cui StorageGRID memorizza gli oggetti nel tempo. Configurare una o più regole ILM e aggiungerle a un criterio ILM.
+
+Una griglia ha solo una policy attiva alla volta. Un criterio può contenere più regole.
+
+Le regole ILM definiscono:
+
+* Quali oggetti devono essere memorizzati. Una regola può essere applicata a tutti gli oggetti oppure è possibile specificare filtri per identificare gli oggetti a cui si applica una regola. Ad esempio, una regola può essere applicata solo agli oggetti associati a determinati account tenant, a specifici bucket S3 o a contenitori Swift o a specifici valori di metadati.
+* Il tipo e la posizione di storage. Gli oggetti possono essere memorizzati sui nodi storage o nei pool di cloud storage.
+* Il tipo di copie a oggetti eseguite. È possibile eseguire la replica o l'erasure coding.
+* Per le copie replicate, il numero di copie eseguite.
+* Per le copie con erasure coding, è stato utilizzato lo schema di erasure coding.
+* Il cambia nel tempo nella posizione di storage di un oggetto e nel tipo di copie.
+* Modalità di protezione dei dati degli oggetti durante l'acquisizione degli oggetti nella griglia (posizionamento sincrono o doppio commit).
+
+
+Si noti che i metadati degli oggetti non sono gestiti dalle regole ILM. I metadati degli oggetti vengono invece memorizzati in un database Cassandra in un archivio di metadati. Tre copie dei metadati degli oggetti vengono gestite automaticamente in ogni sito per proteggere i dati dalla perdita.
+
+
+
+== Esempio di regola ILM
+
+Ad esempio, una regola ILM potrebbe specificare quanto segue:
+
+* Si applicano solo agli oggetti appartenenti al tenant A.
+* Eseguire due copie replicate di tali oggetti e memorizzare ciascuna copia in un sito diverso.
+* Conserva le due copie "per sempre", il che significa che StorageGRID non le eliminerà automaticamente. Al contrario, StorageGRID conserverà questi oggetti fino a quando non saranno cancellati da una richiesta di eliminazione del client o dalla scadenza di un ciclo di vita del bucket.
+* Utilizzare l'opzione bilanciato per il comportamento di acquisizione: L'istruzione di posizionamento a due siti viene applicata non appena il tenant A salva un oggetto in StorageGRID, a meno che non sia possibile eseguire immediatamente entrambe le copie richieste.
++
+Ad esempio, se il sito 2 non è raggiungibile quando il tenant A salva un oggetto, StorageGRID eseguirà due copie intermedie sui nodi di storage nel sito 1. Non appena il sito 2 sarà disponibile, StorageGRID effettuerà la copia richiesta presso il sito.
+
+
+
+
+
+== Come un criterio ILM valuta gli oggetti
+
+Le policy ILM attive del sistema StorageGRID controllano il posizionamento, la durata e il comportamento di acquisizione di tutti gli oggetti.
+
+Quando i client salvano gli oggetti in StorageGRID, gli oggetti vengono valutati in base all'insieme ordinato di regole ILM nel criterio attivo, come segue:
+
+. Se i filtri per la prima regola del criterio corrispondono a un oggetto, l'oggetto viene acquisito in base al comportamento di acquisizione di tale regola e memorizzato in base alle istruzioni di posizionamento di tale regola.
+. Se i filtri per la prima regola non corrispondono all'oggetto, l'oggetto viene valutato in base a ogni regola successiva nel criterio fino a quando non viene effettuata una corrispondenza.
+. Se nessuna regola corrisponde a un oggetto, vengono applicate le istruzioni di inserimento e posizionamento della regola predefinita nel criterio. La regola predefinita è l'ultima regola di un criterio e non può utilizzare alcun filtro. Deve essere applicato a tutti i tenant, a tutti i bucket e a tutte le versioni degli oggetti.
+
+
+
+
+== Esempio di policy ILM
+
+Ad esempio, un criterio ILM potrebbe contenere tre regole ILM che specificano quanto segue:
+
+* *Regola 1: Copie replicate per il tenant A*
++
+** Abbina tutti gli oggetti appartenenti al tenant A.
+** Memorizzare questi oggetti come tre copie replicate in tre siti.
+** Gli oggetti appartenenti ad altri tenant non corrispondono alla regola 1, quindi vengono valutati in base alla regola 2.
+
+
+* *Regola 2: Erasure coding per oggetti superiori a 1 MB*
++
+** Associare tutti gli oggetti degli altri tenant, ma solo se sono superiori a 1 MB. Questi oggetti più grandi vengono memorizzati utilizzando la codifica di cancellazione 6+3 in tre siti.
+** Non corrisponde a oggetti di dimensioni pari o inferiori a 1 MB, pertanto questi oggetti vengono valutati in base alla regola 3.
+
+
+* *Regola 3: 2 copie 2 data center* (impostazione predefinita)
++
+** È l'ultima regola predefinita del criterio. Non utilizza filtri.
+** Creare due copie replicate di tutti gli oggetti non corrispondenti alla regola 1 o alla regola 2 (oggetti non appartenenti al tenant A di dimensioni pari o inferiori a 1 MB).
+
+
+
+
+image::../media/ilm_policy_and_rules.png[Policy e regole ILM]
+
+.Informazioni correlate
+* link:../ilm/index.html["Gestire gli oggetti con ILM"]
+

@@ -1,0 +1,20 @@
+---
+permalink: maintain/all-node-types-replacing-linux-node.html 
+sidebar: sidebar 
+keywords: replace linux node 
+summary: 'Se un guasto richiede l"implementazione di uno o più nuovi host fisici o virtuali o la reinstallazione di Linux su un host esistente, implementare e configurare l"host sostitutivo prima di poter ripristinare il nodo grid. Questa procedura è una fase del processo di ripristino del nodo grid per tutti i tipi di nodi grid.' 
+---
+= Sostituire il nodo Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se un guasto richiede l'implementazione di uno o più nuovi host fisici o virtuali o la reinstallazione di Linux su un host esistente, implementare e configurare l'host sostitutivo prima di poter ripristinare il nodo grid. Questa procedura è una fase del processo di ripristino del nodo grid per tutti i tipi di nodi grid.
+
+"Linux" si riferisce a una distribuzione Red Hat® Enterprise Linux®, Ubuntu® o Debian®. Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
+
+Questa procedura viene eseguita solo come un passaggio nel processo di ripristino di nodi di archiviazione basati su software, nodi amministrativi primari o non primari o nodi gateway. I passaggi sono identici indipendentemente dal tipo di nodo di griglia che si sta ripristinando.
+
+Se su un host Linux fisico o virtuale sono ospitati più nodi grid, è possibile ripristinare i nodi grid in qualsiasi ordine. Tuttavia, il ripristino di un nodo di amministrazione primario, se presente, impedisce il blocco del ripristino di altri nodi della griglia quando tentano di contattare il nodo di amministrazione primario per la registrazione per il ripristino.

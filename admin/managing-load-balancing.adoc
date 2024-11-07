@@ -1,0 +1,170 @@
+---
+permalink: admin/managing-load-balancing.html 
+sidebar: sidebar 
+keywords: manage load balancing, balance workload, client ingest, client retrieval, distribute connection 
+summary: Attraverso il bilanciamento del carico è possibile gestire i carichi di lavoro di acquisizione e recupero da client S3. 
+---
+= Considerazioni per il bilanciamento del carico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Attraverso il bilanciamento del carico è possibile gestire i carichi di lavoro di acquisizione e recupero da client S3.
+
+
+
+== Cos'è il bilanciamento del carico?
+
+Quando un'applicazione client salva o recupera i dati da un sistema StorageGRID, StorageGRID utilizza un sistema di bilanciamento del carico per gestire il carico di lavoro di acquisizione e recupero. Il bilanciamento del carico massimizza la velocità e la capacità di connessione distribuendo il carico di lavoro tra più nodi di storage.
+
+Il servizio bilanciamento del carico StorageGRID viene installato su tutti i nodi di amministrazione e su tutti i nodi gateway e fornisce il bilanciamento del carico di livello 7. Esegue la terminazione TLS (Transport Layer Security) delle richieste client, ispeziona le richieste e stabilisce nuove connessioni sicure ai nodi di storage.
+
+Il servizio Load Balancer su ciascun nodo funziona in modo indipendente quando si inoltra il traffico client ai nodi di storage. Attraverso un processo di ponderazione, il servizio Load Balancer indirizza più richieste ai nodi di storage con una maggiore disponibilità della CPU.
+
+
+NOTE: Anche se il servizio bilanciamento del carico di StorageGRID è il meccanismo di bilanciamento del carico consigliato, potrebbe essere necessario integrare un bilanciamento del carico di terze parti. Per informazioni, contattare il rappresentante NetApp o consultare https://fieldportal.netapp.com/content/2666394["TR-4626: Bilanciatori di carico globali e di terze parti StorageGRID"^] .
+
+
+
+== Quanti nodi per il bilanciamento del carico sono necessari?
+
+Come Best practice generale, ogni sito del sistema StorageGRID deve includere due o più nodi nel servizio bilanciamento del carico. Ad esempio, un sito potrebbe includere due nodi gateway o sia un nodo amministratore che un nodo gateway. Assicurati che sia disponibile un'infrastruttura di rete, hardware o virtualizzazione adeguata per ogni nodo di bilanciamento del carico, sia che si utilizzino appliance per i servizi, nodi bare metal o nodi basati su macchine virtuali (VM).
+
+
+
+== Che cos'è un endpoint di bilanciamento del carico?
+
+Un endpoint di bilanciamento del carico definisce la porta e il protocollo di rete (HTTPS o HTTP) che le richieste dell'applicazione client in entrata e in uscita utilizzeranno per accedere ai nodi che contengono il servizio Load Balancer. L'endpoint definisce anche il tipo di client (S3), la modalità di associazione e, facoltativamente, un elenco di tenant consentiti o bloccati.
+
+Per creare un endpoint di bilanciamento del carico, selezionare *CONFIGURAZIONE* > *rete* > *endpoint di bilanciamento del carico* oppure completare la configurazione guidata di FabricPool e S3. Per istruzioni:
+
+* link:configuring-load-balancer-endpoints.html["Configurare gli endpoint del bilanciamento del carico"]
+* link:use-s3-setup-wizard-steps.html["Utilizzare l'installazione guidata S3"]
+* link:../fabricpool/use-fabricpool-setup-wizard-steps.html["Utilizzare l'installazione guidata di FabricPool"]
+
+
+
+
+=== Considerazioni per la porta
+
+Per impostazione predefinita, la porta di un endpoint di bilanciamento del carico è 10433 per il primo endpoint creato, ma è possibile specificare qualsiasi porta esterna inutilizzata compresa tra 1 e 65535. Se si utilizza la porta 80 o 443, l'endpoint utilizzerà il servizio Load Balancer solo sui nodi gateway. Queste porte sono riservate sui nodi di amministrazione. Se si utilizza la stessa porta per più di un endpoint, è necessario specificare una modalità di binding diversa per ciascun endpoint.
+
+Le porte utilizzate da altri servizi di rete non sono consentite. Consultare la link:../network/network-port-reference.html["Riferimento porta di rete"].
+
+
+
+=== Considerazioni sul protocollo di rete
+
+Nella maggior parte dei casi, le connessioni tra le applicazioni client e StorageGRID devono utilizzare la crittografia TLS (Transport Layer Security). La connessione a StorageGRID senza crittografia TLS è supportata ma non consigliata, soprattutto negli ambienti di produzione. Quando si seleziona il protocollo di rete per l'endpoint del bilanciamento del carico StorageGRID, selezionare *HTTPS*.
+
+
+
+=== Considerazioni per i certificati endpoint del bilanciamento del carico
+
+Se si seleziona *HTTPS* come protocollo di rete per l'endpoint del bilanciamento del carico, è necessario fornire un certificato di sicurezza. È possibile utilizzare una di queste tre opzioni quando si crea l'endpoint del bilanciamento del carico:
+
+* *Caricare un certificato firmato (consigliato)*. Il certificato può essere firmato da un'autorità di certificazione pubblica o privata. L'utilizzo di un certificato del server CA pubblicamente attendibile per proteggere la connessione è la procedura consigliata. A differenza dei certificati generati, i certificati firmati da una CA possono essere ruotati senza interruzioni, in modo da evitare problemi di scadenza.
++
+Prima di creare l'endpoint del bilanciamento del carico, è necessario ottenere i seguenti file:
+
++
+** Il file di certificato del server personalizzato.
+** Il file di chiave privata del certificato del server personalizzato.
+** Facoltativamente, un bundle CA dei certificati di ciascuna autorità di certificazione di emissione intermedia.
+
+
+* *Generare un certificato autofirmato*.
+* *Utilizzare il certificato globale StorageGRID S3*. È necessario caricare o generare una versione personalizzata del certificato prima di poterla selezionare per l'endpoint del bilanciamento del carico. Vedere link:../admin/configuring-custom-server-certificate-for-storage-node.html["Configurare i certificati API S3"].
+
+
+
+
+==== Di quali valori ho bisogno?
+
+Per creare il certificato, è necessario conoscere tutti i nomi di dominio e gli indirizzi IP utilizzati dalle applicazioni client S3 per accedere all'endpoint.
+
+La voce *Subject DN* (Distinguished Name) per il certificato deve includere il nome di dominio completo che l'applicazione client utilizzerà per StorageGRID. Ad esempio:
+
+[listing]
+----
+Subject DN: /C=Country/ST=State/O=Company,Inc./CN=s3.storagegrid.example.com
+----
+Se necessario, il certificato può utilizzare i caratteri jolly per rappresentare i nomi di dominio completi di tutti i nodi Admin e Gateway che eseguono il servizio Load Balancer. Ad esempio, `*.storagegrid._example_.com` utilizza il carattere jolly * per rappresentare `adm1.storagegrid._example_.com` e `gn1.storagegrid._example_.com`.
+
+Se si prevede di utilizzare S3 richieste in stile host virtuale, il certificato deve includere anche una voce *Nome alternativo* per ogni link:../admin/configuring-s3-api-endpoint-domain-names.html["Nome di dominio dell'endpoint S3"]configurazione, inclusi i nomi dei caratteri jolly. Ad esempio:
+
+[listing]
+----
+Alternative Name: DNS:*.s3.storagegrid.example.com
+----
+
+NOTE: Se si utilizzano caratteri jolly per i nomi di dominio, vedere link:../harden/hardening-guideline-for-server-certificates.html["Linee guida per la protezione avanzata dei certificati server"].
+
+È inoltre necessario definire una voce DNS per ciascun nome nel certificato di protezione.
+
+
+
+==== Come si gestiscono i certificati in scadenza?
+
+
+CAUTION: Se il certificato utilizzato per proteggere la connessione tra l'applicazione S3 e StorageGRID scade, l'applicazione potrebbe perdere temporaneamente l'accesso a StorageGRID.
+
+Per evitare problemi di scadenza del certificato, attenersi alle seguenti Best practice:
+
+* Monitorare attentamente tutti gli avvisi che avvisano di imminenti date di scadenza dei certificati, come ad esempio la scadenza del certificato endpoint del sistema di bilanciamento del carico* e la scadenza del certificato globale del server per gli avvisi API S3*.
+* Mantenere sempre sincronizzate le versioni del certificato delle applicazioni StorageGRID e S3. Se si sostituisce o si rinnova il certificato utilizzato per un endpoint di bilanciamento del carico, è necessario sostituire o rinnovare il certificato equivalente utilizzato dall'applicazione S3.
+* Utilizzare un certificato CA con firma pubblica. Se si utilizza un certificato firmato da una CA, è possibile sostituire i certificati in scadenza senza interruzioni.
+* Se è stato generato un certificato StorageGRID autofirmato e il certificato sta per scadere, è necessario sostituirlo manualmente in StorageGRID e nell'applicazione S3 prima della scadenza del certificato esistente.
+
+
+
+
+=== Considerazioni per la modalità di binding
+
+La modalità di binding consente di controllare quali indirizzi IP possono essere utilizzati per accedere a un endpoint del bilanciamento del carico. Se un endpoint utilizza una modalità di binding, le applicazioni client possono accedere all'endpoint solo se utilizzano un indirizzo IP consentito o il corrispondente FQDN (Fully Qualified Domain Name). Le applicazioni client che utilizzano qualsiasi altro indirizzo IP o FQDN non possono accedere all'endpoint.
+
+È possibile specificare una delle seguenti modalità di binding:
+
+* *Globale* (impostazione predefinita): Le applicazioni client possono accedere all'endpoint utilizzando l'indirizzo IP di qualsiasi nodo gateway o nodo amministratore, l'indirizzo IP virtuale (VIP) di qualsiasi gruppo ha su qualsiasi rete o un FQDN corrispondente. Utilizzare questa impostazione a meno che non sia necessario limitare l'accessibilità di un endpoint.
+* *IP virtuali dei gruppi ha*. Le applicazioni client devono utilizzare un indirizzo IP virtuale (o un FQDN corrispondente) di un gruppo ha.
+* *Interfacce nodo*. I client devono utilizzare gli indirizzi IP (o gli FQDN corrispondenti) delle interfacce dei nodi selezionate.
+* *Tipo di nodo*. In base al tipo di nodo selezionato, i client devono utilizzare l'indirizzo IP (o il corrispondente FQDN) di qualsiasi nodo di amministrazione o l'indirizzo IP (o il corrispondente FQDN) di qualsiasi nodo di gateway.
+
+
+
+
+=== Considerazioni sull'accesso al tenant
+
+L'accesso tenant è una funzionalità di sicurezza opzionale che consente di controllare quali account tenant StorageGRID possono utilizzare un endpoint di bilanciamento del carico per accedere ai bucket. È possibile consentire a tutti i tenant di accedere a un endpoint (impostazione predefinita) oppure specificare un elenco dei tenant consentiti o bloccati per ciascun endpoint.
+
+È possibile utilizzare questa funzionalità per fornire un migliore isolamento della sicurezza tra i tenant e i relativi endpoint. Ad esempio, è possibile utilizzare questa funzione per garantire che i materiali top-secret o altamente classificati di proprietà di un tenant rimangano completamente inaccessibili agli altri tenant.
+
+
+NOTE: Ai fini del controllo degli accessi, il tenant viene determinato dalle chiavi di accesso utilizzate nella richiesta del client; se non vengono fornite chiavi di accesso come parte della richiesta (ad esempio con accesso anonimo), il proprietario del bucket viene utilizzato per determinare il tenant.
+
+
+
+==== Esempio di accesso al tenant
+
+Per comprendere il funzionamento di questa funzionalità di sicurezza, si consideri il seguente esempio:
+
+. Sono stati creati due endpoint di bilanciamento del carico, come segue:
++
+** Endpoint *Public*: Utilizza la porta 10443 e consente l'accesso a tutti i tenant.
+** Endpoint *Top secret*: Utilizza la porta 10444 e consente l'accesso solo al tenant *Top secret*. Tutti gli altri tenant non possono accedere a questo endpoint.
+
+
+. Il `top-secret.pdf` è in un secchio di proprietà dell'inquilino *Top Secret*.
+
+
+Per accedere a `top-secret.pdf` , un utente del locatario *Top Secret* può inviare una richiesta GET a `\https://w.x.y.z:10444/top-secret.pdf`. Poiché a questo tenant è consentito utilizzare l'endpoint 10444, l'utente può accedere all'oggetto. Tuttavia, se un utente appartenente a un altro tenant invia la stessa richiesta allo stesso URL, riceve un messaggio di accesso immediato negato. L'accesso viene negato anche se le credenziali e la firma sono valide.
+
+
+
+== Disponibilità della CPU
+
+Il servizio di bilanciamento del carico su ogni nodo amministrativo e nodo gateway funziona in modo indipendente quando inoltra traffico S3 ai nodi storage. Attraverso un processo di ponderazione, il servizio Load Balancer indirizza più richieste ai nodi di storage con una maggiore disponibilità della CPU. Le informazioni sul carico della CPU del nodo vengono aggiornate ogni pochi minuti, ma la ponderazione potrebbe essere aggiornata più frequentemente. A tutti i nodi di storage viene assegnato un valore minimo di peso di base, anche se un nodo riporta un utilizzo pari al 100% o non ne riporta l'utilizzo.
+
+In alcuni casi, le informazioni sulla disponibilità della CPU sono limitate al sito in cui si trova il servizio Load Balancer.

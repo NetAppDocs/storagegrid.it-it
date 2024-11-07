@@ -1,0 +1,27 @@
+---
+permalink: ilm/what-storage-pool-is.html 
+sidebar: sidebar 
+keywords: what is a storage pool 
+summary: Un pool di storage è un raggruppamento logico di nodi storage. 
+---
+= Che cos'è un pool di storage?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un pool di storage è un raggruppamento logico di nodi storage.
+
+Quando si installa StorageGRID, viene creato automaticamente un pool di storage per sito. È possibile configurare ulteriori pool di storage in base alle esigenze di storage.
+
+
+NOTE: È possibile configurare i nodi di storage durante l'installazione in modo che contengano dati di oggetti e metadati di oggetti o solo metadati di oggetti. I nodi di storage solo metadati non possono essere utilizzati nei pool di storage. Per ulteriori informazioni, vedere link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipi di nodi storage"].
+
+I pool di storage hanno due attributi:
+
+* *Storage grade*: Per i nodi di storage, le performance relative dello storage di backup.
+* *Sito*: Il data center in cui verranno memorizzati gli oggetti.
+
+
+I pool di storage vengono utilizzati nelle regole ILM per determinare dove sono memorizzati i dati degli oggetti e il tipo di storage utilizzato. Quando si configurano le regole ILM per la replica, si selezionano uno o più pool di storage.

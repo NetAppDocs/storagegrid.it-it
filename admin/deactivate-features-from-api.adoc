@@ -1,0 +1,60 @@
+---
+permalink: admin/deactivate-features-from-api.html 
+sidebar: sidebar 
+keywords: deactivate features from api 
+summary: 'È possibile utilizzare l"API di gestione griglia per disattivare completamente alcune funzionalità nel sistema StorageGRID. Quando una funzione viene disattivata, non è possibile assegnare a nessuno le autorizzazioni per eseguire le attività correlate a tale funzione.' 
+---
+= Disattivare le funzioni con l'API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare l'API di gestione griglia per disattivare completamente alcune funzionalità nel sistema StorageGRID. Quando una funzione viene disattivata, non è possibile assegnare a nessuno le autorizzazioni per eseguire le attività correlate a tale funzione.
+
+.A proposito di questa attività
+Il sistema Disattivato consente di impedire l'accesso a determinate funzioni del sistema StorageGRID. La disattivazione di una funzione è l'unico modo per impedire all'utente root o agli utenti appartenenti a gruppi di amministratori con autorizzazione *Root Access* di utilizzare tale funzione.
+
+Per comprendere come questa funzionalità potrebbe essere utile, considerare il seguente scenario:
+
+_L'azienda A è un provider di servizi che affitta la capacità di storage del proprio sistema StorageGRID creando account tenant. Per proteggere la sicurezza degli oggetti dei titolari di leasing, la Società A desidera garantire che i propri dipendenti non possano mai accedere a alcun account tenant dopo l'implementazione dell'account._
+
+_L'azienda A è in grado di raggiungere questo obiettivo utilizzando il sistema Deactivate Features nell'API Grid Management. Disattivando completamente la funzione *Cambia password root tenant* in Grid Manager (sia l'interfaccia utente che l'API), l'azienda A garantisce che gli utenti Admin, inclusi l'utente root e gli utenti appartenenti a gruppi con autorizzazione *root access*, non possano modificare la password per l'utente root di qualsiasi account tenant._
+
+.Fasi
+. Accedere alla documentazione Swagger per l'API di gestione griglia. Vedere link:using-grid-management-api.html["Utilizzare l'API Grid Management"].
+. Individuare l'endpoint Deactivate Features.
+. Per disattivare una funzione, ad esempio Modifica password root tenant, inviare un corpo all'API come segue:
++
+`{ "grid": {"changeTenantRootPassword": true} }`
+
++
+Al termine della richiesta, la funzione Modifica password root tenant viene disattivata. L'autorizzazione di gestione *Modifica password principale tenant* non viene più visualizzata nell'interfaccia utente e qualsiasi richiesta API che tenti di modificare la password principale per un tenant non riesce con "403 Proibito".
+
+
+
+
+
+== Riattivare le funzioni disattivate
+
+Per impostazione predefinita, è possibile utilizzare l'API Grid Management per riattivare una funzione disattivata. Tuttavia, se si desidera evitare che le funzioni disattivate vengano riattivate, è possibile disattivare la funzione *ActivateFeatures*.
+
+
+CAUTION: Impossibile riattivare la funzione *ActivateCaratures*. Se decidi di disattivare questa funzione, tieni presente che perderai in modo permanente la possibilità di riattivare qualsiasi altra funzione disattivata. È necessario contattare il supporto tecnico per ripristinare eventuali funzionalità perse.
+
+.Fasi
+. Accedere alla documentazione Swagger per l'API di gestione griglia.
+. Individuare l'endpoint Deactivate Features.
+. Per riattivare tutte le funzioni, inviare un corpo all'API come segue:
++
+`{ "grid": null }`
+
++
+Una volta completata la richiesta, tutte le funzioni, inclusa la funzione Change tenant root password, vengono riattivate. L'autorizzazione di gestione *Change tenant root password* viene ora visualizzata nell'interfaccia utente e tutte le richieste API che tentano di modificare la password root per un tenant avranno esito positivo, presupponendo che l'utente disponga dell'autorizzazione di gestione *Root access* o *Change tenant root password*.
+
+
+
+
+TIP: L'esempio precedente causa la riattivazione di _tutte_ le funzioni disattivate. Se sono state disattivate altre funzioni che devono rimanere disattivate, è necessario specificarle esplicitamente nella richiesta PUT. Ad esempio, per riattivare la funzione Cambia password root tenant e continuare a disattivare l'autorizzazione di gestione storageAdmin, inviare la richiesta PUT: +
+`{ "grid": {"storageAdmin": true} }`

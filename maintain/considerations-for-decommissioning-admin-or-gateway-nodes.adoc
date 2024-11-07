@@ -1,0 +1,36 @@
+---
+permalink: maintain/considerations-for-decommissioning-admin-or-gateway-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission admin node, decommission gateway node 
+summary: Esaminare le considerazioni per lo smantellamento di un nodo amministrativo o di un nodo gateway. 
+---
+= Considerazioni sulla disattivazione dei nodi Admin o Gateway
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esaminare le considerazioni per lo smantellamento di un nodo amministrativo o di un nodo gateway.
+
+
+
+== Considerazioni sul nodo amministrativo
+
+* Impossibile decommissionare il nodo di amministrazione primario.
+* Non è possibile decommissionare un nodo amministrativo se una delle sue interfacce di rete fa parte di un gruppo ad alta disponibilità (ha). Rimuovere prima le interfacce di rete dal gruppo ha. Vedere le istruzioni per link:../admin/managing-high-availability-groups.html["Gestione dei gruppi ha"].
+* Se necessario, è possibile modificare in modo sicuro i criteri ILM durante il decommissioning di un nodo amministrativo.
+* Se si decommissiona un nodo amministratore e si attiva l'accesso singolo (SSO) per il sistema StorageGRID, è necessario ricordare di rimuovere l'attendibilità della parte di base del nodo dai servizi di federazione di Active Directory (ad FS).
+* Se si utilizza link:../admin/grid-federation-overview.html["federazione di grid"], assicurarsi che l'indirizzo IP del nodo da smantellare non sia stato specificato per una connessione di federazione di rete.
+* Quando si decommissiona un nodo di amministrazione disconnesso, i registri di controllo andranno persi da quel nodo; tuttavia, questi registri dovrebbero esistere anche nel nodo di amministrazione primario.
+
+
+
+
+== Considerazioni per il nodo gateway
+
+* Non è possibile decommissionare un nodo gateway se una delle sue interfacce di rete fa parte di un gruppo ad alta disponibilità (ha). Rimuovere prima le interfacce di rete dal gruppo ha. Vedere le istruzioni per link:../admin/managing-high-availability-groups.html["Gestione dei gruppi ha"].
+* Se necessario, è possibile modificare in modo sicuro i criteri ILM durante il decommissionamento di un nodo gateway.
+* Se si utilizza link:../admin/grid-federation-overview.html["federazione di grid"], assicurarsi che l'indirizzo IP del nodo da smantellare non sia stato specificato per una connessione di federazione di rete.
+* È possibile decommissionare in modo sicuro un nodo gateway mentre è disconnesso.
+

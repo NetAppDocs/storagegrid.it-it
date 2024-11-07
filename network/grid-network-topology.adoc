@@ -1,0 +1,29 @@
+---
+permalink: network/grid-network-topology.html 
+sidebar: sidebar 
+keywords: grid network topology 
+summary: La topologia di rete più semplice viene creata configurando solo Grid Network. 
+---
+= Topologia Grid Network
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La topologia di rete più semplice viene creata configurando solo Grid Network.
+
+Quando si configura Grid Network, si stabiliscono l'indirizzo IP host, la subnet mask e l'indirizzo IP gateway per l'interfaccia eth0 per ciascun nodo della griglia.
+
+Durante la configurazione, è necessario aggiungere tutte le subnet Grid Network all'elenco di subnet Grid Network (GNSL). Questo elenco include tutte le subnet per tutti i siti e potrebbe includere anche sottoreti esterne che forniscono l'accesso a servizi critici come NTP, DNS o LDAP.
+
+Al momento dell'installazione, l'interfaccia Grid Network applica route statiche per tutte le subnet in GNSL e imposta il percorso predefinito del nodo al gateway Grid Network, se configurato. GNSL non è richiesto se non esiste una rete client e il gateway Grid Network è il percorso predefinito del nodo. Vengono generati anche i percorsi host verso tutti gli altri nodi della griglia.
+
+In questo esempio, tutto il traffico condivide la stessa rete, incluso il traffico correlato alle richieste client S3 e alle funzioni amministrative e di manutenzione.
+
+
+NOTE: Questa topologia è appropriata per implementazioni a singolo sito che non sono disponibili esternamente, implementazioni proof-of-concept o di test o quando un bilanciamento del carico di terze parti agisce come limite di accesso al client. Se possibile, la rete Grid deve essere utilizzata esclusivamente per il traffico interno. Sia la rete di amministrazione che la rete client presentano ulteriori restrizioni firewall che bloccano il traffico esterno verso i servizi interni. È supportato l'utilizzo di Grid Network per il traffico client esterno, ma questo tipo di utilizzo offre meno livelli di protezione.
+
+image::../media/grid_network.png[Grid Network]
+
+image::../media/grid_network_ips.png[IP di rete grid]

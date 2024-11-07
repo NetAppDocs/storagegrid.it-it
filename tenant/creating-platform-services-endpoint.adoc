@@ -1,0 +1,367 @@
+---
+permalink: tenant/creating-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to create platform services endpoint 
+summary: È necessario creare almeno un endpoint del tipo corretto prima di poter attivare un servizio di piattaforma. 
+---
+= Creare endpoint di servizi di piattaforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario creare almeno un endpoint del tipo corretto prima di poter attivare un servizio di piattaforma.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* I servizi della piattaforma sono stati abilitati per l'account tenant da un amministratore di StorageGRID.
+* L'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Gestire gli endpoint o l'autorizzazione di accesso root"].
+* La risorsa a cui fa riferimento l'endpoint dei servizi della piattaforma è stata creata:
++
+** Replica di CloudMirror: Bucket S3
+** Notifica dell'evento: Argomento Kafka o Amazon Simple Notification Service (Amazon SNS)
+** Notifica di ricerca: Indice Elasticsearch, se il cluster di destinazione non è configurato per creare automaticamente gli indici.
+
+
+* Si dispone delle informazioni relative alla risorsa di destinazione:
++
+** Host e porta per l'Uniform Resource Identifier (URI)
++
+
+NOTE: Se si prevede di utilizzare un bucket ospitato su un sistema StorageGRID come endpoint per la replica di CloudMirror, contattare l'amministratore del grid per determinare i valori da inserire.
+
+** Nome risorsa univoco (URN)
++
+link:specifying-urn-for-platform-services-endpoint.html["Specificare URN per l'endpoint dei servizi della piattaforma"]
+
+** Credenziali di autenticazione (se richieste):
++
+[role="tabbed-block"]
+====
+.Endpoint di integrazione della ricerca
+--
+Per gli endpoint di integrazione della ricerca, è possibile utilizzare le seguenti credenziali:
+
+*** Access Key (chiave di accesso): Access key ID (ID chiave di accesso) e secret access key
+*** HTTP di base: Nome utente e password
+
+
+--
+.Endpoint di replica CloudMirror
+--
+Per gli endpoint di replica di CloudMirror, è possibile utilizzare le seguenti credenziali:
+
+*** Access Key (chiave di accesso): Access key ID (ID chiave di accesso) e secret access key
+*** CAP (C2S Access Portal): URL con credenziali temporanee, certificati server e client, chiavi client e passphrase opzionale con chiave privata del client.
+
+
+--
+.Endpoint Amazon SNS
+--
+Per gli endpoint Amazon SNS, è possibile utilizzare le seguenti credenziali:
+
+*** Access Key (chiave di accesso): Access key ID (ID chiave di accesso) e secret access key
+
+
+--
+.Endpoint Kafka
+--
+Per gli endpoint Kafka, è possibile utilizzare le seguenti credenziali:
+
+*** SASL/PLAIN: Nome utente e password
+*** SASL/SCRAM-SHA-256: Nome utente e password
+*** SASL/SCRAM-SHA-512: Nome utente e password
+
+
+--
+====
+** Certificato di protezione (se si utilizza un certificato CA personalizzato)
+
+
+* Se le funzioni di protezione di Elasticsearch sono attivate, si dispone del privilegio del cluster di monitoraggio per il test di connettività e del privilegio di scrittura dell'indice o di entrambi i privilegi di indice e di eliminazione per gli aggiornamenti dei documenti.
+
+
+.Fasi
+. Selezionare *STORAGE (S3)* > *Platform Services Endpoint*. Viene visualizzata la pagina Platform Services Endpoint.
+. Selezionare *Crea endpoint*.
+. Inserire un nome visualizzato per descrivere brevemente l'endpoint e il suo scopo.
++
+Il tipo di servizio della piattaforma supportato dall'endpoint viene visualizzato accanto al nome dell'endpoint quando viene elencato nella pagina degli endpoint, quindi non è necessario includere tali informazioni nel nome.
+
+. Nel campo *URI*, specificare l'URI (Unique Resource Identifier) dell'endpoint.
++
+--
+Utilizzare uno dei seguenti formati:
+
+[listing]
+----
+https://host:port
+http://host:port
+----
+Se non si specifica una porta, vengono utilizzate le seguenti porte predefinite:
+
+** Porta 443 per URI HTTPS e porta 80 per URI HTTP (la maggior parte degli endpoint)
+** Porta 9092 per URI HTTPS e HTTP (solo endpoint Kafka)
+
+
+--
++
+Ad esempio, l'URI per un bucket ospitato su StorageGRID potrebbe essere:
+
++
+[listing]
+----
+https://s3.example.com:10443
+----
++
+In questo esempio, `s3.example.com` rappresenta la voce DNS per l'IP virtuale (VIP) del gruppo ha (StorageGRID High Availability) e `10443` rappresenta la porta definita nell'endpoint del bilanciamento del carico.
+
++
+
+NOTE: Quando possibile, è necessario connettersi a un gruppo ha di nodi per il bilanciamento del carico per evitare un singolo punto di errore.
+
++
+Analogamente, l'URI per un bucket ospitato su AWS potrebbe essere:
+
++
+[listing]
+----
+https://s3-aws-region.amazonaws.com
+----
++
+
+NOTE: Se l'endpoint viene utilizzato per il servizio di replica CloudMirror, non includere il nome del bucket nell'URI. Il nome del bucket viene incluso nel campo *URN*.
+
+. Immettere il nome di risorsa (URN) univoco per l'endpoint.
++
+
+NOTE: Non è possibile modificare l'URN di un endpoint dopo la creazione dell'endpoint.
+
+. Selezionare *continua*.
+. Selezionare un valore per *tipo di autenticazione*.
++
+[role="tabbed-block"]
+====
+.Endpoint di integrazione della ricerca
+--
+Immettere o caricare le credenziali per un endpoint di integrazione della ricerca.
+
+Le credenziali fornite devono disporre delle autorizzazioni di scrittura per la risorsa di destinazione.
+
+[cols="1a,2a,2a"]
+|===
+| Tipo di autenticazione | Descrizione | Credenziali 
+
+
+ a| 
+Anonimo
+ a| 
+Fornisce l'accesso anonimo alla destinazione. Funziona solo per gli endpoint con protezione disattivata.
+ a| 
+Nessuna autenticazione.
+
+
+
+ a| 
+Chiave di accesso
+ a| 
+Utilizza credenziali di tipo AWS per autenticare le connessioni con la destinazione.
+ a| 
+** ID chiave di accesso
+** Chiave di accesso segreta
+
+
+
+
+ a| 
+HTTP di base
+ a| 
+Utilizza un nome utente e una password per autenticare le connessioni alla destinazione.
+ a| 
+** Nome utente
+** Password
+
+
+|===
+--
+.Endpoint di replica CloudMirror
+--
+Immettere o caricare le credenziali per un endpoint di replica CloudMirror.
+
+Le credenziali fornite devono disporre delle autorizzazioni di scrittura per la risorsa di destinazione.
+
+[cols="1a,2a,2a"]
+|===
+| Tipo di autenticazione | Descrizione | Credenziali 
+
+
+ a| 
+Anonimo
+ a| 
+Fornisce l'accesso anonimo alla destinazione. Funziona solo per gli endpoint con protezione disattivata.
+ a| 
+Nessuna autenticazione.
+
+
+
+ a| 
+Chiave di accesso
+ a| 
+Utilizza credenziali di tipo AWS per autenticare le connessioni con la destinazione.
+ a| 
+** ID chiave di accesso
+** Chiave di accesso segreta
+
+
+
+
+ a| 
+CAP (portale di accesso C2S)
+ a| 
+Utilizza certificati e chiavi per autenticare le connessioni alla destinazione.
+ a| 
+** URL temporaneo delle credenziali
+** Certificato CA del server (caricamento file PEM)
+** Certificato client (caricamento file PEM)
+** Chiave privata del client (caricamento file PEM, formato crittografato OpenSSL o formato chiave privata non crittografato)
+** Passphrase della chiave privata del client (opzionale)
+
+
+|===
+--
+.Endpoint Amazon SNS
+--
+Immettere o caricare le credenziali per un endpoint Amazon SNS.
+
+Le credenziali fornite devono disporre delle autorizzazioni di scrittura per la risorsa di destinazione.
+
+[cols="1a,2a,2a"]
+|===
+| Tipo di autenticazione | Descrizione | Credenziali 
+
+
+ a| 
+Anonimo
+ a| 
+Fornisce l'accesso anonimo alla destinazione. Funziona solo per gli endpoint con protezione disattivata.
+ a| 
+Nessuna autenticazione.
+
+
+
+ a| 
+Chiave di accesso
+ a| 
+Utilizza credenziali di tipo AWS per autenticare le connessioni con la destinazione.
+ a| 
+** ID chiave di accesso
+** Chiave di accesso segreta
+
+
+|===
+--
+.Endpoint Kafka
+--
+Immettere o caricare le credenziali per un endpoint Kafka.
+
+Le credenziali fornite devono disporre delle autorizzazioni di scrittura per la risorsa di destinazione.
+
+[cols="1a,2a,2a"]
+|===
+| Tipo di autenticazione | Descrizione | Credenziali 
+
+
+ a| 
+Anonimo
+ a| 
+Fornisce l'accesso anonimo alla destinazione. Funziona solo per gli endpoint con protezione disattivata.
+ a| 
+Nessuna autenticazione.
+
+
+
+ a| 
+SASL/SEMPLICE
+ a| 
+Utilizza un nome utente e una password con testo normale per autenticare le connessioni alla destinazione.
+ a| 
+** Nome utente
+** Password
+
+
+
+
+ a| 
+SASL/SCRAM-SHA-256
+ a| 
+Utilizza un nome utente e una password utilizzando un protocollo di risposta alla verifica e l'hash SHA-256 per autenticare le connessioni alla destinazione.
+ a| 
+** Nome utente
+** Password
+
+
+
+
+ a| 
+SASL/SCRAM-SHA-512
+ a| 
+Utilizza un nome utente e una password utilizzando un protocollo di risposta alla verifica e l'hash SHA-512 per autenticare le connessioni alla destinazione.
+ a| 
+** Nome utente
+** Password
+
+
+|===
+Selezionare *Usa autenticazione con delega* se il nome utente e la password sono derivati da un token di delega ottenuto da un cluster Kafka.
+
+--
+====
+. Selezionare *continua*.
+. Selezionare un pulsante di opzione per *verify server* (verifica server) per scegliere la modalità di verifica della connessione TLS all'endpoint.
++
+[cols="1a,2a"]
+|===
+| Tipo di verifica del certificato | Descrizione 
+
+
+ a| 
+USA certificato CA personalizzato
+ a| 
+Utilizzare un certificato di protezione personalizzato. Se si seleziona questa impostazione, copiare e incollare il certificato di protezione personalizzato nella casella di testo *certificato CA*.
+
+
+
+ a| 
+Utilizzare il certificato CA del sistema operativo
+ a| 
+Utilizzare il certificato Grid CA predefinito installato sul sistema operativo per proteggere le connessioni.
+
+
+
+ a| 
+Non verificare il certificato
+ a| 
+Il certificato utilizzato per la connessione TLS non viene verificato. Questa opzione non è sicura.
+
+|===
+. Selezionare *Test e creare endpoint*.
++
+** Se è possibile raggiungere l'endpoint utilizzando le credenziali specificate, viene visualizzato un messaggio di esito positivo. La connessione all'endpoint viene convalidata da un nodo in ogni sito.
+** Se la convalida dell'endpoint non riesce, viene visualizzato un messaggio di errore. Se è necessario modificare l'endpoint per correggere l'errore, selezionare *Torna ai dettagli dell'endpoint* e aggiornare le informazioni. Quindi, selezionare *Test e creare endpoint*.
++
+
+NOTE: La creazione dell'endpoint non riesce se i servizi della piattaforma non sono abilitati per l'account tenant. Contattare l'amministratore di StorageGRID.
+
+
+
+
+
+Dopo aver configurato un endpoint, è possibile utilizzare il relativo URN per configurare un servizio di piattaforma.
+
+.Informazioni correlate
+* link:specifying-urn-for-platform-services-endpoint.html["Specificare URN per l'endpoint dei servizi della piattaforma"]
+* link:configuring-cloudmirror-replication.html["Configurare la replica di CloudMirror"]
+* link:configuring-event-notifications.html["Configurare le notifiche degli eventi"]
+* link:configuring-search-integration-service.html["Configurare il servizio di integrazione della ricerca"]
+

@@ -1,0 +1,86 @@
+---
+permalink: admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html 
+sidebar: sidebar 
+keywords: signing in when sso is down, single sign on failure 
+summary: 'Potrebbe non essere possibile accedere a Grid Manager se il sistema Single Sign-on (SSO) non funziona. In questo caso, è possibile disattivare e riabilitare temporaneamente SSO per un nodo di amministrazione. Per disattivare e riabilitare SSO, è necessario accedere alla shell dei comandi del nodo.' 
+---
+= Disattivare e riabilitare temporaneamente il Single Sign-on per un nodo di amministrazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il sistema SSO (Single Sign-on) non funziona, potrebbe non essere possibile accedere a Grid Manager. In questo caso, è possibile disattivare e riabilitare temporaneamente SSO per un nodo di amministrazione. Per disattivare e riabilitare SSO, è necessario accedere alla shell dei comandi del nodo.
+
+.Prima di iniziare
+* Si dispone di link:admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+* Si dispone del `Passwords.txt` file.
+* Si conosce la password dell'utente root locale.
+
+
+.A proposito di questa attività
+Dopo aver disattivato SSO per un nodo di amministrazione, è possibile accedere a Grid Manager come utente root locale. Per proteggere il sistema StorageGRID, è necessario utilizzare la shell dei comandi del nodo per riabilitare SSO sul nodo di amministrazione non appena si effettua la disconnessione.
+
+
+TIP: La disattivazione di SSO per un nodo di amministrazione non influisce sulle impostazioni SSO per qualsiasi altro nodo di amministrazione nella griglia. La casella di controllo *Enable SSO* (attiva SSO) nella pagina Single Sign-on (accesso singolo) di Grid Manager rimane selezionata e tutte le impostazioni SSO esistenti vengono mantenute, a meno che non vengano aggiornate.
+
+.Fasi
+. Accedere a un nodo amministratore:
++
+.. Immettere il seguente comando: `ssh admin@Admin_Node_IP`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+
+. Eseguire il seguente comando:``disable-saml``
++
+Un messaggio indica che il comando si applica solo a questo nodo di amministrazione.
+
+. Confermare che si desidera disattivare SSO.
++
+Un messaggio indica che l'accesso singolo è disattivato sul nodo.
+
+. Da un browser Web, accedere a Grid Manager sullo stesso nodo di amministrazione.
++
+Viene visualizzata la pagina di accesso di Grid Manager perché SSO è stato disattivato.
+
+. Accedere con il nome utente root e la password dell'utente root locale.
+. Se SSO è stato disattivato temporaneamente perché era necessario correggere la configurazione SSO:
++
+.. Selezionare *CONFIGURATION* > *Access control* > *Single Sign-on*.
+.. Modificare le impostazioni SSO non corrette o non aggiornate.
+.. Selezionare *Salva*.
++
+Selezionando *Save* (Salva) dalla pagina Single Sign-on (accesso singolo), l'SSO viene riattivato automaticamente per l'intera griglia.
+
+
+
+. Se l'SSO è stato disattivato temporaneamente perché era necessario accedere a Grid Manager per un altro motivo:
++
+.. Eseguire qualsiasi attività o attività da eseguire.
+.. Selezionare *Disconnetti* e chiudere Grid Manager.
+.. Riabilitare SSO sul nodo di amministrazione. È possibile eseguire una delle seguenti operazioni:
++
+*** Eseguire il seguente comando: `enable-saml`
++
+Un messaggio indica che il comando si applica solo a questo nodo di amministrazione.
+
++
+Confermare che si desidera attivare SSO.
+
++
+Un messaggio indica che il Single Sign-on è attivato sul nodo.
+
+*** Riavviare il nodo della griglia: `reboot`
+
+
+
+
+. Da un browser Web, accedere a Grid Manager dallo stesso nodo di amministrazione.
+. Verificare che venga visualizzata la pagina di accesso a StorageGRID e che sia necessario immettere le credenziali SSO per accedere a Grid Manager.
+

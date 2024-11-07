@@ -1,0 +1,94 @@
+---
+permalink: s3/get-bucket-consistency-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, GET bucket consistency 
+summary: La richiesta di coerenza GET Bucket consente di determinare la coerenza applicata a un determinato bucket. 
+---
+= COERENZA del bucket
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La richiesta di coerenza GET Bucket consente di determinare la coerenza applicata a un determinato bucket.
+
+La coerenza predefinita è impostata per garantire la lettura dopo scrittura per gli oggetti appena creati.
+
+Per completare questa operazione, è necessario disporre dell'autorizzazione s3:GetBucketConsistency o essere root dell'account.
+
+
+
+== Esempio di richiesta
+
+[listing, subs="specialcharacters,quotes"]
+----
+GET /bucket?x-ntap-sg-consistency HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+== Risposta
+
+Nella risposta XML, `<Consistency>` restituirà uno dei seguenti valori:
+
+[cols="1a,2a"]
+|===
+| Coerenza | Descrizione 
+
+
+ a| 
+tutto
+ a| 
+Tutti i nodi ricevono i dati immediatamente, altrimenti la richiesta non riesce.
+
+
+
+ a| 
+forte-globale
+ a| 
+Garantisce la coerenza di lettura dopo scrittura per tutte le richieste dei client in tutti i siti.
+
+
+
+ a| 
+sito forte
+ a| 
+Garantisce la coerenza di lettura dopo scrittura per tutte le richieste dei client all'interno di un sito.
+
+
+
+ a| 
+read-after-new-write
+ a| 
+(Impostazione predefinita) fornisce coerenza di lettura dopo scrittura per i nuovi oggetti ed eventuale coerenza per gli aggiornamenti degli oggetti. Offre alta disponibilità e garanzie di protezione dei dati. Consigliato per la maggior parte dei casi.
+
+
+
+ a| 
+disponibile
+ a| 
+Fornisce una coerenza finale sia per i nuovi oggetti che per gli aggiornamenti degli oggetti. Per i bucket S3, utilizzare solo se necessario (ad esempio, per un bucket che contiene valori di log che vengono raramente letti o per operazioni HEAD o GET su chiavi che non esistono). Non supportato per i bucket S3 FabricPool.
+
+|===
+
+
+== Esempio di risposta
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Fri, 18 Sep 2020 01:02:18 GMT
+Connection: CLOSE
+Server: StorageGRID/11.5.0
+x-amz-request-id: 12345
+Content-Length: 127
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Consistency xmlns="http://s3.storagegrid.com/doc/2015-02-01/">read-after-new-write</Consistency>
+----
+.Informazioni correlate
+link:consistency-controls.html["Valori di coerenza"]

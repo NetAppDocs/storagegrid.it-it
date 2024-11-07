@@ -1,0 +1,300 @@
+---
+permalink: ilm/example-7-compliant-ilm-policy-for-s3-object-lock.html 
+sidebar: sidebar 
+keywords: ILM policy,S3 Object Lock 
+summary: È possibile utilizzare il bucket S3, le regole ILM e il criterio ILM in questo esempio come punto di partenza quando si definisce un criterio ILM per soddisfare i requisiti di protezione e conservazione degli oggetti nei bucket con blocco oggetti S3 attivato. 
+---
+= Esempio 7: Policy ILM conforme per il blocco oggetti S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare il bucket S3, le regole ILM e il criterio ILM in questo esempio come punto di partenza quando si definisce un criterio ILM per soddisfare i requisiti di protezione e conservazione degli oggetti nei bucket con blocco oggetti S3 attivato.
+
+
+NOTE: Se hai utilizzato la funzionalità di conformità legacy nelle versioni precedenti di StorageGRID, puoi anche utilizzare questo esempio per gestire qualsiasi bucket esistente con la funzionalità di conformità legacy attivata.
+
+
+CAUTION: Le seguenti regole e policy ILM sono solo esempi. Esistono diversi modi per configurare le regole ILM. Prima di attivare un nuovo criterio, simularlo per verificare che funzioni come previsto per proteggere il contenuto dalla perdita.
+
+.Informazioni correlate
+* link:managing-objects-with-s3-object-lock.html["Gestire gli oggetti con S3 Object Lock"]
+* link:creating-ilm-policy.html["Creare un criterio ILM"]
+
+
+
+
+== Esempio di bucket e oggetti per S3 Object Lock
+
+In questo esempio, un account tenant S3 denominato Bank of ABC ha utilizzato il tenant Manager per creare un bucket con blocco oggetti S3 abilitato per memorizzare i record bancari critici.
+
+[cols="2a,2a"]
+|===
+| Definizione del bucket | Valore di esempio 
+
+
+ a| 
+Nome account tenant
+ a| 
+Banca di ABC
+
+
+
+ a| 
+Nome bucket
+ a| 
+banca-record
+
+
+
+ a| 
+Area bucket
+ a| 
+us-east-1 (impostazione predefinita)
+
+|===
+Ogni versione oggetto e oggetto aggiunta al bucket di record bancari utilizzerà i seguenti valori per le `retain-until-date` impostazioni e `legal hold` .
+
+[cols="1a,2a"]
+|===
+| Impostazione per ciascun oggetto | Valore di esempio 
+
+
+ a| 
+`retain-until-date`
+ a| 
+"2030-12-30T23:59:59Z" (30 dicembre 2030)
+
+Ogni versione oggetto ha una propria `retain-until-date` impostazione. Questa impostazione può essere aumentata, ma non ridotta.
+
+
+
+ a| 
+`legal hold`
+ a| 
+"OFF" (non in vigore)
+
+È possibile mettere o revocare un blocco legale su qualsiasi versione oggetto in qualsiasi momento durante il periodo di conservazione. Se un oggetto è bloccato a fini giudiziari, l'oggetto non può essere eliminato anche se `retain-until-date` è stato raggiunto.
+
+|===
+
+
+== Regola ILM 1 per blocco oggetto S3 esempio: Profilo di erasure coding con abbinamento bucket
+
+Questa regola ILM di esempio si applica solo all'account tenant S3 denominato Bank of ABC. Si abbina a qualsiasi oggetto nel `bank-records` bucket e quindi utilizza l'erasure coding per memorizzare l'oggetto sui nodi storage in tre siti di data center utilizzando un profilo di erasure coding 6+3. Questa regola soddisfa i requisiti dei bucket con blocco oggetti S3 attivato: Una copia viene conservata nei nodi di storage dal giorno 0 a per sempre, utilizzando l'ora di inizio come tempo di riferimento.
+
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Nome della regola
+ a| 
+Compliant Rule (regola conforme): Oggetti EC nel bucket dei record bancari - Bank of ABC
+
+
+
+ a| 
+Account tenant
+ a| 
+Banca di ABC
+
+
+
+ a| 
+Nome bucket
+ a| 
+`bank-records`
+
+
+
+ a| 
+Filtro avanzato
+ a| 
+Dimensione oggetto (MB) maggiore di 1
+
+*Nota:* questo filtro garantisce che la codifica erasure non venga utilizzata per oggetti di dimensioni pari o inferiori a 1 MB.
+
+|===
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Tempo di riferimento
+ a| 
+Tempo di acquisizione
+
+
+
+ a| 
+Posizionamenti
+ a| 
+Dal giorno 0 memorizzare per sempre
+
+
+
+ a| 
+Profilo di erasure coding
+ a| 
+* Creare una copia con codifica di cancellazione sui nodi di storage in tre siti del data center
+* Utilizza uno schema di erasure coding 6+3
+
+
+|===
+
+
+== ILM regola 2 per S3 Object Lock esempio: Regola non conforme
+
+Questa regola ILM di esempio memorizza inizialmente due copie di oggetti replicate sui nodi di storage. Dopo un anno, memorizza una copia su un Cloud Storage Pool per sempre. Poiché questa regola utilizza un Cloud Storage Pool, non è conforme e non si applica agli oggetti nei bucket con S3 Object Lock attivato.
+
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Nome della regola
+ a| 
+Regola non conforme: Utilizza il Cloud Storage Pool
+
+
+
+ a| 
+Account tenant
+ a| 
+Non specificato
+
+
+
+ a| 
+Nome bucket
+ a| 
+Non specificato, ma si applica solo ai bucket che non hanno S3 Object Lock (o la funzionalità Compliance legacy) abilitato.
+
+
+
+ a| 
+Filtro avanzato
+ a| 
+Non specificato
+
+|===
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Tempo di riferimento
+ a| 
+Tempo di acquisizione
+
+
+
+ a| 
+Posizionamenti
+ a| 
+* Il giorno 0, conserva due copie replicate sui nodi di storage nel data center 1 e nel data center 2 per 365 giorni
+* Dopo 1 anno, conserva per sempre una copia replicata in un Cloud Storage Pool
+
+
+|===
+
+
+== ILM regola 3 per S3 Object Lock esempio: Regola predefinita
+
+Questa regola ILM di esempio copia i dati degli oggetti in pool di storage in due data center. Questa regola di conformità è stata progettata per essere la regola predefinita nel criterio ILM. Non include alcun filtro, non utilizza il tempo di riferimento non corrente e soddisfa i requisiti dei bucket con S3 Object Lock abilitato: Due copie di oggetti vengono conservate sui nodi di storage dal giorno 0 a per sempre, utilizzando Ingest come tempo di riferimento.
+
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Nome della regola
+ a| 
+Regola di conformità predefinita: Due copie di due data center
+
+
+
+ a| 
+Account tenant
+ a| 
+Non specificato
+
+
+
+ a| 
+Nome bucket
+ a| 
+Non specificato
+
+
+
+ a| 
+Filtro avanzato
+ a| 
+Non specificato
+
+|===
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Tempo di riferimento
+ a| 
+Tempo di acquisizione
+
+
+
+ a| 
+Posizionamenti
+ a| 
+Dal giorno 0 all'anno, conserva due copie replicate, una sui nodi di storage nel data center 1 e una sui nodi di storage nel data center 2.
+
+|===
+
+
+== Esempio di policy ILM conforme per S3 Object Lock
+
+Per creare un criterio ILM che protegga efficacemente tutti gli oggetti del sistema, inclusi quelli nei bucket con S3 Object Lock attivato, è necessario selezionare le regole ILM che soddisfano i requisiti di storage per tutti gli oggetti. Quindi, è necessario simulare e attivare il criterio.
+
+
+
+=== Aggiungere regole al criterio
+
+In questo esempio, il criterio ILM include tre regole ILM, nel seguente ordine:
+
+. Regola conforme che utilizza la codifica erasure per proteggere oggetti superiori a 1 MB in un bucket specifico con blocco oggetti S3 attivato. Gli oggetti vengono memorizzati nei nodi di storage dal giorno 0 a sempre.
+. Una regola non conforme che crea due copie di oggetti replicate sui nodi di storage per un anno e sposta una copia di oggetto in un pool di storage cloud per sempre. Questa regola non si applica ai bucket con blocco oggetti S3 attivato perché utilizza un pool di storage cloud.
+. La regola di conformità predefinita che crea due copie di oggetti replicate sui nodi di storage dal giorno 0 a per sempre.
+
+
+
+
+=== Simulare la policy
+
+Dopo aver aggiunto regole al criterio, scelto una regola conforme predefinita e organizzato le altre regole, è necessario simulare il criterio testando gli oggetti dal bucket con blocco oggetti S3 attivato e da altri bucket. Ad esempio, quando si simula il criterio di esempio, si prevede che gli oggetti di test vengano valutati come segue:
+
+* La prima regola corrisponde solo agli oggetti di test che sono superiori a 1 MB nei record di banco bucket per il tenant Bank of ABC.
+* La seconda regola corrisponde a tutti gli oggetti in tutti i bucket non conformi per tutti gli altri account tenant.
+* La regola predefinita corrisponde ai seguenti oggetti:
++
+** Oggetti di 1 MB o inferiori nei bucket bank-record per il tenant Bank of ABC.
+** Oggetti in qualsiasi altro bucket con S3 Object Lock attivato per tutti gli altri account tenant.
+
+
+
+
+
+
+=== Attivare il criterio
+
+Quando si è completamente soddisfatti del fatto che il nuovo criterio protegga i dati degli oggetti come previsto, è possibile attivarlo.

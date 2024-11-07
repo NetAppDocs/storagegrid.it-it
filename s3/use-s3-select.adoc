@@ -1,0 +1,152 @@
+---
+permalink: s3/use-s3-select.html 
+sidebar: sidebar 
+keywords: use S3 Select, S3 Select 
+summary: StorageGRID supporta le seguenti condizioni, tipi di dati, operatori e parole chiave riservate Amazon S3 Select per il comando SelectObjectContent. 
+---
+= USA S3 Select
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID supporta le seguenti condizioni, tipi di dati e operatori Amazon S3 Select per link:select-object-content.html["Comando SelectObjectContent"].
+
+
+NOTE: Gli elementi non elencati non sono supportati.
+
+Per la sintassi, vedere link:select-object-content.html["SelectObjectContent"]. Per ulteriori informazioni su S3 Select, vedere https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html["Documentazione AWS per S3 Select"^] .
+
+Solo gli account tenant con S3 Select abilitato possono eseguire query SelectObjectContent. Consultare la link:../admin/manage-s3-select-for-tenant-accounts.html["Considerazioni e requisiti per l'utilizzo di S3 Select"].
+
+
+
+== Clausole
+
+* SELEZIONARE l'elenco
+* CLAUSOLA FROM
+* Clausola WHERE
+* Clausola di LIMITAZIONE
+
+
+
+
+== Tipi di dati
+
+* bool
+* intero
+* stringa
+* fluttuare
+* decimale, numerico
+* data e ora
+
+
+
+
+== Operatori
+
+
+
+=== Operatori logici
+
+* E.
+* NO
+* OPPURE
+
+
+
+
+=== Operatori di confronto
+
+* <
+* >
+* <=
+* >=
+* =
+* =
+* <>
+* !=
+* TRA
+* POLL
+
+
+
+
+=== Operatori di corrispondenza dei modelli
+
+* MI PIACE
+* _
+* %
+
+
+
+
+=== Operatori unitari
+
+* È NULL
+* NON È NULL
+
+
+
+
+=== Operatori matematici
+
+* +
+* -
+* *
+* /
+* %
+
+
+StorageGRID segue la precedenza dell'operatore Amazon S3 Select.
+
+
+
+== Funzioni di aggregazione
+
+* MEDIA()
+* CONTEGGIO(*)
+* MAX()
+* MIN()
+* SOMMA()
+
+
+
+
+== Funzioni condizionali
+
+* CASO
+* COALESCE
+* NULLIF
+
+
+
+
+== Funzioni di conversione
+
+* CAST (per il tipo di dati supportato)
+
+
+
+
+== Funzioni di data
+
+* DATA_ADD
+* DATA_DIFF
+* ESTRARRE
+* TO_STRING
+* TO_TIMESTAMP
+* UTCNOW
+
+
+
+
+== Funzioni di stringa
+
+* CHAR_LENGTH, CHARACTER_LENGTH
+* ABBASSARE
+* SOTTOSTRINGA
+* TAGLIARE
+* SUPERIORE
+

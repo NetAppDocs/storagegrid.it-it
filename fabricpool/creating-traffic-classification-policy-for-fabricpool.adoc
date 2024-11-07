@@ -1,0 +1,67 @@
+---
+permalink: fabricpool/creating-traffic-classification-policy-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, traffic classification, traffic policy, QoS, quality of service 
+summary: È possibile, in via opzionale, progettare una policy di classificazione del traffico StorageGRID per ottimizzare la qualità del servizio per il carico di lavoro FabricPool. 
+---
+= Creare una policy di classificazione del traffico per FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile, in via opzionale, progettare una policy di classificazione del traffico StorageGRID per ottimizzare la qualità del servizio per il carico di lavoro FabricPool.
+
+Per ulteriori informazioni su questa attività, vedere link:../admin/managing-traffic-classification-policies.html["Gestire le policy di classificazione del traffico"]. Per completare questa attività mediante la procedura guidata di installazione di FabricPool, andare a link:use-fabricpool-setup-wizard-steps.html["Accedere e completare l'installazione guidata di FabricPool"].
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di accesso root"].
+
+
+.A proposito di questa attività
+Le Best practice per la creazione di una policy di classificazione del traffico per FabricPool dipendono dal carico di lavoro, come segue:
+
+* Se si prevede di suddividere i dati del carico di lavoro primario FabricPool in StorageGRID, assicurarsi che il carico di lavoro FabricPool abbia la maggior parte della larghezza di banda. È possibile creare una policy di classificazione del traffico per limitare tutti gli altri carichi di lavoro.
++
+
+NOTE: In generale, le operazioni di lettura FabricPool sono più importanti per le priorità rispetto alle operazioni di scrittura.
+
++
+Ad esempio, se altri client S3 utilizzano questo sistema StorageGRID, è necessario creare un criterio di classificazione del traffico. È possibile limitare il traffico di rete per gli altri bucket, tenant, subnet IP o endpoint del bilanciamento del carico.
+
+* In genere, non è consigliabile imporre limiti alla qualità del servizio a nessun carico di lavoro FabricPool; si consiglia di limitare solo gli altri carichi di lavoro.
+* I limiti imposti agli altri carichi di lavoro devono tenere conto del comportamento di tali carichi di lavoro. I limiti imposti variano anche in base al dimensionamento e alle funzionalità del tuo grid e alla quantità di utilizzo prevista.
+
+
+.Fasi
+. Selezionare *CONFIGURAZIONE* > *rete* > *classificazione del traffico*.
+. Selezionare *Crea*.
+. Inserire un nome e una descrizione (opzionale) per la policy e selezionare *continua*.
+. Per il passo Add Matching rules (Aggiungi regole di corrispondenza), aggiungere almeno una regola.
++
+.. Selezionare *Aggiungi regola*
+.. Per tipo, selezionare *endpoint del bilanciamento del carico* e selezionare l'endpoint del bilanciamento del carico creato per FabricPool.
++
+È inoltre possibile selezionare l'account o il bucket del tenant FabricPool.
+
+.. Se si desidera che questo criterio di traffico limiti il traffico per gli altri endpoint, selezionare *corrispondenza inversa*.
+
+
+. Facoltativamente, aggiungere uno o più limiti per controllare il traffico di rete corrispondente alla regola.
++
+
+NOTE: StorageGRID raccoglie le metriche anche se non si aggiungono limiti, in modo da poter comprendere le tendenze del traffico.
+
++
+.. Selezionare *Aggiungi un limite*.
+.. Selezionare il tipo di traffico che si desidera limitare e il limite da applicare.
+
+
+. Selezionare *continua*.
+. Leggere e rivedere la policy di classificazione del traffico. Utilizzare il pulsante *precedente* per tornare indietro e apportare le modifiche necessarie. Quando si è soddisfatti della policy, selezionare *Salva e continua*.
+
+
+.Dopo il completamento
+link:../admin/viewing-network-traffic-metrics.html["Visualizzare le metriche del traffico di rete"] per verificare che i criteri applichino i limiti di traffico previsti.

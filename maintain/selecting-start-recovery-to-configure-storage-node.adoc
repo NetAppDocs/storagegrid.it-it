@@ -1,0 +1,63 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-storage-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, storage node 
+summary: Dopo aver sostituito un nodo di storage, selezionare Avvia ripristino in Grid Manager per configurare il nuovo nodo come sostituzione del nodo guasto. 
+---
+= Selezionare Avvia ripristino per configurare il nodo di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver sostituito un nodo di storage, selezionare Avvia ripristino in Grid Manager per configurare il nuovo nodo come sostituzione del nodo guasto.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di manutenzione o di accesso root"].
+* Si dispone della passphrase di provisioning.
+* Il nodo sostitutivo è stato implementato e configurato.
+* Si dispone della data di inizio di qualsiasi intervento di riparazione per i dati codificati per la cancellazione.
+* Hai verificato che il nodo di storage non è stato ricostruito negli ultimi 15 giorni.
+
+
+.A proposito di questa attività
+Se Storage Node è installato come container su un host Linux, eseguire questa operazione solo se si verifica una delle seguenti condizioni:
+
+* È stato necessario utilizzare il `--force` flag per importare il nodo o è stato emesso `storagegrid node force-recovery _node-name_`
+* Era necessario eseguire una reinstallazione completa del nodo oppure ripristinare /var/local.
+
+
+.Fasi
+. In Grid Manager, selezionare *MANUTENZIONE* > *attività* > *Ripristino*.
+. Selezionare il nodo della griglia che si desidera ripristinare nell'elenco Pending Nodes (nodi in sospeso).
++
+I nodi vengono visualizzati nell'elenco dopo un errore, ma non è possibile selezionare un nodo fino a quando non è stato reinstallato e pronto per il ripristino.
+
+. Immettere la *Provisioning Passphrase*.
+. Fare clic su *Start Recovery* (Avvia ripristino).
++
+image::../media/4b_select_recovery_node.png[Schermata che mostra la pagina manutenzione > Ripristino]
+
+. Monitorare l'avanzamento del ripristino nella tabella Recovery Grid Node (nodo griglia di ripristino).
++
+
+NOTE: Durante l'esecuzione della procedura di ripristino, fare clic su *Reset* (Ripristina) per avviare un nuovo ripristino. Viene visualizzata una finestra di dialogo che indica che il nodo viene lasciato in uno stato indeterminato se si ripristina la procedura.
+
++
+image::../media/recovery_reset_warning.gif[schermata che mostra la finestra di dialogo di avviso di ripristino]
+
++
+Se si desidera riprovare il ripristino dopo aver reimpostato la procedura, è necessario ripristinare il nodo a uno stato preinstallato, come segue:
+
++
+** *VMware*: Eliminare il nodo virtual grid implementato. Quindi, quando si è pronti per riavviare il ripristino, ridistribuire il nodo.
+** *Linux*: Riavviare il nodo eseguendo questo comando sull'host Linux: `storagegrid node force-recovery _node-name_`
+
+
+. Quando il nodo di archiviazione raggiunge la fase "in attesa delle fasi manuali", passare a link:remounting-and-reformatting-storage-volumes-manual-steps.html["Rimontare e riformattare i volumi di storage (procedura manuale)"].
++
+image::../media/recovery_reset_button.gif[schermata che mostra la fase "in attesa di passaggi manuali"]
+
+

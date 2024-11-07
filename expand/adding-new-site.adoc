@@ -1,0 +1,46 @@
+---
+permalink: expand/adding-new-site.html 
+sidebar: sidebar 
+keywords: expand, expansion, new site, add site, guidelines 
+summary: È possibile espandere il sistema StorageGRID aggiungendo un nuovo sito. 
+---
+= Aggiungere un nuovo sito
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile espandere il sistema StorageGRID aggiungendo un nuovo sito.
+
+
+
+== Linee guida per l'aggiunta di un sito
+
+Prima di aggiungere un sito, esaminare i seguenti requisiti e limitazioni:
+
+* È possibile aggiungere un solo sito per ciascuna operazione di espansione.
+* Non è possibile aggiungere nodi grid a un sito esistente come parte della stessa espansione.
+* Tutti i siti devono includere almeno tre nodi di storage.
+* L'aggiunta di un nuovo sito non aumenta automaticamente il numero di oggetti che è possibile memorizzare. La capacità totale degli oggetti di un grid dipende dalla quantità di storage disponibile, dal criterio ILM e dalla capacità dei metadati di ciascun sito.
+* Quando si ridimensiona un nuovo sito, è necessario assicurarsi che includa una capacità di metadati sufficiente.
++
+StorageGRID conserva una copia di tutti i metadati degli oggetti in ogni sito. Quando si aggiunge un nuovo sito, è necessario assicurarsi che includa una capacità di metadati sufficiente per i metadati degli oggetti esistenti e una capacità di metadati sufficiente per la crescita.
+
++
+Per ulteriori informazioni, vedere quanto segue:
+
++
+** link:../admin/managing-object-metadata-storage.html["Gestire lo storage dei metadati degli oggetti"]
+** link:../monitor/monitoring-storage-capacity.html#monitor-object-metadata-capacity-for-each-storage-node["Monitorare la capacità dei metadati degli oggetti per ciascun nodo di storage"]
+
+
+* È necessario considerare la larghezza di banda della rete disponibile tra i siti e il livello di latenza della rete. Gli aggiornamenti dei metadati vengono continuamente replicati tra i siti anche se tutti gli oggetti vengono memorizzati solo nel sito in cui vengono acquisiti.
+* Poiché il sistema StorageGRID rimane operativo durante l'espansione, è necessario rivedere le regole ILM prima di avviare la procedura di espansione. È necessario assicurarsi che le copie a oggetti non vengano memorizzate nel nuovo sito fino al completamento della procedura di espansione.
++
+Ad esempio, prima di iniziare l'espansione, determinare se alcune regole utilizzano il pool di storage predefinito (tutti i nodi di storage). In tal caso, è necessario creare un nuovo pool di storage contenente i nodi di storage esistenti e aggiornare le regole ILM per utilizzare il nuovo pool di storage. In caso contrario, gli oggetti verranno copiati nel nuovo sito non appena il primo nodo del sito diventa attivo.
+
++
+Per ulteriori informazioni sulla modifica di ILM durante l'aggiunta di un nuovo sito, vedere la link:../ilm/example-6-changing-ilm-policy.html["Esempio di modifica di un criterio ILM"].
+
+

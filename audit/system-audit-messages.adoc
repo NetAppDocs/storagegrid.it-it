@@ -1,0 +1,172 @@
+---
+permalink: audit/system-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, system, ECOC, ETAF, GNRG, GNUR, GTED, GTST, GTSU, LLST, OLST, SADD, SADE, SVRF, SVRU, SYSD, SYST, SYSU, VLST 
+summary: 'I messaggi di audit appartenenti alla categoria di audit del sistema vengono utilizzati per gli eventi correlati al sistema di audit stesso, agli stati dei nodi della griglia, all"attività delle attività a livello di sistema (attività della griglia) e alle operazioni di backup del servizio.' 
+---
+= Messaggi di audit del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I messaggi di audit appartenenti alla categoria di audit del sistema vengono utilizzati per gli eventi correlati al sistema di audit stesso, agli stati dei nodi della griglia, all'attività delle attività a livello di sistema (attività della griglia) e alle operazioni di backup del servizio.
+
+[cols="1a,2a,1a"]
+|===
+| Codice | Titolo e descrizione del messaggio | Vedere 
+
+
+ a| 
+ECMC
+ a| 
+Manca un frammento di dati con erasure coding: Indica che è stato rilevato un frammento di dati con erasure coding mancante.
+ a| 
+link:ecmc-missing-erasure-coded-data-fragment.html["ECMC: Frammento di dati con codice di cancellazione mancante"]
+
+
+
+ a| 
+ECOC
+ a| 
+Fragment di dati con erasure coding corrotto: Indica che è stato rilevato un frammento di dati sottoposto a erasure coding corrotto.
+ a| 
+link:ecoc-corrupt-erasure-coded-data-fragment.html["ECOC: Frammento di dati con codice di cancellazione corrotto"]
+
+
+
+ a| 
+ETAF
+ a| 
+Autenticazione di sicurezza non riuscita: Tentativo di connessione con Transport Layer Security (TLS) non riuscito.
+ a| 
+link:etaf-security-authentication-failed.html["ETAF: Autenticazione di sicurezza non riuscita"]
+
+
+
+ a| 
+GNRG
+ a| 
+Registrazione GNDS: Un servizio aggiornato o registrato informazioni su se stesso nel sistema StorageGRID.
+ a| 
+link:gnrg-gnds-registration.html["GNRG: Registrazione GNDS"]
+
+
+
+ a| 
+NUR
+ a| 
+Annullamento registrazione GNDS: Un servizio non si è registrato dal sistema StorageGRID.
+ a| 
+link:gnur-gnds-unregistration.html["GNUR: Annullamento registrazione GNDS"]
+
+
+
+ a| 
+GTED
+ a| 
+Grid Task Ended (attività griglia terminata): Il servizio CMN ha terminato l'elaborazione dell'attività Grid.
+ a| 
+link:gted-grid-task-ended.html["GTED: Task Grid terminato"]
+
+
+
+ a| 
+GTST
+ a| 
+Grid Task Started (attività griglia avviata): Il servizio CMN ha avviato l'elaborazione dell'attività Grid.
+ a| 
+link:gtst-grid-task-started.html["GTST: Task Grid avviato"]
+
+
+
+ a| 
+GTSU
+ a| 
+Grid Task Submitted (attività griglia inviata): È stata inviata un'attività Grid al servizio CMN.
+ a| 
+link:gtsu-grid-task-submitted.html["GTSU: Task Grid inviato"]
+
+
+
+ a| 
+LLST
+ a| 
+Location Lost (posizione persa): Questo messaggio di audit viene generato quando una posizione viene persa.
+ a| 
+link:llst-location-lost.html["LLST: Località persa"]
+
+
+
+ a| 
+OLST
+ a| 
+Object Lost (oggetti persi): Non è possibile individuare un oggetto richiesto all'interno del sistema StorageGRID.
+ a| 
+link:olst-system-detected-lost-object.html["OLST: Il sistema ha rilevato un oggetto perso"]
+
+
+
+ a| 
+SADD
+ a| 
+Security Audit Disable (Disattiva controllo protezione): La registrazione del messaggio di controllo è stata disattivata.
+ a| 
+link:sadd-security-audit-disable.html["SADD: Disattivazione dell'audit di sicurezza"]
+
+
+
+ a| 
+SADE
+ a| 
+Security Audit Enable (attiva controllo di sicurezza): La registrazione del messaggio di controllo è stata ripristinata.
+ a| 
+link:sade-security-audit-enable.html["SADE: Abilitazione controllo di sicurezza"]
+
+
+
+ a| 
+SVRF
+ a| 
+Verifica archivio oggetti non riuscita: Un blocco di contenuto non ha superato i controlli di verifica.
+ a| 
+link:svrf-object-store-verify-fail.html["SVRF: Verifica archivio oggetti non riuscita"]
+
+
+
+ a| 
+SVRU
+ a| 
+Object Store Verify Unknown (verifica archivio oggetti sconosciuto): Dati di oggetti imprevisti rilevati nell'archivio oggetti.
+ a| 
+link:svru-object-store-verify-unknown.html["SVRU: Verifica archivio oggetti sconosciuta"]
+
+
+
+ a| 
+SYSD
+ a| 
+Node Stop (arresto nodo): È stato richiesto lo spegnimento.
+ a| 
+link:sysd-node-stop.html["SYSD: Interruzione nodo"]
+
+
+
+ a| 
+SIST
+ a| 
+Node stopping (interruzione nodo): Un servizio ha avviato un'interruzione senza interruzioni.
+ a| 
+link:syst-node-stopping.html["SYST: Interruzione del nodo"]
+
+
+
+ a| 
+SISU
+ a| 
+Node Start (Avvio nodo): Un servizio avviato; la natura dello shutdown precedente viene indicata nel messaggio.
+ a| 
+link:sysu-node-start.html["SYSU: Avvio nodo"]
+
+|===

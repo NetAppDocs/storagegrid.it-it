@@ -1,0 +1,47 @@
+---
+permalink: monitor/viewing-santricity-system-manager-tab.html 
+sidebar: sidebar 
+keywords: SANtricity System Manager tab, hardware diagnostics 
+summary: 'La scheda Gestore di sistema di SANtricity consente di accedere a Gestore di sistema di SANtricity senza dover configurare o collegare la porta di gestione dell"appliance di storage. È possibile utilizzare questa scheda per esaminare le informazioni ambientali e di diagnostica dell"hardware, nonché i problemi relativi ai dischi.' 
+---
+= Visualizza la scheda SANtricity System Manager (solo e-Series)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La scheda Gestore di sistema di SANtricity consente di accedere a Gestore di sistema di SANtricity senza dover configurare o collegare la porta di gestione dell'appliance di storage. È possibile utilizzare questa scheda per esaminare le informazioni ambientali e di diagnostica dell'hardware, nonché i problemi relativi ai dischi.
+
+
+CAUTION: L'accesso a Gestione di sistema SANtricity da Gestione griglia è generalmente destinato solo al monitoraggio dell'hardware dell'appliance e alla configurazione di e-Series AutoSupport. Molte funzionalità e operazioni di Gestione sistema di SANtricity, come l'aggiornamento del firmware, non si applicano al monitoraggio dell'appliance StorageGRID. Per evitare problemi, seguire sempre le istruzioni per la manutenzione dell'hardware dell'apparecchio. Per aggiornare il firmware SANtricity, consultare la https://docs.netapp.com/us-en/storagegrid-appliances/landing-maintain-hdwr/index.html["Procedure di configurazione della manutenzione"^] relativa all'appliance di storage.
+
+
+NOTE: La scheda Gestore di sistema di SANtricity viene visualizzata solo per i nodi di appliance di storage che utilizzano hardware e-Series.
+
+Utilizzando Gestione sistema di SANtricity, è possibile effettuare le seguenti operazioni:
+
+* Visualizza i dati sulle performance come performance a livello di array di storage, latenza i/o, utilizzo della CPU del controller di storage e throughput.
+* Controllare lo stato dei componenti hardware.
+* Eseguire funzioni di supporto, tra cui la visualizzazione dei dati diagnostici e la configurazione di e-Series AutoSupport.
++
+
+NOTE: Per utilizzare Gestore di sistema di SANtricity per configurare un proxy per AutoSupport e-Series, consultare link:../admin/sending-eseries-autosupport-messages-through-storagegrid.html["Invio dei pacchetti e-Series AutoSupport tramite StorageGRID"].
+
+
+
+Per accedere a Gestore di sistema di SANtricity tramite Gestione griglia, è necessario disporre di link:../admin/admin-group-permissions.html["Autorizzazione di accesso root o amministratore dell'appliance di storage"].
+
+
+NOTE: È necessario disporre del firmware SANtricity 8.70 o superiore per accedere a Gestione di sistema di SANtricity utilizzando Gestione griglia.
+
+La scheda visualizza la home page di Gestore di sistema di SANtricity.
+
+image::../media/nodes_page_santricity_tab.png[Scheda SANtricity della pagina nodi]
+
+
+NOTE: È possibile utilizzare il collegamento Gestore di sistema di SANtricity per aprire Gestione di sistema di SANtricity in una nuova finestra del browser per una visualizzazione più semplice.
+
+Per visualizzare i dettagli relativi all'utilizzo della capacità e delle prestazioni a livello di array di storage, posizionare il cursore su ciascun grafico.
+
+Per ulteriori informazioni sulla visualizzazione delle informazioni accessibili dalla scheda Gestore di sistema di SANtricity, vedere https://docs.netapp.com/us-en/e-series-family/index.html["Documentazione di NetApp e-Series e SANtricity"^].

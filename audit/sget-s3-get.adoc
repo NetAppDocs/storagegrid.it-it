@@ -1,0 +1,241 @@
+---
+permalink: audit/sget-s3-get.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SGET, S3 GET 
+summary: Quando un client S3 esegue una transazione GET, viene effettuata una richiesta per recuperare un oggetto o elencare gli oggetti in un bucket. Questo messaggio viene emesso dal server se la transazione ha esito positivo. 
+---
+= SGET: S3 GET
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando un client S3 esegue una transazione GET, viene effettuata una richiesta per recuperare un oggetto o elencare gli oggetti in un bucket o per rimuovere una sottorisorsa bucket/oggetto. Questo messaggio viene emesso dal server se la transazione ha esito positivo.
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+CBID
+ a| 
+Identificatore del blocco di contenuto
+ a| 
+L'identificatore univoco del blocco di contenuto richiesto. Se il CBID non è noto, questo campo viene impostato su 0. Le operazioni sui bucket non includono questo campo.
+
+
+
+ a| 
+CNCH
+ a| 
+Intestazione del controllo di coerenza
+ a| 
+Il valore dell'intestazione della richiesta HTTP Consistency-Control, se presente nella richiesta.
+
+
+
+ a| 
+CNID
+ a| 
+Identificatore di connessione
+ a| 
+Identificatore univoco del sistema per la connessione TCP/IP.
+
+
+
+ a| 
+CSIZ
+ a| 
+Dimensione contenuto
+ a| 
+La dimensione dell'oggetto recuperato in byte. Le operazioni sui bucket non includono questo campo.
+
+
+
+ a| 
+HTRH
+ a| 
+Intestazione richiesta HTTP
+ a| 
+Elenco dei nomi e dei valori delle intestazioni delle richieste HTTP registrati selezionati durante la configurazione.
+
+ `X-Forwarded-For` Viene incluso automaticamente se è presente nella richiesta e se il `X-Forwarded-For` valore è diverso dall'indirizzo IP del mittente della richiesta (campo di controllo SAIP).
+
+
+
+ a| 
+LITY
+ a| 
+ListObjectsV2
+ a| 
+È stata richiesta una risposta _formato v2_. Per ulteriori informazioni, vedere https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html["AWS ListObjectsV2"^]. Solo per operazioni CON benna GET.
+
+
+
+ a| 
+NCHD
+ a| 
+Numero di bambini
+ a| 
+Include tasti e prefissi comuni. Solo per operazioni CON benna GET.
+
+
+
+ a| 
+RANG
+ a| 
+Range Read (lettura intervallo)
+ a| 
+Solo per operazioni di lettura dell'intervallo. Indica l'intervallo di byte letti da questa richiesta. Il valore dopo la barra (/) mostra la dimensione dell'intero oggetto.
+
+
+
+ a| 
+RSLT
+ a| 
+Codice risultato
+ a| 
+Risultato della transazione GET. Il risultato è sempre:
+
+SUC: Riuscito
+
+
+
+ a| 
+S3AI
+ a| 
+ID account tenant S3 (richiesta mittente)
+ a| 
+L'ID account tenant dell'utente che ha inviato la richiesta. Un valore vuoto indica l'accesso anonimo.
+
+
+
+ a| 
+S3AK
+ a| 
+ID chiave di accesso S3 (richiesta mittente)
+ a| 
+L'ID della chiave di accesso S3 hash per l'utente che ha inviato la richiesta. Un valore vuoto indica l'accesso anonimo.
+
+
+
+ a| 
+S3BK
+ a| 
+Bucket S3
+ a| 
+Il nome del bucket S3.
+
+
+
+ a| 
+S3KY
+ a| 
+Chiave S3
+ a| 
+Il nome della chiave S3, senza il nome del bucket. Le operazioni sui bucket non includono questo campo.
+
+
+
+ a| 
+S3SR
+ a| 
+S3 Subresource
+ a| 
+Il bucket o la sottorisorsa oggetto su cui viene eseguita, se applicabile.
+
+
+
+ a| 
+SACC
+ a| 
+Nome account tenant S3 (mittente della richiesta)
+ a| 
+Il nome dell'account tenant per l'utente che ha inviato la richiesta. Vuoto per richieste anonime.
+
+
+
+ a| 
+SAIP
+ a| 
+Indirizzo IP (Request sender)
+ a| 
+L'indirizzo IP dell'applicazione client che ha eseguito la richiesta.
+
+
+
+ a| 
+SBAC
+ a| 
+Nome account tenant S3 (proprietario bucket)
+ a| 
+Il nome dell'account tenant per il proprietario del bucket. Utilizzato per identificare l'accesso anonimo o multiaccount.
+
+
+
+ a| 
+SBAI
+ a| 
+ID account tenant S3 (proprietario bucket)
+ a| 
+L'ID account tenant del proprietario del bucket di destinazione. Utilizzato per identificare l'accesso anonimo o multiaccount.
+
+
+
+ a| 
+SUSR
+ a| 
+S3 User URN (richiesta mittente)
+ a| 
+L'ID account tenant e il nome utente dell'utente che effettua la richiesta. L'utente può essere un utente locale o LDAP. Ad esempio: `urn:sgws:identity::03393893651506583485:root`
+
+Vuoto per richieste anonime.
+
+
+
+ a| 
+ORA
+ a| 
+Ora
+ a| 
+Tempo totale di elaborazione della richiesta in microsecondi.
+
+
+
+ a| 
+TLIP
+ a| 
+Indirizzo IP del bilanciamento del carico attendibile
+ a| 
+Se la richiesta è stata instradata da un bilanciamento del carico di livello 7 attendibile, l'indirizzo IP del bilanciamento del carico.
+
+
+
+ a| 
+TRNC
+ a| 
+Troncato o non troncato
+ a| 
+Impostare su false se sono stati restituiti tutti i risultati. Impostare su true se sono disponibili ulteriori risultati da restituire. Solo per operazioni CON benna GET.
+
+
+
+ a| 
+UUID
+ a| 
+Universally Unique Identifier
+ a| 
+L'identificatore dell'oggetto all'interno del sistema StorageGRID.
+
+
+
+ a| 
+VSID
+ a| 
+ID versione
+ a| 
+L'ID versione della versione specifica di un oggetto richiesto. Le operazioni su bucket e oggetti in bucket senza versione non includono questo campo.
+
+|===

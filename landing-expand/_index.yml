@@ -1,0 +1,52 @@
+---
+indexpage:
+  title: Espandere una griglia
+  summary: Puoi espandere la capacità o le funzionalità del tuo sistema StorageGRID
+    senza interrompere le operazioni di sistema.
+  keywords: expand grid, add volume, add node, add site
+  lead: Puoi espandere la capacità o le funzionalità del tuo sistema StorageGRID senza
+    interrompere le operazioni di sistema.
+  tiles:
+  - title: Inizia subito
+    links:
+    - title: Tipi di espansione
+      url: "../expand/index.html"
+    - title: 'Linee guida: Aggiungere capacità agli oggetti'
+      url: "../expand/guidelines-for-adding-object-capacity.html"
+    - title: 'Linee guida: Aggiungere capacità di metadati'
+      url: "../expand/adding-metadata-capacity.html"
+    - title: 'Linee guida: Aggiungere ridondanza o nuove funzionalità'
+      url: "../expand/adding-grid-nodes-to-add-capabilities.html"
+    - title: 'Linee guida: Aggiungere un sito'
+      url: "../expand/adding-new-site.html"
+    - title: Raccogliere il materiale necessario
+      url: "../expand/gather-required-materials.html"
+  - title: Aggiungere volumi di storage
+    links:
+    - title: Aggiungere volumi di storage ai nodi di storage
+      url: "../expand/adding-storage-volumes-to-storage-nodes.html"
+    - title: 'VMware: Aggiunta di volumi di storage a Storage Node'
+      url: "../expand/vmware-adding-storage-volumes-to-storage-node.html"
+    - title: 'Linux: Aggiunta di volumi direct-attached o SAN al nodo di storage'
+      url: "../expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
+  - title: Aggiunta di nodi o siti grid
+    links:
+    - title: Aggiungere nodi di griglia al sito esistente
+      url: "../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+    - title: Aggiungi nuovo sito
+      url: "../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+    - title: Aggiornare le subnet per Grid Network
+      url: "../expand/updating-subnets-for-grid-network.html"
+    - title: Implementare nuovi nodi grid
+      url: "../expand/deploying-new-grid-nodes.html"
+    - title: Eseguire l'espansione
+      url: "../expand/performing-expansion.html"
+  - title: Configurazione e risoluzione dei problemi
+    links:
+    - title: Fasi di configurazione
+      url: "../expand/configuring-expanded-storagegrid-system.html"
+    - title: Ribilanciare i dati con codifica di cancellazione dopo l'aggiunta di
+        nodi di storage
+      url: "../expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html"
+    - title: 'Risoluzione dei problemi: Raccogliere i file di registro'
+      url: "../expand/contacting-technical-support.html"

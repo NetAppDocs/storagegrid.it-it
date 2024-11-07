@@ -1,0 +1,49 @@
+---
+permalink: admin/deleting-traffic-classification-policy.html 
+sidebar: sidebar 
+keywords: delete traffic classification policy 
+summary: Se non è più necessario un criterio di classificazione del traffico, è possibile eliminarlo. 
+---
+= Eliminare una policy di classificazione del traffico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eliminare una policy di classificazione del traffico se non è più necessaria. Assicurarsi di eliminare la policy corretta perché non è possibile recuperare una policy quando viene eliminata.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:admin-group-permissions.html["Autorizzazione di accesso root"].
+
+
+.Fasi
+. Selezionare *CONFIGURAZIONE* > *rete* > *classificazione del traffico*.
++
+Viene visualizzata la pagina Criteri di classificazione del traffico con i criteri esistenti elencati in una tabella.
+
+. Eliminare il criterio utilizzando il menu azioni o la pagina dei dettagli.
++
+[role="tabbed-block"]
+====
+.Menu delle azioni
+--
+.. Selezionare la casella di controllo per la policy.
+.. Selezionare *azioni* > *Rimuovi*.
+
+
+--
+.Pagina dei dettagli della policy
+--
+.. Selezionare il nome del criterio.
+.. Selezionare il pulsante *Remove* accanto al nome del criterio.
+
+
+--
+====
+. Selezionare *Sì* per confermare che si desidera eliminare il criterio.
++
+La policy viene eliminata.
+
+

@@ -1,0 +1,106 @@
+---
+permalink: audit/cbre-object-receive-end.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, CBRE, Object Receive End 
+summary: 'Al termine del trasferimento di un blocco di contenuto da un nodo all"altro, questo messaggio viene emesso dall"entità di destinazione.' 
+---
+= CBRE: Fine ricezione oggetto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al termine del trasferimento di un blocco di contenuto da un nodo all'altro, questo messaggio viene emesso dall'entità di destinazione.
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+CNID
+ a| 
+Identificatore di connessione
+ a| 
+Identificatore univoco della sessione/connessione nodo-nodo.
+
+
+
+ a| 
+CBID
+ a| 
+Identificatore del blocco di contenuto
+ a| 
+Identificatore univoco del blocco di contenuto trasferito.
+
+
+
+ a| 
+CTDR
+ a| 
+Direzione di trasferimento
+ a| 
+Indica se il trasferimento CBID è stato avviato tramite push o pull:
+
+PUSH: L'operazione di trasferimento è stata richiesta dall'entità mittente.
+
+PULL: L'operazione di trasferimento è stata richiesta dall'entità ricevente.
+
+
+
+ a| 
+CTSR
+ a| 
+Entità di origine
+ a| 
+L'ID nodo dell'origine (mittente) del trasferimento CBID.
+
+
+
+ a| 
+CTD
+ a| 
+Entità di destinazione
+ a| 
+L'ID nodo della destinazione (destinatario) del trasferimento CBID.
+
+
+
+ a| 
+CTSS
+ a| 
+Avvia conteggio sequenza
+ a| 
+Indica il numero di sequenze su cui è iniziato il trasferimento.
+
+
+
+ a| 
+CTA
+ a| 
+Conteggio sequenza finale effettivo
+ a| 
+Indica che il conteggio dell'ultima sequenza è stato trasferito correttamente. Se il conteggio sequenza finale effettivo è uguale al conteggio sequenza iniziale e il risultato del trasferimento non ha avuto esito positivo, non è stato scambiato alcun dato.
+
+
+
+ a| 
+RSLT
+ a| 
+Risultato del trasferimento
+ a| 
+Risultato dell'operazione di trasferimento (dal punto di vista dell'entità mittente):
+
+SUCS: Trasferimento completato correttamente; tutti i conteggi di sequenza richiesti sono stati inviati.
+
+CONL: Connessione persa durante il trasferimento
+
+CTMO: Timeout della connessione durante la creazione o il trasferimento
+
+UNRE: ID nodo di destinazione non raggiungibile
+
+CRPT: Trasferimento terminato a causa della ricezione di dati corrotti o non validi
+
+|===
+Questo messaggio di audit indica che è stata completata un'operazione di trasferimento dei dati da nodo a nodo. Se il risultato del trasferimento ha avuto esito positivo, l'operazione ha trasferito i dati da "Start Sequence Count" (Conteggio sequenza iniziale) a "Actual End Sequence Count" (Conteggio sequenza finale effettivo). I nodi di invio e ricezione sono identificati dai rispettivi ID di nodo. Queste informazioni possono essere utilizzate per tenere traccia del flusso di dati del sistema e per individuare, tabulare e analizzare gli errori. Se combinato con i messaggi di audit dello storage, può essere utilizzato anche per verificare i conteggi delle repliche.

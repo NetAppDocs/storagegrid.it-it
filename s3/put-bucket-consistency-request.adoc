@@ -1,0 +1,80 @@
+---
+permalink: s3/put-bucket-consistency-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, PUT bucket consistency request 
+summary: La richiesta di coerenza PUT bucket consente di specificare la coerenza da applicare alle operazioni eseguite su un bucket. 
+---
+= METTI la coerenza del bucket
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La richiesta di coerenza PUT bucket consente di specificare la coerenza da applicare alle operazioni eseguite su un bucket.
+
+La coerenza predefinita è impostata per garantire la lettura dopo scrittura per gli oggetti appena creati.
+
+.Prima di iniziare
+Per completare questa operazione, è necessario disporre dell'autorizzazione s3:PutBucketConsistency o essere root dell'account.
+
+
+
+== Richiesta
+
+Il `x-ntap-sg-consistency` parametro deve contenere uno dei seguenti valori:
+
+[cols="1a,2a"]
+|===
+| Coerenza | Descrizione 
+
+
+ a| 
+tutto
+ a| 
+Tutti i nodi ricevono i dati immediatamente, altrimenti la richiesta non riesce.
+
+
+
+ a| 
+forte-globale
+ a| 
+Garantisce la coerenza di lettura dopo scrittura per tutte le richieste dei client in tutti i siti.
+
+
+
+ a| 
+sito forte
+ a| 
+Garantisce la coerenza di lettura dopo scrittura per tutte le richieste dei client all'interno di un sito.
+
+
+
+ a| 
+read-after-new-write
+ a| 
+(Impostazione predefinita) fornisce coerenza di lettura dopo scrittura per i nuovi oggetti ed eventuale coerenza per gli aggiornamenti degli oggetti. Offre alta disponibilità e garanzie di protezione dei dati. Consigliato per la maggior parte dei casi.
+
+
+
+ a| 
+disponibile
+ a| 
+Fornisce una coerenza finale sia per i nuovi oggetti che per gli aggiornamenti degli oggetti. Per i bucket S3, utilizzare solo se necessario (ad esempio, per un bucket che contiene valori di log che vengono raramente letti o per operazioni HEAD o GET su chiavi che non esistono). Non supportato per i bucket S3 FabricPool.
+
+|===
+*Nota:* in generale, si dovrebbe usare la coerenza "Read-after-new-write". Se le richieste non funzionano correttamente, modificare il comportamento del client dell'applicazione, se possibile. In alternativa, configurare il client per specificare la coerenza per ogni richiesta API. Impostare la consistenza a livello del bucket solo come ultima risorsa.
+
+
+
+== Esempio di richiesta
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /bucket?x-ntap-sg-consistency=strong-global HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+.Informazioni correlate
+link:consistency-controls.html["Valori di coerenza"]

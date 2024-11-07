@@ -1,0 +1,24 @@
+---
+permalink: maintain/recovering-from-non-primary-admin-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, non-primary admin node failure 
+summary: 'È necessario completare le seguenti attività per eseguire il ripristino da un errore non primario del nodo di amministrazione. Un nodo di amministrazione ospita il servizio CMN (Configuration Management Node) ed è noto come nodo di amministrazione primario. Sebbene sia possibile avere più nodi di amministrazione, ogni sistema StorageGRID include un solo nodo di amministrazione primario. Tutti gli altri nodi Admin non sono nodi Admin primari.' 
+---
+= Ripristino da guasti non primari del nodo di amministrazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario completare le seguenti attività per eseguire il ripristino da un errore non primario del nodo di amministrazione. Un nodo amministratore ospita il servizio CMN (Configuration Management Node) ed è noto come nodo amministratore primario. Sebbene sia possibile avere più nodi di amministrazione, ogni sistema StorageGRID include un solo nodo di amministrazione primario. Tutti gli altri nodi Admin non sono nodi Admin primari.
+
+Seguire questi passaggi di alto livello per ripristinare un nodo amministrativo non primario:
+
+. link:copying-audit-logs-from-failed-non-primary-admin-node.html["Copiare i registri di controllo dal nodo di amministrazione non primario non riuscito"]
+. link:replacing-non-primary-admin-node.html["Sostituire il nodo amministrativo non primario"]
+. link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Selezionare Avvia ripristino per configurare il nodo amministrativo non primario"]
+. link:restoring-audit-log-on-recovered-non-primary-admin-node.html["Ripristinare il registro di controllo su un nodo amministrativo non primario recuperato"]
+. link:restoring-admin-node-database-non-primary-admin-node.html["Ripristinare il database del nodo amministrativo quando si ripristina un nodo amministrativo non primario"]
+. link:restoring-prometheus-metrics-non-primary-admin-node.html["Ripristinare le metriche Prometheus durante il ripristino di un nodo amministrativo non primario"]
+

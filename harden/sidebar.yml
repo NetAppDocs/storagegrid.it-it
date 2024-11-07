@@ -1,0 +1,17 @@
+---
+section: harden
+title: Protezione avanzata del sistema
+entries:
+- title: Considerazioni generali
+  pdf-filename: Protezione avanzata del sistema StorageGRID
+  url: "/harden/index.html"
+- title: Linee guida per la protezione avanzata degli aggiornamenti
+  url: "/harden/hardening-guidelines-for-software-upgrades.html"
+- title: Linee guida per la protezione avanzata delle reti
+  url: "/harden/hardening-guidelines-for-storagegrid-networks.html"
+- title: Linee guida per la protezione avanzata dei nodi
+  url: "/harden/hardening-guidelines-for-storagegrid-nodes.html"
+- title: Linee guida per la protezione avanzata di TLS e SSH
+  url: "/harden/hardening-guideline-for-server-certificates.html"
+- title: Altre linee guida per la protezione avanzata
+  url: "/harden/other-hardening-guidelines.html"

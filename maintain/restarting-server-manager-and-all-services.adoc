@@ -1,0 +1,40 @@
+---
+permalink: maintain/restarting-server-manager-and-all-services.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, server manager, restart server manager 
+summary: Potrebbe essere necessario riavviare il server manager e tutti i servizi in esecuzione su un nodo grid. 
+---
+= Riavviare Server Manager e tutti i servizi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Potrebbe essere necessario riavviare il server manager e tutti i servizi in esecuzione su un nodo grid.
+
+.Prima di iniziare
+Si dispone del `Passwords.txt` file.
+
+.Fasi
+. Accedere al nodo Grid:
++
+.. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+. Riavviare Server Manager e tutti i servizi sul nodo griglia: `service servermanager restart`
++
+Server Manager e tutti i servizi sul nodo grid vengono arrestati e quindi riavviati.
+
++
+
+NOTE: L'utilizzo del `restart` comando è identico all'utilizzo del `stop` comando seguito dal comando `start`.
+
+. Disconnettersi dalla shell dei comandi: `exit`
+

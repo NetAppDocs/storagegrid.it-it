@@ -1,0 +1,24 @@
+---
+permalink: admin/per-site-delivery-of-platform-services-messages.html 
+sidebar: sidebar 
+keywords: platform services message delivery 
+summary: Tutte le operazioni dei servizi della piattaforma vengono eseguite in base al sito. 
+---
+= Erogazione per sito di messaggi relativi ai servizi della piattaforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tutte le operazioni dei servizi della piattaforma vengono eseguite in base al sito.
+
+Cioè, se un tenant utilizza un client per eseguire un'operazione S3 API Create su un oggetto connettendosi a un nodo gateway nel sito 1 del data center, la notifica relativa a tale azione viene attivata e inviata dal sito 1 del data center.
+
+image::../media/notification_multiple_sites.gif[Diagramma che mostra che l'azione sull'oggetto nel sito 1 attiva la notifica dal sito 1]
+
+Se il client esegue successivamente un'operazione di eliminazione API S3 sullo stesso oggetto dal sito del data center 2, la notifica relativa all'azione di eliminazione viene attivata e inviata dal sito del data center 2.
+
+image::../media/notifications_site_2.gif[diagramma che mostra l'azione sull'oggetto dal sito 2 attiva le notifiche dal sito 2]
+
+Assicurarsi che la rete di ciascun sito sia configurata in modo che i messaggi dei servizi della piattaforma possano essere recapitati alle rispettive destinazioni.

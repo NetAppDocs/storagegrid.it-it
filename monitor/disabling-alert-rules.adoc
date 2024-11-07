@@ -1,0 +1,49 @@
+---
+permalink: monitor/disabling-alert-rules.html 
+sidebar: sidebar 
+keywords: how to disable alert rules, how to remove a custom alert rule 
+summary: È possibile modificare lo stato attivato/disattivato per una regola di avviso predefinita o personalizzata. 
+---
+= Disattiva le regole di avviso
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare lo stato attivato/disattivato per una regola di avviso predefinita o personalizzata.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["Gestire gli avvisi o l'autorizzazione di accesso principale"].
+
+
+.A proposito di questa attività
+Quando una regola di avviso viene disattivata, le sue espressioni non vengono valutate e non vengono attivati avvisi.
+
+
+CAUTION: In generale, la disattivazione di una regola di avviso predefinita non è consigliata. Se una regola di avviso è disattivata, potrebbe non essere rilevato un problema sottostante fino a quando non viene impedita l'esecuzione di un'operazione critica.
+
+.Fasi
+. Selezionare *ALERTS* > *regole*.
++
+Viene visualizzata la pagina regole di avviso.
+
+. Selezionare il pulsante di opzione corrispondente alla regola di avviso che si desidera attivare o disattivare.
+. Selezionare *Modifica regola*.
++
+Viene visualizzata la finestra di dialogo Edit Rule (Modifica regola).
+
+. Selezionare o deselezionare la casella di controllo *Enabled* per determinare se questa regola di avviso è attualmente attivata.
++
+Se una regola di avviso è disattivata, le sue espressioni non vengono valutate e non vengono attivati avvisi.
+
++
+
+NOTE: Se si disattiva la regola di avviso per un avviso corrente, è necessario attendere alcuni minuti affinché l'avviso non venga più visualizzato come avviso attivo.
+
+. Selezionare *Salva*.
++
+*Disabled* viene visualizzato nella colonna *Status*.
+
+

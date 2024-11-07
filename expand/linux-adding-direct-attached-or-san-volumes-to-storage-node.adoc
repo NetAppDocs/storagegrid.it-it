@@ -1,0 +1,186 @@
+---
+permalink: expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html 
+sidebar: sidebar 
+keywords: expansion, Linux, add storage volumes 
+summary: Se un nodo di storage include meno di 16 volumi di storage, è possibile aumentarne la capacità aggiungendo nuovi dispositivi di storage a blocchi, rendendoli visibili agli host Linux e aggiungendo i nuovi mapping dei dispositivi a blocchi al file di configurazione StorageGRID utilizzato per il nodo di storage. 
+---
+= Linux: Aggiunta di volumi direct-attached o SAN al nodo di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se un nodo di storage include meno di 16 volumi di storage, è possibile aumentarne la capacità aggiungendo nuovi dispositivi di storage a blocchi, rendendoli visibili agli host Linux e aggiungendo i nuovi mapping dei dispositivi a blocchi al file di configurazione StorageGRID utilizzato per il nodo di storage.
+
+.Prima di iniziare
+* Hai accesso alle istruzioni per l'installazione di StorageGRID per la tua piattaforma Linux.
++
+** link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
+** link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
+
+
+* Si dispone del `Passwords.txt` file.
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+
+
+
+CAUTION: Non tentare di aggiungere volumi di storage a un nodo di storage mentre è attiva una procedura di aggiornamento del software, di ripristino o un'altra procedura di espansione.
+
+.A proposito di questa attività
+Il nodo di storage non è disponibile per un breve periodo di tempo quando si aggiungono volumi di storage. È necessario eseguire questa procedura su un nodo di storage alla volta per evitare impatti sui servizi grid rivolti al client.
+
+.Fasi
+. Installare il nuovo hardware di storage.
++
+Per ulteriori informazioni, consultare la documentazione fornita dal fornitore dell'hardware.
+
+. Creare nuovi volumi di storage a blocchi delle dimensioni desiderate.
++
+** Collegare le nuove unità e aggiornare la configurazione del controller RAID secondo necessità, oppure allocare le nuove LUN SAN sugli array di storage condivisi e consentire all'host Linux di accedervi.
+** Utilizzare lo stesso schema di denominazione persistente utilizzato per i volumi di storage sul nodo di storage esistente.
+** Se si utilizza la funzionalità di migrazione dei nodi StorageGRID, rendere visibili i nuovi volumi agli altri host Linux che sono destinazioni di migrazione per questo nodo di storage. Per ulteriori informazioni, consulta le istruzioni per l'installazione di StorageGRID per la tua piattaforma Linux.
+
+
+. Accedere all'host Linux che supporta il nodo di storage come root o con un account che dispone dell'autorizzazione sudo.
+. Verificare che i nuovi volumi di storage siano visibili sull'host Linux.
++
+Potrebbe essere necessario eseguire una nuova scansione per le periferiche.
+
+. Eseguire il seguente comando per disattivare temporaneamente il nodo di storage:
++
+`sudo storagegrid node stop <node-name>`
+
+. Utilizzando un editor di testo come vim o pico, modificare il file di configurazione del nodo per il nodo di archiviazione, disponibile all'indirizzo `/etc/storagegrid/nodes/<node-name>.conf`.
+. Individuare la sezione del file di configurazione del nodo che contiene le mappature dei dispositivi di blocco dello storage a oggetti esistenti.
++
+Nell'esempio, `BLOCK_DEVICE_RANGEDB_00` `BLOCK_DEVICE_RANGEDB_03` sono presenti le mappature dei dispositivi a blocchi di storage a oggetti esistenti.
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+NODE_TYPE = VM_Storage_Node
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/sgws-sn1-var-local
+*BLOCK_DEVICE_RANGEDB_00 = /dev/mapper/sgws-sn1-rangedb-0*
+*BLOCK_DEVICE_RANGEDB_01 = /dev/mapper/sgws-sn1-rangedb-1*
+*BLOCK_DEVICE_RANGEDB_02 = /dev/mapper/sgws-sn1-rangedb-2*
+*BLOCK_DEVICE_RANGEDB_03 = /dev/mapper/sgws-sn1-rangedb-3*
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+GRID_NETWORK_IP = 10.1.0.3
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+. Aggiungere nuove mappature dei dispositivi a blocchi di storage a oggetti corrispondenti ai volumi di storage a blocchi aggiunti per questo nodo di storage.
++
+Assicurarsi di iniziare dal successivo `BLOCK_DEVICE_RANGEDB_nn`. Non lasciare un gap.
+
++
+** In base all'esempio precedente, iniziare da `BLOCK_DEVICE_RANGEDB_04`.
+** Nell'esempio seguente, al nodo sono stati aggiunti quattro nuovi volumi di storage a blocchi: `BLOCK_DEVICE_RANGEDB_04` A `BLOCK_DEVICE_RANGEDB_07`.
+
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+NODE_TYPE = VM_Storage_Node
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/sgws-sn1-var-local
+BLOCK_DEVICE_RANGEDB_00 = /dev/mapper/sgws-sn1-rangedb-0
+BLOCK_DEVICE_RANGEDB_01 = /dev/mapper/sgws-sn1-rangedb-1
+BLOCK_DEVICE_RANGEDB_02 = /dev/mapper/sgws-sn1-rangedb-2
+BLOCK_DEVICE_RANGEDB_03 = /dev/mapper/sgws-sn1-rangedb-3
+*BLOCK_DEVICE_RANGEDB_04 = /dev/mapper/sgws-sn1-rangedb-4*
+*BLOCK_DEVICE_RANGEDB_05 = /dev/mapper/sgws-sn1-rangedb-5*
+*BLOCK_DEVICE_RANGEDB_06 = /dev/mapper/sgws-sn1-rangedb-6*
+*BLOCK_DEVICE_RANGEDB_07 = /dev/mapper/sgws-sn1-rangedb-7*
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+GRID_NETWORK_IP = 10.1.0.3
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+. Eseguire il seguente comando per convalidare le modifiche apportate al file di configurazione del nodo per il nodo di storage:
++
+`sudo storagegrid node validate <node-name>`
+
++
+Risolvere eventuali errori o avvisi prima di passare alla fase successiva.
+
++
+[NOTE]
+====
+Se si osserva un errore simile a quanto segue, significa che il file di configurazione del nodo sta tentando di mappare il dispositivo a blocchi utilizzato da `<node-name>` per `<PURPOSE>` al dato `<path-name>` nel file system Linux, ma non esiste un file speciale del dispositivo a blocchi valido (o un softlink a un file speciale del dispositivo a blocchi) in quella posizione.
+
+[listing]
+----
+Checking configuration file for node <node-name>…
+ERROR: BLOCK_DEVICE_<PURPOSE> = <path-name>
+<path-name> is not a valid block device
+----
+Verificare di aver immesso il corretto `<path-name>`.
+
+====
+. Eseguire il seguente comando per riavviare il nodo con le nuove mappature del dispositivo a blocchi in posizione:
++
+`sudo storagegrid node start <node-name>`
+
+. Accedere al nodo di archiviazione come amministratore utilizzando la password indicata nel `Passwords.txt` file.
+. Verificare che i servizi vengano avviati correttamente:
++
+.. Visualizzare un elenco dello stato di tutti i servizi sul server: +
+`sudo storagegrid-status`
++
+Lo stato viene aggiornato automaticamente.
+
+.. Attendere che tutti i servizi siano in esecuzione o verificati.
+.. Uscire dalla schermata di stato:
++
+`Ctrl+C`
+
+
+
+. Configurare il nuovo storage per l'utilizzo da parte del nodo di storage:
++
+.. Configurare i nuovi volumi di storage:
++
+`sudo add_rangedbs.rb`
+
++
+Questo script trova i nuovi volumi di storage e richiede di formattarli.
+
+.. Inserire *y* per formattare i volumi di storage.
+.. Se uno dei volumi è stato precedentemente formattato, decidere se si desidera riformattarlo.
++
+*** Immettere *y* per riformattare.
+*** Inserire *n* per saltare la riformattazione.
+
+
+
+
++
+ `setup_rangedbs.sh`Lo script viene eseguito automaticamente.
+
+. Verificare che lo stato di archiviazione del nodo di archiviazione sia online:
++
+.. Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+.. Selezionare *SUPPORT* > *Tools* > *Grid topology*.
+.. Selezionare *_Site_* > *_Storage Node_* > *LDR* > *Storage*.
+.. Selezionare la scheda *Configurazione*, quindi la scheda *principale*.
+.. Se l'elenco a discesa *Storage state - Desired* (Stato di storage - desiderato) è impostato su Read-only (sola lettura) o Offline (non in linea), selezionare *Online*.
+.. Fare clic su *Applica modifiche*.
+
+
+. Per visualizzare i nuovi archivi di oggetti:
++
+.. Selezionare *NODES* > *_Site_* > *_Storage Node_* > *Storage*.
+.. Visualizzare i dettagli nella tabella *Object Stores*.
+
+
+
+
+.Risultato
+È ora possibile utilizzare la capacità estesa dei nodi di storage per salvare i dati degli oggetti.

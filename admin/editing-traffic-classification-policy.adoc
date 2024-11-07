@@ -1,0 +1,52 @@
+---
+permalink: admin/editing-traffic-classification-policy.html 
+sidebar: sidebar 
+keywords: edit traffic classification policy 
+summary: È possibile modificare un criterio di classificazione del traffico per modificarne il nome o la descrizione oppure per creare, modificare o eliminare eventuali regole o limiti per il criterio. 
+---
+= Modificare la policy di classificazione del traffico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare un criterio di classificazione del traffico per modificarne il nome o la descrizione oppure per creare, modificare o eliminare eventuali regole o limiti per il criterio.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:admin-group-permissions.html["Autorizzazione di accesso root"].
+
+
+.Fasi
+. Selezionare *CONFIGURAZIONE* > *rete* > *classificazione del traffico*.
++
+Viene visualizzata la pagina Criteri di classificazione del traffico e i criteri esistenti vengono elencati in una tabella.
+
+. Modificare il criterio utilizzando il menu azioni o la pagina dei dettagli. Vedere link:../admin/creating-traffic-classification-policies.html["creare policy di classificazione del traffico"] per informazioni su come accedere.
++
+[role="tabbed-block"]
+====
+.Menu delle azioni
+--
+.. Selezionare la casella di controllo per la policy.
+.. Selezionare *azioni* > *Modifica*.
+
+
+--
+.Pagina dei dettagli
+--
+.. Selezionare il nome del criterio.
+.. Selezionare il pulsante *Edit* (Modifica) accanto al nome del criterio.
+
+
+--
+====
+. Per il passo inserire il nome del criterio, modificare facoltativamente il nome o la descrizione del criterio e selezionare *continua*.
+. Per il passo Add Matching rules (Aggiungi regole di corrispondenza), aggiungere una regola o modificare *Type* e *Match value* della regola esistente, quindi selezionare *Continue* (continua).
+. Per la fase Set Limits (Imposta limiti), aggiungere, modificare o eliminare un limite e selezionare *Continue* (continua).
+. Esaminare la policy aggiornata e selezionare *Salva e continua*.
++
+Le modifiche apportate alla policy vengono salvate e il traffico di rete viene gestito in base alle policy di classificazione del traffico. È possibile visualizzare i diagrammi di traffico e verificare che i criteri stiano applicando i limiti di traffico previsti.
+
+

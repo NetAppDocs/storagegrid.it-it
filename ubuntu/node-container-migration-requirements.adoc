@@ -1,0 +1,67 @@
+---
+permalink: ubuntu/node-container-migration-requirements.html 
+sidebar: sidebar 
+keywords: node container migration requirements 
+summary: 'La funzione di migrazione dei nodi consente di spostare manualmente un nodo da un host all"altro. In genere, entrambi gli host si trovano nello stesso data center fisico.' 
+---
+= Requisiti per la migrazione dei container di nodi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La funzione di migrazione dei nodi consente di spostare manualmente un nodo da un host all'altro. In genere, entrambi gli host si trovano nello stesso data center fisico.
+
+La migrazione dei nodi consente di eseguire la manutenzione fisica degli host senza interrompere le operazioni di grid. Tutti i nodi StorageGRID vengono spostati uno alla volta su un altro host prima di portare l'host fisico offline. La migrazione dei nodi richiede solo un breve downtime per ciascun nodo e non deve influire sul funzionamento o sulla disponibilità dei servizi grid.
+
+Se si desidera utilizzare la funzionalità di migrazione dei nodi StorageGRID, l'implementazione deve soddisfare requisiti aggiuntivi:
+
+* Nomi di interfaccia di rete coerenti tra gli host di un singolo data center fisico
+* Storage condiviso per i metadati StorageGRID e i volumi di repository di oggetti accessibili da tutti gli host in un singolo data center fisico. Ad esempio, è possibile utilizzare gli storage array NetApp e-Series.
+
+
+Se si utilizzano host virtuali e il layer hypervisor sottostante supporta la migrazione delle macchine virtuali, è possibile utilizzare questa funzionalità invece della funzionalità di migrazione dei nodi in StorageGRID. In questo caso, è possibile ignorare questi requisiti aggiuntivi.
+
+Prima di eseguire la migrazione o la manutenzione dell'hypervisor, arrestare correttamente i nodi. Vedere le istruzioni per link:../maintain/shutting-down-grid-node.html["chiusura di un nodo di rete"].
+
+
+
+== VMware Live Migration non supportato
+
+Quando si esegue l'installazione bare-metal su macchine virtuali VMware, OpenStack Live Migration e VMware Live vMotion causano l'aumento del tempo di clock della macchina virtuale e non sono supportati per nodi grid di qualsiasi tipo. Anche se rari, tempi di clock errati possono causare la perdita di dati o aggiornamenti della configurazione.
+
+La migrazione a freddo è supportata. Durante la migrazione a freddo, i nodi StorageGRID vengono arrestati prima della migrazione tra host. Vedere le istruzioni per link:../maintain/shutting-down-grid-node.html["chiusura di un nodo di rete"].
+
+
+
+== Nomi di interfaccia di rete coerenti
+
+Per spostare un nodo da un host a un altro, il servizio host StorageGRID deve avere una certa certezza che la connettività di rete esterna del nodo nella sua posizione corrente possa essere duplicata nella nuova posizione. Questa sicurezza viene ottenuta grazie all'utilizzo di nomi di interfaccia di rete coerenti negli host.
+
+Si supponga, ad esempio, che StorageGRID NodeA in esecuzione sull'host 1 sia stato configurato con le seguenti mappature di interfaccia:
+
+image::../media/eth0_bond.gif[Questa immagine viene spiegata dal testo circostante.]
+
+Il lato sinistro delle frecce corrisponde alle interfacce tradizionali visualizzate all'interno di un container StorageGRID (ovvero le interfacce griglia, Amministratore e rete client, rispettivamente). Il lato destro delle frecce corrisponde alle interfacce host effettive che forniscono queste reti, che sono tre interfacce VLAN subordinate allo stesso legame di interfaccia fisico.
+
+Supponiamo ora di voler migrare NodeA in Host2. Se l'host 2 ha anche interfacce denominate bond0.1001, bond0.1002 e bond0.1003, il sistema consentirà lo spostamento, supponendo che le interfacce con nome simile forniscano la stessa connettività sull'host 2 di quella sull'host 1. Se l'host 2 non dispone di interfacce con gli stessi nomi, lo spostamento non sarà consentito.
+
+Esistono molti modi per ottenere una denominazione coerente dell'interfaccia di rete tra più host; vedere  per alcuni esempi.link:configuring-host-network.html["Configurare la rete host"]
+
+
+
+== Storage condiviso
+
+Per ottenere migrazioni dei nodi rapide e a basso overhead, la funzionalità di migrazione dei nodi StorageGRID non sposta fisicamente i dati dei nodi. La migrazione dei nodi viene invece eseguita come coppia di operazioni di esportazione e importazione, come segue:
+
+.Fasi
+. Durante l'operazione di "esportazione dei nodi", una piccola quantità di dati di stato persistenti viene estratta dal contenitore di nodi in esecuzione sull'host e memorizzata nella cache sul volume di dati di sistema di quel nodo. Quindi, il contenitore di nodi su Hosta viene decreato.
+. Durante l'operazione di "importazione nodo", viene creata un'istanza del contenitore di nodo sull'HostB che utilizza la stessa interfaccia di rete e le mappature di archiviazione di blocco in vigore sull'Hosta. Quindi, i dati dello stato persistente memorizzati nella cache vengono inseriti nella nuova istanza.
+
+
+Data questa modalità operativa, tutti i dati di sistema e i volumi di storage a oggetti del nodo devono essere accessibili sia da host che da host B affinché la migrazione sia consentita e funzioni. Inoltre, devono essere stati mappati nel nodo utilizzando nomi che sono garantiti per fare riferimento alle stesse LUN su Hosta e HostB.
+
+Nell'esempio seguente viene illustrata una soluzione per la mappatura dei dispositivi di blocco per un nodo di storage StorageGRID, in cui il multipathing DM è in uso sugli host e il campo alias è stato utilizzato in `/etc/multipath.conf` per fornire nomi di dispositivi di blocco coerenti e facili disponibili su tutti gli host.
+
+image::../media/block_device_mapping_rhel.gif[Questa immagine viene spiegata dal testo circostante.]

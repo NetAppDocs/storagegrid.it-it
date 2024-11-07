@@ -1,0 +1,29 @@
+---
+permalink: maintain/installing-services-appliance-platform-change-only.html 
+sidebar: sidebar 
+keywords: storagegrid, recover services appliance, recover appliance, recovering appliance, recovering services appliance, install services appliance, installing services appliance, services appliance 
+summary: 'Quando si ripristina un nodo Grid guasto ospitato su VMware o su un host Linux e si utilizza un"appliance di servizi per il nodo sostitutivo, è necessario prima installare il nuovo hardware dell"appliance utilizzando lo stesso nome di nodo (nome di sistema) del nodo guasto.' 
+---
+= Installare l'appliance di servizi (solo modifica della piattaforma)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si ripristina un nodo Grid guasto ospitato su VMware o su un host Linux e si utilizza un'appliance di servizi per il nodo sostitutivo, è necessario prima installare il nuovo hardware dell'appliance utilizzando lo stesso nome di nodo (nome di sistema) del nodo guasto.
+
+.Prima di iniziare
+Sono disponibili le seguenti informazioni sul nodo guasto:
+
+* *Node name* (Nome nodo): È necessario installare l'appliance di servizi utilizzando lo stesso nome di nodo del nodo guasto. Il nome del nodo è il nome host (nome del sistema).
+* *Indirizzi IP*: È possibile assegnare al dispositivo di servizi gli stessi indirizzi IP del nodo guasto, che è l'opzione preferita, oppure selezionare un nuovo indirizzo IP inutilizzato su ciascuna rete.
+
+
+.A proposito di questa attività
+Eseguire questa procedura solo se si sta ripristinando un nodo guasto ospitato su VMware o Linux e lo si sta sostituendo con un nodo ospitato su un'appliance di servizi.
+
+.Fasi
+. Seguire le istruzioni per l'installazione di un nuovo dispositivo di servizi. Vedere https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Avvio rapido per l'installazione dell'hardware"^].
+. Quando viene richiesto il nome di un nodo, utilizzare il nome del nodo guasto.
+

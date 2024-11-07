@@ -1,0 +1,115 @@
+---
+permalink: monitor/viewing-dashboard.html 
+sidebar: sidebar 
+keywords: how to view dashboard, how to configure dashboard 
+summary: 'È possibile utilizzare la dashboard per monitorare le attività del sistema in un colpo d"occhio. È possibile creare dashboard personalizzati per monitorare l"implementazione di StorageGRID.' 
+---
+= Visualizzare e gestire la dashboard
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare la dashboard per monitorare le attività del sistema in un colpo d'occhio. È possibile creare dashboard personalizzati per monitorare l'implementazione di StorageGRID.
+
+
+TIP: Per modificare le unità per i valori di storage visualizzati in Grid Manager, selezionare il menu a discesa User (utente) in alto a destra in Grid Manager, quindi selezionare *User preferences* (Preferenze utente).
+
+Il dashboard potrebbe essere diverso a seconda della configurazione del sistema.
+
+image::../media/grid_manager_dashboard.png[Dashboard di Grid Manager]
+
+
+
+== Visualizza la dashboard
+
+La dashboard è costituita da schede che contengono informazioni specifiche sul sistema StorageGRID. Ciascuna scheda contiene le categorie di informazioni visualizzate sulle schede.
+
+È possibile utilizzare la dashboard fornita con il sistema così com'è. Inoltre, è possibile creare dashboard personalizzati contenenti solo schede e schede rilevanti per il monitoraggio dell'implementazione di StorageGRID.
+
+Le schede della dashboard fornite dal sistema contengono schede con i seguenti tipi di informazioni:
+
+[cols="1a,3a"]
+|===
+| Scheda sulla dashboard fornita dal sistema | Contiene 
+
+
+ a| 
+Panoramica
+ a| 
+Informazioni generali sulla griglia, ad esempio avvisi attivi, utilizzo dello spazio e oggetti totali nella griglia.
+
+
+
+ a| 
+Performance
+ a| 
+Utilizzo dello spazio, storage utilizzato nel tempo, S3 operazioni, durata della richiesta, tasso di errore.
+
+
+
+ a| 
+Storage
+ a| 
+Utilizzo delle quote dei tenant e dello spazio logico. Previsioni di utilizzo dello spazio per i dati e i metadati dell'utente.
+
+
+
+ a| 
+ILM
+ a| 
+Coda di gestione del ciclo di vita delle informazioni e tasso di valutazione.
+
+
+
+ a| 
+Nodi
+ a| 
+Utilizzo di CPU, dati e memoria per nodo. S3 operazioni per nodo. Distribuzione da nodo a sito.
+
+|===
+Alcune schede possono essere massimizzate per una visualizzazione più semplice. Selezionare l'icona Ingrandisci image:../media/icon_dashboard_card_maximize.png["Icona Ingrandisci"]nell'angolo superiore destro della scheda. Per chiudere una scheda ingrandita, selezionare l'icona Riduci a icona image:../media/icon_dashboard_card_minimize.png["Icona Riduci a icona"] o selezionare *Chiudi*.
+
+
+
+== Gestire i dashboard
+
+Se si dispone dell'accesso root (vedere link:../admin/admin-group-permissions.html["Autorizzazioni del gruppo di amministrazione"]), è possibile eseguire le seguenti attività di gestione per i dashboard:
+
+* Crea una dashboard personalizzata da zero. È possibile utilizzare dashboard personalizzati per controllare quali informazioni StorageGRID vengono visualizzate e come sono organizzate.
+* Clonare una dashboard per creare dashboard personalizzati.
+* Impostare una dashboard attiva per un utente. La dashboard attiva può essere la dashboard fornita dal sistema o una dashboard personalizzata.
+* Impostare una dashboard predefinita, che è quella visualizzata da tutti gli utenti, a meno che non attivino la propria dashboard.
+* Modificare il nome di una dashboard.
+* Modificare una dashboard per aggiungere o rimuovere schede e schede. È possibile avere un minimo di 1 e un massimo di 20 schede.
+* Rimuovere una dashboard.
+
+
+
+NOTE: Se si dispone di altre autorizzazioni oltre all'accesso root, è possibile impostare solo una dashboard attiva.
+
+Per gestire i dashboard, selezionare *azioni* > *Gestisci dashboard*.
+
+image::../media/dashboard_manage.png[Gestire i dashboard]
+
+
+
+== Configurare i dashboard
+
+Per creare una nuova dashboard clonando la dashboard attiva, selezionare *azioni* > *Clona dashboard attiva*.
+
+Per modificare o clonare una dashboard esistente, selezionare *azioni* > *Gestisci dashboard*.
+
+
+NOTE: La dashboard fornita dal sistema non può essere modificata o rimossa.
+
+Durante la configurazione di una dashboard, è possibile:
+
+* Aggiungere o rimuovere le schede
+* Rinominare le schede e assegnarle nomi univoci
+* Aggiungere, rimuovere o riorganizzare (trascinare) le schede per ciascuna scheda
+* Selezionare le dimensioni delle singole schede selezionando *S*, *M*, *L* o *XL* nella parte superiore della scheda
+
+
+image::../media/dashboard_configure.png[Configurare la dashboard]

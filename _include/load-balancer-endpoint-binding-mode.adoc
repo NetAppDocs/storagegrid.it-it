@@ -1,0 +1,40 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,3a"]
+|===
+| Modalità | Descrizione 
+
+
+ a| 
+Globale (impostazione predefinita)
+ a| 
+I client possono accedere all'endpoint utilizzando l'indirizzo IP di qualsiasi nodo gateway o nodo amministratore, l'indirizzo IP virtuale (VIP) di qualsiasi gruppo ha su qualsiasi rete o un FQDN corrispondente.
+
+Utilizzare l'impostazione *Global* (predefinita) a meno che non sia necessario limitare l'accessibilità di questo endpoint.
+
+
+
+ a| 
+IP virtuali dei gruppi ha
+ a| 
+Per accedere a questo endpoint, i client devono utilizzare un indirizzo IP virtuale (o un FQDN corrispondente) di un gruppo ha.
+
+Gli endpoint con questa modalità di binding possono utilizzare tutti lo stesso numero di porta, purché i gruppi ha selezionati per gli endpoint non si sovrappongano.
+
+
+
+ a| 
+Interfacce di nodo
+ a| 
+I client devono utilizzare gli indirizzi IP (o gli FQDN corrispondenti) delle interfacce dei nodi selezionate per accedere a questo endpoint.
+
+
+
+ a| 
+Tipo di nodo
+ a| 
+In base al tipo di nodo selezionato, i client devono utilizzare l'indirizzo IP (o il corrispondente FQDN) di qualsiasi nodo di amministrazione o l'indirizzo IP (o il corrispondente FQDN) di qualsiasi nodo di gateway per accedere a questo endpoint.
+
+|===

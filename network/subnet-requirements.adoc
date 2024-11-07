@@ -1,0 +1,27 @@
+---
+permalink: network/subnet-requirements.html 
+sidebar: sidebar 
+keywords: network subnets 
+summary: Attenersi ai seguenti requisiti e linee guida per le subnet di rete. 
+---
+= Requisiti della subnet
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Attenersi ai seguenti requisiti e linee guida per le subnet di rete.
+
+
+NOTE: Ogni rete deve essere connessa alla propria sottorete che non si sovrappone ad altre reti del nodo.
+
+Le seguenti restrizioni vengono applicate da Grid Manager durante l'implementazione. Vengono forniti qui per fornire assistenza nella pianificazione di rete pre-implementazione.
+
+* La subnet mask per qualsiasi indirizzo IP di rete non può essere 255.255.255.254 o 255.255.255.255 (/31 o /32 nella notazione CIDR).
+* La subnet definita da un indirizzo IP dell'interfaccia di rete e dalla subnet mask (CIDR) non può sovrapporsi alla subnet di qualsiasi altra interfaccia configurata sullo stesso nodo.
+* La subnet Grid Network per ciascun nodo deve essere inclusa in GNSL.
+* La subnet Admin Network non può sovrapporsi alla subnet Grid Network, alla subnet Client Network o a qualsiasi subnet in GNSL.
+* Le subnet in AESL non possono sovrapporsi con le subnet in GNSL.
+* La subnet della rete client non può sovrapporsi alla subnet della rete griglia, alla subnet della rete amministrativa, a qualsiasi subnet del GNSL o a qualsiasi subnet dell'AESL.
+

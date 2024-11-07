@@ -1,0 +1,349 @@
+---
+permalink: ilm/what-erasure-coding-schemes-are.html 
+sidebar: sidebar 
+keywords: erasure-coding scheme 
+summary: Gli schemi di erasure coding controllano il numero di frammenti di dati e il numero di frammenti di parità creati per ciascun oggetto. 
+---
+= Cosa sono gli schemi di erasure coding?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Gli schemi di erasure coding controllano il numero di frammenti di dati e il numero di frammenti di parità creati per ciascun oggetto.
+
+Quando si crea o modifica una regola ILM, si seleziona uno schema di erasure coding disponibile. StorageGRID crea automaticamente schemi di erasure coding in base al numero di nodi e siti storage che compongono il pool di storage che intendi utilizzare.
+
+
+
+== Protezione dei dati
+
+Il sistema StorageGRID utilizza l'algoritmo di erasure coding Reed-Solomon. L'algoritmo suddivide un oggetto in `k` frammenti di dati e calcola i `m` frammenti di parità.
+
+I `k + m = n` fragment sono distribuiti nei `n` nodi storage per garantire la protezione dei dati nel modo seguente:
+
+* Per recuperare o riparare un oggetto, `k` sono necessari dei frammenti.
+* Un oggetto può sopportare `m` frammenti persi o corrotti. Maggiore è il valore di `m`, maggiore è la tolleranza di errore.
+
+
+La migliore data Protection è fornita dallo schema di erasure coding con la tolleranza ai guasti del nodo o del volume più elevata all'interno di un pool di storage.
+
+
+
+== Overhead dello storage
+
+L'overhead di memorizzazione di uno schema di erasure coding viene calcolato dividendo il numero di frammenti di parità (`m`) per il numero di frammenti di dati (`k`). È possibile utilizzare l'overhead dello storage per calcolare la quantità di spazio su disco richiesta da ciascun oggetto con codifica di cancellazione:
+
+`_disk space_ = _object size_ + (_object size_ * _storage overhead_)`
+
+Ad esempio, se si memorizza un oggetto da 10 MB utilizzando lo schema 4+2 (con un overhead dello storage del 50%), l'oggetto consuma 15 MB di storage grid. Se si memorizza lo stesso oggetto da 10 MB utilizzando lo schema 6+2 (con un overhead dello storage del 33%), l'oggetto consuma circa 13.3 MB.
+
+Seleziona lo schema di erasure coding con il valore totale più basso di `k+m` quello che soddisfa le tue esigenze. Gli schemi di erasure coding con un numero inferiore di frammenti sono più efficienti dal punto di vista computazionale perché:
+
+* Viene creato e distribuito (o recuperato) un numero inferiore di frammenti per oggetto
+* Mostrano prestazioni migliori perché le dimensioni del frammento sono maggiori
+* Possono richiedere un numero inferiore di nodi da aggiungere in un link:../expand/index.html["espansione quando è richiesto più storage"]
+
+
+
+
+== Linee guida per i pool di storage
+
+Quando si seleziona il pool di storage da utilizzare per una regola che crea una copia con codice di cancellazione, utilizzare le seguenti linee guida per i pool di storage:
+
+* Il pool di storage deve includere tre o più siti, o esattamente un sito.
++
+
+NOTE: Non è possibile utilizzare la codifica di cancellazione se il pool di storage include due siti.
+
++
+** <<Schemi di erasure coding per pool di storage contenenti tre o più siti,Schemi di erasure coding per pool di storage contenenti tre o più siti>>
+** <<Schemi di erasure coding per pool di storage a sito singolo,Schemi di erasure coding per pool di storage a sito singolo>>
+
+
+* Non utilizzare un pool di archiviazione che includa il sito All Sites.
+* Il pool di storage deve includere almeno nodi storage `_k+m_ +1` in grado di memorizzare i dati degli oggetti.
++
+
+NOTE: I nodi di storage possono essere configurati durante l'installazione in modo da contenere solo metadati di oggetti e non dati di oggetti. Per ulteriori informazioni, vedere link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipi di nodi storage"].
+
++
+Il numero minimo di nodi di archiviazione richiesto è `k+m`. Tuttavia, disporre di almeno un nodo di storage aggiuntivo può contribuire a prevenire gli errori di acquisizione o i backlog ILM se un nodo di storage richiesto non è temporaneamente disponibile.
+
+
+
+
+
+== Schemi di erasure coding per pool di storage contenenti tre o più siti
+
+La seguente tabella descrive gli schemi di erasure coding attualmente supportati da StorageGRID per i pool di storage che includono tre o più siti. Tutti questi schemi offrono una protezione contro la perdita di sito. È possibile perdere un sito e l'oggetto sarà ancora accessibile.
+
+Per gli schemi di erasure coding che forniscono la protezione in caso di perdita di sito, il numero consigliato di nodi storage nel pool di storage supera `_k+m_ +1` poiché ciascun sito richiede un minimo di tre nodi storage.
+
+[cols="1a,1a,1a,1a,1a,1a"]
+|===
+| Schema di erasure coding (_k+m_) | Numero minimo di siti implementati | Numero consigliato di nodi di storage in ogni sito | Numero totale consigliato di nodi di storage | Protezione contro le perdite di sito? | Overhead dello storage 
+
+
+ a| 
+4+2
+ a| 
+3
+ a| 
+3
+ a| 
+9
+ a| 
+Sì
+ a| 
+50%
+
+
+
+ a| 
+6+2
+ a| 
+4
+ a| 
+3
+ a| 
+12
+ a| 
+Sì
+ a| 
+33%
+
+
+
+ a| 
+8+2
+ a| 
+5
+ a| 
+3
+ a| 
+15
+ a| 
+Sì
+ a| 
+25%
+
+
+
+ a| 
+6+3
+ a| 
+3
+ a| 
+4
+ a| 
+12
+ a| 
+Sì
+ a| 
+50%
+
+
+
+ a| 
+9+3
+ a| 
+4
+ a| 
+4
+ a| 
+16
+ a| 
+Sì
+ a| 
+33%
+
+
+
+ a| 
+2+1
+ a| 
+3
+ a| 
+3
+ a| 
+9
+ a| 
+Sì
+ a| 
+50%
+
+
+
+ a| 
+4+1
+ a| 
+5
+ a| 
+3
+ a| 
+15
+ a| 
+Sì
+ a| 
+25%
+
+
+
+ a| 
+6+1
+ a| 
+7
+ a| 
+3
+ a| 
+21
+ a| 
+Sì
+ a| 
+17%
+
+
+
+ a| 
+7+5
+ a| 
+3
+ a| 
+5
+ a| 
+15
+ a| 
+Sì
+ a| 
+71%
+
+|===
+
+NOTE: StorageGRID richiede un minimo di tre nodi di storage per sito. Per utilizzare lo schema 7+5, ogni sito richiede almeno quattro nodi di storage. Si consiglia di utilizzare cinque nodi di storage per sito.
+
+Quando si seleziona uno schema di erasure coding che fornisce la protezione del sito, bilanciare l'importanza relativa dei seguenti fattori:
+
+* *Numero di frammenti*: Le prestazioni e la flessibilità di espansione sono generalmente migliori quando il numero totale di frammenti è inferiore.
+* *Fault tolerance*: La Fault tolerance è aumentata avendo più segmenti di parità (cioè, quando `m` ha un valore più alto).
+* *Traffico di rete*: Quando si effettua il recupero da errori, utilizzando uno schema con più frammenti (cioè un totale più elevato per `k+m`) si crea più traffico di rete.
+* *Overhead dello storage*: Gli schemi con overhead più elevato richiedono più spazio di storage per oggetto.
+
+
+Ad esempio, quando si decide tra uno schema 4+2 e uno schema 6+3 (entrambi con un overhead dello storage del 50%), selezionare lo schema 6+3 se è richiesta una fault tolerance aggiuntiva. Selezionare lo schema 4+2 se le risorse di rete sono limitate. Se tutti gli altri fattori sono uguali, selezionare 4+2 perché il numero totale di frammenti è inferiore.
+
+
+NOTE: In caso di dubbi sul programma da utilizzare, selezionare 4+2 o 6+3 oppure contattare il supporto tecnico.
+
+
+
+== Schemi di erasure coding per pool di storage a sito singolo
+
+Un pool di storage a sito singolo supporta tutti gli schemi di erasure coding definiti per tre o più siti, a condizione che il sito disponga di un numero sufficiente di nodi di storage.
+
+Il numero minimo di nodi di archiviazione richiesto è `k+m`, ma si consiglia un pool di archiviazione con `k+m +1` nodi di archiviazione. Ad esempio, lo schema di erasure coding 2+1 richiede un pool di storage con almeno tre nodi di storage, ma si consiglia di utilizzare quattro nodi di storage.
+
+[cols="1a,1a,1a,1a"]
+|===
+| Schema di erasure coding (_k+m_) | Numero minimo di nodi di storage | Numero consigliato di nodi di storage | Overhead dello storage 
+
+
+ a| 
+4+2
+ a| 
+6
+ a| 
+7
+ a| 
+50%
+
+
+
+ a| 
+6+2
+ a| 
+8
+ a| 
+9
+ a| 
+33%
+
+
+
+ a| 
+8+2
+ a| 
+10
+ a| 
+11
+ a| 
+25%
+
+
+
+ a| 
+6+3
+ a| 
+9
+ a| 
+10
+ a| 
+50%
+
+
+
+ a| 
+9+3
+ a| 
+12
+ a| 
+13
+ a| 
+33%
+
+
+
+ a| 
+2+1
+ a| 
+3
+ a| 
+4
+ a| 
+50%
+
+
+
+ a| 
+4+1
+ a| 
+5
+ a| 
+6
+ a| 
+25%
+
+
+
+ a| 
+6+1
+ a| 
+7
+ a| 
+8
+ a| 
+17%
+
+
+
+ a| 
+7+5
+ a| 
+12
+ a| 
+13
+ a| 
+71%
+
+|===

@@ -1,0 +1,108 @@
+---
+permalink: ilm/example-2-ilm-rules-and-policy-for-ec-object-size-filtering.html 
+sidebar: sidebar 
+keywords: object size for erasure coding, example ILM rule, information lifecycle rule examples, 1 MB 
+summary: 'È possibile utilizzare le seguenti regole e policy di esempio come punti di partenza per definire un criterio ILM che filtra in base alle dimensioni dell"oggetto per soddisfare i requisiti EC consigliati.' 
+---
+= Esempio 2: Regole ILM e policy per il filtraggio delle dimensioni degli oggetti EC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare le seguenti regole e policy di esempio come punti di partenza per definire un criterio ILM che filtra in base alle dimensioni dell'oggetto per soddisfare i requisiti EC consigliati.
+
+
+CAUTION: Le seguenti regole e policy ILM sono solo esempi. Esistono diversi modi per configurare le regole ILM. Prima di attivare un nuovo criterio, simularlo per verificare che funzioni come previsto per proteggere il contenuto dalla perdita.
+
+
+
+== ILM regola 1 per esempio 2: Utilizzare EC per oggetti superiori a 1 MB
+
+In questo esempio, la cancellazione della regola ILM codifica gli oggetti superiori a 1 MB.
+
+
+NOTE: L'erasure coding è più adatto per oggetti superiori a 1 MB. Non utilizzare la codifica erasure per oggetti di dimensioni inferiori a 200 KB per evitare l'overhead di gestione di frammenti con codifica erasure molto piccoli.
+
+[cols="2a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Nome della regola
+ a| 
+Solo oggetti EC > 1 MB
+
+
+
+ a| 
+Tempo di riferimento
+ a| 
+Tempo di acquisizione
+
+
+
+ a| 
+Filtro avanzato per la dimensione dell'oggetto
+ a| 
+Dimensione dell'oggetto superiore a 1 MB
+
+
+
+ a| 
+Posizionamenti
+ a| 
+Creare una copia 2+1 con codifica per la cancellazione utilizzando tre siti
+
+|===
+image::../media/policy_2_rule_1_ec_objects_adv_filtering.png[ILM regola 1 per esempio 2: Utilizzare EC per tutti gli oggetti superiori a 1 MB]
+
+
+
+== ILM regola 2 per esempio 2: Due copie replicate
+
+Questa regola ILM di esempio crea due copie replicate e non filtra in base alle dimensioni dell'oggetto. Questa regola è la regola predefinita per il criterio. Poiché la prima regola filtra tutti gli oggetti superiori a 1 MB, questa regola si applica solo agli oggetti di dimensioni pari o inferiori a 1 MB.
+
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Nome della regola
+ a| 
+Due copie replicate
+
+
+
+ a| 
+Tempo di riferimento
+ a| 
+Tempo di acquisizione
+
+
+
+ a| 
+Filtro avanzato per la dimensione dell'oggetto
+ a| 
+Nessuno
+
+
+
+ a| 
+Posizionamenti
+ a| 
+Dal giorno 0 al giorno per sempre, conservare una copia replicata nel sito 1 e una copia replicata nel sito 2.
+
+|===
+
+
+== Criterio ILM per esempio 2: Utilizzare EC per oggetti superiori a 1 MB
+
+Questo esempio di policy ILM include due regole ILM:
+
+* La prima regola di cancellazione codifica tutti gli oggetti superiori a 1 MB.
+* La seconda regola ILM (predefinita) crea due copie replicate. Poiché gli oggetti superiori a 1 MB sono stati filtrati dalla regola 1, la regola 2 si applica solo agli oggetti di dimensioni pari o inferiori a 1 MB.
+

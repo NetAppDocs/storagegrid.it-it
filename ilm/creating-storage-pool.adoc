@@ -1,0 +1,73 @@
+---
+permalink: ilm/creating-storage-pool.html 
+sidebar: sidebar 
+keywords: create storage pool 
+summary: Si creano pool di storage per determinare dove il sistema StorageGRID memorizza i dati a oggetti e il tipo di storage utilizzato. Ogni pool di storage include uno o più siti e uno o più tipi di storage. 
+---
+= Creare un pool di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si creano pool di storage per determinare dove il sistema StorageGRID memorizza i dati a oggetti e il tipo di storage utilizzato. Ogni pool di storage include uno o più siti e uno o più tipi di storage.
+
+
+NOTE: Quando si installa StorageGRID 11,9 su un nuovo grid, vengono creati automaticamente dei pool di storage per ogni sito. Tuttavia, se inizialmente è stato installato StorageGRID 11,6 o versione precedente, i pool di storage non vengono creati automaticamente per ogni sito.
+
+Se si desidera creare pool di cloud storage per archiviare i dati degli oggetti al di fuori del sistema StorageGRID, vedere la link:what-cloud-storage-pool-is.html["Informazioni sull'utilizzo dei Cloud Storage Pools"].
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+* Hai esaminato le linee guida per la creazione di pool di storage.
+
+
+.A proposito di questa attività
+I pool di storage determinano la posizione in cui vengono memorizzati i dati degli oggetti. Il numero di pool di storage necessari dipende dal numero di siti nella griglia e dal tipo di copie desiderato: Replicate o con codifica di cancellazione.
+
+* Per la replica e l'erasure coding a sito singolo, creare un pool di storage per ciascun sito. Ad esempio, se si desidera memorizzare copie di oggetti replicate in tre siti, creare tre pool di storage.
+* Per la cancellazione del codice in tre o più siti, creare un pool di storage che includa una voce per ciascun sito. Ad esempio, se si desidera erasure gli oggetti del codice in tre siti, creare un pool di storage.
++
+
+NOTE: Non includere il sito All Sites in un pool di storage che verrà utilizzato in un profilo di erasure coding. Invece, Aggiungi una voce separata al pool di storage per ogni sito che memorizzerà i dati sottoposti a erasure coding. Vedere <<entries,questo passo>> per un esempio.
+
+* Se si dispone di più storage di livello, non creare un pool di storage che includa diversi tipi di storage in un singolo sito. Consultare la link:guidelines-for-creating-storage-pools.html["Linee guida per la creazione di pool di storage"].
+
+
+.Fasi
+. Selezionare *ILM* > *Storage Pools*.
++
+La scheda Storage Pools elenca tutti i pool di storage definiti.
+
++
+
+NOTE: Per le nuove installazioni di StorageGRID 11.6 o versioni precedenti, il pool di storage di tutti i nodi di storage viene aggiornato automaticamente ogni volta che si aggiungono nuovi siti del data center. Non utilizzare questo pool nelle regole ILM.
+
+. Per creare un nuovo pool di storage, selezionare *Crea*.
+. Immettere un nome univoco per il pool di storage. Utilizzare un nome che sia facile da identificare quando si configurano i profili di erasure coding e le regole ILM.
+. Dall'elenco a discesa *Sito*, selezionare un sito per questo pool di storage.
++
+Quando si seleziona un sito, il numero di nodi di archiviazione nella tabella viene aggiornato automaticamente.
+
++
+In generale, non utilizzare il sito All Sites in alcun pool di storage. Le regole ILM che utilizzano un pool di storage All Sites posizionano gli oggetti in qualsiasi sito disponibile, offrendo un minore controllo sul posizionamento degli oggetti. Inoltre, un pool di storage All Sites utilizza immediatamente i nodi di storage in un nuovo sito, il che potrebbe non essere il comportamento previsto.
+
+. Dall'elenco a discesa *Storage grade*, selezionare il tipo di storage da utilizzare se una regola ILM utilizza questo pool di storage.
++
+Il grado dello storage, _include tutti i gradi dello storage_, include tutti i nodi storage nel sito selezionato. Se sono stati creati altri gradi di storage per i nodi di storage nel grid, questi vengono elencati nell'elenco a discesa.
+
+. [[voci]]se si desidera utilizzare il pool di archiviazione in un profilo di erasure coding multisito, selezionare *Aggiungi più nodi* per aggiungere una voce per ciascun sito al pool di archiviazione.
++
+
+NOTE: Viene visualizzato un avviso se si aggiungono più voci con diversi gradi di storage per un sito.
+
++
+Per rimuovere una voce, selezionare l'icona Elimina image:../media/icon-x-to-remove.png["icona elimina"].
+
+. Quando si è soddisfatti delle selezioni effettuate, selezionare *Save* (Salva).
++
+Il nuovo pool di storage viene aggiunto all'elenco.
+
+

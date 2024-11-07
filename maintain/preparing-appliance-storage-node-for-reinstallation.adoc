@@ -1,0 +1,43 @@
+---
+permalink: maintain/preparing-appliance-storage-node-for-reinstallation.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
+summary: 'Quando si ripristina un nodo di storage dell"appliance, è necessario prima preparare l"appliance per la reinstallazione del software StorageGRID.' 
+---
+= Preparare l'appliance Storage Node per la reinstallazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si ripristina un nodo di storage dell'appliance, è necessario prima preparare l'appliance per la reinstallazione del software StorageGRID.
+
+.Fasi
+. Accedere al nodo di storage guasto:
++
+.. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+. Preparare il nodo di archiviazione dell'appliance per l'installazione del software StorageGRID. `sgareinstall`
+. Quando viene richiesto di continuare, immettere: `y`
++
+L'apparecchio si riavvia e la sessione SSH termina. In genere, il programma di installazione dell'appliance StorageGRID richiede circa 5 minuti, anche se in alcuni casi potrebbe essere necessario attendere fino a 30 minuti.
+
++
+
+CAUTION: Non tentare di accelerare il riavvio spegnendo e riaccendendo o ripristinando l'apparecchio. È possibile interrompere gli aggiornamenti automatici di BIOS, BMC o altri aggiornamenti del firmware.
+
++
+Il nodo di storage dell'appliance StorageGRID viene ripristinato e i dati sul nodo di storage non sono più accessibili. Gli indirizzi IP configurati durante il processo di installazione originale devono rimanere intatti; tuttavia, si consiglia di confermarli al termine della procedura.
+
++
+Dopo aver eseguito il `sgareinstall` comando, tutti gli account, le password e le chiavi SSH con provisioning StorageGRID vengono rimossi e vengono generate nuove chiavi host.
+
+

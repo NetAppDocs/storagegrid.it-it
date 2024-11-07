@@ -1,0 +1,83 @@
+---
+permalink: maintain/updating-subnets-for-grid-network.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, subnet, grid network, update subnets 
+summary: 'StorageGRID mantiene un elenco delle subnet di rete utilizzate per comunicare tra i nodi della rete di rete (eth0). Queste voci includono le subnet utilizzate per la rete griglia da ciascun sito nel sistema StorageGRID, nonché le subnet utilizzate per NTP, DNS, LDAP o altri server esterni a cui si accede tramite il gateway della rete griglia. Quando si aggiungono nodi griglia o un nuovo sito in un"espansione, potrebbe essere necessario aggiornare o aggiungere sottoreti alla rete Grid.' 
+---
+= Aggiornare le subnet per Grid Network
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID mantiene un elenco delle subnet di rete utilizzate per comunicare tra i nodi della griglia sulla rete (eth0). Queste voci includono le subnet utilizzate per la rete griglia da ciascun sito nel sistema StorageGRID, nonché le subnet utilizzate per NTP, DNS, LDAP o altri server esterni a cui si accede tramite il gateway della rete griglia. Quando si aggiungono nodi griglia o un nuovo sito in un'espansione, potrebbe essere necessario aggiornare o aggiungere sottoreti alla rete Grid.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di manutenzione o di accesso root"].
+* Si dispone della passphrase di provisioning.
+* Si dispone degli indirizzi di rete, in notazione CIDR, delle subnet che si desidera configurare.
+
+
+.A proposito di questa attività
+Se si sta eseguendo un'attività di espansione che include l'aggiunta di una nuova subnet, è necessario aggiungere una nuova subnet all'elenco delle subnet Grid Network prima di avviare la procedura di espansione. In caso contrario, sarà necessario annullare l'espansione, aggiungere la nuova subnet e riavviare l'espansione.
+
+
+
+== Aggiungere una subnet
+
+.Fasi
+. Selezionare *MANUTENZIONE* > *rete* > *rete griglia*.
+. Selezionare *Aggiungi un'altra subnet* per aggiungere una nuova subnet nella notazione CIDR.
++
+Ad esempio, immettere `10.96.104.0/22`.
+
+. Inserire la passphrase di provisioning e selezionare *Save* (Salva).
+. Attendere che le modifiche vengano applicate, quindi scaricare un nuovo pacchetto di ripristino.
++
+.. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+.. Immettere la *Provisioning Passphrase*.
++
+
+CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID. Viene inoltre utilizzato per ripristinare il nodo di amministrazione primario.
+
+
+
+
+
+Le subnet specificate vengono configurate automaticamente per il sistema StorageGRID.
+
+
+
+== Modificare una subnet
+
+.Fasi
+. Selezionare *MANUTENZIONE* > *rete* > *rete griglia*.
+. Selezionare la subnet che si desidera modificare e apportare le modifiche necessarie.
+. Inserire la passphrase di provisioning e selezionare *Save* (Salva).
+. Selezionare *Sì* nella finestra di dialogo di conferma.
+. Attendere che le modifiche vengano applicate, quindi scaricare un nuovo pacchetto di ripristino.
++
+.. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+.. Immettere la *Provisioning Passphrase*.
+
+
+
+
+
+
+== Eliminare una subnet
+
+.Fasi
+. Selezionare *MANUTENZIONE* > *rete* > *rete griglia*.
+. Selezionare l'icona di eliminazione image:../media/icon-x-to-remove.png["icona elimina"]accanto alla subnet.
+. Inserire la passphrase di provisioning e selezionare *Save* (Salva).
+. Selezionare *Sì* nella finestra di dialogo di conferma.
+. Attendere che le modifiche vengano applicate, quindi scaricare un nuovo pacchetto di ripristino.
++
+.. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+.. Immettere la *Provisioning Passphrase*.
+
+
+

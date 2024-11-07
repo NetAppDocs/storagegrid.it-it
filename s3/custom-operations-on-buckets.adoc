@@ -1,0 +1,98 @@
+---
+permalink: s3/custom-operations-on-buckets.html 
+sidebar: sidebar 
+keywords: operations, buckets, custom, storagegrid bucket operations 
+summary: 'Il sistema StorageGRID supporta operazioni personalizzate che vengono aggiunte all"API REST S3.' 
+---
+= Operazioni personalizzate di StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il sistema StorageGRID supporta operazioni personalizzate che vengono aggiunte all'API REST S3.
+
+Nella tabella seguente sono elencate le operazioni personalizzate supportate da StorageGRID.
+
+[cols="1a,2a"]
+|===
+| Operazione | Descrizione 
+
+
+ a| 
+link:get-bucket-consistency-request.html["COERENZA del bucket"]
+ a| 
+Restituisce la coerenza applicata a un determinato bucket.
+
+
+
+ a| 
+link:put-bucket-consistency-request.html["METTI la coerenza del bucket"]
+ a| 
+Imposta la coerenza applicata a un particolare bucket.
+
+
+
+ a| 
+link:get-bucket-last-access-time-request.html["OTTIENI l'ultimo tempo di accesso a bucket"]
+ a| 
+Restituisce se gli ultimi aggiornamenti dell'ora di accesso sono attivati o disattivati per un bucket specifico.
+
+
+
+ a| 
+link:put-bucket-last-access-time-request.html["TEMPO ULTIMO accesso bucket"]
+ a| 
+Consente di attivare o disattivare gli ultimi aggiornamenti dell'orario di accesso per un determinato bucket.
+
+
+
+ a| 
+link:delete-bucket-metadata-notification-configuration-request.html["ELIMINA la configurazione di notifica dei metadati del bucket"]
+ a| 
+Elimina l'XML di configurazione della notifica dei metadati associato a un bucket specifico.
+
+
+
+ a| 
+link:get-bucket-metadata-notification-configuration-request.html["OTTIENI la configurazione della notifica dei metadati del bucket"]
+ a| 
+Restituisce l'XML di configurazione della notifica dei metadati associato a un bucket specifico.
+
+
+
+ a| 
+link:put-bucket-metadata-notification-configuration-request.html["INSERIRE la configurazione della notifica dei metadati del bucket"]
+ a| 
+Configura il servizio di notifica dei metadati per un bucket.
+
+
+
+ a| 
+link:get-storage-usage-request.html["OTTIENI l'utilizzo dello storage"]
+ a| 
+Indica la quantità totale di spazio di archiviazione utilizzato da un account e per ciascun bucket associato all'account.
+
+
+
+ a| 
+link:deprecated-put-bucket-request-modifications-for-compliance.html["Obsoleto: CreateBucket con impostazioni di conformità"]
+ a| 
+Obsoleto e non supportato: Non è più possibile creare nuovi bucket con Compliance abilitata.
+
+
+
+ a| 
+link:deprecated-get-bucket-compliance-request.html["Obsoleto: OTTIENI la compliance del bucket"]
+ a| 
+Obsoleto ma supportato: Restituisce le impostazioni di conformità attualmente in vigore per un bucket compatibile esistente.
+
+
+
+ a| 
+link:deprecated-put-bucket-compliance-request.html["Obsoleto: METTI la compliance del bucket"]
+ a| 
+Obsoleto ma supportato: Consente di modificare le impostazioni di conformità per un bucket compatibile esistente.
+
+|===

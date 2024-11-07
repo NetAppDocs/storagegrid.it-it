@@ -1,0 +1,32 @@
+---
+permalink: admin/managing-full-storage-nodes.html 
+sidebar: sidebar 
+keywords: storage node is full 
+summary: 'Man mano che i nodi di storage raggiungono la capacità, è necessario espandere il sistema StorageGRID con l"aggiunta di nuovo storage. Sono disponibili tre opzioni: Aggiunta di volumi di storage, aggiunta di shelf di espansione dello storage e aggiunta di nodi di storage.' 
+---
+= Gestire nodi storage completi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Man mano che i nodi di storage raggiungono la capacità, è necessario espandere il sistema StorageGRID con l'aggiunta di nuovo storage. Sono disponibili tre opzioni: Aggiunta di volumi di storage, aggiunta di shelf di espansione dello storage e aggiunta di nodi di storage.
+
+
+
+== Aggiungere volumi di storage
+
+Ciascun nodo di storage supporta un numero massimo di volumi di storage. Il valore massimo definito varia in base alla piattaforma. Se un nodo di storage contiene meno del numero massimo di volumi di storage, è possibile aggiungere volumi per aumentarne la capacità. Vedere le istruzioni per link:../expand/index.html["Espansione di un sistema StorageGRID"].
+
+
+
+== Aggiungere shelf di espansione dello storage
+
+Alcuni nodi di storage delle appliance StorageGRID, come SG6060 o SG6160, sono in grado di supportare shelf di storage aggiuntivi. Se si dispone di appliance StorageGRID con funzionalità di espansione che non sono già state estese alla capacità massima, è possibile aggiungere shelf di storage per aumentare la capacità. Vedere le istruzioni per link:../expand/index.html["Espansione di un sistema StorageGRID"].
+
+
+
+== Aggiungere nodi storage
+
+È possibile aumentare la capacità dello storage aggiungendo nodi di storage. Quando si aggiunge lo storage, è necessario prendere in considerazione le regole ILM attualmente attive e i requisiti di capacità. Vedere le istruzioni per link:../expand/index.html["Espansione di un sistema StorageGRID"].

@@ -1,0 +1,112 @@
+---
+permalink: expand/vmware-adding-storage-volumes-to-storage-node.html 
+sidebar: sidebar 
+keywords: expand, expansion, storage node, add storage volumes, VMware 
+summary: Se un nodo di storage include meno di 16 volumi di storage, è possibile aumentarne la capacità utilizzando VMware vSphere per aggiungere volumi. 
+---
+= VMware: Aggiunta di volumi di storage a Storage Node
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se un nodo di storage include meno di 16 volumi di storage, è possibile aumentarne la capacità utilizzando VMware vSphere per aggiungere volumi.
+
+.Prima di iniziare
+* È possibile accedere alle istruzioni per l'installazione di StorageGRID per le implementazioni VMware.
++
+** link:../vmware/index.html["Installare StorageGRID su VMware"]
+
+
+* Si dispone del `Passwords.txt` file.
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+
+
+
+CAUTION: Non tentare di aggiungere volumi di storage a un nodo di storage mentre è attiva una procedura di aggiornamento del software, di ripristino o un'altra procedura di espansione.
+
+.A proposito di questa attività
+Il nodo di storage non è disponibile per un breve periodo di tempo quando si aggiungono volumi di storage. È necessario eseguire questa procedura su un nodo di storage alla volta per evitare impatti sui servizi grid rivolti al client.
+
+.Fasi
+. Se necessario, installare nuovo hardware per lo storage e creare nuovi datastore VMware.
+. Aggiungere uno o più dischi rigidi alla macchina virtuale per utilizzarli come storage (archivi di oggetti).
++
+.. Aprire VMware vSphere Client.
+.. Modificare le impostazioni della macchina virtuale per aggiungere uno o più dischi rigidi aggiuntivi.
+
+
++
+I dischi rigidi sono in genere configurati come Virtual Machine Disk (VMDK). I VMDK sono più comunemente utilizzati e sono più facili da gestire, mentre i RDM potrebbero fornire performance migliori per i carichi di lavoro che utilizzano oggetti di dimensioni maggiori (ad esempio, superiori a 100 MB). Per ulteriori informazioni sull'aggiunta di dischi rigidi alle macchine virtuali, consultare la documentazione di VMware vSphere.
+
+. Riavviare la macchina virtuale utilizzando l'opzione *Restart Guest OS* nel client VMware vSphere o immettendo il seguente comando in una sessione ssh sulla macchina virtuale:``sudo reboot``
++
+
+NOTE: Non utilizzare *Power Off* o *Reset* per riavviare la macchina virtuale.
+
+. Configurare il nuovo storage per l'utilizzo da parte del nodo di storage:
++
+.. Accedere al nodo Grid:
++
+... Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+... Immettere la password elencata nel `Passwords.txt` file.
+... Immettere il seguente comando per passare alla directory principale: `su -`
+... Immettere la password elencata nel `Passwords.txt` file. Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+.. Configurare i nuovi volumi di storage:
++
+`sudo add_rangedbs.rb`
+
++
+Questo script trova i nuovi volumi di storage e richiede di formattarli.
+
+.. Immettere *y* per accettare la formattazione.
+.. Se uno dei volumi è stato precedentemente formattato, decidere se si desidera riformattarlo.
++
+*** Immettere *y* per riformattare.
+*** Inserire *n* per saltare la riformattazione.
+
+
+
+
++
+ `setup_rangedbs.sh`Lo script viene eseguito automaticamente.
+
+. Verificare che i servizi vengano avviati correttamente:
++
+.. Visualizzare un elenco dello stato di tutti i servizi sul server:
++
+`sudo storagegrid-status`
+
++
+Lo stato viene aggiornato automaticamente.
+
+.. Attendere che tutti i servizi siano in esecuzione o verificati.
+.. Uscire dalla schermata di stato:
++
+`Ctrl+C`
+
+
+
+. Verificare che il nodo di storage sia in linea:
++
+.. Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+.. Selezionare *SUPPORT* > *Tools* > *Grid topology*.
+.. Selezionare *_Site_* > *_Storage Node_* > *LDR* > *Storage*.
+.. Selezionare la scheda *Configurazione*, quindi la scheda *principale*.
+.. Se l'elenco a discesa *Storage state - Desired* (Stato di storage - desiderato) è impostato su Read-only (sola lettura) o Offline (non in linea), selezionare *Online*.
+.. Selezionare *Applica modifiche*.
+
+
+. Per visualizzare i nuovi archivi di oggetti:
++
+.. Selezionare *NODES* > *_Site_* > *_Storage Node_* > *Storage*.
+.. Visualizzare i dettagli nella tabella *Object Stores*.
+
+
+
+
+.Risultato
+È possibile utilizzare la capacità estesa dei nodi di storage per salvare i dati degli oggetti.

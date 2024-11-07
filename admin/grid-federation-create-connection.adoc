@@ -1,0 +1,157 @@
+---
+permalink: admin/grid-federation-create-connection.html 
+sidebar: sidebar 
+keywords: grid federation, create connection, configure connection 
+summary: È possibile creare una connessione a federazione di griglie tra due sistemi StorageGRID se si desidera clonare i dettagli del tenant e replicare i dati degli oggetti. 
+---
+= Creare connessioni di federazione di griglie
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile creare una connessione a federazione di griglie tra due sistemi StorageGRID se si desidera clonare i dettagli del tenant e replicare i dati degli oggetti.
+
+Come illustrato nella figura, la creazione di una connessione a federazione di griglie include operazioni su entrambe le griglie. La connessione viene aggiunta su una griglia e completata sull'altra. È possibile iniziare da una delle due griglie.
+
+image::../media/grid-federation-create-connection.png[panoramica grafica dei passaggi per la creazione di una connessione su due griglie]
+
+.Prima di iniziare
+* È stata esaminata la link:grid-federation-overview.html["considerazioni e requisiti"] per la configurazione delle connessioni di federazione della griglia.
+* Se si intende utilizzare FQDN (Fully Qualified Domain Name) per ogni griglia invece degli indirizzi IP o VIP, si conoscono i nomi da utilizzare e si conferma che il server DNS per ogni griglia dispone delle voci appropriate.
+* Si sta utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone dell'autorizzazione di accesso root e della passphrase di provisioning per entrambe le griglie.
+
+
+
+
+== Aggiungi connessione
+
+Eseguire questa procedura su uno dei due sistemi StorageGRID.
+
+.Fasi
+. Accedere a Grid Manager dal nodo di amministrazione principale su una griglia.
+. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Aggiungi connessione*.
+. Inserire i dettagli della connessione.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome della connessione
+ a| 
+Un nome univoco che consente di riconoscere questa connessione, ad esempio "Grid 1-Grid 2".
+
+
+
+ a| 
+FQDN o IP per questa griglia
+ a| 
+Una delle seguenti opzioni:
+
+** L'FQDN della griglia a cui si è attualmente connessi
+** Indirizzo VIP di un gruppo ha su questa griglia
+** Indirizzo IP di un nodo Admin o di un nodo Gateway in questa griglia. L'IP può trovarsi su qualsiasi rete raggiungibile dalla griglia di destinazione.
+
+
+
+
+ a| 
+Porta
+ a| 
+La porta che si desidera utilizzare per questa connessione. È possibile immettere un numero di porta inutilizzato compreso tra 23000 e 23999.
+
+Entrambe le griglie di questa connessione utilizzeranno la stessa porta. È necessario assicurarsi che nessun nodo di una delle griglie utilizzi questa porta per altre connessioni.
+
+
+
+ a| 
+Giorni di validità del certificato per questa griglia
+ a| 
+Il numero di giorni in cui si desidera che i certificati di protezione per questa griglia nella connessione siano validi. Il valore predefinito è 730 giorni (2 anni), ma è possibile immettere un valore compreso tra 1 e 762 giorni.
+
+StorageGRID genera automaticamente certificati client e server per ogni griglia quando si salva la connessione.
+
+
+
+ a| 
+Passphrase di provisioning per questa griglia
+ a| 
+La passphrase di provisioning per la griglia a cui hai effettuato l'accesso.
+
+
+
+ a| 
+FQDN o IP per l'altra griglia
+ a| 
+Una delle seguenti opzioni:
+
+** L'FQDN della griglia a cui si desidera connettersi
+** Indirizzo VIP di un gruppo ha sull'altra griglia
+** Indirizzo IP di un nodo Admin o di un nodo Gateway nell'altra griglia. L'IP può trovarsi su qualsiasi rete raggiungibile dalla rete di origine.
+
+
+|===
+. Selezionare *Salva e continua*.
+. Per la fase Download verfica file, selezionare *Download verfica file*.
++
+Una volta completata la connessione sull'altra griglia, non è più possibile scaricare il file di verifica da nessuna griglia.
+
+. Individuare il file scaricato (`_connection-name_.grid-federation`) e salvarlo in una posizione sicura.
++
+
+CAUTION: Questo file contiene segreti (mascherati come `***`) e altri dettagli sensibili e deve essere memorizzato e trasmesso in modo sicuro.
+
+. Selezionare *Close* (Chiudi) per tornare alla pagina Grid Federation (federazione griglia).
+. Verificare che sia visualizzata la nuova connessione e che il relativo *stato della connessione* sia *in attesa di connessione*.
+. Fornire il `_connection-name_.grid-federation` file all'amministratore della griglia per l'altra griglia.
+
+
+
+
+== Connessione completa
+
+Eseguire questa procedura sul sistema StorageGRID a cui si sta effettuando la connessione (l'altra griglia).
+
+.Fasi
+. Accedere a Grid Manager dal nodo di amministrazione principale.
+. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *carica file di verifica* per accedere alla pagina carica.
+. Selezionare *carica file di verifica*. Quindi, individuare e selezionare il file scaricato dalla prima griglia (`_connection-name_.grid-federation`).
++
+Vengono visualizzati i dettagli della connessione.
+
+. Se si desidera, immettere un numero diverso di giorni validi per i certificati di sicurezza per questa griglia. Per impostazione predefinita, la voce *Certificate Valid Days* (giorni validi certificato) corrisponde al valore immesso nella prima griglia, ma ciascuna griglia può utilizzare date di scadenza diverse.
++
+In generale, utilizzare lo stesso numero di giorni per i certificati su entrambi i lati della connessione.
+
++
+
+CAUTION: Se i certificati a una delle due estremità della connessione scadono, la connessione smette di funzionare e le repliche saranno in sospeso fino all'aggiornamento dei certificati.
+
+. Inserire la passphrase di provisioning per la griglia a cui si è attualmente connessi.
+. Selezionare *Save and test* (Salva e verifica).
++
+I certificati vengono generati e la connessione viene testata. Se la connessione è valida, viene visualizzato un messaggio di esito positivo e la nuova connessione viene elencata nella pagina Grid Federation. Lo stato *Connection* sarà *Connected*.
+
++
+Se viene visualizzato un messaggio di errore, risolvere eventuali problemi. Vedere link:grid-federation-troubleshoot.html["Risolvere i problemi relativi agli errori di federazione della griglia"].
+
+. Accedere alla pagina Grid Federation (federazione griglia) nella prima griglia e aggiornare il browser. Verificare che lo stato della connessione sia ora *connesso*.
+. Una volta stabilita la connessione, eliminare in modo sicuro tutte le copie del file di verifica.
++
+Se si modifica questa connessione, viene creato un nuovo file di verifica. Il file originale non può essere riutilizzato.
+
+
+
+.Al termine
+* Fare riferimento alle considerazioni relative a link:grid-federation-manage-tenants.html["gestione dei tenant autorizzati"].
+* link:creating-tenant-account.html["Creare uno o più nuovi account tenant"], Assegnare l'autorizzazione *Use grid Federation Connection* e selezionare la nuova connessione.
+* link:grid-federation-manage-connection.html["Gestire la connessione"] secondo necessità. È possibile modificare i valori di connessione, verificare una connessione, ruotare i certificati di connessione o rimuovere una connessione.
+* link:../monitor/grid-federation-monitor-connections.html["Monitorare la connessione"] Come parte delle normali attività di monitoraggio StorageGRID.
+* link:grid-federation-troubleshoot.html["Risolvere i problemi di connessione"], compresa la risoluzione di eventuali avvisi ed errori relativi al clone dell'account e alla replica cross-grid.
+

@@ -1,0 +1,154 @@
+---
+permalink: tenant/manage-groups.html 
+sidebar: sidebar 
+keywords: how to view and edit tenant groups, manage groups, duplicate group, remove group, edit group 
+summary: Gestire i gruppi di tenant in base alle esigenze per visualizzare, modificare o duplicare un gruppo e altro ancora. 
+---
+= Gestire i gruppi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Gestire i gruppi di tenant in base alle esigenze per visualizzare, modificare o duplicare un gruppo e altro ancora.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* L'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Autorizzazione di accesso root"].
+
+
+
+
+== Visualizzare o modificare il gruppo
+
+È possibile visualizzare e modificare le informazioni di base e i dettagli di ciascun gruppo.
+
+.Fasi
+. Selezionare *GESTIONE ACCESSI* > *gruppi*.
+. Consultare le informazioni fornite nella pagina gruppi, che elenca le informazioni di base per tutti i gruppi locali e federati per questo account tenant.
++
+Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si stanno visualizzando i gruppi nella griglia di origine del tenant:
+
++
+** Un messaggio banner indica che se si modifica o si rimuove un gruppo, le modifiche non verranno sincronizzate con l'altra griglia.
+** Se necessario, un messaggio di intestazione indica se i gruppi non sono stati clonati nel tenant sulla griglia di destinazione. È possibile <<clone-groups,riprovare a creare un clone di gruppo>> che non sia riuscito.
+
+
+. Se si desidera modificare il nome del gruppo:
++
+.. Selezionare la casella di controllo del gruppo.
+.. Selezionare *azioni* > *Modifica nome gruppo*.
+.. Inserire il nuovo nome.
+.. Selezionare *Salva modifiche.*
+
+
+. Se si desidera visualizzare ulteriori dettagli o apportare modifiche aggiuntive, effettuare una delle seguenti operazioni:
++
+** Selezionare il nome del gruppo.
+** Selezionare la casella di controllo relativa al gruppo e selezionare *azioni* > *Visualizza dettagli gruppo*.
+
+
+. Consultare la sezione Panoramica, che mostra le seguenti informazioni per ciascun gruppo:
++
+** Nome visualizzato
+** Nome univoco
+** Tipo
+** Modalità di accesso
+** Permessi
+** Policy S3
+** Numero di utenti in questo gruppo
+** Ulteriori campi se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si sta visualizzando il gruppo nella griglia di origine del tenant:
++
+*** Stato di cloning, *Success* o *Failure*
+*** Un banner blu che indica che se modifichi o elimini questo gruppo, le modifiche non verranno sincronizzate con l'altra griglia.
+
+
+
+
+. Modificare le impostazioni di gruppo in base alle esigenze. Vedere link:creating-groups-for-s3-tenant.html["Creare gruppi per un tenant S3"] e link:creating-groups-for-swift-tenant.html["Creare gruppi per un tenant Swift"] per i dettagli su cosa immettere.
++
+.. Nella sezione Panoramica , modificare il nome visualizzato selezionando il nome o l'icona di modifica image:../media/icon_edit_tm.png["Icona Edit (Modifica)"].
+.. Nella scheda *permessi di gruppo*, aggiornare le autorizzazioni e selezionare *Salva modifiche*.
+.. Nella scheda *Criteri di gruppo*, apportare le modifiche desiderate e selezionare *Salva modifiche*.
++
+*** Se si sta modificando un gruppo S3, è possibile selezionare un criterio di gruppo S3 diverso o inserire la stringa JSON per un criterio personalizzato, come richiesto.
+*** Se si sta modificando un gruppo Swift, selezionare o deselezionare la casella di controllo *Swift Administrator*.
+
+
+
+
+. Per aggiungere uno o più utenti locali al gruppo:
++
+.. Selezionare la scheda Users (utenti).
++
+image::../media/manage_users.png[Gestire gli utenti]
+
+.. Selezionare *Aggiungi utenti*.
+.. Selezionare gli utenti che si desidera aggiungere e selezionare *Aggiungi utenti*.
++
+In alto a destra viene visualizzato il messaggio Success (operazione riuscita).
+
+
+
+. Per rimuovere utenti locali dal gruppo:
++
+.. Selezionare la scheda Users (utenti).
+.. Selezionare *Rimuovi utenti*.
+.. Selezionare gli utenti che si desidera rimuovere e selezionare *Rimuovi utenti*.
++
+In alto a destra viene visualizzato il messaggio Success (operazione riuscita).
+
+
+
+. Confermare di aver selezionato *Save Changes* (Salva modifiche) per ciascuna sezione modificata.
+
+
+
+
+== Gruppo duplicato
+
+È possibile duplicare un gruppo esistente per creare nuovi gruppi più rapidamente.
+
+
+NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si duplica un gruppo dalla griglia di origine del tenant, il gruppo duplicato verrà clonato nella griglia di destinazione del tenant.
+
+.Fasi
+. Selezionare *GESTIONE ACCESSI* > *gruppi*.
+. Selezionare la casella di controllo del gruppo che si desidera duplicare.
+. Selezionare *azioni* > *Duplica gruppo*.
+. Vedere link:creating-groups-for-s3-tenant.html["Creare gruppi per un tenant S3"] o link:creating-groups-for-swift-tenant.html["Creare gruppi per un tenant Swift"] per i dettagli su cosa immettere.
+. Selezionare *Crea gruppo*.
+
+
+
+
+== [[clone-groups]]Riprova clone di gruppo
+
+Per riprovare un clone non riuscito:
+
+. Selezionare ciascun gruppo che indica _(clonazione non riuscita)_ sotto il nome del gruppo.
+. Selezionare *azioni* > *Clona gruppi*.
+. Visualizzare lo stato dell'operazione di clonazione dalla pagina dei dettagli di ciascun gruppo da clonare.
+
+
+Per ulteriori informazioni, vedere link:grid-federation-account-clone.html["Clonare utenti e gruppi tenant"].
+
+
+
+== Eliminare uno o più gruppi
+
+È possibile eliminare uno o più gruppi. Gli utenti che appartengono solo a un gruppo cancellato non potranno più accedere al tenant manager o utilizzare l'account tenant.
+
+
+NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si elimina un gruppo, StorageGRID non eliminerà il gruppo corrispondente sull'altra griglia. Se è necessario mantenere queste informazioni sincronizzate, è necessario eliminare lo stesso gruppo da entrambe le griglie.
+
+.Fasi
+. Selezionare *GESTIONE ACCESSI* > *gruppi*.
+. Selezionare la casella di controllo per ciascun gruppo che si desidera eliminare.
+. Selezionare *azioni* > *Elimina gruppo* o *azioni* > *Elimina gruppi*.
++
+Viene visualizzata una finestra di dialogo di conferma.
+
+. Selezionare *Delete group* (Elimina gruppo) o *Delete groups* (Elimina gruppi).
+

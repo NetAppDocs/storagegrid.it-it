@@ -1,0 +1,36 @@
+---
+permalink: fabricpool/best-practices-for-high-availability-groups.html 
+sidebar: sidebar 
+keywords: fabricPool, high availability group, HA group, active-active, active-backup, cloud tier, best practices 
+summary: 'Prima di associare StorageGRID come livello cloud FabricPool, scopri i gruppi ad alta disponibilità (ha) di StorageGRID e consulta le Best practice per l"utilizzo dei gruppi ad alta disponibilità con FabricPool.' 
+---
+= Best practice per i gruppi ad alta disponibilità (ha)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di associare StorageGRID come livello cloud FabricPool, scopri i gruppi ad alta disponibilità (ha) di StorageGRID e consulta le Best practice per l'utilizzo dei gruppi ad alta disponibilità con FabricPool.
+
+
+
+== Che cos'è un gruppo ha?
+
+Un gruppo ad alta disponibilità (ha) è un insieme di interfacce da più nodi gateway StorageGRID, nodi amministrativi o entrambi. Un gruppo ha aiuta a mantenere disponibili le connessioni dati dei client. Se l'interfaccia attiva nel gruppo ha si guasta, un'interfaccia di backup può gestire il carico di lavoro con un impatto minimo sulle operazioni FabricPool.
+
+Ogni gruppo ha fornisce un accesso altamente disponibile ai servizi condivisi sui nodi associati. Ad esempio, un gruppo ha costituito da interfacce solo su nodi gateway o su entrambi i nodi Admin e Gateway fornisce un accesso altamente disponibile al servizio Load Balancer condiviso.
+
+Per ulteriori informazioni sui gruppi ad alta disponibilità, vedere link:../admin/managing-high-availability-groups.html["Gestire i gruppi ad alta disponibilità (ha)"].
+
+
+
+== Utilizzo di gruppi ha
+
+Le Best practice per la creazione di un gruppo StorageGRID ha per FabricPool dipendono dal carico di lavoro.
+
+* Se si prevede di utilizzare FabricPool con i dati del carico di lavoro primario, è necessario creare un gruppo ha che includa almeno due nodi di bilanciamento del carico per evitare l'interruzione del recupero dei dati.
+* Se si prevede di utilizzare la policy di tiering del volume solo snapshot di FabricPool o Tier di performance locali non primari (ad esempio, ubicazioni per il disaster recovery o destinazioni NetApp SnapMirror®), è possibile configurare un gruppo ha con un solo nodo.
+
+
+Queste istruzioni descrivono la configurazione di un gruppo ha per Active-Backup ha (un nodo è attivo e un nodo è il backup). Tuttavia, potrebbe essere preferibile utilizzare DNS Round Robin o Active-Active ha. Per scoprire i vantaggi di queste altre configurazioni ha, vedere link:../admin/configuration-options-for-ha-groups.html["Opzioni di configurazione per i gruppi ha"].

@@ -1,0 +1,98 @@
+---
+permalink: expand/copying-audit-logs.html 
+sidebar: sidebar 
+keywords: copy audit log, Admin Node expansion, 
+summary: 'Quando si aggiunge un nuovo nodo amministratore mediante una procedura di espansione, il servizio AMS registra solo gli eventi e le azioni che si verificano dopo l"accesso al sistema. Se necessario, è possibile copiare i registri di controllo da un nodo amministratore precedentemente installato nel nuovo nodo amministratore di espansione in modo che sia sincronizzato con il resto del sistema StorageGRID.' 
+---
+= Copia dei registri di audit
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si aggiunge un nuovo nodo amministratore mediante una procedura di espansione, il servizio AMS registra solo gli eventi e le azioni che si verificano dopo l'accesso al sistema. Se necessario, è possibile copiare i registri di controllo da un nodo amministratore precedentemente installato nel nuovo nodo amministratore di espansione in modo che sia sincronizzato con il resto del sistema StorageGRID.
+
+.Prima di iniziare
+* Sono state completate le fasi di espansione richieste per aggiungere un nodo di amministrazione.
+* Si dispone del `Passwords.txt` file.
+
+
+.A proposito di questa attività
+Per rendere disponibili i messaggi di audit storici su un nuovo nodo di amministrazione, è necessario copiare manualmente i file di log di audit da un nodo di amministrazione esistente al nodo di amministrazione dell'espansione.
+
+[NOTE]
+====
+Per impostazione predefinita, le informazioni di controllo vengono inviate al registro di controllo sui nodi di amministrazione. È possibile saltare questi passaggi se si verifica una delle seguenti condizioni:
+
+* È stato configurato un server syslog esterno e i registri di controllo vengono inviati al server syslog invece che ai nodi di amministrazione.
+* È stato specificato esplicitamente che i messaggi di audit devono essere salvati solo sui nodi locali che li hanno generati.
+
+
+Per ulteriori informazioni, vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"] .
+
+====
+.Fasi
+. Accedere al nodo di amministrazione principale:
++
+.. Immettere il seguente comando: `ssh _admin@_primary_Admin_Node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+
+. Arrestare il servizio AMS per evitare che crei un nuovo file: `service ams stop`
+. Accedere alla directory di esportazione della verifica:
++
+`cd /var/local/log`
+
+. Rinominare il file di origine `audit.log` per assicurarsi che non sovrascriva il file sul nodo di amministrazione di espansione in cui lo si sta copiando:
++
+[listing]
+----
+ls -l
+mv audit.log _new_name_.txt
+----
+. Copiare tutti i file di registro di controllo nella posizione di destinazione sul nodo di amministrazione di espansione:
++
+`scp -p * _IP_address_:/var/local/log`
+
+. Se viene richiesta la passphrase per `/root/.ssh/id_rsa`, immettere la password di accesso SSH per il nodo di amministrazione primario elencato nel `Passwords.txt` file.
+. Ripristinare il file originale `audit.log`:
++
+`mv _new_name_.txt audit.log`
+
+. Avviare il servizio AMS:
++
+`service ams start`
+
+. Disconnettersi dal server:
++
+`exit`
+
+. Accedere al nodo di amministrazione dell'espansione:
++
+.. Immettere il seguente comando: `ssh admin@_expansion_Admin_Node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+
+. Aggiornare le impostazioni dell'utente e del gruppo per i file di log di controllo:
++
+`cd /var/local/log`
+
++
+`chown ams-user:bycast *`
+
+. Disconnettersi dal server:
++
+`exit`
+
+

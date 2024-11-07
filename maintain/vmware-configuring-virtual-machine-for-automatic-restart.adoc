@@ -1,0 +1,22 @@
+---
+permalink: maintain/vmware-configuring-virtual-machine-for-automatic-restart.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, vmware, automatic restart, auto restart, configure automatic restart, configure auto restart 
+summary: Se la macchina virtuale non si riavvia dopo il riavvio di VMware vSphere Hypervisor, potrebbe essere necessario configurare la macchina virtuale per il riavvio automatico. 
+---
+= VMware: Configurare la macchina virtuale per il riavvio automatico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se la macchina virtuale non si riavvia dopo il riavvio di VMware vSphere Hypervisor, potrebbe essere necessario configurare la macchina virtuale per il riavvio automatico.
+
+Eseguire questa procedura se si nota che una macchina virtuale non si riavvia durante il ripristino di un nodo di griglia o l'esecuzione di un'altra procedura di manutenzione.
+
+.Fasi
+. Nell'albero di VMware vSphere Client, selezionare la macchina virtuale non avviata.
+. Fare clic con il pulsante destro del mouse sulla macchina virtuale e selezionare *Power on* (accensione).
+. Configurare VMware vSphere Hypervisor per riavviare automaticamente la macchina virtuale in futuro.
+

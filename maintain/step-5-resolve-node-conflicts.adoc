@@ -1,0 +1,111 @@
+---
+permalink: maintain/step-5-resolve-node-conflicts.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, resolve node conflict 
+summary: Dal passaggio 5 della procedura guidata Smantieni i nodi, è possibile determinare se i nodi nel sistema StorageGRID sono disconnessi o se i nodi nel sito selezionato appartengono a un gruppo ad alta disponibilità. Una volta risolti i conflitti di nodo, avviare la procedura di decommissionamento da questa pagina. 
+---
+= Fase 5: Risolvere i conflitti dei nodi (e avviare la decommissionazione)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dalla fase 5 (Risolvi conflitti di nodi) della procedura guidata Smantella sito, è possibile determinare se i nodi nel sistema StorageGRID sono disconnessi o se i nodi nel sito selezionato appartengono a un gruppo ad alta disponibilità (ha). Una volta risolti i conflitti di nodo, avviare la procedura di decommissionamento da questa pagina.
+
+.Prima di iniziare
+È necessario assicurarsi che tutti i nodi nel sistema StorageGRID siano nello stato corretto, come indicato di seguito:
+
+* Tutti i nodi del sistema StorageGRID devono essere collegati (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]).
++
+
+NOTE: Se si sta eseguendo una decommissionazione del sito disconnesso, tutti i nodi del sito che si sta rimuovendo devono essere disconnessi e tutti i nodi di tutti gli altri siti devono essere connessi.
+
++
+
+NOTE: La decommissionazione non si avvia se uno o più volumi sono offline (non montati) o se sono online (montati) ma in uno stato di errore.
+
++
+
+NOTE: Se uno o più volumi vengono disconnessi mentre è in corso una decommissionazione, il processo di decommissionamento viene completato dopo che questi volumi sono tornati online.
+
+* Nessun nodo del sito che si sta rimuovendo può avere un'interfaccia che appartiene a un gruppo ad alta disponibilità (ha).
+
+
+.A proposito di questa attività
+Se un nodo è elencato per la fase 5 (Risolvi conflitti di nodi), è necessario correggere il problema prima di poter avviare la decommissionazione.
+
+Prima di iniziare la procedura di decommissionamento del sito da questa pagina, fare riferimento alle seguenti considerazioni:
+
+* Per completare la procedura di decommissionamento, è necessario attendere il tempo necessario.
++
+
+NOTE: Lo spostamento o l'eliminazione dei dati degli oggetti da un sito potrebbe richiedere giorni, settimane o persino mesi, a seconda della quantità di dati nel sito, del carico sul sistema, delle latenze di rete e della natura delle modifiche ILM richieste.
+
+* Durante l'esecuzione della procedura di decommissionamento del sito:
++
+** Non è possibile creare regole ILM che si riferiscono al sito da smantellare. Inoltre, non è possibile modificare una regola ILM esistente per fare riferimento al sito.
+** Non è possibile eseguire altre procedure di manutenzione, ad esempio l'espansione o l'aggiornamento.
++
+
+NOTE: Se è necessario eseguire un'altra procedura di manutenzione durante la decommissionazione di un sito connesso, è possibile sospendere la procedura durante la rimozione dei nodi di storage. Il pulsante *Pause* viene attivato durante la fase "decommissionamento dei dati replicati ed Erasure-Coded Data" (disattivazione dei dati replicati ed Erasure-Coded Data).
+
+** Se è necessario ripristinare un nodo dopo aver avviato la procedura di decommissionamento del sito, contattare il supporto.
+
+
+
+
+.Fasi
+. Esaminare la sezione nodi disconnessi del passaggio 5 (risoluzione dei conflitti tra nodi) per determinare se uno dei nodi del sistema StorageGRID presenta uno stato di connessione sconosciuto () o non attivo dal punto diimage:../media/icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"] vista amministrativo (image:../media/icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"]).
++
+image::../media/decommission_site_step_5_disconnected_nodes.png[Decommissionare il sito fase 5 risolvere i conflitti dei nodi]
+
+. Se alcuni nodi sono disconnessi, riportarli in linea.
++
+Consultare la link:../maintain/grid-node-procedures.html["Procedure dei nodi"]. Se hai bisogno di assistenza, contatta il supporto tecnico.
+
+. Quando tutti i nodi disconnessi sono stati riportati online, consultare la sezione gruppi ha del passaggio 5 (Risolvi i conflitti dei nodi).
++
+Questa tabella elenca tutti i nodi del sito selezionato che appartengono a un gruppo ad alta disponibilità (ha).
+
++
+image::../media/decommission_site_step_5_ha_groups.png[Decommissionare i gruppi ha fase 5 del sito]
+
+. Se nell'elenco sono presenti nodi, eseguire una delle seguenti operazioni:
++
+** Modificare ciascun gruppo ha interessato per rimuovere l'interfaccia del nodo.
+** Rimuovere un gruppo ha che include solo i nodi da questo sito. Consultare le istruzioni per l'amministrazione di StorageGRID.
+
+
++
+Se tutti i nodi sono connessi e nessun nodo nel sito selezionato viene utilizzato in un gruppo ha, viene attivato il campo *Provisioning Passphrase*.
+
+. Inserire la passphrase di provisioning.
++
+Il pulsante *Avvia decommissionazione* viene attivato.
+
++
+image::../media/decommission_site_step_5_provision_passphrase.png[Decommissionare il sito fase 5 eseguire il provisioning della passphrase]
+
+. Se si è pronti per avviare la procedura di decommissionamento del sito, selezionare *Avvia decommissionazione*.
++
+Un avviso elenca il sito e i nodi che verranno rimossi. Ti ricordiamo che potrebbero essere necessari giorni, settimane o mesi per rimuovere completamente il sito.
+
++
+image::../media/decommission_site_step_5_warning.png[Decommissionare il sito fase 5 attenzione]
+
+. Esaminare l'avviso. Se si è pronti per iniziare, selezionare *OK*.
++
+Quando viene generata la nuova configurazione della griglia, viene visualizzato un messaggio. Questo processo potrebbe richiedere del tempo, a seconda del tipo e del numero di nodi di rete decommissionati.
+
++
+image::../media/decommission_site_step_5_grid_configuration.png[Decommissionare il sito fase 5 Configurazione griglia]
+
++
+Una volta generata la nuova configurazione della griglia, viene visualizzato il punto 6 (Monitor Decommission).
+
++
+
+NOTE: Il pulsante *precedente* rimane disattivato fino al completamento della decommissionazione.
+
+

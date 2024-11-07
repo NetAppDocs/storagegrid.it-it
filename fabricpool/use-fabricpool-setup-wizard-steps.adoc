@@ -1,0 +1,617 @@
+---
+permalink: fabricpool/use-fabricpool-setup-wizard-steps.html 
+sidebar: sidebar 
+keywords: fabricPool, FabricPool setup wizard, ontap system manager 
+summary: È possibile utilizzare la configurazione guidata di FabricPool per configurare StorageGRID come sistema di storage a oggetti per un livello cloud FabricPool. 
+---
+= Accedere e completare l'installazione guidata di FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare la configurazione guidata di FabricPool per configurare StorageGRID come sistema di storage a oggetti per un livello cloud FabricPool.
+
+.Prima di iniziare
+* È stata esaminata la link:../fabricpool/use-fabricpool-setup-wizard.html["considerazioni e requisiti"] per l'utilizzo della configurazione guidata di FabricPool.
++
+
+NOTE: Se si desidera configurare StorageGRID per l'utilizzo con qualsiasi altra applicazione client S3, visitare il sito link:../admin/use-s3-setup-wizard.html["Utilizzare l'installazione guidata S3"].
+
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di accesso root"].
+
+
+
+
+== Accedere alla procedura guidata
+
+È possibile completare l'installazione guidata di FabricPool quando si inizia a utilizzare Gestione griglia di StorageGRID oppure accedere e completare l'installazione guidata in qualsiasi momento.
+
+.Fasi
+. Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+. Se nella dashboard viene visualizzato il banner *FabricPool and S3 setup wizard*, selezionare il link nel banner. Se il banner non viene più visualizzato, selezionare l'icona della guida dalla barra di intestazione in Gestione griglia e selezionare *Installazione guidata FabricPool and S3*.
++
+image::../media/help_menu.png[menu guida]
+
+. Nella sezione FabricPool della pagina di installazione guidata di FabricPool e S3, selezionare *Configura ora*.
++
+*Fase 1 di 9: Viene visualizzato il messaggio Configure ha group* (Configura gruppo ha).
+
+
+
+
+
+== Fase 1 di 9: Configurare il gruppo ha
+
+Un gruppo ad alta disponibilità (ha) è un insieme di nodi che contengono ciascuno il servizio bilanciamento del carico StorageGRID. Un gruppo ha può contenere nodi gateway, nodi di amministrazione o entrambi.
+
+È possibile utilizzare un gruppo ha per mantenere disponibili le connessioni dati FabricPool. Un gruppo ha utilizza indirizzi IP virtuali (VIP) per fornire un accesso altamente disponibile al servizio Load Balancer. Se l'interfaccia attiva nel gruppo ha si guasta, un'interfaccia di backup può gestire il carico di lavoro con un impatto minimo sulle operazioni FabricPool
+
+Per ulteriori informazioni su questa attività, vedere link:../admin/managing-high-availability-groups.html["Gestire i gruppi ad alta disponibilità"] e link:best-practices-for-high-availability-groups.html["Best practice per i gruppi ad alta disponibilità"].
+
+.Fasi
+. Se si prevede di utilizzare un bilanciamento del carico esterno, non è necessario creare un gruppo ha. Selezionare *Salta questo passaggio* e andare a <<Fase 2 di 9: Configurare l'endpoint del bilanciamento del carico>>.
+. Per utilizzare il bilanciamento del carico StorageGRID, creare un nuovo gruppo ha o utilizzare un gruppo ha esistente.
++
+[role="tabbed-block"]
+====
+.Creare un gruppo ha
+--
+.. Per creare un nuovo gruppo ha, selezionare *Crea gruppo ha*.
+.. Per la fase *inserire i dettagli*, completare i seguenti campi.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome del gruppo HA
+ a| 
+Un nome di visualizzazione univoco per questo gruppo ha.
+
+
+
+ a| 
+Descrizione (opzionale)
+ a| 
+La descrizione di questo gruppo ha.
+
+|===
+.. Per il passo *Add interfaces*, selezionare le interfacce di nodo che si desidera utilizzare in questo gruppo ha.
++
+Utilizzare le intestazioni di colonna per ordinare le righe o inserire un termine di ricerca per individuare le interfacce più rapidamente.
+
++
+È possibile selezionare uno o più nodi, ma è possibile selezionare una sola interfaccia per ciascun nodo.
+
+.. Per la fase *prioritize interfaces*, determinare l'interfaccia primaria e le interfacce di backup per questo gruppo ha.
++
+Trascinare le righe per modificare i valori nella colonna *Ordine di priorità*.
+
++
+La prima interfaccia nell'elenco è l'interfaccia primaria. L'interfaccia principale è l'interfaccia attiva a meno che non si verifichi un errore.
+
++
+Se il gruppo ha include più di un'interfaccia e l'interfaccia attiva non riesce, gli indirizzi IP virtuali (VIP) si spostano nella prima interfaccia di backup nell'ordine di priorità. Se l'interfaccia non funziona, gli indirizzi VIP passano all'interfaccia di backup successiva e così via. Quando i guasti vengono risolti, gli indirizzi VIP tornano all'interfaccia con la priorità più alta disponibile.
+
+.. Per il passo *inserire gli indirizzi IP*, completare i seguenti campi.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Subnet CIDR
+ a| 
+L'indirizzo della subnet VIP nella notazione CIDR& 8212;un indirizzo IPv4 seguito da una barra e dalla lunghezza della subnet (0-32).
+
+L'indirizzo di rete non deve avere bit host impostati. Ad esempio, `192.16.0.0/22`.
+
+
+
+ a| 
+Indirizzo IP del gateway (opzionale)
+ a| 
+Opzionale. Se gli indirizzi IP ONTAP utilizzati per accedere a StorageGRID non si trovano sulla stessa sottorete degli indirizzi VIP StorageGRID, immettere l'indirizzo IP del gateway locale VIP StorageGRID. L'indirizzo IP del gateway locale deve trovarsi all'interno della subnet VIP.
+
+
+
+ a| 
+Virtual IP address (Indirizzo IP virtuale)
+ a| 
+Inserire almeno uno e non più di dieci indirizzi VIP per l'interfaccia attiva nel gruppo ha. Tutti gli indirizzi VIP devono trovarsi all'interno della subnet VIP e tutti saranno attivi contemporaneamente sull'interfaccia attiva.
+
+Almeno un indirizzo deve essere IPv4. In alternativa, è possibile specificare ulteriori indirizzi IPv4 e IPv6.
+
+|===
+.. Selezionare *Crea gruppo ha*, quindi selezionare *fine* per tornare all'installazione guidata di FabricPool.
+.. Selezionare *continua* per passare alla fase di bilanciamento del carico.
+
+
+--
+.Utilizzare il gruppo ha esistente
+--
+.. Per utilizzare un gruppo ha esistente, selezionare il nome del gruppo ha dall'elenco a discesa *Select an ha group* (Seleziona un gruppo ha).
+.. Selezionare *continua* per passare alla fase di bilanciamento del carico.
+
+
+--
+====
+
+
+
+
+== Fase 2 di 9: Configurare l'endpoint del bilanciamento del carico
+
+StorageGRID utilizza un bilanciamento del carico per gestire il carico di lavoro dalle applicazioni client, come FabricPool. Il bilanciamento del carico massimizza la velocità e la capacità di connessione tra più nodi di storage.
+
+È possibile utilizzare il servizio bilanciamento del carico StorageGRID, disponibile su tutti i nodi gateway e di amministrazione, oppure connettersi a un bilanciamento del carico esterno (di terze parti). Si consiglia di utilizzare il bilanciamento del carico StorageGRID.
+
+Per ulteriori informazioni su questa attività, vedere le sezioni generali link:../admin/managing-load-balancing.html["considerazioni per il bilanciamento del carico"] e link:best-practices-for-load-balancing.html["Best practice per il bilanciamento del carico per FabricPool"].
+
+.Fasi
+. Selezionare o creare un endpoint di bilanciamento del carico StorageGRID o utilizzare un bilanciamento del carico esterno.
++
+[role="tabbed-block"]
+====
+.Creare l'endpoint
+--
+.. Selezionare *Crea endpoint*.
+.. Per il passo *inserire i dettagli dell'endpoint*, completare i seguenti campi.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome
+ a| 
+Un nome descrittivo per l'endpoint.
+
+
+
+ a| 
+Porta
+ a| 
+La porta StorageGRID che si desidera utilizzare per il bilanciamento del carico. Per impostazione predefinita, questo campo è 10433 per il primo endpoint creato, ma è possibile inserire qualsiasi porta esterna non utilizzata. Se si immette 80 o 443, l'endpoint viene configurato solo sui nodi gateway, poiché queste porte sono riservate sui nodi Admin.
+
+*Nota:* le porte utilizzate da altri servizi di rete non sono consentite. Consultare la link:../network/internal-grid-node-communications.html["Riferimento porta di rete"].
+
+
+
+ a| 
+Tipo di client
+ a| 
+Deve essere *S3*.
+
+
+
+ a| 
+Protocollo di rete
+ a| 
+Selezionare *HTTPS*.
+
+*Nota*: La comunicazione con StorageGRID senza crittografia TLS è supportata ma non consigliata.
+
+|===
+.. Per il passo *Select binding mode*, specificare la modalità di binding. La modalità di associazione controlla l'accesso all'endpoint utilizzando qualsiasi indirizzo IP o specifici indirizzi IP e interfacce di rete.
++
+[cols="1a,3a"]
+|===
+| Modalità | Descrizione 
+
+
+ a| 
+Globale (impostazione predefinita)
+ a| 
+I client possono accedere all'endpoint utilizzando l'indirizzo IP di qualsiasi nodo gateway o nodo amministratore, l'indirizzo IP virtuale (VIP) di qualsiasi gruppo ha su qualsiasi rete o un FQDN corrispondente.
+
+Utilizzare l'impostazione *Global* (predefinita) a meno che non sia necessario limitare l'accessibilità di questo endpoint.
+
+
+
+ a| 
+IP virtuali dei gruppi ha
+ a| 
+Per accedere a questo endpoint, i client devono utilizzare un indirizzo IP virtuale (o un FQDN corrispondente) di un gruppo ha.
+
+Gli endpoint con questa modalità di binding possono utilizzare tutti lo stesso numero di porta, purché i gruppi ha selezionati per gli endpoint non si sovrappongano.
+
+
+
+ a| 
+Interfacce di nodo
+ a| 
+I client devono utilizzare gli indirizzi IP (o gli FQDN corrispondenti) delle interfacce dei nodi selezionate per accedere a questo endpoint.
+
+
+
+ a| 
+Tipo di nodo
+ a| 
+In base al tipo di nodo selezionato, i client devono utilizzare l'indirizzo IP (o il corrispondente FQDN) di qualsiasi nodo di amministrazione o l'indirizzo IP (o il corrispondente FQDN) di qualsiasi nodo di gateway per accedere a questo endpoint.
+
+|===
+.. Per il passaggio *accesso tenant*, selezionare una delle seguenti opzioni:
++
+[cols="1a,3a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Allow all tenant (Consenti tutti i tenant) (impostazione predefinita
+ a| 
+Tutti gli account tenant possono utilizzare questo endpoint per accedere ai bucket.
+
+*Allow all tenant* è quasi sempre l'opzione appropriata per l'endpoint di bilanciamento del carico utilizzato per FabricPool.
+
+Selezionare questa opzione se si utilizza l'installazione guidata di FabricPool per un nuovo sistema StorageGRID e non sono stati ancora creati account tenant.
+
+
+
+ a| 
+Consenti tenant selezionati
+ a| 
+Solo gli account tenant selezionati possono utilizzare questo endpoint per accedere ai bucket.
+
+
+
+ a| 
+Blocca i tenant selezionati
+ a| 
+Gli account tenant selezionati non possono utilizzare questo endpoint per accedere ai bucket. Tutti gli altri tenant possono utilizzare questo endpoint.
+
+|===
+.. Per il passo *Allega certificato*, selezionare una delle seguenti opzioni:
++
+[cols="1a,3a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Carica certificato (consigliato)
+ a| 
+Utilizzare questa opzione per caricare un certificato server firmato dalla CA, una chiave privata del certificato e un bundle CA opzionale.
+
+
+
+ a| 
+Generare un certificato
+ a| 
+Utilizzare questa opzione per generare un certificato autofirmato. Vedere link:../admin/configuring-load-balancer-endpoints.html["Configurare gli endpoint del bilanciamento del carico"] per i dettagli su cosa immettere.
+
+
+
+ a| 
+USA certificato StorageGRID S3
+ a| 
+Questa opzione è disponibile solo se è già stata caricata o generata una versione personalizzata del certificato globale StorageGRID. Per ulteriori informazioni, vedere link:../admin/configuring-custom-server-certificate-for-storage-node.html["Configurare i certificati API S3"] .
+
+|===
+.. Selezionare *fine* per tornare all'installazione guidata di FabricPool.
+.. Selezionare *continua* per passare al punto tenant e bucket.
+
+
+
+NOTE: Le modifiche a un certificato endpoint possono richiedere fino a 15 minuti per essere applicate a tutti i nodi.
+
+--
+.Utilizzare l'endpoint del bilanciamento del carico esistente
+--
+.. Selezionare il nome di un endpoint esistente dall'elenco a discesa *Select a load balancer endpoint*.
+.. Selezionare *continua* per passare al punto tenant e bucket.
+
+
+--
+.Utilizzare un bilanciamento del carico esterno
+--
+.. Completare i seguenti campi per il bilanciamento del carico esterno.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+FQDN
+ a| 
+Il nome di dominio completo (FQDN) del bilanciamento del carico esterno.
+
+
+
+ a| 
+Porta
+ a| 
+Il numero di porta che FabricPool utilizzerà per connettersi al bilanciamento del carico esterno.
+
+
+
+ a| 
+Certificato
+ a| 
+Copiare il certificato del server per il bilanciamento del carico esterno e incollarlo in questo campo.
+
+|===
+.. Selezionare *continua* per passare al punto tenant e bucket.
+
+
+--
+====
+
+
+
+
+== Fase 3 di 9: Tenant e bucket
+
+Un tenant è un'entità che può utilizzare le applicazioni S3 per memorizzare e recuperare oggetti in StorageGRID. Ogni tenant dispone di utenti, chiavi di accesso, bucket, oggetti e un set specifico di funzionalità. È necessario creare un tenant StorageGRID prima di poter creare il bucket che FabricPool utilizzerà.
+
+Un bucket è un container utilizzato per memorizzare gli oggetti e i metadati degli oggetti di un tenant. Anche se alcuni tenant potrebbero avere molti bucket, la procedura guidata consente di creare o selezionare solo un tenant e un bucket alla volta. Puoi utilizzare il tenant Manager in un secondo momento per aggiungere altri bucket necessari.
+
+È possibile creare un nuovo tenant e bucket per l'utilizzo di FabricPool oppure selezionare un tenant e un bucket esistenti. Se si crea un nuovo tenant, il sistema crea automaticamente l'ID della chiave di accesso e la chiave di accesso segreta per l'utente root del tenant.
+
+Per ulteriori informazioni su questa attività, vedere link:creating-tenant-account-for-fabricpool.html["Creare un account tenant per FabricPool"] e link:creating-s3-bucket-and-access-key.html["Creare un bucket S3 e ottenere una chiave di accesso"].
+
+.Fasi
+Creare un nuovo tenant e bucket o selezionare un tenant esistente.
+
+[role="tabbed-block"]
+====
+.Nuovo tenant e bucket
+--
+. Per creare un nuovo tenant e bucket, immettere un *Nome tenant*. Ad esempio, `FabricPool tenant`.
+. Definire l'accesso root per l'account tenant, a seconda che il sistema StorageGRID utilizzi link:../admin/using-identity-federation.html["federazione delle identità"], link:../admin/configuring-sso.html["SSO (Single Sign-on)"]o entrambi.
++
+[cols="1a,3a"]
+|===
+| Opzione | Eseguire questa operazione 
+
+
+ a| 
+Se la federazione delle identità non è attivata
+ a| 
+Specificare la password da utilizzare quando si effettua l'accesso al tenant come utente root locale.
+
+
+
+ a| 
+Se è attivata la federazione delle identità
+ a| 
+.. Selezionare un gruppo federated esistente per disporre dell'autorizzazione di accesso root per il tenant.
+.. Facoltativamente, specificare la password da utilizzare quando si effettua l'accesso al tenant come utente root locale.
+
+
+
+
+ a| 
+Se sono attivate sia la federazione di identità che il single sign-on (SSO)
+ a| 
+Selezionare un gruppo federated esistente per disporre dell'autorizzazione di accesso root per il tenant. Nessun utente locale può accedere.
+
+|===
+. Per *Nome bucket*, immettere il nome del bucket che verrà utilizzato da FabricPool per memorizzare i dati ONTAP. Ad esempio, `fabricpool-bucket`.
++
+
+TIP: Non è possibile modificare il nome del bucket dopo averlo creato.
+
+. Selezionare *Region* per questo bucket.
++
+Utilizzare l'area predefinita (`us-east-1`) a meno che non si preveda di utilizzare ILM in futuro per filtrare gli oggetti in base all'area del bucket.
+
+. Selezionare *Create and continue* (Crea e continua) per creare il tenant e il bucket e passare alla fase di download dei dati
+
+
+--
+.Selezionare tenant e bucket
+--
+L'account tenant esistente deve disporre di almeno un bucket che non ha attivato il controllo delle versioni. Non puoi selezionare un account tenant esistente se non esiste un bucket per quel tenant.
+
+. Selezionare il tenant esistente dall'elenco a discesa *Nome tenant*.
+. Selezionare il bucket esistente dall'elenco a discesa *Nome bucket*.
++
+FabricPool non supporta il controllo delle versioni degli oggetti, pertanto i bucket con la versione attivata non vengono visualizzati.
+
++
+
+NOTE: Non selezionare un bucket con blocco oggetti S3 abilitato per l'utilizzo con FabricPool.
+
+. Selezionare *continua* per passare alla fase di download dei dati.
+
+
+--
+====
+
+
+== Fase 4 di 9: Download delle impostazioni ONTAP
+
+Durante questa fase, è possibile scaricare un file da utilizzare per immettere i valori in Gestione di sistema di ONTAP.
+
+.Fasi
+. In alternativa, selezionare l'icona di copia (image:../media/icon_tenant_copy_url.png["icona di copia"]) per copiare sia l'ID della chiave di accesso che la chiave di accesso segreta negli Appunti.
++
+Questi valori sono inclusi nel file di download, ma è possibile salvarli separatamente.
+
+. Selezionare *Scarica impostazioni ONTAP* per scaricare un file di testo contenente i valori immessi finora.
++
+Il `ONTAP_FabricPool_settings___bucketname__.txt` file include le informazioni necessarie per configurare StorageGRID come sistema di storage a oggetti per un Tier cloud FabricPool, tra cui:
+
++
+** Dettagli sulla connessione del bilanciamento del carico, inclusi nome del server (FQDN), porta e certificato
+** Nome bucket
+** ID della chiave di accesso e chiave di accesso segreta per l'utente root dell'account tenant
+
+
+. Salvare le chiavi copiate e il file scaricato in una posizione sicura.
++
+
+CAUTION: Non chiudere questa pagina fino a quando non sono stati copiati entrambi i tasti di accesso, scaricati le impostazioni ONTAP o entrambi. I tasti non saranno disponibili dopo la chiusura di questa pagina. Assicurarsi di salvare queste informazioni in una posizione sicura perché possono essere utilizzate per ottenere dati dal sistema StorageGRID.
+
+. Selezionare la casella di controllo per confermare di aver scaricato o copiato l'ID della chiave di accesso e la chiave di accesso segreta.
+. Selezionare *continua* per passare alla fase del pool di storage ILM.
+
+
+
+
+== Fase 5 di 9: Selezionare un pool di storage
+
+Un pool di storage è un gruppo di nodi di storage. Quando si seleziona un pool di storage, si determinano i nodi che StorageGRID utilizzerà per memorizzare i dati a più livelli da ONTAP.
+
+Per ulteriori informazioni su questo passaggio, vedere link:../ilm/creating-storage-pool.html["Creare un pool di storage"].
+
+.Fasi
+. Dall'elenco a discesa *Sito*, selezionare il sito StorageGRID che si desidera utilizzare per i dati a più livelli di ONTAP.
+. Dall'elenco a discesa *Storage pool*, selezionare il pool di storage per il sito.
++
+Il pool di storage di un sito include tutti i nodi di storage di quel sito.
+
+. Selezionare *continua* per passare al passo della regola ILM.
+
+
+
+
+== Fase 6 di 9: Esaminare la regola ILM per FabricPool
+
+Le regole ILM (Information Lifecycle Management) controllano il posizionamento, la durata e il comportamento di acquisizione di tutti gli oggetti nel sistema StorageGRID.
+
+L'installazione guidata di FabricPool crea automaticamente la regola ILM consigliata per l'utilizzo di FabricPool. Questa regola si applica solo al bucket specificato. Utilizza la codifica di cancellazione 2+1 in un singolo sito per memorizzare i dati a più livelli da ONTAP.
+
+Per ulteriori informazioni su questo passaggio, vedere link:../ilm/access-create-ilm-rule-wizard.html["Creare una regola ILM"] e link:best-practices-ilm.html["Best practice per l'utilizzo di ILM con i dati FabricPool"].
+
+.Fasi
+. Esaminare i dettagli della regola.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome della regola
+ a| 
+Generato automaticamente e non modificabile
+
+
+
+ a| 
+Descrizione
+ a| 
+Generato automaticamente e non modificabile
+
+
+
+ a| 
+Filtro
+ a| 
+Il nome del bucket
+
+Questa regola si applica solo agli oggetti salvati nel bucket specificato.
+
+
+
+ a| 
+Tempo di riferimento
+ a| 
+Tempo di acquisizione
+
+L'istruzione di posizionamento inizia quando gli oggetti vengono inizialmente salvati nel bucket.
+
+
+
+ a| 
+Istruzioni per il posizionamento
+ a| 
+USA erasure coding 2+1
+
+|===
+. Ordinare il diagramma di conservazione per *periodo di tempo* e *pool di storage* per confermare le istruzioni di posizionamento.
++
+** Il *periodo di tempo* per la regola è *giorno 0 - per sempre*. *Giorno 0* indica che la regola viene applicata quando i dati vengono sottoposti a tiering da ONTAP. *Per sempre* significa che ILM di StorageGRID non eliminerà i dati a più livelli da ONTAP.
+** Il *Storage pool* per la regola è il pool di storage selezionato. *EC 2+1* indica che i dati verranno memorizzati utilizzando la codifica di cancellazione 2+1. Ogni oggetto verrà salvato come due frammenti di dati e un frammento di parità. I tre frammenti per ciascun oggetto verranno salvati in diversi nodi di storage in un singolo sito.
+
+
+. Selezionare *Create and continue* (Crea e continua) per creare questa regola e passare al passaggio del criterio ILM.
+
+
+
+
+== Fase 7 di 9: Esaminare e attivare il criterio ILM
+
+Una volta creata la regola ILM per l'utilizzo di FabricPool, la procedura guidata di installazione di FabricPool crea un criterio ILM. È necessario simulare e rivedere attentamente questo criterio prima di attivarlo.
+
+Per ulteriori informazioni su questo passaggio, vedere link:../ilm/creating-ilm-policy.html["Creare un criterio ILM"] e link:best-practices-ilm.html["Best practice per l'utilizzo di ILM con i dati FabricPool"].
+
+
+CAUTION: Quando si attiva un nuovo criterio ILM, StorageGRID utilizza tale criterio per gestire il posizionamento, la durata e la protezione dei dati di tutti gli oggetti nella griglia, inclusi gli oggetti esistenti e quelli appena acquisiti. In alcuni casi, l'attivazione di un nuovo criterio può causare lo spostamento degli oggetti esistenti in nuove posizioni.
+
+
+CAUTION: Per evitare la perdita di dati, non utilizzare una regola ILM che scadrà o eliminerà i dati del livello cloud di FabricPool. Impostare il periodo di conservazione su *forever* per garantire che gli oggetti FabricPool non vengano cancellati da ILM StorageGRID.
+
+.Fasi
+. Facoltativamente, aggiornare il nome * Policy* generato dal sistema. Per impostazione predefinita, il sistema aggiunge "+ FabricPool" al nome del criterio attivo o inattivo, ma è possibile fornire il proprio nome.
+. Esaminare l'elenco di regole nel criterio inattivo.
++
+** Se la griglia non dispone di un criterio ILM inattivo, la procedura guidata crea un criterio inattivo clonando il criterio attivo e aggiungendo la nuova regola all'inizio.
+** Se la griglia dispone già di un criterio ILM inattivo e tale criterio utilizza le stesse regole e lo stesso ordine del criterio ILM attivo, la procedura guidata aggiunge la nuova regola all'inizio del criterio inattivo.
+** Se il criterio inattivo contiene regole diverse o un ordine diverso da quello attivo, la procedura guidata crea un nuovo criterio inattivo clonando il criterio attivo e aggiungendo la nuova regola all'inizio.
+
+
+. Controllare l'ordine delle regole nel nuovo criterio inattivo.
++
+Poiché la regola FabricPool è la prima regola, tutti gli oggetti nel bucket FabricPool vengono posizionati prima della valutazione delle altre regole del criterio. Gli oggetti in qualsiasi altro bucket vengono posizionati in base alle regole successive del criterio.
+
+. Consulta il diagramma di conservazione per scoprire come conservare i diversi oggetti.
++
+.. Selezionare *Espandi tutto* per visualizzare un diagramma di conservazione per ciascuna regola nel criterio inattivo.
+.. Selezionare *periodo di tempo* e *pool di storage* per rivedere il diagramma di conservazione. Confermare che le regole applicabili al bucket FabricPool o al tenant conservino gli oggetti *per sempre*.
+
+
+. Dopo aver esaminato il criterio inattivo, selezionare *attiva e continua* per attivare il criterio e passare alla fase di classificazione del traffico.
+
+
+
+CAUTION: Gli errori in una policy ILM possono causare una perdita di dati irreparabile. Esaminare attentamente la policy prima di attivarla.
+
+
+
+== Fase 8 di 9: Creazione di criteri di classificazione del traffico
+
+Come opzione, la configurazione guidata di FabricPool può creare una policy di classificazione del traffico che è possibile utilizzare per monitorare il carico di lavoro di FabricPool. La policy creata dal sistema utilizza una regola di corrispondenza per identificare tutto il traffico di rete correlato al bucket creato. Questo criterio monitora solo il traffico e non limita il traffico per FabricPool o altri client.
+
+Per ulteriori informazioni su questo passaggio, vedere link:creating-traffic-classification-policy-for-fabricpool.html["Creare una policy di classificazione del traffico per FabricPool"].
+
+.Fasi
+. Esaminare la policy.
+. Se si desidera creare questa policy di classificazione del traffico, selezionare *Crea e continua*.
++
+Non appena FabricPool inizia a tiering dei dati su StorageGRID, puoi accedere alla pagina delle policy di classificazione del traffico per visualizzare le metriche del traffico di rete per questa policy. In seguito, è possibile aggiungere regole per limitare altri carichi di lavoro e garantire che il carico di lavoro FabricPool abbia la maggior parte della larghezza di banda.
+
+. In caso contrario, selezionare *Ignora questo passaggio*.
+
+
+
+
+== Fase 9 di 9: Riepilogo
+
+Il riepilogo fornisce dettagli sugli elementi configurati, tra cui il nome del bilanciamento del carico, del tenant e del bucket, la policy di classificazione del traffico e la policy ILM attiva,
+
+.Fasi
+. Esaminare il riepilogo.
+. Selezionare *fine*.
+
+
+
+
+== Passi successivi
+
+Dopo aver completato la procedura guidata FabricPool, eseguire questi passaggi aggiuntivi.
+
+.Fasi
+. Passare a link:configure-ontap.html["Configurare Gestore di sistema di ONTAP"] per immettere i valori salvati e completare il lato ONTAP della connessione. È necessario aggiungere StorageGRID come livello cloud, collegare il livello cloud a un livello locale per creare un FabricPool e impostare le policy di tiering dei volumi.
+. Visitare il sito Web link:configure-dns-server.html["Configurare il server DNS"] e assicurarsi che il DNS includa un record per associare il nome del server StorageGRID (nome di dominio completo) a ciascun indirizzo IP StorageGRID da utilizzare.
+. Visita il link:other-best-practices-for-storagegrid-and-fabricpool.html["Altre Best practice per StorageGRID e FabricPool"]sito per scoprire le Best practice per i log di audit StorageGRID e altre opzioni di configurazione globale.
+

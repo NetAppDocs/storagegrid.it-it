@@ -1,0 +1,65 @@
+---
+permalink: admin/managing-tenants.html 
+sidebar: sidebar 
+keywords: manage tenants, tenant account, what is a tenant 
+summary: 'Un account tenant consente di utilizzare l"API REST del servizio di archiviazione semplice \(S3\) per memorizzare e recuperare gli oggetti in un sistema StorageGRID.' 
+---
+= Cosa sono gli account tenant?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un account tenant consente di utilizzare l'API REST S3 (Simple Storage Service) per memorizzare e recuperare gli oggetti in un sistema StorageGRID.
+
+
+TIP: I dettagli Swift sono stati rimossi da questa versione del sito della documentazione. Vedere https://docs.netapp.com/us-en/storagegrid-118/admin/managing-tenants.html["StorageGRID 11,8: Gestire i tenant"^].
+
+In qualità di amministratore di grid, è possibile creare e gestire gli account tenant utilizzati dai client S3 per memorizzare e recuperare gli oggetti.
+
+Ogni account tenant ha gruppi, utenti, bucket S3 e oggetti federati o locali.
+
+Gli account tenant possono essere utilizzati per separare gli oggetti memorizzati da diverse entità. Ad esempio, è possibile utilizzare più account tenant per uno dei seguenti casi di utilizzo:
+
+* *Caso d'utilizzo aziendale:* se si amministra un sistema StorageGRID in un'applicazione aziendale, è possibile separare lo storage a oggetti del grid dai diversi reparti dell'organizzazione. In questo caso, è possibile creare account tenant per il reparto Marketing, il reparto Assistenza clienti, il reparto risorse umane e così via.
++
+
+NOTE: Se si utilizza il protocollo client S3, è possibile utilizzare i bucket S3 e le policy bucket per separare gli oggetti tra i reparti di un'azienda. Non è necessario utilizzare account tenant. Per ulteriori informazioni, vedere le istruzioni per l'implementazionelink:../s3/bucket-and-group-access-policies.html["Bucket S3 e policy bucket"].
+
+* *Caso d'utilizzo del provider di servizi:* se si amministra un sistema StorageGRID come provider di servizi, è possibile separare lo storage a oggetti della griglia dalle diverse entità che affitteranno lo storage sulla griglia. In questo caso, è necessario creare account tenant per la società A, la società B, la società C e così via.
+
+
+Per ulteriori informazioni, vedere link:../tenant/index.html["Utilizzare un account tenant"].
+
+
+
+== Come si crea un account tenant?
+
+Utilizzare il Grid Manager per creare un account tenant. Quando si crea un account tenant, si specificano le seguenti informazioni:
+
+* Informazioni di base, tra cui nome del tenant, tipo di client (S3) e quota di archiviazione opzionale.
+* Autorizzazioni per l'account tenant, ad esempio se l'account tenant può utilizzare i servizi della piattaforma S3, configurare la propria origine di identità, utilizzare S3 Select o utilizzare una connessione a federazione di griglie.
+* L'accesso root iniziale per il tenant, a seconda che il sistema StorageGRID utilizzi gruppi e utenti locali, federazione di identità o SSO (Single Sign-on).
+
+
+Inoltre, è possibile attivare l'impostazione blocco oggetti S3 per il sistema StorageGRID se gli account tenant S3 devono soddisfare i requisiti normativi. Quando S3 Object Lock è attivato, tutti gli account tenant S3 possono creare e gestire bucket conformi.
+
+
+
+== A cosa serve il tenant manager?
+
+Dopo aver creato l'account tenant, gli utenti tenant possono accedere a tenant Manager per eseguire attività come le seguenti:
+
+* Configurare la federazione delle identità (a meno che l'origine delle identità non sia condivisa con la griglia)
+* Gestire gruppi e utenti
+* Utilizza la federazione di grid per il clone dell'account e la replica cross-grid
+* Gestire le chiavi di accesso S3
+* Creare e gestire i bucket S3
+* Utilizzare i servizi della piattaforma S3
+* USA S3 Select
+* Monitorare l'utilizzo dello storage
+
+
+
+TIP: Mentre gli utenti del tenant S3 possono creare e gestire chiavi di accesso S3 e bucket con Tenant Manager, devono utilizzare un'applicazione client S3 per acquisire e gestire gli oggetti. Per ulteriori informazioni, vedere link:../s3/index.html["UTILIZZARE L'API REST S3"] .

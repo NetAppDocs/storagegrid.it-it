@@ -1,0 +1,50 @@
+---
+permalink: expand/adding-storage-volumes-to-storage-nodes.html 
+sidebar: sidebar 
+keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
+summary: È possibile espandere la capacità di storage dei nodi di storage con un numero di volumi di storage inferiore o uguale a 16 aggiungendo ulteriori volumi di storage. Potrebbe essere necessario aggiungere volumi di storage a più di un nodo di storage per soddisfare i requisiti ILM per le copie replicate o con codifica di cancellazione. 
+---
+= Aggiungere volumi di storage ai nodi di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile espandere la capacità di storage dei nodi di storage con un numero di volumi di storage inferiore o uguale a 16 aggiungendo ulteriori volumi di storage. Potrebbe essere necessario aggiungere volumi di storage a più di un nodo di storage per soddisfare i requisiti ILM per le copie replicate o con codifica di cancellazione.
+
+.Prima di iniziare
+Prima di aggiungere volumi di storage, esaminare la link:guidelines-for-adding-object-capacity.html["linee guida per l'aggiunta della capacità degli oggetti"] per assicurarsi di sapere dove aggiungere volumi per soddisfare i requisiti del criterio ILM.
+
+
+NOTE: Queste istruzioni sono valide solo per i nodi storage basati su software. Consultare https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["Aggiungi shelf di espansione alla piattaforma SG6060 implementata"^] o https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["Aggiungi shelf di espansione alla piattaforma SG6160 implementata"^] per informazioni su come aggiungere volumi di storage a SG6060 o SG6160 installando shelf di espansione. Impossibile espandere altri nodi storage dell'appliance.
+
+.A proposito di questa attività
+Lo storage sottostante di un nodo di storage è suddiviso in volumi di storage. I volumi di storage sono dispositivi di storage basati su blocchi formattati dal sistema StorageGRID e montati per memorizzare oggetti. Ciascun nodo di storage può supportare fino a 16 volumi di storage, denominati _archivi di oggetti_ in Grid Manager.
+
+
+NOTE: I metadati degli oggetti sono sempre memorizzati nell'archivio di oggetti 0.
+
+Ogni archivio di oggetti viene montato su un volume che corrisponde al relativo ID. Ad esempio, l'archivio oggetti con un ID di 0000 corrisponde al `/var/local/rangedb/0` punto di montaggio.
+
+Prima di aggiungere nuovi volumi di storage, utilizzare Grid Manager per visualizzare gli archivi di oggetti correnti per ciascun nodo di storage e i punti di montaggio corrispondenti. È possibile utilizzare queste informazioni quando si aggiungono volumi di storage.
+
+.Fasi
+. Selezionare *NODES* > *_Site_* > *_Storage Node_* > *Storage*.
+. Scorrere verso il basso per visualizzare le quantità di storage disponibili per ciascun volume e archivio di oggetti.
++
+Per i nodi di storage dell'appliance, il nome globale di ciascun disco corrisponde all'identificativo mondiale del volume (WWID) visualizzato quando si visualizzano le proprietà dei volumi standard in SANtricity OS (il software di gestione collegato al controller di storage dell'appliance).
+
++
+Per semplificare l'interpretazione delle statistiche di lettura e scrittura dei dischi relative ai punti di montaggio del volume, la prima parte del nome visualizzato nella colonna *Name* della tabella Disk Devices (periferiche disco) (ovvero _sdc_, _sdd_, _sde_ e così via) corrisponde al valore visualizzato nella colonna *Device* della tabella Volumes (volumi).
+
++
+image::../media/nodes_page_storage_tables_vol_expansion.png[Tabelle di archiviazione delle pagine dei nodi]
+
+. Seguire le istruzioni della piattaforma per aggiungere nuovi volumi di storage al nodo di storage.
++
+** link:vmware-adding-storage-volumes-to-storage-node.html["VMware: Aggiunta di volumi di storage a Storage Node"]
+** link:linux-adding-direct-attached-or-san-volumes-to-storage-node.html["Linux: Aggiunta di volumi direct-attached o SAN al nodo di storage"]
+
+
+

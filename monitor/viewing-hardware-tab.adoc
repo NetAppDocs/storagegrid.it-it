@@ -1,0 +1,725 @@
+---
+permalink: monitor/viewing-hardware-tab.html 
+sidebar: sidebar 
+keywords: hardware tab 
+summary: 'La scheda hardware visualizza l"utilizzo della CPU e della memoria per ciascun nodo, oltre a informazioni aggiuntive sull"hardware delle appliance.' 
+---
+= Visualizzare la scheda hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La scheda hardware visualizza l'utilizzo della CPU e della memoria per ciascun nodo, oltre a informazioni aggiuntive sull'hardware delle appliance.
+
+
+NOTE: Grid Manager viene aggiornato con ogni versione e potrebbe non corrispondere alle schermate di esempio di questa pagina.
+
+Viene visualizzata la scheda hardware per tutti i nodi.
+
+image::../media/nodes_page_hardware_tab_graphs.png[Scheda hardware della pagina nodi]
+
+Per visualizzare un intervallo di tempo diverso, selezionare uno dei comandi sopra il grafico o il grafico. È possibile visualizzare le informazioni disponibili per intervalli di 1 ora, 1 giorno, 1 settimana o 1 mese. È inoltre possibile impostare un intervallo personalizzato, che consente di specificare intervalli di data e ora.
+
+Per visualizzare i dettagli relativi all'utilizzo della CPU e della memoria, posizionare il cursore su ciascun grafico.
+
+image::../media/nodes_page_memory_usage_details.png[Pagina nodi > hardware > Dettagli sull'utilizzo della memoria]
+
+Se il nodo è un nodo appliance, questa scheda include anche una sezione con ulteriori informazioni sull'hardware dell'appliance.
+
+
+
+== Visualizza informazioni sui nodi di storage dell'appliance
+
+La pagina Nodes (nodi) elenca le informazioni sullo stato di salute del servizio e tutte le risorse di calcolo, di dispositivo su disco e di rete per ciascun nodo di storage dell'appliance. È inoltre possibile visualizzare memoria, hardware di storage, versione del firmware del controller, risorse di rete, interfacce di rete, indirizzi di rete e ricevere e trasmettere dati.
+
+.Fasi
+. Dalla pagina Nodes (nodi), selezionare un nodo di storage dell'appliance.
+. Selezionare *Panoramica*.
++
+La sezione Node information (informazioni nodo) della scheda Overview (Panoramica) visualizza informazioni riepilogative per il nodo, ad esempio il nome, il tipo, l'ID e lo stato di connessione del nodo. L'elenco degli indirizzi IP include il nome dell'interfaccia per ciascun indirizzo, come segue:
+
++
+** *eth*: Rete griglia, rete amministrativa o rete client.
+** *Hic*: Una delle porte fisiche 10, 25 o 100 GbE dell'appliance. Queste porte possono essere collegate tra loro e collegate alla rete griglia StorageGRID (eth0) e alla rete client (eth2).
+** *mtc*: Una delle porte 1 GbE fisiche dell'appliance. Una o più interfacce mtc sono collegate per formare l'interfaccia di rete amministrativa StorageGRID (eth1). È possibile lasciare altre interfacce mtc disponibili per la connettività locale temporanea per un tecnico del data center.
++
+image::../media/nodes_page_overview_tab_extended.png[Panoramica pagina nodi estesa]
+
++
+La sezione Avvisi della scheda Panoramica visualizza gli avvisi attivi per il nodo.
+
+
+
+. Selezionare *hardware* per visualizzare ulteriori informazioni sull'appliance.
++
+.. Visualizzare i grafici relativi all'utilizzo della CPU e della memoria per determinare le percentuali di utilizzo della CPU e della memoria nel tempo. Per visualizzare un intervallo di tempo diverso, selezionare uno dei comandi sopra il grafico o il grafico. È possibile visualizzare le informazioni disponibili per intervalli di 1 ora, 1 giorno, 1 settimana o 1 mese. È inoltre possibile impostare un intervallo personalizzato, che consente di specificare intervalli di data e ora.
++
+image::../media/nodes_page_hardware_tab_graphs.png[Grafici hardware]
+
+.. Scorrere verso il basso per visualizzare la tabella dei componenti dell'appliance. Questa tabella contiene informazioni quali il nome del modello dell'appliance, i nomi dei controller, i numeri di serie e gli indirizzi IP e lo stato di ciascun componente.
++
+
+NOTE: Alcuni campi, ad esempio Compute controller BMC IP e Compute hardware, vengono visualizzati solo per le appliance dotate di tale funzionalità.
+
++
+I componenti per gli shelf di storage e gli shelf di espansione, se sono parte dell'installazione, vengono visualizzati in una tabella separata sotto la tabella dell'appliance.
+
++
+image::../media/nodes_page_hardware_tab_for_appliance.png[Scheda Nodes Page hardware (hardware pagina nodi) per Appliance]
+
++
+[cols="1a,2a"]
+|===
+| Nella tabella Appliance | Descrizione 
+
+
+ a| 
+Modello di appliance
+ a| 
+Il numero di modello di questo dispositivo StorageGRID mostrato in SANtricity OS.
+
+
+
+ a| 
+Nome dello storage controller
+ a| 
+Il nome dell'appliance StorageGRID visualizzato in SANtricity OS.
+
+
+
+ a| 
+Storage controller A IP di gestione
+ a| 
+Indirizzo IP per la porta di gestione 1 sul controller di storage A. si utilizza questo IP per accedere al sistema operativo SANtricity per risolvere i problemi di storage.
+
+
+
+ a| 
+IP di gestione dello storage controller B.
+ a| 
+Indirizzo IP per la porta di gestione 1 sullo storage controller B. si utilizza questo IP per accedere al sistema operativo SANtricity e risolvere i problemi di storage.
+
+Alcuni modelli di appliance non dispongono di un controller di storage B.
+
+
+
+ a| 
+WWID dello storage controller
+ a| 
+L'identificatore mondiale dello storage controller mostrato in SANtricity OS.
+
+
+
+ a| 
+Numero di serie dello chassis dell'appliance di storage
+ a| 
+Il numero di serie dello chassis dell'appliance.
+
+
+
+ a| 
+Versione del firmware del controller di storage
+ a| 
+La versione del firmware del controller di storage per l'appliance.
+
+
+
+ a| 
+Versione del sistema operativo SANtricity dello storage controller
+ a| 
+Versione del sistema operativo SANtricity dello storage controller A.
+
+
+
+ a| 
+Versione NVSRAM del controller di storage
+ a| 
+Versione NVSRAM dello storage controller come indicato da System Manager di SANtricity.
+
+Per i modelli SG6060 e SG6160, se tra le due centraline è presente una mancata corrispondenza della versione NVSRAM, viene visualizzata la versione del controller A. Se la centralina A non è installata o funzionante, viene visualizzata la versione della centralina B.
+
+
+
+ a| 
+Hardware per lo storage
+ a| 
+Lo stato generale dell'hardware del controller dello storage. Se Gestore di sistema di SANtricity riporta lo stato di intervento richiesto per l'hardware di storage, anche il sistema StorageGRID riporta questo valore.
+
+Se lo stato è "richiede attenzione", controllare prima lo storage controller utilizzando il sistema operativo SANtricity. Quindi, assicurarsi che non esistano altri avvisi che si applicano al controller di elaborazione.
+
+
+
+ a| 
+Numero di dischi guasti del controller di storage
+ a| 
+Il numero di dischi non ottimali.
+
+
+
+ a| 
+Controller dello storage A
+ a| 
+Lo stato dello storage controller A.
+
+
+
+ a| 
+Controller dello storage B
+ a| 
+Lo stato del controller di storage B. alcuni modelli di appliance non dispongono di un controller di storage B.
+
+
+
+ a| 
+Alimentazione a del controller storage
+ a| 
+Lo stato dell'alimentatore A per il controller dello storage.
+
+
+
+ a| 
+Alimentazione controller storage B
+ a| 
+Lo stato dell'alimentazione B del controller di storage.
+
+
+
+ a| 
+Tipo di disco dati storage
+ a| 
+Il tipo di dischi dell'appliance, ad esempio HDD (disco rigido) o SSD (disco a stato solido).
+
+
+
+ a| 
+Dimensioni del disco per i dati di storage
+ a| 
+Le dimensioni effettive di un'unità dati.
+
+Per il modello SG6160, vengono visualizzate anche le dimensioni dell'unità cache.
+
+*Nota*: Per i nodi con shelf di espansione, utilizzare <<shelf_data_drive_size,Dimensioni del disco dati per ogni shelf>>invece. Le dimensioni effettive del disco potrebbero differire in base allo shelf.
+
+
+
+ a| 
+Storage RAID mode (modalità RAID storage)
+ a| 
+La modalità RAID configurata per l'appliance.
+
+
+
+ a| 
+Connettività dello storage
+ a| 
+Lo stato di connettività dello storage.
+
+
+
+ a| 
+Alimentatore generale
+ a| 
+Lo stato di tutti gli alimentatori dell'apparecchio.
+
+
+
+ a| 
+IP BMC del controller di calcolo
+ a| 
+L'indirizzo IP della porta BMC (Baseboard Management Controller) nel controller di calcolo. Questo IP viene utilizzato per connettersi all'interfaccia BMC per monitorare e diagnosticare l'hardware dell'appliance.
+
+Questo campo non viene visualizzato per i modelli di appliance che non contengono un BMC.
+
+
+
+ a| 
+Numero di serie del controller di calcolo
+ a| 
+Il numero di serie del controller di calcolo.
+
+
+
+ a| 
+Hardware di calcolo
+ a| 
+Lo stato dell'hardware del controller di calcolo. Questo campo non viene visualizzato per i modelli di appliance che non dispongono di hardware di calcolo e storage separati.
+
+
+
+ a| 
+Temperatura della CPU del controller di calcolo
+ a| 
+Lo stato della temperatura della CPU del controller di calcolo.
+
+
+
+ a| 
+Temperatura dello chassis del controller di calcolo
+ a| 
+Lo stato della temperatura del controller di calcolo.
+
+|===
++
+[cols="1a,2a"]
+|===
+| Nella tabella Storage shelf | Descrizione 
+
+
+ a| 
+Numero di serie dello shelf chassis
+ a| 
+Il numero di serie dello chassis dello shelf di storage.
+
+
+
+ a| 
+ID shelf
+ a| 
+L'identificativo numerico dello shelf di storage.
+
+*** 99: Shelf dello storage controller
+*** 0: Primo shelf di espansione
+*** 1: Secondo shelf di espansione
+
+
+*Nota:* gli scaffali di espansione si applicano solo ai modelli SG6060 e SG6160.
+
+
+
+ a| 
+Stato dello shelf
+ a| 
+Lo stato generale dello shelf di storage.
+
+
+
+ a| 
+Stato IOM
+ a| 
+Lo stato dei moduli di input/output (IOM) in qualsiasi shelf di espansione. N/D se non si tratta di uno shelf di espansione.
+
+
+
+ a| 
+Stato dell'alimentatore
+ a| 
+Lo stato generale degli alimentatori per lo shelf di storage.
+
+
+
+ a| 
+Stato del cassetto
+ a| 
+Lo stato dei cassetti nello shelf di archiviazione. N/D se il ripiano non contiene cassetti.
+
+
+
+ a| 
+Stato della ventola
+ a| 
+Lo stato generale delle ventole di raffreddamento nello shelf di storage.
+
+
+
+ a| 
+Slot per dischi
+ a| 
+Il numero totale di slot per dischi nello shelf di storage.
+
+
+
+ a| 
+Dischi dati
+ a| 
+Il numero di dischi nello shelf di storage utilizzati per lo storage dei dati.
+
+
+
+ a| 
+[[shelf_data_drive_size]]dimensione del disco dati
+ a| 
+La dimensione effettiva di un'unità dati nello shelf di storage.
+
+
+
+ a| 
+Dischi cache
+ a| 
+Il numero di dischi nello shelf di storage utilizzati come cache.
+
+
+
+ a| 
+Dimensione dell'unità cache
+ a| 
+La dimensione dell'unità cache più piccola nello shelf di storage. Normalmente, le unità cache sono tutte delle stesse dimensioni.
+
+
+
+ a| 
+Stato della configurazione
+ a| 
+Lo stato di configurazione dello shelf di storage.
+
+|===
+.. Verificare che tutti gli stati siano "nominale".
++
+Se uno stato non è "nominale", esaminare eventuali avvisi correnti. Puoi anche utilizzare Gestione di sistema di SANtricity per saperne di più su alcuni di questi valori hardware. Consultare le istruzioni per l'installazione e la manutenzione dell'apparecchio.
+
+
+
+. Selezionare *Network* per visualizzare le informazioni relative a ciascuna rete.
++
+Il grafico del traffico di rete fornisce un riepilogo del traffico di rete complessivo.
+
++
+image::../media/nodes_page_network_traffic_graph.png[Pagina nodi grafico traffico di rete]
+
++
+.. Consultare la sezione interfacce di rete.
++
+image::../media/nodes_page_network_interfaces.png[Interfacce di rete della pagina Nodes (nodi)]
+
++
+Utilizzare la seguente tabella con i valori nella colonna *Speed* della tabella Network Interfaces (interfacce di rete) per determinare se le porte di rete 10/25-GbE dell'appliance sono state configurate per l'utilizzo della modalità Active/backup o LACP.
+
++
+
+NOTE: I valori mostrati nella tabella presuppongono che siano utilizzati tutti e quattro i collegamenti.
+
++
+[cols="1a,1a,1a,1a"]
+|===
+| Modalità link | Modalità bond | Velocità di collegamento HIC singola (hic1, hic2, hic3, hic4) | Velocità rete client/griglia prevista (eth0,eth2) 
+
+
+ a| 
+Aggregato
+ a| 
+LACP
+ a| 
+25
+ a| 
+100
+
+
+
+ a| 
+Corretto
+ a| 
+LACP
+ a| 
+25
+ a| 
+50
+
+
+
+ a| 
+Corretto
+ a| 
+Attivo/Backup
+ a| 
+25
+ a| 
+25
+
+
+
+ a| 
+Aggregato
+ a| 
+LACP
+ a| 
+10
+ a| 
+40
+
+
+
+ a| 
+Corretto
+ a| 
+LACP
+ a| 
+10
+ a| 
+20
+
+
+
+ a| 
+Corretto
+ a| 
+Attivo/Backup
+ a| 
+10
+ a| 
+10
+
+|===
++
+Consultare https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["Configurare i collegamenti di rete"^] per ulteriori informazioni sulla configurazione delle porte 10/25-GbE.
+
+.. Consultare la sezione comunicazione di rete.
++
+Le tabelle di ricezione e trasmissione mostrano quanti byte e pacchetti sono stati ricevuti e inviati attraverso ciascuna rete, nonché altre metriche di ricezione e trasmissione.
+
++
+image::../media/nodes_page_network_communication.png[COM. Rete pagina nodi]
+
+
+
+. Selezionare *Storage* per visualizzare i grafici che mostrano le percentuali di storage utilizzate nel tempo per i dati degli oggetti e i metadati degli oggetti, nonché informazioni su dischi, volumi e archivi di oggetti.
++
+image::../media/nodes_page_storage_used_object_data.png[Storage utilizzato - dati oggetto]
+
++
+image::../media/storage_used_object_metadata.png[Storage utilizzato - metadati oggetto]
+
++
+.. Scorrere verso il basso per visualizzare le quantità di storage disponibili per ciascun volume e archivio di oggetti.
++
+Il nome internazionale di ciascun disco corrisponde all'identificativo mondiale del volume (WWID) visualizzato quando si visualizzano le proprietà standard del volume in SANtricity OS (il software di gestione collegato al controller di storage dell'appliance).
+
++
+Per semplificare l'interpretazione delle statistiche di lettura e scrittura dei dischi relative ai punti di montaggio del volume, la prima parte del nome visualizzato nella colonna *Name* della tabella Disk Devices (periferiche disco) (ovvero _sdc_, _sdd_, _sde_ e così via) corrisponde al valore visualizzato nella colonna *Device* della tabella Volumes (volumi).
+
++
+image::../media/nodes_page_storage_tables.png[Tabelle di archiviazione delle pagine dei nodi]
+
+
+
+
+
+
+
+== Visualizza informazioni sui nodi di amministrazione dell'appliance e sui nodi gateway
+
+La pagina Nodes (nodi) elenca le informazioni sullo stato del servizio e tutte le risorse di calcolo, di dispositivo su disco e di rete per ogni appliance di servizi utilizzata come nodo di amministrazione o nodo gateway. È inoltre possibile visualizzare memoria, hardware di storage, risorse di rete, interfacce di rete, indirizzi di rete, e ricevere e trasmettere dati.
+
+.Fasi
+. Dalla pagina Nodes (nodi), selezionare un nodo Admin dell'appliance o un nodo Gateway dell'appliance.
+. Selezionare *Panoramica*.
++
+La sezione Node information (informazioni nodo) della scheda Overview (Panoramica) visualizza informazioni riepilogative per il nodo, ad esempio il nome, il tipo, l'ID e lo stato di connessione del nodo. L'elenco degli indirizzi IP include il nome dell'interfaccia per ciascun indirizzo, come segue:
+
++
+** *Adllb* e *adlli*: Visualizzato se si utilizza il bonding Active/backup per l'interfaccia di Admin Network
+** *eth*: Rete griglia, rete amministrativa o rete client.
+** *Hic*: Una delle porte fisiche 10, 25 o 100 GbE dell'appliance. Queste porte possono essere collegate tra loro e collegate alla rete griglia StorageGRID (eth0) e alla rete client (eth2).
+** *mtc*: Una delle porte 1-GbE fisiche dell'appliance. Una o più interfacce mtc sono collegate per formare l'interfaccia Admin Network (eth1). È possibile lasciare altre interfacce mtc disponibili per la connettività locale temporanea per un tecnico del data center.
++
+image::../media/nodes_page_overview_tab_services_appliance.png[Scheda Panoramica della pagina nodi per l'appliance di servizi]
+
+
+
++
+La sezione Avvisi della scheda Panoramica visualizza gli avvisi attivi per il nodo.
+
+. Selezionare *hardware* per visualizzare ulteriori informazioni sull'appliance.
++
+.. Visualizzare i grafici relativi all'utilizzo della CPU e della memoria per determinare le percentuali di utilizzo della CPU e della memoria nel tempo. Per visualizzare un intervallo di tempo diverso, selezionare uno dei comandi sopra il grafico o il grafico. È possibile visualizzare le informazioni disponibili per intervalli di 1 ora, 1 giorno, 1 settimana o 1 mese. È inoltre possibile impostare un intervallo personalizzato, che consente di specificare intervalli di data e ora.
++
+image::../media/nodes_page_hardware_tab_graphs_services_appliance.png[Pagina nodi grafici della scheda hardware per l'appliance di servizi]
+
+.. Scorrere verso il basso per visualizzare la tabella dei componenti dell'appliance. Questa tabella contiene informazioni come il nome del modello, il numero di serie, la versione del firmware del controller e lo stato di ciascun componente.
++
+image::../media/nodes_page_hardware_tab_services_appliance.png[Scheda hardware della pagina nodi per l'appliance di servizi]
+
++
+[cols="1a,2a"]
+|===
+| Nella tabella Appliance | Descrizione 
+
+
+ a| 
+Modello di appliance
+ a| 
+Il numero di modello dell'appliance StorageGRID.
+
+
+
+ a| 
+Numero di dischi guasti del controller di storage
+ a| 
+Il numero di dischi non ottimali.
+
+
+
+ a| 
+Tipo di disco dati storage
+ a| 
+Il tipo di dischi dell'appliance, ad esempio HDD (disco rigido) o SSD (disco a stato solido).
+
+
+
+ a| 
+Dimensioni del disco per i dati di storage
+ a| 
+Le dimensioni effettive di un'unità dati.
+
+
+
+ a| 
+Storage RAID mode (modalità RAID storage)
+ a| 
+La modalità RAID per l'appliance.
+
+
+
+ a| 
+Alimentatore generale
+ a| 
+Lo stato di tutti gli alimentatori dell'apparecchio.
+
+
+
+ a| 
+IP BMC del controller di calcolo
+ a| 
+L'indirizzo IP della porta BMC (Baseboard Management Controller) nel controller di calcolo. È possibile utilizzare questo IP per connettersi all'interfaccia BMC per monitorare e diagnosticare l'hardware dell'appliance.
+
+Questo campo non viene visualizzato per i modelli di appliance che non contengono un BMC.
+
+
+
+ a| 
+Numero di serie del controller di calcolo
+ a| 
+Il numero di serie del controller di calcolo.
+
+
+
+ a| 
+Hardware di calcolo
+ a| 
+Lo stato dell'hardware del controller di calcolo.
+
+
+
+ a| 
+Temperatura della CPU del controller di calcolo
+ a| 
+Lo stato della temperatura della CPU del controller di calcolo.
+
+
+
+ a| 
+Temperatura dello chassis del controller di calcolo
+ a| 
+Lo stato della temperatura del controller di calcolo.
+
+|===
+.. Verificare che tutti gli stati siano "nominale".
++
+Se uno stato non è "nominale", esaminare eventuali avvisi correnti.
+
+
+
+. Selezionare *Network* per visualizzare le informazioni relative a ciascuna rete.
++
+Il grafico del traffico di rete fornisce un riepilogo del traffico di rete complessivo.
+
++
+image::../media/nodes_page_network_traffic_graph.png[Pagina nodi grafico traffico di rete]
+
++
+.. Consultare la sezione interfacce di rete.
++
+image::../media/nodes_page_hardware_tab_network_services_appliance.png[Pagina nodi scheda hardware Network Services Appliance]
+
++
+Utilizzare la seguente tabella con i valori nella colonna *Speed* della tabella Network Interfaces (interfacce di rete) per determinare se le quattro porte di rete 40/100-GbE dell'appliance sono state configurate per l'utilizzo della modalità Active/backup o LACP.
+
++
+
+NOTE: I valori mostrati nella tabella presuppongono che siano utilizzati tutti e quattro i collegamenti.
+
++
+[cols="1a,1a,1a,1a"]
+|===
+| Modalità link | Modalità bond | Velocità di collegamento HIC singola (hic1, hic2, hic3, hic4) | Velocità rete client/griglia prevista (eth0, eth2) 
+
+
+ a| 
+Aggregato
+ a| 
+LACP
+ a| 
+100
+ a| 
+400
+
+
+
+ a| 
+Corretto
+ a| 
+LACP
+ a| 
+100
+ a| 
+200
+
+
+
+ a| 
+Corretto
+ a| 
+Attivo/Backup
+ a| 
+100
+ a| 
+100
+
+
+
+ a| 
+Aggregato
+ a| 
+LACP
+ a| 
+40
+ a| 
+160
+
+
+
+ a| 
+Corretto
+ a| 
+LACP
+ a| 
+40
+ a| 
+80
+
+
+
+ a| 
+Corretto
+ a| 
+Attivo/Backup
+ a| 
+40
+ a| 
+40
+
+|===
+.. Consultare la sezione comunicazione di rete.
++
+Le tabelle di ricezione e trasmissione mostrano quanti byte e pacchetti sono stati ricevuti e inviati attraverso ciascuna rete, nonché altre metriche di ricezione e trasmissione.
+
++
+image::../media/nodes_page_network_communication.png[COM. Rete pagina nodi]
+
+
+
+. Selezionare *Storage* per visualizzare le informazioni relative ai dischi e ai volumi sull'appliance di servizi.
++
+image::../media/nodes_page_storage_tab_services_appliance.png[Scheda Nodes Page Storage Services Appliance]
+
+

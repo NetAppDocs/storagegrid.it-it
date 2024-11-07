@@ -1,0 +1,82 @@
+---
+permalink: network/network-specific-requirements.html 
+sidebar: sidebar 
+keywords: network-specific requirements, network specific requirements, network requirements 
+summary: Attenersi ai requisiti per ciascun tipo di rete StorageGRID. 
+---
+= Requisiti specifici della rete
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Attenersi ai requisiti per ciascun tipo di rete StorageGRID.
+
+
+
+== Gateway e router di rete
+
+* Se impostato, il gateway per una determinata rete deve trovarsi all'interno della subnet della rete specifica.
+* Se si configura un'interfaccia utilizzando l'indirizzamento statico, è necessario specificare un indirizzo del gateway diverso da 0.0.0.0.
+* Se non si dispone di un gateway, la procedura consigliata consiste nell'impostare l'indirizzo del gateway come indirizzo IP dell'interfaccia di rete.
+
+
+
+
+== Subnet
+
+
+NOTE: Ogni rete deve essere connessa alla propria sottorete che non si sovrappone ad altre reti del nodo.
+
+Le seguenti restrizioni vengono applicate da Grid Manager durante l'implementazione. Vengono forniti qui per fornire assistenza nella pianificazione di rete pre-implementazione.
+
+* La subnet mask per qualsiasi indirizzo IP di rete non può essere 255.255.255.254 o 255.255.255.255 (/31 o /32 nella notazione CIDR).
+* La subnet definita da un indirizzo IP dell'interfaccia di rete e dalla subnet mask (CIDR) non può sovrapporsi alla subnet di qualsiasi altra interfaccia configurata sullo stesso nodo.
+* La subnet Grid Network per ciascun nodo deve essere inclusa in GNSL.
+* La subnet Admin Network non può sovrapporsi alla subnet Grid Network, alla subnet Client Network o a qualsiasi subnet in GNSL.
+* Le subnet in AESL non possono sovrapporsi con le subnet in GNSL.
+* La subnet della rete client non può sovrapporsi alla subnet della rete griglia, alla subnet della rete amministrativa, a qualsiasi subnet del GNSL o a qualsiasi subnet dell'AESL.
+
+
+
+
+== Grid Network
+
+* Al momento dell'implementazione, ciascun nodo della griglia deve essere collegato alla rete griglia e deve essere in grado di comunicare con l'Admin Node primario utilizzando la configurazione di rete specificata durante l'implementazione del nodo.
+* Durante le normali operazioni di grid, ciascun nodo di grid deve essere in grado di comunicare con tutti gli altri nodi di grid sulla rete Grid.
++
+
+NOTE: La Grid Network deve essere instradabile direttamente tra ciascun nodo. NAT (Network Address Translation) tra nodi non supportato.
+
+* Se la rete Grid è costituita da più sottoreti, aggiungerle all'elenco di subnet di rete Grid (GNSL). Le route statiche vengono create su tutti i nodi per ogni subnet nel GNSL.
+* Se l'interfaccia Grid Network è configurata come trunk per supportare le interfacce VLAN, la VLAN nativa del trunk deve essere la VLAN utilizzata per il traffico Grid Network. Tutti i nodi della griglia devono essere accessibili tramite la VLAN nativa del trunk.
+
+
+
+
+== Admin Network (rete amministrativa)
+
+La rete di amministrazione è opzionale. Se si intende configurare una rete amministrativa, attenersi ai seguenti requisiti e linee guida.
+
+Gli usi tipici della rete di amministrazione includono connessioni di gestione, AutoSupport, KMS e connessioni a server critici come NTP, DNS e LDAP, se queste connessioni non sono fornite attraverso la rete di rete o la rete client.
+
+
+NOTE: Admin Network e AESL possono essere univoci per ciascun nodo, purché i servizi di rete e i client desiderati siano raggiungibili.
+
+
+NOTE: Per abilitare le connessioni in entrata da sottoreti esterne, è necessario definire almeno una subnet sulla rete amministrativa. Le route statiche vengono generate automaticamente su ciascun nodo per ciascuna subnet dell'AESL.
+
+
+
+== Rete client
+
+La rete client è opzionale. Se si intende configurare una rete client, tenere presente quanto segue.
+
+* La rete client è progettata per supportare il traffico proveniente da client S3. Se configurato, il gateway di rete client diventa il gateway predefinito del nodo.
+* Se si utilizza una rete client, è possibile proteggere StorageGRID da attacchi ostili accettando il traffico client in entrata solo su endpoint del bilanciamento del carico configurati esplicitamente. Vedere link:../admin/configuring-load-balancer-endpoints.html["Configurare gli endpoint del bilanciamento del carico"].
+* Se l'interfaccia di rete client è configurata come trunk per supportare le interfacce VLAN, valutare se è necessario configurare l'interfaccia di rete client (eth2). Se configurato, il traffico di rete client passa sulla VLAN nativa del trunk, come configurato nello switch.
+
+
+.Informazioni correlate
+link:../maintain/changing-nodes-network-configuration.html["Modificare la configurazione di rete del nodo"]

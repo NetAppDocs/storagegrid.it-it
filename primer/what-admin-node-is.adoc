@@ -1,0 +1,223 @@
+---
+permalink: primer/what-admin-node-is.html 
+sidebar: sidebar 
+keywords: admin nodes 
+summary: I nodi di amministrazione forniscono servizi di gestione quali configurazione, monitoraggio e registrazione del sistema. È possibile utilizzare i nodi amministrativi anche per bilanciare il carico del traffico client S3. Ogni grid deve avere un nodo di amministrazione primario e può avere un numero qualsiasi di nodi di amministrazione non primari per la ridondanza. 
+---
+= Che cos'è un nodo amministratore?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I nodi di amministrazione forniscono servizi di gestione quali configurazione, monitoraggio e registrazione del sistema. È possibile utilizzare i nodi amministrativi anche per bilanciare il carico del traffico client S3. Ogni grid deve avere un nodo di amministrazione primario e può avere un numero qualsiasi di nodi di amministrazione non primari per la ridondanza.
+
+
+
+== Differenze tra i nodi amministrativi primari e non primari
+
+Quando si accede a Grid Manager o al tenant Manager, si sta effettuando la connessione a un nodo amministratore. È possibile connettersi a qualsiasi nodo amministratore e ciascun nodo amministratore visualizza una vista simile del sistema StorageGRID. Tuttavia, il nodo amministrativo primario fornisce più funzionalità rispetto ai nodi amministrativi non primari. Ad esempio, la maggior parte delle procedure di manutenzione deve essere eseguita dai nodi amministrativi primari.
+
+La tabella riassume le capacità dei nodi amministrativi primari e non primari.
+
+[cols="2a,1a,1a"]
+|===
+| Funzionalità | Nodo amministratore primario | Nodo amministrativo non primario 
+
+
+ a| 
+Include il <<ams,AMS>>servizio
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Include il <<cmn,CMN>>servizio
+ a| 
+Sì
+ a| 
+No
+
+
+
+ a| 
+Include il <<nms,NMS>>servizio
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Include il <<prometheus,Prometheus>>servizio
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Include il <<ssm,SSM>>servizio
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Include i <<load-balancer,Bilanciamento del carico>>servizi e.<<high-availability,Alta disponibilità>>
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Supporta l' <<mgmt-api,Management Application Program Interface>> (api di gestione)
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Può essere utilizzato per tutte le attività di manutenzione relative alla rete, ad esempio la modifica dell'indirizzo IP e l'aggiornamento dei server NTP
+ a| 
+Sì
+ a| 
+No
+
+
+
+ a| 
+Può eseguire il ribilanciamento EC dopo l'espansione del nodo storage
+ a| 
+Sì
+ a| 
+No
+
+
+
+ a| 
+Può essere utilizzato per la procedura di ripristino del volume
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Può raccogliere file di registro e dati di sistema da uno o più nodi
+ a| 
+Sì
+ a| 
+No
+
+
+
+ a| 
+Invia notifiche di avviso, pacchetti AutoSupport e trap SNMP e informa
+ a| 
+Sì. Agisce come <<preferred-sender,mittente preferito>>.
+ a| 
+Sì. Funge da mittente di standby.
+
+|===
+
+
+== [[Preferred-sender]]nodo amministratore mittente preferito
+
+Se la distribuzione di StorageGRID include più nodi amministrativi, il nodo amministrativo primario è il mittente preferito per le notifiche di avviso, i pacchetti AutoSupport e le trap SNMP e le informazioni.
+
+Nelle normali operazioni di sistema, solo il mittente preferito invia le notifiche. Tuttavia, tutti gli altri nodi Admin monitorano il mittente preferito. Se viene rilevato un problema, gli altri nodi Admin fungono da _mittenti di standby_.
+
+In questi casi potrebbero essere inviate più notifiche:
+
+* Se i nodi Admin diventano "islanded" l'uno dall'altro, sia il mittente preferito che i mittenti in standby tenteranno di inviare notifiche e potrebbero essere ricevute più copie delle notifiche.
+* Se il mittente in standby rileva problemi con il mittente preferito e inizia a inviare notifiche, il mittente preferito potrebbe riacquistare la capacità di inviare notifiche. In questo caso, potrebbero essere inviate notifiche duplicate. Il mittente in standby interrompe l'invio di notifiche quando non rileva più errori sul mittente preferito.
++
+
+NOTE: Quando si testano i pacchetti AutoSupport, tutti i nodi amministrativi inviano il test. Quando si verificano le notifiche di avviso, è necessario accedere a ogni nodo amministratore per verificare la connettività.
+
+
+
+
+
+== Servizi primari per nodi di amministrazione
+
+La tabella seguente mostra i servizi primari per i nodi di amministrazione; tuttavia, questa tabella non elenca tutti i servizi dei nodi.
+
+[cols="1a,2a"]
+|===
+| Servizio | Funzione dei tasti 
+
+
+ a| 
+[[ams]]Audit Management System (AMS)
+ a| 
+Tiene traccia dell'attività e degli eventi del sistema.
+
+
+
+ a| 
+[[cmn]]nodo di gestione della configurazione (CMN)
+ a| 
+Gestisce la configurazione a livello di sistema.
+
+
+
+ a| 
+[[alta disponibilità]]alta disponibilità
+ a| 
+Gestisce gli indirizzi IP virtuali ad alta disponibilità per gruppi di nodi di amministrazione e nodi gateway.
+
+*Nota:* questo servizio si trova anche sui nodi gateway.
+
+
+
+ a| 
+[[bilanciamento del carico]]bilanciamento del carico
+ a| 
+Bilanciamento del carico del traffico S3 fra i client e i nodi storage.
+
+*Nota:* questo servizio si trova anche sui nodi gateway.
+
+
+
+ a| 
+[[Mgmt-api]]Management Application Program Interface (api di gestione)
+ a| 
+Elabora le richieste provenienti dall'API Grid Management e dall'API Tenant Management.
+
+
+
+ a| 
+[[nms]]Network Management System (NMS)
+ a| 
+Fornisce funzionalità per Grid Manager.
+
+
+
+ a| 
+[[prometheus]]Prometheus
+ a| 
+Raccoglie e memorizza le metriche delle serie temporali dai servizi su tutti i nodi.
+
+
+
+ a| 
+[[ssm]]Server Status Monitor (SSM)
+ a| 
+Monitora il sistema operativo e l'hardware sottostante.
+
+|===

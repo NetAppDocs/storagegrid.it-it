@@ -1,0 +1,237 @@
+---
+permalink: admin/creating-relying-party-trusts-in-ad-fs.html 
+sidebar: sidebar 
+keywords: relying party trust, active directory, ad fs, single sign on, sso 
+summary: 'È necessario utilizzare Active Directory Federation Services (ad FS) per creare un trust di parte per ciascun nodo di amministrazione nel sistema. È possibile creare trust di parti che utilizzano i comandi PowerShell, importando metadati SAML da StorageGRID o immettendo i dati manualmente.' 
+---
+= Creazione di trust di parti di base in ad FS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario utilizzare Active Directory Federation Services (ad FS) per creare un trust di parte per ciascun nodo di amministrazione nel sistema. È possibile creare trust di parti che utilizzano i comandi PowerShell, importando metadati SAML da StorageGRID o immettendo i dati manualmente.
+
+.Prima di iniziare
+* È stato configurato Single Sign-on per StorageGRID ed è stato selezionato *ad FS* come tipo di SSO.
+* *La modalità Sandbox* è selezionata nella pagina Single Sign-on di Grid Manager. Vedere link:../admin/using-sandbox-mode.html["USA la modalità sandbox"].
+* Si conoscono il nome di dominio completo (o l'indirizzo IP) e l'identificativo della parte di base per ciascun nodo di amministrazione nel sistema. Questi valori sono disponibili nella tabella dei dettagli dei nodi di amministrazione nella pagina accesso singolo StorageGRID.
++
+
+NOTE: È necessario creare un trust per ciascun nodo amministratore nel sistema StorageGRID. La disponibilità di un trust per ciascun nodo di amministrazione garantisce che gli utenti possano accedere e uscire in modo sicuro da qualsiasi nodo di amministrazione.
+
+* Si dispone di esperienza nella creazione di trust di parti di supporto in ad FS o si dispone dell'accesso alla documentazione di Microsoft ad FS.
+* Si sta utilizzando lo snap-in di gestione di ad FS e si appartiene al gruppo Administrators.
+* Se si crea manualmente l'attendibilità del componente di base, si dispone del certificato personalizzato caricato per l'interfaccia di gestione di StorageGRID oppure si sa come accedere a un nodo di amministrazione dalla shell dei comandi.
+
+
+.A proposito di questa attività
+Queste istruzioni si applicano a Windows Server 2016 ad FS. Se si utilizza una versione diversa di ad FS, si noteranno lievi differenze nella procedura. In caso di domande, consultare la documentazione di Microsoft ad FS.
+
+
+
+== Creare un trust di parte con Windows PowerShell
+
+È possibile utilizzare Windows PowerShell per creare rapidamente uno o più trust di parti.
+
+.Fasi
+. Dal menu Start di Windows, selezionare con il pulsante destro del mouse l'icona PowerShell e selezionare *Esegui come amministratore*.
+. Al prompt dei comandi di PowerShell, immettere il seguente comando:
++
+`Add-AdfsRelyingPartyTrust -Name "_Admin_Node_Identifer_" -MetadataURL "https://_Admin_Node_FQDN_/api/saml-metadata"`
+
++
+** Per `_Admin_Node_Identifier_`, immettere l'identificatore del gruppo di riferimento per il nodo di amministrazione, esattamente come viene visualizzato nella pagina Single Sign-on. Ad esempio, `SG-DC1-ADM1`.
+** Per `_Admin_Node_FQDN_`, immettere il nome di dominio completo per lo stesso nodo amministrativo. (Se necessario, è possibile utilizzare l'indirizzo IP del nodo. Tuttavia, se si immette un indirizzo IP, è necessario aggiornare o ricreare la fiducia della parte che si basa se tale indirizzo IP cambia).
+
+
+. Da Gestione server Windows, selezionare *Strumenti* > *Gestione di ad FS*.
++
+Viene visualizzato lo strumento di gestione di ad FS.
+
+. Selezionare *ad FS* > *Trust di parte*.
++
+Viene visualizzato l'elenco dei trust della parte che si basa.
+
+. Aggiungere un criterio di controllo degli accessi al trust della parte di base appena creato:
++
+.. Individuare la fiducia della parte di base appena creata.
+.. Fare clic con il pulsante destro del mouse sull'attendibilità e selezionare *Edit Access Control Policy* (Modifica policy di controllo degli accessi).
+.. Selezionare un criterio di controllo degli accessi.
+.. Selezionare *Applica* e *OK*
+
+
+. Aggiungere una policy di emissione delle richieste di rimborso al nuovo Trust della parte di base creato:
++
+.. Individuare la fiducia della parte di base appena creata.
+.. Fare clic con il pulsante destro del mouse sull'attendibilità e selezionare *Edit claim issuance policy* (Modifica policy di emissione richiesta di rimborso).
+.. Selezionare *Aggiungi regola*.
+.. Nella pagina Select Rule Template (Seleziona modello di regola), selezionare *Send LDAP Attributes as Claims* (Invia attributi LDAP come richieste di rimborso) dall'elenco e selezionare *Next* (Avanti).
+.. Nella pagina Configure Rule (Configura regola), immettere un nome da visualizzare per questa regola.
++
+Ad esempio, *objectGUID a ID nome* o *UPN a ID nome*.
+
+.. Per l'archivio attributi, selezionare *Active Directory*.
+.. Nella colonna attributo LDAP della tabella Mapping, digitare *objectGUID* o selezionare *User-Principal-Name*.
+.. Nella colonna Outgoing Claim Type (tipo di richiesta di rimborso in uscita) della tabella Mapping (mappatura), selezionare *Name ID* (ID nome) dall'elenco a discesa.
+.. Selezionare *fine*, quindi *OK*.
+
+
+. Verificare che i metadati siano stati importati correttamente.
++
+.. Fare clic con il pulsante destro del mouse sull'attendibilità della parte che si basa per aprirne le proprietà.
+.. Verificare che i campi nelle schede *endpoint*, *identificatori* e *Firma* siano compilati.
++
+Se i metadati non sono presenti, verificare che l'indirizzo dei metadati della federazione sia corretto oppure inserire i valori manualmente.
+
+
+
+. Ripetere questa procedura per configurare un trust per tutti i nodi di amministrazione nel sistema StorageGRID.
+. Una volta completata l'operazione, tornare a StorageGRID e verificare tutti i trust delle parti di base per verificare che siano configurati correttamente. Vedere link:using-sandbox-mode.html["Utilizzare la modalità Sandbox"] per istruzioni.
+
+
+
+
+== Creare un trust per la parte che si basa importando i metadati della federazione
+
+È possibile importare i valori per ciascun trust di parte che si basa accedendo ai metadati SAML per ciascun nodo di amministrazione.
+
+.Fasi
+. In Gestione server Windows, selezionare *Strumenti*, quindi selezionare *Gestione di ad FS*.
+. In azioni, selezionare *Aggiungi fiducia parte di base*.
+. Nella pagina di benvenuto, scegliere *Richieste di rimborso* e selezionare *Avvia*.
+. Selezionare *Importa dati relativi alla parte che si basa pubblicati online o su una rete locale*.
+. In *Federation metadata address (nome host o URL)*, digitare la posizione dei metadati SAML per questo nodo di amministrazione:
++
+`https://_Admin_Node_FQDN_/api/saml-metadata`
+
++
+Per `_Admin_Node_FQDN_`, immettere il nome di dominio completo per lo stesso nodo amministrativo. (Se necessario, è possibile utilizzare l'indirizzo IP del nodo. Tuttavia, se si immette un indirizzo IP, è necessario aggiornare o ricreare la fiducia della parte che si basa se tale indirizzo IP cambia).
+
+. Completare la procedura guidata Trust Party, salvare il trust della parte che si basa e chiudere la procedura guidata.
++
+
+NOTE: Quando si immette il nome visualizzato, utilizzare l'identificativo parte di base per il nodo di amministrazione, esattamente come appare nella pagina Single Sign-on in Grid Manager. Ad esempio, `SG-DC1-ADM1`.
+
+. Aggiungere una regola di richiesta di rimborso:
++
+.. Fare clic con il pulsante destro del mouse sull'attendibilità e selezionare *Edit claim issuance policy* (Modifica policy di emissione richiesta di rimborso).
+.. Selezionare *Aggiungi regola*:
+.. Nella pagina Select Rule Template (Seleziona modello di regola), selezionare *Send LDAP Attributes as Claims* (Invia attributi LDAP come richieste di rimborso) dall'elenco e selezionare *Next* (Avanti).
+.. Nella pagina Configure Rule (Configura regola), immettere un nome da visualizzare per questa regola.
++
+Ad esempio, *objectGUID a ID nome* o *UPN a ID nome*.
+
+.. Per l'archivio attributi, selezionare *Active Directory*.
+.. Nella colonna attributo LDAP della tabella Mapping, digitare *objectGUID* o selezionare *User-Principal-Name*.
+.. Nella colonna Outgoing Claim Type (tipo di richiesta di rimborso in uscita) della tabella Mapping (mappatura), selezionare *Name ID* (ID nome) dall'elenco a discesa.
+.. Selezionare *fine*, quindi *OK*.
+
+
+. Verificare che i metadati siano stati importati correttamente.
++
+.. Fare clic con il pulsante destro del mouse sull'attendibilità della parte che si basa per aprirne le proprietà.
+.. Verificare che i campi nelle schede *endpoint*, *identificatori* e *Firma* siano compilati.
++
+Se i metadati non sono presenti, verificare che l'indirizzo dei metadati della federazione sia corretto oppure inserire i valori manualmente.
+
+
+
+. Ripetere questa procedura per configurare un trust per tutti i nodi di amministrazione nel sistema StorageGRID.
+. Una volta completata l'operazione, tornare a StorageGRID e verificare tutti i trust delle parti di base per verificare che siano configurati correttamente. Vedere link:using-sandbox-mode.html["Utilizzare la modalità Sandbox"] per istruzioni.
+
+
+
+
+== Creare manualmente un trust per la parte che si basa
+
+Se si sceglie di non importare i dati per i trust della parte di base, è possibile inserire i valori manualmente.
+
+.Fasi
+. In Gestione server Windows, selezionare *Strumenti*, quindi selezionare *Gestione di ad FS*.
+. In azioni, selezionare *Aggiungi fiducia parte di base*.
+. Nella pagina di benvenuto, scegliere *Richieste di rimborso* e selezionare *Avvia*.
+. Selezionare *inserire manualmente i dati relativi alla parte di base* e selezionare *Avanti*.
+. Completare la procedura guidata Trust Party:
++
+.. Immettere un nome visualizzato per questo nodo di amministrazione.
++
+Per coerenza, utilizzare l'identificativo parte di base per il nodo di amministrazione, esattamente come appare nella pagina Single Sign-on in Grid Manager. Ad esempio, `SG-DC1-ADM1`.
+
+.. Saltare il passaggio per configurare un certificato di crittografia token opzionale.
+.. Nella pagina Configure URL (Configura URL), selezionare la casella di controllo *Enable support for the SAML 2.0 WebSSO Protocol* (attiva supporto per il protocollo SAML WebSSO).
+.. Digitare l'URL dell'endpoint del servizio SAML per il nodo di amministrazione:
++
+`https://_Admin_Node_FQDN_/api/saml-response`
+
++
+Per `_Admin_Node_FQDN_`, immettere il nome di dominio completo per il nodo Admin. (Se necessario, è possibile utilizzare l'indirizzo IP del nodo. Tuttavia, se si immette un indirizzo IP, è necessario aggiornare o ricreare la fiducia della parte che si basa se tale indirizzo IP cambia).
+
+.. Nella pagina Configure Identifier (Configura identificatori), specificare l'identificativo della parte di base per lo stesso nodo di amministrazione:
++
+`_Admin_Node_Identifier_`
+
++
+Per `_Admin_Node_Identifier_`, immettere l'identificatore del gruppo di riferimento per il nodo di amministrazione, esattamente come viene visualizzato nella pagina Single Sign-on. Ad esempio, `SG-DC1-ADM1`.
+
+.. Rivedere le impostazioni, salvare l'attendibilità della parte che si basa e chiudere la procedura guidata.
++
+Viene visualizzata la finestra di dialogo Edit Claim Issuance Policy (Modifica policy di emissione richieste di
+
++
+
+NOTE: Se la finestra di dialogo non viene visualizzata, fare clic con il pulsante destro del mouse sull'attendibilità e selezionare *Edit claim issuance policy* (Modifica policy di emissione richiesta di rimborso).
+
+
+
+. Per avviare la procedura guidata Claim Rule, selezionare *Add Rule*:
++
+.. Nella pagina Select Rule Template (Seleziona modello di regola), selezionare *Send LDAP Attributes as Claims* (Invia attributi LDAP come richieste di rimborso) dall'elenco e selezionare *Next* (Avanti).
+.. Nella pagina Configure Rule (Configura regola), immettere un nome da visualizzare per questa regola.
++
+Ad esempio, *objectGUID a ID nome* o *UPN a ID nome*.
+
+.. Per l'archivio attributi, selezionare *Active Directory*.
+.. Nella colonna attributo LDAP della tabella Mapping, digitare *objectGUID* o selezionare *User-Principal-Name*.
+.. Nella colonna Outgoing Claim Type (tipo di richiesta di rimborso in uscita) della tabella Mapping (mappatura), selezionare *Name ID* (ID nome) dall'elenco a discesa.
+.. Selezionare *fine*, quindi *OK*.
+
+
+. Fare clic con il pulsante destro del mouse sull'attendibilità della parte che si basa per aprirne le proprietà.
+. Nella scheda *Endpoint*, configurare l'endpoint per la disconnessione singola (SLO):
++
+.. Selezionare *Add SAML* (Aggiungi SAML).
+.. Selezionare *Endpoint Type* > *SAML Logout*.
+.. Selezionare *binding* > *Redirect*.
+.. Nel campo *Trusted URL*, immettere l'URL utilizzato per la disconnessione singola (SLO) da questo nodo di amministrazione:
++
+`https://_Admin_Node_FQDN_/api/saml-logout`
+
++
+Per `_Admin_Node_FQDN_`, immettere il nome di dominio completo del nodo amministrativo. (Se necessario, è possibile utilizzare l'indirizzo IP del nodo. Tuttavia, se si immette un indirizzo IP, è necessario aggiornare o ricreare la fiducia della parte che si basa se tale indirizzo IP cambia).
+
+.. Selezionare *OK*.
+
+
+. Nella scheda *Firma*, specificare il certificato di firma per il trust della parte che si basa:
++
+.. Aggiungere il certificato personalizzato:
++
+*** Se si dispone del certificato di gestione personalizzato caricato su StorageGRID, selezionare il certificato.
+*** Se non si dispone del certificato personalizzato, accedere al nodo Admin, andare nella directory del nodo `/var/local/mgmt-api` Admin e aggiungere il file del `custom-server.crt` certificato.
++
+
+NOTE: (`server.crt`Si sconsiglia l'utilizzo del certificato predefinito del nodo amministrativo ). Se il nodo Admin non riesce, il certificato predefinito viene rigenerato quando si ripristina il nodo ed è necessario aggiornare il trust della parte che si basa.
+
+
+
+.. Selezionare *Applica* e *OK*.
++
+Le proprietà della parte di base vengono salvate e chiuse.
+
+
+
+. Ripetere questa procedura per configurare un trust per tutti i nodi di amministrazione nel sistema StorageGRID.
+. Una volta completata l'operazione, tornare a StorageGRID e verificare tutti i trust delle parti di base per verificare che siano configurati correttamente. Vedere link:using-sandbox-mode.html["USA la modalità sandbox"] per istruzioni.
+

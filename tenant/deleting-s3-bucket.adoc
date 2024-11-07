@@ -1,0 +1,58 @@
+---
+permalink: tenant/deleting-s3-bucket.html 
+sidebar: sidebar 
+keywords: how to delete S3 bucket 
+summary: È possibile utilizzare Tenant Manager per eliminare un bucket S3 vuoto. 
+---
+= Elimina bucket S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare Tenant Manager per eliminare uno o più bucket S3 vuoti.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* L'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Gestire tutti i bucket o le autorizzazioni di accesso root"]. Queste autorizzazioni sovrascrivono le impostazioni delle autorizzazioni nelle policy di gruppo o bucket.
+* I bucket che si desidera eliminare sono vuoti. Se i bucket che si desidera eliminare sono _non_ vuoti, link:../tenant/deleting-s3-bucket-objects.html["eliminare gli oggetti dal bucket"].
+
+
+.A proposito di questa attività
+Queste istruzioni descrivono come eliminare un bucket S3 utilizzando il Tenant Manager. È inoltre possibile eliminare i bucket S3 utilizzando link:understanding-tenant-management-api.html["API di gestione del tenant"]o link:../s3/operations-on-buckets.html["API REST S3"].
+
+Non è possibile eliminare un bucket S3 se contiene oggetti, versioni di oggetti non correnti o contrassegni di eliminazione. Per informazioni sull'eliminazione degli oggetti con versione S3, vedere link:../ilm/how-objects-are-deleted.html["Modalità di eliminazione degli oggetti"].
+
+.Fasi
+. Selezionare *View bucket* (Visualizza bucket) dalla dashboard oppure selezionare *STORAGE (S3)* > *Bucket*.
++
+Viene visualizzata la pagina bucket che mostra tutti i bucket S3 esistenti.
+
+. Utilizzare il menu *azioni* o la pagina dei dettagli per un bucket specifico.
++
+[role="tabbed-block"]
+====
+.Menu delle azioni
+--
+.. Selezionare la casella di controllo per ciascun bucket che si desidera eliminare.
+.. Selezionare *azioni* > *Elimina bucket*.
+
+
+--
+.Pagina dei dettagli
+--
+.. Selezionare il nome di un bucket per visualizzarne i dettagli.
+.. Selezionare *Delete bucket* (Elimina bucket).
+
+
+--
+====
+. Quando viene visualizzata la finestra di dialogo di conferma, selezionare *Sì*.
++
+StorageGRID conferma che ogni bucket è vuoto e quindi elimina ogni bucket. Questa operazione potrebbe richiedere alcuni minuti.
+
++
+Se un bucket non è vuoto, viene visualizzato un messaggio di errore. È necessario link:../tenant/deleting-s3-bucket-objects.html["eliminare tutti gli oggetti ed eventuali marcatori di eliminazione nel bucket"] prima di poter eliminare il bucket.
+
+

@@ -1,0 +1,78 @@
+---
+permalink: maintain/all-node-types-replacing-vmware-node.html 
+sidebar: sidebar 
+keywords: replace VMware node 
+summary: Quando si ripristina un nodo StorageGRID guasto ospitato su VMware, si rimuove il nodo guasto e si implementa un nodo di ripristino. 
+---
+= Sostituire il nodo VMware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si ripristina un nodo StorageGRID guasto ospitato su VMware, si rimuove il nodo guasto e si implementa un nodo di ripristino.
+
+.Prima di iniziare
+Hai determinato che la macchina virtuale non può essere ripristinata e deve essere sostituita.
+
+.A proposito di questa attività
+VMware vSphere Web Client viene utilizzato per rimuovere prima la macchina virtuale associata al nodo Grid guasto. Quindi, è possibile implementare una nuova macchina virtuale.
+
+Questa procedura è solo una fase del processo di ripristino del nodo grid. La procedura di rimozione e implementazione del nodo è identica per tutti i nodi VMware, inclusi nodi amministrativi, nodi storage e nodi gateway.
+
+.Fasi
+. Accedere a VMware vSphere Web Client.
+. Passare alla macchina virtuale del nodo della griglia guasto.
+. Prendere nota di tutte le informazioni necessarie per implementare il nodo di ripristino.
++
+.. Fare clic con il pulsante destro del mouse sulla macchina virtuale, selezionare la scheda *Edit Settings* (Modifica impostazioni) e annotare le impostazioni in uso.
+.. Selezionare la scheda *vApp Options* per visualizzare e registrare le impostazioni di rete del nodo della griglia.
+
+
+. Se il nodo Grid guasto è un nodo Storage, determinare se uno dei dischi rigidi virtuali utilizzati per lo storage dei dati non è danneggiato e conservarlo per il ricollegamento al nodo Grid ripristinato.
+. Spegnere la macchina virtuale.
+. Selezionare *azioni* > *tutte le azioni vCenter* > *Elimina dal disco* per eliminare la macchina virtuale.
+. Implementare una nuova macchina virtuale come nodo sostitutivo e connetterla a una o più reti StorageGRID. Per istruzioni, vedere link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["Implementazione di un nodo StorageGRID come macchina virtuale"].
++
+Quando si implementa il nodo, è possibile rimappare le porte del nodo o aumentare le impostazioni della CPU o della memoria.
+
++
+
+NOTE: Dopo aver implementato il nuovo nodo, è possibile aggiungere nuovi dischi virtuali in base ai requisiti di storage, ricollegare eventuali dischi rigidi virtuali conservati dal nodo Grid guasto precedentemente rimosso o da entrambi.
+
+. Completare la procedura di ripristino del nodo, in base al tipo di nodo che si sta ripristinando.
++
+[cols="1a,2a"]
+|===
+| Tipo di nodo | Passare a. 
+
+
+ a| 
+Nodo amministratore primario
+ a| 
+link:configuring-replacement-primary-admin-node.html["Configurare il nodo amministrativo primario sostitutivo"]
+
+
+
+ a| 
+Nodo amministrativo non primario
+ a| 
+link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Selezionare Avvia ripristino per configurare il nodo di amministrazione non primario"]
+
+
+
+ a| 
+Nodo gateway
+ a| 
+link:selecting-start-recovery-to-configure-gateway-node.html["Selezionare Avvia ripristino per configurare il nodo gateway"]
+
+
+
+ a| 
+Nodo di storage
+ a| 
+link:selecting-start-recovery-to-configure-storage-node.html["Selezionare Avvia ripristino per configurare il nodo di storage"]
+
+|===
+

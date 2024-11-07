@@ -1,0 +1,49 @@
+---
+indexpage:
+  title: Monitorare e risolvere i problemi di un sistema StorageGRID
+  summary: Quando il sistema è attivo e in funzione, è necessario monitorarne regolarmente
+    le attività e risolvere eventuali avvisi. È inoltre possibile configurare un server
+    syslog esterno, utilizzare il monitoraggio SNMP o raccogliere dati aggiuntivi.
+  keywords: monitor, troubleshoot
+  lead: Quando il sistema è attivo e in funzione, è necessario monitorarne regolarmente
+    le attività e risolvere eventuali avvisi. È inoltre possibile configurare un server
+    syslog esterno, utilizzare il monitoraggio SNMP o raccogliere dati aggiuntivi.
+  tiles:
+  - title: Monitorare il sistema
+    links:
+    - title: Gestione dashboard
+      url: "../monitor/viewing-dashboard.html"
+    - title: Pagina View Nodes (Visualizza nodi
+      url: "../monitor/viewing-nodes-page.html"
+    - title: Monitorare lo stato del sistema
+      url: "../monitor/monitoring-system-health.html"
+    - title: Monitorare la capacità dello storage
+      url: "../monitor/monitoring-storage-capacity.html"
+  - title: Gestire avvisi e notifiche
+    links:
+    - title: Gestire gli avvisi
+      url: "../monitor/managing-alerts.html"
+    - title: Creare avvisi personalizzati
+      url: "../monitor/creating-custom-alert-rules.html"
+    - title: Gestire le e-mail di avviso
+      url: "../monitor/email-alert-notifications.html"
+    - title: Utilizzare il monitoraggio SNMP
+      url: "../monitor/using-snmp-monitoring.html"
+  - title: Utilizzare i messaggi di controllo e altri registri
+    links:
+    - title: Configurare i messaggi di controllo
+      url: "../monitor/configure-audit-messages.html"
+    - title: USA server syslog esterno
+      url: "../monitor/considerations-for-external-syslog-server.html"
+    - title: Esaminare i registri di audit
+      url: "../audit/index.html"
+    - title: Riferimenti ai file di log
+      url: "../monitor/logs-files-reference.html"
+  - title: Diagnosticare e risolvere i problemi
+    links:
+    - title: Rivedere le metriche di supporto
+      url: "../monitor/reviewing-support-metrics.html"
+    - title: Eseguire la diagnostica
+      url: "../monitor/running-diagnostics.html"
+    - title: Risolvere i problemi più comuni
+      url: "../troubleshoot/index.html"

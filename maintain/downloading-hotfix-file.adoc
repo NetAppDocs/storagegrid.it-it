@@ -1,0 +1,48 @@
+---
+permalink: maintain/downloading-hotfix-file.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix, download 
+summary: Prima di applicare la correzione rapida, è necessario scaricare il file della correzione rapida. 
+---
+= Scaricare il file hotfix
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di applicare la correzione rapida, è necessario scaricare il file della correzione rapida.
+
+.Fasi
+. Andare a https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Download NetApp: StorageGRID"^].
+. Selezionare la freccia verso il basso sotto *Software disponibile* per visualizzare un elenco di hotfix disponibili per il download.
++
+
+NOTE: Le versioni dei file hotfix hanno il formato: 11.4__.x.y__.
+
+. Esaminare le modifiche incluse nell'aggiornamento.
++
+
+NOTE: Se si dispone di link:configuring-replacement-primary-admin-node.html["Ripristinato nodo amministratore primario"]una correzione rapida ed è necessario applicarla, selezionare la stessa versione di correzione rapida installata sugli altri nodi della griglia.
+
++
+.. Selezionare la versione della correzione rapida che si desidera scaricare e selezionare *Go*.
+.. Accedi utilizzando il nome utente e la password del tuo account NetApp.
+.. Leggere e accettare il Contratto di licenza con l'utente finale.
++
+Viene visualizzata la pagina di download della versione selezionata.
+
+.. Scaricare il file della correzione rapida `readme.txt` per visualizzare un riepilogo delle modifiche incluse nella correzione rapida.
+
+
+. Selezionare il pulsante di download per la correzione rapida e salvare il file.
++
+
+NOTE: Non modificare il nome del file.
+
++
+
+NOTE: Se si utilizza un dispositivo macOS, il file della correzione rapida potrebbe essere salvato automaticamente come `.txt` file. In tal caso, è necessario rinominare il file senza l' `.txt`estensione.
+
+. Selezionare una posizione per il download e selezionare *Salva*.
+

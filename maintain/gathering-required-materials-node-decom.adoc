@@ -1,0 +1,49 @@
+---
+permalink: maintain/gathering-required-materials-node-decom.html 
+sidebar: sidebar 
+keywords: storagegrid, node decommission, decommission 
+summary: Prima di eseguire la decommissionazione di un nodo di rete, è necessario ottenere le seguenti informazioni. 
+---
+= Raccogliere il materiale necessario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di eseguire la decommissionazione di un nodo di rete, è necessario ottenere le seguenti informazioni.
+
+[cols="1a,2a"]
+|===
+| Elemento | Note 
+
+
+ a| 
+File pacchetto di ripristino `.zip`
+ a| 
+È necessario link:downloading-recovery-package.html["Scarica il pacchetto di ripristino più recente"] `.zip` archiviare (`sgws-recovery-package-_id-revision_.zip`). È possibile utilizzare il file Recovery Package per ripristinare il sistema in caso di errore.
+
+
+
+ a| 
+`Passwords.txt` file
+ a| 
+Questo file contiene le password necessarie per accedere ai nodi della griglia sulla riga di comando ed è incluso nel pacchetto di ripristino.
+
+
+
+ a| 
+Passphrase di provisioning
+ a| 
+La passphrase viene creata e documentata al momento dell'installazione del sistema StorageGRID. La passphrase di provisioning non è contenuta nel `Passwords.txt` file.
+
+
+
+ a| 
+Descrizione della topologia del sistema StorageGRID prima dello smantellamento
+ a| 
+Se disponibile, procurarsi la documentazione che descrive la topologia corrente del sistema.
+
+|===
+.Informazioni correlate
+link:../admin/web-browser-requirements.html["Requisiti del browser Web"]

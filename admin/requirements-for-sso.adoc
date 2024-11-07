@@ -1,0 +1,95 @@
+---
+permalink: admin/requirements-for-sso.html 
+sidebar: sidebar 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
+summary: Prima di abilitare il single sign-on per un sistema StorageGRID, esaminare i requisiti e le considerazioni. 
+---
+= Requisiti e considerazioni per il single sign-on
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di abilitare il single sign-on (SSO) per un sistema StorageGRID, esaminare i requisiti e le considerazioni.
+
+
+
+== Requisiti del provider di identità
+
+StorageGRID supporta i seguenti provider di identità SSO (IdP):
+
+* Active Directory Federation Service (ad FS)
+* Azure Active Directory (Azure ad)
+* PingFederate
+
+
+È necessario configurare la federazione delle identità per il sistema StorageGRID prima di poter configurare un provider di identità SSO. Il tipo di servizio LDAP utilizzato per i controlli di federazione delle identità che consentono di implementare il tipo di SSO.
+
+[cols="1a,1a"]
+|===
+| Tipo di servizio LDAP configurato | Opzioni per il provider di identità SSO 
+
+
+ a| 
+Active Directory
+ a| 
+* Active Directory
+* Azure
+* PingFederate
+
+
+
+
+ a| 
+Azure
+ a| 
+Azure
+
+|===
+
+
+=== Requisiti AD FS
+
+È possibile utilizzare una delle seguenti versioni di ad FS:
+
+* Windows Server 2022 ad FS
+* Windows Server 2019 ad FS
+* Windows Server 2016 ad FS
+
+
+
+NOTE: Windows Server 2016 deve utilizzare il https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["Aggiornamento KB3201845"^] o una versione successiva.
+
+
+
+=== Requisiti aggiuntivi
+
+* Transport Layer Security (TLS) 1.2 o 1.3
+* Microsoft .NET Framework, versione 3.5.1 o successiva
+
+
+
+
+=== Considerazioni per Azure
+
+Se si utilizza Azure come tipo SSO e gli utenti dispongono di nomi principali che non utilizzano il nome sAMAccountName come prefisso, possono verificarsi problemi di accesso se StorageGRID perde la connessione con il server LDAP. Per consentire agli utenti di accedere, è necessario ripristinare la connessione al server LDAP.
+
+
+
+== Requisiti dei certificati del server
+
+Per impostazione predefinita, StorageGRID utilizza un certificato di interfaccia di gestione su ciascun nodo di amministrazione per garantire l'accesso al gestore di griglia, al gestore del tenant, all'API di gestione del grid e all'API di gestione del tenant. Quando si configurano i trust delle parti di base (ad FS), le applicazioni aziendali (Azure) o le connessioni del provider di servizi (PingFederate) per StorageGRID, il certificato del server viene utilizzato come certificato di firma per le richieste StorageGRID.
+
+Se non lo avete già link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["ha configurato un certificato personalizzato per l'interfaccia di gestione"]fatto, dovreste farlo ora. Quando si installa un certificato server personalizzato, viene utilizzato per tutti i nodi di amministrazione e può essere utilizzato in tutti i trust, le applicazioni aziendali o le connessioni SP di StorageGRID.
+
+
+NOTE: Si sconsiglia di utilizzare il certificato server predefinito di un nodo di amministrazione in una connessione SP, un'applicazione aziendale o un trust di parte attiva. Se il nodo si guasta e viene ripristinato, viene generato un nuovo certificato server predefinito. Prima di poter accedere al nodo recuperato, è necessario aggiornare il trust della parte che si basa, l'applicazione aziendale o la connessione SP con il nuovo certificato.
+
+È possibile accedere al certificato del server di un nodo amministrativo accedendo alla shell dei comandi del nodo e andando alla `/var/local/mgmt-api` directory. Un certificato server personalizzato è denominato `custom-server.crt`. Il certificato server predefinito del nodo è denominato `server.crt`.
+
+
+
+== Requisiti delle porte
+
+Single Sign-on (SSO) non è disponibile sulle porte limitate di Grid Manager o Tenant Manager. Se si desidera che gli utenti eseguano l'autenticazione con Single Sign-on, è necessario utilizzare la porta HTTPS predefinita (443). Vedere link:controlling-access-through-firewalls.html["Controllare l'accesso al firewall esterno"].

@@ -1,0 +1,60 @@
+---
+permalink: s3/upload-part.html 
+sidebar: sidebar 
+keywords: s3 UploadPart operation 
+summary: 'L"operazione UploadPart carica una parte in un upload multiparte per un oggetto.' 
+---
+= UploadPart
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'operazione UploadPart carica una parte in un upload multiparte per un oggetto.
+
+
+
+== Intestazioni di richiesta supportate
+
+Sono supportate le seguenti intestazioni di richiesta:
+
+* `x-amz-checksum-sha256`
+* `Content-Length`
+* `Content-MD5`
+
+
+
+
+== Intestazioni di richiesta per la crittografia lato server
+
+Se è stata specificata la crittografia SSE-C per la richiesta CreateMultipartUpload, è necessario includere anche le seguenti intestazioni di richiesta in ogni richiesta UploadPart:
+
+* `x-amz-server-side-encryption-customer-algorithm`: Specificare `AES256`.
+* `x-amz-server-side-encryption-customer-key`: Specificare la stessa chiave di crittografia fornita nella richiesta CreateMultipartUpload.
+* `x-amz-server-side-encryption-customer-key-MD5`: Specificare lo stesso digest MD5 fornito nella richiesta CreateMultipartUpload.
+
+
+
+CAUTION: Le chiavi di crittografia fornite non vengono mai memorizzate. Se si perde una chiave di crittografia, si perde l'oggetto corrispondente. Prima di utilizzare le chiavi fornite dal cliente per proteggere i dati degli oggetti, esaminare le considerazioni riportate in link:using-server-side-encryption.html["Utilizzare la crittografia lato server"].
+
+Se è stato specificato un checksum SHA-256 durante la richiesta CreateMultipartUpload, è necessario includere anche l'intestazione della richiesta seguente in ogni richiesta UploadPart:
+
+* `x-amz-checksum-sha256`: Specificare il checksum SHA-256 per questa parte.
+
+
+
+
+== Intestazioni di richiesta non supportate
+
+Le seguenti intestazioni di richiesta non sono supportate:
+
+* `x-amz-sdk-checksum-algorithm`
+* `x-amz-trailer`
+
+
+
+
+== Versione
+
+Il caricamento multiparte consiste in operazioni separate per l'avvio del caricamento, l'elenco dei caricamenti, il caricamento delle parti, l'assemblaggio delle parti caricate e il completamento del caricamento. Quando si esegue l'operazione CompleteMultipartUpload, gli oggetti vengono creati (e, se applicabile, vengono aggiornati).

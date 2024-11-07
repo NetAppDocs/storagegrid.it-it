@@ -1,0 +1,116 @@
+---
+permalink: admin/grid-federation-what-is-account-clone.html 
+sidebar: sidebar 
+keywords: account clone, tenant replication, disaster recovery, grid federation 
+summary: 'Il clone dell"account è la replica automatica di un account tenant, di gruppi tenant, di utenti tenant e, facoltativamente, S3 access key tra i sistemi StorageGRID in una connessione a federazione di griglie.' 
+---
+= Che cos'è il clone dell'account?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il clone dell'account è la replica automatica di un account tenant, di gruppi di tenant, di utenti tenant e, facoltativamente, di chiavi di accesso S3 tra i sistemi StorageGRID in un link:grid-federation-overview.html["connessione a federazione di griglie"].
+
+È necessario clonare l'account per link:grid-federation-what-is-cross-grid-replication.html["replica cross-grid"]. La clonazione delle informazioni sugli account da un sistema StorageGRID di origine a un sistema StorageGRID di destinazione garantisce che gli utenti e i gruppi tenant possano accedere ai bucket e agli oggetti corrispondenti su entrambe le griglie.
+
+
+
+== Workflow per il clone dell'account
+
+Il diagramma del flusso di lavoro mostra i passaggi che gli amministratori della griglia e i tenant autorizzati eseguiranno per impostare il clone dell'account. Queste operazioni vengono eseguite dopo il link:grid-federation-create-connection.html["la connessione a federazione di griglie è configurata"].
+
+image::../media/grid-federation-account-clone-workflow.png[workflow per il clone dell'account]
+
+
+
+== Workflow di amministrazione della griglia
+
+I passaggi eseguiti dagli amministratori di rete dipendono dal fatto che i sistemi StorageGRID link:grid-federation-overview.html["connessione a federazione di griglie"]utilizzino il Single Sign-on (SSO) o la federazione delle identità.
+
+
+
+=== [[account-clone-sso]]Configura SSO per il clone dell'account (opzionale)
+
+Se uno dei sistemi StorageGRID nella connessione a federazione di griglie utilizza SSO, entrambe le griglie devono utilizzare SSO. Prima di creare gli account tenant per la federazione di griglie, gli amministratori di griglie per le griglie di origine e di destinazione del tenant devono eseguire questi passaggi.
+
+.Fasi
+. Configurare la stessa origine di identità per entrambe le griglie. Vedere link:using-identity-federation.html["USA la federazione delle identità"].
+. Configurare lo stesso provider di identità SSO (IdP) per entrambe le griglie. Vedere link:configuring-sso.html["Configurare il single sign-on"].
+. link:managing-admin-groups.html["Creare lo stesso gruppo di amministratori"] su entrambe le griglie importando lo stesso gruppo federated.
++
+Quando si crea il tenant, si seleziona questo gruppo per disporre dell'autorizzazione di accesso root iniziale per gli account tenant di origine e di destinazione.
+
++
+
+NOTE: Se questo gruppo di amministratori non esiste su entrambe le griglie prima di creare il tenant, il tenant non viene replicato nella destinazione.
+
+
+
+
+
+=== [[account-clone-Identity-Federation]]Configura federazione di identità a livello di griglia per il clone dell'account (opzionale)
+
+Se uno dei sistemi StorageGRID utilizza la federazione delle identità senza SSO, entrambe le griglie devono utilizzare la federazione delle identità. Prima di creare gli account tenant per la federazione di griglie, gli amministratori di griglie per le griglie di origine e di destinazione del tenant devono eseguire questi passaggi.
+
+.Fasi
+. Configurare la stessa origine di identità per entrambe le griglie. Vedere link:using-identity-federation.html["USA la federazione delle identità"].
+. Facoltativamente, se un gruppo federated dispone dell'autorizzazione di accesso root iniziale per entrambi gli account tenant di origine e di destinazione, link:managing-admin-groups.html["creare lo stesso gruppo di amministratori"] su entrambe le griglie importando lo stesso gruppo federated.
++
+
+NOTE: Se si assegna l'autorizzazione di accesso root a un gruppo federated che non esiste su entrambe le griglie, il tenant non viene replicato nella griglia di destinazione.
+
+. Se non si desidera che un gruppo federated disponga dell'autorizzazione di accesso root iniziale per entrambi gli account, specificare una password per l'utente root locale.
+
+
+
+
+=== Creare un account tenant S3 consentito
+
+Dopo la configurazione opzionale di SSO o federazione di identità, un amministratore di grid esegue questi passaggi per determinare quali tenant possono replicare gli oggetti bucket in altri sistemi StorageGRID.
+
+.Fasi
+. Determinare quale griglia si desidera essere la griglia di origine del tenant per le operazioni di cloni degli account.
++
+La griglia in cui viene creato il tenant è nota come _griglia di origine_ del tenant. La griglia in cui viene replicato il tenant è nota come _griglia di destinazione_ del tenant.
+
+. In tale griglia, creare un nuovo account tenant S3 o modificare un account esistente.
+. Assegnare l'autorizzazione *Usa connessione federazione griglia*.
+. Se l'account tenant gestirà i propri utenti federati, assegnare l'autorizzazione *use own Identity source*.
++
+Se questa autorizzazione viene assegnata, gli account tenant di origine e di destinazione devono configurare la stessa origine identità prima di creare gruppi federati. I gruppi federati aggiunti al tenant di origine non possono essere clonati nel tenant di destinazione a meno che entrambe le griglie non utilizzino la stessa origine di identità.
+
+. Selezionare una connessione a federazione di griglie specifica.
+. Salvare il tenant nuovo o modificato.
++
+Quando viene salvato un nuovo tenant con l'autorizzazione *use grid Federation Connection*, StorageGRID crea automaticamente una replica del tenant sull'altro grid, come segue:
+
++
+** Entrambi gli account tenant hanno lo stesso ID account, il nome, la quota di storage e le stesse autorizzazioni assegnate.
+** Se è stato selezionato un gruppo federated per disporre dell'autorizzazione di accesso root per il tenant, tale gruppo viene clonato nel tenant di destinazione.
+** Se si seleziona un utente locale per disporre dell'autorizzazione di accesso root per il tenant, tale utente viene clonato nel tenant di destinazione. Tuttavia, la password per quell'utente non viene clonata.
+
+
+
+
+Per ulteriori informazioni, vedere link:grid-federation-manage-tenants.html["Gestire i tenant autorizzati per la federazione di grid"].
+
+
+
+== Flusso di lavoro account tenant consentito
+
+Dopo che un tenant con l'autorizzazione *Usa connessione federazione griglia* è stato replicato nella griglia di destinazione, gli account tenant autorizzati possono eseguire queste operazioni per clonare gruppi tenant, utenti e chiavi di accesso S3.
+
+.Fasi
+. Accedere all'account tenant sulla griglia di origine del tenant.
+. Se consentito, configurare la federazione di identificazione sugli account tenant di origine e di destinazione.
+. Creare gruppi e utenti nel tenant di origine.
++
+Quando vengono creati nuovi gruppi o utenti nel tenant di origine, StorageGRID li clonerà automaticamente nel tenant di destinazione, ma non si verificherà alcun cloning dalla destinazione all'origine.
+
+. Creare chiavi di accesso S3.
+. Facoltativamente, clonare le chiavi di accesso S3 dal tenant di origine al tenant di destinazione.
+
+
+Per informazioni dettagliate sul flusso di lavoro dell'account tenant consentito e sulle modalità di clonazione di gruppi, utenti e chiavi di accesso S3, vedere link:../tenant/grid-federation-account-clone.html["Clonare utenti e gruppi tenant"] e link:../tenant/grid-federation-clone-keys-with-api.html["Clonare le chiavi di accesso S3 utilizzando l'API"].

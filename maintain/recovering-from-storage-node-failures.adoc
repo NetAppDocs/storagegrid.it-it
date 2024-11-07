@@ -1,0 +1,77 @@
+---
+permalink: maintain/recovering-from-storage-node-failures.html 
+sidebar: sidebar 
+keywords: recover, storage node failure, Reaper 
+summary: La procedura per il ripristino di un nodo di storage guasto dipende dal tipo di guasto e dal tipo di nodo di storage guasto. 
+---
+= Ripristino da guasti del nodo di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La procedura per il ripristino di un nodo di storage guasto dipende dal tipo di guasto e dal tipo di nodo di storage guasto.
+
+Utilizzare questa tabella per selezionare la procedura di ripristino per un nodo di storage guasto.
+
+[cols="1a,1a,1a"]
+|===
+| Problema | Azione | Note 
+
+
+ a| 
+* Si è verificato un errore in più di un nodo di storage.
+* Un secondo nodo di storage si è guastato meno di 15 giorni dopo un guasto o un ripristino di un nodo di storage.
++
+Questo include il caso in cui un nodo di storage si guasta mentre il ripristino di un altro nodo di storage è ancora in corso.
+
+
+ a| 
+Contattare il supporto tecnico.
+ a| 
+Il ripristino di più di un nodo di storage (o di più nodi di storage entro 15 giorni) potrebbe influire sull'integrità del database Cassandra, causando la perdita di dati.
+
+Il supporto tecnico può determinare quando è sicuro iniziare il ripristino di un secondo nodo di storage.
+
+*Nota*: Se più di un nodo di storage che contiene il servizio ADC si guasta in un sito, si perdono le richieste di servizio della piattaforma in sospeso per quel sito.
+
+
+
+ a| 
+Si è verificato un errore in più di un nodo di storage in un sito o in un intero sito.
+ a| 
+Contattare il supporto tecnico. Potrebbe essere necessario eseguire una procedura di ripristino del sito.
+ a| 
+Il supporto tecnico valuterà la tua situazione e svilupperà un piano di recovery. Vedere link:how-site-recovery-is-performed-by-technical-support.html["Come il supporto tecnico recupera un sito"].
+
+
+
+ a| 
+Si è verificato un errore in un nodo di storage dell'appliance.
+ a| 
+link:recovering-storagegrid-appliance-storage-node.html["Ripristinare il nodo storage dell'appliance"]
+ a| 
+La procedura di ripristino per i nodi di storage dell'appliance è la stessa per tutti i guasti.
+
+
+
+ a| 
+Uno o più volumi di storage sono guasti, ma il disco di sistema è intatto
+ a| 
+link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["Ripristino in seguito a un errore del volume di storage in cui il disco di sistema è intatto"]
+ a| 
+Questa procedura viene utilizzata per i nodi di storage basati su software.
+
+
+
+ a| 
+Il disco di sistema è guasto.
+ a| 
+link:reviewing-warnings-for-system-drive-recovery.html["Ripristino in caso di guasto al disco di sistema"]
+ a| 
+La procedura di sostituzione del nodo dipende dalla piattaforma di implementazione e dal fatto che anche i volumi di storage abbiano avuto un guasto.
+
+|===
+
+NOTE: Alcune procedure di ripristino StorageGRID utilizzano Reaper gestire le riparazioni Cassandra. Le riparazioni vengono eseguite automaticamente non appena vengono avviati i servizi correlati o richiesti. Si potrebbe notare un output di script che menziona "reaper" o "riparazione Cassandra". Se viene visualizzato un messaggio di errore che indica che la riparazione non è riuscita, eseguire il comando indicato nel messaggio di errore.

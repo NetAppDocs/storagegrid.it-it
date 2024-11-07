@@ -1,0 +1,23 @@
+---
+permalink: maintain/recovering-from-admin-node-failures.html 
+sidebar: sidebar 
+keywords: recover, admin node failure, workflow 
+summary: Il processo di ripristino per un nodo di amministrazione dipende dal fatto che si tratti del nodo di amministrazione primario o di un nodo di amministrazione non primario. 
+---
+= Ripristino del nodo amministrativo primario o non primario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il processo di ripristino per un nodo di amministrazione dipende dal fatto che si tratti del nodo di amministrazione primario o di un nodo di amministrazione non primario.
+
+I passaggi di alto livello per il ripristino di un nodo di amministrazione primario o non primario sono gli stessi, anche se i dettagli dei passaggi differiscono.
+
+Seguire sempre la procedura di ripristino corretta per l'Admin Node che si sta ripristinando. Le procedure hanno lo stesso aspetto ad un livello elevato, ma differiscono nei dettagli.
+
+.Scelte
+* link:recovering-from-primary-admin-node-failures.html["Ripristino da guasti principali del nodo di amministrazione"]
+* link:recovering-from-non-primary-admin-node-failures.html["Ripristino da guasti non primari del nodo di amministrazione"]
+

@@ -1,0 +1,55 @@
+---
+permalink: maintain/how-your-system-is-affected-when-you-apply-hotfix.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix 
+summary: Quando si applica una hotfix, è necessario comprendere in che modo il sistema StorageGRID verrà influenzato. 
+---
+= Impatto del sistema quando si applica una correzione rapida
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si applica una hotfix, è necessario comprendere in che modo il sistema StorageGRID verrà influenzato.
+
+
+
+== Le correzioni rapide di StorageGRID non provocano interruzioni
+
+Il sistema StorageGRID è in grado di acquisire e recuperare i dati dalle applicazioni client durante tutto il processo di hotfix. Se si approvano tutti i nodi dello stesso tipo per la correzione rapida (ad esempio, nodi di archiviazione), i nodi vengono abbassati uno alla volta, quindi non c'è tempo quando tutti i nodi della griglia o tutti i nodi della griglia di un determinato tipo non sono disponibili.
+
+Per consentire la disponibilità continua, assicurarsi che il criterio ILM contenga regole che specificano la memorizzazione di più copie di ciascun oggetto. È inoltre necessario assicurarsi che tutti i client S3 esterni siano configurati per inviare richieste a uno dei seguenti:
+
+* Un indirizzo IP virtuale del gruppo ad alta disponibilità (ha)
+* Bilanciamento del carico di terze parti ad alta disponibilità
+* Nodi gateway multipli per ogni client
+* Più nodi di storage per ogni client
+
+
+
+
+== Le applicazioni client potrebbero riscontrare interruzioni a breve termine
+
+Il sistema StorageGRID è in grado di acquisire e recuperare i dati dalle applicazioni client durante l'intero processo di hotfix; tuttavia, le connessioni client a singoli nodi gateway o nodi di storage potrebbero essere temporaneamente interrottate se la hotfix deve riavviare i servizi su tali nodi. La connettività verrà ripristinata al termine del processo di hotfix e i servizi riprenderanno sui singoli nodi.
+
+Potrebbe essere necessario pianificare il downtime per applicare una correzione rapida se la perdita di connettività per un breve periodo non è accettabile. È possibile utilizzare l'approvazione selettiva per pianificare l'aggiornamento di determinati nodi.
+
+
+NOTE: È possibile utilizzare più gateway e gruppi ad alta disponibilità (ha) per fornire il failover automatico durante il processo di hotfix. Vedere le istruzioni per link:../admin/configure-high-availability-group.html["configurazione di gruppi ad alta disponibilità"].
+
+
+
+== Potrebbero essere attivati avvisi e notifiche SNMP
+
+Gli avvisi e le notifiche SNMP potrebbero essere attivati al riavvio dei servizi e quando il sistema StorageGRID funziona come ambiente a versione mista (alcuni nodi di griglia che eseguono una versione precedente, mentre altri sono stati aggiornati a una versione successiva). In generale, al termine della correzione rapida, gli avvisi e le notifiche verranno deselezionati.
+
+
+
+== Le modifiche alla configurazione sono limitate
+
+Quando si applica una correzione rapida a StorageGRID:
+
+* Non apportare modifiche alla configurazione della griglia (ad esempio, specificando subnet Grid Network o approvando i nodi della griglia in sospeso) fino a quando la correzione rapida non è stata applicata a tutti i nodi.
+* Non aggiornare la configurazione ILM fino a quando la correzione rapida non è stata applicata a tutti i nodi.
+

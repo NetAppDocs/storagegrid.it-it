@@ -1,0 +1,22 @@
+---
+permalink: admin/managing-storage-nodes.html 
+sidebar: sidebar 
+keywords: storage nodes, what is a storage node 
+summary: I nodi di storage forniscono servizi e capacità di storage su disco. La gestione dei nodi di storage comporta il monitoraggio della quantità di spazio utilizzabile su ciascun nodo, utilizzando le impostazioni di filigrana e applicando le impostazioni di configurazione del nodo di storage. 
+---
+= Gestire i nodi di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I nodi di storage forniscono servizi e capacità di storage su disco. La gestione dei nodi di storage comporta quanto segue:
+
+* Gestione delle opzioni di storage
+* Comprendere quali sono le filigrane dei volumi di storage e come è possibile utilizzare le sovrascritture dei watermark per controllare quando i nodi di storage diventano di sola lettura
+* Monitoraggio e gestione dello spazio utilizzato per i metadati degli oggetti
+* Configurazione delle impostazioni globali per gli oggetti memorizzati
+* Applicazione delle impostazioni di configurazione del nodo di storage
+* Gestione dei nodi di storage completi
+

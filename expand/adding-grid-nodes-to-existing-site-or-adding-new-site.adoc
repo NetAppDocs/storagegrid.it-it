@@ -1,0 +1,30 @@
+---
+permalink: expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html 
+sidebar: sidebar 
+keywords: grid node, add node, add site, expand, expansion 
+summary: Seguire questa procedura per aggiungere nodi di griglia a siti esistenti o per aggiungere un nuovo sito. È possibile eseguire un solo tipo di espansione alla volta. 
+---
+= Aggiunta di nodi di griglia al sito esistente o aggiunta di un nuovo sito
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire questa procedura per aggiungere nodi di griglia a siti esistenti o per aggiungere un nuovo sito. È possibile eseguire un solo tipo di espansione alla volta.
+
+.Prima di iniziare
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di accesso root o di manutenzione"].
+* Tutti i nodi esistenti nel grid sono attivi e in esecuzione in tutti i siti.
+* Tutte le precedenti procedure di espansione, aggiornamento, disattivazione o ripristino sono state completate.
++
+
+NOTE: Non è possibile avviare un'espansione mentre è in corso un'altra procedura di espansione, aggiornamento, ripristino o decommissionamento attivo. Tuttavia, se necessario, è possibile sospendere una procedura di decommissionamento per avviare un'espansione.
+
+
+
+.Fasi
+. link:updating-subnets-for-grid-network.html["Aggiornare le subnet per Grid Network"].
+. link:deploying-new-grid-nodes.html["Implementare nuovi nodi grid"].
+. link:performing-expansion.html["Eseguire l'espansione"].
+

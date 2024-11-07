@@ -1,0 +1,99 @@
+---
+permalink: fabricpool/creating-ha-group-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, high availability group, HA group, create, creating, virtual IP, VIP, active interface, backup interface 
+summary: 'Quando si configura StorageGRID per l"utilizzo con FabricPool, è possibile creare facoltativamente uno o più gruppi ad alta disponibilità (ha). Un gruppo ha è un insieme di nodi che contengono ciascuno il servizio bilanciamento del carico StorageGRID. Un gruppo ha può contenere nodi gateway, nodi di amministrazione o entrambi.' 
+---
+= Creare un gruppo ad alta disponibilità (ha) per FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si configura StorageGRID per l'utilizzo con FabricPool, è possibile creare facoltativamente uno o più gruppi ad alta disponibilità (ha). Un gruppo ha è un insieme di nodi che contengono ciascuno il servizio bilanciamento del carico StorageGRID. Un gruppo ha può contenere nodi gateway, nodi di amministrazione o entrambi.
+
+È possibile utilizzare un gruppo ha per mantenere disponibili le connessioni dati FabricPool. Un gruppo ha utilizza indirizzi IP virtuali (VIP) per fornire un accesso altamente disponibile al servizio Load Balancer. Se l'interfaccia attiva nel gruppo ha si guasta, un'interfaccia di backup può gestire il carico di lavoro con un impatto minimo sulle operazioni FabricPool.
+
+Per ulteriori informazioni su questa attività, vedere link:../admin/managing-high-availability-groups.html["Gestire i gruppi ad alta disponibilità"]. Per completare questa attività mediante la procedura guidata di installazione di FabricPool, andare a link:use-fabricpool-setup-wizard-steps.html["Accedere e completare l'installazione guidata di FabricPool"].
+
+.Prima di iniziare
+* È stata esaminata la link:best-practices-for-high-availability-groups.html["best practice per i gruppi ad alta disponibilità"].
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di accesso root"].
+* Se si intende utilizzare una VLAN, è stata creata l'interfaccia VLAN. Vedere link:../admin/configure-vlan-interfaces.html["Configurare le interfacce VLAN"].
+
+
+.Fasi
+. Selezionare *CONFIGURATION* > *Network* > *High Availability groups*.
+. Selezionare *Crea*.
+. Per la fase *inserire i dettagli*, completare i seguenti campi.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome del gruppo HA
+ a| 
+Un nome di visualizzazione univoco per questo gruppo ha.
+
+
+
+ a| 
+Descrizione (opzionale)
+ a| 
+La descrizione di questo gruppo ha.
+
+|===
+. Per il passo *Add interfaces*, selezionare le interfacce di nodo che si desidera utilizzare in questo gruppo ha.
++
+Utilizzare le intestazioni di colonna per ordinare le righe o inserire un termine di ricerca per individuare le interfacce più rapidamente.
+
++
+È possibile selezionare uno o più nodi, ma è possibile selezionare una sola interfaccia per ciascun nodo.
+
+. Per la fase *prioritize interfaces*, determinare l'interfaccia primaria e le interfacce di backup per questo gruppo ha.
++
+Trascinare le righe per modificare i valori nella colonna *Ordine di priorità*.
+
++
+La prima interfaccia nell'elenco è l'interfaccia primaria. L'interfaccia principale è l'interfaccia attiva a meno che non si verifichi un errore.
+
++
+Se il gruppo ha include più di un'interfaccia e l'interfaccia attiva non riesce, gli indirizzi IP virtuali (VIP) si spostano nella prima interfaccia di backup nell'ordine di priorità. Se l'interfaccia non funziona, gli indirizzi VIP passano all'interfaccia di backup successiva e così via. Quando i guasti vengono risolti, gli indirizzi VIP tornano all'interfaccia con la priorità più alta disponibile.
+
+. Per il passo *inserire gli indirizzi IP*, completare i seguenti campi.
++
+[cols="1a,2a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Subnet CIDR
+ a| 
+L'indirizzo della subnet VIP nella notazione CIDR& 8212;un indirizzo IPv4 seguito da una barra e dalla lunghezza della subnet (0-32).
+
+L'indirizzo di rete non deve avere bit host impostati. Ad esempio, `192.16.0.0/22`.
+
+
+
+ a| 
+Indirizzo IP del gateway (opzionale)
+ a| 
+Opzionale. Se gli indirizzi IP ONTAP utilizzati per accedere a StorageGRID non si trovano sulla stessa sottorete degli indirizzi VIP StorageGRID, immettere l'indirizzo IP del gateway locale VIP StorageGRID. L'indirizzo IP del gateway locale deve trovarsi all'interno della subnet VIP.
+
+
+
+ a| 
+Virtual IP address (Indirizzo IP virtuale)
+ a| 
+Inserire almeno uno e non più di dieci indirizzi VIP per l'interfaccia attiva nel gruppo ha. Tutti gli indirizzi VIP devono trovarsi all'interno della subnet VIP.
+
+Almeno un indirizzo deve essere IPv4. In alternativa, è possibile specificare ulteriori indirizzi IPv4 e IPv6.
+
+|===
+. Selezionare *Create ha group* (Crea gruppo ha), quindi selezionare *Finish* (fine).
+

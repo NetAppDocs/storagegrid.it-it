@@ -1,0 +1,23 @@
+---
+permalink: audit/event-specific-data.html 
+sidebar: sidebar 
+keywords: audit message, event, shea, s3 head 
+summary: Ogni messaggio di audit nel registro di audit registra i dati specifici di un evento di sistema. 
+---
+= Dati specifici dell'evento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ogni messaggio di audit nel registro di audit registra i dati specifici di un evento di sistema.
+
+Dopo il contenitore di apertura `[AUDT:` che identifica il messaggio stesso, il successivo insieme di attributi fornisce informazioni sull'evento o sull'azione descritti dal messaggio di controllo. Questi attributi sono evidenziati nel seguente esempio:
+
+[]
+====
+2018-12-05T08:24:45.921845 [AUDT:*[RSLT:"60025621595611246499"] *[TIME(UI64):11454][SAIP](IPAD BUCKET):"10.224.0 60025621595611246499.100 60025621595611246499"] *[S3AI(CSTGSTR):[S3CSTGSTR] *[S3CSTGK]: *[S3CSTGSTGSTR] *[S3CSTGSTR]: *[S3CSTGSTGSTGSTGSTR]: *[S3GSTGSTGSTGSTR]: *[S3GSTGSTGSTGSTR] *] *[S3K]: *[S3CSTGSTGSTGSTGSTGSTGSTGSTGSTGSTR]: *[S3K] *: * *: * *: * * *: * * S3CSTGSTGSTGSTGSTGSTGSTGSTGSTGSTGSTGSTGSTGSTGSTGSTG 15552417629170647261 12281045 1543998285921845 10 30720
+
+====
+L' `ATYP`elemento (sottolineato nell'esempio) identifica l'evento che ha generato il messaggio. Questo messaggio di esempio include il link:shea-s3-head.html["SHEA"]codice del messaggio ([ATYP(FC32):SHEA]), che indica che è stato generato da una richiesta di S3 TESTINE riuscita.

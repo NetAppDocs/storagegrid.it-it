@@ -1,0 +1,185 @@
+---
+permalink: s3/put-object-copy.html 
+sidebar: sidebar 
+keywords: put object copy, CopyObject 
+summary: 'È possibile utilizzare la richiesta CopyObject S3 per creare una copia di un oggetto già memorizzato in S3. Un"operazione CopyObject è la stessa dell"esecuzione di un GET e quindi di un PUT.' 
+---
+= Oggetto CopyObject
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare la richiesta CopyObject S3 per creare una copia di un oggetto già memorizzato in S3. Un'operazione CopyObject è la stessa dell'esecuzione di GetObject seguito da PutObject.
+
+
+
+== Risolvi i conflitti
+
+Le richieste dei client in conflitto, come due client che scrivono sulla stessa chiave, vengono risolte in base alle "ultime vincite". La tempistica per la valutazione degli "ultimi successi" si basa sul momento in cui il sistema StorageGRID completa una data richiesta e non sul momento in cui i client S3 iniziano un'operazione.
+
+
+
+== Dimensione dell'oggetto
+
+La dimensione massima _raccomandata_ per una singola operazione PutObject è di 5 GiB (5.368.709.120 byte). Se sono presenti oggetti di dimensioni superiori a 5 GiB, utilizzare link:operations-for-multipart-uploads.html["caricamento multiparte"] invece.
+
+La dimensione massima _supportata_ per una singola operazione PutObject è 5 TiB (5.497.558.138.880 byte).
+
+
+NOTE: Se è stato eseguito l'aggiornamento da StorageGRID 11,6 o versioni precedenti, l'avviso S3 PUT object size too large verrà attivato se si tenta di caricare un oggetto che supera i 5 GiB. Se si dispone di una nuova installazione di StorageGRID 11,7 o 11,8, l'avviso non verrà attivato in questo caso. Tuttavia, per allinearsi allo standard AWS S3, le versioni future di StorageGRID non supporteranno il caricamento di oggetti di dimensioni superiori a 5 GiB.
+
+
+
+== UTF-8 caratteri nei metadati dell'utente
+
+Se una richiesta include valori UTF-8 (non escapati) nel nome della chiave o nel valore dei metadati definiti dall'utente, il comportamento di StorageGRID non è definito.
+
+StorageGRID non analizza o interpreta i caratteri UTF-8 escapati inclusi nel nome della chiave o nel valore dei metadati definiti dall'utente. I caratteri UTF-8 escapiti vengono trattati come caratteri ASCII:
+
+* Le richieste hanno esito positivo se i metadati definiti dall'utente includono caratteri UTF-8 escapiti.
+* StorageGRID non restituisce l' `x-amz-missing-meta`intestazione se il valore interpretato del nome o del valore della chiave include caratteri non stampabili.
+
+
+
+
+== Intestazioni di richiesta supportate
+
+Sono supportate le seguenti intestazioni di richiesta:
+
+* `Content-Type`
+* `x-amz-copy-source`
+* `x-amz-copy-source-if-match`
+* `x-amz-copy-source-if-none-match`
+* `x-amz-copy-source-if-unmodified-since`
+* `x-amz-copy-source-if-modified-since`
+* `x-amz-meta-`, seguito da una coppia nome-valore contenente metadati definiti dall'utente
+* `x-amz-metadata-directive`: Il valore predefinito è `COPY`, che consente di copiare l'oggetto e i metadati associati.
++
+È possibile specificare `REPLACE` se sovrascrivere i metadati esistenti durante la copia dell'oggetto o se aggiornare i metadati dell'oggetto.
+
+* `x-amz-storage-class`
+* `x-amz-tagging-directive`: Il valore predefinito è `COPY`, che consente di copiare l'oggetto e tutti i tag.
++
+È possibile specificare `REPLACE` di sovrascrivere i tag esistenti durante la copia dell'oggetto o di aggiornare i tag.
+
+* Intestazioni della richiesta di blocco oggetti S3:
++
+** `x-amz-object-lock-mode`
+** `x-amz-object-lock-retain-until-date`
+** `x-amz-object-lock-legal-hold`
++
+Se viene effettuata una richiesta senza queste intestazioni, le impostazioni di conservazione predefinite del bucket vengono utilizzate per calcolare la modalità di versione dell'oggetto e mantenere la data fino alla data. Vedere link:use-s3-api-for-s3-object-lock.html["Utilizzare l'API REST S3 per configurare il blocco oggetti S3"].
+
+
+
+* Intestazioni di richiesta SSE:
++
+** `x-amz-copy-source​-server-side​-encryption​-customer-algorithm`
+** `x-amz-copy-source​-server-side-encryption-customer-key`
+** `x-amz-copy-source​-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption`
+** `x-amz-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption-customer-key`
+** `x-amz-server-side-encryption-customer-algorithm`
++
+Vedere <<Intestazioni di richiesta per la crittografia lato server>>
+
+
+
+
+
+
+
+== Intestazioni di richiesta non supportate
+
+Le seguenti intestazioni di richiesta non sono supportate:
+
+* `Cache-Control`
+* `Content-Disposition`
+* `Content-Encoding`
+* `Content-Language`
+* `Expires`
+* `x-amz-checksum-algorithm`
++
+Quando si copia un oggetto, se l'oggetto di origine ha un checksum, StorageGRID non copia tale valore checksum nel nuovo oggetto. Questo comportamento si applica sia che si provi o meno a utilizzare `x-amz-checksum-algorithm` nella richiesta dell'oggetto.
+
+* `x-amz-website-redirect-location`
+
+
+
+
+== Opzioni di classe storage
+
+L' `x-amz-storage-class`intestazione della richiesta è supportata e influisce sul numero di copie degli oggetti create da StorageGRID se la regola ILM corrispondente utilizza il doppio commit o bilanciato link:../ilm/data-protection-options-for-ingest.html["opzione di acquisizione"].
+
+* `STANDARD`
++
+(Impostazione predefinita) specifica un'operazione di ingest dual-commit quando la regola ILM utilizza l'opzione Dual commit o quando l'opzione Balanced (bilanciamento) torna alla creazione di copie interinali.
+
+* `REDUCED_REDUNDANCY`
++
+Specifica un'operazione di ingest a commit singolo quando la regola ILM utilizza l'opzione di commit doppio o quando l'opzione di bilanciamento ritorna alla creazione di copie interinali.
+
++
+
+NOTE: Se si sta inserendo un oggetto in un bucket con S3 Object Lock attivato, l' `REDUCED_REDUNDANCY`opzione viene ignorata. Se si sta acquisendo un oggetto in un bucket di conformità legacy, `REDUCED_REDUNDANCY` l'opzione restituisce un errore. StorageGRID eseguirà sempre un ingest dual-commit per garantire che i requisiti di conformità siano soddisfatti.
+
+
+
+
+
+== Utilizzo di x-amz-copy-source in CopyObject
+
+Se il bucket e la chiave di origine, specificati nell' `x-amz-copy-source`intestazione, sono diversi dal bucket e dalla chiave di destinazione, una copia dei dati dell'oggetto di origine viene scritta nella destinazione.
+
+Se l'origine e la destinazione corrispondono e l' `x-amz-metadata-directive`intestazione viene specificata come `REPLACE`, i metadati dell'oggetto vengono aggiornati con i valori dei metadati forniti nella richiesta. In questo caso, StorageGRID non reinserisce l'oggetto. Questo ha due conseguenze importanti:
+
+* Non è possibile utilizzare CopyObject per crittografare un oggetto esistente sul posto o per modificare la crittografia di un oggetto esistente sul posto. Se si fornisce l' `x-amz-server-side-encryption`intestazione o l' `x-amz-server-side-encryption-customer-algorithm`intestazione, StorageGRID rifiuta la richiesta e restituisce `XNotImplemented`.
+* L'opzione per il comportamento di Ingest specificata nella regola ILM corrispondente non viene utilizzata. Le modifiche al posizionamento degli oggetti che vengono attivate dall'aggiornamento vengono apportate quando ILM viene rivalutato dai normali processi ILM in background.
++
+Ciò significa che se la regola ILM utilizza l'opzione Strict per il comportamento di acquisizione, non viene eseguita alcuna azione se non è possibile eseguire il posizionamento degli oggetti richiesto (ad esempio, perché non è disponibile una nuova posizione richiesta). L'oggetto aggiornato mantiene la posizione corrente fino a quando non è possibile il posizionamento richiesto.
+
+
+
+
+
+== Intestazioni di richiesta per la crittografia lato server
+
+Se si utilizza link:using-server-side-encryption.html["usa crittografia lato server"], le intestazioni di richiesta fornite dipendono dal fatto che l'oggetto di origine sia crittografato e dal fatto che si intenda crittografare l'oggetto di destinazione.
+
+* Se l'oggetto di origine viene crittografato utilizzando una chiave fornita dal cliente (SSE-C), è necessario includere le tre intestazioni seguenti nella richiesta CopyObject, in modo che l'oggetto possa essere decrittografato e quindi copiato:
++
+** `x-amz-copy-source​-server-side​-encryption​-customer-algorithm`: Specificare `AES256`.
+** `x-amz-copy-source​-server-side-encryption-customer-key`: Specificare la chiave di crittografia fornita al momento della creazione dell'oggetto di origine.
+** `x-amz-copy-source​-server-side-encryption-customer-key-MD5`: Specificare il digest MD5 fornito al momento della creazione dell'oggetto sorgente.
+
+
+* Se si desidera crittografare l'oggetto di destinazione (la copia) con una chiave univoca che si fornisce e si gestisce, includere le seguenti tre intestazioni:
++
+** `x-amz-server-side-encryption-customer-algorithm`: Specificare `AES256`.
+** `x-amz-server-side-encryption-customer-key`: Specificare una nuova chiave di crittografia per l'oggetto di destinazione.
+** `x-amz-server-side-encryption-customer-key-MD5`: Specificare il digest MD5 della nuova chiave di crittografia.
+
+
++
+
+CAUTION: Le chiavi di crittografia fornite non vengono mai memorizzate. Se si perde una chiave di crittografia, si perde l'oggetto corrispondente. Prima di utilizzare le chiavi fornite dal cliente per proteggere i dati degli oggetti, esaminare le considerazioni relative a link:using-server-side-encryption.html["utilizzo della crittografia lato server"].
+
+* Se si desidera crittografare l'oggetto di destinazione (la copia) con una chiave univoca gestita da StorageGRID (SSE), includere questa intestazione nella richiesta CopyObject:
++
+** `x-amz-server-side-encryption`
++
+
+NOTE:  `server-side-encryption`Impossibile aggiornare il valore dell'oggetto. Eseguire invece una copia con un nuovo `server-side-encryption` valore utilizzando `x-amz-metadata-directive`: `REPLACE`.
+
+
+
+
+
+
+
+== Versione
+
+Se il bucket di origine è in versione, è possibile utilizzare l' `x-amz-copy-source`intestazione per copiare la versione più recente di un oggetto. Per copiare una versione specifica di un oggetto, è necessario specificare esplicitamente la versione da copiare utilizzando la `versionId` sottorisorsa. Se il bucket di destinazione è in versione, la versione generata viene restituita nell' `x-amz-version-id`intestazione della risposta. Se la versione è sospesa per il bucket target, `x-amz-version-id` restituisce un valore "null".

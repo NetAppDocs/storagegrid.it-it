@@ -1,0 +1,65 @@
+---
+permalink: ilm/creating-and-assigning-storage-grades.html 
+sidebar: sidebar 
+keywords: what is a storage grade, create storage grade 
+summary: I gradi di storage identificano il tipo di storage utilizzato da un nodo di storage. È possibile creare gradi di storage se si desidera che le regole ILM posizionino determinati oggetti su determinati nodi di storage. 
+---
+= Creare e assegnare i gradi di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I gradi di storage identificano il tipo di storage utilizzato da un nodo di storage. È possibile creare gradi di storage se si desidera che le regole ILM posizionino determinati oggetti su determinati nodi di storage.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+
+
+.A proposito di questa attività
+Quando si installa StorageGRID per la prima volta, il livello di storage *predefinito* viene assegnato automaticamente a ogni nodo di storage del sistema. In base alle esigenze, è possibile definire gradazioni di storage personalizzate e assegnarle a diversi nodi di storage.
+
+L'utilizzo di storage grades personalizzati consente di creare pool di storage ILM che contengono solo un tipo specifico di Storage Node. Ad esempio, è possibile che alcuni oggetti vengano memorizzati nei nodi di storage più veloci, ad esempio le appliance di storage all-flash StorageGRID.
+
+
+NOTE: I nodi di storage possono essere configurati durante l'installazione in modo da contenere solo metadati di oggetti e non dati di oggetti. Ai nodi di storage con soli metadati non può essere assegnato un livello di storage. Per ulteriori informazioni, vedere link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipi di nodi storage"].
+
+Se il grado di archiviazione non è un problema (ad esempio, tutti i nodi di archiviazione sono identici), è possibile ignorare questa procedura e utilizzare la selezione *include tutti i gradi di archiviazione* per il grado di archiviazione quando si link:creating-storage-pool.html["creare pool di storage"]. L'utilizzo di questa selezione garantisce che il pool di storage includa ogni nodo di storage del sito, indipendentemente dal suo livello di storage.
+
+
+NOTE: Non creare più storage di quanto necessario. Ad esempio, non creare un livello di storage per ciascun nodo di storage. Assegnare invece ogni livello di storage a due o più nodi. I gradi di storage assegnati a un solo nodo possono causare backlog ILM se tale nodo non è più disponibile.
+
+.Fasi
+. Selezionare *ILM* > *Storage grades*.
+. Definire i livelli di storage personalizzati:
++
+.. Per ogni grado di archiviazione personalizzato che si desidera aggiungere, selezionare *Inserisci* image:../media/icon_nms_insert.gif["inserire l'icona"] per aggiungere una riga.
+.. Inserire un'etichetta descrittiva.
++
+image::../media/editing_storage_grades.gif[Pagina Storage Grades]
+
+.. Selezionare *Applica modifiche*.
+.. In alternativa, se è necessario modificare un'etichetta salvata, selezionare *Modifica* image:../media/icon_nms_edit.gif["icona edit (modifica)"] e selezionare *Applica modifiche*.
++
+
+NOTE: Non puoi eliminare i gradi di storage.
+
+
+
+. Assegnare nuovi gradi di storage ai nodi di storage:
++
+.. Individuare il nodo di archiviazione nell'elenco LDR e selezionare la relativa icona *Modifica* image:../media/icon_nms_edit.gif["icona edit (modifica)"].
+.. Selezionare il livello di storage appropriato dall'elenco.
++
+image::../media/assigning_storage_grades_to_storage_nodes.gif[Pagina Storage Grades]
+
++
+
+NOTE: Assegnare un grado di storage a un nodo di storage specifico una sola volta. Un nodo di storage recuperato dal guasto mantiene il livello di storage assegnato in precedenza. Non modificare questa assegnazione dopo l'attivazione della policy ILM. Se l'assegnazione viene modificata, i dati vengono memorizzati in base al nuovo livello di storage.
+
+.. Selezionare *Applica modifiche*.
+
+
+

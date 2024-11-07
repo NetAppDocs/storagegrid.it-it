@@ -1,0 +1,33 @@
+---
+permalink: maintain/checking-systems-condition-before-applying-hotfix.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix 
+summary: Verificare che il sistema sia pronto per la correzione rapida. 
+---
+= Controllare le condizioni del sistema prima di applicare la correzione rapida
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Verificare che il sistema sia pronto per la correzione rapida.
+
+. Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+. Se possibile, assicurarsi che il sistema funzioni correttamente e che tutti i nodi della rete siano collegati alla rete.
++
+I nodi connessi presentano segni di spunta verdi image:../media/icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"]sulla pagina nodi.
+
+. Controllare e risolvere eventuali avvisi correnti, se possibile.
+. Assicurarsi che non siano in corso altre procedure di manutenzione, ad esempio una procedura di upgrade, recovery, espansione o decommissionamento.
++
+Prima di applicare una correzione rapida, attendere il completamento delle procedure di manutenzione attive.
+
++
+Non è possibile applicare una correzione rapida StorageGRID quando è in esecuzione un'altra procedura di manutenzione. Ad esempio, non è possibile applicare una correzione rapida mentre è in esecuzione una procedura di decommissionamento, espansione o ripristino.
+
++
+
+NOTE: Se si link:pausing-and-resuming-decommission-process-for-storage-nodes.html["la procedura di decommissionamento è in pausa"]tratta di un nodo o di un sito , è possibile applicare una correzione rapida. Inoltre, potrebbe essere possibile applicare una correzione rapida durante le fasi finali di una procedura di aggiornamento di StorageGRID. Vedere le istruzioni per link:../upgrade/index.html["Aggiornamento del software StorageGRID"].
+
+

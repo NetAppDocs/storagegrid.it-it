@@ -1,0 +1,31 @@
+---
+permalink: audit/syst-node-stopping.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SYST, Node Stopping 
+summary: 'Quando un servizio viene arrestato correttamente, viene generato questo messaggio per indicare che è stato richiesto lo shutdown e che il servizio ha avviato la sequenza di shutdown. SYST può essere utilizzato per determinare se è stato richiesto lo shutdown, prima che il servizio venga riavviato (a differenza di SYSD, che in genere viene inviato dopo il riavvio del servizio).' 
+---
+= SYST: Interruzione del nodo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando un servizio viene arrestato correttamente, viene generato questo messaggio per indicare che è stato richiesto lo shutdown e che il servizio ha avviato la sequenza di shutdown. SYST può essere utilizzato per determinare se è stato richiesto lo shutdown, prima che il servizio venga riavviato (a differenza di SYSD, che in genere viene inviato dopo il riavvio del servizio).
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+RSLT
+ a| 
+Pulizia dello spegnimento
+ a| 
+La natura dello shutdown:
+
+SUCS: Il sistema è stato spento in modo pulito.
+
+|===
+Il messaggio non indica se il server host viene arrestato, ma solo il servizio di reporting. Il codice RSLT di un messaggio SYST non può indicare uno shutdown "dirty", perché il messaggio viene generato solo dagli shutdown "clean".

@@ -1,0 +1,42 @@
+---
+permalink: admin/protecting-against-cross-site-request-forgery-csrf.html 
+sidebar: sidebar 
+keywords: csrf, cross site request forgery, token 
+summary: 'Puoi contribuire a proteggerti dagli attacchi di contraffazione delle richieste tra siti nei confronti di StorageGRID utilizzando i token CSRF per migliorare l"autenticazione che utilizza i cookie. Grid Manager e Tenant Manager abilitano automaticamente questa funzionalità di sicurezza; altri client API possono scegliere se attivarla al momento dell"accesso.' 
+---
+= Protezione contro la contraffazione delle richieste (CSRF)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puoi contribuire a proteggere dagli attacchi di cross-site request forgery (CSRF) contro StorageGRID utilizzando i token CSRF per migliorare l'autenticazione che utilizza i cookie. Grid Manager e Tenant Manager abilitano automaticamente questa funzionalità di sicurezza; altri client API possono scegliere se attivarla al momento dell'accesso.
+
+Un utente malintenzionato in grado di inviare una richiesta a un sito diverso (ad esempio con UN HTTP Form POST) può causare l'esecuzione di determinate richieste utilizzando i cookie dell'utente che ha effettuato l'accesso.
+
+StorageGRID aiuta a proteggere dagli attacchi CSRF utilizzando token CSRF. Se attivato, il contenuto di un cookie specifico deve corrispondere al contenuto di un'intestazione specifica o di un parametro POST-body specifico.
+
+Per attivare la funzione, impostare il `csrfToken` parametro su `true` durante l'autenticazione. L'impostazione predefinita è `false`.
+
+[listing]
+----
+curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d "{
+  \"username\": \"MyUserName\",
+  \"password\": \"MyPassword\",
+  \"cookie\": true,
+  \"csrfToken\": true
+}" "https://example.com/api/v3/authorize"
+----
+Quando true, un `GridCsrfToken` cookie viene impostato con un valore casuale per i login al Grid Manager e il `AccountCsrfToken` cookie viene impostato con un valore casuale per i login al Tenant Manager.
+
+Se il cookie è presente, tutte le richieste che possono modificare lo stato del sistema (POST, PUT, PATCH, DELETE) devono includere una delle seguenti opzioni:
+
+* L' `X-Csrf-Token`intestazione, con il valore dell'intestazione impostato sul valore del cookie del token CSRF.
+* Per gli endpoint che accettano un corpo codificato in forma: Un `csrfToken` parametro del corpo della richiesta codificato in forma.
+
+
+Per ulteriori esempi e dettagli, consultare la documentazione API online.
+
+
+NOTE: Le richieste che dispongono di un set di cookie token CSRF applicheranno anche l'intestazione "Content-Type: Application/json" per qualsiasi richiesta che prevede un corpo di richiesta JSON come protezione aggiuntiva contro gli attacchi CSRF.

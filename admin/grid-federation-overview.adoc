@@ -1,0 +1,99 @@
+---
+permalink: admin/grid-federation-overview.html 
+sidebar: sidebar 
+keywords: grid federation, cross-grid replication, account clone, cgr, disaster recovery 
+summary: È possibile utilizzare la federazione di grid per clonare i tenant e replicare i loro oggetti tra due sistemi StorageGRID per il disaster recovery. 
+---
+= Che cos'è la federazione di griglie?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare la federazione di grid per clonare i tenant e replicare i loro oggetti tra due sistemi StorageGRID per il disaster recovery.
+
+
+
+== Che cos'è una connessione a federazione di griglie?
+
+Una connessione a federazione di griglie è una connessione bidirezionale, affidabile e sicura tra i nodi amministratore e gateway in due sistemi StorageGRID.
+
+
+
+== Workflow per la federazione di grid
+
+Il diagramma del flusso di lavoro riassume i passaggi per la configurazione di una connessione di federazione di grid tra due grid.
+
+image::../media/grid-federation-workflow.png[Workflow di connessione a Grid Federation]
+
+
+
+== Considerazioni e requisiti per le connessioni a federazione di griglie
+
+* Le griglie utilizzate per la federazione delle griglie devono eseguire versioni di StorageGRID identiche o con non più di una differenza di versione principale.
++
+Per ulteriori informazioni sui requisiti di versione, fare riferimento alla link:../release-notes/index.html["Note di rilascio"].
+
+* Una griglia può avere una o più connessioni di federazione di griglia ad altre griglie. Ogni connessione a federazione di griglie è indipendente da qualsiasi altra connessione. Ad esempio, se la griglia 1 ha una connessione con la griglia 2 e una seconda connessione con la griglia 3, non esiste alcuna connessione implicita tra la griglia 2 e la griglia 3.
+* Le connessioni a federazione di griglie sono bidirezionali. Una volta stabilita la connessione, è possibile monitorare e gestire la connessione da entrambe le griglie.
+* Prima di poter utilizzare  o link:grid-federation-what-is-cross-grid-replication.html["replica cross-grid"], è necessario che esista almeno una connessione di federazione della griglialink:grid-federation-what-is-account-clone.html["clone dell'account"].
+
+
+
+
+=== Requisiti di rete e indirizzo IP
+
+* Le connessioni a federazione di griglie possono avvenire su Grid Network, Admin Network o Client Network.
+* Una connessione a federazione di griglie collega una griglia a un'altra griglia. La configurazione per ogni griglia specifica un endpoint della federazione di griglia sull'altro griglia che consiste in nodi di amministrazione, nodi gateway o entrambi.
+* La procedura consigliata consiste nel collegare link:managing-high-availability-groups.html["Gruppi ad alta disponibilità (ha)"] i nodi Gateway e Admin su ciascuna rete. L'utilizzo di gruppi ha consente di garantire che le connessioni a federazione di griglie rimangano online se i nodi non sono più disponibili. Se l'interfaccia attiva in uno dei gruppi ha non riesce, la connessione può utilizzare un'interfaccia di backup.
+* Si sconsiglia di creare una connessione a federazione di griglie che utilizzi l'indirizzo IP di un singolo nodo di amministrazione o di un nodo gateway. Se il nodo diventa non disponibile, anche la connessione a federazione di griglie non sarà disponibile.
+* link:grid-federation-what-is-cross-grid-replication.html["Replica cross-grid"] Of Objects richiede che i nodi storage di ciascun grid siano in grado di accedere ai nodi Admin e Gateway configurati nell'altro grid. Per ogni griglia, verificare che tutti i nodi di storage dispongano di un percorso a elevata larghezza di banda verso i nodi Admin o Gateway utilizzati per la connessione.
+
+
+
+
+=== Utilizzare FQDN per bilanciare il carico della connessione
+
+Per un ambiente di produzione, utilizzare FQDN (Fully Qualified Domain Name) per identificare ogni griglia della connessione. Quindi, creare le voci DNS appropriate, come indicato di seguito:
+
+* L'FQDN per la griglia 1 è mappato a uno o più indirizzi IP virtuali (VIP) per i gruppi ha nella griglia 1 o all'indirizzo IP di uno o più nodi Admin o Gateway nella griglia 1.
+* L'FQDN per la griglia 2 è mappato a uno o più indirizzi VIP per la griglia 2 o all'indirizzo IP di uno o più nodi Admin o Gateway nella griglia 2.
+
+
+Quando si utilizzano più voci DNS, le richieste per utilizzare la connessione vengono bilanciate dal carico, come segue:
+
+* Le voci DNS associate agli indirizzi VIP di più gruppi ha vengono bilanciate in base al carico tra i nodi attivi nei gruppi ha.
+* Le voci DNS associate agli indirizzi IP di più nodi Admin o Gateway vengono bilanciate in base al carico tra i nodi mappati.
+
+
+
+
+=== Requisiti delle porte
+
+Quando si crea una connessione a federazione di griglie, è possibile specificare qualsiasi numero di porta inutilizzato compreso tra 23000 e 23999. Entrambe le griglie di questa connessione utilizzeranno la stessa porta.
+
+È necessario assicurarsi che nessun nodo di una delle griglie utilizzi questa porta per altre connessioni.
+
+
+
+=== Requisiti del certificato
+
+Quando si configura una connessione a federazione di griglie, StorageGRID genera automaticamente quattro certificati SSL:
+
+* Certificati server e client per autenticare e crittografare le informazioni inviate dalla griglia 1 alla griglia 2
+* Certificati server e client per autenticare e crittografare le informazioni inviate dalla griglia 2 alla griglia 1
+
+
+image::../media/grid-federation-certificates.png[Certificati di federazione grid]
+
+Per impostazione predefinita, i certificati sono validi per 730 giorni (2 anni). Quando questi certificati si avvicinano alla data di scadenza, l'avviso *scadenza del certificato federazione griglia* ricorda di ruotare i certificati, operazione che è possibile eseguire utilizzando Grid Manager.
+
+
+CAUTION: Se i certificati a una delle due estremità della connessione scadono, la connessione non funziona più. La replica dei dati sarà in sospeso fino all'aggiornamento dei certificati.
+
+.Scopri di più
+* link:grid-federation-create-connection.html["Creare connessioni di federazione di griglie"]
+* link:grid-federation-manage-connection.html["Gestire le connessioni a federazione di griglie"]
+* link:grid-federation-troubleshoot.html["Risolvere i problemi relativi agli errori di federazione della griglia"]
+

@@ -1,0 +1,113 @@
+---
+permalink: ilm/simulating-ilm-policy-examples.html 
+sidebar: sidebar 
+keywords: simulate ilm policy 
+summary: 'Gli esempi di simulazioni dei criteri ILM forniscono linee guida per strutturare e modificare le simulazioni per l"ambiente in uso.' 
+---
+= Esempi di simulazioni dei criteri ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Gli esempi di simulazioni dei criteri ILM forniscono linee guida per strutturare e modificare le simulazioni per l'ambiente in uso.
+
+
+
+== Esempio 1: Verifica delle regole durante la simulazione di un criterio ILM
+
+In questo esempio viene descritto come verificare le regole durante la simulazione di un criterio.
+
+In questo esempio, la *policy ILM di esempio* viene simulata rispetto agli oggetti acquisiti in due bucket. La policy include tre regole, come segue:
+
+* La prima regola, *due copie, due anni per bucket-a*, si applica solo agli oggetti nel bucket-a.
+* La seconda regola, *EC objects > 1 MB*, si applica a tutti i bucket, ma ai filtri sugli oggetti superiori a 1 MB.
+* La terza regola, *due copie, due data center*, è la regola predefinita. Non include filtri e non utilizza il tempo di riferimento non corrente.
+
+
+Dopo aver simulato il criterio, verificare che ogni oggetto sia stato associato alla regola corretta.
+
+image::../media/simulate_policy_screen.png[Simulare i risultati delle policy]
+
+In questo esempio:
+
+* `bucket-a/bucket-a object.pdf` corrisponde correttamente alla prima regola, che filtra gli oggetti in `bucket-a`.
+* `bucket-b/test object greater than 1 MB.pdf` è in `bucket-b`, quindi non corrisponde alla prima regola. Al contrario, è stata associata correttamente dalla seconda regola, che filtra su oggetti superiori a 1 MB.
+* `bucket-b/test object less than 1 MB.pdf` non corrisponde ai filtri nelle prime due regole, quindi viene posizionata in base alla regola predefinita, che non include filtri.
+
+
+
+
+== Esempio 2: Riordinare le regole durante la simulazione di un criterio ILM
+
+Questo esempio mostra come è possibile riordinare le regole per modificare i risultati durante la simulazione di un criterio.
+
+In questo esempio, viene simulata la policy *Demo*. Questo criterio, che ha lo scopo di trovare oggetti con metadati utente series=x-men, include tre regole, come segue:
+
+* La prima regola, *PNGS*, filtra i nomi delle chiavi che terminano in `.png`.
+* La seconda regola, *X-men*, si applica solo agli oggetti per il tenant A e ai filtri per i `series=x-men` metadati utente.
+* L'ultima regola, *due copie due data center*, è la regola predefinita, che corrisponde a tutti gli oggetti che non corrispondono alle prime due regole.
+
+
+.Fasi
+. Dopo aver aggiunto le regole e salvato il criterio, selezionare *simulate*.
+. Nel campo *Object*, immettere il bucket S3/object-key per un oggetto test e selezionare *simulate*.
++
+Vengono visualizzati i risultati di Simulation, che mostrano che l' `Havok.png`oggetto è stato associato alla regola *PNGS*.
+
++
+image::../media/simulate_reorder_rules_pngs_result.png[Esempio 2: Riordinamento delle regole durante la simulazione di un criterio ILM]
+
++
+Tuttavia, `Havok.png` era destinato a testare la regola *X-men*.
+
+. Per risolvere il problema, riordinare le regole.
++
+.. Selezionare *fine* per chiudere la finestra Simula policy ILM.
+.. Selezionare *Edit* (Modifica) per modificare la policy.
+.. Trascinare la regola *X-MEN* all'inizio dell'elenco.
+.. Selezionare *Salva*.
+
+
+. Selezionare *simulate*.
++
+Gli oggetti precedentemente testati vengono rivalutati in base alla policy aggiornata e vengono visualizzati i risultati della nuova simulazione. Nell'esempio, la colonna regola corrispondente mostra che l' `Havok.png`oggetto ora corrisponde alla regola dei metadati X-MEN, come previsto. La colonna di confronto precedente mostra che la regola PNG corrisponde all'oggetto nella simulazione precedente.
+
++
+image::../media/simulate_reorder_rules_correct_result.png[Esempio 2: Riordinamento delle regole durante la simulazione di un criterio ILM]
+
+
+
+
+
+== Esempio 3: Correggere una regola durante la simulazione di un criterio ILM
+
+Questo esempio mostra come simulare una policy, correggere una regola nella policy e continuare la simulazione.
+
+In questo esempio, viene simulata la policy *Demo*. Questo criterio consente di trovare oggetti che contengono `series=x-men` metadati dell'utente. Tuttavia, si sono verificati risultati imprevisti durante la simulazione di questo criterio rispetto all' `Beast.jpg`oggetto. Invece di corrispondere alla regola dei metadati X-MEN, l'oggetto corrisponde alla regola predefinita, due copie di due data center.
+
+image::../media/simulate_results_for_object_wrong_metadata.png[Esempio 3: Correzione di una regola durante la simulazione di un criterio ILM]
+
+Quando un oggetto di test non corrisponde alla regola prevista nel criterio, è necessario esaminare ciascuna regola del criterio e correggere eventuali errori.
+
+.Fasi
+. Selezionare *fine* per chiudere la finestra di dialogo Simula policy. Nella pagina dei dettagli del criterio, selezionare *diagramma di conservazione*. Quindi, selezionare *Espandi tutto* o *Visualizza dettagli* per ogni regola in base alle necessità.
+. Esaminare l'account tenant della regola, il tempo di riferimento e i criteri di filtraggio.
++
+Ad esempio, supponiamo che i metadati per la regola X-men siano stati immessi come "x-men01" invece di "x-men".
+
+. Per risolvere l'errore, correggere la regola come segue:
++
+** Se la regola fa parte del criterio, è possibile clonarla o rimuoverla dal criterio e modificarla.
+** Se la regola fa parte del criterio attivo, è necessario clonarla. Non è possibile modificare o rimuovere una regola dal criterio attivo.
+
+
+. Eseguire nuovamente la simulazione.
++
+In questo esempio, la regola X-MEN corretta corrisponde ora all' `Beast.jpg`oggetto in base ai `series=x-men` metadati dell'utente, come previsto.
+
++
+image::../media/simulate_results_for_object_corrected_metadata.png[Esempio 3: Correzione di una regola durante la simulazione di un criterio ILM]
+
+

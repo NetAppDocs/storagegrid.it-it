@@ -1,0 +1,47 @@
+---
+permalink: maintain/replacing-storage-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace storage node, replacing storage node 
+summary: Se il disco di sistema presenta un guasto, è necessario sostituire il nodo di storage. 
+---
+= Sostituire il nodo di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il disco di sistema presenta un guasto, è necessario sostituire il nodo di storage.
+
+Selezionare la procedura di sostituzione del nodo per la piattaforma. I passaggi per sostituire un nodo sono gli stessi per tutti i tipi di nodi griglia.
+
+
+NOTE: Questa procedura si applica solo ai nodi di storage basati su software. È necessario seguire una procedura diversa da link:recovering-storagegrid-appliance-storage-node.html["Ripristinare un nodo di storage dell'appliance"].
+
+*Linux:* se non si è sicuri che il disco di sistema sia guasto, seguire le istruzioni per sostituire il nodo per determinare quali passaggi di ripristino sono necessari.
+
+[cols="1a,2a"]
+|===
+| Piattaforma | Procedura 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["Sostituire un nodo VMware"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["Sostituire un nodo Linux"]
+
+
+
+ a| 
+OpenStack
+ a| 
+I file e gli script dei dischi delle macchine virtuali forniti da NetApp per OpenStack non sono più supportati per le operazioni di recovery. Se è necessario ripristinare un nodo in esecuzione in un'implementazione OpenStack, scaricare i file per il sistema operativo Linux in uso. Quindi, seguire la procedura per link:all-node-types-replacing-linux-node.html["Sostituzione di un nodo Linux"].
+
+|===

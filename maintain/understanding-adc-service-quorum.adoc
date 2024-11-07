@@ -1,0 +1,29 @@
+---
+permalink: maintain/understanding-adc-service-quorum.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, adc, adc quorum 
+summary: 'È possibile che non sia possibile smantellare alcuni nodi di archiviazione in un sito se dopo lo smantellamento rimanessero pochi servizi del controller di dominio amministrativo \(ADC\).' 
+---
+= Cos'è il quorum ADC?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Potrebbe non essere possibile smantellare alcuni nodi di archiviazione in un sito se dopo lo smantellamento rimanessero pochi servizi ADC (Administrative Domain Controller).
+
+Il servizio ADC, presente in alcuni nodi di archiviazione, mantiene le informazioni sulla topologia della griglia e fornisce servizi di configurazione alla griglia. Il sistema StorageGRID richiede un quorum di servizi ADC per essere sempre disponibile in ogni sito.
+
+Non è possibile decommissionare un nodo di storage se la rimozione del nodo causerebbe il mancato rispetto del quorum di ADC. Per soddisfare il quorum ADC durante una disattivazione, è necessario che almeno tre nodi di archiviazione in ogni sito dispongano del servizio ADC. Se in un sito sono presenti più di tre nodi di archiviazione con il servizio ADC, la maggior parte di questi nodi deve rimanere disponibile dopo lo smantellamento: `((0.5 * _Storage Nodes with ADC_) + 1)`
+
+
+CAUTION: Prestare attenzione quando si disattivano i nodi di storage in un grid che contiene nodi solo metadati basati su software. Se tutti i nodi configurati per l'archiviazione di _entrambi_ oggetti e metadati vengono dismessi, la possibilità di archiviare oggetti viene rimossa dalla griglia. Per ulteriori informazioni sui nodi di storage solo per metadati, vedere link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipi di nodi storage"].
+
+Ad esempio, si supponga che un sito attualmente includa sei nodi di storage con servizi ADC e che si desideri smantellare tre nodi di storage. A causa del requisito di quorum di ADC, è necessario completare due procedure di decommissionamento, come indicato di seguito:
+
+* Nella prima procedura di decommissionamento, è necessario assicurarsi che siano disponibili quattro nodi di archiviazione con servizi ADC: `((0.5 * 6) + 1)`. Ciò significa che all'inizio è possibile decommissionare solo due nodi di storage.
+* Nella seconda procedura di decommissionamento, è possibile rimuovere il terzo nodo di storage poiché il quorum ADC ora richiede solo tre servizi ADC per rimanere disponibili: `((0.5 * 4) + 1)`.
+
+
+Se è necessario smantellare un nodo di archiviazione ma non è possibile farlo a causa del requisito quorum ADC, aggiungere un nuovo nodo di archiviazione in link:../expand/index.html["espansione"]e specificare che deve disporre di un servizio ADC. Quindi, smantellare il nodo di storage esistente.

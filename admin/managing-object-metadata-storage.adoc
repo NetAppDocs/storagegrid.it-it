@@ -1,0 +1,328 @@
+---
+permalink: admin/managing-object-metadata-storage.html 
+sidebar: sidebar 
+keywords: object metadata, metadata capacity, best practices 
+summary: La capacità dei metadati degli oggetti di un sistema StorageGRID controlla il numero massimo di oggetti che possono essere memorizzati in tale sistema. Per garantire che il sistema StorageGRID disponga di spazio sufficiente per memorizzare nuovi oggetti, è necessario comprendere dove e come StorageGRID memorizza i metadati degli oggetti. 
+---
+= Gestire lo storage dei metadati degli oggetti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La capacità dei metadati degli oggetti di un sistema StorageGRID controlla il numero massimo di oggetti che possono essere memorizzati in tale sistema. Per garantire che il sistema StorageGRID disponga di spazio sufficiente per memorizzare nuovi oggetti, è necessario comprendere dove e come StorageGRID memorizza i metadati degli oggetti.
+
+
+
+== Che cos'è il metadata a oggetti?
+
+I metadati degli oggetti sono informazioni che descrivono un oggetto. StorageGRID utilizza i metadati degli oggetti per tenere traccia delle posizioni di tutti gli oggetti nella griglia e gestire il ciclo di vita di ciascun oggetto nel tempo.
+
+Per un oggetto in StorageGRID, i metadati dell'oggetto includono i seguenti tipi di informazioni:
+
+* Metadati di sistema, tra cui un ID univoco per ciascun oggetto (UUID), il nome dell'oggetto, il nome del bucket S3, il nome o l'ID dell'account tenant, le dimensioni logiche dell'oggetto, la data e l'ora della prima creazione dell'oggetto e la data e l'ora dell'ultima modifica dell'oggetto.
+* Qualsiasi coppia di valori chiave metadati utente personalizzata associata all'oggetto.
+* Per gli oggetti S3, qualsiasi coppia chiave-valore tag oggetto associata all'oggetto.
+* Per le copie di oggetti replicate, la posizione di storage corrente di ciascuna copia.
+* Per le copie di oggetti con codifica erasure, la posizione di storage corrente di ciascun frammento.
+* Per le copie di oggetti in un Cloud Storage Pool, la posizione dell'oggetto, incluso il nome del bucket esterno e l'identificatore univoco dell'oggetto.
+* Per oggetti segmentati e multiparte, identificatori di segmenti e dimensioni dei dati.
+
+
+
+
+== Come vengono memorizzati i metadati degli oggetti?
+
+StorageGRID mantiene i metadati degli oggetti in un database Cassandra, che viene memorizzato indipendentemente dai dati degli oggetti. Per garantire la ridondanza e proteggere i metadati degli oggetti dalla perdita, StorageGRID memorizza tre copie dei metadati per tutti gli oggetti del sistema in ogni sito.
+
+Questa figura rappresenta i nodi di storage in due siti. Ogni sito ha la stessa quantità di metadati oggetto e i metadati di ciascun sito sono suddivisi tra tutti i nodi di storage di quel sito.
+
+image::../media/metadata_space_across_sites.png[Spazio di metadati tra i siti]
+
+
+
+== Dove sono memorizzati i metadati degli oggetti?
+
+Questa figura rappresenta i volumi di storage per un singolo nodo di storage.
+
+image::../media/metadata_space_storage_node.png[Nodo di storage spazio metadati]
+
+Come mostrato nella figura, StorageGRID riserva spazio per i metadati degli oggetti sul volume di storage 0 di ciascun nodo di storage. Utilizza lo spazio riservato per memorizzare i metadati degli oggetti e per eseguire le operazioni essenziali del database. Qualsiasi spazio rimanente sul volume di storage 0 e tutti gli altri volumi di storage nel nodo di storage vengono utilizzati esclusivamente per i dati a oggetti (copie replicate e frammenti con codifica di cancellazione).
+
+La quantità di spazio riservato ai metadati degli oggetti su un nodo di storage specifico dipende da diversi fattori, descritti di seguito.
+
+
+
+== Impostazione dello spazio riservato dei metadati
+
+Lo _spazio riservato metadati_ è un'impostazione a livello di sistema che rappresenta la quantità di spazio che sarà riservata ai metadati sul volume 0 di ogni nodo di archiviazione. Come mostrato nella tabella, il valore predefinito di questa impostazione si basa su:
+
+* La versione software utilizzata al momento dell'installazione iniziale di StorageGRID.
+* La quantità di RAM su ciascun nodo di storage.
+
+
+[cols="1a,1a,1a"]
+|===
+| Versione utilizzata per l'installazione iniziale di StorageGRID | Quantità di RAM sui nodi di storage | Impostazione predefinita spazio riservato metadati 
+
+
+ a| 
+da 11,5 a 11,9
+ a| 
+128 GB o più su ciascun nodo di storage nella griglia
+ a| 
+8 TB (8.000 GB)
+
+
+
+ a| 
+ a| 
+Meno di 128 GB su qualsiasi nodo di storage nel grid
+ a| 
+3 TB (3.000 GB)
+
+
+
+ a| 
+da 11,1 a 11,4
+ a| 
+128 GB o più su ciascun nodo di storage in un sito qualsiasi
+ a| 
+4 TB (4.000 GB)
+
+
+
+ a| 
+ a| 
+Meno di 128 GB su qualsiasi nodo di storage in ogni sito
+ a| 
+3 TB (3.000 GB)
+
+
+
+ a| 
+11,0 o precedente
+ a| 
+Qualsiasi importo
+ a| 
+2 TB (2.000 GB)
+
+|===
+
+
+=== Visualizza impostazione spazio riservato metadati
+
+Per visualizzare l'impostazione dello spazio riservato ai metadati per il sistema StorageGRID, procedere come segue.
+
+.Fasi
+. Selezionare *CONFIGURAZIONE* > *sistema* > *Impostazioni archiviazione*.
+. Nella pagina Impostazioni archiviazione, espandere la sezione *spazio riservato metadati*.
+
+
+Per StorageGRID 11,8 o versione successiva, il valore dello spazio riservato dei metadati deve essere almeno 100 GB e non più di 1 PB.
+
+L'impostazione predefinita per una nuova installazione di StorageGRID 11,6 o superiore in cui ogni nodo di archiviazione ha 128 GB o più di RAM è 8.000 GB (8 TB).
+
+
+
+== Spazio riservato effettivo per i metadati
+
+A differenza dell'impostazione dello spazio riservato ai metadati a livello di sistema, per ogni nodo di archiviazione viene determinato lo _spazio riservato effettivo_ per i metadati dell'oggetto. Per qualsiasi nodo di archiviazione, lo spazio riservato effettivo per i metadati dipende dalla dimensione del volume 0 per il nodo e dall'impostazione dello spazio riservato metadati a livello di sistema.
+
+[cols="1a,1a"]
+|===
+| Dimensione del volume 0 per il nodo | Spazio riservato effettivo per i metadati 
+
+
+ a| 
+Meno di 500 GB (non in produzione)
+ a| 
+10% del volume 0
+
+
+
+ a| 
+500 GB o più + o + nodi di storage solo metadati
+ a| 
+Il minore di questi valori:
+
+* Volume 0
+* Impostazione dello spazio riservato dei metadati
+
+
+*Nota*: È richiesto un solo rangedb per i nodi di archiviazione di solo metadati.
+
+|===
+
+
+=== Visualizzare lo spazio riservato effettivo per i metadati
+
+Per visualizzare lo spazio riservato effettivo per i metadati su un nodo di storage specifico, procedere come segue.
+
+.Fasi
+. Da Grid Manager, selezionare *NODES* > *_Storage Node_*.
+. Selezionare la scheda *Storage*.
+. Posizionare il cursore sul grafico Storage used - Object Metadata (Storage utilizzato - metadati oggetto) e individuare il valore *Actual reserved* (riservato).
++
+image::../media/storage_used_object_metadata_actual_reserved.png[Storage utilizzato - metadati oggetto - effettivo riservato]
+
+
+
+Nella schermata, il valore *effettivo riservato* è 8 TB. Questa schermata riguarda un nodo di storage di grandi dimensioni in una nuova installazione di StorageGRID 11.6. Poiché l'impostazione dello spazio riservato ai metadati a livello di sistema è inferiore al volume 0 per questo nodo di archiviazione, lo spazio riservato effettivo per questo nodo è uguale all'impostazione dello spazio riservato ai metadati.
+
+
+
+== Esempio di spazio riservato effettivo dei metadati
+
+Si supponga di installare un nuovo sistema StorageGRID utilizzando la versione 11,7 o successiva. In questo esempio, si supponga che ogni nodo di storage abbia più di 128 GB di RAM e che il volume 0 del nodo di storage 1 (SN1) sia di 6 TB. In base a questi valori:
+
+* Lo spazio riservato * dei metadati a livello di sistema è impostato su 8 TB. (Questo è il valore predefinito per una nuova installazione di StorageGRID 11.6 o superiore se ogni nodo di storage ha più di 128 GB di RAM).
+* Lo spazio riservato effettivo per i metadati per SN1 è di 6 TB. (L'intero volume è riservato perché il volume 0 è più piccolo dell'impostazione *spazio riservato metadati*).
+
+
+
+
+== Spazio consentito di metadati
+
+Lo spazio riservato effettivo di ciascun nodo di storage per i metadati viene suddiviso nello spazio disponibile per i metadati dell'oggetto (il _spazio consentito per i metadati_) e nello spazio necessario per le operazioni essenziali del database (come la compattazione e la riparazione) e per i futuri aggiornamenti hardware e software. Lo spazio consentito per i metadati regola la capacità complessiva degli oggetti.
+
+image::../media/metadata_allowed_space_volume_0.png[I metadati hanno consentito lo spazio volume 0]
+
+La seguente tabella mostra come StorageGRID calcola lo spazio di metadati consentito* per diversi nodi di storage, in base alla quantità di memoria per il nodo e allo spazio riservato effettivo per i metadati.
+
+[cols="1a,1a,2a,2a"]
+|===
+
+
+ a| 
+ a| 
+ a| 
+*Quantità di memoria sul nodo di storage*
+
+
+
+ a| 
+ a| 
+ a| 
+&Lt; 128 GB
+ a| 
+>= 128 GB
+
+
+
+ a| 
+*Spazio riservato effettivo per i metadati*
+ a| 
+&Lt;= 4 TB
+ a| 
+60% dello spazio riservato effettivo per i metadati, fino a un massimo di 1,32 TB
+ a| 
+60% dello spazio riservato effettivo per i metadati, fino a un massimo di 1,98 TB
+
+
+
+ a| 
+> 4 TB
+ a| 
+(Spazio riservato effettivo per i metadati − 1 TB) x 60%, fino a un massimo di 1,32 TB
+ a| 
+(Spazio riservato effettivo per i metadati − 1 TB) x 60%, fino a un massimo di 3,96 TB
+
+|===
+
+
+=== Visualizzare lo spazio consentito per i metadati
+
+Per visualizzare lo spazio di metadati consentito per un nodo di storage, procedere come segue.
+
+.Fasi
+. Da Grid Manager, selezionare *NODES*.
+. Selezionare il nodo di storage.
+. Selezionare la scheda *Storage*.
+. Posizionare il cursore sul grafico dei metadati Storage used - Object e individuare il valore *Allowed*.
++
+image::../media/storage_used_object_metadata_allowed.png[Storage utilizzato - metadati oggetto - consentito]
+
+
+
+Nella schermata, il valore *Allowed* è 3,96 TB, che è il valore massimo per un nodo di archiviazione il cui spazio riservato effettivo per i metadati è superiore a 4 TB.
+
+Il valore *Allowed* corrisponde a questa metrica Prometheus:
+
+`storagegrid_storage_utilization_metadata_allowed_bytes`
+
+
+
+== Esempio di spazio consentito per i metadati
+
+Si supponga di installare un sistema StorageGRID utilizzando la versione 11.6. In questo esempio, si supponga che ogni nodo di storage abbia più di 128 GB di RAM e che il volume 0 del nodo di storage 1 (SN1) sia di 6 TB. In base a questi valori:
+
+* Lo spazio riservato * dei metadati a livello di sistema è impostato su 8 TB. (Questo è il valore predefinito per StorageGRID 11.6 o superiore quando ogni nodo di storage ha più di 128 GB di RAM).
+* Lo spazio riservato effettivo per i metadati per SN1 è di 6 TB. (L'intero volume è riservato perché il volume 0 è più piccolo dell'impostazione *spazio riservato metadati*).
+* Lo spazio consentito per i metadati su SN1 è di 3 TB, in base al calcolo mostrato nella <<table-allowed-space-for-metadata,tabella per lo spazio consentito per i metadati>>: (spazio riservato effettivo per i metadati − 1 TB) x 60%, fino a un massimo di 3,96 TB.
+
+
+
+
+== In che modo i nodi di storage di diverse dimensioni influiscono sulla capacità degli oggetti
+
+Come descritto in precedenza, StorageGRID distribuisce uniformemente i metadati degli oggetti nei nodi di storage di ciascun sito. Per questo motivo, se un sito contiene nodi di storage di dimensioni diverse, il nodo più piccolo del sito determina la capacità di metadati del sito.
+
+Si consideri il seguente esempio:
+
+* Si dispone di un grid a sito singolo contenente tre nodi di storage di dimensioni diverse.
+* L'impostazione *spazio riservato metadati* è 4 TB.
+* I nodi di storage hanno i seguenti valori per lo spazio riservato effettivo dei metadati e per lo spazio consentito dei metadati.
++
+[cols="1a,1a,1a,1a"]
+|===
+| Nodo di storage | Dimensione del volume 0 | Spazio riservato effettivo dei metadati | Spazio consentito di metadati 
+
+
+ a| 
+SN1
+ a| 
+2,2 TB
+ a| 
+2,2 TB
+ a| 
+1,32 TB
+
+
+
+ a| 
+SN2
+ a| 
+5 TB
+ a| 
+4 TB
+ a| 
+1,98 TB
+
+
+
+ a| 
+SN3
+ a| 
+6 TB
+ a| 
+4 TB
+ a| 
+1,98 TB
+
+|===
+
+
+Poiché i metadati degli oggetti sono distribuiti in modo uniforme tra i nodi di storage di un sito, ciascun nodo di questo esempio può contenere solo 1.32 TB di metadati. I 0.66 TB aggiuntivi di spazio consentito per i metadati SN2 e SN3 non possono essere utilizzati.
+
+image::../media/metadata_space_three_storage_nodes.png[I metadati spaziano tre nodi di storage]
+
+Analogamente, poiché StorageGRID gestisce tutti i metadati degli oggetti per un sistema StorageGRID in ogni sito, la capacità complessiva dei metadati di un sistema StorageGRID è determinata dalla capacità dei metadati degli oggetti del sito più piccolo.
+
+Inoltre, poiché la capacità dei metadati degli oggetti controlla il numero massimo di oggetti, quando un nodo esaurisce la capacità dei metadati, la griglia è effettivamente piena.
+
+.Informazioni correlate
+* Per informazioni su come monitorare la capacità dei metadati dell'oggetto per ogni nodo di storage, vedere le istruzioni di link:../monitor/index.html["Monitoraggio di StorageGRID"].
+* Per aumentare la capacità dei metadati degli oggetti per il tuo sistema, link:../expand/index.html["espandere una griglia"]aggiungendo nuovi nodi di storage.
+

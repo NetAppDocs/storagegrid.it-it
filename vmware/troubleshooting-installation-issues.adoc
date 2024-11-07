@@ -1,0 +1,81 @@
+---
+permalink: vmware/troubleshooting-installation-issues.html 
+sidebar: sidebar 
+keywords: how to troubleshoot installation issues 
+summary: 'Se si verificano problemi durante l"installazione del sistema StorageGRID, è possibile accedere ai file di log dell"installazione.' 
+---
+= Risolvere i problemi di installazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si verificano problemi durante l'installazione del sistema StorageGRID, è possibile accedere ai file di log dell'installazione.
+
+Di seguito sono riportati i principali file di log dell'installazione, che potrebbero essere necessari al supporto tecnico per risolvere i problemi.
+
+* `/var/local/log/install.log` (trovato su tutti i nodi griglia)
+* `/var/local/log/gdu-server.log` (Trovato sul nodo amministrativo primario)
+
+
+.Informazioni correlate
+Per informazioni su come accedere ai file di registro, vedere link:../monitor/logs-files-reference.html["Riferimenti ai file di log"].
+
+Per ulteriore assistenza, contattare https://mysupport.netapp.com/site/global/dashboard["Supporto NetApp"^].
+
+
+
+== La prenotazione delle risorse delle macchine virtuali richiede una modifica
+
+I file OVF includono una riserva di risorse progettata per garantire che ciascun nodo di griglia disponga di RAM e CPU sufficienti per funzionare in modo efficiente. Se si creano macchine virtuali implementando questi file OVF su VMware e il numero predefinito di risorse non è disponibile, le macchine virtuali non si avviano.
+
+.A proposito di questa attività
+Se si è certi che l'host della macchina virtuale disponga di risorse sufficienti per ciascun nodo della griglia, regolare manualmente le risorse allocate per ciascuna macchina virtuale, quindi provare ad avviare le macchine virtuali.
+
+.Fasi
+. Nell'albero del client di VMware vSphere Hypervisor, selezionare la macchina virtuale non avviata.
+. Fare clic con il pulsante destro del mouse sulla macchina virtuale e selezionare *Edit Settings* (Modifica impostazioni).‐
+. Dalla finestra Virtual Machines Properties (Proprietà macchine virtuali), selezionare la scheda *Resources* (risorse).
+. Regolare le risorse allocate alla macchina virtuale:
++
+.. Selezionare *CPU*, quindi utilizzare il dispositivo di scorrimento Reservation (prenotazione) per regolare i MHz riservati per questa macchina virtuale.
+.. Selezionare *memoria*, quindi utilizzare il dispositivo di scorrimento prenotazione per regolare il MB riservato per questa macchina virtuale.
+
+
+. Fare clic su *OK*.
+. Ripetere la procedura secondo necessità per altre macchine virtuali ospitate sullo stesso host di macchine virtuali.
+
+
+
+
+== La password di installazione temporanea è stata disattivata
+
+Quando si implementa un nodo VMware, è possibile specificare facoltativamente una password di installazione temporanea. È necessario disporre di questa password per accedere alla console VM o utilizzare SSH prima che il nuovo nodo si unisca alla griglia.
+
+Se si è scelto di disattivare la password di installazione temporanea, è necessario eseguire ulteriori operazioni per eseguire il debug dei problemi di installazione.
+
+È possibile effettuare una delle seguenti operazioni:
+
+* Ridistribuire la VM ma specificare una password di installazione temporanea in modo da poter accedere alla console o utilizzare SSH per eseguire il debug dei problemi di installazione.
+* Utilizzare vCenter per impostare la password:
++
+.. Spegnere la macchina virtuale.
+.. Vai su *VM*, seleziona la scheda *Configura* e seleziona *opzioni vApp*.
+.. Specificare il tipo di password di installazione temporanea da impostare:
++
+*** Selezionare *CUSTOM_TEMPORARY_PASSWORD* per impostare una password temporanea personalizzata.
+*** Selezionare *TEMPORARY_PASSWORD_TYPE* per utilizzare il nome del nodo come password temporanea.
+
+
+.. Selezionare *Imposta valore*.
+.. Impostare la password temporanea:
++
+*** Modificare *CUSTOM_TEMPORARY_PASSWORD* in un valore di password personalizzato.
+*** Aggiornare *TEMPORARY_PASSWORD_TYPE* con il valore *use node name*.
+
+
+.. Riavviare la macchina virtuale per applicare la nuova password.
+
+
+

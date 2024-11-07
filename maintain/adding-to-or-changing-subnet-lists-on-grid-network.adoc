@@ -1,0 +1,155 @@
+---
+permalink: maintain/adding-to-or-changing-subnet-lists-on-grid-network.html 
+sidebar: sidebar 
+keywords: storagegrid, subnet list, grid network 
+summary: È possibile utilizzare lo strumento Change IP per aggiungere o modificare le subnet nella rete griglia. 
+---
+= Aggiungere o modificare gli elenchi di subnet su Grid Network
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare lo strumento Change IP per aggiungere o modificare le subnet nella rete griglia.
+
+.Prima di iniziare
+* Si dispone del `Passwords.txt` file.
+
+
+È possibile aggiungere, eliminare o modificare le subnet nell'elenco subnet di rete griglia. Le modifiche influiscono sul routing su tutti i nodi della griglia.
+
+
+NOTE: Se si apportano modifiche solo all'elenco subnet di rete griglia, utilizzare Grid Manager per aggiungere o modificare la configurazione di rete. In caso contrario, utilizzare lo strumento Change IP se Grid Manager non è accessibile a causa di un problema di configurazione di rete o se si stanno eseguendo contemporaneamente modifiche al routing Grid Network e altre modifiche di rete.
+
+.Fasi
+. Accedere al nodo di amministrazione principale:
++
+.. Immettere il seguente comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+. Avviare lo strumento Change IP inserendo il seguente comando: `change-ip`
+. Inserire la passphrase di provisioning quando richiesto.
++
+Viene visualizzato il menu principale.
+
++
+image::../media/change_ip_tool_main_menu.png[Schermata di benvenuto dello strumento Change IP]
+
+. Nel menu principale, selezionare l'opzione per modificare le subnet per Grid Network (opzione *4*).
++
+
+NOTE: Le modifiche apportate all'elenco di subnet di rete griglia sono a livello di griglia.
+
+. Scegliere una delle seguenti opzioni:
++
+--
+** Per aggiungere una subnet, immettere il seguente comando: `add CIDR`
+** Per eliminare una subnet, immettere il comando: `del CIDR`
+** Per impostare l'elenco delle subnet, immettere il seguente comando: `set CIDR`
+
+
+--
++
+--
+
+NOTE: Per tutti i comandi, è possibile immettere più indirizzi utilizzando questo formato: `add CIDR, CIDR`
+
+Esempio: `add 172.14.0.0/16, 172.15.0.0/16, 172.16.0.0/16`
+
+
+TIP: È possibile ridurre la quantità di digitazione richiesta utilizzando la "freccia su" per richiamare i valori digitati in precedenza al prompt di immissione corrente, quindi modificarli se necessario.
+
+L'input di esempio riportato di seguito mostra l'impostazione delle subnet per l'elenco di subnet di rete griglia:
+
+image::../media/change_ip_tool_gnsl_sample_input.gif[schermata descritta dal testo circostante]
+
+--
+. Una volta pronti, inserire *q* per tornare alla schermata del menu principale. Le modifiche vengono mantenute fino a quando non vengono cancellate o applicate.
+. Scegliere una delle seguenti opzioni:
++
+** Selezionare l'opzione *5* per visualizzare le modifiche nell'output isolato in modo da visualizzare solo l'elemento modificato. Le modifiche sono evidenziate in verde (aggiunte) o in rosso (eliminazioni), come mostrato nell'esempio riportato di seguito:
++
+image::../media/change_ip_tool_gnsl_sample_output.gif[schermata descritta dal testo circostante]
+
+** Selezionare l'opzione *6* per visualizzare le modifiche nell'output che visualizza la configurazione completa. Le modifiche sono evidenziate in verde (aggiunte) o in rosso (eliminazioni).
++
+
+NOTE: Alcune interfacce della riga di comando potrebbero mostrare aggiunte ed eliminazioni utilizzando la formattazione strikehrough.
+
+
+
+. Selezionare l'opzione *7* per convalidare tutte le modifiche in fasi.
++
+Questa convalida garantisce il rispetto delle regole per le reti Grid, Admin e Client, ad esempio l'utilizzo di sottoreti sovrapposte.
+
+. Se si desidera, selezionare l'opzione *8* per salvare tutte le modifiche in più fasi e tornare in seguito per continuare ad apportare le modifiche.
++
+Questa opzione consente di uscire dallo strumento Change IP e di avviarlo di nuovo in un secondo momento, senza perdere alcuna modifica non applicata.
+
+. Effettuare una delle seguenti operazioni:
++
+** Selezionare l'opzione *9* se si desidera annullare tutte le modifiche senza salvare o applicare la nuova configurazione di rete.
+** Selezionare l'opzione *10* se si desidera applicare le modifiche e fornire la nuova configurazione di rete. Durante il provisioning, l'output visualizza lo stato quando vengono applicati gli aggiornamenti, come mostrato nell'output di esempio seguente:
++
+[listing]
+----
+Generating new grid networking description file...
+
+Running provisioning...
+
+Updating grid network configuration on Name
+----
+
+
+. Se è stata selezionata l'opzione *10* quando si apportano modifiche alla rete griglia, selezionare una delle seguenti opzioni:
++
+** *Apply*: Applica le modifiche immediatamente e riavvia automaticamente ogni nodo, se necessario.
++
+Se la nuova configurazione di rete funziona contemporaneamente alla vecchia configurazione di rete senza modifiche esterne, è possibile utilizzare l'opzione *Apply* per una modifica della configurazione completamente automatica.
+
+** *Fase*: Applicare le modifiche al successivo riavvio dei nodi.
++
+Se è necessario apportare modifiche alla configurazione di rete fisica o virtuale per il funzionamento della nuova configurazione di rete, utilizzare l'opzione *stage*, arrestare i nodi interessati, apportare le necessarie modifiche fisiche di rete e riavviare i nodi interessati.
+
++
+
+NOTE: Se si utilizza l'opzione *stage*, riavviare il nodo il prima possibile dopo lo staging per ridurre al minimo le interruzioni.
+
+** *CANCEL*: Non apportare modifiche alla rete in questo momento.
++
+Se non si è a conoscenza del fatto che le modifiche proposte richiedono il riavvio dei nodi, è possibile posticipare le modifiche per ridurre al minimo l'impatto sull'utente. Selezionando *CANCEL* si torna al menu principale e si conservano le modifiche in modo da poterle applicare in un secondo momento.
+
+
+
++
+Una volta applicate o apportate le modifiche, viene generato un nuovo pacchetto di ripristino in seguito alla modifica della configurazione della griglia.
+
+. Se la configurazione viene interrotta a causa di errori, sono disponibili le seguenti opzioni:
++
+** Per terminare la procedura di modifica dell'indirizzo IP e tornare al menu principale, immettere *a*.
+** Per riprovare l'operazione non riuscita, immettere *r*.
+** Per passare all'operazione successiva, immettere *c*.
++
+L'operazione non riuscita può essere rieseguita in un secondo momento selezionando l'opzione *10* (Applica modifiche) dal menu principale. La procedura di modifica dell'IP non sarà completa fino a quando tutte le operazioni non saranno state completate correttamente.
+
+** Se è stato necessario intervenire manualmente (ad esempio per riavviare un nodo) e si è certi che l'azione che lo strumento ritiene non sia riuscita sia stata completata correttamente, immettere *f* per contrassegnarla come riuscita e passare all'operazione successiva.
+
+
+. Scarica un nuovo pacchetto di ripristino da Grid Manager.
++
+.. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+.. Inserire la passphrase di provisioning.
+
+
++
+
+CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.
+
+

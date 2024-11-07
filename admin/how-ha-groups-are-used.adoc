@@ -1,0 +1,78 @@
+---
+permalink: admin/how-ha-groups-are-used.html 
+sidebar: sidebar 
+keywords: ha groups, high availability group 
+summary: 'È possibile utilizzare gruppi ad alta disponibilità (ha) per fornire connessioni altamente disponibili a StorageGRID per i dati a oggetti e per l"utilizzo amministrativo.' 
+---
+= Come vengono utilizzati i gruppi ha?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare gruppi ad alta disponibilità (ha) per fornire connessioni altamente disponibili a StorageGRID per i dati a oggetti e per l'utilizzo amministrativo.
+
+* Un gruppo ha può fornire connessioni amministrative altamente disponibili al Grid Manager o al tenant Manager.
+* Un gruppo ha può fornire connessioni dati ad alta disponibilità per S3 client.
+* Un gruppo ha che contiene una sola interfaccia consente di fornire molti indirizzi VIP e di impostare esplicitamente gli indirizzi IPv6.
+
+
+Un gruppo ha può fornire alta disponibilità solo se tutti i nodi inclusi nel gruppo forniscono gli stessi servizi. Quando si crea un gruppo ha, aggiungere interfacce dai tipi di nodi che forniscono i servizi richiesti.
+
+* *Admin Node*: Include il servizio Load Balancer e abilita l'accesso al Grid Manager o al Tenant Manager.
+* *Gateway Node*: Include il servizio Load Balancer.
+
+
+[cols="1a,2a"]
+|===
+| Scopo del gruppo ha | Aggiungere nodi di questo tipo al gruppo ha 
+
+
+ a| 
+Accesso a Grid Manager
+ a| 
+* Nodo amministratore primario (*primario*)
+* Nodi amministrativi non primari
+
+
+*Nota:* l'Admin Node primario deve essere l'interfaccia primaria. Alcune procedure di manutenzione possono essere eseguite solo dal nodo di amministrazione primario.
+
+
+
+ a| 
+Accesso solo al tenant manager
+ a| 
+* Nodi di amministrazione primari o non primari
+
+
+
+
+ a| 
+S3 accesso client -- Servizio di bilanciamento del carico
+ a| 
+* Nodi di amministrazione
+* Nodi gateway
+
+
+
+
+ a| 
+S3 accesso client per link:../admin/manage-s3-select-for-tenant-accounts.html["S3 Seleziona"]
+ a| 
+* Appliance di servizi
+* Nodi software basati su VMware
+
+
+*Nota*: I gruppi HA sono consigliati quando si utilizza S3 Select, ma non sono richiesti.
+
+|===
+
+
+== Limitazioni dell'utilizzo di gruppi ha con Grid Manager o Tenant Manager
+
+Se un servizio Grid Manager o Tenant Manager non funziona, il failover del gruppo ha non viene attivato.
+
+Se hai effettuato l'accesso a Grid Manager o a Tenant Manager quando si verifica il failover, sei disconnesso e devi effettuare nuovamente l'accesso per riprendere l'attività.
+
+Non è possibile eseguire alcune procedure di manutenzione quando il nodo di amministrazione primario non è disponibile. Durante il failover, è possibile utilizzare Grid Manager per monitorare il sistema StorageGRID.

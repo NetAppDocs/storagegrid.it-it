@@ -1,0 +1,70 @@
+---
+permalink: maintain/accessing-server-manager-log-file.html 
+sidebar: sidebar 
+keywords: storagegrid, server manager, log file 
+summary: 'Se si verifica un problema durante l"utilizzo di Server Manager, controllare il file di log.' 
+---
+= Risolvere i problemi di Server Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si verifica un problema durante l'utilizzo di Server Manager, controllare il file di log.
+
+I messaggi di errore relativi a Server Manager vengono acquisiti nel file di registro di Server Manager, che si trova in: `/var/local/log/servermanager.log`
+
+Controllare questo file per i messaggi di errore relativi agli errori. Se necessario, inoltrare il problema al supporto tecnico. Potrebbe essere richiesto di inoltrare i file di registro al supporto tecnico.
+
+
+
+== Servizio con stato di errore
+
+Se si rileva che un servizio è entrato in uno stato di errore, tentare di riavviare il servizio.
+
+.Prima di iniziare
+Si dispone del `Passwords.txt` file.
+
+.A proposito di questa attività
+Server Manager monitora i servizi e riavvia quelli che si sono arrestati inaspettatamente. Se un servizio non riesce, Server Manager tenta di riavviarlo. Se si verificano tre tentativi non riusciti di avvio di un servizio entro cinque minuti, il servizio entra in uno stato di errore. Server Manager non tenta un altro riavvio.
+
+.Fasi
+. Accedere al nodo Grid:
++
+.. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+. Confermare lo stato di errore del servizio: `service _servicename_ status`
++
+Ad esempio:
+
++
+[listing]
+----
+service ldr status
+----
++
+Se il servizio è in stato di errore, viene visualizzato il seguente messaggio: `_servicename_ in error state`. Ad esempio:
+
++
+[listing]
+----
+ldr in error state
+----
++
+
+NOTE: Se lo stato del servizio è `disabled`, vedere le istruzioni di link:using-donotstart-file.html["Rimozione di un file DoNotStart per un servizio"].
+
+. Tentare di rimuovere lo stato di errore riavviando il servizio: `service _servicename_ restart`
++
+Se il servizio non viene riavviato, contattare il supporto tecnico.
+
+. Disconnettersi dalla shell dei comandi: `exit`
+

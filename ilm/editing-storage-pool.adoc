@@ -1,0 +1,46 @@
+---
+permalink: ilm/editing-storage-pool.html 
+sidebar: sidebar 
+keywords: edit storage pool 
+summary: È possibile modificare un pool di storage per modificarne il nome o per aggiornare siti e gradi di storage. 
+---
+= Modificare il pool di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare un pool di storage per modificarne il nome o per aggiornare siti e gradi di storage.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+* È stata esaminata la link:guidelines-for-creating-storage-pools.html["linee guida per la creazione di pool di storage"].
+* Se si intende modificare un pool di storage utilizzato da una regola nel criterio ILM attivo, si è preso in considerazione il modo in cui le modifiche influiranno sul posizionamento dei dati degli oggetti.
+
+
+.A proposito di questa attività
+Se si aggiunge un nuovo livello di sito o storage a un pool di storage utilizzato nella policy ILM attiva, tenere presente che i nodi di storage nel nuovo livello di sito o storage non verranno utilizzati automaticamente. Per forzare StorageGRID a utilizzare un nuovo sito o storage grade, è necessario attivare un nuovo criterio ILM dopo aver salvato il pool di storage modificato.
+
+.Fasi
+. Selezionare *ILM* > *Storage Pools*.
+. Selezionare la casella di controllo del pool di storage che si desidera modificare.
++
+Non è possibile modificare il pool di storage di tutti i nodi di storage (StorageGRID 11.6 e versioni precedenti).
+
+. Selezionare *Modifica*.
+. Se necessario, modificare il nome del pool di storage.
+. Se necessario, selezionare altri siti e livelli di storage.
++
+Al cliente viene impedito di modificare il livello del sito o dello storage se il pool di storage viene utilizzato in un profilo di erasure coding e la modifica porterebbe all'invalidità dello schema di erasure coding. Ad esempio, se un pool di storage utilizzato in un profilo di erasure coding include al momento un livello dello storage con un solo sito, è impossibile utilizzare un livello dello storage con due siti, perché la modifica renderebbe lo schema di erasure coding non valido.
+
++
+
+CAUTION: L'aggiunta o la rimozione di siti da un pool di storage non sposterà i dati esistenti sottoposti a erasure coding. Se si desidera spostare i dati esistenti dal sito, è necessario creare un nuovo pool di archiviazione e un profilo EC per ricodificare i dati.
+
+. Selezionare *Salva*.
+
+
+.Al termine
+Se è stato aggiunto un nuovo livello di sito o storage a un pool di storage utilizzato nel criterio ILM attivo, attivare un nuovo criterio ILM per forzare StorageGRID a utilizzare il nuovo livello di storage o di sito. Ad esempio, clonare il criterio ILM esistente e attivare il clone. Vedere link:working-with-ilm-rules-and-ilm-policies.html["Utilizzare le regole ILM e i criteri ILM"].

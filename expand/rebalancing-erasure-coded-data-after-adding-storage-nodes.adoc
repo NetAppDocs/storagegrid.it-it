@@ -1,0 +1,150 @@
+---
+permalink: expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html 
+sidebar: sidebar 
+keywords: erasure coding, EC, rebalancing, site rebalance procedure 
+summary: 'Dopo aver aggiunto i nodi storage, è possibile utilizzare la procedura di ribilanciamento dell"erasure coding per ridistribuire i frammenti sottoposti a erasure coding tra i nodi storage nuovi ed esistenti.' 
+---
+= Ribilanciare i dati con codifica di cancellazione dopo l'aggiunta di nodi di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver aggiunto i nodi storage, è possibile utilizzare la procedura di ribilanciamento dell'erasure coding (EC) per ridistribuire i frammenti sottoposti a erasure coding tra i nodi storage nuovi ed esistenti.
+
+.Prima di iniziare
+* Sono state completate le fasi di espansione per aggiungere i nuovi nodi di storage.
+* È stata esaminata la link:considerations-for-rebalancing-erasure-coded-data.html["considerazioni per il ribilanciamento dei dati con codifica erasure"].
+* Si comprende che i dati degli oggetti replicati non verranno spostati da questa procedura e che la procedura di ribilanciamento EC non prende in considerazione l'utilizzo dei dati replicati su ciascun nodo di storage quando si determina dove spostare i dati con codifica di cancellazione.
+* Si dispone del `Passwords.txt` file.
+
+
+.Cosa succede quando viene eseguita questa procedura
+Prima di iniziare la procedura, prendere nota di quanto segue:
+
+* La procedura di ribilanciamento EC non si avvia se uno o più volumi sono offline (non montati) o se sono online (montati) ma in uno stato di errore.
+* La procedura di ribilanciamento EC riserva temporaneamente una grande quantità di storage. Gli avvisi relativi allo storage potrebbero essere attivati, ma verranno risolti al termine del ribilanciamento. Se lo storage non è sufficiente per la prenotazione, la procedura di ribilanciamento EC non avrà esito positivo. Le riserve di storage vengono rilasciate al termine della procedura di ribilanciamento EC, indipendentemente dal fatto che la procedura abbia avuto esito negativo o positivo.
+* Se un volume non è in linea mentre è in corso la procedura di riequilibrio EC, la procedura di riequilibrio terminerà. Tutti i frammenti di dati che sono stati già spostati rimarranno nelle nuove posizioni e i dati non andranno persi.
++
+È possibile eseguire nuovamente la procedura dopo che tutti i volumi sono stati nuovamente online.
+
+* Quando la procedura di riequilibrio EC è in esecuzione, le prestazioni delle operazioni ILM e delle operazioni client S3 potrebbero risentirne.
++
+
+NOTE: S3 le operazioni API per caricare oggetti (o parti di oggetti) potrebbero non riuscire durante la procedura di riequilibrio EC se sono necessarie più di 24 ore per il completamento. Le operazioni PUT di lunga durata non avranno esito positivo se la regola ILM applicabile utilizza un posizionamento bilanciato o rigoroso all'acquisizione. Viene segnalato il seguente errore: `500 Internal Server Error`.
+
+* Durante questa procedura, tutti i nodi hanno un limite di capacità storage del 80%. I nodi che superano questo limite, ma che rimangono al di sotto della partizione dei dati di destinazione, sono esclusi da:
++
+** Il valore di squilibrio del sito
+** Qualsiasi condizione di completamento del lavoro
++
+
+NOTE: La partizione dei dati di destinazione viene calcolata dividendo i dati totali di un sito per il numero di nodi.
+
+
+
+* *Condizioni di completamento del lavoro*. La procedura di riequilibrio CE è considerata completa quando si verifica una delle seguenti condizioni:
++
+** Impossibile spostare altri dati sottoposti a erasure coding.
+** I dati in tutti i nodi rientrano in una deviazione del 5% della partizione dei dati di destinazione.
+** La procedura è in corso da 30 giorni.
+
+
+
+
+.Fasi
+. [[review_object_storage]]Rivedi i dettagli dello storage a oggetti corrente per il sito che intendi ribilanciare.
++
+.. Selezionare *NODI*.
+.. Selezionare il primo nodo di storage nel sito.
+.. Selezionare la scheda *Storage*.
+.. Posizionare il cursore sul grafico Storage Used - Object Data (Storage utilizzato - dati oggetto) per visualizzare la quantità corrente di dati replicati e i dati con codifica di cancellazione sul nodo di storage.
+.. Ripetere questa procedura per visualizzare gli altri nodi di storage del sito.
+
+
+. Accedere al nodo di amministrazione principale:
++
+.. Immettere il seguente comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+
+. Avviare la procedura:
++
+`rebalance-data start --site "_site-name_"
+
++
+Per "_site-name_", specificare il primo sito in cui sono stati aggiunti nuovi nodi di archiviazione. Racchiudere `site-name` tra virgolette.
+
++
+Viene avviata la procedura di ribilanciamento EC e viene restituito un ID lavoro.
+
+. Copiare l'ID lavoro.
+. [[view-status]]monitorare lo stato della procedura di riequilibrio CE.
++
+** Per visualizzare lo stato di una singola procedura di ribilanciamento EC:
++
+`rebalance-data status --job-id _job-id_`
+
++
+Per `_job-id_`, specificare l'ID restituito all'avvio della procedura.
+
+** Per visualizzare lo stato della procedura di ribilanciamento EC corrente e delle procedure precedentemente completate:
++
+`rebalance-data status`
+
++
+[NOTE]
+====
+Per ottenere assistenza sul comando ribilanciamento-dati:
+
+`rebalance-data --help`
+
+====
+
+
+. Eseguire ulteriori operazioni in base allo stato restituito:
++
+** Se `State` è, l'operazione di riequilibrio EC è `In progress` ancora in esecuzione. È necessario monitorare periodicamente la procedura fino al completamento.
++
+Utilizza il `Site Imbalance` valore per valutare l'utilizzo non bilanciato dei dati dell'erasure coding nei nodi storage del sito. Questo valore può essere compreso tra 1,0 e 0, con 0 che indica che l'utilizzo dei dati con erasure coding è completamente bilanciato in tutti i nodi storage del sito.
+
++
+Il processo di riequilibrio EC è considerato completo e si interrompe quando i dati in tutti i nodi rientrano in una deviazione del 5% della partizione dei dati di destinazione.
+
+** Se `State` è `Success`, in alternativa, <<review_object_storage,esaminare lo storage a oggetti>>per visualizzare i dettagli aggiornati del sito.
++
+I dati con codifica erasure dovrebbero ora essere più bilanciati tra i nodi di storage del sito.
+
+** Se `State` è `Failure`:
++
+... Verificare che tutti i nodi di storage del sito siano connessi alla rete.
+... Controllare e risolvere eventuali avvisi che potrebbero influire su questi nodi di storage.
+... Riavviare la procedura di ribilanciamento EC:
++
+`rebalance-data start –-job-id _job-id_`
+
+... <<view-status,Visualizzare lo stato>> della nuova procedura. Se `State` è ancora `Failure`, contattare il supporto tecnico.
+
+
+
+
+. Se la procedura di ribilanciamento EC genera un carico eccessivo (ad esempio, le operazioni di acquisizione sono interessate), sospendere la procedura.
++
+`rebalance-data pause --job-id _job-id_`
+
+. Se è necessario terminare la procedura di ribilanciamento EC (ad esempio, in modo da poter eseguire un aggiornamento del software StorageGRID), immettere quanto segue:
++
+`rebalance-data terminate --job-id _job-id_`
+
++
+
+NOTE: Quando si termina una procedura di riequilibrio EC, tutti i frammenti di dati che sono già stati spostati rimangono nelle nuove posizioni. I dati non vengono spostati di nuovo nella posizione originale.
+
+. Se si utilizza la codifica erasure in più siti, eseguire questa procedura per tutti gli altri siti interessati.
+

@@ -1,0 +1,49 @@
+= 
+:allow-uri-read: 
+
+
+[cols="2a,2a"]
+|===
+| Browser Web | Versione minima supportata 
+
+
+ a| 
+Google Chrome
+ a| 
+119
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+119
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+119
+
+|===
+Impostare la larghezza consigliata per la finestra del browser.
+
+[cols="3a,1a"]
+|===
+| Larghezza del browser | Pixel 
+
+
+ a| 
+Minimo
+ a| 
+1024
+
+
+
+ a| 
+Ottimale
+ a| 
+1280
+
+|===

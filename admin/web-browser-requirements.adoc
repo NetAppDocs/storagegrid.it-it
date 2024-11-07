@@ -1,0 +1,60 @@
+---
+permalink: admin/web-browser-requirements.html 
+sidebar: sidebar 
+keywords: web browser requirements, supported browser, chrome, edge, firefox 
+summary: È necessario utilizzare un browser Web supportato. 
+---
+= Requisiti del browser Web
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario utilizzare un browser Web supportato.
+
+[cols="2a,2a"]
+|===
+| Browser Web | Versione minima supportata 
+
+
+ a| 
+Google Chrome
+ a| 
+119
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+119
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+119
+
+|===
+Impostare la larghezza consigliata per la finestra del browser.
+
+[cols="3a,1a"]
+|===
+| Larghezza del browser | Pixel 
+
+
+ a| 
+Minimo
+ a| 
+1024
+
+
+
+ a| 
+Ottimale
+ a| 
+1280
+
+|===

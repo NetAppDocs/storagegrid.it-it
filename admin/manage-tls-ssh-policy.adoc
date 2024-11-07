@@ -1,0 +1,135 @@
+---
+permalink: admin/manage-tls-ssh-policy.html 
+sidebar: sidebar 
+keywords: TLS and SSH policy, secure connection, FIPS, Common Criteria 
+summary: I criteri TLS e SSH determinano i protocolli e le crittografia utilizzati per stabilire connessioni TLS sicure con le applicazioni client e connessioni SSH sicure ai servizi StorageGRID interni. 
+---
+= Gestire i criteri TLS e SSH
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I criteri TLS e SSH determinano i protocolli e le crittografia utilizzati per stabilire connessioni TLS sicure con le applicazioni client e connessioni SSH sicure ai servizi StorageGRID interni.
+
+Il criterio di sicurezza controlla il modo in cui TLS e SSH crittografano i dati in movimento. In generale, utilizzare il criterio di compatibilità moderno (predefinito), a meno che il sistema non debba essere conforme ai criteri comuni o non sia necessario utilizzare altre crittografia.
+
+
+NOTE: Alcuni servizi StorageGRID non sono stati aggiornati per utilizzare le crittografia di questi criteri.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:admin-group-permissions.html["Autorizzazione di accesso root"].
+
+
+
+
+== Selezionare una policy di sicurezza
+
+.Fasi
+. Selezionare *CONFIGURATION* > *Security* > *Security settings*.
++
+La scheda *TLS and SSH policies* (Criteri TLS e SSH) mostra i criteri disponibili. Il criterio attualmente attivo è contrassegnato da un segno di spunta verde sul riquadro del criterio.
+
++
+image::../media/securitysettings_tls_ssh_policies_current.png[Policy TLS e SSH]
+
+. Consulta i riquadri per scoprire le policy disponibili.
++
+[cols="1a,2a"]
+|===
+| Policy | Descrizione 
+
+
+ a| 
+Compatibilità moderna (impostazione predefinita)
+ a| 
+Utilizzare il criterio predefinito se è necessaria una crittografia avanzata e se non si dispone di requisiti speciali. Questo criterio è compatibile con la maggior parte dei client TLS e SSH.
+
+
+
+ a| 
+Compatibilità con le versioni precedenti
+ a| 
+Utilizzare questo criterio se sono necessarie ulteriori opzioni di compatibilità per i client meno recenti. Le opzioni aggiuntive di questa policy potrebbero renderla meno sicura rispetto alla moderna policy di compatibilità.
+
+
+
+ a| 
+Criteri comuni
+ a| 
+Utilizzare questa policy se si richiede la certificazione Common Criteria.
+
+
+
+ a| 
+FIPS rigoroso
+ a| 
+Utilizzare questo criterio se si richiede la certificazione Common Criteria e si deve utilizzare il modulo di protezione Cryptographic NetApp 3.0.8 per connessioni client esterne agli endpoint di bilanciamento del carico, a Gestore tenant e a Gestione griglia. L'utilizzo di questo criterio potrebbe ridurre le performance.
+
+*Nota*: Dopo aver selezionato questo criterio, tutti i nodi devono link:../maintain/rolling-reboot-procedure.html["riavviato in modo scorrevole"]attivare il modulo di protezione crittografica NetApp. Utilizzare *manutenzione* > *riavvio in sequenza* per avviare e riavviare il monitor.
+
+
+
+ a| 
+Personalizzato
+ a| 
+Creare un criterio personalizzato se è necessario applicare le proprie crittografia.
+
+|===
+. Per visualizzare i dettagli relativi a crittografia, protocolli e algoritmi di ogni policy, selezionare *Visualizza dettagli*.
+. Per modificare la policy corrente, selezionare *Usa policy*.
++
+Un segno di spunta verde viene visualizzato accanto a *policy corrente* nel riquadro del criterio.
+
+
+
+
+
+== Creare una policy di sicurezza personalizzata
+
+È possibile creare una policy personalizzata se è necessario applicare le proprie crittografia.
+
+.Fasi
+. Dal riquadro del criterio più simile al criterio personalizzato che si desidera creare, selezionare *Visualizza dettagli*.
+. Selezionare *Copia negli Appunti*, quindi selezionare *Annulla*.
++
+image::../media/securitysettings-custom-security-policy-copy.png[copia di un criterio esistente per creare un criterio personalizzato]
+
+. Dal riquadro *Custom policy*, selezionare *Configure and use* (Configura e utilizza).
+. Incollare il JSON copiato e apportare le modifiche necessarie.
+. Selezionare *Usa policy*.
++
+Un segno di spunta verde viene visualizzato accanto a *Current policy* (policy corrente) nel riquadro Custom policy (policy personalizzate).
+
+. Facoltativamente, selezionare *Edit Configuration* (Modifica configurazione) per apportare ulteriori modifiche al nuovo criterio personalizzato.
+
+
+
+
+== Ripristinare temporaneamente il criterio di protezione predefinito
+
+Se è stato configurato un criterio di protezione personalizzato, potrebbe non essere possibile accedere a Grid Manager se il criterio TLS configurato non è compatibile con link:global-certificate-types.html["certificato server configurato"].
+
+È possibile ripristinare temporaneamente i criteri di protezione predefiniti.
+
+.Fasi
+. Accedere a un nodo amministratore:
++
+.. Immettere il seguente comando: `ssh admin@_Admin_Node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+
+. Eseguire il seguente comando:
++
+`restore-default-cipher-configurations`
+
+. Da un browser Web, accedere a Grid Manager sullo stesso nodo di amministrazione.
+. Per configurare nuovamente il criterio, procedere come <<select-a-security-policy,Selezionare una policy di sicurezza>>segue.
+

@@ -1,0 +1,59 @@
+---
+permalink: ubuntu/index.html 
+sidebar: sidebar 
+keywords: about ubuntu, ubuntu overview 
+summary: Seguire questi passaggi di alto livello per installare un nodo Ubuntu o Debian StorageGRID. 
+---
+= Avvio rapido per l'installazione di StorageGRID su Ubuntu o Debian
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire questi passaggi di alto livello per installare un nodo Ubuntu o Debian StorageGRID.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Preparazione
+[role="quick-margin-list"]
+* Ulteriori informazioni su link:../primer/storagegrid-architecture-and-network-topology.html["Architettura StorageGRID e topologia di rete"].
+* Informazioni sulle specifiche di link:../network/index.html["Networking StorageGRID"].
+* Raccogliere e preparare il link:required-materials.html["Informazioni e materiali richiesti"].
+* Preparare il necessario link:cpu-and-ram-requirements.html["CPU e RAM"].
+* Prevedere link:storage-and-performance-requirements.html["requisiti di storage e performance"].
+* link:how-host-wide-settings-change.html["Preparare i server Linux"] Che ospiterà i nodi StorageGRID.
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"] Distribuzione
+[role="quick-margin-para"]
+Implementare i nodi grid. Quando si implementano nodi grid, questi vengono creati come parte del sistema StorageGRID e connessi a una o più reti.
+
+[role="quick-margin-list"]
+* Per distribuire nodi griglia basati su software sugli host preparati al passaggio 1, utilizzare la riga di comando Linux e link:creating-node-configuration-files.html["file di configurazione dei nodi"].
+* Per implementare i nodi di appliance StorageGRID, seguire la https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Avvio rapido per l'installazione dell'hardware"^].
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"] Configurazione
+[role="quick-margin-para"]
+Una volta distribuiti tutti i nodi, utilizzare Grid Manager in link:navigating-to-grid-manager.html["configurare la griglia e completare l'installazione"].
+
+
+
+== Automatizzare l'installazione
+
+Per risparmiare tempo e garantire coerenza, è possibile automatizzare l'installazione del servizio host StorageGRID e la configurazione dei nodi grid.
+
+* Utilizza un framework di orchestrazione standard come Ansible, Puppet o Chef per automatizzare:
++
+** Installazione di Ubuntu o Debian
+** Configurazione di rete e storage
+** Installazione del motore del container e del servizio host StorageGRID
+** Implementazione di nodi grid virtuali
+
+
++
+Vedere link:automating-installation.html#automate-the-installation-and-configuration-of-the-storagegrid-host-service["Automatizzare l'installazione e la configurazione del servizio host StorageGRID"].
+
+* Dopo aver implementato i nodi griglia, link:automating-installation.html#automate-the-configuration-of-storagegrid["Automatizzare la configurazione del sistema StorageGRID"] utilizzando lo script di configurazione Python fornito nell'archivio di installazione.
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["Automatizzare l'installazione e la configurazione dei nodi grid delle appliance"^]
+* Se si è uno sviluppatore avanzato di distribuzioni StorageGRID, automatizzare l'installazione dei nodi griglia utilizzando link:overview-of-installation-rest-api.html["API REST di installazione"].
+

@@ -1,0 +1,138 @@
+---
+permalink: ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html 
+sidebar: sidebar 
+keywords: object versions, example ILM rule, information lifecycle rule examples 
+summary: 'Se si dispone di un bucket S3 con la versione attivata, è possibile gestire le versioni degli oggetti non correnti includendo le regole nella policy ILM che utilizzano l"ora non corrente come tempo di riferimento.' 
+---
+= Esempio 4: Regole ILM e policy per gli oggetti con versione S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si dispone di un bucket S3 con versione abilitata, è possibile gestire le versioni non correnti degli oggetti includendo regole nel criterio ILM che utilizzano "tempo non corrente" come tempo di riferimento.
+
+
+CAUTION: Se si specifica un tempo di conservazione limitato per gli oggetti, questi verranno eliminati in modo permanente una volta raggiunto il periodo di tempo. Assicurarsi di comprendere per quanto tempo gli oggetti verranno conservati.
+
+Come illustrato in questo esempio, è possibile controllare la quantità di storage utilizzata dagli oggetti con versione utilizzando istruzioni di posizionamento diverse per le versioni degli oggetti non correnti.
+
+
+CAUTION: Le seguenti regole e policy ILM sono solo esempi. Esistono diversi modi per configurare le regole ILM. Prima di attivare un nuovo criterio, simularlo per verificare che funzioni come previsto per proteggere il contenuto dalla perdita.
+
+
+NOTE: Per eseguire la simulazione dei criteri ILM su una versione non corrente di un oggetto, è necessario conoscere l'UUID o il CBID della versione dell'oggetto. Per trovare UUID e CBID, utilizzare link:verifying-ilm-policy-with-object-metadata-lookup.html["ricerca dei metadati degli oggetti"] mentre l'oggetto è ancora corrente.
+
+.Informazioni correlate
+link:how-objects-are-deleted.html["Modalità di eliminazione degli oggetti"]
+
+
+
+== ILM regola 1 per esempio 4: Salva tre copie per 10 anni
+
+Questa regola ILM di esempio memorizza una copia di ciascun oggetto in tre siti per 10 anni.
+
+Questa regola si applica a tutti gli oggetti, indipendentemente dal fatto che siano con versione.
+
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Pool di storage
+ a| 
+Tre pool di storage, ciascuno costituito da diversi data center, denominati Sito 1, Sito 2 e Sito 3.
+
+
+
+ a| 
+Nome della regola
+ a| 
+Tre copie dieci anni
+
+
+
+ a| 
+Tempo di riferimento
+ a| 
+Tempo di acquisizione
+
+
+
+ a| 
+Posizionamenti
+ a| 
+Il giorno 0, conserva tre copie replicate per 10 anni (3,652 giorni), una nel sito 1, una nel sito 2 e una nel sito 3. Alla fine dei 10 anni, eliminare tutte le copie dell'oggetto.
+
+|===
+
+
+== ILM regola 2 per esempio 4: Salva due copie di versioni non correnti per 2 anni
+
+Questa regola ILM di esempio memorizza due copie delle versioni non correnti di un oggetto con versione S3 per 2 anni.
+
+Poiché la regola ILM 1 si applica a tutte le versioni dell'oggetto, è necessario creare un'altra regola per filtrare le versioni non correnti.
+
+Per creare una regola che utilizza "ora non corrente" come ora di riferimento, selezionare *Sì* per la domanda "Applica questa regola solo alle versioni di oggetti precedenti (nei bucket S3 con versione abilitata)?" Nel passaggio 1 (immettere i dettagli) della procedura guidata Crea una regola ILM. Quando si seleziona *Sì*, viene automaticamente selezionata l'opzione _ora non corrente_ per l'ora di riferimento e non è possibile selezionare un'ora di riferimento diversa.
+
+image::../media/ilm-rule-apply-only-to-older-object-verions.png[Applica la regola ILM solo alle versioni di oggetti precedenti (ora non corrente)]
+
+In questo esempio, vengono memorizzate solo due copie delle versioni non correnti, che verranno memorizzate per due anni.
+
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Pool di storage
+ a| 
+Due pool di storage, ciascuno in diversi data center, sito 1 e sito 2.
+
+
+
+ a| 
+Nome della regola
+ a| 
+Versioni non correnti: Due copie per due anni
+
+
+
+ a| 
+Tempo di riferimento
+ a| 
+Ora non corrente
+
+Selezionato automaticamente quando si seleziona *Sì* per la domanda "Applica questa regola solo alle versioni di oggetti precedenti (nei bucket S3 con versione abilitata)?" Nella procedura guidata Crea una regola ILM.
+
+
+
+ a| 
+Posizionamenti
+ a| 
+Il giorno 0 relativo all'ora non corrente (ovvero, a partire dal giorno in cui la versione dell'oggetto diventa la versione non corrente), mantenere due copie replicate delle versioni dell'oggetto non correnti per 2 anni (730 giorni), una nel sito 1 e una nel sito 2. Alla fine di 2 anni, eliminare le versioni non aggiornate.
+
+|===
+
+
+== Policy ILM per esempio 4: Oggetti con versione S3
+
+Se si desidera gestire le versioni precedenti di un oggetto in modo diverso dalla versione corrente, le regole che utilizzano l'ora non corrente come ora di riferimento devono essere visualizzate nel criterio ILM prima delle regole applicabili alla versione corrente dell'oggetto.
+
+Un criterio ILM per gli oggetti con versione S3 potrebbe includere regole ILM come le seguenti:
+
+* Mantenere le versioni precedenti (non aggiornate) di ciascun oggetto per 2 anni, a partire dal giorno in cui la versione è diventata non aggiornata.
++
+
+NOTE: Le regole "tempo non corrente" devono essere visualizzate nel criterio prima delle regole che si applicano alla versione dell'oggetto corrente. In caso contrario, le versioni degli oggetti non correnti non verranno mai abbinate alla regola "tempo non corrente".
+
+* Al momento dell'acquisizione, creare tre copie replicate e memorizzare una copia in ciascuno dei tre siti. Conserva le copie della versione corrente dell'oggetto per 10 anni.
+
+
+Quando si simula il criterio di esempio, si prevede che gli oggetti di test vengano valutati come segue:
+
+* Qualsiasi versione dell'oggetto non corrente verrebbe associata dalla prima regola. Se una versione dell'oggetto non corrente ha più di 2 anni, viene eliminata in modo permanente da ILM (tutte le copie della versione non corrente vengono rimosse dalla griglia).
+* La seconda regola corrisponde alla versione corrente dell'oggetto. Quando la versione corrente dell'oggetto è stata archiviata per 10 anni, il processo ILM aggiunge un marcatore di eliminazione come versione corrente dell'oggetto e rende la versione precedente "non corrente". La prossima volta che si verifica la valutazione ILM, questa versione non corrente corrisponde alla prima regola. Di conseguenza, la copia del sito 3 viene eliminata e le due copie del sito 1 e del sito 2 vengono memorizzate per altri 2 anni.
+

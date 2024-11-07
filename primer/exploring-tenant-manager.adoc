@@ -1,0 +1,94 @@
+---
+permalink: primer/exploring-tenant-manager.html 
+sidebar: sidebar 
+keywords: what is the tenant manager, tenant manager dashboard 
+summary: 'Tenant Manager è l"interfaccia grafica basata su browser a cui gli utenti tenant accedono per configurare, gestire e monitorare i propri account di storage.' 
+---
+= Esplora il tenant manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+link:../tenant/index.html["Manager tenant"]È l'interfaccia grafica basata su browser a cui gli utenti del tenant accedono per configurare, gestire e monitorare i propri account di storage.
+
+
+NOTE: Tenant Manager viene aggiornato con ogni versione e potrebbe non corrispondere alle schermate di esempio riportate in questa pagina.
+
+Quando gli utenti tenant accedono a Tenant Manager, si connettono a un nodo Admin.
+
+
+
+== Dashboard di tenant Manager
+
+Dopo che un amministratore di grid ha creato un account tenant utilizzando Grid Manager o l'API Grid Management, gli utenti del tenant possono accedere a Tenant Manager.
+
+La dashboard di Tenant Manager consente agli utenti del tenant di monitorare l'utilizzo dello storage in un colpo d'occhio. Il pannello Storage Use (utilizzo storage) contiene un elenco dei bucket più grandi (S3) o container (Swift) per il tenant. Il valore spazio utilizzato è la quantità totale di dati oggetto nel bucket o nel container. Il grafico a barre rappresenta le dimensioni relative di questi bucket o container.
+
+Il valore visualizzato sopra il grafico a barre è la somma dello spazio utilizzato per tutti i bucket o i container del tenant. Se al momento della creazione dell'account è stato specificato il numero massimo di gigabyte, terabyte o petabyte disponibili per il tenant, viene visualizzata anche la quantità di quota utilizzata e rimanente.
+
+image::../media/tenant_dashboard_with_buckets.png[Dashboard di tenant Manager]
+
+
+
+== Menu Storage (S3)
+
+Il menu Storage (archiviazione) è disponibile solo per gli account tenant S3. Questo menu consente agli utenti S3 di gestire le chiavi di accesso, creare, gestire ed eliminare i bucket, gestire gli endpoint dei servizi della piattaforma e visualizzare le connessioni di federazione di griglie che possono utilizzare.
+
+
+
+=== Chiavi di accesso personali
+
+Gli utenti del tenant S3 possono gestire le chiavi di accesso come segue:
+
+* Gli utenti che dispongono dell'autorizzazione Gestisci le tue credenziali S3 possono creare o rimuovere le proprie chiavi di accesso S3.
+* Gli utenti che dispongono dell'autorizzazione di accesso root possono gestire le chiavi di accesso per l'account root S3, il proprio account e tutti gli altri utenti. Le chiavi di accesso root forniscono anche l'accesso completo ai bucket e agli oggetti del tenant, a meno che non vengano disabilitate esplicitamente da una policy del bucket.
++
+
+NOTE: La gestione delle chiavi di accesso per altri utenti avviene dal menu Gestione accessi.
+
+
+
+
+
+=== Bucket
+
+Gli utenti del tenant S3 con le autorizzazioni appropriate possono eseguire le seguenti attività per i bucket:
+
+* Creare bucket
+* Attiva blocco oggetti S3 per un nuovo bucket (presuppone che il blocco oggetti S3 sia abilitato per il sistema StorageGRID)
+* Aggiornare i valori di coerenza
+* Attiva e disattiva gli ultimi aggiornamenti dell'orario di accesso
+* Attivare o sospendere il controllo delle versioni degli oggetti
+* Aggiorna la conservazione predefinita del blocco oggetti S3
+* Configurare la condivisione delle risorse tra origini (CORS)
+* Elimina tutti gli oggetti in un bucket
+* Eliminare i bucket vuoti
+* Utilizzare link:../tenant/use-s3-console.html["S3 Console"]per gestire gli oggetti bucket
+
+
+Se un amministratore di grid ha abilitato l'utilizzo dei servizi della piattaforma per l'account tenant, un utente tenant S3 con le autorizzazioni appropriate può eseguire anche queste attività:
+
+* Configurare le notifiche degli eventi S3, che possono essere inviate a un servizio di destinazione che supporta Amazon Simple Notification Service.
+* Configurare la replica di CloudMirror, che consente al tenant di replicare automaticamente gli oggetti in un bucket S3 esterno.
+* Configurare l'integrazione della ricerca, che invia i metadati degli oggetti a un indice di ricerca di destinazione ogni volta che un oggetto viene creato, cancellato o i relativi metadati o tag vengono aggiornati.
+
+
+
+
+=== Endpoint dei servizi di piattaforma
+
+Se un amministratore di grid ha abilitato l'utilizzo dei servizi di piattaforma per l'account tenant, un utente tenant S3 con l'autorizzazione Gestisci endpoint può configurare un endpoint di destinazione per ciascun servizio di piattaforma.
+
+
+
+=== Connessioni a federazione di griglie
+
+Se un amministratore della griglia ha abilitato l'utilizzo di una connessione a federazione di griglie per l'account tenant, un utente tenant S3 che dispone dell'autorizzazione di accesso root può visualizzare il nome della connessione e accedere alla pagina dei dettagli del bucket per ogni bucket che ha attivato la replica cross-grid, e visualizzare l'errore più recente che si verifica quando i dati del bucket venivano replicati nell'altra griglia della connessione. Vedere link:../tenant/grid-federation-view-connections-tenant.html["Visualizza connessioni di federazione di griglie"].
+
+
+
+== Accedere al menu Gestione
+
+Il menu Gestione accessi consente ai tenant StorageGRID di importare gruppi di utenti da un'origine di identità federata e assegnare autorizzazioni di gestione. I tenant possono anche gestire utenti e gruppi di tenant locali, a meno che il single sign-on (SSO) non sia attivo per l'intero sistema StorageGRID.

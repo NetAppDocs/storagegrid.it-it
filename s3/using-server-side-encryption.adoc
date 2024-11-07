@@ -1,0 +1,113 @@
+---
+permalink: s3/using-server-side-encryption.html 
+sidebar: sidebar 
+keywords: server side encryption, encryption, operations on objects, objects 
+summary: 'La crittografia lato server consente di proteggere i dati a oggetti inattivi. StorageGRID crittografa i dati durante la scrittura dell"oggetto e li decrta quando si accede all"oggetto.' 
+---
+= Utilizzare la crittografia lato server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La crittografia lato server consente di proteggere i dati a oggetti inattivi. StorageGRID crittografa i dati durante la scrittura dell'oggetto e li decrta quando si accede all'oggetto.
+
+Se si desidera utilizzare la crittografia lato server, è possibile scegliere una delle due opzioni che si escludono a vicenda, in base alla modalità di gestione delle chiavi di crittografia:
+
+* *SSE (crittografia lato server con chiavi gestite da StorageGRID)*: Quando si invia una richiesta S3 per memorizzare un oggetto, StorageGRID crittografa l'oggetto con una chiave univoca. Quando si invia una richiesta S3 per recuperare l'oggetto, StorageGRID utilizza la chiave memorizzata per decrittare l'oggetto.
+* *SSE-C (crittografia lato server con chiavi fornite dal cliente)*: Quando si invia una richiesta S3 per memorizzare un oggetto, viene fornita la propria chiave di crittografia. Quando si recupera un oggetto, si fornisce la stessa chiave di crittografia come parte della richiesta. Se le due chiavi di crittografia corrispondono, l'oggetto viene decrittografato e vengono restituiti i dati dell'oggetto.
++
+Mentre StorageGRID gestisce tutte le operazioni di crittografia e decifratura degli oggetti, è necessario gestire le chiavi di crittografia fornite.
+
++
+
+CAUTION: Le chiavi di crittografia fornite non vengono mai memorizzate. Se si perde una chiave di crittografia, si perde l'oggetto corrispondente.
+
++
+
+NOTE: Se un oggetto viene crittografato con SSE o SSE-C, tutte le impostazioni di crittografia a livello di bucket o di griglia vengono ignorate.
+
+
+
+
+
+== Utilizzare SSE
+
+Per crittografare un oggetto con una chiave univoca gestita da StorageGRID, utilizzare la seguente intestazione di richiesta:
+
+`x-amz-server-side-encryption`
+
+L'intestazione della richiesta SSE è supportata dalle seguenti operazioni a oggetti:
+
+* link:put-object.html["PutObject"]
+* link:put-object-copy.html["Oggetto CopyObject"]
+* link:initiate-multipart-upload.html["CreateMultipartUpload"]
+
+
+
+
+== Utilizzare SSE-C.
+
+Per crittografare un oggetto con una chiave univoca gestita, vengono utilizzate tre intestazioni di richiesta:
+
+[cols="1a,2a"]
+|===
+| Intestazione della richiesta | Descrizione 
+
+
+ a| 
+`x-amz-server-side​-encryption​-customer-algorithm`
+ a| 
+Specificare l'algoritmo di crittografia. Il valore dell'intestazione deve essere `AES256`.
+
+
+
+ a| 
+`x-amz-server-side​-encryption​-customer-key`
+ a| 
+Specificare la chiave di crittografia che verrà utilizzata per crittografare o decrittare l'oggetto. Il valore della chiave deve essere 256 bit, con codifica base64.
+
+
+
+ a| 
+`x-amz-server-side​-encryption​-customer-key-MD5`
+ a| 
+Specificare il digest MD5 della chiave di crittografia in base a RFC 1321, utilizzato per garantire che la chiave di crittografia sia stata trasmessa senza errori. Il valore del digest MD5 deve essere a 128 bit con codifica base64.
+
+|===
+Le intestazioni delle richieste SSE-C sono supportate dalle seguenti operazioni a oggetti:
+
+* link:get-object.html["GetObject"]
+* link:head-object.html["HeadObject (oggetto intestazione)"]
+* link:put-object.html["PutObject"]
+* link:put-object-copy.html["Oggetto CopyObject"]
+* link:initiate-multipart-upload.html["CreateMultipartUpload"]
+* link:upload-part.html["UploadPart"]
+* link:upload-part-copy.html["UploadPartCopy"]
+
+
+
+
+== Considerazioni sull'utilizzo della crittografia lato server con le chiavi fornite dal cliente (SSE-C)
+
+Prima di utilizzare SSE-C, tenere presente quanto segue:
+
+* È necessario utilizzare https.
++
+
+CAUTION: StorageGRID rifiuta qualsiasi richiesta effettuata tramite http quando si utilizza SSE-C. per motivi di sicurezza, è necessario considerare qualsiasi chiave inviata accidentalmente utilizzando http come compromessa. Eliminare la chiave e ruotarla in base alle necessità.
+
+* L'ETag nella risposta non è l'MD5 dei dati dell'oggetto.
+* È necessario gestire il mapping delle chiavi di crittografia agli oggetti. StorageGRID non memorizza le chiavi di crittografia. L'utente è responsabile del rilevamento della chiave di crittografia che fornisce per ciascun oggetto.
+* Se il bucket è abilitato per la versione, ogni versione dell'oggetto deve disporre di una propria chiave di crittografia. L'utente è responsabile del rilevamento della chiave di crittografia utilizzata per ciascuna versione dell'oggetto.
+* Poiché si gestiscono le chiavi di crittografia sul lato client, è necessario gestire anche eventuali protezioni aggiuntive, come la rotazione delle chiavi, sul lato client.
++
+
+CAUTION: Le chiavi di crittografia fornite non vengono mai memorizzate. Se si perde una chiave di crittografia, si perde l'oggetto corrispondente.
+
+* Se la replica cross-grid o CloudMirror è configurata per il bucket, non è possibile acquisire oggetti SSE-C. L'operazione di acquisizione non riesce.
+
+
+.Informazioni correlate
+https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html["Manuale dell'utente di Amazon S3: Utilizzo della crittografia lato server con chiavi fornite dal cliente (SSE-C)"^]

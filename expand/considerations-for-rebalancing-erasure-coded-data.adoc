@@ -1,0 +1,185 @@
+---
+permalink: expand/considerations-for-rebalancing-erasure-coded-data.html 
+sidebar: sidebar 
+keywords: erasure coding, rebalance, ec rebalance, site rebalance 
+summary: 'Se si sta eseguendo un"espansione per aggiungere nodi di storage e si utilizzano le regole ILM per erasure dei dati del codice, potrebbe essere necessario eseguire la procedura di ribilanciamento EC se non è possibile aggiungere un numero sufficiente di nodi di storage per lo schema di erasure coding in uso.' 
+---
+= Considerazioni per il ribilanciamento dei dati con codifica erasure
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si sta eseguendo un'espansione per aggiungere nodi storage e si utilizzano le regole ILM per cancellare i dati, potrebbe essere necessario eseguire la procedura di riequilibrio EC (erasure coding) se non è possibile aggiungere nodi storage sufficienti per lo schema di erasure coding in uso.
+
+Dopo aver esaminato queste considerazioni, eseguire l'espansione, quindi passare a link:rebalancing-erasure-coded-data-after-adding-storage-nodes.html["Ribilanciare i dati con codifica di cancellazione dopo l'aggiunta di nodi di storage"] per eseguire la procedura.
+
+
+
+== Cos'è il ribilanciamento EC?
+
+Il ribilanciamento EC è una procedura StorageGRID che potrebbe essere necessaria dopo l'espansione di un nodo di storage. La procedura viene eseguita come script della riga di comando dal nodo di amministrazione primario. Quando si esegue la procedura di ribilanciamento EC, StorageGRID ridistribuisce i frammenti con codifica erasure tra i nodi di storage esistenti e quelli appena aggiunti in un sito.
+
+Procedura di ribilanciamento CE:
+
+* Sposta solo i dati degli oggetti con codifica erasure. Non sposta i dati degli oggetti replicati.
+* Ridistribuisce i dati all'interno di un sito. Non sposta i dati tra siti.
+* Ridistribuisce i dati tra tutti i nodi di storage di un sito. Non ridistribuisce i dati all'interno dei volumi di storage.
+* Non prende in considerazione l'utilizzo dei dati replicati su ciascun nodo di storage quando determina dove spostare i dati con codifica di cancellazione.
+* Ridistribuisce in modo uniforme i dati con codifica di cancellazione tra i nodi di storage senza considerare le capacità relative di ciascun nodo.
+* Non distribuirà i dati sottoposti a erasure coding ai nodi storage che sono pieni oltre il 80%.
+* Potrebbe diminuire le prestazioni delle operazioni ILM e delle operazioni client S3 quando viene eseguito&#8212;sono necessarie risorse aggiuntive per ridistribuire i frammenti di erasure coding.
+
+
+Al termine della procedura di ribilanciamento EC:
+
+* I dati con codifica erasure saranno stati spostati dai nodi di storage con meno spazio disponibile ai nodi di storage con più spazio disponibile.
+* La protezione dei dati degli oggetti con codifica erasure rimane invariata.
+* I valori utilizzati (%) potrebbero essere diversi tra i nodi di storage per due motivi:
++
+** Le copie replicate degli oggetti continueranno a consumare spazio sui nodi esistenti& 8212;la procedura di ribilanciamento EC non sposta i dati replicati.
+** I nodi con capacità maggiore saranno relativamente meno pieni dei nodi con capacità inferiore, anche se tutti i nodi finiranno con una quantità approssimativamente uguale di dati con codifica di cancellazione.
++
+Si supponga, ad esempio, che tre nodi da 200 TB siano riempiti al 80% ciascuno (200 e 215; 0.8 = 160 TB per ogni nodo o 480 TB per il sito). Se si aggiunge un nodo da 400 TB ed si esegue la procedura di ribilanciamento, tutti i nodi avranno ora circa la stessa quantità di dati di erasure-code (480/4 = 120 TB). Tuttavia, il valore utilizzato (%) per il nodo più grande sarà inferiore a quello utilizzato (%) per i nodi più piccoli.
+
++
+image::../media/used_space_with_larger_node.png[Spazio utilizzato prima dell'espansione]
+
+
+
+
+
+
+
+== Quando ribilanciare i dati con codifica di cancellazione
+
+Considerare il seguente scenario:
+
+* StorageGRID viene eseguito in un singolo sito, che contiene tre nodi di storage.
+* Il criterio ILM utilizza una regola di erasure coding 2+1 per tutti gli oggetti più grandi di 1.0 MB e una regola di replica a 2 copie per gli oggetti più piccoli.
+* Tutti i nodi di storage sono completamente pieni. L'avviso *Low Object Storage* è stato attivato al livello di gravità maggiore.
++
+image::../media/used_space_before_expansion.png[Spazio utilizzato prima dell'espansione]
+
+
+
+
+
+=== Il ribilanciamento non è necessario se si aggiungono nodi sufficienti
+
+Per capire quando non è richiesto il ribilanciamento EC, supponiamo di aver aggiunto tre (o più) nuovi nodi di storage. In questo caso, non è necessario eseguire il ribilanciamento EC. I nodi di storage originali rimarranno pieni, ma i nuovi oggetti ora utilizzeranno i tre nuovi nodi per la codifica di cancellazione 2+1& 8212; i due frammenti di dati e un frammento di parità possono essere memorizzati su un nodo diverso.
+
+image::../media/used_space_after_3_node_expansion.png[Spazio utilizzato dopo l'espansione a 3 nodi]
+
+
+CAUTION: Anche se in questo caso è possibile eseguire la procedura di ribilanciamento EC, lo spostamento dei dati con codifica di cancellazione esistenti ridurrà temporaneamente le prestazioni della griglia, con un impatto sulle operazioni del client.
+
+
+
+=== Il ribilanciamento è necessario se non è possibile aggiungere un numero sufficiente di nodi
+
+Per capire quando è necessario ribilanciare EC, supponiamo di poter aggiungere solo due nodi storage, invece di tre. Poiché lo schema 2+1 richiede almeno tre nodi di storage per avere spazio disponibile, i nodi vuoti non possono essere utilizzati per i nuovi dati con codifica di cancellazione.
+
+image::../media/used_space_after_2_node_expansion.png[Spazio utilizzato dopo l'espansione a 2 nodi]
+
+Per utilizzare i nuovi nodi di storage, è necessario eseguire la procedura di ribilanciamento EC. Quando viene eseguita questa procedura, StorageGRID ridistribuisce i dati con codifica di cancellazione e i frammenti di parità esistenti tra tutti i nodi di storage del sito. In questo esempio, quando la procedura di ribilanciamento EC è completa, tutti e cinque i nodi sono ora pieni solo al 60% e gli oggetti possono continuare ad essere acquisiti nello schema di erasure coding 2+1 su tutti i nodi Storage.
+
+image::../media/used_space_after_ec_rebalance.png[Spazio utilizzato aAfter EC ribilanciamento]
+
+
+
+== Raccomandazioni per il ribilanciamento CE
+
+NetApp richiede il ribilanciamento EC se _tutte_ le seguenti affermazioni sono vere:
+
+* Si utilizza la codifica di cancellazione per i dati dell'oggetto.
+* L'avviso *Low Object Storage* è stato attivato per uno o più nodi di storage in un sito, a indicare che i nodi sono pieni al 80% o più.
+* Non è possibile aggiungere un numero sufficiente di nuovi nodi di storage per lo schema di erasure coding in uso. Vedere link:adding-storage-capacity-for-erasure-coded-objects.html["Aggiungere capacità di storage per gli oggetti con codifica per la cancellazione"].
+* Durante l'esecuzione della procedura di ribilanciamento EC, i client S3 possono tollerare performance inferiori per le operazioni di scrittura e lettura.
+
+
+Facoltativamente, è possibile eseguire la procedura di ribilanciamento EC se si preferisce che i nodi storage siano riempiti a livelli simili e i client S3 possono tollerare performance inferiori per le loro operazioni di scrittura e lettura mentre la procedura di riequilibrio EC è in esecuzione.
+
+
+
+== Come la procedura di ribilanciamento EC interagisce con altre attività di manutenzione
+
+Non è possibile eseguire alcune procedure di manutenzione contemporaneamente all'esecuzione della procedura di ribilanciamento EC.
+
+[cols="1a,2a"]
+|===
+| Procedura | Consentito durante la procedura di ribilanciamento EC? 
+
+
+ a| 
+Ulteriori procedure di ribilanciamento EC
+ a| 
+No
+
+È possibile eseguire una sola procedura di ribilanciamento EC alla volta.
+
+
+
+ a| 
+Procedura di decommissionamento
+
+Lavoro di riparazione dei dati EC
+ a| 
+No
+
+* Non è possibile avviare una procedura di decommissionamento o una riparazione dei dati EC mentre è in esecuzione la procedura di ribilanciamento EC.
+* Non è possibile avviare la procedura di ribilanciamento EC mentre è in esecuzione una procedura di decommissionamento del nodo di storage o una riparazione dei dati EC.
+
+
+
+
+ a| 
+Procedura di espansione
+ a| 
+No
+
+Se è necessario aggiungere nuovi nodi di storage in un'espansione, eseguire la procedura di ribilanciamento EC dopo aver aggiunto tutti i nuovi nodi.
+
+
+
+ a| 
+Procedura di aggiornamento
+ a| 
+No
+
+Se è necessario aggiornare il software StorageGRID, eseguire la procedura di aggiornamento prima o dopo l'esecuzione della procedura di ribilanciamento EC. Se necessario, è possibile terminare la procedura di ribilanciamento EC per eseguire un aggiornamento del software.
+
+
+
+ a| 
+Procedura di clone del nodo dell'appliance
+ a| 
+No
+
+Se è necessario clonare un nodo di storage dell'appliance, eseguire la procedura di ribilanciamento EC dopo aver aggiunto il nuovo nodo.
+
+
+
+ a| 
+Procedura di hotfix
+ a| 
+Sì.
+
+È possibile applicare una correzione rapida StorageGRID mentre è in esecuzione la procedura di ribilanciamento EC.
+
+
+
+ a| 
+Altre procedure di manutenzione
+ a| 
+No
+
+È necessario terminare la procedura di ribilanciamento EC prima di eseguire altre procedure di manutenzione.
+
+|===
+
+
+== Come la procedura di ribilanciamento EC interagisce con ILM
+
+Durante l'esecuzione della procedura di ribilanciamento EC, evitare di apportare modifiche ILM che potrebbero modificare la posizione degli oggetti con codifica di cancellazione esistenti. Ad esempio, non iniziare a utilizzare una regola ILM con un profilo di erasure coding diverso. Se è necessario apportare tali modifiche ILM, interrompere la procedura di ribilanciamento EC.

@@ -1,0 +1,65 @@
+---
+permalink: ilm/manage-ilm-policy-tags.html 
+sidebar: sidebar 
+keywords: ILM policy tag 
+summary: È possibile visualizzare i dettagli dei tag dei criteri ILM, modificare un tag o rimuovere un tag. 
+---
+= Gestire i tag dei criteri ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile visualizzare i dettagli dei tag dei criteri ILM, modificare un tag o rimuovere un tag.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso richieste"].
+
+
+
+
+== Visualizzare i dettagli dei tag dei criteri ILM
+
+Per visualizzare i dettagli di un tag:
+
+. Selezionare *ILM* > *Policy tag*.
+. Selezionare il nome del criterio dalla tabella. Viene visualizzata la pagina dei dettagli del tag.
+. Nella pagina dei dettagli, visualizzare la cronologia precedente dei criteri assegnati.
+. Consente di visualizzare un criterio selezionandolo.
+
+
+
+
+== Modifica tag criterio ILM
+
+
+NOTE: I nomi e le descrizioni dei tag sono visibili ai locatari. Scegli valori che aiuteranno i tenant a prendere una decisione informata quando selezionano i tag dei criteri da assegnare ai loro bucket. Ad esempio, se il criterio assegnato eliminerà gli oggetti dopo un certo periodo di tempo, è possibile comunicarlo nella descrizione. Non includere informazioni riservate in questi campi.
+
+Per modificare la descrizione di un tag esistente:
+
+. Selezionare *ILM* > *Policy tag*.
+. Seleziona la casella di controllo per il tag, quindi seleziona *Modifica*.
++
+In alternativa, selezionare il nome del tag. Viene visualizzata la pagina dei dettagli del tag ed è possibile selezionare *Modifica* in quella pagina.
+
+. Modificare la descrizione del tag secondo necessità
+. Selezionare *Salva*.
+
+
+
+
+== Rimuovere il tag criterio ILM
+
+Quando si rimuove un tag di criterio, a tutti i bucket a cui è assegnato tale tag verrà applicato il criterio predefinito.
+
+Per rimuovere un'etichetta:
+
+. Selezionare *ILM* > *Policy tag*.
+. Selezionare la casella di controllo per il tag, quindi selezionare *Rimuovi*. Viene visualizzata una finestra di dialogo di conferma.
++
+In alternativa, selezionare il nome del tag. Viene visualizzata la pagina dei dettagli del tag ed è possibile selezionare *Rimuovi* in quella pagina.
+
+. Selezionare *Sì* per eliminare il tag.
+

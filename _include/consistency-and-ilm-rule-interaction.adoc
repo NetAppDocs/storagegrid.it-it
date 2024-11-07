@@ -1,0 +1,17 @@
+= 
+:allow-uri-read: 
+
+
+Si supponga di disporre di una griglia a due siti con la seguente regola ILM e la seguente coerenza:
+
+* *ILM rule*: Creare due copie di oggetti, una nel sito locale e una in un sito remoto. USA un comportamento di acquisizione rigoroso.
+* *Coerenza*: Strong-Global (i metadati degli oggetti vengono immediatamente distribuiti a tutti i siti).
+
+
+Quando un client memorizza un oggetto nella griglia, StorageGRID esegue entrambe le copie degli oggetti e distribuisce i metadati a entrambi i siti prima di restituire il risultato al client.
+
+L'oggetto è completamente protetto contro la perdita al momento dell'acquisizione del messaggio di successo. Ad esempio, se il sito locale viene perso poco dopo l'acquisizione, le copie dei dati dell'oggetto e dei metadati dell'oggetto rimangono nel sito remoto. L'oggetto è completamente recuperabile.
+
+Se invece si è utilizzata la stessa regola ILM e la coerenza del sito sicuro, il client potrebbe ricevere un messaggio di successo dopo la replica dei dati dell'oggetto nel sito remoto ma prima della distribuzione dei metadati dell'oggetto. In questo caso, il livello di protezione dei metadati degli oggetti non corrisponde al livello di protezione dei dati degli oggetti. Se il sito locale viene perso poco dopo l'acquisizione, i metadati dell'oggetto andranno persi. Impossibile recuperare l'oggetto.
+
+L'interrelazione tra coerenza e regole ILM può essere complessa. Contattare NetApp per assistenza.

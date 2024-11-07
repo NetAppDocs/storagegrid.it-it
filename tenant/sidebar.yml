@@ -1,0 +1,129 @@
+---
+section: tenant
+title: Utilizzare un account tenant
+entries:
+- title: Che cos'è l'account tenant
+  pdf-filename: Utilizzare un account tenant StorageGRID
+  url: "/tenant/index.html"
+- title: Come effettuare l'accesso e disconnettersi
+  entries:
+  - title: Accedi a Tenant Manager
+    url: "/tenant/signing-in-to-tenant-manager.html"
+  - title: Disconnettersi da Tenant Manager
+    url: "/tenant/signing-out-of-tenant-manager.html"
+- title: Dashboard di tenant Manager
+  url: "/tenant/understanding-tenant-manager-dashboard.html"
+- title: API di gestione del tenant
+  entries:
+  - title: Comprendere l'API di gestione dei tenant
+    url: "/tenant/understanding-tenant-management-api.html"
+  - title: Versione dell'API di gestione tenant
+    url: "/tenant/tenant-management-api-versioning.html"
+  - title: Protezione contro la contraffazione delle richieste (CSRF)
+    url: "/tenant/protecting-against-cross-site-request-forgery-csrf.html"
+- title: Utilizzare connessioni di federazione di griglie
+  entries:
+  - title: Clonare utenti e gruppi tenant
+    url: "/tenant/grid-federation-account-clone.html"
+  - title: Clonare le chiavi di accesso S3 utilizzando l'API
+    url: "/tenant/grid-federation-clone-keys-with-api.html"
+  - title: Gestire la replica cross-grid
+    url: "/tenant/grid-federation-manage-cross-grid-replication.html"
+  - title: Visualizza connessioni di federazione di griglie
+    url: "/tenant/grid-federation-view-connections-tenant.html"
+- title: Gestire gruppi e utenti
+  entries:
+  - title: USA la federazione delle identità
+    url: "/tenant/using-identity-federation.html"
+  - title: Gestire i gruppi di tenant
+    entries:
+    - title: Creare gruppi S3
+      url: "/tenant/creating-groups-for-s3-tenant.html"
+    - title: Creare gruppi Swift
+      url: "/tenant/creating-groups-for-swift-tenant.html"
+    - title: Permessi di gestione del tenant
+      url: "/tenant/tenant-management-permissions.html"
+    - title: Gestire i gruppi
+      url: "/tenant/manage-groups.html"
+  - title: Gestire gli utenti locali
+    url: "/tenant/managing-local-users.html"
+- title: Gestire le chiavi di accesso S3
+  entries:
+  - title: Chiavi di accesso del tenant
+    pdf-filename: Gestire le chiavi di accesso S3
+    url: "/tenant/managing-s3-access-keys.html"
+  - title: Creare le chiavi di accesso S3
+    url: "/tenant/creating-your-own-s3-access-keys.html"
+  - title: Visualizzare le chiavi di accesso S3
+    url: "/tenant/viewing-your-s3-access-keys.html"
+  - title: Eliminare le chiavi di accesso S3
+    url: "/tenant/deleting-your-own-s3-access-keys.html"
+  - title: Creare le chiavi di accesso S3 di un altro utente
+    url: "/tenant/creating-another-users-s3-access-keys.html"
+  - title: Visualizzare le chiavi di accesso S3 di un altro utente
+    url: "/tenant/viewing-another-users-s3-access-keys.html"
+  - title: Eliminare le chiavi di accesso S3 di un altro utente
+    url: "/tenant/deleting-another-users-s3-access-keys.html"
+- title: Gestire i bucket S3
+  entries:
+  - title: Crea bucket
+    url: "/tenant/creating-s3-bucket.html"
+  - title: Visualizza i dettagli del bucket
+    url: "/tenant/viewing-s3-bucket-details.html"
+  - title: Applica tag criterio ILM al bucket
+    url: "/tenant/ilm-policy-tags.html"
+  - title: Gestire le policy del bucket
+    url: "/tenant/manage-bucket-policy.html"
+  - title: Gestire la coerenza del bucket
+    url: "/tenant/manage-bucket-consistency.html"
+  - title: Attiva o disattiva gli ultimi aggiornamenti dell'orario di accesso
+    url: "/tenant/enabling-or-disabling-last-access-time-updates.html"
+  - title: Modificare la versione degli oggetti
+    url: "/tenant/changing-bucket-versioning.html"
+  - title: USA blocco oggetti S3
+    url: "/tenant/using-s3-object-lock.html"
+  - title: Aggiorna la conservazione predefinita del blocco oggetti S3
+    url: "/tenant/update-default-retention-settings.html"
+  - title: Configurare la condivisione delle risorse tra origini (CORS)
+    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
+  - title: Eliminare gli oggetti nel bucket
+    url: "/tenant/deleting-s3-bucket-objects.html"
+  - title: Elimina bucket
+    url: "/tenant/deleting-s3-bucket.html"
+  - title: Utilizzare la console S3
+    url: "/tenant/use-s3-console.html"
+- title: Gestire i servizi della piattaforma S3
+  entries:
+  - title: Servizi della piattaforma S3
+    pdf-filename: Gestire i servizi della piattaforma S3
+    entries:
+    - title: Considerazioni per i servizi della piattaforma
+      url: "/tenant/considerations-for-platform-services.html"
+    - title: Servizio di replica di CloudMirror
+      url: "/tenant/understanding-cloudmirror-replication-service.html"
+    - title: Notifiche per bucket
+      url: "/tenant/understanding-notifications-for-buckets.html"
+    - title: Servizio di integrazione della ricerca
+      url: "/tenant/understanding-search-integration-service.html"
+  - title: Gestire gli endpoint dei servizi della piattaforma
+    entries:
+    - title: Configurare gli endpoint dei servizi della piattaforma
+      url: "/tenant/configuring-platform-services-endpoints.html"
+    - title: Specificare URN
+      url: "/tenant/specifying-urn-for-platform-services-endpoint.html"
+    - title: Creare l'endpoint
+      url: "/tenant/creating-platform-services-endpoint.html"
+    - title: Verificare la connessione
+      url: "/tenant/testing-connection-for-platform-services-endpoint.html"
+    - title: Modificare l'endpoint
+      url: "/tenant/editing-platform-services-endpoint.html"
+    - title: Eliminare l'endpoint
+      url: "/tenant/deleting-platform-services-endpoint.html"
+    - title: Risolvere gli errori dei servizi della piattaforma
+      url: "/tenant/troubleshooting-platform-services-endpoint-errors.html"
+  - title: Configurare la replica di CloudMirror
+    url: "/tenant/configuring-cloudmirror-replication.html"
+  - title: Configurare le notifiche degli eventi
+    url: "/tenant/configuring-event-notifications.html"
+  - title: Configurare il servizio di integrazione della ricerca
+    url: "/tenant/configuring-search-integration-service.html"

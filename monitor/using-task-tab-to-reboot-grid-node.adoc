@@ -1,0 +1,21 @@
+---
+permalink: monitor/using-task-tab-to-reboot-grid-node.html 
+sidebar: sidebar 
+keywords: Tasks tab, rename node, reboot node, maintenance mode 
+summary: Viene visualizzata la scheda attività per tutti i nodi. È possibile utilizzare questa scheda per rinominare o riavviare un nodo o per impostare un nodo appliance in modalità di manutenzione. 
+---
+= Utilizzare la scheda attività
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Viene visualizzata la scheda attività per tutti i nodi. È possibile utilizzare questa scheda per rinominare o riavviare un nodo o per impostare un nodo appliance in modalità di manutenzione.
+
+Per i requisiti e le istruzioni completi per ciascuna opzione di questa scheda, vedere quanto segue:
+
+* link:../maintain/rename-grid-site-node-overview.html["Rinominare la griglia, i siti e i nodi"]
+* link:../maintain/rebooting-grid-node-from-grid-manager.html["Nodo di reboot grid"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["Impostare l'apparecchio in modalità di manutenzione"^]
+

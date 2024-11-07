@@ -1,0 +1,62 @@
+---
+permalink: tenant/viewing-and-editing-group-details.html 
+sidebar: sidebar 
+keywords: how to view and edit group 
+summary: Quando si visualizzano i dettagli di un gruppo, è possibile modificare il nome visualizzato del gruppo, le autorizzazioni, i criteri e gli utenti che appartengono al gruppo. 
+---
+= Visualizzare e modificare i dettagli del gruppo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si visualizzano i dettagli di un gruppo, è possibile modificare il nome visualizzato del gruppo, le autorizzazioni, i criteri e gli utenti che appartengono al gruppo.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* L'utente appartiene a un gruppo di utenti che dispone dell'autorizzazione di accesso root.
+
+
+.Fasi
+. Selezionare *GESTIONE ACCESSI* > *gruppi*.
+. Selezionare il nome del gruppo di cui si desidera visualizzare o modificare i dettagli.
++
+In alternativa, è possibile selezionare *azioni* > *Visualizza dettagli gruppo*.
+
++
+Viene visualizzata la pagina dei dettagli del gruppo. L'esempio seguente mostra la pagina dei dettagli del gruppo S3.
+
++
+image::../media/tenant_group_details.png[Visualizza dettagli gruppo]
+
+. Apportare le modifiche necessarie alle impostazioni del gruppo.
++
+
+TIP: Per assicurarsi che le modifiche vengano salvate, selezionare *Save changes* (Salva modifiche) dopo aver apportato le modifiche in ciascuna sezione. Una volta salvate le modifiche, nell'angolo superiore destro della pagina viene visualizzato un messaggio di conferma.
+
++
+.. In alternativa, selezionare il nome visualizzato o l'icona di modifica image:../media/icon_edit_tm.png["Icona Edit (Modifica)"]per aggiornare il nome visualizzato.
++
+Non puoi modificare il nome univoco di un gruppo. Non è possibile modificare il nome visualizzato per un gruppo federated.
+
+.. Facoltativamente, aggiornare le autorizzazioni.
+.. Per i criteri di gruppo, apportare le modifiche appropriate al tenant S3.
++
+*** Se si modifica un gruppo per un tenant S3, selezionare un criterio di gruppo S3 diverso. Se si seleziona un criterio S3 personalizzato, aggiornare la stringa JSON come richiesto.
+*** Se si sta modificando un gruppo per un tenant Swift, selezionare o deselezionare la casella di controllo *Swift Administrator*.
++
+Per ulteriori informazioni sull'autorizzazione amministratore Swift, consultare le istruzioni per la creazione di gruppi per un tenant Swift.
+
+
+
+.. Facoltativamente, aggiungere o rimuovere utenti.
+
+
+. Confermare di aver selezionato *Save Changes* (Salva modifiche) per ciascuna sezione modificata.
+
+
+.Informazioni correlate
+* link:creating-groups-for-s3-tenant.html["Creare gruppi per il tenant S3"]
+* link:creating-groups-for-swift-tenant.html["Creare gruppi per il tenant Swift"]
+

@@ -1,0 +1,89 @@
+---
+permalink: admin/editing-tenant-account.html 
+sidebar: sidebar 
+keywords: edit tenant account, change tenant name, allow platform services, tenant quota 
+summary: È possibile modificare un account tenant per modificare il nome visualizzato, la quota di storage o le autorizzazioni del tenant. 
+---
+= Modificare l'account tenant
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare un account tenant per modificare il nome visualizzato, la quota di storage o le autorizzazioni del tenant.
+
+
+TIP: Se un tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, è possibile modificare i dettagli del tenant da una delle griglie della connessione. Tuttavia, qualsiasi modifica apportata su una griglia della connessione non verrà copiata nell'altra griglia. Se si desidera mantenere i dettagli del tenant perfettamente sincronizzati tra le griglie, apportare le stesse modifiche su entrambe le griglie. Vedere link:grid-federation-manage-tenants.html["Gestire i tenant consentiti per la connessione a federazione di grid"].
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:admin-group-permissions.html["Accesso root o autorizzazione account tenant"].
+
+
+
+NOTE: L'applicazione delle impostazioni del tenant sulla griglia potrebbe richiedere 15 minuti o più in base a connettività di rete, stato dei nodi e operazioni Cassandra.
+
+.Fasi
+. Selezionare *TENANT*.
++
+image::../media/tenant_accounts_page.png[Pagina account tenant]
+
+. Individuare l'account tenant che si desidera modificare.
++
+Utilizzare la casella di ricerca per cercare un tenant in base al nome o all'ID del tenant.
+
+. Selezionare il tenant. È possibile effettuare una delle seguenti operazioni:
++
+** Selezionare la casella di controllo del tenant e selezionare *azioni* > *Modifica*.
+** Selezionare il nome del tenant per visualizzare la pagina dei dettagli, quindi selezionare *Modifica*.
+
+
+. Facoltativamente, modificare i valori per questi campi:
++
+** *Nome*
+** *Descrizione*
+** *Quota di storage*
+
+
+. Selezionare *continua*.
+. Selezionare o deselezionare le autorizzazioni per l'account tenant.
++
+** Se si disattiva *Platform Services* per un tenant che li sta già utilizzando, i servizi configurati per i bucket S3 smetteranno di funzionare. Non viene inviato alcun messaggio di errore al tenant. Ad esempio, se il tenant ha configurato la replica CloudMirror per un bucket S3, può comunque memorizzare oggetti nel bucket, ma le copie di tali oggetti non verranno più eseguite nel bucket S3 esterno configurato come endpoint. Vedere link:manage-platform-services-for-tenants.html["Gestire i servizi della piattaforma per gli account tenant S3"].
+** Modificare l'impostazione di *Usa origine identità propria* per determinare se l'account tenant utilizzerà la propria origine identità o l'origine identità configurata per Grid Manager.
++
+Se *utilizza la propria fonte di identità* è:
+
++
+*** Disattivato e selezionato, il tenant ha già attivato la propria origine di identità. Un tenant deve disattivare l'origine dell'identità prima di poter utilizzare l'origine dell'identità configurata per Grid Manager.
+*** Disattivato e non selezionato, SSO è attivato per il sistema StorageGRID. Il tenant deve utilizzare l'origine dell'identità configurata per Grid Manager.
+
+
+** Selezionare o deselezionare l'autorizzazione *Allow S3 Select* (Consenti selezione S3) in base alle necessità. Vedere link:manage-s3-select-for-tenant-accounts.html["Manage S3 (Gestisci S3): Selezionare per gli account tenant"].
+** Per rimuovere l'autorizzazione *Use grid Federation Connection*:
++
+... Selezionare la scheda *federazione griglia*.
+... Selezionare *Rimuovi permesso*.
+
+
+** Per aggiungere l'autorizzazione *Use grid Federation Connection*:
++
+... Selezionare la scheda *federazione griglia*.
+... Selezionare la casella di controllo *Usa connessione federazione griglia*.
+... Facoltativamente, selezionare *Clona utenti e gruppi locali esistenti* per clonarli nella griglia remota. Se si desidera, è possibile interrompere la clonazione in corso o riprovare a eseguire la clonazione se la clonazione di alcuni utenti o gruppi locali non è riuscita una volta completata l'ultima operazione di clonazione.
+
+
+** Per impostare un periodo di conservazione massimo o consentire la modalità di conformità:
++
+
+NOTE: S3 blocco oggetti deve essere attivato sulla griglia prima di poter utilizzare queste impostazioni.
+
++
+... Selezionare la scheda *blocco oggetti S3*.
+... Per *set Maximum Retention Period* (Imposta periodo di conservazione massimo), immettere un valore e selezionare il periodo di tempo dall'elenco a discesa.
+... Per *Consenti modalità di conformità*, selezionare la casella di controllo.
+
+
+
+
+

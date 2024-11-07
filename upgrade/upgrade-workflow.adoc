@@ -1,0 +1,52 @@
+---
+permalink: upgrade/upgrade-workflow.html 
+sidebar: sidebar 
+keywords: upgrade workflow 
+summary: 'Prima di iniziare l"aggiornamento, esaminare il flusso di lavoro generale. La pagina aggiornamento StorageGRID guida l"utente attraverso la procedura di aggiornamento.' 
+---
+= Avvio rapido dell'aggiornamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di iniziare l'aggiornamento, esaminare il flusso di lavoro generale. La pagina aggiornamento StorageGRID guida l'utente attraverso ogni fase di aggiornamento.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Preparare gli host Linux
+[role="quick-margin-para"]
+Se un qualsiasi nodo StorageGRID viene distribuito su host Linux, link:linux-installing-rpm-or-deb-package-on-all-hosts.html["Installare il pacchetto RPM o DEB su ciascun host"] prima di iniziare l'aggiornamento.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"] Caricare i file di aggiornamento e hotfix
+[role="quick-margin-para"]
+Dal nodo di amministrazione principale, accedere alla pagina di aggiornamento StorageGRID e caricare il file di aggiornamento e il file di correzione rapida, se necessario.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"] Scarica pacchetto di ripristino
+[role="quick-margin-para"]
+Scaricare il pacchetto di ripristino corrente prima di avviare l'aggiornamento.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"] Eseguire controlli preliminari dell'aggiornamento
+[role="quick-margin-para"]
+I controlli preliminari dell'aggiornamento consentono di rilevare i problemi, in modo da poterli risolvere prima di avviare l'aggiornamento effettivo.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"] Avviare l'aggiornamento
+[role="quick-margin-para"]
+Quando si avvia l'aggiornamento, i controlli preliminari vengono eseguiti nuovamente e il nodo amministrativo primario viene aggiornato automaticamente. Impossibile accedere a Grid Manager durante l'aggiornamento del nodo di amministrazione primario. Anche i registri di controllo non saranno disponibili. L'aggiornamento può richiedere fino a 30 minuti.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"] Scarica pacchetto di ripristino
+[role="quick-margin-para"]
+Una volta aggiornato il nodo di amministrazione primario, scaricare un nuovo pacchetto di ripristino.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"] Approva nodi
+[role="quick-margin-para"]
+È possibile approvare singoli nodi griglia, gruppi di nodi griglia o tutti i nodi griglia.
+
+
+CAUTION: Non approvare l'aggiornamento per un nodo grid a meno che non si sia certi che il nodo sia pronto per essere arrestato e riavviato.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Otto"] Riprendere le operazioni
+[role="quick-margin-para"]
+Una volta aggiornati tutti i nodi della griglia, vengono attivate nuove funzionalità ed è possibile riprendere le operazioni. È necessario attendere l'esecuzione di una procedura di decommissionamento o espansione fino al completamento dell'attività *Upgrade database* in background e dell'attività *Final upgrade steps*.
+
+.Informazioni correlate
+link:estimating-time-to-complete-upgrade.html["Stima del tempo necessario per completare un aggiornamento"]

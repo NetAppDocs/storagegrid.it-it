@@ -1,0 +1,24 @@
+---
+permalink: network/admin-network-topology.html 
+sidebar: sidebar 
+keywords: admin network topology, using admin network 
+summary: Disporre di una rete amministrativa è facoltativo. Un modo per utilizzare una rete amministrativa e una rete griglia consiste nel configurare una rete griglia instradabile e una rete amministrativa limitata per ciascun nodo. 
+---
+= Topologia della rete amministrativa
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Disporre di una rete amministrativa è facoltativo. Un modo per utilizzare una rete amministrativa e una rete griglia consiste nel configurare una rete griglia instradabile e una rete amministrativa limitata per ciascun nodo.
+
+Quando si configura la rete amministrativa, si stabiliscono l'indirizzo IP host, la subnet mask e l'indirizzo IP gateway per l'interfaccia eth1 per ciascun nodo della griglia.
+
+La rete amministrativa può essere univoca per ciascun nodo e può essere costituita da più sottoreti. Ciascun nodo può essere configurato con un Admin External Subnet List (AESL). AESL elenca le subnet raggiungibili tramite la rete di amministrazione per ciascun nodo. L'AESL deve includere anche le subnet di tutti i servizi a cui la griglia accede tramite la rete di amministrazione, come NTP, DNS, KMS e LDAP. Le route statiche vengono applicate a ciascuna subnet di AESL.
+
+In questo esempio, la rete Grid viene utilizzata per il traffico correlato alle richieste client S3 e alla gestione degli oggetti, mentre la rete Admin viene utilizzata per le funzioni amministrative.
+
+image::../media/grid_admin_networks.png[Grid Admin Networks]
+
+image::../media/grid_admin_networks_ips.png[IP Grid Admin Networks]

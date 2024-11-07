@@ -1,0 +1,57 @@
+---
+permalink: maintain/warnings-and-considerations-for-grid-node-recovery.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, warning 
+summary: In caso di guasto di un nodo della griglia, è necessario ripristinarlo il prima possibile. Prima di iniziare, è necessario esaminare tutti gli avvisi e le considerazioni per il ripristino del nodo. 
+---
+= Avvertenze e considerazioni per il ripristino del nodo grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In caso di guasto di un nodo della griglia, è necessario ripristinarlo il prima possibile. Prima di iniziare, è necessario esaminare tutti gli avvisi e le considerazioni per il ripristino del nodo.
+
+
+CAUTION: StorageGRID è un sistema distribuito composto da più nodi che lavorano l'uno con l'altro. Non utilizzare le snapshot dei dischi per ripristinare i nodi della griglia. Fare invece riferimento alle procedure di ripristino e manutenzione per ciascun tipo di nodo.
+
+
+NOTE: In caso di guasto di un intero sito StorageGRID, contattare il supporto tecnico. Il supporto tecnico collaborerà con voi per sviluppare ed eseguire un piano di ripristino del sito che massimizza la quantità di dati recuperati e soddisfa gli obiettivi aziendali. Vedere link:how-site-recovery-is-performed-by-technical-support.html["Come il supporto tecnico recupera un sito"].
+
+Di seguito sono riportati alcuni dei motivi per cui è stato eseguito il ripristino di un nodo Grid guasto il prima possibile:
+
+* Un nodo Grid guasto può ridurre la ridondanza dei dati di sistema e dei dati a oggetti, lasciando l'utente vulnerabile al rischio di perdita permanente dei dati in caso di guasto di un altro nodo.
+* Un nodo di grid guasto può influire sull'efficienza delle operazioni quotidiane.
+* Un nodo Grid guasto può ridurre la capacità di monitorare le operazioni del sistema.
+* Un nodo Grid guasto può causare un errore del server interno 500 se sono in vigore regole ILM rigide.
+* Se un nodo di rete non viene recuperato tempestivamente, i tempi di ripristino potrebbero aumentare. Ad esempio, potrebbero svilupparsi code che devono essere cancellate prima del completamento del ripristino.
+
+
+Seguire sempre la procedura di ripristino per il tipo specifico di nodo della griglia che si sta ripristinando. Le procedure di ripristino variano a seconda dei nodi amministrativi primari o non primari, dei nodi gateway, dei nodi appliance e dei nodi storage.
+
+
+
+== Condizioni preliminari per il ripristino dei nodi di rete
+
+Quando si ripristinano i nodi della griglia, si presume che siano presenti tutte le seguenti condizioni:
+
+* L'hardware fisico o virtuale guasto è stato sostituito e configurato.
+* La versione del programma di installazione dell'appliance StorageGRID sul dispositivo sostitutivo corrisponde alla versione software del sistema StorageGRID, come descritto in https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/verifying-and-upgrading-storagegrid-appliance-installer-version.html["Verificare e aggiornare la versione del programma di installazione dell'appliance StorageGRID"^].
+* Se si sta ripristinando un nodo Grid diverso dal nodo Admin primario, esiste una connessione tra il nodo Grid da ripristinare e il nodo Admin primario.
+* Se si sta ripristinando un nodo di archiviazione dell'appliance, è necessario specificare lo stesso tipo di archiviazione dell'appliance originale (combinato, solo metadati o solo dati) durante l'installazione dell'appliance. Se si specifica un tipo di storage diverso, il ripristino non avrà esito positivo e sarà necessario reinstallare l'appliance con il tipo di storage corretto specificato.
+
+
+
+
+== Ordine di recovery del nodo in caso di guasto di un server che ospita più di un nodo griglia
+
+Se un server che ospita più di un nodo di rete si guasta, è possibile ripristinare i nodi in qualsiasi ordine. Tuttavia, se il server guasto ospita il nodo di amministrazione primario, è necessario ripristinare prima tale nodo. Il ripristino del nodo di amministrazione primario impedisce prima agli altri ripristini del nodo di interrompere l'attesa di contattare il nodo di amministrazione primario.
+
+
+
+== Indirizzi IP per i nodi ripristinati
+
+Non tentare di ripristinare un nodo utilizzando un indirizzo IP attualmente assegnato a un altro nodo. Quando si implementa il nuovo nodo, utilizzare l'indirizzo IP corrente del nodo guasto o un indirizzo IP inutilizzato.
+
+Se si utilizza un nuovo indirizzo IP per implementare il nuovo nodo e ripristinarlo, il nuovo indirizzo IP continuerà a essere utilizzato per il nodo recuperato. Se si desidera ripristinare l'indirizzo IP originale, utilizzare lo strumento Cambia IP al termine del ripristino.

@@ -1,0 +1,130 @@
+---
+permalink: admin/manage-firewall-controls.html 
+sidebar: sidebar 
+keywords: firewall controls, untrusted client network, privileged address, manage external access 
+summary: 'StorageGRID include un firewall interno su ciascun nodo che migliora la sicurezza della griglia consentendo di personalizzare l"accesso alla rete griglia, alla rete amministrativa e alla rete client.' 
+---
+= Gestire i controlli firewall interni
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID include un firewall interno su ciascun nodo che migliora la sicurezza della rete consentendo di controllare l'accesso alla rete. Utilizzare il firewall per impedire l'accesso alla rete su tutte le porte, ad eccezione di quelle necessarie per l'implementazione della griglia specifica. Le modifiche apportate alla configurazione nella pagina di controllo Firewall vengono distribuite a ciascun nodo.
+
+Utilizzare le tre schede della pagina di controllo Firewall per personalizzare l'accesso necessario per la griglia.
+
+* *Privileged address list*: Utilizzare questa scheda per consentire l'accesso selezionato alle porte chiuse. È possibile aggiungere indirizzi IP o sottoreti nella notazione CIDR che possono accedere alle porte chiuse utilizzando la scheda Manage external access (Gestisci accesso esterno).
+* *Gestisci accesso esterno*: Utilizzare questa scheda per chiudere le porte aperte per impostazione predefinita o riaprire le porte chiuse in precedenza.
+* *Untrusted Client Network*: Utilizzare questa scheda per specificare se un nodo considera attendibile il traffico in entrata dalla rete client.
++
+Le impostazioni di questa scheda sovrascrivono quelle della scheda Gestisci accesso esterno.
+
++
+** Un nodo con una rete client non attendibile accetta solo le connessioni sulle porte endpoint del bilanciamento del carico configurate su quel nodo (endpoint globali, di interfaccia di nodo e di tipo di nodo).
+** Le porte endpoint del bilanciamento del carico _sono le uniche porte aperte_ sulle reti client non attendibili, indipendentemente dalle impostazioni nella scheda Gestisci reti esterne.
+** Se attendibili, tutte le porte aperte nella scheda Manage external access (Gestisci accesso esterno) sono accessibili, così come tutti gli endpoint del bilanciamento del carico aperti nella rete client.
+
+
+
+
+
+NOTE: Le impostazioni effettuate in una scheda possono influire sulle modifiche di accesso apportate in un'altra scheda. Verificare le impostazioni di tutte le schede per assicurarsi che la rete funzioni nel modo previsto.
+
+Per configurare i controlli interni del firewall, vedere link:../admin/configure-firewall-controls.html["Configurare i controlli firewall"].
+
+Per ulteriori informazioni sui firewall esterni e sulla protezione della rete, vedere link:../admin/controlling-access-through-firewalls.html["Controllare l'accesso al firewall esterno"].
+
+
+
+== Elenco degli indirizzi privilegiati e schede di gestione degli accessi esterni
+
+La scheda Privileged address list (elenco indirizzi privilegiati) consente di registrare uno o più indirizzi IP ai quali viene concesso l'accesso alle porte della griglia chiuse. La scheda Manage external access (Gestisci accesso esterno) consente di chiudere l'accesso esterno alle porte esterne selezionate o a tutte le porte esterne aperte (le porte esterne sono porte accessibili per impostazione predefinita dai nodi non grid). Queste due schede spesso possono essere utilizzate insieme per personalizzare l'esatto accesso di rete necessario per la griglia.
+
+
+NOTE: Per impostazione predefinita, gli indirizzi IP privilegiati non dispongono dell'accesso alla porta della griglia interna.
+
+
+
+=== Esempio 1: Utilizzare un host di collegamento per le attività di manutenzione
+
+Si supponga di voler utilizzare un host jump (un host con protezione avanzata) per l'amministrazione di rete. È possibile utilizzare questi passaggi generali:
+
+. Utilizzare la scheda Privileged address list (elenco indirizzi privilegiati) per aggiungere l'indirizzo IP dell'host di collegamento.
+. Utilizzare la scheda Manage external access (Gestisci accesso esterno) per bloccare tutte le porte.
+
+
+
+CAUTION: Aggiungere l'indirizzo IP privilegiato prima di bloccare le porte 443 e 8443. Tutti gli utenti attualmente connessi a una porta bloccata, incluso l'utente, perderanno l'accesso a Grid Manager, a meno che il loro indirizzo IP non sia stato aggiunto all'elenco degli indirizzi privilegiati.
+
+Dopo aver salvato la configurazione, tutte le porte esterne sul nodo di amministrazione nella griglia verranno bloccate per tutti gli host, ad eccezione dell'host di collegamento. È quindi possibile utilizzare l'host jump per eseguire attività di manutenzione sulla griglia in modo più sicuro.
+
+
+
+=== Esempio 2: Blocco delle porte sensibili
+
+Si supponga di voler bloccare le porte sensibili e il servizio su tale porta (ad esempio, SSH sulla porta 22). È possibile utilizzare i seguenti passaggi generali:
+
+. Utilizzare la scheda Privileged address list (elenco indirizzi con privilegi) per concedere l'accesso solo agli host che devono accedere al servizio.
+. Utilizzare la scheda Manage external access (Gestisci accesso esterno) per bloccare tutte le porte.
+
+
+
+CAUTION: Aggiungere l'indirizzo IP con privilegi prima di bloccare l'accesso a tutte le porte assegnate per accedere a Grid Manager e Tenant Manager (le porte preimpostate sono 443 e 8443). Tutti gli utenti attualmente connessi a una porta bloccata, incluso l'utente, perderanno l'accesso a Grid Manager, a meno che il loro indirizzo IP non sia stato aggiunto all'elenco degli indirizzi privilegiati.
+
+Dopo aver salvato la configurazione, la porta 22 e il servizio SSH saranno disponibili per gli host nell'elenco degli indirizzi privilegiati. A tutti gli altri host verrà negato l'accesso al servizio, indipendentemente dall'interfaccia da cui proviene la richiesta.
+
+
+
+=== Esempio 3: Disattivazione dell'accesso ai servizi inutilizzati
+
+A livello di rete, è possibile disattivare alcuni servizi che non si intende utilizzare. Ad esempio, per bloccare il traffico client HTTP S3, utilizzare l'interruttore nella scheda Gestisci accesso esterno per bloccare la porta 18084.
+
+
+
+== Scheda Untrusted Client Networks
+
+Se si utilizza una rete client, è possibile proteggere StorageGRID da attacchi ostili accettando il traffico client in entrata solo su endpoint configurati esplicitamente.
+
+Per impostazione predefinita, la rete client su ciascun nodo della griglia è _trusted_. Ovvero, per impostazione predefinita, StorageGRID considera attendibili le connessioni in entrata a ciascun nodo di rete su tutti link:../network/external-communications.html["porte esterne disponibili"].
+
+È possibile ridurre la minaccia di attacchi ostili al sistema StorageGRID specificando che la rete client di ciascun nodo è _non attendibile_. Se la rete client di un nodo non è attendibile, il nodo accetta solo connessioni in entrata su porte esplicitamente configurate come endpoint del bilanciamento del carico. Vedere link:../admin/configuring-load-balancer-endpoints.html["Configurare gli endpoint del bilanciamento del carico"] e link:../admin/configure-firewall-controls.html["Configurare i controlli firewall"].
+
+
+
+=== Esempio 1: Il nodo gateway accetta solo richieste HTTPS S3
+
+Si supponga che un nodo gateway rifiuti tutto il traffico in entrata sulla rete client, ad eccezione delle richieste HTTPS S3. Eseguire le seguenti operazioni generali:
+
+. Dalla link:../admin/configuring-load-balancer-endpoints.html["Endpoint del bilanciamento del carico"]pagina, configurare un endpoint di bilanciamento del carico per S3 su HTTPS sulla porta 443.
+. Dalla pagina di controllo Firewall, selezionare Untrusted (non attendibile) per specificare che la rete client sul nodo gateway non è attendibile.
+
+
+Dopo aver salvato la configurazione, tutto il traffico in entrata sulla rete client del nodo gateway viene interrotto, ad eccezione delle richieste HTTPS S3 sulla porta 443 e delle richieste ICMP echo (ping).
+
+
+
+=== Esempio 2: Storage Node invia richieste di servizi della piattaforma S3
+
+Si supponga di voler attivare il traffico dei servizi della piattaforma S3 in uscita da un nodo di storage, ma di voler impedire qualsiasi connessione in entrata a tale nodo di storage sulla rete client. Eseguire questa fase generale:
+
+* Dalla scheda Untrusted Client Networks (reti client non attendibili) della pagina di controllo Firewall, indicare che la rete client nel nodo di storage non è attendibile.
+
+
+Dopo aver salvato la configurazione, il nodo di storage non accetta più alcun traffico in entrata sulla rete client, ma continua a consentire le richieste in uscita verso destinazioni di servizi della piattaforma configurate.
+
+
+
+=== Esempio 3: Limitazione dell'accesso a Grid Manager a una subnet
+
+Si supponga di voler consentire l'accesso a Grid Manager solo su una subnet specifica. Attenersi alla seguente procedura:
+
+. Collegare la rete client dei nodi di amministrazione alla subnet.
+. Utilizzare la scheda Untrusted Client Network (rete client non attendibile) per configurare la rete client come non attendibile.
+. Quando si crea un endpoint per il bilanciamento del carico dell'interfaccia di gestione, immettere la porta e selezionare l'interfaccia di gestione a cui la porta accede.
+. Selezionare *Sì* per la rete client non attendibile.
+. Utilizzare la scheda Manage external access (Gestisci accesso esterno) per bloccare tutte le porte esterne (con o senza indirizzi IP privilegiati impostati per gli host esterni alla subnet).
+
+
+Dopo aver salvato la configurazione, solo gli host della subnet specificata possono accedere a Grid Manager. Tutti gli altri host sono bloccati.

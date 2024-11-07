@@ -1,0 +1,210 @@
+---
+permalink: maintain/changing-nodes-network-configuration.html 
+sidebar: sidebar 
+keywords: storagegrid, network configuration, node network configuration 
+summary: È possibile modificare la configurazione di rete di uno o più nodi utilizzando lo strumento Change IP. È possibile modificare la configurazione di Grid Network o aggiungere, modificare o rimuovere le reti Admin o Client. 
+---
+= Modificare la configurazione di rete del nodo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile modificare la configurazione di rete di uno o più nodi utilizzando lo strumento Change IP. È possibile modificare la configurazione di Grid Network o aggiungere, modificare o rimuovere le reti Admin o Client.
+
+.Prima di iniziare
+Si dispone del `Passwords.txt` file.
+
+.A proposito di questa attività
+*Linux:* se si aggiunge un nodo Grid alla rete di amministrazione o alla rete client per la prima volta e non si è precedentemente configurato ADMIN_NETWORK_TARGET o CLIENT_NETWORK_TARGET nel file di configurazione del nodo, è necessario farlo ora.
+
+Consultare le istruzioni di installazione di StorageGRID per il sistema operativo Linux in uso:
+
+* link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
+* link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
+
+
+*Appliance:* sulle appliance StorageGRID, se il client o la rete amministrativa non sono stati configurati nel programma di installazione dell'appliance StorageGRID durante l'installazione iniziale, la rete non può essere aggiunta utilizzando solo il tool Cambia IP. Innanzitutto, è necessario https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["impostare l'apparecchio in modalità di manutenzione"^] configurare i collegamenti, riportare il dispositivo alla modalità operativa normale, quindi utilizzare lo strumento Modifica IP per modificare la configurazione di rete. Consultare la https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["procedura per la configurazione dei collegamenti di rete"^].
+
+È possibile modificare l'indirizzo IP, la subnet mask, il gateway o il valore MTU per uno o più nodi su qualsiasi rete.
+
+È inoltre possibile aggiungere o rimuovere un nodo da una rete client o da una rete amministrativa:
+
+* È possibile aggiungere un nodo a una rete client o a una rete amministrativa aggiungendo un indirizzo IP/subnet mask su tale rete al nodo.
+* È possibile rimuovere un nodo da una rete client o da una rete amministrativa eliminando l'indirizzo IP/subnet mask del nodo sulla rete.
++
+I nodi non possono essere rimossi dalla Grid Network.
+
+
+
+
+NOTE: Non è consentito lo swap degli indirizzi IP. Se è necessario scambiare indirizzi IP tra nodi di rete, è necessario utilizzare un indirizzo IP intermedio temporaneo.
+
+
+NOTE: Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID e si sta modificando l'indirizzo IP di un nodo di amministrazione, tenere presente che qualsiasi trust della parte che si basa configurato utilizzando l'indirizzo IP del nodo di amministrazione (invece del nome di dominio completo, come consigliato) non sarà valido. Non sarà più possibile accedere al nodo. Subito dopo aver modificato l'indirizzo IP, è necessario aggiornare o riconfigurare il trust della parte di supporto del nodo in Active Directory Federation Services (ad FS) con il nuovo indirizzo IP. Vedere le istruzioni per link:../admin/configuring-sso.html["Configurazione di SSO"].
+
+
+NOTE: Le modifiche apportate alla rete utilizzando lo strumento Cambia IP vengono propagate al firmware del programma di installazione delle appliance StorageGRID. In questo modo, se il software StorageGRID viene reinstallato su un'appliance o se un'appliance viene messa in modalità di manutenzione, la configurazione di rete sarà corretta.
+
+.Fasi
+. Accedere al nodo di amministrazione principale:
++
+.. Immettere il seguente comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+. Avviare lo strumento Change IP inserendo il seguente comando: `change-ip`
+. Inserire la passphrase di provisioning quando richiesto.
++
+Viene visualizzato il menu principale.
+
++
+image::../media/change_ip_tool_main_menu.png[Schermata di benvenuto dello strumento Change IP]
+
+. Se si desidera, selezionare *1* per scegliere i nodi da aggiornare. Quindi selezionare una delle seguenti opzioni:
++
+** *1*: Nodo singolo -- selezionare per nome
+** *2*: Nodo singolo -- selezionare per sito, quindi per nome
+** *3*: Nodo singolo -- selezionare in base all'IP corrente
+** *4*: Tutti i nodi di un sito
+** *5*: Tutti i nodi della griglia
++
+*Nota:* se si desidera aggiornare tutti i nodi, lasciare selezionato "tutti".
+
+
+
++
+Una volta effettuata la selezione, viene visualizzato il menu principale, con il campo *Selected Nodes* (nodi selezionati) aggiornato per riflettere la scelta. Tutte le azioni successive vengono eseguite solo sui nodi visualizzati.
+
+. Nel menu principale, selezionare l'opzione *2* per modificare le informazioni relative a IP/mask, gateway e MTU per i nodi selezionati.
++
+.. Selezionare la rete in cui si desidera apportare le modifiche:
++
+--
+*** *1*: Rete di rete
+*** *2*: Rete amministrativa
+*** *3*: Rete client
+*** *4*: Tutte le reti
+
+
+--
++
+--
+Dopo aver effettuato la selezione, il prompt mostra il nome del nodo, il nome della rete (Grid, Admin o Client), il tipo di dati (IP/mask, gateway o MTU) e il valore corrente.
+
+Se si modificano l'indirizzo IP, la lunghezza del prefisso, il gateway o la MTU di un'interfaccia configurata con DHCP, l'interfaccia diventa statica. Quando si sceglie di modificare un'interfaccia configurata da DHCP, viene visualizzato un avviso per informare l'utente che l'interfaccia passerà a static (statica).
+
+Le interfacce configurate come `fixed` non possono essere modificate.
+
+--
+.. Per impostare un nuovo valore, immetterlo nel formato indicato per il valore corrente.
+.. Per lasciare invariato il valore corrente, premere *Invio*.
+.. Se il tipo di dati è `IP/mask`, è possibile eliminare la rete Admin o Client dal nodo immettendo *d* o *0,0.0,0/0*.
+.. Dopo aver modificato tutti i nodi che si desidera modificare, immettere *q* per tornare al menu principale.
++
+Le modifiche vengono mantenute fino a quando non vengono cancellate o applicate.
+
+
+
+. Per rivedere le modifiche, selezionare una delle seguenti opzioni:
++
+** *5*: Mostra le modifiche nell'output isolato per mostrare solo l'elemento modificato. Le modifiche sono evidenziate in verde (aggiunte) o in rosso (eliminazioni), come mostrato nell'output di esempio:
++
+image::../media/change_ip_tool_edit_ip_mask_sample_output.png[schermata descritta dal testo circostante]
+
+** *6*: Mostra le modifiche nell'output che visualizza la configurazione completa. Le modifiche sono evidenziate in verde (aggiunte) o in rosso (eliminazioni).
++
+
+NOTE: Alcune interfacce della riga di comando potrebbero mostrare aggiunte ed eliminazioni utilizzando la formattazione strikehrough. La corretta visualizzazione dipende dal client terminale che supporta le sequenze di escape VT100 necessarie.
+
+
+
+. Selezionare l'opzione *7* per convalidare tutte le modifiche.
++
+Questa convalida garantisce che le regole per le reti Grid, Admin e Client, come ad esempio l'utilizzo di sottoreti sovrapposte, non vengano violate.
+
++
+In questo esempio, la convalida ha restituito errori.
+
++
+image::../media/change_ip_tool_validate_sample_error_messages.gif[schermata descritta dal testo circostante]
+
++
+In questo esempio, la convalida è stata superata.
+
++
+image::../media/change_ip_tool_validate_sample_passed_messages.gif[schermata descritta dal testo circostante]
+
+. Dopo il superamento della convalida, scegliere una delle seguenti opzioni:
++
+** *8*: Salva le modifiche non applicate.
++
+Questa opzione consente di uscire dallo strumento Change IP e di avviarlo di nuovo in un secondo momento, senza perdere alcuna modifica non applicata.
+
+** *10*: Applicare la nuova configurazione di rete.
+
+
+. Se è stata selezionata l'opzione *10*, scegliere una delle seguenti opzioni:
++
+** *Apply*: Applica le modifiche immediatamente e riavvia automaticamente ogni nodo, se necessario.
++
+Se la nuova configurazione di rete non richiede modifiche fisiche, selezionare *Apply* (Applica) per applicare le modifiche immediatamente. I nodi verranno riavviati automaticamente, se necessario. Verranno visualizzati i nodi che devono essere riavviati.
+
+** *Fase*: Applicare le modifiche al successivo riavvio manuale dei nodi.
++
+Se è necessario apportare modifiche alla configurazione di rete fisica o virtuale per il funzionamento della nuova configurazione di rete, utilizzare l'opzione *stage*, arrestare i nodi interessati, apportare le necessarie modifiche fisiche di rete e riavviare i nodi interessati. Se si seleziona *Apply* (Applica) senza apportare prima queste modifiche alla rete, le modifiche non vengono eseguite correttamente.
+
++
+
+NOTE: Se si utilizza l'opzione *stage*, è necessario riavviare il nodo il prima possibile dopo lo staging per ridurre al minimo le interruzioni.
+
+** *CANCEL*: Non apportare modifiche alla rete in questo momento.
++
+Se non si è a conoscenza del fatto che le modifiche proposte richiedono il riavvio dei nodi, è possibile posticipare le modifiche per ridurre al minimo l'impatto sull'utente. Selezionando *CANCEL* si torna al menu principale e si conservano le modifiche in modo da poterle applicare in un secondo momento.
+
++
+Quando si seleziona *Apply* o *Stage*, viene generato un nuovo file di configurazione di rete, viene eseguito il provisioning e i nodi vengono aggiornati con nuove informazioni di lavoro.
+
++
+Durante il provisioning, l'output visualizza lo stato man mano che vengono applicati gli aggiornamenti.
+
++
+[listing]
+----
+Generating new grid networking description file...
+
+Running provisioning...
+
+Updating grid network configuration on Name
+----
+
+
++
+Una volta applicate o apportate le modifiche, viene generato un nuovo pacchetto di ripristino in seguito alla modifica della configurazione della griglia.
+
+. Se si seleziona *fase*, seguire questi passaggi al termine del provisioning:
++
+.. Apportare le modifiche di rete fisiche o virtuali richieste.
++
+*Modifiche fisiche alla rete*: Apportare le modifiche fisiche necessarie alla rete, spegnendo il nodo in modo sicuro, se necessario.
+
++
+*Linux*: Se si aggiunge il nodo a una rete di amministrazione o a una rete client per la prima volta, assicurarsi di aver aggiunto l'interfaccia come descritto in link:linux-adding-interfaces-to-existing-node.html["Linux: Aggiunta di interfacce al nodo esistente"].
+
+.. Riavviare i nodi interessati.
+
+
+. Selezionare *0* per uscire dallo strumento Change IP una volta completate le modifiche.
+. Scarica un nuovo pacchetto di ripristino da Grid Manager.
++
+.. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+.. Inserire la passphrase di provisioning.
+
+
+

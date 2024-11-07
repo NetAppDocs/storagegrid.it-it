@@ -1,0 +1,59 @@
+---
+permalink: maintain/restoring-audit-log-on-recovered-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, restore audit log, primary admin node 
+summary: Se è stato possibile conservare il registro di controllo dal nodo di amministrazione primario guasto, è possibile copiarlo nel nodo di amministrazione primario che si sta ripristinando. 
+---
+= Ripristinare il log di audit sul nodo di amministrazione primario recuperato
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se è stato possibile conservare il registro di controllo dal nodo di amministrazione primario guasto, è possibile copiarlo nel nodo di amministrazione primario che si sta ripristinando.
+
+.Prima di iniziare
+* Il nodo Admin recuperato è installato e in esecuzione.
+* I registri di controllo sono stati copiati in un'altra posizione dopo l'errore del nodo di amministrazione originale.
+
+
+.A proposito di questa attività
+In caso di errore di un nodo amministratore, i registri di controllo salvati in quel nodo amministratore potrebbero andare persi. Potrebbe essere possibile conservare i dati in caso di perdita copiando i registri di controllo dal nodo di amministrazione non riuscito e ripristinando questi registri di controllo nel nodo di amministrazione ripristinato. A seconda dell'errore, potrebbe non essere possibile copiare i registri di controllo dal nodo di amministrazione non riuscito. In tal caso, se l'implementazione ha più di un nodo di amministrazione, è possibile ripristinare i registri di controllo da un altro nodo di amministrazione, poiché i registri di controllo vengono replicati in tutti i nodi di amministrazione.
+
+Se esiste un solo nodo Admin e non è possibile copiare il log di audit dal nodo guasto, il nodo Admin recuperato inizia a registrare gli eventi nel log di audit come se l'installazione fosse nuova.
+
+Per ripristinare la funzionalità di registrazione, è necessario ripristinare un nodo amministratore il prima possibile.
+
+[NOTE]
+====
+Per impostazione predefinita, le informazioni di controllo vengono inviate al registro di controllo sui nodi di amministrazione. È possibile saltare questi passaggi se si verifica una delle seguenti condizioni:
+
+* È stato configurato un server syslog esterno e i registri di controllo vengono inviati al server syslog invece che ai nodi di amministrazione.
+* È stato specificato esplicitamente che i messaggi di audit devono essere salvati solo sui nodi locali che li hanno generati.
+
+
+Per ulteriori informazioni, vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"] .
+
+====
+.Fasi
+. Accedere al nodo di amministrazione recuperato:
++
+.. Immettere il seguente comando: `ssh admin@recovery_Admin_Node_IP`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Dopo aver effettuato l'accesso come root, il prompt passa da `$` a `#`.
+
+. Controllare quali file di controllo sono stati conservati: `cd /var/local/log`
+. Copiare i file di log di controllo conservati nel nodo amministrativo recuperato: `scp admin@_grid_node_IP_:/var/local/tmp/saved-audit-logs/YYYY* .`
++
+Quando richiesto, inserire la password per admin.
+
+. Per motivi di sicurezza, eliminare i registri di controllo dal nodo Grid guasto dopo aver verificato che siano stati copiati correttamente nel nodo Admin ripristinato.
+. Aggiornare le impostazioni dell'utente e del gruppo dei file di registro del controllo sul nodo amministrativo recuperato: `chown ams-user: bycast *`
+. Disconnettersi come root: `exit`
+

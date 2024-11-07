@@ -1,0 +1,68 @@
+---
+permalink: admin/confirming-federated-users-can-sign-in.html 
+sidebar: sidebar 
+keywords: sso configuration 
+summary: 'Prima di attivare il Single Sign-on (SSO), devi confermare che almeno un utente federated può accedere a Grid Manager e a Tenant Manager per qualsiasi account tenant esistente.' 
+---
+= Confermare che gli utenti federati possono accedere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di attivare il Single Sign-on (SSO), è necessario confermare che almeno un utente federato possa accedere a Grid Manager e a Tenant Manager per qualsiasi account tenant esistente.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+* La federazione delle identità è già stata configurata.
+
+
+.Fasi
+. Se esistono account tenant, verificare che nessuno dei tenant utilizzi la propria origine di identità.
++
+
+TIP: Quando si attiva SSO, un'origine identità configurata in Tenant Manager viene ignorata dall'origine identità configurata in Grid Manager. Gli utenti che appartengono all'origine dell'identità del tenant non potranno più accedere a meno che non dispongano di un account con l'origine dell'identità di Grid Manager.
+
++
+.. Accedi al tenant manager per ogni account tenant.
+.. Selezionare *ACCESS MANAGEMENT* > *Identity Federation*.
+.. Verificare che la casella di controllo *Enable Identity Federation* (Abilita federazione identità) non sia selezionata.
+.. In tal caso, verificare che i gruppi federati che potrebbero essere in uso per questo account tenant non siano più necessari, deselezionare la casella di controllo e selezionare *Salva*.
+
+
+. Verificare che un utente federated possa accedere a Grid Manager:
++
+.. Da Grid Manager, selezionare *CONFIGURATION* > *Access control* > *Admin groups*.
+.. Assicurarsi che almeno un gruppo federated sia stato importato dall'origine dell'identità di Active Directory e che sia stata assegnata l'autorizzazione di accesso root.
+.. Disconnettersi.
+.. Confermare che è possibile accedere nuovamente a Grid Manager come utente nel gruppo federated.
+
+
+. Se sono presenti account tenant, verificare che un utente federated che dispone dell'autorizzazione di accesso root possa effettuare l'accesso:
++
+.. In Grid Manager, selezionare *TENANT*.
+.. Selezionare l'account tenant e selezionare *azioni* > *Modifica*.
+.. Nella scheda Immetti dettagli, selezionare *continua*.
+.. Se la casella di controllo *Usa origine identità propria* è selezionata, deselezionare la casella e selezionare *Salva*.
++
+image::../media/sso_uses_own_identity_source_for_tenant.png[Casella di controllo Edit Tenant account > Use own Identity source (Modifica account tenant > Usa origine identità propria) non selezionata]
+
++
+Viene visualizzata la pagina del tenant.
+
+.. Selezionare l'account tenant, selezionare *Accedi* e accedere all'account tenant come utente root locale.
+.. Da Tenant Manager, selezionare *ACCESS MANAGEMENT* > *Groups*.
+.. Assicurarsi che almeno un gruppo federated di Grid Manager sia stato assegnato all'autorizzazione di accesso root per questo tenant.
+.. Disconnettersi.
+.. Confermare che è possibile accedere nuovamente al tenant come utente nel gruppo federated.
+
+
+
+
+.Informazioni correlate
+* link:requirements-for-sso.html["Requisiti e considerazioni per il single sign-on"]
+* link:managing-admin-groups.html["Gestire i gruppi di amministratori"]
+* link:../tenant/index.html["Utilizzare un account tenant"]
+

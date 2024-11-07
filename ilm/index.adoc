@@ -1,0 +1,46 @@
+---
+permalink: ilm/index.html 
+sidebar: sidebar 
+keywords: information lifecycle management overview, about information lifecycle management, ilm overview, about ilm 
+summary: 'Le regole \(ILM\) di gestione del ciclo di vita delle informazioni contenute in un criterio ILM indicano a StorageGRID come creare e distribuire copie dei dati degli oggetti e come gestirle nel tempo.' 
+---
+= Gestire gli oggetti con ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le regole di gestione del ciclo di vita delle informazioni (ILM, Information Lifecycle Management) contenute in un criterio ILM indicano a StorageGRID come creare e distribuire copie dei dati degli oggetti e come gestirle nel tempo.
+
+
+
+== A proposito di queste istruzioni
+
+La progettazione e l'implementazione di regole e politiche ILM richiedono un'attenta pianificazione. È necessario comprendere i requisiti operativi, la topologia del sistema StorageGRID, le esigenze di protezione degli oggetti e i tipi di storage disponibili. Quindi, è necessario determinare come si desidera copiare, distribuire e memorizzare diversi tipi di oggetti.
+
+Seguire queste istruzioni per:
+
+* Ulteriori informazioni su StorageGRID ILM, incluso link:how-ilm-operates-throughout-objects-life.html["Come ILM opera per tutta la vita di un oggetto"].
+* Informazioni sulla configurazione di link:what-storage-pool-is.html["pool di storage"], , link:what-cloud-storage-pool-is.html["Pool di cloud storage"]e link:what-ilm-rule-is.html["Regole ILM"].
+* Scopri come link:creating-ilm-policy.html["Creare, simulare e attivare un criterio ILM"]proteggere i dati degli oggetti in uno o più siti.
+* Imparare come fare link:managing-objects-with-s3-object-lock.html["Gestire gli oggetti con S3 Object Lock"], che aiuta a garantire che gli oggetti in specifici bucket S3 non vengano eliminati o sovrascritti per un determinato periodo di tempo.
+
+
+
+
+== Scopri di più
+
+Per ulteriori informazioni, consulta questi video:
+
+* https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7["Video: Panoramica delle regole ILM"^].
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7]
+image::../media/video-screenshot-ilm-rules-118.png[Video: Panoramica delle regole ILM]
+
+* https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10["Video: Panoramica dei criteri ILM"^]
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10]
+image::../media/video-screenshot-ilm-policies-118.png[Video: Panoramica dei criteri ILM]
+
+

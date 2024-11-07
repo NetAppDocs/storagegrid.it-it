@@ -1,0 +1,71 @@
+---
+permalink: audit/etaf-security-authentication-failed.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ETAF, Security Authentication Failed 
+summary: 'Questo messaggio viene generato quando un tentativo di connessione con Transport Layer Security (TLS) non è riuscito.' 
+---
+= ETAF: Autenticazione di sicurezza non riuscita
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questo messaggio viene generato quando un tentativo di connessione con Transport Layer Security (TLS) non riesce.
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+CNID
+ a| 
+Identificatore di connessione
+ a| 
+Identificatore univoco del sistema per la connessione TCP/IP su cui l'autenticazione non è riuscita.
+
+
+
+ a| 
+MALEDUCATO
+ a| 
+Identità dell'utente
+ a| 
+Identificatore dipendente dal servizio che rappresenta l'identità dell'utente remoto.
+
+
+
+ a| 
+RSLT
+ a| 
+Codice di motivazione
+ a| 
+Il motivo del guasto:
+
+SCNI: Connessione sicura non riuscita.
+
+CERM: Certificato mancante.
+
+CERT: Certificato non valido.
+
+CERE: Certificato scaduto.
+
+CER: Certificato revocato.
+
+CSGN: Firma del certificato non valida.
+
+CSGU: Il firmatario del certificato non era noto.
+
+UCRM: Credenziali utente mancanti.
+
+UCRI: Credenziali utente non valide.
+
+UCRU: Le credenziali dell'utente non sono consentite.
+
+TOUT: Timeout dell'autenticazione.
+
+|===
+Quando viene stabilita una connessione a un servizio sicuro che utilizza TLS, le credenziali dell'entità remota vengono verificate utilizzando il profilo TLS e la logica aggiuntiva integrata nel servizio. Se l'autenticazione non riesce a causa di certificati o credenziali non validi, imprevisti o non consentiti, viene registrato un messaggio di audit. Ciò consente di eseguire query per tentativi di accesso non autorizzati e altri problemi di connessione correlati alla sicurezza.
+
+Il messaggio potrebbe derivare da un'entità remota con una configurazione errata o da tentativi di presentare credenziali non valide o non consentite al sistema. Questo messaggio di audit deve essere monitorato per rilevare i tentativi di accesso non autorizzato al sistema.

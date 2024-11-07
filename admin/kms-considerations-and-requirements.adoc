@@ -1,0 +1,101 @@
+---
+permalink: admin/kms-considerations-and-requirements.html 
+sidebar: sidebar 
+keywords: Key Management Interoperability Protocol, kmip version, kms requirements, use key management server 
+summary: 'Prima di configurare un server di gestione delle chiavi esterno (KMS), è necessario comprendere le considerazioni e i requisiti.' 
+---
+= Considerazioni e requisiti per l'utilizzo di un server di gestione delle chiavi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di configurare un KMS (Key Management Server) esterno, è necessario comprendere le considerazioni e i requisiti.
+
+
+
+== Quale versione di KMIP è supportata?
+
+StorageGRID supporta KMIP versione 1.4.
+
+http://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html["Key Management Interoperability Protocol Specification versione 1.4"^]
+
+
+
+== Quali sono le considerazioni sulla rete?
+
+Le impostazioni del firewall di rete devono consentire a ciascun nodo dell'appliance di comunicare attraverso la porta utilizzata per le comunicazioni KMIP (Key Management Interoperability Protocol). La porta KMIP predefinita è 5696.
+
+È necessario assicurarsi che ogni nodo dell'appliance che utilizza la crittografia del nodo disponga dell'accesso di rete al cluster KMS o KMS configurato per il sito.
+
+
+
+== Quali versioni di TLS sono supportate?
+
+Le comunicazioni tra i nodi dell'appliance e il KMS configurato utilizzano connessioni TLS sicure. StorageGRID può supportare il protocollo TLS 1,2 o TLS 1,3 quando stabilisce connessioni KMIP a un cluster KMS o KMS, in base a ciò che il KMS supporta e a quale link:manage-tls-ssh-policy.html["Policy TLS e SSH"]stai utilizzando.
+
+StorageGRID negozia il protocollo e il cifrario (TLS 1,2) o la suite di cifratura (TLS 1,3) con il KMS quando effettua la connessione. Per vedere quali versioni di protocollo e pacchetti di crittografia sono disponibili, consultate la `tlsOutbound` sezione dei criteri attivi TLS e SSH della griglia (*CONFIGURATION* > *Security* *Security settings*).
+
+
+
+== Quali appliance sono supportate?
+
+È possibile utilizzare un server di gestione delle chiavi (KMS) per gestire le chiavi di crittografia per qualsiasi appliance StorageGRID nel grid con l'impostazione *crittografia nodo* attivata. Questa impostazione può essere attivata solo durante la fase di configurazione hardware dell'installazione dell'appliance mediante il programma di installazione dell'appliance StorageGRID.
+
+
+NOTE: Non è possibile attivare la crittografia dei nodi dopo l'aggiunta di un'appliance alla griglia e non è possibile utilizzare la gestione delle chiavi esterne per le appliance che non hanno la crittografia dei nodi abilitata.
+
+È possibile utilizzare il KMS configurato per appliance StorageGRID e nodi appliance.
+
+Non è possibile utilizzare il KMS configurato per i nodi software-based (non-appliance), inclusi i seguenti:
+
+* Nodi implementati come macchine virtuali (VM)
+* Nodi implementati all'interno di motori container su host Linux
+
+
+I nodi implementati su queste altre piattaforme possono utilizzare la crittografia all'esterno di StorageGRID a livello di datastore o disco.
+
+
+
+== Quando è necessario configurare i server di gestione delle chiavi?
+
+Per una nuova installazione, in genere è necessario configurare uno o più server di gestione delle chiavi in Grid Manager prima di creare tenant. Questo ordine garantisce che i nodi siano protetti prima che i dati degli oggetti siano memorizzati su di essi.
+
+È possibile configurare i server di gestione delle chiavi in Grid Manager prima o dopo l'installazione dei nodi appliance.
+
+
+
+== Quanti server di gestione delle chiavi sono necessari?
+
+È possibile configurare uno o più server di gestione delle chiavi esterni per fornire chiavi di crittografia ai nodi dell'appliance nel sistema StorageGRID. Ogni KMS fornisce una singola chiave di crittografia ai nodi dell'appliance StorageGRID in un singolo sito o in un gruppo di siti.
+
+StorageGRID supporta l'utilizzo di cluster KMS. Ogni cluster KMS contiene più server di gestione delle chiavi replicati che condividono le impostazioni di configurazione e le chiavi di crittografia. Si consiglia di utilizzare i cluster KMS per la gestione delle chiavi perché migliora le funzionalità di failover di una configurazione ad alta disponibilità.
+
+Si supponga, ad esempio, che il sistema StorageGRID disponga di tre siti per data center. È possibile configurare un cluster KMS per fornire una chiave a tutti i nodi appliance nel data center 1 e un secondo cluster KMS per fornire una chiave a tutti i nodi appliance in tutti gli altri siti. Quando si aggiunge il secondo cluster KMS, è possibile configurare un KMS predefinito per Data Center 2 e Data Center 3.
+
+Tenere presente che non è possibile utilizzare un KMS per i nodi non appliance o per i nodi appliance che non hanno attivato l'impostazione *Node Encryption* durante l'installazione.
+
+image::../media/kms_per_site.png[KM per sito]
+
+
+
+== Cosa succede quando si ruota una chiave?
+
+Come Best practice per la sicurezza, è consigliabile utilizzare periodicamente link:kms-managing.html#rotate-key["ruotare la chiave di crittografia"]ogni KMS configurato.
+
+Quando è disponibile la nuova versione della chiave:
+
+* Viene distribuito automaticamente ai nodi appliance crittografati nel sito o nei siti associati al KMS. La distribuzione deve avvenire entro un'ora dalla rotazione della chiave.
+* Se il nodo dell'appliance crittografato non è in linea quando viene distribuita la nuova versione della chiave, il nodo riceverà la nuova chiave non appena verrà riavviato.
+* Se la nuova versione della chiave non può essere utilizzata per crittografare i volumi dell'appliance per qualsiasi motivo, viene attivato l'avviso *rotazione chiave di crittografia KMS non riuscita* per il nodo dell'appliance. Potrebbe essere necessario contattare il supporto tecnico per ottenere assistenza nella risoluzione di questo avviso.
+
+
+
+
+== È possibile riutilizzare un nodo appliance dopo averlo crittografato?
+
+Se è necessario installare un'appliance crittografata in un altro sistema StorageGRID, è necessario prima decommissionare il nodo Grid per spostare i dati degli oggetti in un altro nodo. Quindi, è possibile utilizzare il programma di installazione dell'appliance StorageGRID per https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/monitoring-node-encryption-in-maintenance-mode.html["Cancellare la configurazione KMS"^]. La cancellazione della configurazione KMS disattiva l'impostazione *crittografia nodo* e rimuove l'associazione tra il nodo appliance e la configurazione KMS per il sito StorageGRID.
+
+
+NOTE: Senza l'accesso alla chiave di crittografia KMS, i dati che rimangono sull'appliance non possono più essere utilizzati e bloccati in modo permanente.

@@ -1,0 +1,35 @@
+---
+permalink: monitor/monitoring-object-ingest-and-retrieval-rates.html 
+sidebar: sidebar 
+keywords: object ingest rates, object retrieval rates, monitor s3, client operations 
+summary: È possibile monitorare i tassi di acquisizione e recupero degli oggetti, nonché le metriche per i conteggi degli oggetti, le query e la verifica. È possibile visualizzare il numero di tentativi riusciti e non riusciti da parte delle applicazioni client di lettura, scrittura e modifica degli oggetti nel sistema StorageGRID. 
+---
+= Monitorare S3 operazioni client
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile monitorare i tassi di acquisizione e recupero degli oggetti, nonché le metriche per i conteggi degli oggetti, le query e la verifica. È possibile visualizzare il numero di tentativi riusciti e non riusciti da parte delle applicazioni client di lettura, scrittura e modifica degli oggetti nel sistema StorageGRID.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+
+
+.Fasi
+. Dalla dashboard, selezionare la scheda *prestazioni*.
+. Fare riferimento ai grafici S3, che riassumono il numero di operazioni client eseguite dai nodi di archiviazione e il numero di richieste API ricevute dai nodi di archiviazione durante l'intervallo di tempo selezionato.
+. Selezionare *NODI* per accedere alla pagina nodi.
+. Dalla home page dei nodi (livello griglia), selezionare la scheda *oggetti*.
++
+Il grafico mostra i tassi di acquisizione e recupero di S3 kb dell'intero sistema StorageGRID in byte al secondo e la quantità di dati acquisiti o recuperati. È possibile selezionare un intervallo di tempo o applicare un intervallo personalizzato.
+
+. Per visualizzare le informazioni relative a un determinato nodo di archiviazione, selezionare il nodo dall'elenco a sinistra e selezionare la scheda *oggetti*.
++
+Il grafico mostra le velocità di acquisizione e recupero per il nodo. Questa scheda include inoltre metriche per il numero di oggetti, le query sui metadati e le operazioni di verifica.
+
++
+image::../media/nodes_storage_node_objects_help.png[Schermata dei nodi > _Storage Node_ > oggetti > Guida attributi]
+
+

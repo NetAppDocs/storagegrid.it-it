@@ -1,0 +1,166 @@
+---
+permalink: ilm/example-5-ilm-rules-and-policy-for-strict-ingest-behavior.html 
+sidebar: sidebar 
+keywords: strict ingest example, example ILM rule, information lifecycle rule examples 
+summary: È possibile utilizzare un filtro di posizione e il rigoroso comportamento di acquisizione in una regola per impedire che gli oggetti vengano salvati in una determinata posizione del data center. 
+---
+= Esempio 5: Regole e policy ILM per un comportamento rigoroso di acquisizione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare un filtro di posizione e il rigoroso comportamento di acquisizione in una regola per impedire che gli oggetti vengano salvati in una determinata posizione del data center.
+
+In questo esempio, un tenant con sede a Parigi non desidera memorizzare alcuni oggetti al di fuori dell'UE a causa di problemi normativi. Altri oggetti, inclusi tutti gli oggetti di altri account tenant, possono essere memorizzati nel data center di Parigi o nel data center statunitense.
+
+
+CAUTION: Le seguenti regole e policy ILM sono solo esempi. Esistono diversi modi per configurare le regole ILM. Prima di attivare un nuovo criterio, simularlo per verificare che funzioni come previsto per proteggere il contenuto dalla perdita.
+
+.Informazioni correlate
+* link:data-protection-options-for-ingest.html["Opzioni di acquisizione"]
+* link:create-ilm-rule-select-ingest-behavior.html["Create ILM rule (Crea regola ILM): Selezionare il comportamento di acquisizione"]
+
+
+
+
+== ILM regola 1 per esempio 5: Ingest rigoroso per garantire il data center di Parigi
+
+Questa regola ILM di esempio utilizza il comportamento rigoroso dell'acquisizione per garantire che gli oggetti salvati da un tenant basato su Parigi nei bucket S3 con la regione impostata su ue-West-3 (Parigi) non vengano mai memorizzati nel data center statunitense.
+
+Questa regola si applica agli oggetti che appartengono al tenant di Parigi e che hanno la regione del bucket S3 impostata su eu-West-3 (Parigi).
+
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Account tenant
+ a| 
+Tenant di Parigi
+
+
+
+ a| 
+Filtro avanzato
+ a| 
+Il vincolo di posizione equivale a eu-West-3
+
+
+
+ a| 
+Pool di storage
+ a| 
+Sito 1 (Parigi)
+
+
+
+ a| 
+Nome della regola
+ a| 
+Un ingest rigoroso per garantire il data center di Parigi
+
+
+
+ a| 
+Tempo di riferimento
+ a| 
+Tempo di acquisizione
+
+
+
+ a| 
+Posizionamenti
+ a| 
+Il giorno 0, conserva due copie replicate per sempre nel sito 1 (Parigi)
+
+
+
+ a| 
+Comportamento di acquisizione
+ a| 
+Rigoroso. Utilizza sempre le posizioni di questa regola per l'acquisizione. L'acquisizione non riesce se non è possibile memorizzare due copie dell'oggetto nel data center di Parigi.
+
+|===
+image::../media/ilm_rule_1_example_5_strict_ingest.png[ILM Rule 1 esempio 5 Strict Ingest]
+
+
+
+== ILM regola 2 per esempio 5: Acquisizione bilanciata per altri oggetti
+
+Questa regola ILM di esempio utilizza il comportamento di acquisizione bilanciata per fornire un'efficienza ILM ottimale per qualsiasi oggetto non associato alla prima regola. Verranno memorizzate due copie di tutti gli oggetti corrispondenti a questa regola: Una nel data center degli Stati Uniti e una nel data center di Parigi. Se la regola non può essere soddisfatta immediatamente, le copie temporanee vengono memorizzate in qualsiasi posizione disponibile.
+
+Questa regola si applica agli oggetti che appartengono a qualsiasi tenant e a qualsiasi area.
+
+[cols="1a,2a"]
+|===
+| Definizione della regola | Valore di esempio 
+
+
+ a| 
+Account tenant
+ a| 
+Ignorare
+
+
+
+ a| 
+Filtro avanzato
+ a| 
+_Non specificato_
+
+
+
+ a| 
+Pool di storage
+ a| 
+Sito 1 (Parigi) e sito 2 (Stati Uniti)
+
+
+
+ a| 
+Nome della regola
+ a| 
+2 copie di 2 data center
+
+
+
+ a| 
+Tempo di riferimento
+ a| 
+Tempo di acquisizione
+
+
+
+ a| 
+Posizionamenti
+ a| 
+Il giorno 0, conserva due copie replicate per sempre in due data center
+
+
+
+ a| 
+Comportamento di acquisizione
+ a| 
+Bilanciato. Gli oggetti che corrispondono a questa regola vengono posizionati in base alle istruzioni di posizionamento della regola, se possibile. In caso contrario, le copie temporanee vengono eseguite in qualsiasi ubicazione disponibile.
+
+|===
+
+
+== Policy ILM per esempio 5: Combinazione di comportamenti di acquisizione
+
+Il criterio ILM di esempio include due regole che hanno comportamenti di acquisizione diversi.
+
+Un criterio ILM che utilizza due diversi comportamenti di acquisizione potrebbe includere regole ILM come le seguenti:
+
+* Memorizzare gli oggetti che appartengono al tenant di Parigi e che hanno la regione del bucket S3 impostata su eu-West-3 (Parigi) solo nel data center di Parigi. Non eseguire l'acquisizione se il data center di Parigi non è disponibile.
+* Memorizzare tutti gli altri oggetti (inclusi quelli che appartengono al tenant di Parigi ma che hanno una regione bucket diversa) nel data center statunitense e nel data center di Parigi. Se le istruzioni di posizionamento non possono essere soddisfatte, eseguire copie temporanee in qualsiasi ubicazione disponibile.
+
+
+Quando si simula il criterio di esempio, si prevede che gli oggetti di test vengano valutati come segue:
+
+* Tutti gli oggetti che appartengono al tenant di Parigi e che hanno la regione del bucket S3 impostata su eu-West-3 vengono abbinati alla prima regola e memorizzati nel data center di Parigi. Poiché la prima regola utilizza un ingest rigoroso, questi oggetti non vengono mai memorizzati nel data center statunitense. Se i nodi di storage nel data center di Parigi non sono disponibili, l'acquisizione non riesce.
+* Tutti gli altri oggetti sono abbinati dalla seconda regola, inclusi gli oggetti che appartengono al tenant di Parigi e che non hanno la regione del bucket S3 impostata su eu-West-3. Una copia di ciascun oggetto viene salvata in ciascun data center. Tuttavia, poiché la seconda regola utilizza l'acquisizione bilanciata, se un data center non è disponibile, vengono salvate due copie temporanee in qualsiasi posizione disponibile.
+

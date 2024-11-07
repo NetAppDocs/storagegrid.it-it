@@ -1,0 +1,66 @@
+---
+permalink: admin/controlling-access-through-firewalls.html 
+sidebar: sidebar 
+keywords: firewall access, firewall ports, external firewall 
+summary: È possibile aprire o chiudere porte specifiche sul firewall esterno. 
+---
+= Controllare l'accesso al firewall esterno
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile aprire o chiudere porte specifiche sul firewall esterno.
+
+È possibile controllare l'accesso alle interfacce utente e alle API sui nodi di amministrazione StorageGRID aprendo o chiudendo porte specifiche sul firewall esterno. Ad esempio, è possibile impedire ai tenant di connettersi a Grid Manager dal firewall, oltre a utilizzare altri metodi per controllare l'accesso al sistema.
+
+Se si desidera configurare il firewall interno StorageGRID, vedere link:../admin/configure-firewall-controls.html["Configurare il firewall interno"].
+
+[cols="1a,1a,2a"]
+|===
+| Porta | Descrizione | Se la porta è aperta... 
+
+
+ a| 
+443
+ a| 
+Porta HTTPS predefinita per i nodi di amministrazione
+ a| 
+I browser Web e i client API di gestione possono accedere a Grid Manager, Grid Management API, Tenant Manager e Tenant Management API.
+
+*Nota:* la porta 443 viene utilizzata anche per il traffico interno.
+
+
+
+ a| 
+8443
+ a| 
+Porta Grid Manager limitata sui nodi di amministrazione
+ a| 
+* I browser Web e i client API di gestione possono accedere a Grid Manager e all'API di Grid Management utilizzando HTTPS.
+* I browser Web e i client API di gestione non possono accedere a tenant Manager o all'API di gestione tenant.
+* Le richieste di contenuto interno verranno rifiutate.
+
+
+
+
+ a| 
+9443
+ a| 
+Porta limitata di Tenant Manager sui nodi di amministrazione
+ a| 
+* I browser Web e i client API di gestione possono accedere a Tenant Manager e all'API di gestione tenant utilizzando HTTPS.
+* I browser Web e i client API di gestione non possono accedere a Grid Manager o all'API di Grid Management.
+* Le richieste di contenuto interno verranno rifiutate.
+
+
+|===
+
+TIP: Single Sign-on (SSO) non è disponibile sulle porte limitate di Grid Manager o Tenant Manager. Se si desidera che gli utenti eseguano l'autenticazione con Single Sign-on, è necessario utilizzare la porta HTTPS predefinita (443).
+
+.Informazioni correlate
+* link:signing-in-to-grid-manager.html["Accedi a Grid Manager"]
+* link:creating-tenant-account.html["Creare un account tenant"]
+* link:../network/external-communications.html["Comunicazioni esterne"]
+

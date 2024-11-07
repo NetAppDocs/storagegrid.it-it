@@ -1,0 +1,94 @@
+---
+permalink: audit/object-storage-audit-messages.html 
+sidebar: sidebar 
+keywords: audit, object storage, object management, object retrieval, node transfer, verification, BROR, CBSE, CBRE, CGRR, EBDL, EBKR, SCMT, SREM 
+summary: 'Si consiglia di acquisire familiarità con i messaggi di audit appartenenti alla categoria di audit dello storage a oggetti. Si tratta di eventi correlati allo storage e alla gestione di oggetti all"interno del sistema StorageGRID. Tra cui storage a oggetti e recuperi, trasferimenti da grid-node a grid-node e verifiche.' 
+---
+= Messaggi di audit dello storage a oggetti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I messaggi di audit appartenenti alla categoria di audit dello storage a oggetti vengono utilizzati per gli eventi correlati allo storage e alla gestione degli oggetti all'interno del sistema StorageGRID. Tra cui storage a oggetti e recuperi, trasferimenti da grid-node a grid-node e verifiche.
+
+
+NOTE: I codici di controllo vengono rimossi dal prodotto e dalla documentazione poiché le funzioni sono obsolete. Se si riscontra un codice di controllo non elencato qui, controllare le versioni precedenti di questo argomento per le versioni SG precedenti. Ad esempio, https://docs.netapp.com/us-en/storagegrid-118/audit/object-storage-audit-messages.html["Messaggi di audit dello storage a oggetti StorageGRID 11,8"^].
+
+[cols="1a,2a,1a"]
+|===
+| Codice | Descrizione | Vedere 
+
+
+ a| 
+BROR
+ a| 
+Bucket Read Only Request (richiesta di sola lettura bucket): Un bucket è entrato o è uscito dalla modalità di sola lettura.
+ a| 
+link:bror-bucket-read-only-request.html["BROR: Richiesta di sola lettura bucket"]
+
+
+
+ a| 
+CBSE
+ a| 
+Object Send End (fine invio oggetto): L'entità di origine ha completato un'operazione di trasferimento dei dati dal nodo griglia al nodo griglia.
+ a| 
+link:cbse-object-send-end.html["CBSE: Fine invio oggetto"]
+
+
+
+ a| 
+CBRE
+ a| 
+Object Receive End (fine ricezione oggetto): L'entità di destinazione ha completato un'operazione di trasferimento dei dati dal nodo griglia al nodo griglia.
+ a| 
+link:cbre-object-receive-end.html["CBRE: Fine ricezione oggetto"]
+
+
+
+ a| 
+CGRR
+ a| 
+Richiesta di replica cross-grid: StorageGRID ha tentato un'operazione di replica cross-grid per replicare gli oggetti tra bucket in una connessione a federazione di grid.
+ a| 
+link:cgrr-cross-grid-replication-request.html["CGRR: Richiesta di replica cross-grid"]
+
+
+
+ a| 
+EBDL
+ a| 
+Empty bucket Delete (Elimina bucket vuoto): Lo scanner ILM ha eliminato un oggetto in un bucket che sta eliminando tutti gli oggetti (eseguendo un'operazione bucket vuoto).
+ a| 
+link:ebdl-empty-bucket-delete.html["EBDL: Eliminazione bucket vuoto"]
+
+
+
+ a| 
+EBKR
+ a| 
+Empty bucket Request (richiesta bucket vuoto): Un utente ha inviato una richiesta per attivare o disattivare il bucket vuoto (ovvero per eliminare oggetti bucket o per interrompere l'eliminazione di oggetti).
+ a| 
+link:ebkr-empty-bucket-request.html["EBKR: Richiesta bucket vuoto"]
+
+
+
+ a| 
+SCMT
+ a| 
+Commit dell'archivio oggetti: Un blocco di contenuto è stato completamente memorizzato e verificato e può essere richiesto.
+ a| 
+link:scmt-object-store-commit.html["SCMT: Richiesta di commit dell'archivio di oggetti"]
+
+
+
+ a| 
+SREM
+ a| 
+Rimozione archivio oggetti: Un blocco di contenuto è stato cancellato da un nodo griglia e non può più essere richiesto direttamente.
+ a| 
+link:srem-object-store-remove.html["SREM: Rimozione dell'archivio di oggetti"]
+
+|===

@@ -1,0 +1,49 @@
+---
+permalink: audit/gted-grid-task-ended.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, GTED, Grid Task Ended 
+summary: 'Questo messaggio di audit indica che il servizio CMN ha terminato l"elaborazione dell"attività di griglia specificata e che l"attività è stata spostata nella tabella Cronologia. Se il risultato è SUCS, ABRT o ROLF, verrà visualizzato un messaggio di audit Grid Task Started (attività griglia avviata) corrispondente. Gli altri risultati indicano che l"elaborazione di questa attività della griglia non è mai stata avviata.' 
+---
+= GTED: Task Grid terminato
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questo messaggio di audit indica che il servizio CMN ha terminato l'elaborazione dell'attività di griglia specificata e che l'attività è stata spostata nella tabella Cronologia. Se il risultato è SUCS, ABRT o ROLF, verrà visualizzato un messaggio di audit Grid Task Started (attività griglia avviata) corrispondente. Gli altri risultati indicano che l'elaborazione di questa attività della griglia non è mai stata avviata.
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+TSID
+ a| 
+ID attività
+ a| 
+Questo campo identifica in modo univoco un'attività Grid generata e consente di gestire l'attività Grid nel suo ciclo di vita.
+
+*Nota:* l'ID attività viene assegnato al momento in cui viene generata un'attività di griglia, non al momento in cui viene inviata. È possibile che un'attività di griglia venga inviata più volte e, in questo caso, il campo ID attività non è sufficiente per collegare in modo univoco i messaggi di audit inviati, avviati e terminati.
+
+
+
+ a| 
+RSLT
+ a| 
+Risultato
+ a| 
+Risultato finale dello stato dell'attività Grid:
+
+* SUCS: L'attività Grid è stata completata correttamente.
+* ABRT: L'attività Grid è stata terminata senza un errore di rollback.
+* ROLF: L'attività Grid è stata terminata e non è stato possibile completare il processo di rollback.
+* CANC: L'attività della griglia è stata annullata dall'utente prima dell'avvio.
+* EXPR: L'attività Grid è scaduta prima dell'avvio.
+* IVLD: L'attività della griglia non era valida.
+* AUTH: L'attività della rete non è stata autorizzata.
+* DUPL: L'attività Grid è stata rifiutata come duplicata.
+
+
+|===

@@ -1,0 +1,70 @@
+---
+permalink: harden/other-hardening-guidelines.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, security 
+summary: Oltre a seguire le linee guida per la protezione avanzata per reti e nodi StorageGRID, è necessario seguire le linee guida per la protezione avanzata per altre aree del sistema StorageGRID. 
+---
+= Altre linee guida per la protezione avanzata
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Oltre a seguire le linee guida per la protezione avanzata per reti e nodi StorageGRID, è necessario seguire le linee guida per la protezione avanzata per altre aree del sistema StorageGRID.
+
+
+
+== Password di installazione temporanea
+
+Per proteggere il sistema StorageGRID durante l'installazione, impostare una password nella pagina della password del programma di installazione temporanea nell'interfaccia utente di installazione di StorageGRID o nell'API di installazione. Una volta impostata, questa password viene applicata a tutti i metodi di installazione di StorageGRID, inclusi l'interfaccia utente, l'API di installazione e `configure-storagegrid.py` lo script.
+
+Per ulteriori informazioni, fare riferimento a:
+
+* link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
+* link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
+* link:../vmware/index.html["Installare StorageGRID su VMware"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Installare l'appliance StorageGRID"^]
+
+
+
+
+== Registri e messaggi di audit
+
+Proteggere sempre i log StorageGRID e l'output dei messaggi di controllo in modo sicuro. I registri e i messaggi di audit di StorageGRID forniscono informazioni preziose dal punto di vista del supporto e della disponibilità del sistema. Inoltre, le informazioni e i dettagli contenuti nei registri StorageGRID e nell'output dei messaggi di audit sono generalmente di natura sensibile.
+
+Configurare StorageGRID per inviare eventi di sicurezza a un server syslog esterno. Se si utilizza l'esportazione syslog, selezionare TLS e RELP/TLS per i protocolli di trasporto.
+
+Per ulteriori informazioni sui registri StorageGRID, vedere la link:../monitor/logs-files-reference.html["Riferimenti ai file di log"]. Per ulteriori informazioni sui messaggi di controllo StorageGRID, vedere link:../audit/audit-messages-main.html["Messaggi di audit"].
+
+
+
+== NetApp AutoSupport
+
+La funzione AutoSupport di StorageGRID consente di monitorare in modo proattivo lo stato del sistema e di inviare automaticamente i pacchetti al sito di supporto NetApp, al team di supporto interno dell'organizzazione o a un partner di supporto. Per impostazione predefinita, l'invio di pacchetti AutoSupport a NetApp è attivato quando StorageGRID viene configurato per la prima volta.
+
+La funzione AutoSupport può essere disattivata. Tuttavia, NetApp consiglia di abilitare l'IT perché AutoSupport aiuta a velocizzare l'identificazione e la risoluzione dei problemi in caso di problemi nel sistema StorageGRID.
+
+AutoSupport supporta HTTPS, HTTP e SMTP per i protocolli di trasporto. Data la natura sensibile dei pacchetti AutoSupport, NetApp consiglia vivamente di utilizzare HTTPS come protocollo di trasporto predefinito per l'invio di pacchetti AutoSupport a NetApp.
+
+
+
+== Condivisione delle risorse tra origini (CORS)
+
+È possibile configurare la condivisione delle risorse cross-origin (CORS) per un bucket S3 se si desidera che quel bucket e gli oggetti in quel bucket siano accessibili alle applicazioni web in altri domini. In generale, non abilitare il CORS a meno che non sia necessario. Se è richiesto un CORS, limitarlo alle origini attendibili.
+
+Vedere la procedura per link:../tenant/configuring-cross-origin-resource-sharing-cors.html["Configurazione del CORS (Cross-Origin Resource sharing)"].
+
+
+
+== Dispositivi di sicurezza esterni
+
+Una soluzione di protezione avanzata completa deve affrontare i meccanismi di sicurezza esterni a StorageGRID. L'utilizzo di ulteriori dispositivi di infrastruttura per il filtraggio e la limitazione dell'accesso a StorageGRID è un metodo efficace per stabilire e mantenere una posizione di sicurezza rigorosa. Questi dispositivi di sicurezza esterni includono firewall, sistemi di prevenzione delle intrusioni (IPS) e altri dispositivi di sicurezza.
+
+Per il traffico client non attendibile, si consiglia un bilanciamento del carico di terze parti. Il bilanciamento del carico di terze parti offre un maggiore controllo e ulteriori livelli di protezione dagli attacchi.
+
+
+
+== Mitigazione ransomware
+
+Aiuta a proteggere i dati degli oggetti dagli attacchi ransomware seguendo i consigli descritti in https://www.netapp.com/media/69498-tr-4921.pdf["Difesa ransomware con StorageGRID"^].

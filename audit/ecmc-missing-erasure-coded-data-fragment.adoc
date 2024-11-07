@@ -1,0 +1,46 @@
+---
+permalink: audit/ecmc-missing-erasure-coded-data-fragment.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ECMC, Missing Erasure-Coded Data Fragment 
+summary: Questo messaggio di audit indica che il sistema ha rilevato un frammento di dati con codifica di cancellazione mancante. 
+---
+= ECMC: Frammento di dati con codice di cancellazione mancante
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questo messaggio di audit indica che il sistema ha rilevato un frammento di dati con codifica di cancellazione mancante.
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+VCMC
+ a| 
+ID VCS
+ a| 
+Il nome del VCS che contiene il blocco mancante.
+
+
+
+ a| 
+MCID
+ a| 
+ID chunk
+ a| 
+L'identificatore del frammento con codifica di cancellazione mancante.
+
+
+
+ a| 
+RSLT
+ a| 
+Risultato
+ a| 
+Questo campo ha il valore 'NESSUNO'. RSLT è un campo obbligatorio per i messaggi, ma non è pertinente per questo particolare messaggio. Viene utilizzato 'NONE' invece di 'SUCS' in modo che questo messaggio non venga filtrato.
+
+|===

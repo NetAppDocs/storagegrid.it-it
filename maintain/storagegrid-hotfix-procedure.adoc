@@ -1,0 +1,53 @@
+---
+permalink: maintain/storagegrid-hotfix-procedure.html 
+sidebar: sidebar 
+keywords: apply hotfix, install hotfix, replace primary admin node 
+summary: 'Potrebbe essere necessario applicare una hotfix al sistema StorageGRID se vengono rilevati e risolti problemi relativi al software tra una versione e l"altra.' 
+---
+= Procedura di hotfix StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Potrebbe essere necessario applicare una hotfix al sistema StorageGRID se vengono rilevati e risolti problemi relativi al software tra una versione e l'altra.
+
+Le hotfix StorageGRID contengono modifiche software rese disponibili al di fuori di una release di funzionalità o patch. Le stesse modifiche sono incluse in una release futura. Inoltre, ogni release di hotfix contiene un rolup di tutti gli hotfix precedenti all'interno della funzionalità o della release di patch.
+
+
+
+== Considerazioni per l'applicazione di una correzione rapida
+
+Non è possibile applicare una correzione rapida StorageGRID quando è in esecuzione un'altra procedura di manutenzione. Ad esempio, non è possibile applicare una correzione rapida mentre è in esecuzione una procedura di decommissionamento, espansione o ripristino.
+
+
+NOTE: Se la procedura di decommissionamento di un nodo o di un sito è in pausa, è possibile applicare una correzione rapida in tutta sicurezza. Inoltre, potrebbe essere possibile applicare una correzione rapida durante le fasi finali di una procedura di aggiornamento di StorageGRID. Per ulteriori informazioni, consultare le istruzioni per l'aggiornamento del software StorageGRID.
+
+Dopo aver caricato la correzione rapida in Grid Manager, la correzione rapida viene applicata automaticamente al nodo di amministrazione primario. Quindi, è possibile approvare l'applicazione della correzione rapida agli altri nodi nel sistema StorageGRID.
+
+Se una correzione rapida non viene applicata a uno o più nodi, il motivo dell'errore viene visualizzato nella colonna Dettagli della tabella di avanzamento della correzione rapida. È necessario risolvere i problemi che hanno causato gli errori e riprovare l'intero processo. I nodi con un'applicazione della correzione rapida precedentemente riuscita verranno ignorati nelle applicazioni successive. È possibile riprovare il processo di hotfix tutte le volte necessarie fino a quando tutti i nodi non sono stati aggiornati. Per completare l'applicazione, la correzione rapida deve essere installata correttamente su tutti i nodi della griglia.
+
+Mentre i nodi della griglia vengono aggiornati con la nuova versione di hotfix, le modifiche effettive di una hotfix potrebbero interessare solo servizi specifici su tipi specifici di nodi. Ad esempio, una correzione rapida potrebbe influire solo sul servizio LDR sui nodi di storage.
+
+
+
+== Modalità di applicazione degli hotfix per il ripristino e l'espansione
+
+Una volta applicata una correzione rapida alla griglia, il nodo di amministrazione primario installa automaticamente la stessa versione della correzione rapida su qualsiasi nodo ripristinato mediante operazioni di ripristino o aggiunto in un'espansione.
+
+Tuttavia, se è necessario ripristinare il nodo di amministrazione primario, è necessario installare manualmente la versione corretta di StorageGRID e applicare la correzione rapida. La versione finale di StorageGRID del nodo di amministrazione primario deve corrispondere alla versione degli altri nodi nella griglia.
+
+Nell'esempio seguente viene illustrato come applicare una correzione rapida durante il ripristino del nodo di amministrazione primario:
+
+. Si supponga che la griglia stia eseguendo una versione di StorageGRID 11._A.B_ con la correzione rapida più recente. La "versione griglia" è 11._A.B.y_.
+. Si verifica un errore nel nodo di amministrazione primario.
+. Il nodo di amministrazione primario viene ridistribuita utilizzando StorageGRID 11._A.B_ ed è possibile eseguire la procedura di ripristino.
++
+
+NOTE: In base alle esigenze della versione grid, è possibile utilizzare una release minore durante la distribuzione del nodo; non è necessario implementare prima la release principale.
+
+. Quindi, applicare la correzione rapida 11._A.B.y_ al nodo di amministrazione primario.
+
+
+Per ulteriori informazioni, vedere link:configuring-replacement-primary-admin-node.html["Configurare il nodo amministrativo primario sostitutivo"].

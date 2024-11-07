@@ -1,0 +1,64 @@
+---
+permalink: audit/ebdl-empty-bucket-delete.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, EBDL, Empty Bucket Delete 
+summary: 'Lo scanner ILM ha eliminato un oggetto in un bucket che sta eliminando tutti gli oggetti (eseguendo un"operazione bucket vuota).' 
+---
+= EBDL: Eliminazione bucket vuoto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lo scanner ILM ha eliminato un oggetto in un bucket che sta eliminando tutti gli oggetti (eseguendo un'operazione bucket vuota).
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+CSIZ
+ a| 
+Dimensione oggetto
+ a| 
+La dimensione dell'oggetto in byte.
+
+
+
+ a| 
+PERCORSO
+ a| 
+Bucket/chiave S3
+ a| 
+Il nome del bucket S3 e il nome della chiave S3.
+
+
+
+ a| 
+SGC
+ a| 
+UUID contenitore
+ a| 
+UUID del contenitore per l'oggetto segmentato. Questo valore è disponibile solo se l'oggetto è segmentato.
+
+
+
+ a| 
+UUID
+ a| 
+Universally Unique Identifier
+ a| 
+L'identificatore dell'oggetto all'interno del sistema StorageGRID.
+
+
+
+ a| 
+RSLT
+ a| 
+Risultato dell'operazione di eliminazione
+ a| 
+Il risultato di un evento, di un processo o di una transazione. Se non è rilevante per un messaggio, NON viene utilizzato NESSUNO invece di SUCS, in modo che il messaggio non venga accidentalmente filtrato.
+
+|===

@@ -1,0 +1,46 @@
+---
+permalink: audit/ilm-audit-messages.html 
+sidebar: sidebar 
+keywords: audit messages, ILM, IDEL, LKCU, ORLM 
+summary: I messaggi di audit appartenenti alla categoria di audit ILM vengono utilizzati per gli eventi relativi alle operazioni del ciclo di vita delle informazioni. 
+---
+= Messaggi di controllo ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I messaggi di audit appartenenti alla categoria di audit ILM vengono utilizzati per gli eventi relativi alle operazioni ILM (Information Lifecycle Management).
+
+[cols="1a,3a,1a"]
+|===
+| Codice | Titolo e descrizione del messaggio | Vedere 
+
+
+ a| 
+IDEL
+ a| 
+ILM Initiated Delete (eliminazione avviata da ILM): Questo messaggio di controllo viene generato quando ILM avvia il processo di eliminazione di un oggetto.
+ a| 
+link:idel-ilm-initiated-delete.html["IDEL: Eliminazione avviata da ILM"]
+
+
+
+ a| 
+LKCU
+ a| 
+Pulitura oggetto sovrascritto. Questo messaggio di audit viene generato quando un oggetto sovrascritto viene rimosso automaticamente per liberare spazio di storage.
+ a| 
+link:lkcu-overwritten-object-cleanup.html["LKCU: Pulitura oggetto sovrascritta"]
+
+
+
+ a| 
+ORLM
+ a| 
+Regole oggetto soddisfatte: Questo messaggio di audit viene generato quando i dati oggetto vengono memorizzati come specificato dalle regole ILM.
+ a| 
+link:orlm-object-rules-met.html["ORLM: Regole oggetto soddisfatte"]
+
+|===

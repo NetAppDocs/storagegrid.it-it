@@ -1,0 +1,80 @@
+---
+permalink: maintain/restoring-network-connectivity-for-isolated-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, network connection, restore network connection, isolated node, restore isolated node connection 
+summary: In determinate circostanze, uno o più gruppi di nodi potrebbero non essere in grado di contattare il resto della griglia. Ad esempio, le modifiche degli indirizzi IP a livello di sito o di rete possono causare nodi isolati. 
+---
+= Ripristinare la connettività di rete per i nodi isolati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In determinate circostanze, uno o più gruppi di nodi potrebbero non essere in grado di contattare il resto della griglia. Ad esempio, le modifiche degli indirizzi IP a livello di sito o di rete possono causare nodi isolati.
+
+.A proposito di questa attività
+L'isolamento del nodo è indicato da:
+
+* Avvisi, come *Impossibile comunicare con il nodo* (*Avvisi* > *corrente*)
+* Diagnostica relativa alla connettività (*SUPPORT* > *Tools* > *Diagnostics*)
+
+
+Di seguito sono riportate alcune delle conseguenze derivanti dall'utilizzo di nodi isolati:
+
+* Se sono isolati più nodi, potrebbe non essere possibile accedere a Grid Manager o accedervi.
+* Se si isolano più nodi, i valori di utilizzo dello storage e di quota mostrati nella dashboard per il tenant Manager potrebbero essere obsoleti. I totali verranno aggiornati al ripristino della connettività di rete.
+
+
+Per risolvere il problema di isolamento, eseguire un'utilità della riga di comando su ciascun nodo isolato o su un nodo di un gruppo (tutti i nodi di una subnet che non contiene il nodo di amministrazione primario) isolato dalla griglia. L'utility fornisce ai nodi l'indirizzo IP di un nodo non isolato nella griglia, che consente al nodo isolato o al gruppo di nodi di contattare nuovamente l'intera griglia.
+
+
+NOTE: Se il sistema mDNS (Domain Name System) multicast è disattivato nelle reti, potrebbe essere necessario eseguire l'utilità della riga di comando su ogni nodo isolato.
+
+.Fasi
+Questa procedura non si applica quando solo alcuni servizi sono offline o segnalano errori di comunicazione.
+
+. Accedere al nodo e verificare `/var/local/log/dynip.log` la presenza di messaggi di isolamento.
++
+Ad esempio:
+
++
+[listing]
+----
+[2018-01-09T19:11:00.545] UpdateQueue - WARNING -- Possible isolation, no contact with other nodes.
+If this warning persists, manual action might be required.
+----
++
+Se si utilizza la console VMware, viene visualizzato un messaggio che indica che il nodo potrebbe essere isolato.
+
++
+Nelle distribuzioni Linux, i messaggi di isolamento vengono visualizzati nei `/var/log/storagegrid/node/<nodename>.log` file.
+
+. Se i messaggi di isolamento sono ricorrenti e persistenti, eseguire il seguente comando:
++
+`add_node_ip.py <address>`
+
++
+Dove `<address>` è l'indirizzo IP di un nodo remoto connesso alla rete.
+
++
+[listing]
+----
+# /usr/sbin/add_node_ip.py  10.224.4.210
+
+Retrieving local host information
+Validating remote node at address 10.224.4.210
+Sending node IP hint for 10.224.4.210 to local node
+Local node found on remote node. Update complete.
+----
+. Verificare quanto segue per ciascun nodo precedentemente isolato:
++
+** I servizi del nodo sono stati avviati.
+** Lo stato del servizio Dynamic IP è "in esecuzione" dopo l'esecuzione del `storagegrid-status` comando.
+** Nella pagina nodi, il nodo non appare più disconnesso dal resto della griglia.
+
+
+
+
+
+NOTE: Se l'esecuzione del `add_node_ip.py` comando non risolve il problema, potrebbero esserci altri problemi di rete che devono essere risolti.

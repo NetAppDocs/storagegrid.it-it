@@ -1,0 +1,146 @@
+---
+permalink: admin/reviewing-storagegrid-encryption-methods.html 
+sidebar: sidebar 
+keywords: encryption, encrypting data, best practices 
+summary: StorageGRID offre diverse opzioni per la crittografia dei dati. È necessario esaminare i metodi disponibili per determinare quali metodi soddisfano i requisiti di protezione dei dati. 
+---
+= Esaminare i metodi di crittografia StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID offre diverse opzioni per la crittografia dei dati. È necessario esaminare i metodi disponibili per determinare quali metodi soddisfano i requisiti di protezione dei dati.
+
+La tabella fornisce un riepilogo generale dei metodi di crittografia disponibili in StorageGRID.
+
+[cols="1a,1a,1a"]
+|===
+| Opzione di crittografia | Come funziona | Valido per 
+
+
+ a| 
+Server di gestione delle chiavi (KMS) in Grid Manager
+ a| 
+link:kms-configuring.html["configurare un server di gestione delle chiavi"]Per il sito StorageGRID e https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html["abilitare la crittografia dei nodi per l'appliance"^]. Quindi, un nodo appliance si connette al KMS per richiedere una chiave di crittografia a chiave (KEK). Questa chiave crittografa e decrta la chiave di crittografia dei dati (DEK) su ciascun volume.
+ a| 
+Nodi appliance con *Node Encryption* attivato durante l'installazione. Tutti i dati dell'appliance sono protetti da perdite fisiche o rimozione dal data center.
+
+*Nota*: La gestione delle chiavi di crittografia con un KMS è supportata solo per i nodi di archiviazione e le appliance di servizi.
+
+
+
+ a| 
+Pagina crittografia unità nel programma di installazione dell'appliance StorageGRID
+ a| 
+Se l'appliance contiene unità che supportano la crittografia hardware, è possibile impostare una passphrase dell'unità durante l'installazione. Quando si imposta una passphrase di unità, è impossibile per chiunque recuperare dati validi dalle unità rimosse dal sistema, a meno che non conoscano la passphrase. Prima di iniziare l'installazione, andare a *Configure hardware* > *Drive Encryption* per impostare una passphrase di unità che si applica a tutte le unità gestite da StorageGRID con crittografia automatica in un nodo.
+ a| 
+Appliance che contengono dischi con crittografia automatica. Tutti i dati presenti sulle unità protette sono protetti da perdita fisica o rimozione dal data center.
+
+La crittografia dei dischi non si applica ai dischi gestiti da SANtricity. Se hai un'appliance storage con dischi a crittografia automatica e controller SANtricity, puoi abilitare la sicurezza dei dischi in SANtricity.
+
+
+
+ a| 
+Protezione dei dischi in Gestione di sistema SANtricity
+ a| 
+Se la funzione di protezione dell'unità è attivata per l'appliance StorageGRID, è possibile utilizzare https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/accessing-and-configuring-santricity-system-manager.html["Gestore di sistema di SANtricity"^] per creare e gestire la chiave di protezione. La chiave è necessaria per accedere ai dati sui dischi protetti.
+ a| 
+Appliance storage con dischi FDE (Full Disk Encryption) o dischi a crittografia automatica. Tutti i dati presenti sulle unità protette sono protetti da perdita fisica o rimozione dal data center. Non è utilizzabile con alcune appliance di storage o con alcuna appliance di servizi.
+
+
+
+ a| 
+Crittografia degli oggetti memorizzati
+ a| 
+L'opzione viene attivata link:changing-network-options-object-encryption.html["Crittografia degli oggetti memorizzati"]in Grid Manager. Quando questa opzione è attivata, tutti i nuovi oggetti che non sono crittografati a livello di bucket o a livello di oggetto vengono crittografati durante l'acquisizione.
+ a| 
+Nuovi dati oggetto S3 acquisiti.
+
+Gli oggetti memorizzati esistenti non vengono crittografati. I metadati degli oggetti e altri dati sensibili non vengono crittografati.
+
+
+
+ a| 
+Crittografia bucket S3
+ a| 
+Viene inviata una richiesta PutBucketEncryption per abilitare la crittografia per il bucket. Tutti i nuovi oggetti che non sono crittografati a livello di oggetto vengono crittografati durante l'acquisizione.
+ a| 
+Solo i dati S3 degli oggetti acquisiti di recente.
+
+È necessario specificare la crittografia per il bucket. Gli oggetti bucket esistenti non vengono crittografati. I metadati degli oggetti e altri dati sensibili non vengono crittografati.
+
+link:../s3/operations-on-buckets.html["Operazioni sui bucket"]
+
+
+
+ a| 
+Crittografia a oggetti lato server (SSE) S3
+ a| 
+Viene inviata una richiesta S3 per memorizzare un oggetto e includere l' `x-amz-server-side-encryption`intestazione della richiesta.
+ a| 
+Solo i dati S3 degli oggetti acquisiti di recente.
+
+È necessario specificare la crittografia per l'oggetto. I metadati degli oggetti e altri dati sensibili non vengono crittografati.
+
+StorageGRID gestisce le chiavi.
+
+link:../s3/using-server-side-encryption.html["Utilizzare la crittografia lato server"]
+
+
+
+ a| 
+Crittografia a oggetti S3 lato server con chiavi fornite dal cliente (SSE-C)
+ a| 
+Viene inviata una richiesta S3 per memorizzare un oggetto e includere tre intestazioni di richiesta.
+
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+
+ a| 
+Solo i dati S3 degli oggetti acquisiti di recente.
+
+È necessario specificare la crittografia per l'oggetto. I metadati degli oggetti e altri dati sensibili non vengono crittografati.
+
+Le chiavi vengono gestite al di fuori di StorageGRID.
+
+link:../s3/using-server-side-encryption.html["Utilizzare la crittografia lato server"]
+
+
+
+ a| 
+Crittografia di un volume esterno o di un datastore
+ a| 
+Se la piattaforma di implementazione lo supporta, si utilizza un metodo di crittografia esterno a StorageGRID per crittografare un intero volume o datastore.
+ a| 
+Tutti i dati degli oggetti, i metadati e i dati di configurazione del sistema, presupponendo che ogni volume o datastore sia crittografato.
+
+Un metodo di crittografia esterno offre un controllo più rigoroso sugli algoritmi e sulle chiavi di crittografia. Può essere combinato con gli altri metodi elencati.
+
+
+
+ a| 
+Crittografia degli oggetti al di fuori di StorageGRID
+ a| 
+Si utilizza un metodo di crittografia esterno a StorageGRID per crittografare i dati degli oggetti e i metadati prima che vengano acquisiti in StorageGRID.
+ a| 
+Solo dati a oggetti e metadati (i dati di configurazione del sistema non sono crittografati).
+
+Un metodo di crittografia esterno offre un controllo più rigoroso sugli algoritmi e sulle chiavi di crittografia. Può essere combinato con gli altri metodi elencati.
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html["Amazon Simple Storage Service - Guida utente: Protezione dei dati mediante crittografia lato client"^]
+
+|===
+
+
+== Utilizzare più metodi di crittografia
+
+A seconda dei requisiti, è possibile utilizzare più metodi di crittografia alla volta. Ad esempio:
+
+* È possibile utilizzare un KMS per proteggere i nodi dell'appliance e utilizzare la funzionalità di sicurezza del disco in Gestione sistema di SANtricity per "crittografare due volte" i dati sui dischi con crittografia automatica delle stesse appliance.
+* È possibile utilizzare un KMS per proteggere i dati sui nodi dell'appliance e utilizzare l'opzione di crittografia degli oggetti memorizzati per crittografare tutti gli oggetti quando vengono acquisiti.
+
+
+Se solo una piccola parte degli oggetti richiede la crittografia, prendere in considerazione il controllo della crittografia a livello di bucket o di singolo oggetto. L'abilitazione di più livelli di crittografia comporta un costo aggiuntivo per le performance.

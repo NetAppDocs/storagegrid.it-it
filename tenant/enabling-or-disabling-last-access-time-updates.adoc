@@ -1,0 +1,136 @@
+---
+permalink: tenant/enabling-or-disabling-last-access-time-updates.html 
+sidebar: sidebar 
+keywords: how to enable or disable last access time updates 
+summary: 'Quando gli amministratori della griglia creano le regole di gestione del ciclo di vita delle informazioni per un sistema StorageGRID, possono facoltativamente specificare che l"ultimo tempo di accesso di un oggetto deve essere utilizzato per determinare se spostare l"oggetto in una posizione di storage diversa. Se si utilizza un tenant S3, è possibile sfruttare tali regole attivando gli ultimi aggiornamenti del tempo di accesso per gli oggetti in un bucket S3.' 
+---
+= Attiva o disattiva gli ultimi aggiornamenti dell'orario di accesso
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando gli amministratori della griglia creano le regole ILM (Information Lifecycle Management) per un sistema StorageGRID, possono facoltativamente specificare che l'ultimo tempo di accesso di un oggetto deve essere utilizzato per determinare se spostare l'oggetto in una posizione di storage diversa. Se si utilizza un tenant S3, è possibile sfruttare tali regole attivando gli ultimi aggiornamenti del tempo di accesso per gli oggetti in un bucket S3.
+
+Queste istruzioni si applicano solo ai sistemi StorageGRID che includono almeno una regola ILM che utilizza l'opzione *ultimo tempo di accesso* come filtro avanzato o come tempo di riferimento. È possibile ignorare queste istruzioni se il sistema StorageGRID non include tale regola. Per ulteriori informazioni, vedere link:../ilm/using-last-access-time-in-ilm-rules.html["USA l'ultimo tempo di accesso nelle regole ILM"] .
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* L'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Gestire tutti i bucket o le autorizzazioni di accesso root"]. Queste autorizzazioni sovrascrivono le impostazioni delle autorizzazioni nelle policy di gruppo o bucket.
+
+
+.A proposito di questa attività
+*Ultimo tempo di accesso* è una delle opzioni disponibili per l'istruzione di posizionamento *tempo di riferimento* per una regola ILM. L'impostazione del tempo di riferimento per una regola su ultimo tempo di accesso consente agli amministratori della griglia di specificare che gli oggetti devono essere posizionati in determinate posizioni di storage in base al momento dell'ultimo recupero (lettura o visualizzazione) di tali oggetti.
+
+Ad esempio, per garantire che gli oggetti visualizzati di recente rimangano sullo storage più veloce, un amministratore della griglia può creare una regola ILM specificando quanto segue:
+
+* Gli oggetti recuperati nell'ultimo mese devono rimanere sui nodi di storage locali.
+* Gli oggetti che non sono stati recuperati nell'ultimo mese devono essere spostati in una posizione off-site.
+
+
+Per impostazione predefinita, gli aggiornamenti dell'ultimo tempo di accesso sono disattivati. Se il sistema StorageGRID include una regola ILM che utilizza l'opzione *ultimo tempo di accesso* e si desidera che questa opzione venga applicata agli oggetti in questo bucket, è necessario abilitare gli aggiornamenti dell'ultimo tempo di accesso per i bucket S3 specificati in tale regola.
+
+
+CAUTION: L'aggiornamento dell'ultimo tempo di accesso durante il recupero di un oggetto può ridurre le prestazioni di StorageGRID, in particolare per gli oggetti di piccole dimensioni.
+
+Si verifica un impatto sulle performance con gli ultimi aggiornamenti dell'orario di accesso, perché StorageGRID deve eseguire questi passaggi aggiuntivi ogni volta che vengono recuperati gli oggetti:
+
+* Aggiornare gli oggetti con nuovi timestamp
+* Aggiungere gli oggetti alla coda ILM, in modo che possano essere rivalutati in base alle regole e ai criteri ILM correnti
+
+
+La tabella riassume il comportamento applicato a tutti gli oggetti nel bucket quando l'ultimo tempo di accesso è disattivato o attivato.
+
+[cols="1a,1a,1a,1a,1a"]
+|===
+
+
+.2+| Tipo di richiesta 2+| Comportamento se l'ultimo tempo di accesso è disattivato (impostazione predefinita) 2+| Comportamento se è attivata l'ultima ora di accesso 
+
+
+| Ultimo aggiornamento dell'orario di accesso? | Oggetto aggiunto alla coda di valutazione ILM? | Ultimo aggiornamento dell'orario di accesso? | Oggetto aggiunto alla coda di valutazione ILM? 
+
+
+ a| 
+Richiesta di recuperare un oggetto, il relativo elenco di controllo degli accessi o i relativi metadati
+ a| 
+No
+ a| 
+No
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Richiesta di aggiornamento dei metadati di un oggetto
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Richiesta di elencare gli oggetti o le versioni degli oggetti
+ a| 
+No
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Richiesta di copia di un oggetto da un bucket all'altro
+ a| 
+* No, per la copia di origine
+* Sì, per la copia di destinazione
+
+ a| 
+* No, per la copia di origine
+* Sì, per la copia di destinazione
+
+ a| 
+* Sì, per la copia di origine
+* Sì, per la copia di destinazione
+
+ a| 
+* Sì, per la copia di origine
+* Sì, per la copia di destinazione
+
+
+
+
+ a| 
+Richiesta di completare un caricamento multiparte
+ a| 
+Sì, per l'oggetto assemblato
+ a| 
+Sì, per l'oggetto assemblato
+ a| 
+Sì, per l'oggetto assemblato
+ a| 
+Sì, per l'oggetto assemblato
+
+|===
+.Fasi
+. Selezionare *View bucket* (Visualizza bucket) dalla dashboard oppure selezionare *STORAGE (S3)* > *Bucket*.
+. Selezionare il nome del bucket dalla tabella.
++
+Viene visualizzata la pagina dei dettagli del bucket.
+
+. Dalla scheda *Opzioni bucket*, selezionare la fisarmonica *ultimi aggiornamenti dell'ora di accesso*.
+. Attiva o disattiva gli ultimi aggiornamenti dell'orario di accesso.
+. Selezionare *Save Changes* (Salva modifiche).
+

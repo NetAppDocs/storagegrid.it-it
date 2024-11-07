@@ -1,0 +1,99 @@
+---
+permalink: admin/guidelines-for-storagegrid-networks.html 
+sidebar: sidebar 
+keywords: admin network, client network, grid network, access interface, trunk interface 
+summary: StorageGRID supporta fino a tre interfacce di rete per nodo di rete, consentendo di configurare la rete per ogni singolo nodo di rete in modo che corrisponda ai requisiti di sicurezza e accesso. 
+---
+= Linee guida per le reti StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare Grid Manager per configurare e gestire le reti e le connessioni StorageGRID.
+
+Vedere link:configuring-client-connections.html["Configurare connessioni client S3"] per informazioni su come connettere client S3.
+
+
+
+== Reti StorageGRID predefinite
+
+Per impostazione predefinita, StorageGRID supporta tre interfacce di rete per nodo di rete, consentendo di configurare la rete per ogni singolo nodo di rete in modo che corrisponda ai requisiti di sicurezza e accesso.
+
+Per ulteriori informazioni sulla topologia di rete, vedere link:../network/index.html["Linee guida per il networking"].
+
+
+
+=== Grid Network
+
+Obbligatorio. La rete griglia viene utilizzata per tutto il traffico StorageGRID interno. Fornisce connettività tra tutti i nodi della rete, in tutti i siti e le subnet.
+
+
+
+=== Admin Network (rete amministrativa)
+
+Opzionale. La rete di amministrazione viene generalmente utilizzata per l'amministrazione e la manutenzione del sistema. Può essere utilizzato anche per l'accesso al protocollo client. La rete di amministrazione è in genere una rete privata e non deve essere instradabile tra i siti.
+
+
+
+=== Rete client
+
+Opzionale. La rete client è una rete aperta generalmente utilizzata per fornire l'accesso alle applicazioni client S3, in modo che la rete grid possa essere isolata e protetta. La rete client può comunicare con qualsiasi subnet raggiungibile tramite il gateway locale.
+
+
+
+== Linee guida
+
+* Ogni nodo StorageGRID richiede un'interfaccia di rete dedicata, un indirizzo IP, una subnet mask e un gateway per ogni rete a cui è assegnato.
+* Un nodo Grid non può avere più di un'interfaccia su una rete.
+* È supportato un singolo gateway, per rete, per nodo di rete, che deve trovarsi sulla stessa sottorete del nodo. Se necessario, è possibile implementare un routing più complesso nel gateway.
+* Su ciascun nodo, ogni rete viene mappata a una specifica interfaccia di rete.
++
+[cols="1a,1a"]
+|===
+| Rete | Nome dell'interfaccia 
+
+
+ a| 
+Griglia
+ a| 
+eth0
+
+
+
+ a| 
+Admin (opzionale)
+ a| 
+eth1
+
+
+
+ a| 
+Client (opzionale)
+ a| 
+eth2
+
+|===
+* Se il nodo è collegato a un'appliance StorageGRID, vengono utilizzate porte specifiche per ciascuna rete. Per ulteriori informazioni, consultare le istruzioni di installazione dell'apparecchio.
+* Il percorso predefinito viene generato automaticamente, per nodo. Se eth2 è attivato, 0.0.0.0/0 utilizza la rete client su eth2. Se eth2 non è abilitato, 0.0.0.0/0 utilizza Grid Network su eth0.
+* La rete client non diventa operativa fino a quando il nodo grid non si è Unito alla griglia
+* La rete amministrativa può essere configurata durante l'implementazione del nodo grid per consentire l'accesso all'interfaccia utente dell'installazione prima che la griglia sia completamente installata.
+
+
+
+
+== Interfacce opzionali
+
+In alternativa, è possibile aggiungere interfacce aggiuntive a un nodo. Ad esempio, è possibile aggiungere un'interfaccia trunk a un nodo Admin o Gateway, in modo da link:../admin/configure-vlan-interfaces.html["Interfacce VLAN"]separare il traffico che appartiene a diverse applicazioni o tenant. In alternativa, è possibile aggiungere un'interfaccia di accesso da utilizzare in un link:../admin/configure-high-availability-group.html["Gruppo ad alta disponibilità (ha)"].
+
+Per aggiungere trunk o interfacce di accesso, vedere quanto segue:
+
+* *VMware (dopo l'installazione del nodo)*: link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware: Aggiunta di interfacce di accesso o trunk a un nodo"]
++
+** *Red Hat Enterprise Linux (prima di installare il nodo)*: link:../rhel/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
+** *Ubuntu o Debian (prima di installare il nodo)*: link:../ubuntu/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
+** *RHEL, Ubuntu o Debian (dopo aver installato il nodo)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Aggiunta di interfacce di accesso o trunk a un nodo"]
+
+
+

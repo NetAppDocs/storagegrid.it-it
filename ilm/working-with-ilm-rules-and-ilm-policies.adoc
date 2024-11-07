@@ -1,0 +1,182 @@
+---
+permalink: ilm/working-with-ilm-rules-and-ilm-policies.html 
+sidebar: sidebar 
+keywords: remove ilm rule, edit ilm rule, clone ilm rule, ilm queue 
+summary: In caso di cambiamento dei requisiti di storage, potrebbe essere necessario applicare criteri diversi o modificare le regole ILM associate a tali criteri. È possibile visualizzare le metriche ILM per determinare le performance del sistema. 
+---
+= Utilizzare le policy ILM e le regole ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In caso di cambiamento dei requisiti di storage, potrebbe essere necessario implementare criteri aggiuntivi o modificare le regole ILM associate a un criterio. È possibile visualizzare le metriche ILM per determinare le performance del sistema.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+
+
+
+
+== Visualizza i criteri ILM
+
+Per visualizzare i criteri ILM attivi e inattivi e la cronologia di attivazione dei criteri:
+
+. Selezionare *ILM* > *Policy*.
+. Selezionare *Criteri* per visualizzare un elenco di criteri attivi e inattivi. La tabella elenca il nome di ciascun criterio, i tag a cui è assegnato il criterio e se il criterio è attivo o inattivo.
+. Selezionare *Cronologia attivazioni* per visualizzare un elenco delle date di inizio e di fine delle attivazioni per i criteri.
+. Selezionare il nome di un criterio per visualizzarne i dettagli.
++
+
+NOTE: Se si visualizzano i dettagli di un criterio il cui stato è modificato o eliminato, viene visualizzato un messaggio che spiega che si sta visualizzando la versione del criterio che era attiva per l'intervallo di tempo specificato e che è stata successivamente modificata o eliminata.
+
+
+
+
+
+== Modificare un criterio ILM
+
+È possibile modificare solo un criterio inattivo. Se si desidera modificare un criterio attivo, disattivarlo o creare un clone e modificarlo.
+
+Per modificare un criterio:
+
+. Selezionare *ILM* > *Policy*.
+. Selezionare la casella di controllo relativa al criterio che si desidera modificare, quindi selezionare *Modifica*.
+. Modificare il criterio seguendo le istruzioni riportate in link:creating-ilm-policy.html["Creare policy ILM"].
+. Simulare il criterio prima di riattivarlo.
+
+
+
+CAUTION: Un criterio ILM non configurato correttamente può causare una perdita di dati non ripristinabile. Prima di attivare un criterio ILM, esaminare attentamente il criterio ILM e le relative regole ILM, quindi simulare il criterio ILM. Verificare sempre che la policy ILM funzioni come previsto.
+
+
+
+== Clonazione di una policy ILM
+
+Per clonare un criterio ILM:
+
+. Selezionare *ILM* > *Policy*.
+. Selezionare la casella di controllo relativa al criterio da clonare, quindi selezionare *Clona*.
+. Creare un nuovo criterio a partire dal criterio clonato seguendo le istruzioni riportate in link:creating-ilm-policy.html["Creare policy ILM"].
+
+
+
+CAUTION: Un criterio ILM non configurato correttamente può causare una perdita di dati non ripristinabile. Prima di attivare un criterio ILM, esaminare attentamente il criterio ILM e le relative regole ILM, quindi simulare il criterio ILM. Verificare sempre che la policy ILM funzioni come previsto.
+
+
+
+== Rimuovere un criterio ILM
+
+È possibile rimuovere un criterio ILM solo se è inattivo. Per rimuovere un criterio:
+
+. Selezionare *ILM* > *Policy*.
+. Selezionare la casella di controllo relativa al criterio inattivo che si desidera rimuovere.
+. Selezionare *Rimuovi*.
+
+
+
+
+== Visualizza i dettagli della regola ILM
+
+Per visualizzare i dettagli di una regola ILM, inclusi il diagramma di conservazione e le istruzioni di posizionamento della regola:
+
+. Selezionare *ILM* > *regole*.
+. Selezionare il nome della regola di cui si desidera visualizzare i dettagli. Esempio:
++
+image::../media/ilm_rule_details_page.png[Pagina dei dettagli della regola ILM]
+
+
+
+Inoltre, è possibile utilizzare la pagina dei dettagli per clonare, modificare o rimuovere una regola. Non è possibile modificare o rimuovere una regola se utilizzata in alcun criterio.
+
+
+
+== Clonare una regola ILM
+
+È possibile clonare una regola esistente se si desidera creare una nuova regola che utilizzi alcune delle impostazioni della regola esistente. Se è necessario modificare una regola utilizzata in qualsiasi criterio, è necessario clonare la regola e apportare le modifiche al clone. Una volta apportate le modifiche al clone, è possibile rimuovere la regola originale dal criterio e sostituirla con la versione modificata, se necessario.
+
+
+NOTE: Non è possibile clonare una regola ILM se è stata creata utilizzando StorageGRID versione 10.2 o precedente.
+
+.Fasi
+. Selezionare *ILM* > *regole*.
+. Selezionare la casella di controllo della regola da clonare, quindi selezionare *Clone*. In alternativa, selezionare il nome della regola, quindi selezionare *Clone* dalla pagina dei dettagli della regola.
+. Aggiornare la regola clonata seguendo i passaggi per <<Modificare una regola ILM,Modifica di una regola ILM>> e link:create-ilm-rule-enter-details.html#use-advanced-filters-in-ilm-rules["Utilizzo di filtri avanzati nelle regole ILM"].
++
+Quando si clonano una regola ILM, è necessario immettere un nuovo nome.
+
+
+
+
+
+== Modificare una regola ILM
+
+Potrebbe essere necessario modificare una regola ILM per modificare un filtro o un'istruzione di posizionamento.
+
+Non è possibile modificare una regola se utilizzata in qualsiasi criterio ILM. È possibile <<clone-ilm-rule,clonare la regola>>apportare tutte le modifiche necessarie alla copia clonata.
+
+
+CAUTION: Un criterio ILM non configurato correttamente può causare una perdita di dati non ripristinabile. Prima di attivare un criterio ILM, esaminare attentamente il criterio ILM e le relative regole ILM, quindi simulare il criterio ILM. Verificare sempre che la policy ILM funzioni come previsto.
+
+.Fasi
+. Selezionare *ILM* > *regole*.
+. Verificare che la regola che si desidera modificare non sia utilizzata in alcun criterio ILM.
+. Se la regola che si desidera modificare non è in uso, selezionare la casella di controllo corrispondente e selezionare *azioni* > *Modifica*. In alternativa, selezionare il nome della regola, quindi selezionare *Modifica* nella pagina dei dettagli della regola.
+. Completare i passaggi della procedura guidata Modifica regola ILM. Se necessario, seguire i passi per link:create-ilm-rule-enter-details.html["Creazione di una regola ILM"] e link:create-ilm-rule-enter-details.html#use-advanced-filters-in-ilm-rules["Utilizzo di filtri avanzati nelle regole ILM"].
++
+Quando si modifica una regola ILM, non è possibile modificarne il nome.
+
+
+
+
+
+== Rimuovere una regola ILM
+
+Per mantenere gestibile l'elenco delle regole ILM correnti, rimuovi tutte le regole ILM che non sei in grado di utilizzare.
+
+.Fasi
+Per rimuovere una regola ILM attualmente utilizzata in un criterio attivo:
+
+. Clonazione della policy.
+. Rimuovere la regola ILM dal clone dei criteri.
+. Salvare, simulare e attivare il nuovo criterio per assicurarsi che gli oggetti siano protetti come previsto.
+. Passare alla procedura per la rimozione di una regola ILM attualmente utilizzata in un criterio inattivo.
+
+
+Per rimuovere una regola ILM attualmente utilizzata in un criterio inattivo:
+
+. Selezionare il criterio inattivo.
+. Rimuovere la regola ILM dal criterio o <<remove-ilm-policy,rimuovere il criterio>>.
+. Passare alla procedura per la rimozione di una regola ILM non attualmente utilizzata.
+
+
+Per rimuovere una regola ILM attualmente non utilizzata:
+
+. Selezionare *ILM* > *regole*.
+. Verificare che la regola che si desidera rimuovere non venga utilizzata in alcun criterio.
+. Se la regola che si desidera rimuovere non è in uso, selezionarla e scegliere *azioni* > *Rimuovi*. È possibile selezionare più regole e rimuoverle tutte contemporaneamente.
+. Selezionare *Sì* per confermare che si desidera rimuovere la regola ILM.
+
+
+
+
+== Visualizza metriche ILM
+
+È possibile visualizzare le metriche per ILM, ad esempio il numero di oggetti nella coda e il tasso di valutazione. È possibile monitorare queste metriche per determinare le performance del sistema. Una grande coda o un tasso di valutazione potrebbe indicare che il sistema non è in grado di tenere il passo con la velocità di acquisizione, che il carico dalle applicazioni client è eccessivo o che esistono condizioni anomale.
+
+.Fasi
+. Selezionare *Dashboard* > *ILM*.
++
+
+NOTE: Poiché la dashboard può essere personalizzata, la scheda ILM potrebbe non essere disponibile.
+
+. Monitorare le metriche nella scheda ILM.
++
+È possibile selezionare il punto interrogativo image:../media/icon_nms_question.png["icona del punto interrogativo"]per visualizzare una descrizione degli elementi nella scheda ILM.
+
++
+image::../media/ilm_metrics_on_dashboard.png[Metriche ILM sulla dashboard di Grid Manager]
+
+

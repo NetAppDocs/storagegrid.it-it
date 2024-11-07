@@ -1,0 +1,204 @@
+---
+permalink: admin/grid-federation-retry-failed-replication.html 
+sidebar: sidebar 
+keywords: grid federation, troubleshoot 
+summary: 'Dopo aver risolto l"avviso di errore permanente della replica cross-grid, è necessario determinare se non è stato possibile replicare oggetti o marcatori di eliminazione nell"altra griglia. È quindi possibile recuperare questi oggetti o utilizzare l"API Grid Management per riprovare la replica.' 
+---
+= Identificare e riprovare le operazioni di replica non riuscite
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver risolto l'avviso *errore permanente replica cross-grid*, è necessario determinare se non è stato possibile replicare oggetti o marker di eliminazione nell'altra griglia. È quindi possibile recuperare questi oggetti o utilizzare l'API Grid Management per riprovare la replica.
+
+L'avviso *errore permanente di replica cross-grid* indica che gli oggetti tenant non possono essere replicati tra i bucket su due griglie per un motivo che richiede l'intervento dell'utente per la risoluzione. Questo avviso è generalmente causato da una modifica al bucket di origine o di destinazione. Per ulteriori informazioni, vedere link:grid-federation-troubleshoot.html["Risolvere i problemi relativi agli errori di federazione della griglia"].
+
+
+
+== Determinare se non è stato possibile replicare oggetti
+
+Per determinare se gli oggetti o i marcatori di eliminazione non sono stati replicati nell'altra griglia, è possibile cercare i messaggi nel registro di controllolink:../audit/cgrr-cross-grid-replication-request.html["CGRR (Cross-Grid Replication Request)"]. Questo messaggio viene aggiunto al registro quando StorageGRID non riesce a replicare un oggetto, un oggetto multiparte o un indicatore di eliminazione nel bucket di destinazione.
+
+È possibile utilizzare link:../audit/using-audit-explain-tool.html["tool di verifica-spiegazione"]per convertire i risultati in un formato più facile da leggere.
+
+.Prima di iniziare
+* Si dispone dell'autorizzazione di accesso root.
+* Si dispone del `Passwords.txt` file.
+* Si conosce l'indirizzo IP del nodo di amministrazione primario.
+
+
+.Fasi
+. Accedere al nodo di amministrazione principale:
++
+.. Immettere il seguente comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+
+. Cercare i messaggi CGRR in audit.log e utilizzare lo strumento di spiegazione dell'audit per formattare i risultati.
++
+Ad esempio, questo comando si grep per tutti i messaggi CGRR negli ultimi 30 minuti e utilizza lo strumento audit-exclaring.
+
++
+`# awk -vdate=$(date -d "30 minutes ago" '+%Y-%m-%dT%H:%M:%S') '$1$2 >= date { print }' audit.log | grep CGRR | audit-explain`
+
++
+Il risultato del comando sarà simile a questo esempio, che contiene voci per sei messaggi CGRR. Nell'esempio, tutte le richieste di replica cross-grid hanno restituito un errore generale perché non è stato possibile replicare l'oggetto. I primi tre errori riguardano le operazioni "Replicate Object", mentre gli ultimi tre errori riguardano le operazioni "Replicate delete marker".
+
++
+[listing]
+----
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate object" bucket:bucket123 object:"audit-0" version:QjRBNDIzODAtNjQ3My0xMUVELTg2QjEtODJBMjAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate object" bucket:bucket123 object:"audit-3" version:QjRDOTRCOUMtNjQ3My0xMUVELTkzM0YtOTg1MTAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate delete marker" bucket:bucket123 object:"audit-1" version:NUQ0OEYxMDAtNjQ3NC0xMUVELTg2NjMtOTY5NzAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate delete marker" bucket:bucket123 object:"audit-5" version:NUQ1ODUwQkUtNjQ3NC0xMUVELTg1NTItRDkwNzAwQkI3NEM4 error:general error
+----
++
+Ciascuna voce contiene le seguenti informazioni:
+
++
+[cols="1a,2a"]
+|===
+| Campo | Descrizione 
+
+
+| Richiesta di replica CGRR Cross-Grid  a| 
+Il nome della richiesta
+
+
+
+| tenant  a| 
+ID account del tenant
+
+
+
+| connessione  a| 
+L'ID della connessione a federazione di griglie
+
+
+
+| operazione  a| 
+Il tipo di operazione di replica che si stava tentando di eseguire:
+
+** oggetto replicate
+** marker di eliminazione replicato
+** replica di un oggetto multiparte
+
+
+
+
+| bucket  a| 
+Il nome del bucket
+
+
+
+| oggetto  a| 
+Il nome dell'oggetto
+
+
+
+| versione  a| 
+L'ID versione dell'oggetto
+
+
+
+| errore  a| 
+Il tipo di errore. Se la replica cross-grid non riesce, l'errore è "General error" (errore generale).
+
+|===
+
+
+
+
+== Riprovare a eseguire repliche non riuscite
+
+Dopo aver generato un elenco di oggetti e marker di eliminazione che non sono stati replicati nel bucket di destinazione e aver risolto i problemi sottostanti, è possibile riprovare la replica in due modi:
+
+* Inserire ciascun oggetto nel bucket di origine.
+* Utilizzare l'API privata Grid Management, come descritto.
+
+
+.Fasi
+. Nella parte superiore di Grid Manager, selezionare l'icona della guida e selezionare *documentazione API*.
+. Selezionare *Vai alla documentazione API privata*.
++
+
+NOTE: Gli endpoint dell'API StorageGRID contrassegnati come "privati" sono soggetti a modifica senza preavviso. Gli endpoint privati di StorageGRID ignorano anche la versione API della richiesta.
+
+. Nella sezione *cross-grid-Replication-Advanced*, selezionare il seguente endpoint:
++
+`POST /private/cross-grid-replication-retry-failed`
+
+. Selezionare *Provalo*.
+. Nella casella di testo *body*, sostituire la voce di esempio per *versionID* con un ID di versione di audit.log che corrisponde a una richiesta di replica cross-grid non riuscita.
++
+Assicurarsi di conservare le virgolette doppie intorno alla stringa.
+
+. Selezionare *Esegui*.
+. Verificare che il codice di risposta del server sia *204*, a indicare che l'oggetto o il marker di eliminazione è stato contrassegnato come in sospeso per la replica cross-grid sull'altra griglia.
++
+
+NOTE: In sospeso indica che la richiesta di replica cross-grid è stata aggiunta alla coda interna per l'elaborazione.
+
+
+
+
+
+== Monitorare i tentativi di replica
+
+È necessario monitorare le operazioni di ripetizione della replica per assicurarsi che vengano completate.
+
+
+TIP: La replica di un oggetto o di un marker di eliminazione nell'altra griglia potrebbe richiedere diverse ore o più.
+
+È possibile monitorare le operazioni di ripetizione in due modi:
+
+* Utilizzare un S3 link:../s3/head-object.html["HeadObject (oggetto intestazione)"] o link:../s3/get-object.html["GetObject"] una richiesta. La risposta include l'intestazione della risposta specifica di StorageGRID `x-ntap-sg-cgr-replication-status`, che avrà uno dei seguenti valori:
++
+[cols="1a,2a"]
+|===
+| Griglia | Stato della replica 
+
+
+ a| 
+Origine
+ a| 
+** *COMPLETATO*: La replica è riuscita.
+** *PENDING*: L'oggetto non è stato ancora replicato.
+** *ERRORE*: La replica non è riuscita con un errore permanente. Un utente deve risolvere l'errore.
+
+
+
+
+ a| 
+Destinazione
+ a| 
+*REPLICA*: L'oggetto è stato replicato dalla griglia di origine.
+
+|===
+* Utilizzare l'API privata Grid Management, come descritto.
+
+
+.Fasi
+. Nella sezione *cross-grid-Replication-Advanced* della documentazione dell'API privata, selezionare il seguente endpoint:
++
+`GET /private/cross-grid-replication-object-status/{id}`
+
+. Selezionare *Provalo*.
+. Nella sezione Parameter (parametro), immettere l'ID della versione utilizzato nella `cross-grid-replication-retry-failed` richiesta.
+. Selezionare *Esegui*.
+. Verificare che il codice di risposta del server sia *200*.
+. Esaminare lo stato della replica, che sarà uno dei seguenti:
++
+** *PENDING*: L'oggetto non è stato ancora replicato.
+** *COMPLETATO*: La replica è riuscita.
+** *FAILED*: La replica non è riuscita con un errore permanente. Un utente deve risolvere l'errore.
+
+
+

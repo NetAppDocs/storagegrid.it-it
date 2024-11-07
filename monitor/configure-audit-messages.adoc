@@ -1,0 +1,652 @@
+---
+permalink: monitor/configure-audit-messages.html 
+sidebar: sidebar 
+keywords: audit messages, audit level, external syslog server, log destinations 
+summary: È possibile configurare una serie di impostazioni relative ai messaggi di controllo. È possibile regolare il numero di messaggi di controllo registrati, definire eventuali intestazioni di richiesta HTTP che si desidera includere nei messaggi di controllo di lettura e scrittura del client, configurare un server syslog esterno e specificare dove vengono inviati i registri di controllo, i registri degli eventi di protezione e i registri del software StorageGRID. 
+---
+= Configurare i messaggi di controllo e il server syslog esterno
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare una serie di impostazioni relative ai messaggi di controllo. È possibile regolare il numero di messaggi di controllo registrati, definire eventuali intestazioni di richiesta HTTP che si desidera includere nei messaggi di controllo di lettura e scrittura del client, configurare un server syslog esterno e specificare dove vengono inviati i registri di controllo, i registri degli eventi di protezione e i registri del software StorageGRID.
+
+I messaggi e i registri di audit registrano le attività del sistema e gli eventi di sicurezza e sono strumenti essenziali per il monitoraggio e la risoluzione dei problemi. Tutti i nodi StorageGRID generano messaggi di audit e registri per tenere traccia dell'attività e degli eventi del sistema.
+
+In alternativa, è possibile configurare un server syslog esterno per salvare le informazioni di revisione in remoto. L'utilizzo di un server esterno riduce al minimo l'impatto delle prestazioni della registrazione dei messaggi di controllo senza ridurre la completezza dei dati di controllo. Un server syslog esterno è particolarmente utile se si dispone di un grid di grandi dimensioni, se si utilizzano più tipi di applicazioni S3 o se si desidera mantenere tutti i dati di revisione. Per ulteriori informazioni, vedere link:../monitor/considerations-for-external-syslog-server.html["Configurare i messaggi di controllo e il server syslog esterno"] .
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di manutenzione o di accesso root"].
+* Se si prevede di configurare un server syslog esterno, è stato esaminato il  e si è link:../monitor/considerations-for-external-syslog-server.html["considerazioni sull'utilizzo di un server syslog esterno"]certi che il server abbia capacità sufficiente per ricevere e memorizzare i file di registro.
+* Se si intende configurare un server syslog esterno utilizzando il protocollo TLS o RELP/TLS, si dispone della CA del server e dei certificati client richiesti e della chiave privata del client.
+
+
+
+
+== Modificare i livelli dei messaggi di controllo
+
+È possibile impostare un livello di audit diverso per ciascuna delle seguenti categorie di messaggi nel registro di audit:
+
+[cols="1a,1a,1a"]
+|===
+| Categoria di audit | Impostazione predefinita | Ulteriori informazioni 
+
+
+ a| 
+Sistema
+ a| 
+Normale
+ a| 
+link:../audit/system-audit-messages.html["Messaggi di audit del sistema"]
+
+
+
+ a| 
+Storage
+ a| 
+Errore
+ a| 
+link:../audit/object-storage-audit-messages.html["Messaggi di audit dello storage a oggetti"]
+
+
+
+ a| 
+Gestione
+ a| 
+Normale
+ a| 
+link:../audit/management-audit-message.html["Messaggio di audit della gestione"]
+
+
+
+ a| 
+Letture del client
+ a| 
+Normale
+ a| 
+link:../audit/client-read-audit-messages.html["Messaggi di audit in lettura del client"]
+
+
+
+ a| 
+Il client scrive
+ a| 
+Normale
+ a| 
+link:../audit/client-write-audit-messages.html["Messaggi di audit di scrittura del client"]
+
+
+
+ a| 
+ILM
+ a| 
+Normale
+ a| 
+link:../audit/ilm-audit-messages.html["Messaggi di controllo ILM"]
+
+
+
+ a| 
+Replica cross-grid
+ a| 
+Errore
+ a| 
+link:../audit/cgrr-cross-grid-replication-request.html["CGRR: Richiesta di replica cross-grid"]
+
+|===
+
+NOTE: Queste impostazioni predefinite si applicano se StorageGRID è stato installato inizialmente utilizzando la versione 10.3 o successiva. Se inizialmente è stata utilizzata una versione precedente di StorageGRID, l'impostazione predefinita per tutte le categorie è normale.
+
+
+NOTE: Durante gli aggiornamenti, le configurazioni a livello di audit non saranno effettive immediatamente.
+
+.Fasi
+. Selezionare *CONFIGURATION* > *Monitoring* > *Audit and syslog server*.
+. Per ciascuna categoria di messaggi di audit, selezionare un livello di audit dall'elenco a discesa:
++
+[cols="1a,3a"]
+|===
+| Livello di audit | Descrizione 
+
+
+ a| 
+Spento
+ a| 
+Non vengono registrati messaggi di audit della categoria.
+
+
+
+ a| 
+Errore
+ a| 
+Vengono registrati solo messaggi di errore - messaggi di audit per i quali il codice risultato non è stato "riuscito" (SUCS).
+
+
+
+ a| 
+Normale
+ a| 
+Vengono registrati i messaggi transazionali standard, ovvero i messaggi elencati in queste istruzioni per la categoria.
+
+
+
+ a| 
+Debug
+ a| 
+Obsoleto. Questo livello si comporta come il livello di audit normale.
+
+|===
++
+I messaggi inclusi per qualsiasi livello specifico includono quelli che verrebbero registrati ai livelli superiori. Ad esempio, il livello normale include tutti i messaggi di errore.
+
++
+
+NOTE: Se non si richiede un record dettagliato delle operazioni di lettura del client per le applicazioni S3, modificare l'impostazione *letture del client* su *errore* per ridurre il numero di messaggi di audit registrati nel registro di audit.
+
+. Selezionare *Salva*.
++
+Un banner verde indica che la configurazione è stata salvata.
+
+
+
+
+
+== Definire le intestazioni delle richieste HTTP
+
+Facoltativamente, è possibile definire qualsiasi intestazione di richiesta HTTP che si desidera includere nei messaggi di controllo di lettura e scrittura del client. Queste intestazioni di protocollo si applicano solo alle richieste S3.
+
+.Fasi
+. Nella sezione *Audit Protocol headers*, definire le intestazioni di richiesta HTTP che si desidera includere nei messaggi di controllo di lettura e scrittura del client.
++
+Utilizzare un asterisco (*) come carattere jolly per far corrispondere zero o più caratteri. Utilizzare la sequenza escape (*) per far corrispondere un asterisco letterale.
+
+. Selezionare *Add another header* (Aggiungi un'altra intestazione) per creare altre intestazioni, se necessario.
++
+Quando le intestazioni HTTP vengono trovate in una richiesta, vengono incluse nel messaggio di audit nel campo HTRH.
+
++
+
+NOTE: Le intestazioni delle richieste del protocollo di audit vengono registrate solo se il livello di audit per *letture client* o *scritture client* non è *disattivato*.
+
+. Selezionare *Salva*
++
+Un banner verde indica che la configurazione è stata salvata.
+
+
+
+
+
+== [[use-external-syslog-server]]Usa un server syslog esterno
+
+In alternativa, è possibile configurare un server syslog esterno per salvare registri di controllo, registri delle applicazioni e registri di eventi di sicurezza in una posizione esterna alla griglia.
+
+
+NOTE: Se non si desidera utilizzare un server syslog esterno, ignorare questo passaggio e andare a <<select-audit-information-destinations,Selezionare le destinazioni delle informazioni di audit>>.
+
+
+TIP: Se le opzioni di configurazione disponibili in questa procedura non sono sufficientemente flessibili da soddisfare i requisiti, è possibile applicare ulteriori opzioni di configurazione utilizzando gli `audit-destinations` endpoint, che si trovano nella sezione API privata di link:../admin/using-grid-management-api.html["API di Grid Management"]. Ad esempio, è possibile utilizzare l'API se si desidera utilizzare server syslog diversi per diversi gruppi di nodi.
+
+
+
+=== Inserire le informazioni di syslog
+
+Accedere alla procedura guidata Configura server syslog esterno e fornire le informazioni di cui StorageGRID ha bisogno per accedere al server syslog esterno.
+
+.Fasi
+. Dalla pagina Audit and syslog server (controllo e server syslog), selezionare *Configure external syslog server* (Configura server syslog esterno Oppure, se è stato precedentemente configurato un server syslog esterno, selezionare *Modifica server syslog esterno*.
++
+Viene visualizzata la procedura guidata Configura server syslog esterno.
+
+. Per la fase *inserire le informazioni syslog* della procedura guidata, immettere un nome di dominio completo valido o un indirizzo IPv4 o IPv6 per il server syslog esterno nel campo *host*.
+. Inserire la porta di destinazione sul server syslog esterno (deve essere un numero intero compreso tra 1 e 65535). La porta predefinita è 514.
+. Selezionare il protocollo utilizzato per inviare le informazioni di audit al server syslog esterno.
++
+Si consiglia di utilizzare *TLS* o *RELP/TLS*. Per utilizzare una di queste opzioni, è necessario caricare un certificato del server. L'utilizzo dei certificati consente di proteggere le connessioni tra la griglia e il server syslog esterno. Per ulteriori informazioni, vedere link:../admin/using-storagegrid-security-certificates.html["Gestire i certificati di sicurezza"].
+
++
+Tutte le opzioni del protocollo richiedono il supporto e la configurazione del server syslog esterno. È necessario scegliere un'opzione compatibile con il server syslog esterno.
+
++
+
+NOTE: Il protocollo RELP (Reliable Event Logging Protocol) estende le funzionalità del protocollo syslog per fornire un'erogazione affidabile dei messaggi di evento. L'utilizzo di RELP può contribuire a prevenire la perdita di informazioni di controllo nel caso in cui il server syslog esterno debba essere riavviato.
+
+. Selezionare *continua*.
+. [[attach-certificate]]se si seleziona *TLS* o *RELP/TLS*, caricare i certificati CA del server, il certificato client e la chiave privata del client.
++
+.. Selezionare *Sfoglia* per il certificato o la chiave che si desidera utilizzare.
+.. Selezionare il certificato o il file della chiave.
+.. Selezionare *Open* per caricare il file.
++
+Accanto al nome del certificato o del file della chiave viene visualizzato un segno di spunta verde che indica che il caricamento è stato eseguito correttamente.
+
+
+
+. Selezionare *continua*.
+
+
+
+
+=== Gestire il contenuto syslog
+
+È possibile selezionare le informazioni da inviare al server syslog esterno.
+
+.Fasi
+. Per la fase *Gestisci contenuto syslog* della procedura guidata, selezionare ogni tipo di informazione di audit che si desidera inviare al server syslog esterno.
++
+** *Invia log di audit*: Invia eventi StorageGRID e attività di sistema
+** *Invia eventi di sicurezza*: Invia eventi di sicurezza, ad esempio quando un utente non autorizzato tenta di effettuare l'accesso o un utente accede come root
+** *Invia registri applicazione*: Consente  di inviare messaggi link:../monitor/storagegrid-software-logs.html["File di log del software StorageGRID"] utili per la risoluzione dei problemi, tra cui:
++
+*** `bycast-err.log`
+*** `bycast.log`
+*** `jaeger.log`
+*** `nms.log` (Solo nodi amministrativi)
+*** `prometheus.log`
+*** `raft.log`
+*** `hagroups.log`
+
+
+** *Invia log di accesso*: Invia log di accesso HTTP per le richieste esterne a Grid Manager, Tenant Manager, endpoint di bilanciamento del carico configurati e richieste di federazione griglia da sistemi remoti.
+
+
+. Utilizzare i menu a discesa per selezionare la gravità e la struttura (tipo di messaggio) per ciascuna categoria di informazioni di controllo che si desidera inviare.
++
+L'impostazione dei valori di gravità e struttura consente di aggregare i registri in modo personalizzabile per semplificare l'analisi.
+
++
+.. Per *gravità*, selezionare *Passthrough* oppure selezionare un valore di gravità compreso tra 0 e 7.
++
+Se si seleziona un valore, il valore selezionato verrà applicato a tutti i messaggi di questo tipo. Le informazioni sui diversi livelli di gravità andranno perse se si sovrascrive la gravità con un valore fisso.
+
++
+[cols="1a,3a"]
+|===
+| Severità | Descrizione 
+
+
+ a| 
+Passthrough
+ a| 
+Ogni messaggio inviato al syslog esterno per avere lo stesso valore di gravità di quando è stato registrato localmente sul nodo:
+
+*** Per i registri di controllo, la gravità è "info".
+*** Per gli eventi di sicurezza, i valori di gravità sono generati dalla distribuzione Linux sui nodi.
+*** Per i registri delle applicazioni, i livelli di gravità variano tra "info" e "avviso", a seconda del problema. Ad esempio, aggiungendo un server NTP e configurando un gruppo ha si ottiene il valore "info", mentre arrestando intenzionalmente il servizio SSM o RSM si ottiene il valore "avviso".
+*** Per i registri di accesso, la gravità è "info".
+
+
+
+
+ a| 
+0
+ a| 
+Emergenza: Il sistema non è utilizzabile
+
+
+
+ a| 
+1
+ a| 
+Attenzione: L'azione deve essere eseguita immediatamente
+
+
+
+ a| 
+2
+ a| 
+Critico: Condizioni critiche
+
+
+
+ a| 
+3
+ a| 
+Errore: Condizioni di errore
+
+
+
+ a| 
+4
+ a| 
+Avvertenza: Condizioni di avviso
+
+
+
+ a| 
+5
+ a| 
+Avviso: Condizione normale ma significativa
+
+
+
+ a| 
+6
+ a| 
+Informativo: Messaggi informativi
+
+
+
+ a| 
+7
+ a| 
+Debug: Messaggi a livello di debug
+
+|===
+.. Per *Facilty*, selezionare *Passthrough* o selezionare un valore di struttura compreso tra 0 e 23.
++
+Se si seleziona un valore, questo verrà applicato a tutti i messaggi di questo tipo. Le informazioni sulle diverse strutture andranno perse se si sostituisce la struttura con un valore fisso.
+
++
+[cols="1a,3a"]
+|===
+| Struttura | Descrizione 
+
+
+ a| 
+Passthrough
+ a| 
+Ogni messaggio inviato al syslog esterno per avere lo stesso valore di struttura di quando è stato collegato localmente al nodo:
+
+*** Per i registri di controllo, la struttura inviata al server syslog esterno è "local7".
+*** Per gli eventi di sicurezza, i valori della struttura vengono generati dalla distribuzione linux sui nodi.
+*** Per i registri delle applicazioni, i registri delle applicazioni inviati al server syslog esterno presentano i seguenti valori di struttura:
++
+**** `bycast.log`: utente o daemon
+**** `bycast-err.log`: utente, daemon, local3 o local4
+**** `jaeger.log`: local2
+**** `nms.log`: local3
+**** `prometheus.log`: local4
+**** `raft.log`: local5
+**** `hagroups.log`: local6
+
+
+*** Per i registri di accesso, la struttura inviata al server syslog esterno è "local0".
+
+
+
+
+ a| 
+0
+ a| 
+kern (messaggi kernel)
+
+
+
+ a| 
+1
+ a| 
+utente (messaggi a livello utente)
+
+
+
+ a| 
+2
+ a| 
+mail
+
+
+
+ a| 
+3
+ a| 
+daemon (daemon di sistema)
+
+
+
+ a| 
+4
+ a| 
+auth (messaggi di sicurezza/autorizzazione)
+
+
+
+ a| 
+5
+ a| 
+syslog (messaggi generati internamente da syslogd)
+
+
+
+ a| 
+6
+ a| 
+lpr (sottosistema di stampanti di linea)
+
+
+
+ a| 
+7
+ a| 
+news (sottosistema notizie di rete)
+
+
+
+ a| 
+8
+ a| 
+UUCP
+
+
+
+ a| 
+9
+ a| 
+cron (daemon di clock)
+
+
+
+ a| 
+10
+ a| 
+sicurezza (messaggi di sicurezza/autorizzazione)
+
+
+
+ a| 
+11
+ a| 
+FTP
+
+
+
+ a| 
+12
+ a| 
+NTP
+
+
+
+ a| 
+13
+ a| 
+logaudit (audit del log)
+
+
+
+ a| 
+14
+ a| 
+logalert (avviso di log)
+
+
+
+ a| 
+15
+ a| 
+clock (daemon di clock)
+
+
+
+ a| 
+16
+ a| 
+local0
+
+
+
+ a| 
+17
+ a| 
+local1
+
+
+
+ a| 
+18
+ a| 
+local2
+
+
+
+ a| 
+19
+ a| 
+local3
+
+
+
+ a| 
+20
+ a| 
+local4
+
+
+
+ a| 
+21
+ a| 
+local5
+
+
+
+ a| 
+22
+ a| 
+local6
+
+
+
+ a| 
+23
+ a| 
+local7
+
+|===
+
+
+. Selezionare *continua*.
+
+
+
+
+=== Inviare messaggi di test
+
+Prima di iniziare a utilizzare un server syslog esterno, è necessario richiedere a tutti i nodi della griglia di inviare messaggi di test al server syslog esterno. È necessario utilizzare questi messaggi di test per convalidare l'intera infrastruttura di raccolta dei log prima di inviare i dati al server syslog esterno.
+
+
+CAUTION: Non utilizzare la configurazione del server syslog esterno fino a quando non si conferma che il server syslog esterno ha ricevuto un messaggio di test da ciascun nodo della griglia e che il messaggio è stato elaborato come previsto.
+
+.Fasi
+. Se non si desidera inviare messaggi di test perché si è certi che il server syslog esterno sia configurato correttamente e che sia in grado di ricevere informazioni di controllo da tutti i nodi della griglia, selezionare *Ignora e termina*.
++
+Un banner verde indica che la configurazione è stata salvata.
+
+. In caso contrario, selezionare *Invia messaggi di prova* (scelta consigliata).
++
+I risultati del test vengono visualizzati continuamente sulla pagina fino a quando non si interrompe il test. Mentre il test è in corso, i messaggi di controllo continuano a essere inviati alle destinazioni precedentemente configurate.
+
+. Se si ricevono errori, correggerli e selezionare di nuovo *Invia messaggi di prova*.
++
+Per  informazioni sulla risoluzione di eventuali errori, consultare la sezionelink:../troubleshoot/troubleshooting-syslog-server.html["Risolvere i problemi di un server syslog esterno"].
+
+. Attendere che venga visualizzato un banner verde che indica che tutti i nodi hanno superato il test.
+. Controllare il server syslog per determinare se i messaggi di test vengono ricevuti ed elaborati come previsto.
++
+
+NOTE: Se si utilizza UDP, controllare l'intera infrastruttura di raccolta dei log. Il protocollo UDP non consente un rilevamento degli errori rigoroso come gli altri protocolli.
+
+. Selezionare *Stop and Finish* (Interrompi e termina).
++
+Viene nuovamente visualizzata la pagina *Audit and syslog server*. Un banner verde indica che la configurazione del server syslog è stata salvata.
+
++
+
+NOTE: Le informazioni di audit StorageGRID non vengono inviate al server syslog esterno finché non si seleziona una destinazione che include il server syslog esterno.
+
+
+
+
+
+== Selezionare le destinazioni delle informazioni di audit
+
+È possibile specificare dove vengono inviati i registri di controllo, i registri eventi di protezione e link:../monitor/storagegrid-software-logs.html["Log del software StorageGRID"].
+
+[NOTE]
+====
+StorageGRID utilizza per impostazione predefinita le destinazioni di controllo dei nodi locali e memorizza le informazioni di controllo in `/var/local/log/localaudit.log`.
+
+Quando si utilizza `/var/local/log/localaudit.log`, le voci del registro di controllo di Grid Manager e Tenant Manager potrebbero essere inviate a un nodo di archiviazione. È possibile individuare il nodo con le voci più recenti utilizzando il `run-each-node --parallel "zgrep MGAU /var/local/log/localaudit.log | tail"` comando.
+
+Alcune destinazioni sono disponibili solo se è stato configurato un server syslog esterno.
+
+====
+.Fasi
+. Nella pagina Audit and syslog server (Server audit e syslog), selezionare la destinazione per le informazioni di audit.
++
+
+TIP: *Solo nodi locali* e *Server syslog esterno* in genere offrono prestazioni migliori.
+
++
+[cols="1a,2a"]
+|===
+| Opzione | Descrizione 
+
+
+ a| 
+Solo nodi locali (impostazione predefinita)
+ a| 
+I messaggi di controllo, i registri degli eventi di protezione e i registri delle applicazioni non vengono inviati ai nodi amministrativi. Vengono invece salvati solo sui nodi che li hanno generati ("nodo locale"). Le informazioni di controllo generate su ogni nodo locale sono memorizzate in `/var/local/log/localaudit.log`.
+
+*Nota*: StorageGRID rimuove periodicamente i log locali in una rotazione per liberare spazio. Quando il file di log di un nodo raggiunge 1 GB, il file esistente viene salvato e viene avviato un nuovo file di log. Il limite di rotazione per il log è di 21 file. Quando viene creata la ventiduesima versione del file di log, il file di log più vecchio viene cancellato. In media, su ciascun nodo vengono memorizzati circa 20 GB di dati di log.
+
+
+
+ a| 
+Nodi amministrativi/nodi locali
+ a| 
+I messaggi di controllo vengono inviati al registro di controllo sui nodi Admin, mentre i registri degli eventi di protezione e i registri delle applicazioni vengono memorizzati sui nodi che li hanno generati. Le informazioni di controllo sono memorizzate nei seguenti file:
+
+** Nodi amministrativi (primario e non primario): `/var/local/audit/export/audit.log`
+** Tutti i nodi: Il `/var/local/log/localaudit.log` file è in genere vuoto o mancante. Potrebbe contenere informazioni secondarie, ad esempio una copia aggiuntiva di alcuni messaggi.
+
+
+
+
+ a| 
+Server syslog esterno
+ a| 
+Le informazioni di controllo vengono inviate a un server syslog esterno e salvate sui nodi locali (`/var/local/log/localaudit.log`). Il tipo di informazioni inviate dipende dalla configurazione del server syslog esterno. Questa opzione viene attivata solo dopo aver configurato un server syslog esterno.
+
+
+
+ a| 
+Nodo di amministrazione e server syslog esterno
+ a| 
+I messaggi di controllo vengono inviati al registro di controllo (`/var/local/audit/export/audit.log`) sui nodi Admin e le informazioni di controllo vengono inviate al server syslog esterno e salvate sul nodo locale (`/var/local/log/localaudit.log`. Il tipo di informazioni inviate dipende dalla configurazione del server syslog esterno. Questa opzione viene attivata solo dopo aver configurato un server syslog esterno.
+
+|===
+. Selezionare *Salva*.
++
+Viene visualizzato un messaggio di avviso.
+
+. Selezionare *OK* per confermare che si desidera modificare la destinazione per le informazioni di controllo.
++
+Un banner verde indica che la configurazione di controllo è stata salvata.
+
++
+I nuovi registri vengono inviati alle destinazioni selezionate. I registri esistenti rimangono nella posizione corrente.
+
+

@@ -1,0 +1,33 @@
+---
+permalink: fabricpool/configure-dns-server.html 
+sidebar: sidebar 
+keywords: dns, vip, virtual ip, fqdn, server name 
+summary: Dopo aver configurato i gruppi ad alta disponibilità, gli endpoint del bilanciamento del carico e i nomi di dominio S3, è necessario assicurarsi che il DNS includa le voci necessarie per StorageGRID. 
+---
+= Configurare il server DNS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver configurato i gruppi ad alta disponibilità, gli endpoint del bilanciamento del carico e i nomi di dominio degli endpoint S3, è necessario assicurarsi che il DNS includa le voci necessarie per StorageGRID. È necessario includere una voce DNS per ciascun nome nel certificato di protezione e per ogni indirizzo IP che si potrebbe utilizzare.
+
+Vedere link:../admin/managing-load-balancing.html["Considerazioni per il bilanciamento del carico"].
+
+
+
+== Voci DNS per il nome del server StorageGRID
+
+Aggiungere voci DNS per associare il nome del server StorageGRID (nome di dominio completo) a ciascun indirizzo IP StorageGRID che si intende utilizzare. Gli indirizzi IP immessi nel DNS dipendono dall'utilizzo di un gruppo ha di nodi per il bilanciamento del carico:
+
+* Se è stato configurato un gruppo ha, ONTAP si connetterà agli indirizzi IP virtuali di tale gruppo ha.
+* Se non si utilizza un gruppo ha, ONTAP può connettersi al servizio bilanciamento del carico StorageGRID utilizzando l'indirizzo IP di qualsiasi nodo gateway o nodo amministratore.
+* Se il nome del server viene risolto in più indirizzi IP, ONTAP stabilisce le connessioni client con tutti gli indirizzi IP (fino a un massimo di 16 indirizzi IP). Gli indirizzi IP vengono raccolti con un metodo round-robin quando vengono stabilite le connessioni.
+
+
+
+
+== Voci DNS per richieste virtuali in stile host
+
+Se è stato definito link:../admin/configuring-s3-api-endpoint-domain-names.html["Nomi di dominio degli endpoint S3"] e si utilizzeranno richieste di stile host virtuali, aggiungere voci DNS per tutti i nomi di dominio degli endpoint S3 richiesti, inclusi i nomi dei caratteri jolly.

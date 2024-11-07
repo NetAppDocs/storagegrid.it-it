@@ -1,0 +1,14 @@
+---
+permalink: harden/system-hardening-guidelines.html 
+sidebar: sidebar 
+keywords: security,system hardening 
+summary: 'Durante l"installazione e la configurazione di StorageGRID, è possibile utilizzare queste linee guida per soddisfare qualsiasi obiettivo di sicurezza prescritto in termini di riservatezza, integrità e disponibilità del sistema informativo.' 
+---
+= Linee guida per la protezione avanzata del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durante l'installazione e la configurazione di StorageGRID, è possibile utilizzare queste linee guida per soddisfare qualsiasi obiettivo di sicurezza prescritto in termini di riservatezza, integrità e disponibilità del sistema informativo.

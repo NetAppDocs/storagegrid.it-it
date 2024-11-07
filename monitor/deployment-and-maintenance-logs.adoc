@@ -1,0 +1,75 @@
+---
+permalink: monitor/deployment-and-maintenance-logs.html 
+sidebar: sidebar 
+keywords: deployment, logs, Maintenance 
+summary: È possibile utilizzare i registri di implementazione e manutenzione per risolvere i problemi. 
+---
+= Log di implementazione e manutenzione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare i registri di implementazione e manutenzione per risolvere i problemi.
+
+[cols="1a,3a,1a"]
+|===
+| Nome del file | Note | Trovato in 
+
+
+| /var/local/log/install.log  a| 
+Creato durante l'installazione del software. Contiene un record degli eventi di installazione.
+ a| 
+Tutti i nodi
+
+
+
+| /var/local/log/expansion-progress.log  a| 
+Creato durante le operazioni di espansione. Contiene un record degli eventi di espansione.
+ a| 
+Nodi di storage
+
+
+
+| /var/local/log/pa-move.log  a| 
+Creato durante l'esecuzione `pa-move.sh` dello script.
+ a| 
+Nodo amministratore primario
+
+
+
+| /var/local/log/pa-move-new_pa.log  a| 
+Creato durante l'esecuzione `pa-move.sh` dello script.
+ a| 
+Nodo amministratore primario
+
+
+
+| /var/local/log/pa-move-old_pa.log  a| 
+Creato durante l'esecuzione `pa-move.sh` dello script.
+ a| 
+Nodo amministratore primario
+
+
+
+| /var/local/log/gdu-server.log  a| 
+Creato dal servizio GDU. Contiene eventi correlati alle procedure di provisioning e manutenzione gestite dal nodo di amministrazione primario.
+ a| 
+Nodo amministratore primario
+
+
+
+| /var/local/log/send_admin_hw.log  a| 
+Creato durante l'installazione. Contiene informazioni di debug relative alle comunicazioni di un nodo con il nodo di amministrazione primario.
+ a| 
+Tutti i nodi
+
+
+
+| /var/local/log/upgrade.log  a| 
+Creato durante l'aggiornamento del software. Contiene un record degli eventi di aggiornamento software.
+ a| 
+Tutti i nodi
+
+|===

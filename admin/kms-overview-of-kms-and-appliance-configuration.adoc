@@ -1,0 +1,94 @@
+---
+permalink: admin/kms-overview-of-kms-and-appliance-configuration.html 
+sidebar: sidebar 
+keywords: kms, appliance configuration, node encryption 
+summary: 'Prima di poter utilizzare un server di gestione delle chiavi per proteggere i dati StorageGRID sui nodi appliance, è necessario completare due attività di configurazione: La configurazione di uno o più server KMS e l"abilitazione della crittografia dei nodi per i nodi appliance. Una volta completate queste due attività di configurazione, il processo di gestione delle chiavi viene eseguito automaticamente.' 
+---
+= Configurazione dei KMS e dell'appliance
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di utilizzare un server di gestione delle chiavi (KMS) per proteggere i dati StorageGRID sui nodi appliance, è necessario completare due attività di configurazione: La configurazione di uno o più server KMS e l'abilitazione della crittografia dei nodi per i nodi appliance. Una volta completate queste due attività di configurazione, il processo di gestione delle chiavi viene eseguito automaticamente.
+
+Il diagramma di flusso mostra i passaggi di alto livello per l'utilizzo di un KMS per proteggere i dati StorageGRID sui nodi dell'appliance.
+
+image::../media/kms_configuration_overview.png[Flusso di lavoro di configurazione KMS, descritto nel testo seguente]
+
+Il diagramma di flusso mostra la configurazione di KMS e dell'appliance in parallelo; tuttavia, è possibile configurare i server di gestione delle chiavi prima o dopo aver attivato la crittografia dei nodi per i nuovi nodi appliance, in base ai requisiti.
+
+
+
+== Configurare il server di gestione delle chiavi (KMS)
+
+La configurazione di un server di gestione delle chiavi include i seguenti passaggi di alto livello.
+
+[cols="1a,1a"]
+|===
+| Fase | Fare riferimento a. 
+
+
+ a| 
+Accedere al software KMS e aggiungere un client per StorageGRID a ciascun cluster KMS o KMS.
+ a| 
+link:kms-configuring-storagegrid-as-client.html["Configurare StorageGRID come client nel KMS"]
+
+
+
+ a| 
+Ottenere le informazioni richieste per il client StorageGRID sul KMS.
+ a| 
+link:kms-configuring-storagegrid-as-client.html["Configurare StorageGRID come client nel KMS"]
+
+
+
+ a| 
+Aggiungere il KMS al Grid Manager, assegnarlo a un singolo sito o a un gruppo predefinito di siti, caricare i certificati richiesti e salvare la configurazione del KMS.
+ a| 
+link:kms-adding.html["Aggiunta di un server di gestione delle chiavi (KMS)"]
+
+|===
+
+
+== Configurare l'apparecchio
+
+La configurazione di un nodo appliance per l'utilizzo di KMS include i seguenti passaggi di alto livello.
+
+. Durante la fase di configurazione hardware dell'installazione dell'appliance, utilizzare il programma di installazione dell'appliance StorageGRID per attivare l'impostazione *crittografia del nodo* dell'appliance.
++
+
+NOTE: Non è possibile attivare l'impostazione *Node Encryption* dopo l'aggiunta di un'appliance alla griglia e non è possibile utilizzare la gestione delle chiavi esterne per le appliance che non dispongono della crittografia dei nodi abilitata.
+
+. Eseguire il programma di installazione dell'appliance StorageGRID. Durante l'installazione, a ciascun volume dell'appliance viene assegnata una chiave di crittografia dei dati casuale (DEK), come segue:
++
+** I DEK vengono utilizzati per crittografare i dati su ciascun volume. Queste chiavi vengono generate utilizzando la crittografia del disco Linux Unified Key Setup (LUKS) nel sistema operativo dell'appliance e non possono essere modificate.
+** Ogni singolo DEK viene crittografato mediante una chiave di crittografia della chiave master (KEK). La chiave iniziale KEK è una chiave temporanea che crittografa i DEK fino a quando l'appliance non riesce a connettersi al KMS.
+
+
+. Aggiungere il nodo appliance a StorageGRID.
+
+
+Per ulteriori informazioni, vedere https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html["Abilitare la crittografia del nodo"^].
+
+
+
+== Processo di crittografia per la gestione delle chiavi (si verifica automaticamente)
+
+La crittografia per la gestione delle chiavi include i seguenti passaggi di alto livello che vengono eseguiti automaticamente.
+
+. Quando si installa un'appliance che ha attivato la crittografia dei nodi nella griglia, StorageGRID determina se esiste una configurazione KMS per il sito che contiene il nuovo nodo.
++
+** Se un KMS è già stato configurato per il sito, l'appliance riceve la configurazione KMS.
+** Se non è ancora stato configurato un KMS per il sito, i dati dell'appliance continuano a essere crittografati dalla KEK temporanea fino a quando non si configura un KMS per il sito e l'appliance non riceve la configurazione KMS.
+
+
+. L'appliance utilizza la configurazione KMS per connettersi al KMS e richiedere una chiave di crittografia.
+. Il KMS invia una chiave di crittografia all'appliance. La nuova chiave del KMS sostituisce la KEK temporanea e viene ora utilizzata per crittografare e decrittare i DEK per i volumi dell'appliance.
++
+
+CAUTION: Tutti i dati che esistono prima che il nodo dell'appliance crittografato si connetta al KMS configurato vengono crittografati con una chiave temporanea. Tuttavia, i volumi dell'appliance non devono essere considerati protetti dalla rimozione dal data center fino a quando la chiave temporanea non viene sostituita dalla chiave di crittografia KMS.
+
+. Se l'appliance viene accesa o riavviata, si ricollega al KMS per richiedere la chiave. La chiave, che viene salvata nella memoria volatile, non può sopravvivere a una perdita di alimentazione o a un riavvio.
+

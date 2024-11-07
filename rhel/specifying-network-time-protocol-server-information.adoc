@@ -1,0 +1,42 @@
+---
+permalink: rhel/specifying-network-time-protocol-server-information.html 
+sidebar: sidebar 
+keywords: how to specify network time protocol ntp 
+summary: 'È necessario specificare le informazioni di configurazione NTP (Network Time Protocol) per il sistema StorageGRID, in modo che le operazioni eseguite su server separati possano essere mantenute sincronizzate.' 
+---
+= Specificare le informazioni sul server Network Time Protocol
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario specificare le informazioni di configurazione del protocollo NTP (Network Time Protocol) per il sistema StorageGRID, in modo che le operazioni eseguite su server separati possano essere mantenute sincronizzate.
+
+.A proposito di questa attività
+Specificare gli indirizzi IPv4 per i server NTP.
+
+Specificare server NTP esterni. I server NTP specificati devono utilizzare il protocollo NTP.
+
+È necessario specificare quattro riferimenti al server NTP di strato 3 o superiore per evitare problemi con la deriva del tempo.
+
+[NOTE]
+====
+Quando si specifica l'origine NTP esterna per un'installazione StorageGRID a livello di produzione, non utilizzare il servizio Windows Time (W32Time) su una versione di Windows precedente a Windows Server 2016. Il servizio Time sulle versioni precedenti di Windows non è sufficientemente accurato e non è supportato da Microsoft per l'utilizzo in ambienti ad alta precisione, come StorageGRID.
+
+https://support.microsoft.com/en-us/help/939322/support-boundary-to-configure-the-windows-time-service-for-high-accura["Supportare il limite per configurare il servizio Time di Windows per ambienti ad alta precisione"^]
+
+====
+I server NTP esterni vengono utilizzati dai nodi ai quali sono stati precedentemente assegnati ruoli NTP primari.
+
+
+NOTE: Assicurarsi che almeno due nodi di ciascun sito possano accedere ad almeno quattro origini NTP esterne. Se solo un nodo di un sito può raggiungere le origini NTP, si verificheranno problemi di tempistica se tale nodo non funziona. Inoltre, la designazione di due nodi per sito come origini NTP primarie garantisce tempi precisi se un sito viene isolato dal resto della rete.
+
+.Fasi
+. Specificare gli indirizzi IPv4 per almeno quattro server NTP nelle caselle di testo da *Server 1* a *Server 4*.
+. Se necessario, selezionare il segno più accanto all'ultima voce per aggiungere altre voci del server.
++
+image::../media/8_gmi_installer_ntp_page.gif[Questa immagine viene spiegata dal testo circostante.]
+
+. Selezionare *Avanti*.
+

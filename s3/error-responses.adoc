@@ -1,0 +1,378 @@
+---
+permalink: s3/error-responses.html 
+sidebar: sidebar 
+keywords: error, error responses 
+summary: 'Il sistema StorageGRID supporta tutte le risposte di errore standard dell"API REST S3 applicabili. Inoltre, l"implementazione di StorageGRID aggiunge diverse risposte personalizzate.' 
+---
+= Risposte agli errori
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il sistema StorageGRID supporta tutte le risposte di errore standard dell'API REST S3 applicabili. Inoltre, l'implementazione di StorageGRID aggiunge diverse risposte personalizzate.
+
+
+
+== Codici di errore S3 API supportati
+
+[cols="1a,1a"]
+|===
+| Nome | Stato HTTP 
+
+
+ a| 
+Accesso negato
+ a| 
+403 proibita
+
+
+
+ a| 
+BadDigest
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+BucketAlreadyExists
+ a| 
+409 conflitto
+
+
+
+ a| 
+BucketNotEmpty
+ a| 
+409 conflitto
+
+
+
+ a| 
+IncompleteBody
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+InternalError
+ a| 
+500 errore interno del server
+
+
+
+ a| 
+InvalidAccessKeyId
+ a| 
+403 proibita
+
+
+
+ a| 
+Documento invalidato
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+InvalidBucketName
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+InvalidBucketState
+ a| 
+409 conflitto
+
+
+
+ a| 
+InvalidDigest
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+InvalidEncryptionAlgorithmError
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+InvalidPart
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+InvalidPartOrder
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+InvalidRange
+ a| 
+416 intervallo richiesto non riscontrabile
+
+
+
+ a| 
+InvalidRequest
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+InvalidStorageClass
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+InvalidTag
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+InvalidURI
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+KeyTooLong
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+MalformedXML
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+MetadataTooLarge
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+MethodNon consentito
+ a| 
+405 metodo non consentito
+
+
+
+ a| 
+MissingContentLength
+ a| 
+411 lunghezza richiesta
+
+
+
+ a| 
+MissingRequestBodyError
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+MissingSecurityHeader
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+NoSuchBucket
+ a| 
+404 non trovato
+
+
+
+ a| 
+NoSuchKey
+ a| 
+404 non trovato
+
+
+
+ a| 
+NoSuchUpload
+ a| 
+404 non trovato
+
+
+
+ a| 
+Non soddisfatto
+ a| 
+501 non implementato
+
+
+
+ a| 
+NoSuchBucketPolicy
+ a| 
+404 non trovato
+
+
+
+ a| 
+ObjectLockConfigurationNotFoundError
+ a| 
+404 non trovato
+
+
+
+ a| 
+PrecondizioneFailed
+ a| 
+412 precondizione non riuscita
+
+
+
+ a| 
+RequestTimeTooSkewed
+ a| 
+403 proibita
+
+
+
+ a| 
+ServiceUnavailable (Servizio non disponibile)
+ a| 
+503 Servizio non disponibile
+
+
+
+ a| 
+SignatureDoesNotMatch
+ a| 
+403 proibita
+
+
+
+ a| 
+TooManyBucket
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+UserKeyMustBeSpecified
+ a| 
+400 richiesta errata
+
+|===
+
+
+== Codici di errore personalizzati StorageGRID
+
+[cols="2a,2a,1a"]
+|===
+| Nome | Descrizione | Stato HTTP 
+
+
+ a| 
+XBucketLifecycleNotAllowed
+ a| 
+La configurazione del ciclo di vita del bucket non è consentita in un bucket compatibile legacy
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+XBucketPolicyParseException
+ a| 
+Impossibile analizzare JSON policy bucket ricevuta.
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+XComplianceConflict
+ a| 
+Operazione negata a causa delle impostazioni di conformità legacy.
+ a| 
+403 proibita
+
+
+
+ a| 
+XComplianceRiduciRedundancyProibita
+ a| 
+La ridondanza ridotta non è consentita nel bucket compatibile legacy
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+XMaxBucketPolicyLengthExceed
+ a| 
+La policy supera la lunghezza massima consentita della policy bucket.
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+XMissingInternalRequestHeader
+ a| 
+Manca un'intestazione di una richiesta interna.
+ a| 
+400 richiesta errata
+
+
+
+ a| 
+Conformità XNoSuchBucketCompliance
+ a| 
+Nel bucket specificato non è attivata la compliance legacy.
+ a| 
+404 non trovato
+
+
+
+ a| 
+XNotAcceptable (XNotAccettabile)
+ a| 
+La richiesta contiene una o più intestazioni di accettazione che non possono essere soddisfatte.
+ a| 
+406 non accettabile
+
+
+
+ a| 
+XNotImplemented
+ a| 
+La richiesta fornita implica funzionalità non implementate.
+ a| 
+501 non implementato
+
+|===

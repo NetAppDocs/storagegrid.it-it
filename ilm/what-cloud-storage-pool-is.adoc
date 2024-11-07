@@ -1,0 +1,102 @@
+---
+permalink: ilm/what-cloud-storage-pool-is.html 
+sidebar: sidebar 
+keywords: what is a cloud storage pool 
+summary: 'Un pool di storage cloud consente di utilizzare ILM per spostare i dati degli oggetti all"esterno del sistema StorageGRID. Ad esempio, è possibile spostare gli oggetti con accesso non frequente in uno storage cloud a basso costo, come Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud o il Tier di accesso all"archivio nello storage Microsoft Azure Blob. In alternativa, è possibile mantenere un backup cloud degli oggetti StorageGRID per migliorare il disaster recovery.' 
+---
+= Che cos'è un pool di storage cloud?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un pool di storage cloud consente di utilizzare ILM per spostare i dati degli oggetti all'esterno del sistema StorageGRID. Ad esempio, è possibile spostare gli oggetti con accesso non frequente in uno storage cloud a basso costo, come Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud o il Tier di accesso all'archivio nello storage Microsoft Azure Blob. In alternativa, è possibile mantenere un backup cloud degli oggetti StorageGRID per migliorare il disaster recovery.
+
+Dal punto di vista di ILM, un pool di storage cloud è simile a un pool di storage. Per memorizzare gli oggetti in entrambe le posizioni, selezionare il pool quando si creano le istruzioni di posizionamento per una regola ILM. Tuttavia, mentre i pool di storage sono costituiti da nodi di storage all'interno del sistema StorageGRID, un Cloud Storage Pool è composto da un bucket esterno (S3) o da un container (storage BLOB di Azure).
+
+La tabella confronta i pool di storage con i pool di storage cloud e mostra le analogie e le differenze di alto livello.
+
+[cols="1a,2a,5a"]
+|===
+|  | Pool di storage | Pool di cloud storage 
+
+
+ a| 
+Come viene creato?
+ a| 
+Utilizzando l'opzione *ILM* > *Storage Pools* in Grid Manager.
+ a| 
+Utilizzando l'opzione *ILM* > *Storage Pools* > *Cloud Storage Pools* in Grid Manager.
+
+È necessario configurare il bucket o il container esterno prima di poter creare il Cloud Storage Pool.
+
+
+
+ a| 
+Quanti pool è possibile creare?
+ a| 
+Senza limiti.
+ a| 
+Fino a 10.
+
+
+
+ a| 
+Dove sono memorizzati gli oggetti?
+ a| 
+Su uno o più nodi storage all'interno di StorageGRID.
+ a| 
+In un bucket Amazon S3, un container di storage BLOB di Azure o Google Cloud esterno al sistema StorageGRID.
+
+Se il Cloud Storage Pool è un bucket Amazon S3:
+
+* È possibile configurare un ciclo di vita del bucket per la transizione di oggetti a storage a lungo termine e a basso costo, come Amazon S3 Glacier o S3 Glacier Deep Archive. Il sistema di storage esterno deve supportare la classe di storage Glacier e l'API S3 RestoreObject.
+* È possibile creare pool di storage cloud da utilizzare con AWS Commercial Cloud Services (C2S), che supporta l'AWS Secret Region.
+
+
+Se il pool di storage cloud è un container di storage Azure Blob, StorageGRID passa l'oggetto al Tier di archiviazione.
+
+*Nota:* in generale, non configurare la gestione del ciclo di vita dello storage Azure Blob per il container utilizzato per un pool di storage cloud. Le operazioni RestoreObject sugli oggetti nel Cloud Storage Pool possono essere interessate dal ciclo di vita configurato.
+
+
+
+ a| 
+Cosa controlla il posizionamento degli oggetti?
+ a| 
+Una regola ILM nei criteri ILM attivi.
+ a| 
+Una regola ILM nei criteri ILM attivi.
+
+
+
+ a| 
+Quale metodo di protezione dei dati viene utilizzato?
+ a| 
+Replica o erasure coding.
+ a| 
+Replica.
+
+
+
+ a| 
+Quante copie di ciascun oggetto sono consentite?
+ a| 
+Multiplo.
+ a| 
+Una copia nel pool di storage cloud e, facoltativamente, una o più copie in StorageGRID.
+
+*Nota:* non è possibile memorizzare un oggetto in più di un Cloud Storage Pool alla volta.
+
+
+
+ a| 
+Quali sono i vantaggi?
+ a| 
+Gli oggetti sono rapidamente accessibili in qualsiasi momento.
+ a| 
+Storage a basso costo.
+
+*Nota*: Non è possibile eseguire il tiering dei dati FabricPool nei pool di storage cloud.
+
+|===

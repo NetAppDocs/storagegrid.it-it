@@ -1,0 +1,118 @@
+= Trovare il nome host per il nodo di storage
+:allow-uri-read: 
+
+
+
+
+== Trovare il nome host per il nodo di storage
+
+. Accedere al nodo di amministrazione principale:
++
+.. Immettere il seguente comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+
+. Utilizzare il `/etc/hosts` file per trovare il nome host del nodo di archiviazione per i volumi di archiviazione ripristinati. Per visualizzare un elenco di tutti i nodi nella griglia, immettere quanto segue: `cat /etc/hosts`.
+
+
+
+
+== Riparare i dati se tutti i volumi sono guasti
+
+Se tutti i volumi di storage si sono guastati, riparare l'intero nodo. Seguire le istruzioni per *dati replicati*, *dati con codifica di cancellazione (EC)* o entrambi, a seconda che si utilizzino dati replicati, dati con codifica di cancellazione (EC) o entrambi.
+
+Se solo alcuni volumi non funzionano, passare a <<Riparare i dati se solo alcuni volumi sono guasti>>.
+
+
+NOTE: Non è possibile eseguire `repair-data` operazioni per più di un nodo contemporaneamente. Per ripristinare più nodi, contattare il supporto tecnico.
+
+[role="tabbed-block"]
+====
+.Dati replicati
+--
+Se la griglia include dati replicati, utilizzare `repair-data start-replicated-node-repair` il comando con `--nodes` l'opzione, dove `--nodes` è il nome host (nome di sistema), per riparare l'intero nodo di archiviazione.
+
+Questo comando ripara i dati replicati su un nodo di storage denominato SG-DC-SN3:
+
+`repair-data start-replicated-node-repair --nodes SG-DC-SN3`
+
+
+NOTE: Quando i dati dell'oggetto vengono ripristinati, l'avviso *oggetti persi* viene attivato se il sistema StorageGRID non riesce a individuare i dati dell'oggetto replicati. Gli avvisi potrebbero essere attivati sui nodi di storage all'interno del sistema. È necessario determinare la causa della perdita e se è possibile eseguire il ripristino. Vedere link:../troubleshoot/investigating-lost-objects.html["Esaminare gli oggetti persi"].
+
+--
+.Dati con erasure coding (EC)
+--
+Se la griglia contiene dati sottoposti a erasure coding, utilizzare `repair-data start-ec-node-repair` il comando con `--nodes` l'opzione, dove `--nodes` è il nome host (nome di sistema), per riparare l'intero nodo di archiviazione.
+
+Questo comando ripara i dati con codifica di cancellazione su un nodo di storage denominato SG-DC-SN3:
+
+`repair-data start-ec-node-repair --nodes SG-DC-SN3`
+
+L'operazione restituisce un unico `repair ID` che identifica questa `repair_data` operazione. Utilizzare questa `repair ID` funzione per tenere traccia dell'avanzamento e del risultato dell' `repair_data`operazione. Non viene restituito alcun altro feedback al termine del processo di ripristino.
+
+Le riparazioni dei dati con codifica erasure possono iniziare mentre alcuni nodi di storage sono offline. La riparazione verrà completata dopo che tutti i nodi saranno disponibili.
+
+--
+====
+
+
+== Riparare i dati se solo alcuni volumi sono guasti
+
+Se solo alcuni volumi hanno avuto problemi, riparare i volumi interessati. Seguire le istruzioni per *dati replicati*, *dati con codifica di cancellazione (EC)* o entrambi, a seconda che si utilizzino dati replicati, dati con codifica di cancellazione (EC) o entrambi.
+
+Se tutti i volumi non sono riusciti, passare a <<Riparare i dati se tutti i volumi sono guasti>>.
+
+Inserire gli ID del volume in formato esadecimale. Ad esempio, `0000` è il primo volume ed `000F` è il sedicesimo volume. È possibile specificare un volume, un intervallo di volumi o più volumi che non si trovano in una sequenza.
+
+Tutti i volumi devono trovarsi sullo stesso nodo di storage. Se è necessario ripristinare i volumi per più di un nodo di storage, contattare il supporto tecnico.
+
+[role="tabbed-block"]
+====
+.Dati replicati
+--
+Se la griglia contiene dati replicati, utilizzare `start-replicated-volume-repair` il comando con `--nodes` l'opzione per identificare il nodo (dove `--nodes` è il nome host del nodo). Aggiungere quindi l' `--volumes`opzione o `--volume-range`, come illustrato negli esempi seguenti.
+
+*Volume singolo*: Questo comando ripristina i dati replicati sul volume `0002` su un nodo di storage denominato SG-DC-SN3:
+
+`repair-data start-replicated-volume-repair --nodes SG-DC-SN3 --volumes 0002`
+
+*Intervallo di volumi*: Questo comando ripristina i dati replicati in tutti i volumi nell'intervallo `0003` su `0009` un nodo di archiviazione denominato SG-DC-SN3:
+
+`repair-data start-replicated-volume-repair --nodes SG-DC-SN3 --volume-range 0003,0009`
+
+*Volumi multipli non in sequenza*: Questo comando ripristina i dati replicati nei volumi `0001`, `0005` e `0008` in un nodo di archiviazione denominato SG-DC-SN3:
+
+`repair-data start-replicated-volume-repair --nodes SG-DC-SN3 --volumes 0001,0005,0008`
+
+
+NOTE: Quando i dati dell'oggetto vengono ripristinati, l'avviso *oggetti persi* viene attivato se il sistema StorageGRID non riesce a individuare i dati dell'oggetto replicati. Gli avvisi potrebbero essere attivati sui nodi di storage all'interno del sistema. Prendere nota della descrizione dell'avviso e delle azioni consigliate per determinare la causa della perdita e se è possibile eseguire il ripristino.
+
+--
+.Dati con erasure coding (EC)
+--
+Se la griglia contiene dati sottoposti a erasure coding, utilizzare `start-ec-volume-repair` il comando con `--nodes` l'opzione per identificare il nodo (dove `--nodes` è il nome host del nodo). Aggiungere quindi l' `--volumes`opzione o `--volume-range`, come illustrato negli esempi seguenti.
+
+*Volume singolo*: Questo comando ripristina i dati con erasure coding nel volume `0007` su un nodo di storage denominato SG-DC-SN3:
+
+`repair-data start-ec-volume-repair --nodes SG-DC-SN3 --volumes 0007`
+
+*Intervallo di volumi*: Questo comando ripristina i dati con erasure coding in tutti i volumi nell'intervallo `0004` su `0006` un nodo di archiviazione denominato SG-DC-SN3:
+
+`repair-data start-ec-volume-repair --nodes SG-DC-SN3 --volume-range 0004,0006`
+
+*Volumi multipli non in sequenza*: Questo comando ripristina i dati sottoposti a erasure coding nei volumi `000A`, `000C` e `000E` in un nodo di archiviazione denominato SG-DC-SN3:
+
+`repair-data start-ec-volume-repair --nodes SG-DC-SN3 --volumes 000A,000C,000E`
+
+L' `repair-data`operazione restituisce un unico `repair ID` che identifica questa `repair_data` operazione. Utilizzare questa `repair ID` funzione per tenere traccia dell'avanzamento e del risultato dell' `repair_data`operazione. Non viene restituito alcun altro feedback al termine del processo di ripristino.
+
+
+NOTE: Le riparazioni dei dati con codifica erasure possono iniziare mentre alcuni nodi di storage sono offline. La riparazione verrà completata dopo che tutti i nodi saranno disponibili.
+
+--
+====

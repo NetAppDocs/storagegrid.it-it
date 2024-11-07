@@ -1,0 +1,70 @@
+---
+permalink: admin/changing-browser-session-timeout-interface.html 
+sidebar: sidebar 
+keywords: security, browser inactivity timeout, management API stack track 
+summary: 'Le impostazioni di protezione dell"interfaccia consentono di controllare se gli utenti sono disconnessi se sono inattivi per un periodo di tempo superiore a quello specificato e se una traccia dello stack è inclusa nelle risposte di errore API.' 
+---
+= Modificare le impostazioni di sicurezza dell'interfaccia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le impostazioni di protezione dell'interfaccia consentono di controllare se gli utenti sono disconnessi se sono inattivi per un periodo di tempo superiore a quello specificato e se una traccia dello stack è inclusa nelle risposte di errore API.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:admin-group-permissions.html["Autorizzazione di accesso root"].
+
+
+.A proposito di questa attività
+La pagina *Impostazioni di protezione* include le impostazioni *Timeout inattività browser* e *traccia stack API di gestione*.
+
+Timeout di inattività del browser:: Indica per quanto tempo il browser di un utente può rimanere inattivo prima che l'utente venga disconnesso. L'impostazione predefinita è 15 minuti.
++
+--
+Il timeout di inattività del browser è controllato anche da:
+
+* Un timer StorageGRID separato, non configurabile, incluso per la sicurezza del sistema. Ogni token di autenticazione dell'utente scade 16 ore dopo l'accesso. Quando l'autenticazione dell'utente scade, l'utente viene automaticamente disconnesso, anche se il timeout di inattività del browser è disattivato o non è stato raggiunto il valore per il timeout del browser. Per rinnovare il token, l'utente deve effettuare nuovamente l'accesso.
+* Impostazioni di timeout per il provider di identità, presupponendo che SSO (Single Sign-on) sia abilitato per StorageGRID.
++
+Se SSO è attivato e il browser dell'utente si disinserisce, l'utente deve immettere nuovamente le proprie credenziali SSO per accedere nuovamente a StorageGRID. Vedere link:configuring-sso.html["Configurare il single sign-on"].
+
+
+
+--
+Traccia stack API di gestione:: Controlla se una traccia di stack viene restituita nelle risposte di errore delle API di Gestione griglia e di Gestione tenant.
++
+--
+Questa opzione è disattivata per impostazione predefinita, ma potrebbe essere necessario attivarla per un ambiente di test. In generale, è necessario lasciare disattivata la traccia dello stack negli ambienti di produzione per evitare di rivelare i dettagli del software interno quando si verificano errori API.
+
+--
+
+
+.Fasi
+. Selezionare *CONFIGURATION* > *Security* > *Security settings*.
+. Selezionare la scheda *interfaccia*.
+. Per modificare l'impostazione del timeout di inattività del browser:
++
+.. Espandere la fisarmonica.
+.. Per modificare il periodo di timeout, specificare un valore compreso tra 60 secondi e 7 giorni. Il timeout predefinito è di 15 minuti.
+.. Per disattivare questa funzione, deselezionare la casella di controllo.
+.. Selezionare *Salva*.
++
+La nuova impostazione non influisce sugli utenti che hanno effettuato l'accesso. Per rendere effettiva la nuova impostazione di timeout, gli utenti devono eseguire nuovamente l'accesso o aggiornare i browser.
+
+
+
+. Per modificare l'impostazione per la traccia stack API di gestione:
++
+.. Espandere la fisarmonica.
+.. Selezionare la casella di controllo per restituire una traccia di stack nelle risposte agli errori di API di Gestione griglia e di Gestione tenant.
++
+
+CAUTION: Lasciare la traccia dello stack disattivata negli ambienti di produzione per evitare di rivelare dettagli software interni quando si verificano errori API.
+
+.. Selezionare *Salva*.
+
+
+

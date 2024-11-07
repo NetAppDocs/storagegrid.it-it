@@ -1,0 +1,107 @@
+---
+permalink: troubleshoot/troubleshoot-s3-put-object-size-too-large-alert.html 
+sidebar: sidebar 
+keywords: how to troubleshoot S3 PUT Object size too large alert, S3 PutObject size 
+summary: 'L"avviso S3 PUT object size too large viene attivato se un tenant tenta un"operazione PutObject non multiparte che supera il limite di dimensione S3 di 5 GiB.' 
+---
+= Risoluzione dei problemi S3 - Avviso DIMENSIONE oggetto troppo grande
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'avviso S3 PUT object size too large viene attivato se un tenant tenta un'operazione PutObject non multiparte che supera il limite di dimensione S3 di 5 GiB.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+
+
+Determinare quali tenant utilizzano oggetti di dimensioni superiori a 5 GiB, in modo da poterli notificare.
+
+.Fasi
+. Accedere a *CONFIGURAZIONE* > *monitoraggio* > *server di audit e syslog*.
+. Se le scritture del client sono normali, accedere al registro di controllo:
++
+.. Invio `ssh admin@_primary_Admin_Node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+.. Invio `cd /var/local/log`
++
+[NOTE]
+====
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Informazioni sulle destinazioni per le informazioni di verifica"].
+
+====
+.. Identificare i tenant che utilizzano oggetti di dimensioni superiori a 5 GiB.
++
+... Invio `zgrep SPUT * | egrep "CSIZ\(UI64\):([5-9]|[1-9][0-9]+)[0-9]{9}"`
+... Per ciascun messaggio di controllo nei risultati, esaminare il `S3AI` campo per determinare l'ID account tenant. Utilizzare gli altri campi del messaggio per determinare l'indirizzo IP utilizzato dal client, dal bucket e dall'oggetto:
++
+[cols="1a,2a"]
+|===
+| Codice | Descrizione 
+
+
+| SAIP  a| 
+IP di origine
+
+
+
+| S3AI  a| 
+ID tenant
+
+
+
+| S3BK  a| 
+Bucket
+
+
+
+| S3KY  a| 
+Oggetto
+
+
+
+| CSIZ  a| 
+Dimensione (byte)
+
+|===
++
+*Esempio di risultati del registro di controllo*
+
++
+[listing]
+----
+audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):1672943621106262][TIME(UI64):804317333][SAIP(IPAD):"10.96.99.127"][S3AI(CSTR):"93390849266154004343"][SACC(CSTR):"bhavna"][S3AK(CSTR):"06OX85M40Q90Y280B7YT"][SUSR(CSTR):"urn:sgws:identity::93390849266154004343:root"][SBAI(CSTR):"93390849266154004343"][SBAC(CSTR):"bhavna"][S3BK(CSTR):"test"][S3KY(CSTR):"large-object"][CBID(UI64):0x077EA25F3B36C69A][UUID(CSTR):"A80219A2-CD1E-466F-9094-B9C0FDE2FFA3"][CSIZ(UI64):6040000000][MTME(UI64):1672943621338958][AVER(UI32):10][ATIM(UI64):1672944425525999][ATYP(FC32):SPUT][ANID(UI32):12220829][AMID(FC32):S3RQ][ATID(UI64):4333283179807659119]]
+----
+
+
+
+
+. Se le scritture del client non sono normali, utilizzare l'ID tenant dell'avviso per identificare il tenant:
++
+.. Accedere a *SUPPORT* > *Tools* > *Logs*. Raccogliere i log delle applicazioni per il nodo di storage nell'avviso. Specificare 15 minuti prima e dopo l'avviso.
+.. Estrarre il file e andare a `bycast.log`:
++
+`/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`
+
+.. Cercare nel registro `method=PUT` e identificare il client nel `clientIP` campo .
++
+*Esempio di bycast.log*
+
++
+[listing]
+----
+Jan  5 18:33:41 BHAVNAJ-DC1-S1-2-65 ADE: |12220829 1870864574 S3RQ %CEA 2023-01-05T18:33:41.208790| NOTICE   1404 af23cb66b7e3efa5 S3RQ: EVENT_PROCESS_CREATE - connection=1672943621106262 method=PUT name=</test/4MiB-0> auth=<V4> clientIP=<10.96.99.127>
+----
+
+
+. Informare i locatari che la dimensione massima di PutObject è di 5 GiB e di utilizzare caricamenti multiparte per oggetti superiori a 5 GiB.
+. Ignorare l'avviso per una settimana se l'applicazione è stata modificata.
+

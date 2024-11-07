@@ -1,0 +1,236 @@
+---
+permalink: maintain/rename-grid-site-node.html 
+sidebar: sidebar 
+keywords: rename grid, rename sites, rename node, change display name, bulk rename tool 
+summary: 'È possibile utilizzare questa procedura per aggiungere o aggiornare i nomi di visualizzazione utilizzati per la griglia, i siti e i nodi. È possibile rinominare un singolo elemento, più nomi o anche tutti gli elementi contemporaneamente. La definizione o l"aggiornamento di un nome visualizzato non influisce in alcun modo sulle operazioni StorageGRID.' 
+---
+= Aggiungere o aggiornare i nomi visualizzati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare questa procedura per aggiungere o aggiornare i nomi di visualizzazione utilizzati per la griglia, i siti e i nodi. È possibile rinominare un singolo elemento, più elementi o anche tutti gli elementi contemporaneamente. La definizione o l'aggiornamento di un nome visualizzato non influisce in alcun modo sulle operazioni StorageGRID.
+
+.Prima di iniziare
+* Da *nodo amministrativo primario*, si è effettuato l'accesso al Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
++
+
+NOTE: È possibile aggiungere o aggiornare i nomi visualizzati da un nodo di amministrazione non primario, ma è necessario accedere al nodo di amministrazione primario per scaricare un pacchetto di ripristino.
+
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di manutenzione o di accesso root"].
+* Si dispone della passphrase di provisioning.
+* Hai compreso i requisiti e le Best practice per i nomi visualizzati. Vedere link:../maintain/rename-grid-site-node-overview.html["Rinominare la griglia, i siti e i nodi"].
+
+
+
+
+== Come rinominare la griglia, i siti o i nodi
+
+È possibile rinominare il sistema StorageGRID, uno o più siti o uno o più nodi.
+
+È possibile utilizzare un nome visualizzato precedentemente utilizzato da un nodo diverso, purché il nome non sia un nome visualizzato o un nome di sistema duplicati.
+
+
+
+=== Selezionare gli elementi da rinominare
+
+Per iniziare, selezionare gli elementi che si desidera rinominare.
+
+.Fasi
+. Selezionare *MANUTENZIONE* > *attività* > *Rinomina griglia, siti e nodi*.
+. Per il passo *Select Names*, selezionare gli elementi che si desidera rinominare.
++
+[cols="1a,2a"]
+|===
+| Elemento da modificare | Istruzioni 
+
+
+ a| 
+Nomi di tutto (o quasi tutto) nel sistema
+ a| 
+.. Selezionare *Seleziona tutto*.
+.. Se si desidera, deselezionare gli elementi che non si desidera rinominare.
+
+
+
+
+ a| 
+Nome della griglia
+ a| 
+Selezionare la casella di controllo della griglia.
+
+
+
+ a| 
+Nome di un sito e di alcuni o di tutti i suoi nodi
+ a| 
+.. Selezionare la casella di controllo nell'intestazione della tabella per il sito.
+.. Facoltativamente, deselezionare i nodi che non si desidera rinominare.
+
+
+
+
+ a| 
+Nome di un sito
+ a| 
+Selezionare la casella di controllo del sito.
+
+
+
+ a| 
+Nome di un nodo
+ a| 
+Selezionare la casella di controllo del nodo.
+
+|===
+. Selezionare *continua*.
+. Esaminare la tabella, che include gli elementi selezionati.
++
+** La colonna *Nome visualizzato* mostra il nome corrente di ciascun elemento. Se l'elemento non è mai stato rinominato, il nome visualizzato corrisponde al nome del sistema.
+** La colonna *Nome sistema* mostra il nome immesso per ciascun elemento durante l'installazione. I nomi di sistema vengono utilizzati per le operazioni StorageGRID interne e non possono essere modificati. Ad esempio, il nome di sistema di un nodo potrebbe essere il nome host.
+** La colonna *Type* indica il tipo di elemento: Grid, Site o il tipo di nodo specifico.
+
+
+
+
+
+
+=== Proporre nuovi nomi
+
+Per il passo *proporre nuovi nomi*, è possibile immettere un nome visualizzato per ciascun elemento singolarmente oppure rinominare gli elementi in blocco.
+
+[role="tabbed-block"]
+====
+.Rinominare gli elementi singolarmente
+--
+Seguire questa procedura per inserire un nome visualizzato per ciascun elemento che si desidera rinominare.
+
+.Fasi
+. Nel campo *Display name* (Nome visualizzato), immettere un nome visualizzato per ciascun elemento dell'elenco.
++
+Vedere link:../maintain/rename-grid-site-node-overview.html["Rinominare la griglia, i siti e i nodi"] per conoscere i requisiti di denominazione.
+
+. Per rimuovere gli elementi che non si desidera rinominare, selezionare image:../media/icon-x-to-remove.png["Icona X."] nella colonna *Rimuovi dall'elenco*.
++
+Se non si intende proporre un nuovo nome per un elemento, è necessario rimuoverlo dalla tabella.
+
+. Una volta proposti nuovi nomi per tutti gli elementi della tabella, selezionare *Rinomina*.
++
+Viene visualizzato un messaggio di successo. I nuovi nomi visualizzati vengono ora utilizzati in Grid Manager.
+
+
+
+--
+.Rinominare gli elementi in blocco
+--
+Utilizzare lo strumento di ridenominazione in blocco se i nomi degli elementi condividono una stringa comune che si desidera sostituire con una stringa diversa.
+
+.Fasi
+. Per il passo *proporre nuovi nomi*, selezionare *Usa lo strumento di ridenominazione in blocco*.
++
+L'anteprima *Rename (Rinomina)* include tutti gli elementi visualizzati per il passo *Proponi nuovi nomi*. È possibile utilizzare l'anteprima per visualizzare l'aspetto dei nomi visualizzati dopo la sostituzione di una stringa condivisa.
+
+. Nel campo *existing string*, immettere la stringa condivisa che si desidera sostituire. Ad esempio, se la stringa che si desidera sostituire è `Data-Center-1`, immettere *Data-Center-1*.
++
+Durante la digitazione, il testo viene evidenziato ovunque si trovi nei nomi a sinistra.
+
+. Selezionare image:../media/icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non si desidera rinominare con questo strumento.
++
+Ad esempio, si supponga di voler rinominare tutti i nodi che contengono la stringa `Data-Center-1`, ma non si desidera rinominare il `Data-Center-1` sito stesso. Selezionare image:../media/icon-x-to-remove.png["Icona X."] per rimuovere il sito dall'anteprima di ridenominazione.
+
++
+image::../media/rename-bulk-rename-tool.png[In precedenza, rinominare in blocco lo strumento]
+
+. Nel campo *New string* (Nuova stringa), immettere la stringa sostitutiva che si desidera utilizzare. Ad esempio, inserire *DC1*.
++
+Vedere link:../maintain/rename-grid-site-node-overview.html["Rinominare la griglia, i siti e i nodi"] per conoscere i requisiti di denominazione.
+
++
+Quando si inserisce la stringa di sostituzione, i nomi a sinistra vengono aggiornati, in modo da verificare che i nuovi nomi siano corretti.
+
++
+image::../media/rename-bulk-rename-tool-after.png[Rinominare in blocco dopo]
+
+. Una volta soddisfatti dei nomi visualizzati nell'anteprima, selezionare *Aggiungi nomi* per aggiungere i nomi alla tabella per il passo *proporre nuovi nomi*.
+. Apportare eventuali modifiche aggiuntive richieste o selezionare image:../media/icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non si desidera rinominare.
+. Quando si è pronti a rinominare tutti gli elementi della tabella, selezionare *Rinomina*.
++
+Viene visualizzato un messaggio di successo. I nuovi nomi visualizzati vengono ora utilizzati in Grid Manager.
+
+
+
+--
+====
+
+
+=== [[download-recovery-package]]Download del pacchetto di ripristino
+
+Una volta terminata la ridenominazione degli elementi, scaricare e salvare un nuovo pacchetto di ripristino. I nuovi nomi visualizzati per gli elementi rinominati vengono inclusi nel `Passwords.txt` file.
+
+.Fasi
+. Inserire la passphrase di provisioning.
+. Selezionare *Download Recovery Package* (Scarica pacchetto di ripristino).
++
+Il download viene avviato immediatamente.
+
+. Al termine del download, aprire il `Passwords.txt` file per visualizzare il nome del server per tutti i nodi e i nomi visualizzati per tutti i nodi rinominati.
+. Copiare il `sgws-recovery-package-_id-revision_.zip` file in due posizioni sicure, sicure e separate.
++
+
+CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.
+
+. Selezionare *fine* per tornare al primo passaggio.
+
+
+
+
+== Riportare i nomi visualizzati ai nomi di sistema
+
+È possibile ripristinare il nome di sistema originale di una griglia, di un sito o di un nodo rinominato. Quando si ripristina il nome di sistema di un elemento, le pagine di Grid Manager e altre posizioni StorageGRID non mostrano più un *Nome visualizzato* per quell'elemento. Viene visualizzato solo il nome di sistema dell'elemento.
+
+.Fasi
+. Selezionare *MANUTENZIONE* > *attività* > *Rinomina griglia, siti e nodi*.
+. Per il passo *Select Names*, selezionare gli elementi che si desidera ripristinare ai nomi di sistema.
+. Selezionare *continua*.
+. Per il passo *proporre nuovi nomi*, ripristinare i nomi visualizzati in nomi di sistema singolarmente o in blocco.
++
+[role="tabbed-block"]
+====
+.Ripristinare i nomi di sistema singolarmente
+--
+.. Copiare il nome di sistema originale di ciascun elemento e incollarlo nel campo *Nome visualizzato* oppure selezionare image:../media/icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non si desidera ripristinare.
++
+Per ripristinare un nome visualizzato, il nome del sistema deve essere visualizzato nel campo *Nome visualizzato*, ma il nome non fa distinzione tra maiuscole e minuscole.
+
+.. Selezionare *Rinomina*.
++
+Viene visualizzato un messaggio di successo. I nomi visualizzati per questi elementi non vengono più utilizzati.
+
+
+
+--
+.Ripristinare i nomi di sistema in blocco
+--
+.. Per il passo *proporre nuovi nomi*, selezionare *Usa lo strumento di ridenominazione in blocco*.
+.. Nel campo *existing string*, immettere la stringa del nome da sostituire.
+.. Nel campo *New string*, immettere la stringa del nome di sistema che si desidera utilizzare.
+.. Selezionare *Aggiungi nomi* per aggiungere i nomi alla tabella per il passo *proporre nuovi nomi*.
+.. Verificare che ogni voce nel campo *Display name* corrisponda al nome nel campo *System name*. Apportare eventuali modifiche o selezionare image:../media/icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non si desidera ripristinare.
++
+Per ripristinare un nome visualizzato, il nome del sistema deve essere visualizzato nel campo *Nome visualizzato*, ma il nome non fa distinzione tra maiuscole e minuscole.
+
+.. Selezionare *Rinomina*.
++
+Viene visualizzato un messaggio di successo. I nomi visualizzati per questi elementi non vengono più utilizzati.
+
+
+
+--
+====
+. <<download-recovery-package,Scaricare e salvare un nuovo pacchetto di ripristino>>.
++
+I nomi visualizzati per gli elementi ripristinati non sono più inclusi nel `Passwords.txt` file.
+
+

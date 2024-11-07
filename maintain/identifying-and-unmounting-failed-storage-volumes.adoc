@@ -1,0 +1,109 @@
+---
+permalink: maintain/identifying-and-unmounting-failed-storage-volumes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage volume, failed storage volume, unmount failed volume 
+summary: Durante il ripristino di un nodo di storage con volumi di storage guasti, è necessario identificare e smontare i volumi guasti. È necessario verificare che solo i volumi di storage guasti vengano riformattati come parte della procedura di ripristino. 
+---
+= Identificare e smontare i volumi di storage guasti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durante il ripristino di un nodo di storage con volumi di storage guasti, è necessario identificare e smontare i volumi guasti. È necessario verificare che solo i volumi di storage guasti vengano riformattati come parte della procedura di ripristino.
+
+.Prima di iniziare
+L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+
+.A proposito di questa attività
+È necessario ripristinare i volumi di storage guasti il prima possibile.
+
+La prima fase del processo di ripristino consiste nel rilevare i volumi che sono stati scollegati, che devono essere disinstallati o che presentano errori di i/O. Se i volumi guasti sono ancora collegati ma hanno un file system corrotto in modo casuale, il sistema potrebbe non rilevare alcun danneggiamento nelle parti del disco non utilizzate o non allocate.
+
+
+NOTE: È necessario completare questa procedura prima di eseguire la procedura manuale per ripristinare i volumi, ad esempio aggiungere o ricollegare i dischi, arrestare il nodo, avviare il nodo o riavviare. In caso contrario, quando si esegue `reformat_storage_block_devices.rb` lo script, potrebbe verificarsi un errore del file system che causa il blocco o l'errore dello script.
+
+
+NOTE: Riparare l'hardware e collegare correttamente i dischi prima di eseguire il `reboot` comando.
+
+
+CAUTION: Identificare con attenzione i volumi di storage guasti. Queste informazioni verranno utilizzate per verificare quali volumi devono essere riformattati. Dopo la riformattazione di un volume, i dati del volume non possono essere recuperati.
+
+Per ripristinare correttamente i volumi di storage guasti, è necessario conoscere i nomi dei dispositivi dei volumi di storage guasti e i relativi ID dei volumi.
+
+Al momento dell'installazione, a ciascun dispositivo di storage viene assegnato un UID (Universal Unique Identifier) del file system e viene montato in una directory rangedb sul nodo di storage utilizzando l'UID del file system assegnato. L'UUID del file system e la directory rangedb sono elencati nel `/etc/fstab` file. Il nome del dispositivo, la directory rangedb e le dimensioni del volume montato vengono visualizzati in Grid Manager.
+
+Nell'esempio seguente, il dispositivo `/dev/sdc` ha una dimensione del volume di 4 TB, è montato su `/var/local/rangedb/0`, utilizzando il nome del dispositivo `/dev/disk/by-uuid/822b0547-3b2b-472e-ad5e-e1cf1809faba` nel /`etc/fstab`file:
+
+image::../media/mounting_storage_devices.gif[Esempio di dimensione del volume]
+
+.Fasi
+. Completare i seguenti passaggi per registrare i volumi di storage guasti e i relativi nomi dei dispositivi:
++
+.. Selezionare *SUPPORT* > *Tools* > *Grid topology*.
+.. Selezionare *sito* > *nodo di storage guasto* > *LDR* > *Storage* > *Panoramica* > *principale* e cercare gli archivi di oggetti con allarmi.
++
+image::../media/ldr_storage_object_stores.gif[Sezione archivi di oggetti]
+
+.. Selezionare *sito* > *nodo storage guasto* > *SSM* > *risorse* > *Panoramica* > *principale*. Determinare il punto di montaggio e le dimensioni del volume di ciascun volume di storage guasto identificato nel passaggio precedente.
++
+Gli archivi di oggetti sono numerati in notazione esadecimale. Ad esempio, 0000 è il primo volume e 000F è il sedicesimo volume. Nell'esempio, l'archivio oggetti con un ID di 0000 corrisponde a `/var/local/rangedb/0` con il nome del dispositivo sdc e una dimensione di 107 GB.
+
++
+image::../media/ssm_storage_volumes.gif[esempio che mostra gli archivi di oggetti e i punti di montaggio]
+
+
+
+. Accedere al nodo di storage guasto:
++
+.. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
+
+
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+. Eseguire il seguente script per smontare un volume di storage guasto:
++
+`sn-unmount-volume object_store_ID`
+
++
+ `object_store_ID`È l'ID del volume di archiviazione guasto. Ad esempio, specificare `0` nel comando un archivio oggetti con ID 0000.
+
+. Se richiesto, premere *y* per arrestare il servizio Cassandra a seconda del volume di storage 0.
++
+
+NOTE: Se il servizio Cassandra è già stato arrestato, non viene richiesto. Il servizio Cassandra viene arrestato solo per il volume 0.
+
++
+[listing]
+----
+root@Storage-180:~/var/local/tmp/storage~ # sn-unmount-volume 0
+Services depending on storage volume 0 (cassandra) aren't down.
+Services depending on storage volume 0 must be stopped before running this script.
+Stop services that require storage volume 0 [y/N]? y
+Shutting down services that require storage volume 0.
+Services requiring storage volume 0 stopped.
+Unmounting /var/local/rangedb/0
+/var/local/rangedb/0 is unmounted.
+----
++
+In pochi secondi, il volume viene dismontato. Vengono visualizzati messaggi che indicano ogni fase del processo. Il messaggio finale indica che il volume è stato dismontato.
+
+. Se la disinstallazione non riesce perché il volume è occupato, è possibile forzare la disinstallazione utilizzando l' `--use-umountof`opzione:
++
+
+NOTE: La forzatura di un'operazione di disinstallazione mediante l' `--use-umountof`opzione potrebbe causare il comportamento imprevisto o il blocco dei processi o dei servizi che utilizzano il volume.
+
++
+[listing]
+----
+root@Storage-180:~ # sn-unmount-volume --use-umountof /var/local/rangedb/2
+Unmounting /var/local/rangedb/2 using umountof
+/var/local/rangedb/2 is unmounted.
+Informing LDR service of changes to storage volumes
+----
+

@@ -1,0 +1,57 @@
+---
+permalink: maintain/checking-data-repair-jobs.html 
+sidebar: sidebar 
+keywords: storagegrid, data repair 
+summary: Prima di disattivare un nodo di rete, è necessario confermare che non sono attivi lavori di riparazione dei dati. Se le riparazioni non sono riuscite, è necessario riavviarle e lasciarle completare prima di eseguire la procedura di decommissionamento. 
+---
+= Controllare i lavori di riparazione dei dati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di disattivare un nodo di rete, è necessario confermare che non sono attivi lavori di riparazione dei dati. Se le riparazioni non sono riuscite, è necessario riavviarle e lasciarle completare prima di eseguire la procedura di decommissionamento.
+
+.A proposito di questa attività
+Se è necessario decommissionare un nodo di storage disconnesso, completare questi passaggi anche al termine della procedura di decommissionamento per garantire che il lavoro di riparazione dei dati sia stato completato correttamente. È necessario assicurarsi che tutti i frammenti erasure-coded presenti nel nodo rimosso siano stati ripristinati correttamente.
+
+Questi passaggi si applicano solo ai sistemi che dispongono di oggetti con codifica per la cancellazione.
+
+.Fasi
+. Accedere al nodo di amministrazione principale:
++
+.. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+
+. Controllare le riparazioni in corso: `repair-data show-ec-repair-status`
++
+** Se non è mai stato eseguito un lavoro di riparazione dati, l'output è `No job found`. Non è necessario riavviare alcun lavoro di riparazione.
+** Se il lavoro di riparazione dei dati è stato eseguito in precedenza o è in esecuzione, l'output elenca le informazioni per la riparazione. Ogni riparazione ha un ID di riparazione univoco.
++
+image::../media/repair-data-status.png[Stato dei dati di riparazione]
+
+
+
++
+
+TIP: In alternativa, è possibile utilizzare Grid Manager per monitorare i processi di ripristino in corso e visualizzare una cronologia di ripristino. Vedere link:../maintain/restoring-volume.html["Ripristinare i dati degli oggetti utilizzando Grid Manager"].
+
+. Se lo Stato per tutte le riparazioni è, non è `Completed` necessario riavviare alcun lavoro di riparazione.
+. Se lo Stato per qualsiasi riparazione è, è `Stopped` necessario riavviare la riparazione.
++
+.. Ottenere l'ID della riparazione per la riparazione non riuscita dall'output.
+.. Eseguire il `repair-data start-ec-node-repair` comando.
++
+Utilizzare l' `--repair-id`opzione per specificare l'ID riparazione. Ad esempio, se si desidera riprovare una riparazione con ID riparazione 949292, eseguire questo comando: `repair-data start-ec-node-repair --repair-id 949292`
+
+.. Continuare a tenere traccia dello stato delle riparazioni dei dati EC fino a quando lo Stato per tutte le riparazioni non è `Completed`.
+
+
+

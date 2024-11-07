@@ -1,0 +1,28 @@
+---
+permalink: expand/adding-storage-capacity-for-erasure-coded-objects.html 
+sidebar: sidebar 
+keywords: erasure coding, capacity, storage nodes, ec, expand, expansion 
+summary: 'Se il criterio ILM include una regola che crea copie con codifica di cancellazione, è necessario pianificare dove aggiungere nuovo storage e quando aggiungere nuovo storage. La quantità di storage aggiunta e la tempistica dell"aggiunta possono influire sulla capacità di storage utilizzabile del grid.' 
+---
+= Aggiungere capacità di storage per gli oggetti con codifica per la cancellazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il criterio ILM include una regola che crea copie con codifica di cancellazione, è necessario pianificare dove aggiungere nuovo storage e quando aggiungere nuovo storage. La quantità di storage aggiunta e la tempistica dell'aggiunta possono influire sulla capacità di storage utilizzabile del grid.
+
+Il primo passo nella pianificazione di un'espansione dello storage consiste nell'esaminare le regole dei criteri ILM che creano oggetti con codifica in cancellazione. Poiché StorageGRID crea _k+m_ frammenti per ogni oggetto con codifica di cancellazione e memorizza ciascun frammento su un nodo di storage diverso, è necessario assicurarsi che almeno _k+m_ nodi di storage abbiano spazio per i nuovi dati con codifica di cancellazione dopo l'espansione. Se il profilo di erasure coding fornisce la protezione dalla perdita di sito, è necessario aggiungere storage a ciascun sito. Vedere link:../ilm/what-erasure-coding-schemes-are.html["Cosa sono gli schemi di erasure coding"] per informazioni sui profili di erasure coding.
+
+Il numero di nodi da aggiungere dipende anche dal livello di riempimento dei nodi esistenti quando si esegue l'espansione.
+
+
+
+== Raccomandazioni generali per l'aggiunta di capacità di storage per gli oggetti con codifica di cancellazione
+
+Se si desidera evitare calcoli dettagliati, è possibile aggiungere due nodi di storage per sito quando i nodi di storage esistenti raggiungono il 70% della capacità.
+
+Questa raccomandazione generale fornisce risultati ragionevoli in un'ampia gamma di schemi di erasure coding sia per le griglie a sito singolo che per le griglie in cui la codifica erasure fornisce protezione dalle perdite di sito.
+
+Per comprendere meglio i fattori che hanno portato a questa raccomandazione o per sviluppare un piano più preciso per il vostro sito, vedere link:considerations-for-rebalancing-erasure-coded-data.html["Considerazioni per il ribilanciamento dei dati con codifica erasure"]. Per un consiglio personalizzato ottimizzato per la tua situazione, contatta il tuo consulente NetApp Professional Services.

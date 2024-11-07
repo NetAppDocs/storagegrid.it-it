@@ -1,0 +1,124 @@
+---
+permalink: upgrade/how-your-system-is-affected-during-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, firmware, appliance, alert 
+summary: 'Scopri in che modo il tuo sistema StorageGRID sarà influenzato durante l"aggiornamento.' 
+---
+= Impatto del sistema durante l'aggiornamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri in che modo il tuo sistema StorageGRID sarà influenzato durante l'aggiornamento.
+
+
+
+== Gli aggiornamenti di StorageGRID sono senza interruzioni
+
+Il sistema StorageGRID è in grado di acquisire e recuperare i dati dalle applicazioni client durante l'intero processo di aggiornamento. Se si approvano tutti i nodi dello stesso tipo per l'aggiornamento (ad esempio, i nodi di storage), i nodi vengono disattivati uno alla volta, in modo che non vi sia tempo in cui tutti i nodi di griglia o tutti i nodi di griglia di un determinato tipo non siano disponibili.
+
+Per consentire la disponibilità continua, assicurarsi che il criterio ILM contenga regole che specificano la memorizzazione di più copie di ciascun oggetto. È inoltre necessario assicurarsi che tutti i client S3 esterni siano configurati per inviare richieste a uno dei seguenti:
+
+* Un indirizzo IP virtuale del gruppo ad alta disponibilità (ha)
+* Bilanciamento del carico di terze parti ad alta disponibilità
+* Nodi gateway multipli per ogni client
+* Più nodi di storage per ogni client
+
+
+
+
+== Le applicazioni client potrebbero riscontrare interruzioni a breve termine
+
+Il sistema StorageGRID può acquisire e recuperare i dati dalle applicazioni client durante tutto il processo di upgrade, tuttavia le connessioni client a singoli nodi di gateway o nodi storage potrebbero essere temporaneamente interrotte se l'upgrade deve riavviare i servizi su tali nodi. La connettività viene ripristinata al termine del processo di upgrade e i servizi vengono ripristinati nei singoli nodi.
+
+Potrebbe essere necessario pianificare i tempi di inattività per applicare un aggiornamento se la perdita di connettività per un breve periodo non è accettabile. È possibile utilizzare l'approvazione selettiva per pianificare l'aggiornamento di determinati nodi.
+
+
+NOTE: È possibile utilizzare più gateway e gruppi di alta disponibilità (ha) per fornire il failover automatico durante il processo di upgrade. Vedere le istruzioni per link:../admin/configure-high-availability-group.html["configurazione di gruppi ad alta disponibilità"].
+
+
+
+== Il firmware dell'appliance viene aggiornato
+
+Durante l'aggiornamento a StorageGRID 11,9:
+
+* Tutti i nodi di appliance StorageGRID vengono aggiornati automaticamente alla versione 3,9 del firmware del programma di installazione dell'appliance StorageGRID.
+* Le appliance SG6060 e SGF6024 vengono aggiornate automaticamente alla versione del firmware del BIOS 3B08.EX e al firmware BMC versione 4.00.07.
+* Le appliance SG100 e SG1000 vengono aggiornate automaticamente alla versione del firmware del BIOS 3B13.EC e al firmware BMC versione 4.74.07.
+* Le appliance SGF6112, SG6160, SG110 e SG1100 vengono aggiornate automaticamente alla versione firmware BMC 3.16.07.
+
+
+
+
+== Le policy ILM vengono gestite in modo diverso in base al loro stato
+
+* Il criterio attivo rimane lo stesso dopo l'aggiornamento.
+* Solo le ultime 10 politiche storiche vengono mantenute al momento dell'aggiornamento.
+* Se esiste una policy proposta, verrà eliminata durante l'aggiornamento.
+
+
+
+
+== Potrebbero essere attivati degli avvisi
+
+Gli avvisi potrebbero essere attivati all'avvio e all'arresto dei servizi e quando il sistema StorageGRID funziona come ambiente a versione mista (alcuni nodi di griglia che eseguono una versione precedente, mentre altri sono stati aggiornati a una versione successiva). Al termine dell'aggiornamento potrebbero essere attivati altri avvisi.
+
+Ad esempio, potrebbe essere visualizzato l'avviso *Impossibile comunicare con il nodo* quando i servizi vengono arrestati, oppure potrebbe essere visualizzato l'avviso *errore di comunicazione Cassandra* quando alcuni nodi sono stati aggiornati a StorageGRID 11,9 ma altri nodi eseguono ancora StorageGRID 11,8. In generale, questi avvisi verranno visualizzati al termine dell'aggiornamento.
+
+L'avviso *posizionamento ILM non raggiungibile* potrebbe essere attivato quando i nodi di archiviazione vengono arrestati durante l'aggiornamento a StorageGRID 11,9. Questo avviso potrebbe persistere per 1 giorno dopo il completamento dell'aggiornamento.
+
+Una volta completato l'aggiornamento, è possibile rivedere gli avvisi relativi all'aggiornamento selezionando *Avvisi risolti di recente* o *Avvisi correnti* dalla dashboard di Grid Manager.
+
+
+
+== Vengono generate molte notifiche SNMP
+
+Tenere presente che è possibile che vengano generate numerose notifiche SNMP quando i nodi della griglia vengono arrestati e riavviati durante l'aggiornamento. Per evitare notifiche eccessive, deselezionare la casella di controllo *Enable SNMP Agent Notifications* (*CONFIGURATION* > *Monitoring* > *SNMP Agent*) per disattivare le notifiche SNMP prima di avviare l'aggiornamento. Quindi, riattivare le notifiche al termine dell'aggiornamento.
+
+
+
+== Le modifiche alla configurazione sono limitate
+
+
+NOTE: Questo elenco si applica in particolare agli aggiornamenti da StorageGRID 11,8 a StorageGRID 11,9. Se si esegue l'aggiornamento a un'altra release di StorageGRID, fare riferimento all'elenco delle modifiche limitate nelle istruzioni di aggiornamento per tale release.
+
+Fino al completamento dell'attività *Enable New Feature*:
+
+* Non apportare modifiche alla configurazione della griglia.
+* Non attivare o disattivare nuove funzioni.
+* Non aggiornare la configurazione ILM. In caso contrario, potrebbe verificarsi un comportamento ILM inconsistente e imprevisto.
+* Non applicare una correzione rapida o ripristinare un nodo della griglia.
++
+
+NOTE: Contattare il supporto tecnico se è necessario ripristinare un nodo durante l'aggiornamento.
+
+* Durante l'aggiornamento a StorageGRID 11,9, non è necessario gestire gruppi ha, interfacce VLAN o endpoint di bilanciamento del carico.
+* Non eliminare alcun gruppo ha fino al completamento dell'aggiornamento a StorageGRID 11,9. Gli indirizzi IP virtuali in altri gruppi ha potrebbero diventare inaccessibili.
+
+
+Fino al completamento dell'attività *fasi finali dell'aggiornamento*:
+
+* Non eseguire una procedura di espansione.
+* Non eseguire una procedura di decommissionamento.
+
+
+
+
+== Non puoi visualizzare i dettagli del bucket o gestire i bucket dal tenant Manager
+
+Durante l'aggiornamento a StorageGRID 11,9 (ovvero quando il sistema funziona come un ambiente in versione mista), non è possibile visualizzare i dettagli del bucket o gestire i bucket utilizzando Gestione tenant. Nella pagina Bucket di Tenant Manager viene visualizzato uno dei seguenti errori:
+
+* Non puoi utilizzare questa API durante l'aggiornamento alla versione 11,9.
+* Non è possibile visualizzare i dettagli delle versioni dei bucket in Tenant Manager durante l'aggiornamento a 11,9.
+
+
+Questo errore viene risolto al termine dell'aggiornamento a 11,9.
+
+.Soluzione alternativa
+Mentre è in corso l'aggiornamento 11,9, utilizzare i seguenti strumenti per visualizzare i dettagli del bucket o gestire i bucket, invece di utilizzare il Tenant Manager:
+
+* Per eseguire operazioni S3 standard su una benna, utilizzare il link:../s3/operations-on-buckets.html["API REST S3"] o il link:../tenant/understanding-tenant-management-api.html["API di gestione del tenant"].
+* Per eseguire operazioni personalizzate di StorageGRID su un bucket (ad esempio, visualizzazione e modifica della coerenza del bucket, attivazione o disattivazione degli aggiornamenti dell'ora dell'ultimo accesso o configurazione dell'integrazione della ricerca), utilizzare l'API Gestione tenant.
+

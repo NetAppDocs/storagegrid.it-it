@@ -1,0 +1,24 @@
+---
+permalink: expand/adding-storage-capacity-for-replicated-objects.html 
+sidebar: sidebar 
+keywords: replication, replicated, copies, capacity, storage nodes, expand, expansion 
+summary: 'Se il criterio ILM (Information Lifecycle Management) per la distribuzione include una regola che crea copie replicate di oggetti, è necessario considerare la quantità di storage da aggiungere e la posizione in cui aggiungere i nuovi volumi di storage o i nodi di storage.' 
+---
+= Aggiungere capacità di storage per gli oggetti replicati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il criterio ILM (Information Lifecycle Management) per l'implementazione include una regola che crea copie replicate di oggetti, è necessario considerare la quantità di storage da aggiungere e la posizione in cui aggiungere i nuovi volumi di storage o i nuovi nodi di storage.
+
+Per informazioni su dove aggiungere storage aggiuntivo, esaminare le regole ILM che creano copie replicate. Se le regole ILM creano due o più copie di oggetti, pianificare di aggiungere storage in ogni posizione in cui vengono eseguite le copie di oggetti. Come semplice esempio, se si dispone di una griglia a due siti e di una regola ILM che crea una copia dell'oggetto in ogni sito, è necessario link:../expand/adding-storage-volumes-to-storage-nodes.html["aggiungere storage"] in ogni sito per aumentare la capacità complessiva dell'oggetto della griglia. Per informazioni sulla replica degli oggetti, vedere link:../ilm/what-replication-is.html["Cos'è la replica"].
+
+Per motivi di performance, dovresti cercare di mantenere la capacità dello storage e la potenza di calcolo bilanciati tra i siti. Pertanto, per questo esempio, è necessario aggiungere lo stesso numero di nodi di storage a ciascun sito o volumi di storage aggiuntivi in ciascun sito.
+
+Se si dispone di una policy ILM più complessa che include regole che posizionano oggetti in posizioni diverse in base a criteri come il nome del bucket o regole che cambiano le posizioni degli oggetti nel tempo, l'analisi dei punti in cui è richiesto lo storage per l'espansione sarà simile, ma più complessa.
+
+La creazione di grafici sulla velocità di consumo della capacità di storage complessiva può aiutare a comprendere la quantità di storage da aggiungere all'espansione e quando sarà necessario lo spazio di storage aggiuntivo. È possibile utilizzare Grid Manager per link:../monitor/monitoring-storage-capacity.html["monitorare e tracciare la capacità di storage"].
+
+Quando si pianifica la tempistica di un'espansione, ricordarsi di considerare quanto tempo potrebbe essere necessario per procurarsi e installare storage aggiuntivo.

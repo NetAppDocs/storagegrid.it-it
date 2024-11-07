@@ -1,0 +1,36 @@
+---
+permalink: network/network-installation-and-provisioning.html 
+sidebar: sidebar 
+keywords: network install, network provisioning 
+summary: 'È necessario comprendere in che modo la rete grid e le reti amministrative e client opzionali vengono utilizzate durante l"implementazione del nodo e la configurazione del grid.' 
+---
+= Installazione e provisioning di rete
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario comprendere in che modo la rete grid e le reti amministrative e client opzionali vengono utilizzate durante l'implementazione del nodo e la configurazione del grid.
+
+
+
+== Implementazione iniziale di un nodo
+
+Quando si implementa per la prima volta un nodo, è necessario collegarlo alla rete Grid e assicurarsi che disponga dell'accesso al nodo Admin primario. Se la rete Grid è isolata, è possibile configurare la rete Admin sul nodo Admin primario per l'accesso alla configurazione e all'installazione dall'esterno della rete Grid.
+
+Una rete Grid con un gateway configurato diventa il gateway predefinito per un nodo durante l'implementazione. Il gateway predefinito consente ai nodi della griglia su sottoreti separate di comunicare con il nodo di amministrazione primario prima che la griglia sia stata configurata.
+
+Se necessario, le subnet contenenti server NTP o che richiedono l'accesso a Grid Manager o API possono anche essere configurate come subnet della griglia.
+
+
+
+== Registrazione automatica del nodo con nodo di amministrazione primario
+
+Una volta implementati, i nodi si registrano con il nodo di amministrazione primario utilizzando la rete di griglia. È quindi possibile utilizzare il Grid Manager, `configure-storagegrid.py` lo script Python o l'API di installazione per configurare la griglia e approvare i nodi registrati. Durante la configurazione della griglia, è possibile configurare più subnet della griglia. I percorsi statici a queste subnet attraverso il gateway Grid Network verranno creati su ciascun nodo al termine della configurazione della griglia.
+
+
+
+== Disattivazione della rete amministrativa o della rete client
+
+Se si desidera disattivare la rete amministrativa o la rete client, è possibile rimuovere la configurazione durante il processo di approvazione del nodo oppure utilizzare lo strumento Modifica IP al termine dell'installazione (vedere link:../maintain/configuring-ip-addresses.html["Configurare gli indirizzi IP"]).

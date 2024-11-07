@@ -1,0 +1,42 @@
+---
+permalink: audit/gtst-grid-task-started.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, GTST, Grid Task Started 
+summary: 'Questo messaggio di audit indica che il servizio CMN ha avviato l"elaborazione dell"attività Grid specificata. Il messaggio di audit segue immediatamente il messaggio Grid Task Submitted per le attività Grid avviate dal servizio interno Grid Task Submission e selezionate per l"attivazione automatica. Per le attività della griglia inoltrate nella tabella Pending (in sospeso), questo messaggio viene generato quando l"utente avvia l"attività della griglia.' 
+---
+= GTST: Task Grid avviato
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questo messaggio di audit indica che il servizio CMN ha avviato l'elaborazione dell'attività Grid specificata. Il messaggio di audit segue immediatamente il messaggio Grid Task Submitted per le attività Grid avviate dal servizio interno Grid Task Submission e selezionate per l'attivazione automatica. Per le attività della griglia inoltrate nella tabella Pending (in sospeso), questo messaggio viene generato quando l'utente avvia l'attività della griglia.
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+TSID
+ a| 
+ID attività
+ a| 
+Questo campo identifica in maniera univoca un'attività grid generata e consente di gestirne l'intero ciclo di vita.
+
+*Nota:* l'ID attività viene assegnato al momento in cui viene generata un'attività di griglia, non al momento in cui viene inviata. È possibile che un'attività di griglia venga inviata più volte e, in questo caso, il campo ID attività non è sufficiente per collegare in modo univoco i messaggi di audit inviati, avviati e terminati.
+
+
+
+ a| 
+RSLT
+ a| 
+Risultato
+ a| 
+Il risultato. Questo campo ha un solo valore:
+
+* SUCS: L'attività Grid è stata avviata correttamente.
+
+
+|===

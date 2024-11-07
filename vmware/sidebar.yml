@@ -1,0 +1,59 @@
+---
+section: vmware
+title: Installare StorageGRID su VMware
+entries:
+- title: Avvio rapido
+  pdf-filename: Installare StorageGRID su VMware
+  url: "/vmware/index.html"
+- title: Pianificare e preparare l'installazione su VMware
+  entries:
+  - title: Informazioni e materiali richiesti
+    url: "/vmware/required-materials.html"
+  - title: Scaricare ed estrarre i file di installazione di StorageGRID
+    url: "/vmware/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: Verificare manualmente i file di installazione
+    url: "/vmware/download-files-verify.html"
+  - title: Requisiti software
+    url: "/vmware/software-requirements.html"
+  - title: Requisiti di CPU e RAM
+    url: "/vmware/cpu-and-ram-requirements.html"
+  - title: Requisiti di storage e performance
+    url: "/vmware/storage-and-performance-requirements.html"
+- title: Automatizzare l'installazione (VMware)
+  url: "/vmware/automating-grid-node-deployment-in-vmware-vsphere.html"
+- title: Implementazione di Virtual Machine Grid Node (VMware)
+  entries:
+  - title: Raccogliere informazioni sull'ambiente di implementazione
+    url: "/vmware/collecting-information-about-your-deployment-environment.html"
+  - title: In che modo i nodi della griglia rilevano il nodo di amministrazione primario
+    url: "/vmware/how-grid-nodes-discover-primary-admin-node.html"
+  - title: Implementare un nodo StorageGRID come macchina virtuale
+    url: "/vmware/deploying-storagegrid-node-as-virtual-machine.html"
+- title: Configurare la griglia e completare l'installazione (VMware)
+  entries:
+  - title: Accedere a Grid Manager
+    url: "/vmware/navigating-to-grid-manager.html"
+  - title: Specificare le informazioni sulla licenza
+    url: "/vmware/specifying-storagegrid-license-information.html"
+  - title: Aggiungere siti
+    url: "/vmware/adding-sites.html"
+  - title: Specificare le subnet Grid Network
+    url: "/vmware/specifying-grid-network-subnets.html"
+  - title: Approvare i nodi griglia in sospeso
+    url: "/vmware/approving-pending-grid-nodes.html"
+  - title: Specificare le informazioni sul server NTP
+    url: "/vmware/specifying-network-time-protocol-server-information.html"
+  - title: Specificare le informazioni sul server DNS
+    url: "/vmware/specifying-domain-name-system-server-information.html"
+  - title: Specificare le password di sistema
+    url: "/vmware/specifying-storagegrid-system-passwords.html"
+  - title: Verifica della configurazione e completa l'installazione
+    url: "/vmware/reviewing-your-configuration-and-completing-installation.html"
+  - title: Linee guida per la post-installazione
+    url: "/vmware/post-installation-guidelines.html"
+- title: API REST di installazione
+  url: "/vmware/overview-of-installation-rest-api.html"
+- title: Dove andare
+  url: "/vmware/where-to-go-next.html"
+- title: Risolvere i problemi di installazione
+  url: "/vmware/troubleshooting-installation-issues.html"

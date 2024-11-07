@@ -1,0 +1,45 @@
+---
+permalink: vmware/software-requirements.html 
+sidebar: sidebar 
+keywords: software requirements 
+summary: È possibile utilizzare una macchina virtuale per ospitare qualsiasi tipo di nodo StorageGRID. È necessaria una macchina virtuale per ogni nodo di griglia. 
+---
+= Requisiti software per VMware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare una macchina virtuale per ospitare qualsiasi tipo di nodo StorageGRID. È necessaria una macchina virtuale per ogni nodo di griglia.
+
+
+
+== Hypervisor VMware vSphere
+
+È necessario installare VMware vSphere Hypervisor su un server fisico preparato. L'hardware deve essere configurato correttamente (incluse le versioni del firmware e le impostazioni del BIOS) prima di installare il software VMware.
+
+* Configurare il collegamento in rete nell'hypervisor in base alle esigenze per supportare il collegamento in rete per il sistema StorageGRID che si sta installando.
++
+link:../network/index.html["Linee guida per il networking"]
+
+* Assicurarsi che l'archivio dati sia sufficientemente grande per le macchine virtuali e i dischi virtuali necessari per ospitare i nodi della griglia.
+* Se si crea più di un datastore, assegnare un nome a ciascun datastore in modo da identificare facilmente quale datastore utilizzare per ciascun nodo della griglia quando si creano macchine virtuali.
+
+
+
+
+== Requisiti di configurazione dell'host ESX
+
+
+CAUTION: È necessario configurare correttamente il protocollo NTP (Network Time Protocol) su ciascun host ESX. Se il tempo dell'host non è corretto, potrebbero verificarsi effetti negativi, inclusa la perdita di dati.
+
+
+
+== Requisiti di configurazione di VMware
+
+È necessario installare e configurare VMware vSphere e vCenter prima di implementare i nodi StorageGRID.
+
+Per le versioni supportate di VMware vSphere Hypervisor e del software VMware vCenter Server, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp"^] .
+
+Per informazioni sui passaggi necessari per l'installazione di questi prodotti VMware, consultare la documentazione VMware.

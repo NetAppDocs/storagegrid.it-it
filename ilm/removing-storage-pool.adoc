@@ -1,0 +1,30 @@
+---
+permalink: ilm/removing-storage-pool.html 
+sidebar: sidebar 
+keywords: remove storage pool 
+summary: È possibile rimuovere un pool di storage che non viene utilizzato. 
+---
+= Rimuovere un pool di storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile rimuovere un pool di storage che non viene utilizzato.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso richieste"].
+
+
+.Fasi
+. Selezionare *ILM* > *Storage Pools*.
+. Esaminare la colonna relativa all'utilizzo di ILM nella tabella per determinare se è possibile rimuovere il pool di storage.
++
+Non puoi rimuovere un pool di storage se è utilizzato in una regola ILM o in un profilo di erasure coding. Se necessario, selezionare *_nome pool di storage_* > *utilizzo ILM* per determinare dove viene utilizzato il pool di storage.
+
+. Se il pool di storage che si desidera rimuovere non viene utilizzato, selezionare la casella di controllo.
+. Selezionare *Rimuovi*.
+. Selezionare *OK*.
+

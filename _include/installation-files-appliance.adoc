@@ -1,0 +1,21 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,1a"]
+|===
+| Percorso e nome del file | Descrizione 
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb  a| 
+PACCHETTO DEB per l'installazione delle immagini del nodo StorageGRID sulle appliance.
+
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb.md5  a| 
+MD5 checksum per il file `/debs/storagegridwebscale-
+images-version-SHA.deb`.
+
+|===
+
+NOTE: Per l'installazione dell'appliance, questi file sono necessari solo se è necessario evitare il traffico di rete. L'appliance può scaricare i file richiesti dal nodo di amministrazione principale.

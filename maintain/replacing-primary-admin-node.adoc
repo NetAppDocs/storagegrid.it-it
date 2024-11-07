@@ -1,0 +1,51 @@
+---
+permalink: maintain/replacing-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace primary admin node, replacing primary admin node, primary admin node 
+summary: 'Per ripristinare un nodo di amministrazione primario, è necessario prima sostituire l"hardware fisico o virtuale.' 
+---
+= Sostituire nodo amministratore primario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per ripristinare un nodo di amministrazione primario, è necessario prima sostituire l'hardware fisico o virtuale.
+
+È possibile sostituire un nodo di amministrazione primario guasto con un nodo di amministrazione primario in esecuzione sulla stessa piattaforma oppure sostituire un nodo di amministrazione primario in esecuzione su VMware o su un host Linux con un nodo di amministrazione primario in hosting su un'appliance di servizi.
+
+Utilizzare la procedura corrispondente alla piattaforma sostitutiva selezionata per il nodo. Una volta completata la procedura di sostituzione del nodo (adatta a tutti i tipi di nodo), questa procedura indirizzerà l'utente al passaggio successivo per il ripristino primario del nodo di amministrazione.
+
+[cols="1a,2a"]
+|===
+| Piattaforma sostitutiva | Procedura 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["Sostituire un nodo VMware"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["Sostituire un nodo Linux"]
+
+
+
+ a| 
+Appliance di servizi
+ a| 
+link:replacing-failed-node-with-services-appliance.html["Sostituire un'appliance di servizi"]
+
+
+
+ a| 
+OpenStack
+ a| 
+I file e gli script dei dischi delle macchine virtuali forniti da NetApp per OpenStack non sono più supportati per le operazioni di recovery. Se è necessario ripristinare un nodo in esecuzione in un'implementazione OpenStack, scaricare i file per il sistema operativo Linux in uso. Quindi, seguire la procedura per link:all-node-types-replacing-linux-node.html["Sostituzione di un nodo Linux"].
+
+|===

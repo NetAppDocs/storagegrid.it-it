@@ -1,0 +1,31 @@
+---
+permalink: ilm/what-replication-is.html 
+sidebar: sidebar 
+keywords: replication, object copies 
+summary: 'La replica è uno dei due metodi utilizzati da StorageGRID per memorizzare i dati degli oggetti. Quando gli oggetti corrispondono a una regola ILM che utilizza la replica, il sistema crea copie esatte dei dati dell"oggetto e memorizza le copie sui nodi storage.' 
+---
+= Che cos'è la replica?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La replica è uno dei due metodi utilizzati da StorageGRID per archiviare i dati degli oggetti (l'erasure coding è l'altro metodo). Quando gli oggetti corrispondono a una regola ILM che utilizza la replica, il sistema crea copie esatte dei dati dell'oggetto e memorizza le copie sui nodi storage.
+
+Quando si configura una regola ILM per la creazione di copie replicate, specificare il numero di copie da creare, la posizione delle copie e la durata della memorizzazione delle copie in ciascuna posizione.
+
+Nell'esempio seguente, la regola ILM specifica che due copie replicate di ciascun oggetto devono essere collocate in un pool di storage che contiene tre nodi di storage.
+
+image::../media/ilm_replication_make_2_copies.png[Regola di creazione di 2 copie]
+
+Quando StorageGRID associa gli oggetti a questa regola, crea due copie dell'oggetto, collocando ciascuna copia su un nodo di storage diverso nel pool di storage. Le due copie possono essere collocate su due dei tre nodi di storage disponibili. In questo caso, la regola ha posizionato le copie degli oggetti sui nodi di storage 2 e 3. Poiché sono presenti due copie, l'oggetto può essere recuperato in caso di guasto di uno qualsiasi dei nodi del pool di storage.
+
+
+NOTE: StorageGRID può memorizzare solo una copia replicata di un oggetto su un dato nodo di storage. Se la griglia include tre nodi di storage e si crea una regola ILM di 4 copie, verranno eseguite solo tre copie, una copia per ciascun nodo di storage. Viene attivato l'avviso *ILM placement unachievable* per indicare che la regola ILM non può essere applicata completamente.
+
+.Informazioni correlate
+* link:what-erasure-coding-is.html["Che cos'è l'erasure coding"]
+* link:what-storage-pool-is.html["Che cos'è un pool di storage"]
+* link:using-multiple-storage-pools-for-cross-site-replication.html["Abilita la protezione contro la perdita di sito utilizzando la replica e l'erasure coding"]
+

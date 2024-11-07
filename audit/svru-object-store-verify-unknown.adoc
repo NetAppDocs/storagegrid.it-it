@@ -1,0 +1,39 @@
+---
+permalink: audit/svru-object-store-verify-unknown.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SVRU, Object Store Verify Unknown 
+summary: 'Il componente Storage del servizio LDR esegue una scansione continua di tutte le copie dei dati degli oggetti replicati nell"archivio di oggetti. Questo messaggio viene visualizzato quando viene rilevata una copia sconosciuta o imprevista dei dati degli oggetti replicati nell"archivio di oggetti e spostata nella directory di quarantena.' 
+---
+= SVRU: Verifica archivio oggetti sconosciuta
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il componente Storage del servizio LDR esegue una scansione continua di tutte le copie dei dati degli oggetti replicati nell'archivio di oggetti. Questo messaggio viene visualizzato quando viene rilevata una copia sconosciuta o imprevista dei dati degli oggetti replicati nell'archivio di oggetti e spostata nella directory di quarantena.
+
+[cols="1a,1a,4a"]
+|===
+| Codice | Campo | Descrizione 
+
+
+ a| 
+FPTH
+ a| 
+Percorso del file
+ a| 
+Il percorso del file della copia imprevista dell'oggetto.
+
+
+
+ a| 
+RSLT
+ a| 
+Risultato
+ a| 
+Questo campo ha il valore 'NESSUNO'. RSLT è un campo obbligatorio per i messaggi, ma non pertinente per questo messaggio. Viene utilizzato 'NONE' invece di 'SUCS' in modo che questo messaggio non venga filtrato.
+
+|===
+
+NOTE: Il messaggio di audit SVRU: Object Store Verify Unknown deve essere monitorato attentamente. Significa che sono state rilevate copie impreviste dei dati dell'oggetto nell'archivio di oggetti. Questa situazione deve essere esaminata immediatamente per determinare come sono state create queste copie, perché può indicare guasti hardware imminenti.

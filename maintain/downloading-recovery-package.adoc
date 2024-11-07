@@ -1,0 +1,36 @@
+---
+permalink: maintain/downloading-recovery-package.html 
+sidebar: sidebar 
+keywords: storagegrid, recovery package 
+summary: Il file del pacchetto di ripristino consente di ripristinare il sistema StorageGRID in caso di errore. 
+---
+= Scarica Recovery Package
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il file del pacchetto di ripristino consente di ripristinare il sistema StorageGRID in caso di errore.
+
+.Prima di iniziare
+* Dal nodo amministrativo primario, si è effettuato l'accesso al Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone della passphrase di provisioning.
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+
+
+Scaricare il file del pacchetto di ripristino corrente prima di apportare modifiche alla topologia della griglia al sistema StorageGRID o prima di aggiornare il software. Quindi, scaricare una nuova copia del pacchetto di ripristino dopo aver apportato modifiche alla topologia della griglia o dopo aver aggiornato il software.
+
+.Fasi
+. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+. Immettere la passphrase di provisioning e selezionare *Avvia download*.
++
+Il download viene avviato immediatamente.
+
+. Al termine del download, aprire il `.zip` file e confermare che sia possibile accedere al contenuto, incluso il `Passwords.txt` file.
+. Copiare il file del pacchetto di ripristino scaricato (`.zip`) in due posizioni sicure, sicure e separate.
++
+
+CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.
+
+

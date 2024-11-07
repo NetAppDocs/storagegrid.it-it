@@ -1,0 +1,84 @@
+---
+permalink: troubleshoot/troubleshooting-low-object-data-storage-alert.html 
+sidebar: sidebar 
+keywords: how to troubleshoot the Low object data storage alert 
+summary: 'L"avviso *Low Object Data Storage* monitora lo spazio disponibile per memorizzare i dati degli oggetti su ciascun nodo di storage.' 
+---
+= Risolvere i problemi relativi all'avviso di storage dei dati a oggetti in esaurimento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'avviso *Low Object Data Storage* monitora lo spazio disponibile per memorizzare i dati degli oggetti su ciascun nodo di storage.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
+
+
+.A proposito di questa attività
+L'avviso *archiviazione dati oggetto bassa* viene attivato quando la quantità totale di dati oggetto replicati e con erasure coding su un nodo di archiviazione soddisfa una delle condizioni configurate nella regola di avviso.
+
+Per impostazione predefinita, viene attivato un avviso importante quando questa condizione viene valutata come true:
+
+[listing]
+----
+(storagegrid_storage_utilization_data_bytes/
+(storagegrid_storage_utilization_data_bytes + storagegrid_storage_utilization_usable_space_bytes)) >=0.90
+----
+In questa condizione:
+
+* `storagegrid_storage_utilization_data_bytes` È una stima delle dimensioni totali dei dati di oggetti replicati e con erasure coding per un nodo storage.
+* `storagegrid_storage_utilization_usable_space_bytes` È la quantità totale di spazio di archiviazione dell'oggetto rimanente per un nodo di archiviazione.
+
+
+Se viene attivato un avviso *Low Object Data Storage* maggiore o minore, è necessario eseguire una procedura di espansione il prima possibile.
+
+.Fasi
+. Selezionare *ALERTS* > *current*.
++
+Viene visualizzata la pagina Avvisi.
+
+. Dalla tabella degli avvisi, espandere il gruppo di avvisi *Low Object Data Storage*, se necessario, e selezionare l'avviso che si desidera visualizzare.
++
+
+NOTE: Selezionare l'avviso, non l'intestazione di un gruppo di avvisi.
+
+. Esaminare i dettagli nella finestra di dialogo e prendere nota di quanto segue:
++
+** Tempo di attivazione
+** Il nome del sito e del nodo
+** I valori correnti delle metriche per questo avviso
+
+
+. Selezionare *NODES* > *_Storage Node or Site_* > *Storage*.
+. Posizionare il cursore sul grafico Storage Used - Object Data (Storage utilizzato - dati oggetto).
++
+Vengono visualizzati i seguenti valori:
+
++
+** *Used (%)*: Percentuale dello spazio utilizzabile totale utilizzato per i dati dell'oggetto.
+** *Used*: Quantità di spazio utilizzabile totale utilizzata per i dati dell'oggetto.
+** *Dati replicati*: Stima della quantità di dati degli oggetti replicati su questo nodo, sito o griglia.
+** *Erasure-coded data*: Stima della quantità di dati dell'oggetto con codifica di cancellazione su questo nodo, sito o griglia.
+** *Total*: Quantità totale di spazio utilizzabile su questo nodo, sito o griglia. Il valore utilizzato è la `storagegrid_storage_utilization_data_bytes` metrica.
+
+
++
+image::../media/nodes_page_storage_used_object_data.png[Nodes Page Storage Uused Object Data]
+
+. Selezionare i controlli dell'ora sopra il grafico per visualizzare l'utilizzo dello storage in diversi periodi di tempo.
++
+L'utilizzo dello storage nel tempo può aiutarti a capire la quantità di storage utilizzata prima e dopo l'attivazione dell'avviso e può aiutarti a stimare il tempo necessario per lo spazio rimanente del nodo.
+
+. Il più presto possibile, link:../expand/guidelines-for-adding-object-capacity.html["aggiungere capacità di storage"] alla vostra griglia.
++
+È possibile aggiungere volumi di storage (LUN) ai nodi di storage esistenti oppure aggiungere nuovi nodi di storage.
+
++
+
+NOTE: Per ulteriori informazioni, vedere link:../admin/managing-full-storage-nodes.html["Gestire nodi storage completi"].
+
+
