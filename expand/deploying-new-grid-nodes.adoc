@@ -179,13 +179,13 @@ In questa fase, si verifica uno dei seguenti processi:
 +
 ** Per un'appliance di storage, il programma di installazione si connette al controller dello storage, cancella qualsiasi configurazione esistente, comunica con SANtricity OS per configurare i volumi e configura le impostazioni dell'host.
 ** Per un'appliance di servizi, il programma di installazione cancella qualsiasi configurazione esistente dai dischi nel controller di calcolo e configura le impostazioni dell'host.
-
-
 +
 *2. Installare il sistema operativo*
 
 +
 In questa fase, il programma di installazione copia l'immagine del sistema operativo di base per StorageGRID nell'appliance.
+
+
 
 . Continuare a monitorare l'avanzamento dell'installazione fino a quando non viene visualizzato un messaggio nella finestra della console, che richiede di utilizzare Grid Manager per approvare il nodo.
 +

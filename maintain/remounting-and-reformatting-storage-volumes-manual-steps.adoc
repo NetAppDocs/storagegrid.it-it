@@ -218,11 +218,11 @@ Tenere presente quanto segue:
 ** Non premere *Ctrl+C* mentre la sessione SSH è attiva.
 ** Lo script viene eseguito in background se si verifica un'interruzione della rete e termina la sessione SSH, ma è possibile visualizzarne l'avanzamento dalla pagina Recovery (Ripristino).
 ** Se Storage Node utilizza il servizio RSM, lo script potrebbe sembrare bloccato per 5 minuti quando i servizi del nodo vengono riavviati. Questo ritardo di 5 minuti è previsto ogni volta che il servizio RSM viene avviato per la prima volta.
-
-
 +
 
 NOTE: Il servizio RSM è presente sui nodi di storage che includono il servizio ADC.
+
+
 
 +
 
