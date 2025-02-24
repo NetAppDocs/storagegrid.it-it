@@ -39,6 +39,24 @@ Nodo di storage dati e metadati (combinato):: Per impostazione predefinita, tutt
 Nodo storage solo metadati:: L'utilizzo di un nodo di storage esclusivamente per i metadati può avere senso se il grid memorizza un numero molto elevato di piccoli oggetti. L'installazione della capacità di metadati dedicata fornisce un migliore equilibrio tra lo spazio necessario per un numero molto elevato di oggetti piccoli e lo spazio necessario per i metadati per tali oggetti. Inoltre, i nodi di storage solo per i metadati ospitati su appliance dalle performance elevate possono migliorare le performance.
 
 
+I nodi di storage solo per metadati hanno requisiti hardware specifici:
+
+* Quando si utilizzano appliance StorageGRID, i nodi con soli metadati possono essere configurati solo su appliance SGF6112 con dodici unità da 1,9 TB o dodici unità da 3,8 TB.
+* Quando si utilizzano nodi basati su software, le risorse dei nodi di solo metadati devono corrispondere alle risorse dei nodi di storage esistenti. Ad esempio:
++
+** Se il sito StorageGRID esistente utilizza appliance SG6000 o SG6100, i nodi basati solo sui metadati software devono soddisfare i seguenti requisiti minimi:
++
+*** 128 GB DI RAM
+*** CPU a 8 core
+*** SSD da 8 TB o storage equivalente per il database Cassandra (rangedb/0)
+
+
+** Se il sito StorageGRID esistente utilizza nodi di archiviazione virtuale con 24 GB di RAM, 8 core CPU e 3 TB o 4TB di memorizzazione di metadati, i nodi basati solo sui metadati del software devono utilizzare risorse simili (24 GB di RAM, 8 core CPU e 4TB di memorizzazione di metadati (rangedb/0).
+
+
+* Quando si aggiunge un nuovo sito StorageGRID, la capacità totale dei metadati del nuovo sito deve almeno StorageGRID corrispondere ai nodi storage dei siti StorageGRID esistenti e alle nuove risorse del sito.
+
+
 Quando si installano nodi solo metadati, la griglia deve contenere anche un numero minimo di nodi per lo storage dei dati:
 
 * Per un grid a sito singolo, configurare almeno due nodi di storage combinati o solo dati.
