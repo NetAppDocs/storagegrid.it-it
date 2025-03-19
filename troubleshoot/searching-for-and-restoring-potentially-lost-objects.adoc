@@ -35,13 +35,43 @@ CAUTION: Contattare il supporto tecnico per assistenza con questa procedura.
 ... Immettere la password elencata nel `Passwords.txt` file. Quando si è collegati come root, il prompt cambia da `$` a `#`.
 
 
-.. Passare alla directory in cui si trovano i registri di controllo: `cd /var/local/log/`
+.. [[substep-1b]]passare alla directory in cui si trovano i registri di controllo.
 +
-[NOTE]
-====
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Informazioni sulle destinazioni per le informazioni di verifica"].
+--
+La directory del registro di controllo e i nodi applicabili dipendono dalle impostazioni della destinazione di controllo.
 
-====
+[cols="1a,2a"]
+|===
+| Opzione | Destinazione 
+
+
+ a| 
+Nodi locali (impostazione predefinita)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+Nodi amministrativi/nodi locali
+ a| 
+*** Nodi amministrativi (primario e non primario): `/var/local/audit/export/audit.log`
+*** Tutti i nodi: Il `/var/local/log/localaudit.log` file è in genere vuoto o mancante in questa modalità.
+
+
+
+
+ a| 
+Server syslog esterno
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+In base alle impostazioni della destinazione di controllo, immettere: `cd /var/local/log` O. `/var/local/audit/export/`
+
+Per ulteriori informazioni, fare riferimento a link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Selezionare le destinazioni delle informazioni di audit"].
+
+--
 .. Utilizzare grep per estrarre link:../audit/object-ingest-transactions.html["messaggi di audit associati all'oggetto potenzialmente perso"]e inviarli a un file di output. Immettere: `grep uuid-value audit_file_name > output_file_name`
 +
 Ad esempio:
@@ -49,7 +79,7 @@ Ad esempio:
 +
 [listing]
 ----
-Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > messages_about_lost_object.txt
+Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > /var/local/tmp/messages_about_lost_object.txt
 ----
 .. Utilizzare grep per estrarre i messaggi di controllo LLST (Location Lost) da questo file di output. Immettere: `grep LLST output_file_name`
 +
@@ -58,7 +88,7 @@ Ad esempio:
 +
 [listing]
 ----
-Admin: # grep LLST messages_about_lost_objects.txt
+Admin: # grep LLST /var/local/tmp/messages_about_lost_objects.txt
 ----
 +
 Un messaggio di controllo LLST è simile a questo messaggio di esempio.
@@ -66,12 +96,11 @@ Un messaggio di controllo LLST è simile a questo messaggio di esempio.
 +
 [listing]
 ----
-[AUDT:\[NOID\(UI32\):12448208\][CBIL(UI64):0x38186FE53E3C49A5]
+[AUDT:[NOID(UI32):12448208][CBIL(UI64):0x38186FE53E3C49A5]
 [UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"][LTYP(FC32):CLDI]
-[PCLD\(CSTR\):"/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA%\#3tN6"\]
-[TSRC(FC32):SYST][RSLT(FC32):NONE][AVER(UI32):10][ATIM(UI64):
-1581535134379225][ATYP(FC32):LLST][ANID(UI32):12448208][AMID(FC32):CLSM]
-[ATID(UI64):7086871083190743409]]
+[PCLD(CSTR):"/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA#3tN6"]
+[TSRC(FC32):SYST][RSLT(FC32):NONE][AVER(UI32):10][ATIM(UI64):1581535134379225]
+[ATYP(FC32):LLST][ANID(UI32):12448208][AMID(FC32):CLSM][ATID(UI64):7086871083190743409]]
 ----
 .. Individuare il campo PCLD e IL campo NOID nel messaggio LLST.
 +
@@ -180,7 +209,7 @@ Passare alla fase successiva.
 ... Immettere la password elencata nel `Passwords.txt` file. Quando si è collegati come root, il prompt cambia da `$` a `#`.
 
 
-.. Passare alla directory in cui si trovano i registri di controllo: `cd /var/local/log/`
+.. Passare alla directory in cui si trovano i registri di controllo. Fare riferimento alla <<substep-1b,sottosezione 1. b>> .
 .. Utilizzare grep per estrarre i messaggi di audit associati all'oggetto in un file di output. Immettere: `grep uuid-value audit_file_name > output_file_name`
 +
 Ad esempio:
@@ -188,7 +217,7 @@ Ad esempio:
 +
 [listing]
 ----
-Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > messages_about_restored_object.txt
+Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > /var/local/tmp/messages_about_restored_object.txt
 ----
 .. Utilizzare grep per estrarre i messaggi di audit ORLM (Object Rules Met) da questo file di output. Immettere: `grep ORLM output_file_name`
 +
@@ -197,7 +226,7 @@ Ad esempio:
 +
 [listing]
 ----
-Admin: # grep ORLM messages_about_restored_object.txt
+Admin: # grep ORLM /var/local/tmp/messages_about_restored_object.txt
 ----
 +
 Un messaggio di controllo ORLM è simile a questo messaggio di esempio.

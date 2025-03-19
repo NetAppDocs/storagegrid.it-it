@@ -44,20 +44,50 @@ image::../media/nodes_storage_nodes_objects_page_lost_object.png[Nodes Storage N
 ... Immettere la password elencata nel `Passwords.txt` file. Quando si è collegati come root, il prompt cambia da `$` a `#`.
 
 
-.. Passare alla directory in cui si trovano i registri di controllo. Immettere: `cd /var/local/log/`
+.. Passare alla directory in cui si trovano i registri di controllo.
 +
-[NOTE]
-====
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Informazioni sulle destinazioni per le informazioni di verifica"].
+--
+La directory del registro di controllo e i nodi applicabili dipendono dalle impostazioni della destinazione di controllo.
 
-====
+[cols="1a,2a"]
+|===
+| Opzione | Destinazione 
+
+
+ a| 
+Nodi locali (impostazione predefinita)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+Nodi amministrativi/nodi locali
+ a| 
+*** Nodi amministrativi (primario e non primario): `/var/local/audit/export/audit.log`
+*** Tutti i nodi: Il `/var/local/log/localaudit.log` file è in genere vuoto o mancante in questa modalità.
+
+
+
+
+ a| 
+Server syslog esterno
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+In base alle impostazioni della destinazione di controllo, immettere: `cd /var/local/log` O. `/var/local/audit/export/`
+
+Per ulteriori informazioni, fare riferimento a link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Selezionare le destinazioni delle informazioni di audit"].
+
+--
 .. Utilizzare grep per estrarre i messaggi di audit OLST (Object Lost). Immettere: `grep OLST audit_file_name`
 .. Annotare il valore UUID incluso nel messaggio.
 +
 [listing]
 ----
->Admin: # grep OLST audit.log
-2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):926026C4-00A4-449B-AC72-BCCA72DD1311]
+Admin: # grep OLST audit.log
+2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"]
 [PATH(CSTR):"source/cats"][NOID(UI32):12288733][VOLI(UI64):3222345986][RSLT(FC32):NONE][AVER(UI32):10]
 [ATIM(UI64):1581535134780426][ATYP(FC32):OLST][ANID(UI32):12448208][AMID(FC32):ILMX][ATID(UI64):7729403978647354233]]
 ----
