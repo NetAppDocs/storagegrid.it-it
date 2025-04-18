@@ -35,9 +35,9 @@ File di hotfix StorageGRID
 
 
  a| 
-(`.zip`File pacchetto di ripristino )
+pacchetto di ripristino (`.zip`)
  a| 
-Prima di applicare una correzione rapida, link:downloading-recovery-package.html["Scaricare il file del pacchetto di ripristino più recente"] in caso di problemi durante la correzione rapida. Quindi, dopo aver applicato la correzione rapida, scaricare una nuova copia del file del pacchetto di ripristino e salvarlo in un luogo sicuro. Il file Recovery Package aggiornato consente di ripristinare il sistema in caso di errore.
+Prima di applicare una correzione rapida, link:downloading-recovery-package.html["scaricare il file del pacchetto di ripristino più recente"] in caso di problemi durante la correzione rapida. Quindi, dopo aver applicato la correzione rapida, scaricare una nuova copia del file del pacchetto di ripristino e salvarlo in un luogo sicuro. Il file del pacchetto di ripristino aggiornato consente di ripristinare il sistema in caso di errore.
 
 
 

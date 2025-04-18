@@ -13,14 +13,14 @@ summary: La funzione AutoSupport consente a StorageGRID di inviare pacchetti di 
 [role="lead"]
 La funzione AutoSupport consente a StorageGRID di inviare pacchetti di stato e integrità al supporto tecnico NetApp.
 
-L'utilizzo di AutoSupport può accelerare notevolmente la determinazione e la risoluzione dei problemi. Il supporto tecnico può anche monitorare le esigenze di storage del sistema e aiutare a determinare se è necessario aggiungere nuovi nodi o siti. In alternativa, è possibile configurare i pacchetti AutoSupport da inviare a una destinazione aggiuntiva.
+AutoSupport consente di risolvere i problemi più velocemente. Il supporto tecnico monitora le esigenze di storage del sistema e indica se è necessario aggiungere nuovi nodi o siti. Facoltativamente, AutoSupport può inviare pacchetti ad una destinazione aggiuntiva.
 
 StorageGRID dispone di due tipi di AutoSupport:
 
 * *StorageGRID AutoSupport* segnala problemi di software StorageGRID. Attivato per impostazione predefinita quando si installa StorageGRID per la prima volta. È possibilelink:configure-autosupport-grid-manager.html["Modificare la configurazione AutoSupport predefinita"], se necessario.
 +
 
-NOTE: Se StorageGRID AutoSupport non è abilitato, viene visualizzato un messaggio sul dashboard di Gestione griglia. Il messaggio include un collegamento alla pagina di configurazione di AutoSupport. Se si chiude il messaggio, questo non viene visualizzato fino a quando la cache del browser non viene cancellata, anche se AutoSupport rimane disattivato.
+NOTE: Se StorageGRID AutoSupport non è abilitato, viene visualizzato un messaggio sul dashboard di Gestione griglia. Il messaggio include un collegamento alla pagina di configurazione di AutoSupport. Se chiudi il messaggio, non verrà più visualizzato finché la cache del browser non viene cancellata, anche se AutoSupport rimane disattivato.
 
 * *Hardware appliance AutoSupport* segnala problemi relativi all'appliance StorageGRID. È necessario link:configure-autosupport-grid-manager.html#autosupport-for-appliances["Configura AutoSupport hardware su ogni appliance"].
 

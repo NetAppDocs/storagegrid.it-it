@@ -42,7 +42,7 @@ I nodi non possono essere rimossi dalla Grid Network.
 NOTE: Non è consentito lo swap degli indirizzi IP. Se è necessario scambiare indirizzi IP tra nodi di rete, è necessario utilizzare un indirizzo IP intermedio temporaneo.
 
 
-NOTE: Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID e si sta modificando l'indirizzo IP di un nodo di amministrazione, tenere presente che qualsiasi trust della parte che si basa configurato utilizzando l'indirizzo IP del nodo di amministrazione (invece del nome di dominio completo, come consigliato) non sarà valido. Non sarà più possibile accedere al nodo. Subito dopo aver modificato l'indirizzo IP, è necessario aggiornare o riconfigurare il trust della parte di supporto del nodo in Active Directory Federation Services (ad FS) con il nuovo indirizzo IP. Vedere le istruzioni per link:../admin/configuring-sso.html["Configurazione di SSO"].
+NOTE: Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID e si sta modificando l'indirizzo IP di un nodo di amministrazione, tenere presente che qualsiasi trust della parte che si basa configurato utilizzando l'indirizzo IP del nodo di amministrazione (invece del nome di dominio completo, come consigliato) non sarà valido. Non sarà più possibile accedere al nodo. Subito dopo aver modificato l'indirizzo IP, è necessario aggiornare o riconfigurare il trust della parte di supporto del nodo in Active Directory Federation Services (ad FS) con il nuovo indirizzo IP. Vedere le istruzioni per link:../admin/configure-sso.html["Configurazione di SSO"].
 
 
 NOTE: Le modifiche apportate alla rete utilizzando lo strumento Cambia IP vengono propagate al firmware del programma di installazione delle appliance StorageGRID. In questo modo, se il software StorageGRID viene reinstallato su un'appliance o se un'appliance viene messa in modalità di manutenzione, la configurazione di rete sarà corretta.
@@ -201,10 +201,51 @@ Una volta applicate o apportate le modifiche, viene generato un nuovo pacchetto 
 
 
 . Selezionare *0* per uscire dallo strumento Change IP una volta completate le modifiche.
-. Scarica un nuovo pacchetto di ripristino da Grid Manager.
+. Scaricare un nuovo pacchetto di ripristino da Grid Manager.
 +
 .. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
 .. Inserire la passphrase di provisioning.
 
 
 
+
+
+
+== Modifica temporanea della velocità PDU LACP
+
+Per eseguire operazioni di manutenzione sui componenti di rete installati nel dispositivo, ad esempio l'aggiornamento del firmware NIC, è possibile controllare l'impostazione corrente della velocità PDU LACP. Se necessario, è anche possibile alternare in modo non permanente la velocità PDU LACP tra veloce e lenta.
+
+
+NOTE: Per apportare modifiche permanenti alla velocità PDU LACP, vedere https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["Configurare i collegamenti di rete"^].
+
+.Prima di iniziare
+* Il nodo amministrativo è installato e in esecuzione.
+* Si dispone del `Passwords.txt` file.
+
+
+.Fasi
+. Accedere al nodo di amministrazione principale:
++
+.. Immettere il seguente comando: `ssh admin@primary_Admin_Node_IP`
+.. Immettere la password elencata nel `Passwords.txt` file.
+.. Immettere il seguente comando per passare alla directory principale: `su -`
+.. Immettere la password elencata nel `Passwords.txt` file.
++
+Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
+
+. Per verificare l'impostazione corrente della velocità PDU LACP, immettere il seguente comando:
++
+`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh --lacprate'`
+
+. Per modificare temporaneamente la velocità LACP PDU, immettere il seguente comando:
++
+`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh --lacprate _<speed>_'`
+
++
+dove `_<version-number>_` è `fast` o `slow`.
+
+
+
+La velocità PDU LACP tornerà all'impostazione precedente al successivo riavvio del dispositivo.

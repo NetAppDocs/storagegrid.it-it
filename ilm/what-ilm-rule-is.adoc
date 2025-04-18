@@ -107,7 +107,7 @@ Il comportamento di acquisizione controlla se le copie degli oggetti vengono pos
 .Informazioni correlate
 * link:data-protection-options-for-ingest.html["Opzioni di acquisizione"]
 * link:advantages-disadvantages-of-ingest-options.html["Vantaggi, svantaggi e limitazioni delle opzioni di acquisizione"]
-* link:../s3/consistency-controls.html#how-consistency-controls-and-ILM-rules-interact["L'interazione tra coerenza e regole ILM per influire sulla protezione dei dati"]
+* link:../s3/consistency.html#how-consistency-and-ILM-rules-interact["L'interazione tra coerenza e regole ILM per influire sulla protezione dei dati"]
 
 
 

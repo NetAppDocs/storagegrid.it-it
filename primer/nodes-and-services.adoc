@@ -113,6 +113,42 @@ Nodi di amministrazione
 
 
  a| 
+Apache Tomcat
+ a| 
+Server Web per applicazioni basate su Java.
+ a| 
+Nodi di amministrazione
+
+
+
+ a| 
+Daemon Avahi
+ a| 
+Gestisce mDNS, utilizzato per la risoluzione dei nomi e il rilevamento dei servizi all'interno della rete locale.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+Servizio cache
+ a| 
+Viene eseguito sui nodi di bilanciamento del carico (Gateway) e gestisce una cache locale di contenuti di oggetti.
+ a| 
+Nodi gateway
+
+
+
+ a| 
+Cassandra
+ a| 
+Gestisce il database distribuito per i metadati degli oggetti.
+ a| 
+Nodi storage (eccetto solo dati)
+
+
+
+ a| 
 Cassandra Reaper
  a| 
 Esegue la riparazione automatica dei metadati degli oggetti.
@@ -187,7 +223,7 @@ Nodi Admin e Gateway
  a| 
 Identità (idnt)
  a| 
-Consente di federare le identità degli utenti da LDAP e Active Directory.
+Consente di gestire utenti e gruppi locali, di eseguire l'autenticazione e di federare le identità degli utenti da LDAP e Active Directory.
  a| 
 Nodi di storage che utilizzano il servizio ADC
 
@@ -239,9 +275,9 @@ Tutti i nodi
 
 
  a| 
-nginx-gw
+Bilanciamento del carico Nginx-gw
  a| 
-Alimenta il servizio Load Balancer.
+Bilanciamento del carico del traffico S3 fra i client e i nodi storage. Il servizio Load Balancer può essere configurato tramite la pagina di configurazione degli endpoint del bilanciamento del carico. Questo servizio è noto anche come servizio nginx-gw.
  a| 
 Nodi Admin e Gateway
 
@@ -253,6 +289,24 @@ NMS (Network Management System, sistema di gestione della rete)
 Alimenta le opzioni di monitoraggio, reporting e configurazione visualizzate tramite Grid Manager.
  a| 
 Nodi di amministrazione
+
+
+
+ a| 
+Esportatore di nodi (raccolta dati Prometheus)
+ a| 
+Pubblica le statistiche a livello di sistema per la raccolta di metriche delle serie temporali Prometheus.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+ntp
+ a| 
+Servizio NTP (Network Time Protocol).
+ a| 
+Tutti i nodi
 
 
 
@@ -293,7 +347,70 @@ Un'istanza è presente su ogni nodo della griglia
 
 
  a| 
-Raccoglitore di tracce
+Server Manager
+ a| 
+Gestisce i servizi StorageGRID.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+SNMP Agent (Agente SNMP)
+ a| 
+Risponde alle richieste SNMP.
+ a| 
+Nodi di amministrazione
+
+
+
+ a| 
+Servizio di gestione delle porte SNMP
+ a| 
+Gestisce la gestione dinamica delle porte SNMP.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+SSH (shell sicura)
+ a| 
+Gestisce l'accesso sicuro e la gestione del sistema remoto.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+SSM (Monitor stato sistema)
+ a| 
+Monitora le condizioni dell'hardware e invia report al servizio NMS.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+Urgenza
+ a| 
+Registra le metriche aggiuntive relative ai bucket S3.
+ a| 
+Nodi di storage
+
+
+
+ a| 
+Agente traccia (jaeger-Agent)
+ a| 
+Riceve ed elabora le informazioni di tracciamento inviate dal raccoglitore di tracce (jaeger-Collector).
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+Raccoglitore di tracce (jaeger-Collector)
  a| 
 Esegue la raccolta di tracce per raccogliere informazioni da utilizzare per il supporto tecnico. Il servizio di raccolta tracce utilizza il software open source Jaeger.
  a| 

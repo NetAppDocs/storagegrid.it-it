@@ -72,4 +72,4 @@ Content-Type: application/xml
 Ogni versione dell'oggetto memorizzata contribuirà ai `ObjectCount` valori e `DataBytes` nella risposta. I marcatori di eliminazione non vengono aggiunti al `ObjectCount` totale.
 
 .Informazioni correlate
-link:consistency-controls.html["Valori di coerenza"]
+link:consistency.html["Coerenza"]

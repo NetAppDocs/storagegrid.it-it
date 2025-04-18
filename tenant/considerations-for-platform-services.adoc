@@ -32,7 +32,7 @@ TIP: L'utilizzo dei servizi della piattaforma deve essere abilitato per ciascun 
 
 == Modalità di configurazione dei servizi della piattaforma
 
-I servizi della piattaforma comunicano con gli endpoint esterni configurati tramite link:configuring-platform-services-endpoints.html["Manager tenant"]o link:understanding-tenant-management-api.html["API di gestione del tenant"]. Ogni endpoint rappresenta una destinazione esterna, come un bucket StorageGRID S3, un bucket Amazon Web Services, un argomento di Amazon SNS o un cluster Elasticsearch ospitato localmente, su AWS o altrove.
+I servizi della piattaforma comunicano con gli endpoint esterni configurati tramite link:configuring-platform-services-endpoints.html["Manager tenant"]o link:understanding-tenant-management-api.html["API di gestione del tenant"]. Ciascun endpoint rappresenta una destinazione esterna, come un bucket StorageGRID S3, un bucket Amazon Web Services, un argomento di Amazon SNS, un endpoint webhook o un cluster Elasticsearch ospitato localmente, in AWS o altrove.
 
 Dopo aver creato un endpoint esterno, è possibile attivare un servizio di piattaforma per un bucket aggiungendo la configurazione XML al bucket. La configurazione XML identifica gli oggetti su cui il bucket deve agire, l'azione che il bucket deve intraprendere e l'endpoint che il bucket deve utilizzare per il servizio.
 

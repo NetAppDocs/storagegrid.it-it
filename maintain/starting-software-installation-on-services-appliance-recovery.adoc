@@ -48,10 +48,7 @@ Per installare il software StorageGRID su un'appliance di servizi:
 +
 Viene visualizzata la pagina iniziale del programma di installazione dell'appliance StorageGRID.
 
-+
-image::../media/services_appliance_installer_gateway_node.png[Pagina iniziale del programma di installazione dell'appliance]
-
-. Per installare un nodo di amministrazione primario:
+. Per installare un nodo amministrativo primario:
 +
 .. Nella sezione questo nodo, per *Node Type*, selezionare *Primary Admin*.
 .. Nel campo *Node Name* (Nome nodo), immettere lo stesso nome utilizzato per il nodo che si sta ripristinando e fare clic su *Save* (Salva).
@@ -61,10 +58,7 @@ Se la versione del software pronta per l'installazione è corretta, passare alla
 
 .. Per caricare una versione diversa del software, nel menu *Avanzate*, selezionare *carica software StorageGRID*.
 +
-Viene visualizzata la pagina Caricamento del software StorageGRID.
-
-+
-image::../media/upload_sw_for_pa_on_sga1000.png[Schermata descritta dal testo circostante]
+Viene visualizzata la pagina carica software StorageGRID.
 
 .. Fare clic su *Browse* (Sfoglia) per caricare i file *pacchetto software* e *checksum file* per il software StorageGRID.
 +
@@ -73,7 +67,7 @@ I file vengono caricati automaticamente dopo averli selezionati.
 .. Fare clic su *Home* per tornare alla home page del programma di installazione dell'appliance StorageGRID.
 
 
-. Per installare un nodo gateway o un nodo amministratore non primario:
+. Per installare un nodo gateway o un nodo amministrativo non primario:
 +
 .. Nella sezione questo nodo, per *Node Type*, selezionare *Gateway* o *non-Primary Admin*, a seconda del tipo di nodo che si sta ripristinando.
 .. Nel campo *Node Name* (Nome nodo), immettere lo stesso nome utilizzato per il nodo che si sta ripristinando e fare clic su *Save* (Salva).
@@ -81,7 +75,7 @@ I file vengono caricati automaticamente dopo averli selezionati.
 +
 Il programma di installazione dell'appliance StorageGRID è in grado di rilevare automaticamente questo indirizzo IP, presupponendo che il nodo amministratore primario o almeno un altro nodo della griglia con ADMIN_IP configurato sia presente nella stessa sottorete.
 
-.. Se questo indirizzo IP non viene visualizzato o se è necessario modificarlo, specificare l'indirizzo:
+.. Se questo indirizzo IP non viene visualizzato o è necessario modificarlo, specificare l'indirizzo:
 
 
 +
@@ -113,7 +107,7 @@ Rilevamento automatico di tutti i nodi amministrativi primari connessi
 |===
 . [[Installation_section_step]]nella sezione Installation (Installazione), verificare che lo stato corrente sia Ready to start installation of node name (Pronto per avviare l'installazione del nome del nodo) e che il pulsante *Start Installation* (Avvia installazione) sia attivato.
 +
-Se il pulsante *Avvia installazione* non è attivato, potrebbe essere necessario modificare la configurazione di rete o le impostazioni della porta. Per istruzioni, consultare le istruzioni di manutenzione dell'apparecchio.
+Se il pulsante *Avvia installazione* non è attivato, potrebbe essere necessario modificare la configurazione di rete o le impostazioni della porta. Fare riferimento alle istruzioni di manutenzione dell'apparecchio.
 
 . Dalla home page del programma di installazione dell'appliance StorageGRID, fare clic su *Avvia installazione*.
 +

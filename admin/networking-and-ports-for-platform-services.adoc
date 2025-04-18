@@ -20,6 +20,10 @@ Ad esempio, i tenant potrebbero configurare i seguenti tipi di endpoint di desti
 * Cluster Elasticsearch ospitato localmente
 * Un'applicazione locale che supporta la ricezione di messaggi Amazon Simple Notification Service
 * Un cluster Kafka ospitato localmente
+* Un endpoint webhook esterno o ospitato localmente che supporta le richieste di notifica HTTP POST.
++
+Questo endpoint può essere ospitato su vari server Web, framework o strumenti Data Processing come Fluentd.
+
 * Un bucket S3 ospitato localmente sulla stessa o su un'altra istanza di StorageGRID
 * Un endpoint esterno, ad esempio un endpoint su Amazon Web Services.
 

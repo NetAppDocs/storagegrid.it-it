@@ -45,7 +45,7 @@ NOTE: Alcuni messaggi di errore nella colonna *ultimo errore* potrebbero include
 
 == Problemi relativi ai server proxy
 
-Se è stato configurato un link:configuring-storage-proxy-settings.html["proxy di storage"] tra i nodi di archiviazione e gli endpoint del servizio della piattaforma, potrebbero verificarsi degli errori se il servizio proxy non consente messaggi da StorageGRID. Per risolvere questi problemi, controllare le impostazioni del server proxy per assicurarsi che i messaggi relativi al servizio della piattaforma non siano bloccati.
+Se è stato configurato un link:configuring-storage-proxy-settings.html["proxy di storage"] tra i nodi di archiviazione e gli endpoint del servizio della piattaforma, potrebbero verificarsi errori se il servizio proxy non consente messaggi da StorageGRID. Per risolvere questi problemi, controllare le impostazioni del server proxy per assicurarsi che i messaggi relativi al servizio della piattaforma non siano bloccati.
 
 
 
@@ -78,7 +78,11 @@ Una volta creati gli endpoint, gli errori di richiesta del servizio della piatta
 
 Se StorageGRID rileva un errore ripristinabile, la richiesta di servizio della piattaforma verrà rievitata fino a quando non avrà esito positivo.
 
-Altri errori non sono ripristinabili. Ad esempio, se l'endpoint viene cancellato, si verifica un errore irreversibile.
+Altri errori non sono ripristinabili. Ad esempio, possono verificarsi errori irreversibili per i seguenti motivi:
+
+* L'endpoint viene eliminato.
+* Una destinazione endpoint webhook risponde a una richiesta di notifica con un `400 Bad Request` errore.
+
 
 Se StorageGRID rileva un errore irreversibile dell'endpoint:
 
@@ -91,7 +95,7 @@ Se StorageGRID rileva un errore irreversibile dell'endpoint:
 
 == I messaggi dei servizi della piattaforma non possono essere inviati
 
-Se la destinazione incontra un problema che impedisce l'accettazione dei messaggi dei servizi della piattaforma, l'operazione client sul bucket riesce, ma il messaggio dei servizi della piattaforma non viene recapitato. Ad esempio, questo errore potrebbe verificarsi se le credenziali vengono aggiornate sulla destinazione in modo che StorageGRID non possa più autenticare il servizio di destinazione.
+Se la destinazione incontra un problema che impedisce l'accettazione dei messaggi dei servizi della piattaforma, l'operazione client nel bucket ha esito positivo, ma il messaggio dei servizi della piattaforma non viene recapitato. Ad esempio, questo errore potrebbe verificarsi se le credenziali vengono aggiornate sulla destinazione in modo che StorageGRID non possa più autenticare il servizio di destinazione.
 
 Verificare la presenza di avvisi correlati.
 

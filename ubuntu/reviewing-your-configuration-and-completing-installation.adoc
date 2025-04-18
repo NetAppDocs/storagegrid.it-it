@@ -24,16 +24,16 @@ image::../media/11_gmi_installer_summary_page.gif[Questa immagine viene spiegata
 
 NOTE: Se un nodo è configurato per utilizzare la rete client, il gateway predefinito per quel nodo passa dalla rete griglia alla rete client quando si fa clic su *Installa*. In caso di perdita della connettività, assicurarsi di accedere al nodo di amministrazione primario tramite una subnet accessibile. Per ulteriori informazioni, vedere link:../network/index.html["Linee guida per il networking"] .
 
-. Fare clic su *Download Recovery Package*.
+. Fare clic su *Scarica pacchetto di ripristino*.
 +
-Quando l'installazione procede fino al punto in cui è definita la topologia della griglia, viene richiesto di scaricare il file del pacchetto di ripristino (`.zip`e di confermare che è possibile accedere correttamente al contenuto di questo file. È necessario scaricare il file del pacchetto di ripristino in modo da poter ripristinare il sistema StorageGRID in caso di guasto di uno o più nodi griglia. L'installazione continua in background, ma non è possibile completare l'installazione e accedere al sistema StorageGRID fino a quando non si scarica e si verifica questo file.
+Quando l'installazione procede al punto in cui è definita la topologia della griglia, viene richiesto di scaricare il file del pacchetto di ripristino (`.zip`) e confermare che è possibile accedere correttamente al contenuto di questo file. È necessario scaricare il file del pacchetto di ripristino in modo da poter ripristinare il sistema StorageGRID in caso di errore di uno o più nodi della griglia. L'installazione continua in background, ma non è possibile completare l'installazione e accedere al sistema StorageGRID fino a quando non si scarica e si verifica questo file.
 
 . Verificare che sia possibile estrarre il contenuto del `.zip` file e salvarlo in due posizioni sicure, sicure e separate.
 +
 
 CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.
 
-. Selezionare la casella di controllo *ho scaricato e verificato il file del pacchetto di ripristino* e fare clic su *Avanti*.
+. Selezionare la casella di controllo *ho scaricato e verificato il file del pacchetto di ripristino*, quindi fare clic su *Avanti*.
 +
 Se l'installazione è ancora in corso, viene visualizzata la pagina di stato. Questa pagina indica lo stato di avanzamento dell'installazione per ciascun nodo della griglia.
 

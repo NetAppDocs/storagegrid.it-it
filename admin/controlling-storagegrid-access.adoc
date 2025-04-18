@@ -32,7 +32,7 @@ Facoltativamente, è possibile configurare un gruppo in modo che sia di sola let
 
 == Attiva single sign-on
 
-Il sistema StorageGRID supporta SSO (Single Sign-on) utilizzando lo standard SAML 2.0 (Security Assertion Markup Language 2.0). Dopo l'utente link:configuring-sso.html["Configurare e abilitare SSO"], tutti gli utenti devono essere autenticati da un provider di identità esterno prima di poter accedere a Grid Manager, Tenant Manager, Grid Management API o Tenant Management API. Gli utenti locali non possono accedere a StorageGRID.
+Il sistema StorageGRID supporta SSO (Single Sign-on) utilizzando lo standard SAML 2.0 (Security Assertion Markup Language 2.0). Dopo l'utente link:how-sso-works.html["Configurare e abilitare SSO"], tutti gli utenti devono essere autenticati da un provider di identità esterno prima di poter accedere a Grid Manager, Tenant Manager, Grid Management API o Tenant Management API. Gli utenti locali non possono accedere a StorageGRID.
 
 
 
@@ -44,4 +44,4 @@ La passphrase di provisioning è necessaria per molte procedure di installazione
 
 == Modificare le password della console dei nodi
 
-Ciascun nodo della griglia dispone di una password univoca per la console del nodo, che deve essere utilizzata per accedere al nodo come "admin" utilizzando SSH o all'utente root con una connessione VM/console fisica. Se necessario, è possibile link:change-node-console-password.html["modificare la password della console del nodo"] per ogni nodo.
+Ogni nodo nella griglia ha una password di console di nodo, che è necessario accedere al nodo come "admin" utilizzando SSH, o all'utente root su una connessione VM/console fisica. Se necessario, è possibile link:change-node-console-password.html["modificare la password della console del nodo"] per ogni nodo.

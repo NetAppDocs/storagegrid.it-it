@@ -53,6 +53,19 @@ La tabella riassume il comportamento applicato a tutti gli oggetti nel bucket qu
 
 
  a| 
+Richiesta di recuperare i metadati di un oggetto quando viene eseguita un'operazione HEAD
+ a| 
+No
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
 Richiesta di recuperare un oggetto, il relativo elenco di controllo degli accessi o i relativi metadati
  a| 
 No

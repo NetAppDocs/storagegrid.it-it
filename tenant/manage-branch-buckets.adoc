@@ -1,0 +1,202 @@
+---
+permalink: tenant/manage-branch-buckets.html 
+sidebar: sidebar 
+keywords: how to create branch bucket 
+summary: 'Un bucket di diramazione fornisce l"accesso agli oggetti in un bucket come esistevano in un determinato momento, a condizione che esistano ancora nel bucket. Utilizzare Tenant Manager per creare e visualizzare i bucket delle filiali.' 
+---
+= Gestire i bucket delle filiali
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un bucket di diramazione fornisce l'accesso agli oggetti in un bucket come esistevano in un determinato momento, a condizione che esistano ancora nel bucket. Utilizzare Tenant Manager per creare e visualizzare i bucket delle filiali.
+
+Un bucket di filiali offre accesso ai dati protetti, ma non serve come backup. Per continuare a proteggere i dati, utilizza queste funzionalità sui bucket di base:
+
+* link:../tenant/using-s3-object-lock.html["Blocco oggetti S3"]
+* link:../admin/grid-federation-what-is-cross-grid-replication.html["Replica cross-grid"] per benne base
+* link:../tenant/manage-bucket-policy.html["Criteri bucket"] per bucket in versione per ripulire le vecchie versioni di oggetti
+
+
+.A proposito di questa attività
+Si crea un bucket di diramazione da un bucket esistente. Dopo aver creato un bucket di diramazione, il bucket originale da cui è stato creato è denominato bucket di base. Inoltre, è possibile creare un bucket di diramazione da un altro bucket di diramazione. Quando si eseguono operazioni sul bucket base, i risultati sul bucket Branch dipendono dall'operazione e dal tipo di bucket Branch creato.
+
+È possibile utilizzare un bucket di branca per rimuovere gli oggetti corrotti creando un bucket di branca da un punto temporale precedente il danneggiamento, quindi indirizzando le applicazioni al bucket di branca anziché al bucket di base che contiene oggetti corrotti.
+
+
+CAUTION: Un bucket di filiali non serve come backup, ma fornisce accesso ai dati protetti. È necessario continuare a utilizzare link:../ilm/managing-objects-with-s3-object-lock.html["Blocco oggetti S3"] o link:../admin/grid-federation-what-is-cross-grid-replication.html["replica cross-grid"] a proteggere i dati.
+
+La replica cross-grid non è supportata per i bucket di filiali.
+
+.Prima di iniziare
+* Hai effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* L'utente appartiene a un gruppo di utenti che dispone dell'accesso root o Gestisci tutti i bucket link:tenant-management-permissions.html["permesso"]. Queste autorizzazioni sovrascrivono le impostazioni delle autorizzazioni nelle policy di gruppo o bucket.
+* Il bucket base da cui si desidera creare una diramazione ha link:../tenant/changing-bucket-versioning.html["versione abilitata"].
+* Siete il proprietario del secchio di base.
++
+
+NOTE: Le autorizzazioni per impostare o modificare le proprietà S3 Object Lock di bucket o oggetti possono essere concesse da link:../s3/bucket-and-group-access-policies.html["policy bucket o policy di gruppo"].
+
+
+
+
+
+== Creare il bucket di diramazione
+
+.Fasi
+. Selezionare *View bucket* (Visualizza bucket) dalla dashboard oppure selezionare *STORAGE (S3)* > *Bucket*.
+. Selezionare il bucket da cui si desidera creare una diramazione (il "bucket base").
+. Nella pagina dei dettagli del bucket, selezionare *rami* > *Crea bucket ramo*.
++
+Il pulsante *Create Branch bucket* è disabilitato se il bucket base non ha il controllo delle versioni abilitato.
+
+
+
+
+
+== Inserire i dettagli
+
+.Fasi
+. Immettere i dettagli per il bucket di diramazione.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome del bucket di filiale
+ a| 
+Un nome per il bucket di diramazione conforme alle seguenti regole:
+
+** Deve essere unico in ogni sistema StorageGRID (non solo univoco all'interno dell'account tenant).
+** Deve essere conforme al DNS.
+** Deve contenere almeno 3 e non più di 63 caratteri.
+** Ogni etichetta deve iniziare e terminare con una lettera minuscola o un numero e può utilizzare solo lettere minuscole, numeri e trattini.
+** Non deve contenere periodi nelle richieste di stile ospitate virtuali. I punti causano problemi con la verifica del certificato con caratteri jolly del server.
+
+
+Per ulteriori informazioni, vedere https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["Documentazione di Amazon Web Services (AWS) sulle regole di denominazione del bucket"^].
+
+*Nota*: Non è possibile modificare il nome dopo aver creato il bucket ramo.
+
+
+
+ a| 
+Regione (impossibile modificare per i bucket di filiali)
+ a| 
+La regione del secchio di diramazione.
+
+La regione del bucket di diramazione deve corrispondere alla regione del bucket di base, pertanto questo campo è disabilitato per i bucket di diramazione.
+
+
+
+ a| 
+Prima dell'ora
+ a| 
+Il tempo di interruzione per le versioni oggetto create nel bucket base per essere accessibili dal bucket ramo. Il bucket di diramazione fornisce l'accesso alle versioni di oggetti create in precedenza.
+
+
+
+ a| 
+Tipo di benna per diramazione
+ a| 
+** *Read-write*: È possibile aggiungere o eliminare oggetti o versioni di oggetti nel bucket Branch.
+** *Sola lettura*: Non è possibile modificare gli oggetti nel bucket di diramazione.
+
+
+|===
+. Selezionare *continua*.
+
+
+
+
+== Gestire le impostazioni
+
+Le impostazioni per un bucket di diramazione non influiscono sulle versioni degli oggetti nel bucket di base.
+
+.Fasi
+. Se l'impostazione blocco oggetto S3 globale è attivata, è possibile abilitare blocco oggetto S3 per il bucket ramo. Per attivare il blocco degli oggetti S3, il bucket di diramazione deve essere un bucket di lettura/scrittura.
++
+Abilitare blocco oggetto S3 per un bucket di filiale solo se è necessario mantenere gli oggetti per un periodo di tempo fisso, ad esempio per soddisfare determinati requisiti normativi. S3 Object Lock è un'impostazione permanente che consente di evitare l'eliminazione o la sovrascrittura degli oggetti per un periodo di tempo fisso o indefinito.
+
++
+
+CAUTION: Una volta attivata l'impostazione S3 Object Lock per un bucket, non è possibile disattivarla. Chiunque disponga delle autorizzazioni corrette può aggiungere oggetti al bucket di filiale che non possono essere modificati. Potrebbe non essere possibile eliminare questi oggetti o il bucket di diramazione stesso.
+
+. Se si seleziona *Enable S3 Object Lock* (attiva blocco oggetti 3D*), è possibile abilitare *Default Retention* (conservazione predefinita) per il bucket di diramazione.
++
+
+NOTE: L'amministratore di rete deve concedere l'autorizzazione a link:../tenant/using-s3-object-lock.html["Utilizzare funzioni specifiche di blocco oggetti S3"].
+
++
+Quando l'opzione *conservazione predefinita* è attivata, i nuovi oggetti aggiunti al bucket di filiale saranno automaticamente protetti dall'eliminazione o dalla sovrascrittura. L'impostazione *Default Retention* non si applica agli oggetti che hanno periodi di conservazione propri.
+
++
+.. Se l'opzione *conservazione predefinita* è attivata, specificare una modalità di conservazione *predefinita* per il bucket di filiale.
++
+[cols="1a,2a"]
+|===
+| Modalità di conservazione predefinita | Descrizione 
+
+
+ a| 
+Governance
+ a| 
+*** Gli utenti con `s3:BypassGovernanceRetention` autorizzazione possono utilizzare l' `x-amz-bypass-governance-retention: true`intestazione della richiesta per ignorare le impostazioni di conservazione.
+*** Questi utenti possono eliminare una versione dell'oggetto prima che venga raggiunta la data di conservazione.
+*** Questi utenti possono aumentare, ridurre o rimuovere il mantenimento di un oggetto fino ad oggi.
+
+
+
+
+ a| 
+Conformità
+ a| 
+*** L'oggetto non può essere eliminato fino a quando non viene raggiunta la data di conservazione.
+*** La conservazione dell'oggetto fino alla data odierna può essere aumentata, ma non può essere diminuita.
+*** La data di conservazione dell'oggetto non può essere rimossa fino al raggiungimento di tale data.
+
+
+*Nota*: L'amministratore della griglia deve consentire l'utilizzo della modalità di conformità.
+
+|===
+.. Se l'opzione *conservazione predefinita* è attivata, specificare il *periodo di conservazione predefinito* per il bucket della filiale.
++
+Il *periodo di conservazione predefinito* indica per quanto tempo i nuovi oggetti aggiunti al bucket di filiale devono essere conservati, a partire dal momento in cui vengono acquisiti. Specificare un valore inferiore o uguale al periodo di conservazione massimo per il tenant, come impostato dall'amministratore della griglia.
+
++
+Un _massimo_ periodo di conservazione, che può essere un valore compreso tra 1 giorno e 100 anni, viene impostato quando l'amministratore di rete crea il tenant. Quando si imposta un periodo di conservazione _default_, non può superare il valore impostato per il periodo di conservazione massimo. Se necessario, chiedere all'amministratore di rete di aumentare o diminuire il periodo di conservazione massimo.
+
+
+
+. [[Capacity-limit]]facoltativamente, selezionare *Enable Capacity limit* (Abilita limite di capacità).
++
+Il limite di capacità è la capacità massima disponibile per la benna di derivazione. Questo valore rappresenta una quantità logica (dimensione dell'oggetto), non una quantità fisica (dimensione sul disco).
+
++
+Se non viene impostato alcun limite, la capacità della benna di derivazione è illimitata. Per ulteriori informazioni, fare riferimento link:../tenant/understanding-tenant-manager-dashboard.html#bucket-capacity-usage["Utilizzo del limite di capacità"] a.
+
++
+
+NOTE: Questa impostazione si applica solo agli oggetti direttamente inseriti nel bucket di diramazione e non agli oggetti visibili dal bucket di base attraverso il bucket di diramazione.
+
+. In alternativa, selezionare *attiva limite di conteggio oggetti*.
++
+Il limite di conteggio degli oggetti è il numero massimo di oggetti che il bucket di diramazione può contenere. Questo valore rappresenta una quantità logica (conteggio oggetti). Se non è impostato alcun limite, il conteggio degli oggetti è illimitato.
+
++
+
+NOTE: Questa impostazione si applica solo agli oggetti direttamente inseriti nel bucket di diramazione e non agli oggetti visibili dal bucket di base attraverso il bucket di diramazione.
+
+. Selezionare *Crea bucket*.
++
+Il bucket di diramazione viene creato e aggiunto alla tabella nella pagina bucket.
+
+. In alternativa, selezionare *Vai alla pagina dettagli bucket* per link:viewing-s3-bucket-details.html["visualizzare i dettagli del bucket di filiale"] ed eseguire una configurazione aggiuntiva.
++
+Nella pagina dei dettagli del bucket, alcune opzioni di configurazione relative alla modifica degli oggetti sono disattivate per i bucket di sola lettura.
+
+

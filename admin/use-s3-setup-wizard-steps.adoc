@@ -347,7 +347,7 @@ Per ulteriori informazioni su questa attività, vedere link:creating-tenant-acco
 +
 I nomi dei tenant non devono essere univoci. Una volta creato, l'account tenant riceve un ID account numerico univoco.
 
-. Definire l'accesso root per l'account tenant, a seconda che il sistema StorageGRID utilizzi link:using-identity-federation.html["federazione delle identità"], link:configuring-sso.html["SSO (Single Sign-on)"]o entrambi.
+. Definire l'accesso root per l'account tenant, a seconda che il sistema StorageGRID utilizzi link:using-identity-federation.html["federazione delle identità"], link:how-sso-works.html["SSO (Single Sign-on)"]o entrambi.
 +
 [cols="1a,2a"]
 |===

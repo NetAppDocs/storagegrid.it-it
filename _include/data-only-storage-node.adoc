@@ -1,0 +1,14 @@
+= 
+:allow-uri-read: 
+
+
+L'utilizzo di un nodo di storage esclusivamente per i dati può essere utile se i nodi di storage hanno caratteristiche di prestazioni diverse. Ad esempio, per aumentare potenzialmente le performance, potrebbero esserci nodi di storage su disco rotante a elevata capacità e solo dati accompagnati da nodi di storage dalle performance elevate e solo metadati.
+
+Inoltre, puoi ottenere una maggiore capacità di metadati rimuovendo i nodi a bassa RAM da Cassandra, cosa che aumenta il limite di capacità dei metadati per nodo. Fare riferimento alla link:../admin/managing-object-metadata-storage.html["Gestire lo storage dei metadati degli oggetti"].
+
+Quando si installano nodi solo dati, la griglia deve contenere quanto segue:
+
+* Un minimo di due nodi di storage combinati o solo dati per grid
+* Almeno un nodo di storage combinato o solo dati per sito
+* Un minimo di tre nodi di storage combinati o solo metadati per sito
+

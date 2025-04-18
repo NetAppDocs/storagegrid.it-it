@@ -44,7 +44,7 @@ Vedere https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/config
 
 == Attività facoltative
 
-* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["Aggiornare gli indirizzi IP del nodo griglia"] Se sono state modificate dopo aver pianificato la distribuzione e generato il pacchetto di ripristino.
+* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["Aggiornare gli indirizzi IP del nodo griglia"] se sono state modificate dopo aver pianificato la distribuzione e generato il pacchetto di ripristino.
 * link:../admin/changing-network-options-object-encryption.html["Configurare la crittografia dello storage"], se necessario.
 * link:../admin/configuring-stored-object-compression.html["Configurare la compressione dello storage"] per ridurre le dimensioni degli oggetti memorizzati, se necessario.
 * link:../admin/configure-vlan-interfaces.html["Configurare le interfacce VLAN"] per isolare e partizionare il traffico di rete, se necessario.

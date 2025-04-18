@@ -11,7 +11,7 @@ summary: 'È possibile creare utenti locali e assegnarli a gruppi locali per det
 
 
 [role="lead"]
-È possibile creare utenti locali e assegnarli a gruppi locali per determinare le funzionalità a cui questi utenti possono accedere. Tenant Manager include un utente locale predefinito, denominato "root". Sebbene sia possibile aggiungere e rimuovere utenti locali, non è possibile rimuovere l'utente root.
+È possibile creare utenti locali e assegnarli a gruppi locali per determinare le funzionalità a cui questi utenti possono accedere. Il gestore tenant include un utente locale predefinito, denominato "root". Sebbene sia possibile aggiungere e rimuovere utenti locali, non è possibile rimuovere l'utente root.
 
 
 NOTE: Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID, gli utenti locali non potranno accedere al Gestore tenant o all'API di gestione tenant, anche se possono utilizzare le applicazioni client per accedere alle risorse del tenant, in base alle autorizzazioni di gruppo.
@@ -170,6 +170,33 @@ Impossibile modificare il nome utente.
 
 
 . Confermare di aver selezionato *Save Changes* (Salva modifiche) per ciascuna sezione modificata.
+
+
+
+
+== Importare gli utenti federati
+
+È possibile importare uno o più utenti federati, fino a un massimo di 100, direttamente nella pagina utenti.
+
+.Fasi
+. Selezionare *ACCESS MANAGEMENT* > *Users*.
+. Selezionare *Importa utenti federati*.
+. Immettere l'UUID o il nome utente per uno o più utenti federated.
++
+Per più voci, aggiungere ciascun UUID o nome utente su una nuova riga.
+
+. Selezionare *Importa*.
++
+Se l'importazione nel campo utenti non riesce per uno o più utenti, procedere come segue:
+
++
+.. Selezionare *Copia utenti*.
+.. Riprovare l'importazione selezionando *precedente* e incollando gli utenti copiati nella finestra di dialogo *Importa utenti federati*.
+
+
++
+Dopo aver chiuso la finestra di dialogo *Importa utenti Federated*, le informazioni relative agli utenti Federated vengono visualizzate nella pagina utenti per gli utenti importati correttamente.
+
 
 
 

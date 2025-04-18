@@ -99,13 +99,13 @@ Viene avviata la procedura di decommissionamento del nodo e viene visualizzato l
 
 CAUTION: Non scollegare un nodo di storage dopo l'avvio della procedura di decommissionamento. La modifica dello stato potrebbe causare la mancata copia di alcuni contenuti in altre posizioni.
 
-. Non appena il nuovo pacchetto di ripristino è disponibile, selezionare il collegamento pacchetto di ripristino nel banner o selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino* per accedere alla pagina pacchetto di ripristino. Quindi, scaricare il `.zip` file.
+. Non appena il nuovo pacchetto di ripristino è disponibile, selezionare il collegamento al pacchetto di ripristino nel banner o selezionare *MAINTENANCE* > *System* > *Recovery package* per accedere alla pagina del pacchetto di ripristino. Quindi, scaricare il `.zip` file.
 +
-Vedere link:downloading-recovery-package.html["Download del pacchetto di ripristino"].
+Vedere link:downloading-recovery-package.html["download del pacchetto di ripristino"].
 
 +
 
-NOTE: Scarica il pacchetto di ripristino il prima possibile per assicurarti di ripristinare la griglia in caso di problemi durante la procedura di decommissionamento.
+NOTE: Scaricare il pacchetto di ripristino il prima possibile per assicurarsi di poter ripristinare la rete in caso di problemi durante la procedura di decommissionamento.
 
 . Monitorare periodicamente la pagina nodi di decommissionazione per assicurarsi che tutti i nodi selezionati vengano decommissionati correttamente.
 +

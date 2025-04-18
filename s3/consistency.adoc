@@ -1,10 +1,10 @@
 ---
-permalink: s3/consistency-controls.html 
+permalink: s3/consistency.html 
 sidebar: sidebar 
 keywords: consistency, consistency control, consistency values 
 summary: 'La coerenza fornisce un equilibrio tra la disponibilità degli oggetti e la loro coerenza in diversi nodi e siti storage. È possibile modificare la coerenza come richiesto dall"applicazione.' 
 ---
-= Valori di coerenza
+= Coerenza
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,15 +13,15 @@ summary: 'La coerenza fornisce un equilibrio tra la disponibilità degli oggetti
 [role="lead"]
 La coerenza fornisce un equilibrio tra la disponibilità degli oggetti e la loro coerenza in diversi nodi e siti storage. È possibile modificare la coerenza come richiesto dall'applicazione.
 
-Per impostazione predefinita, StorageGRID garantisce la coerenza di lettura dopo scrittura per gli oggetti appena creati. Qualsiasi GET che segue UN PUT completato con successo sarà in grado di leggere i dati appena scritti. Le sovrascritture degli oggetti esistenti, gli aggiornamenti dei metadati e le eliminazioni sono coerenti. Le sovrascritture in genere richiedono secondi o minuti per la propagazione, ma possono richiedere fino a 15 giorni.
+Per impostazione predefinita, StorageGRID garantisce la coerenza di lettura dopo scrittura per gli oggetti appena creati. Qualsiasi GET che segue UN PUT completato con successo sarà in grado di leggere i dati appena scritti. Le sovrascritture degli oggetti esistenti, gli aggiornamenti dei metadati e le eliminazioni sono coerenti.
 
 Se si desidera eseguire operazioni a oggetti con una coerenza diversa, è possibile:
 
-* Specificare una coerenza per <<bucket-consistency-control,ogni secchio>>.
+* Specificare una coerenza per <<bucket-consistency,ogni secchio>>.
 * Specificare una coerenza per <<api-operation-consistency-control,Ogni operazione API>>.
 * Modificare la coerenza predefinita a livello di griglia eseguendo una delle seguenti operazioni:
 +
-** In Grid Manager, andare a *CONFIGURAZIONE* > *sistema* > *Impostazioni di archiviazione* > *coerenza predefinita*.
+** In Grid Manager, andare a *CONFIGURAZIONE* > *sistema* > *Impostazioni di archiviazione* > *coerenza bucket predefinita*.
 ** .
 +
 
@@ -79,7 +79,7 @@ NOTE: È necessario utilizzare la stessa coerenza per entrambe le operazioni Put
 
 
 
-== [[bucket-Consistency-control]]specificare la coerenza per il bucket
+== [[bucket-Consistency]]specificare la coerenza per il bucket
 
 Per impostare la coerenza per il bucket, è possibile utilizzare la richiesta StorageGRIDlink:put-bucket-consistency-request.html["METTI la coerenza del bucket"]. In alternativa, è possibile link:../tenant/manage-bucket-consistency.html#change-bucket-consistency["modificare la consistenza di un bucket"] rivolgersi al responsabile del tenant.
 
@@ -92,7 +92,7 @@ Quando si imposta la consistenza per un secchio, tenere presente quanto segue:
 
 
 
-== [[how-Consistency-controls-and-ILM-rules-interact]]l'interazione tra coerenza e regole ILM per influire sulla protezione dei dati
+== [[how-Consistency-and-ILM-rules-interact]]l'interazione tra coerenza e regole ILM per influire sulla protezione dei dati
 
 Sia la scelta della coerenza che la regola ILM influiscono sulla protezione degli oggetti. Queste impostazioni possono interagire.
 

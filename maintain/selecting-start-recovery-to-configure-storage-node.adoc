@@ -19,7 +19,6 @@ Dopo aver sostituito un nodo di storage, selezionare Avvia ripristino in Grid Ma
 * Si dispone della passphrase di provisioning.
 * Il nodo sostitutivo è stato implementato e configurato.
 * Si dispone della data di inizio di qualsiasi intervento di riparazione per i dati codificati per la cancellazione.
-* Hai verificato che il nodo di storage non è stato ricostruito negli ultimi 15 giorni.
 
 
 .A proposito di questa attività

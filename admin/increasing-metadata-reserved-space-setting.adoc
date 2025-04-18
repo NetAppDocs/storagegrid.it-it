@@ -40,8 +40,8 @@ Per una spiegazione dettagliata del modo in cui l'impostazione spazio riservato 
 .Fasi
 . Determinare l'impostazione corrente di Metadata Reserved Space.
 +
-.. Selezionare *CONFIGURATION* > *System* > *Storage options*.
-.. Nella sezione filigrane di archiviazione, annotare il valore di *spazio riservato metadati*.
+.. Selezionare *CONFIGURAZIONE* > *sistema* > *Impostazioni archiviazione*.
+.. Annotare il valore di *spazio riservato metadati*.
 
 
 . Assicurarsi di disporre di spazio disponibile sufficiente sul volume di storage 0 di ciascun nodo di storage per aumentare questo valore.
@@ -78,17 +78,13 @@ Ad esempio, se l'impostazione spazio riservato metadati è attualmente di 4 TB e
 
 . Aggiornare l'impostazione Metadata Reserved Space (spazio riservato metadati).
 +
-.. Selezionare *CONFIGURATION* > *System* > *Storage options*.
-.. Selezionare la scheda Configurazione.
-.. Nella sezione filigrane di archiviazione, selezionare *spazio riservato metadati*.
+.. Selezionare *CONFIGURAZIONE* > *sistema* > *Impostazioni archiviazione*.
+.. Selezionare *spazio riservato metadati*.
 .. Inserire il nuovo valore.
 +
 Ad esempio, per inserire 8 TB, che è il valore massimo supportato, inserire *8000000000000* (8, seguito da 12 zeri)
 
-+
-image::../media/metadata_reserved_space.png[Spazio riservato metadati]
-
-.. Selezionare *Applica modifiche*.
+.. Selezionare *Salva*.
 
 
 

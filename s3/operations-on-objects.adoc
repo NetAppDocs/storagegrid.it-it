@@ -15,7 +15,7 @@ Questa sezione descrive come il sistema StorageGRID implementa le operazioni API
 
 Le seguenti condizioni si applicano a tutte le operazioni a oggetti:
 
-* StorageGRID link:consistency-controls.html["valori di coerenza"]è supportato da tutte le operazioni sugli oggetti, ad eccezione di quanto segue:
+* StorageGRID link:consistency.html["valori di coerenza"]è supportato da tutte le operazioni sugli oggetti, ad eccezione di quanto segue:
 +
 ** GetObjectAcl
 ** `OPTIONS /`

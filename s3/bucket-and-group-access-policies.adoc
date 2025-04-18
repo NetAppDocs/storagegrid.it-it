@@ -996,6 +996,13 @@ Nullo
  a| 
 Controlla se è presente una chiave di condizione nel contesto della richiesta corrente.
 
+
+
+ a| 
+IfExists
+ a| 
+Aggiunto a qualsiasi operatore di condizione, ad eccezione della condizione nulla, per verificare l'assenza di tale chiave di condizione. Restituisce TRUE se il tasto Condition non è presente.
+
 |===
 
 
@@ -1082,6 +1089,24 @@ Verrà eseguito un confronto con il parametro max-keys specificato in una richie
 
 
  a| 
+s3:modalità blocco oggetti
+ a| 
+s3:PutObject
+ a| 
+Viene confrontato con l' `object-lock-mode`intestazione della richiesta espansa nelle richieste PutObject, CopyObject e CreateMultipartUpload.
+
+
+
+ a| 
+s3:modalità blocco oggetti
+ a| 
+s3:PutObjectRetention
+ a| 
+Viene eseguito il confronto con il `object-lock-mode` corpo XML espanso nella richiesta PutObjectRetention.
+
+
+
+ a| 
 s3:giorni-rimanenti-conservazione-blocco-oggetto
  a| 
 s3:PutObject
@@ -1125,6 +1150,15 @@ s3:PutObjectTagging
 s3:PutObjectVersionTagging
  a| 
 Richiede una chiave e un valore tag specifici quando la richiesta dell'oggetto include il tagging.
+
+
+
+ a| 
+s3:x-amz-server-lato-crittografia-algoritmo-cliente
+ a| 
+s3:PutObject
+ a| 
+Viene eseguito il confronto con `sse-customer-algorithm` o con l' `copy-source-sse-customer-algorithm`intestazione espansa della richiesta nelle richieste PutObject, CopyObject, CreateMultipartUpload, UploadPart, UploadPartCopy e CompleteMultipartUpload.
 
 |===
 

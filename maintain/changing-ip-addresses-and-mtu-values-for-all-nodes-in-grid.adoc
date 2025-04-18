@@ -36,7 +36,7 @@ NOTE: Se i server DNS esistenti non sono accessibili alla griglia dei nuovi indi
 
 +
 
-NOTE: Se SSO è attivato per il sistema StorageGRID e i trust di qualsiasi parte che si basa sono configurati utilizzando gli indirizzi IP del nodo di amministrazione (invece di nomi di dominio completi, come consigliato), è necessario essere pronti ad aggiornare o riconfigurare i trust di tali parti in Active Directory Federation Services (ad FS) Subito dopo aver modificato gli indirizzi IP. Vedere link:../admin/configuring-sso.html["Configurare il single sign-on"].
+NOTE: Se SSO è attivato per il sistema StorageGRID e i trust di qualsiasi parte che si basa sono configurati utilizzando gli indirizzi IP del nodo di amministrazione (invece di nomi di dominio completi, come consigliato), è necessario essere pronti ad aggiornare o riconfigurare i trust di tali parti in Active Directory Federation Services (ad FS) Subito dopo aver modificato gli indirizzi IP. Vedere link:../admin/configure-sso.html["Configurare il single sign-on"].
 
 +
 
@@ -130,7 +130,7 @@ NOTE: L'intera griglia deve essere chiusa, in modo che tutti i nodi siano spenti
 .. Se sono stati aggiunti nuovi server DNS, eliminare i valori dei server DNS precedenti.
 
 
-. Scarica il nuovo pacchetto di ripristino da Grid Manager.
+. Scaricare il nuovo pacchetto di ripristino da Grid Manager.
 +
 .. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
 .. Inserire la passphrase di provisioning.

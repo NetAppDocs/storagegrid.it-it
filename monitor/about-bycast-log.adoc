@@ -15,7 +15,7 @@ Il file `/var/local/log/bycast.log` è il file di risoluzione dei problemi princ
 
 Il file `/var/local/log/bycast-err.log` è un sottoinsieme di `bycast.log`. Contiene messaggi di errore di severità e CRITICI.
 
-In alternativa, è possibile modificare la destinazione dei registri di controllo e inviare le informazioni di controllo a un server syslog esterno. I registri locali dei record di controllo continuano a essere generati e memorizzati quando viene configurato un server syslog esterno. Vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"].
+In alternativa, è possibile modificare la destinazione dei registri di controllo e inviare le informazioni di controllo a un server syslog esterno. I registri locali dei record di controllo continuano a essere generati e memorizzati quando viene configurato un server syslog esterno. Vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di controllo e il server syslog esterno"].
 
 
 
@@ -32,7 +32,7 @@ Il limite di rotazione per `bycast-err.log` è di sette file.
 
 NOTE: Se un file di log è stato compresso, non è necessario decomprimerlo nella stessa posizione in cui è stato scritto. La decompressione del file nella stessa posizione può interferire con gli script di rotazione del log.
 
-In alternativa, è possibile modificare la destinazione dei registri di controllo e inviare le informazioni di controllo a un server syslog esterno. I registri locali dei record di controllo continuano a essere generati e memorizzati quando viene configurato un server syslog esterno. Vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"].
+In alternativa, è possibile modificare la destinazione dei registri di controllo e inviare le informazioni di controllo a un server syslog esterno. I registri locali dei record di controllo continuano a essere generati e memorizzati quando viene configurato un server syslog esterno. Vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di controllo e il server syslog esterno"].
 
 .Informazioni correlate
 link:collecting-log-files-and-system-data.html["Raccogliere i file di log e i dati di sistema"]

@@ -131,7 +131,7 @@ Updating grid network configuration on Name
 ----
 
 
-. Scarica un nuovo pacchetto di ripristino da Grid Manager.
+. Scaricare un nuovo pacchetto di ripristino da Grid Manager.
 +
 .. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
 .. Inserire la passphrase di provisioning.

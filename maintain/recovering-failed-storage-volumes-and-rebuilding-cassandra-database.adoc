@@ -51,7 +51,7 @@ NOTE: Il commento di un volume non riuscito nel file non `/etc/fstab` è suffici
 ** Se necessario, viene richiesto di ricostruire il database Cassandra.
 +
 *** Esaminare gli avvisi. Se non sono applicabili, ricostruire il database Cassandra. Immettere: *Y*
-*** Se più di un nodo di storage non è in linea o se un altro nodo di storage è stato ricostruito negli ultimi 15 giorni. Immettere: *N*
+*** Se più di un nodo di storage non è in linea. Immettere: *N*
 +
 Lo script verrà chiuso senza ricostruire Cassandra. Contattare il supporto tecnico.
 

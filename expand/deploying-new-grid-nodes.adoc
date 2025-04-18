@@ -145,9 +145,6 @@ Se il pulsante *Avvia installazione* non è attivato, potrebbe essere necessario
 
 . Dalla home page del programma di installazione dell'appliance StorageGRID, selezionare *Avvia installazione*.
 +
-image::../media/appliance_installer_home_start_installation_enabled.gif[Questa immagine viene descritta dal testo circostante.]
-
-+
 Lo stato corrente cambia in "Installazione in corso" e viene visualizzata la pagina Installazione monitor.
 
 . Se l'espansione include più nodi appliance, ripetere i passaggi precedenti per ogni appliance.
@@ -158,9 +155,6 @@ NOTE: Se è necessario implementare più nodi storage dell'appliance contemporan
 . Per accedere manualmente alla pagina Installazione monitor, selezionare *Installazione monitor* dalla barra dei menu.
 +
 La pagina Monitor Installation (Installazione monitor) mostra lo stato di avanzamento dell'installazione.
-
-+
-image::../media/monitor_installation_configure_storage.gif[Questa immagine viene spiegata dal testo circostante.]
 
 +
 La barra di stato blu indica l'attività attualmente in corso. Le barre di stato verdi indicano le attività completate correttamente.
@@ -191,8 +185,5 @@ In questa fase, il programma di installazione copia l'immagine del sistema opera
 +
 
 NOTE: Attendere che tutti i nodi aggiunti a questa espansione siano pronti per l'approvazione prima di passare al Grid Manager per approvare i nodi.
-
-+
-image::../media/monitor_installation_install_sgws.gif[Questa immagine viene spiegata dal testo circostante.]
 
 

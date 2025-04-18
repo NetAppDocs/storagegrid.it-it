@@ -2,7 +2,7 @@
 permalink: upgrade/changes-to-tenant-management-api.html 
 sidebar: sidebar 
 keywords: tenant management api, api, api version, swagger, rest api 
-summary: 'StorageGRID 11,9 utilizza la versione 4 dell"API di gestione dei tenant. La versione 4 depreca la versione 3; tuttavia, le versioni 1, 2 e 3 sono ancora supportate.' 
+summary: 'StorageGRID 12,0 utilizza la versione 4 dell"API di gestione dei tenant. La versione 4 depreca la versione 3; tuttavia, le versioni 1, 2 e 3 sono ancora supportate.' 
 ---
 = Modifiche all'API di gestione del tenant
 :allow-uri-read: 
@@ -11,15 +11,15 @@ summary: 'StorageGRID 11,9 utilizza la versione 4 dell"API di gestione dei tenan
 
 
 [role="lead"]
-StorageGRID 11,9 utilizza la versione 4 dell'API di gestione dei tenant. La versione 4 depreca la versione 3; tuttavia, le versioni 1, 2 e 3 sono ancora supportate.
+StorageGRID 12,0 utilizza la versione 4 dell'API di gestione dei tenant. La versione 4 depreca la versione 3; tuttavia, le versioni 1, 2 e 3 sono ancora supportate.
 
 
-NOTE: È possibile continuare a utilizzare le versioni obsolete dell'API di gestione dei tenant con StorageGRID 11,9; tuttavia, il supporto per queste versioni dell'API verrà rimosso in una versione futura di StorageGRID. Dopo l'aggiornamento a StorageGRID 11,9, è possibile disattivare le API obsolete utilizzando l' `PUT /grid/config/management`API.
+NOTE: È possibile continuare a utilizzare le versioni obsolete dell'API di gestione dei tenant con StorageGRID 12,0; tuttavia, il supporto per queste versioni dell'API verrà rimosso in una versione futura di StorageGRID. Dopo l'aggiornamento a StorageGRID 12,0, è possibile disattivare le API obsolete utilizzando l' `PUT /grid/config/management`API.
 
 Per ulteriori informazioni, visitare il sito Web all'indirizzo link:../tenant/understanding-tenant-management-api.html["Comprendere l'API di gestione dei tenant"].
 
 
 
-== Nuova API per il limite di capacità della benna
+== Nuova API per la replica degli oggetti
 
-Puoi utilizzare l' `/org/containers/{bucketName}/quota-object-bytes`API con operazioni GET/PUT per ottenere e impostare il limite di capacità dello storage per un bucket.
+È possibile utilizzare l' `/org/cross-grid-replication/{versionId}/replicate`API per replicare manualmente gli oggetti su un bucket esistente che ha la replica cross-grid appena configurata.

@@ -38,7 +38,7 @@ Gli stati di diagnostica sono indipendenti dagli avvisi correnti e potrebbero no
 Viene visualizzata la pagina Diagnostics (Diagnostica) che elenca i risultati di ciascun controllo diagnostico. I risultati vengono ordinati in base alla gravità (attenzione, attenzione e quindi normale). All'interno di ciascuna severità, i risultati sono ordinati in ordine alfabetico.
 
 +
-In questo esempio, tutte le diagnostiche hanno uno stato normale.
+In questo esempio, uno stato diagnostico ha uno stato di attenzione e tre hanno uno stato normale.
 
 +
 image::../media/support_diagnostics_page.png[Pagina Support Diagnostics (Diagnostica di supporto)]
@@ -55,18 +55,18 @@ Vengono visualizzati i dettagli relativi alla diagnostica e ai risultati corrent
 
 NOTE: Non puoi modificare queste soglie.
 
-** *Valori di stato*: Una tabella che mostra lo stato e il valore della diagnostica nel sistema StorageGRID. In questo esempio, viene mostrato l'utilizzo corrente della CPU per ogni nodo in un sistema StorageGRID. Tutti i valori dei nodi sono al di sotto delle soglie di attenzione e attenzione, quindi lo stato generale della diagnostica è normale.
-
-
+** *Valori di stato*: Un grafico e una tabella (tabella non mostrata nella schermata) che mostrano lo stato e il valore della diagnostica in tutto il sistema StorageGRID. In questo esempio, viene mostrato l'utilizzo corrente della CPU per ogni nodo in un sistema StorageGRID. Tutti i valori dei nodi sono al di sotto delle soglie di attenzione e attenzione, quindi lo stato generale della diagnostica è normale.
 +
-image::../media/support_diagnostics_cpu_utilization.png[Support Diagnostics utilizzo della CPU]
+image::../media/support_diagnostics_cpu_utilization.png[Esempio di valori di stato della diagnostica]
 
-. *Opzionale*: Per visualizzare i grafici Grafana relativi a questa diagnostica, fare clic sul collegamento *dashboard Grafana*.
+
+
+. *Opzionale*: Per visualizzare le tabelle Grafana relative a questa diagnostica, selezionare *quadro strumenti Grafana*.
 +
 Questo collegamento non viene visualizzato per tutte le diagnostiche.
 
 +
-Viene visualizzata la dashboard Grafana correlata. In questo esempio, viene visualizzata la dashboard Node (nodo) che mostra l'utilizzo della CPU nel tempo per questo nodo e altri grafici Grafana per il nodo.
+Viene visualizzata la dashboard Grafana correlata. In questo esempio, viene visualizzata la dashboard Node che mostra l'utilizzo della CPU nel tempo per questo nodo e altri grafici Grafana per il nodo.
 
 +
 

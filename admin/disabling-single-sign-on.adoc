@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disable sso, disable single sign on 
 summary: 'Se non si desidera più utilizzare questa funzionalità, è possibile disattivare il Single Sign-on (SSO). È necessario disattivare il Single Sign-on prima di poter disattivare la federazione delle identità.' 
 ---
-= Disattiva single sign-on
+= Disattivare SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

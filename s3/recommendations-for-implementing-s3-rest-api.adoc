@@ -17,7 +17,7 @@ Seguire questi consigli quando si implementa l'API REST S3 per l'utilizzo con St
 
 == Raccomandazioni per la gestione di oggetti inesistenti
 
-Se l'applicazione verifica regolarmente se un oggetto esiste in un percorso in cui non si prevede che l'oggetto esista effettivamente, è necessario utilizzare il comando "disponibile" link:consistency-controls.html["coerenza"]. Ad esempio, è necessario utilizzare la coerenza "disponibile" se l'applicazione rileva una posizione prima di INVIARLA.
+Se l'applicazione verifica regolarmente se un oggetto esiste in un percorso in cui non si prevede che l'oggetto esista effettivamente, è necessario utilizzare il comando "disponibile" link:consistency.html["coerenza"]. Ad esempio, è necessario utilizzare la coerenza "disponibile" se l'applicazione rileva una posizione prima di INVIARLA.
 
 In caso contrario, se l'operazione HEAD non trova l'oggetto, è possibile ricevere un numero elevato di errori del server interno 500 se due o più nodi di archiviazione nello stesso sito non sono disponibili o un sito remoto non è raggiungibile.
 

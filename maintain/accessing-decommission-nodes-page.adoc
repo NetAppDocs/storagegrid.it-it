@@ -62,7 +62,7 @@ Nessuno.
  a| 
 No, almeno un nodo della griglia è scollegato.
 
-*Nota:* questo messaggio viene visualizzato solo per i nodi di rete connessi.
+*Nota*: Questo messaggio viene visualizzato solo per i nodi di rete collegati.
  a| 
 Non è possibile decommissionare un nodo di rete connesso se un nodo di rete è scollegato.
 
@@ -81,7 +81,7 @@ La colonna *Health* include una di queste icone per i nodi della griglia disconn
  a| 
 No, uno o più nodi richiesti sono attualmente disconnessi e devono essere ripristinati.
 
-*Nota:* questo messaggio viene visualizzato solo per i nodi della griglia disconnessi.
+*Nota*: Questo messaggio viene visualizzato solo per i nodi della griglia disconnessi.
  a| 
 Non è possibile decommissionare un nodo di rete disconnesso se anche uno o più nodi richiesti sono disconnessi (ad esempio, un nodo di storage necessario per il quorum ADC).
  a| 
@@ -97,7 +97,7 @@ Non è possibile decommissionare un nodo di rete disconnesso se anche uno o più
 
 
  a| 
-No, membro dei gruppi ha: _Nome gruppo_. Prima di poter decommissionare questo nodo, è necessario rimuoverlo da tutti i gruppi ha.
+No, membro del gruppo ha: _Nome gruppo_. Prima di poter decommissionare questo nodo, è necessario rimuoverlo da tutti i gruppi ha.
  a| 
 Non è possibile decommissionare un nodo amministrativo o un nodo gateway se un'interfaccia di nodo appartiene a un gruppo ad alta disponibilità (ha).
  a| 
@@ -108,16 +108,16 @@ Modificare il gruppo ha per rimuovere l'interfaccia del nodo o rimuovere l'inter
  a| 
 No, il sito _x_ richiede un minimo di _n_ nodi di storage con servizi ADC.
  a| 
-*Solo nodi di archiviazione.* Non è possibile decommissionare un nodo di storage se nel sito rimangono nodi insufficienti per supportare i requisiti quorum ADC.
+*Solo nodi di storage* (nodi di storage combinati o solo metadati). Non è possibile decommissionare un nodo di storage se nel sito rimangono nodi insufficienti per supportare i requisiti quorum ADC. Tuttavia, è possibile spostare il servizio ADC in un altro nodo di archiviazione.
  a| 
-Eseguire un'espansione. Aggiungere un nuovo nodo di storage al sito e specificare che deve disporre di un servizio ADC. Vedere le informazioni su link:understanding-adc-service-quorum.html["Quorum ADC"].
+link:../maintain/move-adc-service.html["Spostare il servizio ADC in un altro nodo di archiviazione nello stesso sito"]Oppure eseguire un'espansione aggiungendo un nuovo nodo di archiviazione al sito e specificando che deve disporre di un servizio ADC. Fare riferimento alla link:understanding-adc-service-quorum.html["Quorum ADC"].
 
 
 
  a| 
 No, uno o più profili di erasure coding necessitano di almeno _n_ nodi di storage. Se il profilo non viene utilizzato in una regola ILM, è possibile disattivarlo.
  a| 
-*Solo nodi di archiviazione.* Non è possibile decommissionare un nodo di storage a meno che non rimangano un numero sufficiente di nodi per i profili di erasure coding esistenti.
+*Solo nodi di storage*. Non è possibile decommissionare un nodo di storage a meno che non rimangano un numero sufficiente di nodi per i profili di erasure coding esistenti.
 
 Ad esempio, se esiste un profilo di erasure coding per l'erasure coding 4+2, devono rimanere almeno 6 nodi storage.
  a| 

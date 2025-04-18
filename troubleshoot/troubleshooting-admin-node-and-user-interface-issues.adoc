@@ -46,7 +46,7 @@ Se l'errore non viene risolto automaticamente, passare alla fase successiva.
 
 
 . Determinare se l'hardware del nodo non è in linea.
-. Se il Single Sign-on (SSO) è attivato per il sistema StorageGRID, fare riferimento alla procedura per link:../admin/configuring-sso.html["configurazione del single sign-on"].
+. Se il Single Sign-on (SSO) è attivato per il sistema StorageGRID, fare riferimento alla procedura per link:../admin/configure-sso.html["configurazione del single sign-on"].
 +
 Potrebbe essere necessario disattivare temporaneamente e riattivare SSO per un singolo nodo di amministrazione per risolvere eventuali problemi.
 

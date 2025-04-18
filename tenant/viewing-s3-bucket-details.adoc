@@ -68,7 +68,7 @@ Data di creazione:: La data e l'ora di creazione del bucket. Questa colonna è n
 . Per visualizzare i dettagli di un bucket specifico, selezionare il nome del bucket dalla tabella.
 +
 .. Visualizzare le informazioni di riepilogo nella parte superiore della pagina Web per confermare i dettagli per il bucket, come ad esempio il numero di aree e oggetti.
-.. Visualizzare la barra di utilizzo del limite di capacità. Se l'utilizzo è del 100% o quasi del 100%, è consigliabile aumentare il limite o eliminare alcuni oggetti.
+.. Visualizzare le barre di utilizzo del limite di capacità e del limite di conteggio degli oggetti. Se l'utilizzo è del 100% o quasi del 100%, è consigliabile aumentare il limite o eliminare alcuni oggetti.
 .. Se necessario, selezionare *Elimina oggetti nel bucket* e *Elimina bucket*.
 +
 [CAUTION]
@@ -88,6 +88,7 @@ Prestare particolare attenzione alle precauzioni visualizzate quando si selezion
 **** link:manage-bucket-consistency.html["Gestire la coerenza del bucket"]
 **** link:enabling-or-disabling-last-access-time-updates.html["Aggiornamenti dell'ora dell'ultimo accesso"]
 **** link:../tenant/creating-s3-bucket.html#capacity-limit["Limite di capacità"]
+**** link:../tenant/creating-s3-bucket.html#object-count-limit["Limite di conteggio oggetti"]
 **** link:changing-bucket-versioning.html["Versione degli oggetti"]
 **** link:using-s3-object-lock.html["Blocco oggetti S3"]
 **** link:update-default-retention-settings.html["Ritenzione bucket predefinita"]
@@ -97,10 +98,11 @@ Prestare particolare attenzione alle precauzioni visualizzate quando si selezion
 *** *Platform Services*: link:considerations-for-platform-services.html["Gestire i servizi della piattaforma"] (Se consentito per il locatario)
 *** *Accesso bucket*: Consente di visualizzare o modificare le impostazioni delle opzioni. È necessario disporre di autorizzazioni di accesso specifiche.
 +
-**** Configurare link:configuring-cross-origin-resource-sharing-cors.html["Cross-Origin Resource Sharing (CORS)"] in modo che il bucket e gli oggetti nel bucket siano accessibili alle applicazioni Web in altri domini.
+**** Configurare link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["CORS per secchi e oggetti"] in modo che il bucket e gli oggetti nel bucket siano accessibili alle applicazioni Web in altri domini.
 **** link:../tenant/manage-bucket-policy.html["Controllo dell'accesso degli utenti"] Per un secchio S3 e oggetti in quel secchio.
 
 
+*** *Rami*: Consente di visualizzare l'elenco dei bucket di filiali per il bucket. link:../tenant/manage-branch-buckets.html["Creare un nuovo bucket di diramazione o gestire bucket di diramazione"].
 
 
 

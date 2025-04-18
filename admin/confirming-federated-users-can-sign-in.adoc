@@ -46,12 +46,12 @@ TIP: Quando si attiva SSO, un'origine identità configurata in Tenant Manager vi
 .. Selezionare l'account tenant e selezionare *azioni* > *Modifica*.
 .. Nella scheda Immetti dettagli, selezionare *continua*.
 .. Se la casella di controllo *Usa origine identità propria* è selezionata, deselezionare la casella e selezionare *Salva*.
-+
-image::../media/sso_uses_own_identity_source_for_tenant.png[Casella di controllo Edit Tenant account > Use own Identity source (Modifica account tenant > Usa origine identità propria) non selezionata]
+
 
 +
 Viene visualizzata la pagina del tenant.
 
++
 .. Selezionare l'account tenant, selezionare *Accedi* e accedere all'account tenant come utente root locale.
 .. Da Tenant Manager, selezionare *ACCESS MANAGEMENT* > *Groups*.
 .. Assicurarsi che almeno un gruppo federated di Grid Manager sia stato assegnato all'autorizzazione di accesso root per questo tenant.

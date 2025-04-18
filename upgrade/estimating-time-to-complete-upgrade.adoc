@@ -51,7 +51,7 @@ Il file software viene distribuito e il servizio di aggiornamento viene avviato.
  a| 
 Aggiornare altri nodi grid
  a| 
-Il software su tutti gli altri nodi griglia viene aggiornato nell'ordine in cui vengono approvati i nodi. Ogni nodo del sistema verrà spento uno alla volta.
+Il software su tutti gli altri nodi della griglia viene aggiornato nell'ordine in cui vengono approvati i nodi. Viene eseguito l'upgrade di un nodo di gateway o amministratore contemporaneamente a un nodo di storage.
  a| 
 da 15 minuti a 1 ora per nodo, con nodi appliance che richiedono il maggior numero di tempo
 

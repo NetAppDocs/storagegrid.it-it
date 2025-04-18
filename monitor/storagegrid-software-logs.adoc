@@ -14,7 +14,7 @@ summary: È possibile utilizzare i registri di StorageGRID per risolvere i probl
 È possibile utilizzare i registri di StorageGRID per risolvere i problemi.
 
 
-NOTE: Se si desidera inviare i registri a un server syslog esterno o modificare la destinazione delle informazioni di controllo, ad esempio `bycast.log` e `nms.log`, vedere link:../monitor/configure-audit-messages.html#["Configurare i messaggi di audit e le destinazioni dei log"].
+NOTE: Se si desidera inviare i registri a un server syslog esterno o modificare la destinazione delle informazioni di controllo, ad esempio `bycast.log` e `nms.log`, vedere link:../monitor/configure-audit-messages.html#["Configurare i messaggi di controllo e il server syslog esterno"].
 
 
 

@@ -15,6 +15,8 @@ I servizi della piattaforma includono la replica di CloudMirror, le notifiche de
 
 Se si abilitano i servizi della piattaforma per gli account tenant S3, è necessario configurare il grid in modo che i tenant possano accedere alle risorse esterne necessarie per l'utilizzo di questi servizi.
 
+I servizi della piattaforma non sono supportati per link:../tenant/manage-branch-buckets.html["benne per filiali"].
+
 
 
 == Replica di CloudMirror
@@ -23,17 +25,16 @@ Il servizio di replica di StorageGRID CloudMirror viene utilizzato per eseguire 
 
 Ad esempio, è possibile utilizzare la replica di CloudMirror per eseguire il mirroring di record specifici dei clienti in Amazon S3 e sfruttare i servizi AWS per eseguire analisi dei dati.
 
+La replica di CloudMirror presenta alcune importanti analogie differenze con la funzionalità di replica cross-grid. Per ulteriori informazioni, vedere link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Confronta la replica cross-grid e la replica CloudMirror"].
 
-NOTE: La replica di CloudMirror presenta alcune importanti analogie differenze con la funzionalità di replica cross-grid. Per ulteriori informazioni, vedere link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Confronta la replica cross-grid e la replica CloudMirror"].
 
-
-NOTE: La replica di CloudMirror non è supportata se il bucket di origine ha attivato il blocco oggetti S3.
+NOTE: La replica di CloudMirror non è supportata se il bucket di origine ha S3 Object Lock abilitato.
 
 
 
 == Notifiche
 
-Le notifiche degli eventi per bucket vengono utilizzate per inviare notifiche su azioni specifiche eseguite su oggetti a un cluster Kafka esterno specifico o ad Amazon Simple Notification Service.
+Le notifiche degli eventi per bucket vengono utilizzate per inviare notifiche su azioni specifiche eseguite su oggetti a un cluster Kafka esterno specificato, un endpoint webhook o Amazon Simple Notification Service.
 
 Ad esempio, è possibile configurare gli avvisi da inviare agli amministratori in merito a ciascun oggetto aggiunto a un bucket, in cui gli oggetti rappresentano i file di registro associati a un evento di sistema critico.
 

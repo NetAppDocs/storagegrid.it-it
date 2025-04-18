@@ -33,28 +33,6 @@ NOTE: Contattare il supporto tecnico se un'attività non termina o non rilascia 
 . Prima di eseguire l'aggiornamento, consultare la link:../network/internal-grid-node-communications.html["Comunicazioni interne al nodo di rete"] e link:../network/external-communications.html["Comunicazioni esterne"]la per assicurarsi che tutte le porte richieste per StorageGRID 11,9 siano aperte.
 +
 
-NOTE: Non sono richieste porte aggiuntive per l'upgrade a StorageGRID 11,9.
-
-+
-La seguente porta richiesta è stata aggiunta in StorageGRID 11,7. Assicurarsi che sia disponibile prima di eseguire l'aggiornamento a StorageGRID 11,9.
-
-+
-[cols="1a,2a"]
-|===
-| Porta | Descrizione 
+NOTE: Non sono richieste porte aggiuntive per l'upgrade a StorageGRID 12,0.
 
 
- a| 
-18086
- a| 
-Porta TCP utilizzata per le richieste S3 dal bilanciamento del carico StorageGRID a LDR e al nuovo servizio LDR.
-
-Prima di eseguire l'aggiornamento, verificare che la porta sia aperta da tutti i nodi della griglia a tutti i nodi di archiviazione.
-
-Il blocco di questa porta causerà S3 interruzioni del servizio dopo l'aggiornamento a StorageGRID 11,9.
-
-|===
-
-
-
-CAUTION: Se sono state aperte porte firewall personalizzate, viene inviata una notifica durante la verifica preliminare dell'aggiornamento. È necessario contattare il supporto tecnico prima di procedere con l'aggiornamento.

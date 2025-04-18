@@ -116,7 +116,7 @@ audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):16729436
 
 . Se le scritture del client non sono normali, utilizzare l'ID tenant dell'avviso per identificare il tenant:
 +
-.. Accedere a *SUPPORT* > *Tools* > *Logs*. Raccogliere i log delle applicazioni per il nodo di storage nell'avviso. Specificare 15 minuti prima e dopo l'avviso.
+.. Accedere a *SUPPORT* > *Tools* > *Logs*. Raccogliere i log delle applicazioni per il nodo di storage nell'avviso. Specificare 15 minuti prima e dopo l'avviso. Fare riferimento alla link:../monitor/collecting-log-files-and-system-data.html["Raccogliere i file di log e i dati di sistema"].
 .. Estrarre il file e andare a `bycast.log`:
 +
 `/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`

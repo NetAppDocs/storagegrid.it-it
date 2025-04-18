@@ -75,8 +75,6 @@ La link:../monitor/viewing-nodes-page.html["Pagina nodi"] visualizza le informaz
 
 La home page dei nodi visualizza le metriche combinate per l'intera griglia. Per visualizzare le informazioni relative a un determinato sito o nodo, selezionare il sito o nodo.
 
-image::../media/nodes_page.png[pagina principale nodi]
-
 
 
 == Pagina tenant
@@ -84,8 +82,6 @@ image::../media/nodes_page.png[pagina principale nodi]
 La link:../admin/managing-tenants.html["Pagina tenant"] consente di link:../tenant/index.html["creare e monitorare gli account tenant di storage"]utilizzare il sistema StorageGRID. È necessario creare almeno un account tenant per specificare chi può memorizzare e recuperare gli oggetti e quali funzionalità sono disponibili.
 
 La pagina tenant fornisce inoltre dettagli sull'utilizzo di ciascun tenant, tra cui la quantità di storage utilizzato e il numero di oggetti. Se si imposta una quota al momento della creazione del tenant, è possibile visualizzare la quantità di tale quota utilizzata.
-
-image::../media/tenants_page.png[Menu e pagina dei tenant]
 
 
 
@@ -145,7 +141,7 @@ Le attività di sistema includono:
 * Utilizzo link:../admin/grid-federation-overview.html["federazione di grid"] per clonare le informazioni degli account tenant e replicare i dati degli oggetti tra due sistemi StorageGRID.
 * Se si desidera, attivare l'link:../admin/configuring-stored-object-compression.html["Compressione degli oggetti memorizzati"]opzione.
 * link:../ilm/managing-objects-with-s3-object-lock.html["Gestione del blocco oggetti S3"]
-* Informazioni sulle opzioni di archiviazione come link:../admin/what-object-segmentation-is.html["segmentazione degli oggetti"] e link:../admin/what-storage-volume-watermarks-are.html["filigrane dei volumi di storage"].
+* Informazioni sulle impostazioni di archiviazione come link:../admin/what-object-segmentation-is.html["segmentazione degli oggetti"] e link:../admin/what-storage-volume-watermarks-are.html["filigrane dei volumi di storage"].
 * link:../ilm/manage-erasure-coding-profiles.html["Gestire i profili di erasure coding"].
 
 
@@ -169,7 +165,7 @@ Le attività di controllo degli accessi includono:
 * link:../admin/managing-users.html["Gestione degli utenti amministratori"]
 * Modifica di link:../admin/changing-provisioning-passphrase.html["passphrase di provisioning"]o. link:../admin/change-node-console-password.html["password della console dei nodi"]
 * link:../admin/using-identity-federation.html["Utilizzo della federazione delle identità"]
-* link:../admin/configuring-sso.html["Configurazione di SSO"]
+* link:../admin/how-sso-works.html["Configure SSO (Configura SNMP)"]
 
 
 
@@ -200,7 +196,7 @@ Le attività di manutenzione includono:
 Le attività di manutenzione del sistema che è possibile eseguire includono:
 
 * link:../admin/viewing-storagegrid-license-information.html["Visualizzazione delle informazioni sulla licenza StorageGRID"] o. link:../admin/updating-storagegrid-license-information.html["aggiornamento delle informazioni sulla licenza"]
-* Generazione e download di link:../maintain/downloading-recovery-package.html["Pacchetto di ripristino"]
+* Generazione e download di link:../maintain/downloading-recovery-package.html["pacchetto di ripristino"]
 * Esecuzione di aggiornamenti software StorageGRID, inclusi aggiornamenti software, hotfix e aggiornamenti del software SANtricity OS su alcune appliance
 +
 ** link:../upgrade/index.html["Procedura di aggiornamento"]

@@ -18,22 +18,22 @@
 
 * Per monitorare la riparazione in modo più dettagliato:
 +
-.. Selezionare *SUPPORT* > *Tools* > *Grid topology*.
-.. Selezionare *_Grid_* > *_Storage Node in riparazione_* > *LDR* > *Data Store*.
-.. Utilizzare una combinazione dei seguenti attributi per determinare, come possibile, se le riparazioni replicate sono complete.
+.. Selezionare *NODI*.
+.. Selezionare *_grid name_* > *ILM*.
+.. Posizionare il cursore sul grafico della coda ILM per visualizzare il valore dell'attributo *velocità di scansione (oggetti/sec)*, ovvero la velocità con cui gli oggetti nella griglia vengono sottoposti a scansione e accodati per ILM.
+.. Nella sezione coda ILM, osservare i seguenti attributi:
 +
-
-NOTE: Le incongruenze di Cassandra potrebbero essere presenti e le riparazioni non riuscite non vengono monitorate.
-
+*** *Periodo di scansione - stimato*: Il tempo stimato per completare una scansione ILM completa di tutti gli oggetti.
 +
-*** *Tentativi di riparazione (XRPA)*: Utilizzare questo attributo per tenere traccia dell'avanzamento delle riparazioni replicate. Questo attributo aumenta ogni volta che un nodo di storage tenta di riparare un oggetto ad alto rischio. Quando questo attributo non aumenta per un periodo superiore al periodo di scansione corrente (fornito dall'attributo *Scan Period -- Estimated*), significa che la scansione ILM non ha rilevato oggetti ad alto rischio che devono essere riparati su alcun nodo.
+Una scansione completa non garantisce che ILM sia stato applicato a tutti gli oggetti.
+
+*** *Riparazioni tentate*: Il numero totale di operazioni di riparazione degli oggetti per i dati replicati che sono stati tentati. Questo numero aumenta ogni volta che un nodo di storage tenta di riparare un oggetto ad alto rischio. Le riparazioni ILM ad alto rischio hanno la priorità se la rete diventa occupata.
 +
-
-NOTE: Gli oggetti ad alto rischio sono oggetti che rischiano di essere completamente persi. Non sono inclusi oggetti che non soddisfano la configurazione ILM.
-
-*** *Periodo di scansione -- stimato (XSCM)*: Utilizzare questo attributo per stimare quando verrà applicata una modifica di policy agli oggetti precedentemente acquisiti. Se l'attributo *riparazioni tentate* non aumenta per un periodo superiore al periodo di scansione corrente, è probabile che vengano eseguite riparazioni replicate. Si noti che il periodo di scansione può cambiare. L'attributo *Scan Period -- Estimated (XSCM)* si applica all'intera griglia ed è il massimo di tutti i periodi di scansione del nodo. È possibile eseguire una query nella cronologia degli attributi *Scan Period -- Estimated* per la griglia per determinare un intervallo di tempo appropriato.
+La stessa riparazione dell'oggetto potrebbe aumentare di nuovo se la replica non è riuscita dopo la riparazione. + questi attributi possono essere utili quando si monitora l'avanzamento del ripristino del volume del nodo di archiviazione. Se il numero di riparazioni tentate ha smesso di aumentare ed è stata completata una scansione completa, la riparazione probabilmente è stata completata.
 
 
+
+.. In alternativa, inviare una richiesta Prometheus per `storagegrid_ilm_scan_period_estimated_minutes` e `storagegrid_ilm_repairs_attempted`.
 
 
 

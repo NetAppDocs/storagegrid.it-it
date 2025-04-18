@@ -1,0 +1,22 @@
+---
+permalink: monitor/using-task-tab.html 
+sidebar: sidebar 
+keywords: Tasks tab, rename node, reboot node, storage state, maintenance mode 
+summary: Viene visualizzata la scheda attività per tutti i nodi. È possibile utilizzare questa scheda per rinominare o riavviare un nodo o per impostare un nodo appliance in modalità di manutenzione. Per i nodi di archiviazione, è possibile impostare lo stato di archiviazione. 
+---
+= Utilizzare la scheda attività
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Viene visualizzata la scheda attività per tutti i nodi. È possibile utilizzare questa scheda per rinominare o riavviare un nodo o per impostare un nodo appliance in modalità di manutenzione. Per i nodi di archiviazione, è possibile impostare lo stato di archiviazione.
+
+Per i requisiti e le istruzioni completi per ciascuna opzione di questa scheda, vedere quanto segue:
+
+* link:../maintain/rename-grid-site-node-overview.html["Rinominare la griglia, i siti e i nodi"]
+* link:../maintain/rebooting-grid-node-from-grid-manager.html["Nodo di reboot grid"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["Impostare l'apparecchio in modalità di manutenzione"^]
+* È possibile verificare o impostare lo stato di archiviazione di un nodo di archiviazione dopo aver aggiunto volumi DAS o SAN al nodo di archiviazione o dopo aver ripristinato un nodo di archiviazione. Tali istruzioni sono disponibili negli argomenti che descrivono queste attività.
+

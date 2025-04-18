@@ -2,7 +2,7 @@
 permalink: audit/shea-s3-head.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, SHEA, S3 HEAD 
-summary: 'Quando un client S3 esegue una transazione HEAD, viene effettuata una richiesta per verificare l"esistenza di un oggetto o bucket e recuperare i metadati relativi a un oggetto. Questo messaggio viene emesso dal server se la transazione ha esito positivo.' 
+summary: 'Quando un client S3 esegue un"operazione HEAD, viene effettuata una richiesta per verificare l"esistenza di un oggetto o di un bucket e recuperare i metadati relativi a un oggetto. Questo messaggio viene emesso dal server se l"operazione ha esito positivo.' 
 ---
 = SHEA: TESTA S3
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Quando un client S3 esegue una transazione HEAD, viene effettuata una 
 
 
 [role="lead"]
-Quando un client S3 esegue una transazione HEAD, viene effettuata una richiesta per verificare l'esistenza di un oggetto o bucket e recuperare i metadati relativi a un oggetto. Questo messaggio viene emesso dal server se la transazione ha esito positivo.
+Quando un client S3 esegue un'operazione HEAD, viene effettuata una richiesta per verificare l'esistenza di un oggetto o di un bucket e recuperare i metadati relativi a un oggetto. Questo messaggio viene emesso dal server se l'operazione ha esito positivo.
 
 [cols="1a,1a,4a"]
 |===

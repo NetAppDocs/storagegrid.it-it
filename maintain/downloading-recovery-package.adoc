@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery package 
 summary: Il file del pacchetto di ripristino consente di ripristinare il sistema StorageGRID in caso di errore. 
 ---
-= Scarica Recovery Package
+= Scaricare il pacchetto di ripristino
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

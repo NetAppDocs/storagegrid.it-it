@@ -17,4 +17,4 @@ Queste istruzioni sono destinate agli amministratori responsabili della produzio
 
 Per utilizzare il file di log di testo, è necessario disporre dell'accesso alla condivisione di audit configurata nel nodo di amministrazione.
 
-Per informazioni sulla configurazione dei livelli dei messaggi di controllo e sull'utilizzo di un server syslog esterno, vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"].
+Per informazioni sulla configurazione dei livelli dei messaggi di controllo e sull'utilizzo di un server syslog esterno, vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di controllo e il server syslog esterno"].

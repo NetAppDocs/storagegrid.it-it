@@ -125,14 +125,16 @@ Quando link:../monitor/grid-federation-monitor-connections.html["visualizzazione
 image::../media/grid-federation-last-error.png[Schermata che mostra un messaggio nella colonna Last error (ultimo errore) di una connessione a federazione di griglie]
 
 .Dettagli
-Per ogni connessione a federazione di griglie, la colonna *ultimo errore* mostra l'errore più recente che si verifica, se presente, quando i dati di un tenant venivano replicati nell'altro grid. In questa colonna viene visualizzato solo l'ultimo errore di replica tra griglie; gli errori precedenti che potrebbero essere stati rilevati non verranno visualizzati. In questa colonna potrebbe verificarsi un errore per uno dei seguenti motivi:
+Per ogni connessione a federazione di griglie, la colonna *ultimo errore* mostra l'errore più recente che si verifica, se presente, quando i dati di un tenant venivano replicati nell'altro grid. In questa colonna viene visualizzato solo l'ultimo errore di replica cross-grid; gli errori precedenti che si sono verificati non vengono visualizzati. In questa colonna potrebbe verificarsi un errore per uno dei seguenti motivi:
 
-* Versione dell'oggetto di origine non trovata.
-* Bucket di origine non trovato.
+* La versione dell'oggetto di origine non è stata trovata.
+* Il bucket della sorgente non è stato trovato.
 * Il bucket di destinazione è stato cancellato.
 * Il bucket di destinazione è stato ricreato da un account diverso.
 * Il bucket di destinazione ha la versione sospesa.
 * Il bucket di destinazione è stato ricreato dallo stesso account, ma ora non è più disponibile.
+* L'oggetto di origine dispone di impostazioni di blocco degli oggetti S3 che non sono conformi alle impostazioni di conservazione a livello di tenant della griglia di destinazione.
+* L'oggetto di origine dispone di S3 impostazioni di blocco degli oggetti e S3 blocco degli oggetti è disattivato nel bucket di destinazione.
 
 
 .Azioni consigliate
@@ -181,7 +183,6 @@ Questo avviso indica che gli oggetti tenant non possono essere replicati tra i b
 +
 ** Esiste un bucket corrispondente per lo stesso tenant sull'altra griglia (deve utilizzare il nome esatto).
 ** Entrambi i bucket hanno attivato la versione degli oggetti (la versione non può essere sospesa su nessuna griglia).
-** Entrambi i bucket hanno S3 Object Lock disattivato.
 ** Nessuno dei due bucket si trova nello stato *Deleting Objects: Read-only*.
 
 

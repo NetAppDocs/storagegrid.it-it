@@ -21,7 +21,7 @@ Prima di eseguire la decommissionazione di un nodo di rete, è necessario ottene
  a| 
 File pacchetto di ripristino `.zip`
  a| 
-È necessario link:downloading-recovery-package.html["Scarica il pacchetto di ripristino più recente"] `.zip` archiviare (`sgws-recovery-package-_id-revision_.zip`). È possibile utilizzare il file Recovery Package per ripristinare il sistema in caso di errore.
+È necessario link:downloading-recovery-package.html["scaricare il pacchetto di ripristino più recente"] `.zip` archiviare (`sgws-recovery-package-_id-revision_.zip`). È possibile utilizzare il file del pacchetto di ripristino per ripristinare il sistema in caso di errore.
 
 
 
