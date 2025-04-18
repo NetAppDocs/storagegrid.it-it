@@ -14,7 +14,7 @@ summary: I file dei registri di controllo vengono salvati nella directory /var/l
 I file dei registri di controllo vengono salvati nella directory di un nodo amministrativo `/var/local/log`. I file di registro di controllo attivi sono denominati `audit.log`.
 
 
-NOTE: In alternativa, è possibile modificare la destinazione dei registri di controllo e inviare le informazioni di controllo a un server syslog esterno. I registri locali dei record di controllo continuano a essere generati e memorizzati quando viene configurato un server syslog esterno. Vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di controllo e il server syslog esterno"].
+NOTE: In alternativa, è possibile modificare la destinazione dei registri di controllo e inviare le informazioni di controllo a un server syslog esterno. I registri locali dei record di controllo continuano a essere generati e memorizzati quando viene configurato un server syslog esterno. Vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"].
 
 Una volta al giorno, il file attivo `audit.log` viene salvato e viene avviato un nuovo `audit.log` file. Il nome del file salvato indica quando è stato salvato, nel formato `_yyyy-mm-dd.txt_`. Se in un solo giorno vengono creati più log di controllo, i nomi dei file utilizzano la data in cui il file è stato salvato, seguita da un numero, nel formato `_yyyy-mm-dd.txt.n_`. Ad esempio, `2018-04-15.txt` e `2018-04-15.txt.1` sono il primo e il secondo file di registro creati e salvati il 15 aprile 2018.
 

@@ -15,8 +15,8 @@ summary: 'È necessario utilizzare Active Directory Federation Services (ad FS) 
 
 .Prima di iniziare
 * È stato configurato Single Sign-on per StorageGRID ed è stato selezionato *ad FS* come tipo di SSO.
-* link:../admin/configure-sso.html#enter-sandbox-mode-adfs["è stata attivata la modalità sandbox"]In Grid Manager.
-* Si conoscono il nome di dominio completo (o l'indirizzo IP) e l'identificativo della parte di base per ciascun nodo di amministrazione nel sistema. Questi valori sono disponibili nella tabella dei dettagli dei nodi amministrativi della pagina Configura SSO di StorageGRID.
+* *La modalità Sandbox* è selezionata nella pagina Single Sign-on di Grid Manager. Vedere link:../admin/using-sandbox-mode.html["USA la modalità sandbox"].
+* Si conoscono il nome di dominio completo (o l'indirizzo IP) e l'identificativo della parte di base per ciascun nodo di amministrazione nel sistema. Questi valori sono disponibili nella tabella dei dettagli dei nodi di amministrazione nella pagina accesso singolo StorageGRID.
 +
 
 NOTE: È necessario creare un trust per ciascun nodo amministratore nel sistema StorageGRID. La disponibilità di un trust per ciascun nodo di amministrazione garantisce che gli utenti possano accedere e uscire in modo sicuro da qualsiasi nodo di amministrazione.
@@ -88,7 +88,7 @@ Se i metadati non sono presenti, verificare che l'indirizzo dei metadati della f
 
 
 . Ripetere questa procedura per configurare un trust per tutti i nodi di amministrazione nel sistema StorageGRID.
-. Al termine, tornare a StorageGRID e link:../admin/configure-sso.html#test-sso["verificare tutti i trust delle parti di base"]confermare che sono configurati correttamente.
+. Una volta completata l'operazione, tornare a StorageGRID e verificare tutti i trust delle parti di base per verificare che siano configurati correttamente. Vedere link:using-sandbox-mode.html["Utilizzare la modalità Sandbox"] per istruzioni.
 
 
 
@@ -139,7 +139,7 @@ Se i metadati non sono presenti, verificare che l'indirizzo dei metadati della f
 
 
 . Ripetere questa procedura per configurare un trust per tutti i nodi di amministrazione nel sistema StorageGRID.
-. Al termine, tornare a StorageGRID e link:../admin/configure-sso.html#test-sso["verificare tutti i trust delle parti di base"]confermare che siano configurati correttamente.
+. Una volta completata l'operazione, tornare a StorageGRID e verificare tutti i trust delle parti di base per verificare che siano configurati correttamente. Vedere link:using-sandbox-mode.html["Utilizzare la modalità Sandbox"] per istruzioni.
 
 
 
@@ -233,5 +233,5 @@ Le proprietà della parte di base vengono salvate e chiuse.
 
 
 . Ripetere questa procedura per configurare un trust per tutti i nodi di amministrazione nel sistema StorageGRID.
-. Al termine, tornare a StorageGRID e link:../admin/configure-sso.html#test-sso["verificare tutti i trust delle parti di base"]confermare che siano configurati correttamente.
+. Una volta completata l'operazione, tornare a StorageGRID e verificare tutti i trust delle parti di base per verificare che siano configurati correttamente. Vedere link:using-sandbox-mode.html["USA la modalità sandbox"] per istruzioni.
 

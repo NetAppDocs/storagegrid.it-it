@@ -29,7 +29,7 @@ Per impostazione predefinita, le informazioni di controllo vengono inviate al re
 * È stato specificato esplicitamente che i messaggi di audit devono essere salvati solo sui nodi locali che li hanno generati.
 
 
-Per ulteriori informazioni, vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di controllo e il server syslog esterno"] .
+Per ulteriori informazioni, vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"] .
 
 ====
 .Fasi

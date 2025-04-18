@@ -180,6 +180,25 @@ Le richieste dei Cloud Storage Pools vengono inviate alle destinazioni AWS che u
 
 
  a| 
+111
+ a| 
+TCP/UDP
+ a| 
+Rpcbind
+ a| 
+Client NFS
+ a| 
+Nodi di amministrazione
+ a| 
+Utilizzato dall'esportazione di audit basata su NFS (portmap).
+
+*Nota:* questa porta è richiesta solo se è abilitata l'esportazione di controllo basata su NFS.
+
+*Nota:* il supporto per NFS è stato obsoleto e verrà rimosso in una versione futura.
+
+
+
+ a| 
 123
  a| 
 UDP
@@ -310,6 +329,25 @@ Le richieste dei Cloud Storage Pools vengono inviate alle destinazioni AWS che u
 
 
  a| 
+903
+ a| 
+TCP
+ a| 
+NFS
+ a| 
+Client NFS
+ a| 
+Nodi di amministrazione
+ a| 
+Utilizzato dall'esportazione di controllo basata su NFS (`rpc.mountd`).
+
+*Nota:* questa porta è richiesta solo se è abilitata l'esportazione di controllo basata su NFS.
+
+*Nota:* il supporto per NFS è stato obsoleto e verrà rimosso in una versione futura.
+
+
+
+ a| 
 2022
  a| 
 TCP
@@ -321,6 +359,25 @@ Laptop di assistenza
 Tutti i nodi
  a| 
 L'accesso a SSH o alla console è necessario per le procedure con le procedure della console. In alternativa, è possibile utilizzare la porta 22 invece di 2022.
+
+
+
+ a| 
+2049
+ a| 
+TCP
+ a| 
+NFS
+ a| 
+Client NFS
+ a| 
+Nodi di amministrazione
+ a| 
+Utilizzato da NFS (NFS-based audit export).
+
+*Nota:* questa porta è richiesta solo se è abilitata l'esportazione di controllo basata su NFS.
+
+*Nota:* il supporto per NFS è stato obsoleto e verrà rimosso in una versione futura.
 
 
 

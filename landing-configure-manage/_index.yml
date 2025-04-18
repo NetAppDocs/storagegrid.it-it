@@ -30,7 +30,7 @@ indexpage:
     - title: Autorizzazioni del gruppo di amministrazione
       url: "../admin/admin-group-permissions.html"
     - title: Configurare il single sign-on
-      url: "../admin/how-sso-works.html"
+      url: "../admin/configuring-sso.html"
   - title: USA la federazione di grid
     links:
     - title: Che cos'è la federazione di griglie?

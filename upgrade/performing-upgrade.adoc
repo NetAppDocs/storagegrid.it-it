@@ -65,7 +65,7 @@ L'esecuzione dei controlli preliminari consente di rilevare e risolvere eventual
 . Per il passaggio *Esegui controlli preliminari*, iniziare inserendo la passphrase di provisioning per la griglia.
 . Selezionare *Download recovery package* (Scarica pacchetto di ripristino).
 +
-È necessario scaricare la copia corrente del file del pacchetto di ripristino prima di aggiornare il nodo amministrativo primario. Il file del pacchetto di ripristino consente di ripristinare il sistema in caso di errore.
+Scaricare la copia corrente del file del pacchetto di ripristino prima di aggiornare il nodo di amministrazione primario. Il file Recovery Package consente di ripristinare il sistema in caso di errore.
 
 . Una volta scaricato il file, confermare di poter accedere al contenuto, incluso il `Passwords.txt` file.
 . Copiare il file scaricato (`.zip`) in due posizioni sicure, sicure e separate.
@@ -129,13 +129,13 @@ NOTE: Quando l'aggiornamento inizia su un nodo grid, i servizi su quel nodo veng
 . Per la fase *Upgrade other Nodes* (Aggiorna altri nodi), consultare il Riepilogo, che fornisce l'ora di inizio dell'aggiornamento nel suo complesso e lo stato di ogni importante attività di upgrade.
 +
 ** *Avvia servizio di aggiornamento* è la prima attività di aggiornamento. Durante questa attività, il file software viene distribuito ai nodi grid e il servizio di aggiornamento viene avviato su ciascun nodo.
-** Quando l'attività *Avvia servizio di aggiornamento* è completata, viene avviata l'attività *Aggiorna altri nodi griglia* e viene richiesto di scaricare una nuova copia del pacchetto di ripristino.
+** Una volta completata l'attività *Avvia aggiornamento*, viene avviata l'attività *Aggiorna altri nodi della griglia* e viene richiesto di scaricare una nuova copia del pacchetto di ripristino.
 
 
-. Quando richiesto, immettere la passphrase di provisioning e scaricare una nuova copia del pacchetto di ripristino.
+. Quando richiesto, inserire la passphrase di provisioning e scaricare una nuova copia del pacchetto di ripristino.
 +
 
-CAUTION: È necessario scaricare una nuova copia del file del pacchetto di ripristino dopo l'aggiornamento del nodo amministrativo primario. Il file del pacchetto di ripristino consente di ripristinare il sistema in caso di errore.
+CAUTION: Una volta aggiornato il nodo di amministrazione primario, è necessario scaricare una nuova copia del file del pacchetto di ripristino. Il file Recovery Package consente di ripristinare il sistema in caso di errore.
 
 . Esaminare le tabelle di stato per ciascun tipo di nodo. Sono presenti tabelle per i nodi amministrativi non primari, i nodi gateway e i nodi storage.
 +

@@ -2,7 +2,7 @@
 permalink: upgrade/changes-to-grid-management-api.html 
 sidebar: sidebar 
 keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
-summary: 'StorageGRID 12,0 utilizza la versione 4 dell"API di gestione delle griglie. La versione 4 depreca la versione 3; tuttavia, le versioni 1, 2 e 3 sono ancora supportate.' 
+summary: 'StorageGRID 11,9 utilizza la versione 4 dell"API di gestione delle griglie. La versione 4 depreca la versione 3; tuttavia, le versioni 1, 2 e 3 sono ancora supportate.' 
 ---
 = Modifiche all'API Grid Management
 :allow-uri-read: 
@@ -11,21 +11,42 @@ summary: 'StorageGRID 12,0 utilizza la versione 4 dell"API di gestione delle gri
 
 
 [role="lead"]
-StorageGRID 12,0 utilizza la versione 4 dell'API di gestione delle griglie. La versione 4 depreca la versione 3; tuttavia, le versioni 1, 2 e 3 sono ancora supportate.
+StorageGRID 11,9 utilizza la versione 4 dell'API di gestione delle griglie. La versione 4 depreca la versione 3; tuttavia, le versioni 1, 2 e 3 sono ancora supportate.
 
 
-NOTE: È possibile continuare a utilizzare versioni obsolete dell'API di gestione con StorageGRID 12,0; tuttavia, il supporto per queste versioni dell'API verrà rimosso in una versione futura di StorageGRID. Dopo l'aggiornamento a StorageGRID 12,0, è possibile disattivare le API obsolete utilizzando l' `PUT /grid/config/management`API.
+NOTE: È possibile continuare a utilizzare versioni obsolete dell'API di gestione con StorageGRID 11,9; tuttavia, il supporto per queste versioni dell'API verrà rimosso in una versione futura di StorageGRID. Dopo l'aggiornamento a StorageGRID 11,9, è possibile disattivare le API obsolete utilizzando l' `PUT /grid/config/management`API.
 
 Per ulteriori informazioni, visitare il sito Web all'indirizzo link:../admin/using-grid-management-api.html["Utilizzare l'API Grid Management"].
 
 
 
-== Nuovi endpoint privati per spostare ADC
+== Rivedere le impostazioni di conformità dopo l'attivazione del blocco oggetti S3 globale
 
-Sono stati aggiunti i seguenti endpoint privati per consentire di passare link:../maintain/move-adc-service.html["Spostare il servizio ADC"] da un nodo di storage a un altro nello stesso sito:
+Rivedere le impostazioni di conformità dei tenant esistenti dopo aver attivato l'impostazione blocco oggetto S3 globale. Quando si attiva questa impostazione, le impostazioni di blocco degli oggetti S3 per tenant dipendono dalla release di StorageGRID al momento della creazione del tenant.
 
-`/private/move-adc`
 
-`/private/move-adc/start`
 
-`/private/move-adc/retry`
+== Richieste api di gestione legacy rimosse
+
+Queste richieste legacy sono state rimosse:
+
+`/grid/server-types`
+
+`/grid/ntp-roles`
+
+
+
+== Modifiche all' `GET /private/storage-usage`API
+
+* Una nuova proprietà, `usageCacheDuration`, è stata aggiunta al corpo della risposta. Questa proprietà specifica la durata (in secondi) per la quale la cache di ricerca dell'utilizzo rimane valida. Questo valore si applica al momento di verificare l'utilizzo rispetto ai limiti di quota di storage del tenant e di capacità del bucket.
+* Il `GET /api/v4/private/storage-usage` comportamento è stato corretto in modo che corrisponda al nesting dallo schema.
+* Queste modifiche si applicano solo all'API privata.
+
+
+
+
+== Modifiche all' `GET cross-grid-replication`API
+
+L'API di RECUPERO */org/containers/:name/cross-grid-Replication* non richiede più l'(`rootAccess`autorizzazione di accesso root ); tuttavia, è necessario appartenere a un gruppo di utenti che dispone dell'(`viewAllContainers`autorizzazione Gestisci tutti i bucket (`manageAllContainers`) o Visualizza tutti i bucket ).
+
+L'API PUT */org/containers/:name/cross-grid-Replication* è invariata e richiede comunque l'(`rootAccess`autorizzazione root access ).

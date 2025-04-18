@@ -19,15 +19,13 @@ StorageGRID utilizza due tipi di certificati di sicurezza:
 * *Certificati client* autenticano un'identità del client o dell'utente sul server, fornendo un'autenticazione più sicura rispetto alle sole password. I certificati client non crittografano i dati.
 
 
-Quando un client si connette al server utilizzando HTTPS, il server risponde con il certificato del server, che contiene una chiave pubblica. Il client confronta la firma del server con la firma sulla sua copia del certificato. Se le firme corrispondono, il client avvia una sessione con il server utilizzando la stessa chiave pubblica.
+Quando un client si connette al server utilizzando HTTPS, il server risponde con il certificato del server, che contiene una chiave pubblica. Il client verifica questo certificato confrontando la firma del server con la firma sulla copia del certificato. Se le firme corrispondono, il client avvia una sessione con il server utilizzando la stessa chiave pubblica.
 
 StorageGRID funziona come server per alcune connessioni (come l'endpoint del bilanciamento del carico) o come client per altre connessioni (come il servizio di replica di CloudMirror).
 
 *Certificato Grid CA predefinito*
 
-StorageGRID dispone di un'autorità di certificazione (CA) incorporata che genera un certificato CA griglia interno durante l'installazione del sistema. Il certificato Grid CA viene utilizzato, per impostazione predefinita, per proteggere il traffico StorageGRID interno. Un'autorità di certificazione esterna (CA) può emettere certificati personalizzati pienamente conformi ai criteri di sicurezza delle informazioni dell'organizzazione.
-
-Utilizzare il certificato Grid CA per ambienti non di produzione. Per la produzione, utilizzare certificati personalizzati firmati da un'autorità di certificazione esterna. Le connessioni non protette senza certificato sono supportate ma non consigliate.
+StorageGRID include un'autorità di certificazione (CA) incorporata che genera un certificato Grid CA interno durante l'installazione del sistema. Il certificato Grid CA viene utilizzato, per impostazione predefinita, per proteggere il traffico StorageGRID interno. Un'autorità di certificazione esterna (CA) può emettere certificati personalizzati pienamente conformi ai criteri di sicurezza delle informazioni dell'organizzazione. Sebbene sia possibile utilizzare il certificato Grid CA per un ambiente non di produzione, la procedura consigliata per un ambiente di produzione consiste nell'utilizzare certificati personalizzati firmati da un'autorità di certificazione esterna. Sono supportate anche connessioni non protette senza certificato, ma non sono consigliate.
 
 * I certificati CA personalizzati non rimuovono i certificati interni; tuttavia, i certificati personalizzati devono essere quelli specificati per la verifica delle connessioni al server.
 * Tutti i certificati personalizzati devono soddisfare la link:../harden/hardening-guideline-for-server-certificates.html["linee guida per la protezione avanzata del sistema per i certificati server"].
@@ -454,7 +452,7 @@ Autentica la connessione tra i servizi di federazione delle identità, come ad F
  a| 
 *CONFIGURAZIONE* > *controllo di accesso* > *Single Sign-on*
  a| 
-link:how-sso-works.html["Configurare il single sign-on"]
+link:configuring-sso.html["Configurare il single sign-on"]
 
 |===
 
@@ -471,7 +469,7 @@ In questo esempio, StorageGRID agisce come server.
 . Si configura una connessione client S3 all'endpoint del bilanciamento del carico e si carica lo stesso certificato sul client.
 . Quando il client desidera salvare o recuperare i dati, si connette all'endpoint del bilanciamento del carico utilizzando HTTPS.
 . StorageGRID risponde con il certificato del server, che contiene una chiave pubblica, e con una firma basata sulla chiave privata.
-. Il client confronta la firma del server con la firma sulla sua copia del certificato. Se le firme corrispondono, il client avvia una sessione utilizzando la stessa chiave pubblica.
+. Il client verifica questo certificato confrontando la firma del server con la firma sulla copia del certificato. Se le firme corrispondono, il client avvia una sessione utilizzando la stessa chiave pubblica.
 . Il client invia i dati dell'oggetto a StorageGRID.
 
 

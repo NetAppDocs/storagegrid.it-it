@@ -33,17 +33,17 @@ Ogni nodo gateway o nodo amministratore potrebbe richiedere solo pochi minuti o 
 .Fasi
 . Non appena viene generato un nuovo pacchetto di ripristino, scaricare il file.
 +
-image::../media/decommission_site_step_6_recovery_package.png[Pacchetto di ripristino Site Decommission Step 6]
+image::../media/decommission_site_step_6_recovery_package.png[Pacchetto di ripristino fase 6 per la decommissionazione del sito]
 
 +
 
-NOTE: Scaricare il pacchetto di ripristino il prima possibile per assicurarsi di poter ripristinare la rete in caso di problemi durante la procedura di decommissionamento.
+NOTE: Scarica il pacchetto di ripristino il prima possibile per assicurarti di ripristinare la griglia in caso di problemi durante la procedura di decommissionamento.
 
 +
 .. Selezionare il collegamento nel messaggio o selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
 .. Scaricare il `.zip` file.
 +
-Vedere le istruzioni per link:downloading-recovery-package.html["download del pacchetto di ripristino"].
+Vedere le istruzioni per link:downloading-recovery-package.html["Download del pacchetto di ripristino"].
 
 
 

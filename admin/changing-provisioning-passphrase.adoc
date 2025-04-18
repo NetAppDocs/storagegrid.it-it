@@ -2,7 +2,7 @@
 permalink: admin/changing-provisioning-passphrase.html 
 sidebar: sidebar 
 keywords: provisioning passphrase, change passphrase 
-summary: Utilizzare questa procedura per modificare la passphrase di provisioning StorageGRID. La passphrase è necessaria per le procedure di ripristino, espansione e manutenzione. La passphrase è inoltre necessaria per scaricare i backup dei pacchetti di ripristino che includono le informazioni sulla topologia della griglia, le password della console del nodo della griglia e le chiavi di crittografia per il sistema StorageGRID. 
+summary: Utilizzare questa procedura per modificare la passphrase di provisioning StorageGRID. La passphrase è necessaria per le procedure di ripristino, espansione e manutenzione. La passphrase è necessaria anche per scaricare i backup del pacchetto di ripristino che includono le informazioni sulla topologia della griglia, le password della console del nodo della griglia e le chiavi di crittografia per il sistema StorageGRID. 
 ---
 = Modificare la passphrase di provisioning
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Utilizzare questa procedura per modificare la passphrase di provisionin
 
 
 [role="lead"]
-Utilizzare questa procedura per modificare la passphrase di provisioning StorageGRID. La passphrase è necessaria per le procedure di ripristino, espansione e manutenzione. La passphrase è inoltre necessaria per scaricare i backup dei pacchetti di ripristino che includono le informazioni sulla topologia della griglia, le password della console del nodo della griglia e le chiavi di crittografia per il sistema StorageGRID.
+Utilizzare questa procedura per modificare la passphrase di provisioning StorageGRID. La passphrase è necessaria per le procedure di ripristino, espansione e manutenzione. La passphrase è necessaria anche per scaricare i backup del pacchetto di ripristino che includono le informazioni sulla topologia della griglia, le password della console del nodo della griglia e le chiavi di crittografia per il sistema StorageGRID.
 
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
@@ -20,17 +20,14 @@ Utilizzare questa procedura per modificare la passphrase di provisioning Storage
 
 
 .A proposito di questa attività
-La passphrase di provisioning è necessaria per molte procedure di installazione e manutenzione e per link:../maintain/downloading-recovery-package.html["download del pacchetto di ripristino"]. La passphrase di provisioning non è elencata nel `Passwords.txt` file. Assicurarsi di documentare la passphrase di provisioning e conservarla in una posizione sicura.
+La passphrase di provisioning è necessaria per molte procedure di installazione e manutenzione e per link:../maintain/downloading-recovery-package.html["Download del pacchetto di ripristino"]. La passphrase di provisioning non è elencata nel `Passwords.txt` file. Assicurarsi di documentare la passphrase di provisioning e conservarla in una posizione sicura.
 
 .Fasi
 . Selezionare *CONFIGURATION* > *Access control*> *Grid passwords*.
 . In *Cambia passphrase di provisioning*, selezionare *effettua una modifica*
 . Inserire la passphrase di provisioning corrente.
 . Inserire la nuova passphrase. La passphrase deve contenere almeno 8 e non più di 32 caratteri. Le passphrase sono sensibili al maiuscolo/minuscolo.
-+
-
-CAUTION: Memorizzare la passphrase di provisioning in un luogo sicuro. È necessario per le procedure di installazione, espansione e manutenzione.
-
+. Memorizzare la nuova passphrase di provisioning in una posizione sicura. È necessario per le procedure di installazione, espansione e manutenzione.
 . Immettere nuovamente la nuova passphrase e selezionare *Save* (Salva).
 +
 Al termine della modifica della passphrase di provisioning, il sistema visualizza un banner verde di successo.
@@ -39,9 +36,9 @@ Al termine della modifica della passphrase di provisioning, il sistema visualizz
 image::../media/change_provisioning_passphrase_success.png[Messaggio di successo per la passphrase di provisioning modificato]
 
 . Selezionare *Recovery Package* (pacchetto di ripristino).
-. Immettere la nuova passphrase di provisioning per scaricare il nuovo pacchetto di ripristino.
+. Inserire la nuova passphrase di provisioning per scaricare il nuovo Recovery Package.
 +
 
-CAUTION: Dopo aver modificato la passphrase di provisioning, è necessario scaricare immediatamente un nuovo pacchetto di ripristino. Il file del pacchetto di ripristino consente di ripristinare il sistema in caso di errore.
+CAUTION: Dopo aver modificato la passphrase di provisioning, è necessario scaricare immediatamente un nuovo pacchetto di ripristino. Il file Recovery Package consente di ripristinare il sistema in caso di errore.
 
 

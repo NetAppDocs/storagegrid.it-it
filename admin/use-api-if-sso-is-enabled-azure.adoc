@@ -11,7 +11,7 @@ summary: 'Se è stato configurato e abilitato il Single Sign-on (SSO) e si utili
 
 
 [role="lead"]
-Se link:../admin/how-sso-works.html["SSO (Single Sign-on) configurato e abilitato"]si utilizza Azure come provider SSO, è possibile utilizzare due script di esempio per ottenere un token di autenticazione valido per l'API di gestione griglia o l'API di gestione tenant.
+Se link:../admin/configuring-sso.html["SSO (Single Sign-on) configurato e abilitato"]si utilizza Azure come provider SSO, è possibile utilizzare due script di esempio per ottenere un token di autenticazione valido per l'API di gestione griglia o l'API di gestione tenant.
 
 
 

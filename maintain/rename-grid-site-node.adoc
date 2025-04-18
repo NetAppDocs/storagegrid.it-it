@@ -17,7 +17,7 @@ summary: 'È possibile utilizzare questa procedura per aggiungere o aggiornare i
 * Da *nodo amministrativo primario*, si è effettuato l'accesso al Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 +
 
-NOTE: È possibile aggiungere o aggiornare i nomi visualizzati da un nodo amministrativo non primario, ma è necessario accedere al nodo amministrativo primario per scaricare un pacchetto di ripristino.
+NOTE: È possibile aggiungere o aggiornare i nomi visualizzati da un nodo di amministrazione non primario, ma è necessario accedere al nodo di amministrazione primario per scaricare un pacchetto di ripristino.
 
 * Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di manutenzione o di accesso root"].
 * Si dispone della passphrase di provisioning.
@@ -165,13 +165,13 @@ Viene visualizzato un messaggio di successo. I nuovi nomi visualizzati vengono o
 ====
 
 
-=== [[download-recovery-package]]Scarica il pacchetto di ripristino
+=== [[download-recovery-package]]Download del pacchetto di ripristino
 
-Dopo aver rinominato gli elementi, scaricare e salvare un nuovo pacchetto di ripristino. I nuovi nomi visualizzati per gli elementi rinominati vengono inclusi nel `Passwords.txt` file.
+Una volta terminata la ridenominazione degli elementi, scaricare e salvare un nuovo pacchetto di ripristino. I nuovi nomi visualizzati per gli elementi rinominati vengono inclusi nel `Passwords.txt` file.
 
 .Fasi
 . Inserire la passphrase di provisioning.
-. Selezionare *Download recovery package* (Scarica pacchetto di ripristino).
+. Selezionare *Download Recovery Package* (Scarica pacchetto di ripristino).
 +
 Il download viene avviato immediatamente.
 

@@ -19,6 +19,7 @@ Selezionare Start Recovery (Avvia ripristino) in Grid Manager (Gestione griglia)
 * Si dispone della passphrase di provisioning.
 * Hai implementato un nodo storage dell'appliance di recovery.
 * Si dispone della data di inizio di qualsiasi intervento di riparazione per i dati codificati per la cancellazione.
+* Hai verificato che il nodo di storage non è stato ricostruito negli ultimi 15 giorni.
 
 
 .Fasi

@@ -56,10 +56,10 @@ Prima di aggiungere nodi di storage ai siti esistenti, consultare le seguenti li
 
 Quando si configura l'espansione, è necessario scegliere se includere il servizio ADC (Administrative Domain Controller) in ogni nuovo nodo di storage. Il servizio ADC tiene traccia della posizione e della disponibilità dei servizi grid.
 
-* È possibile link:../maintain/move-adc-service.html["Spostare il servizio ADC da un nodo di archiviazione a un altro nello stesso sito"].
 * Il sistema StorageGRID richiede che un link:../maintain/understanding-adc-service-quorum.html["Quorum dei servizi ADC"]sia sempre disponibile in ogni sito.
 * Almeno tre nodi di storage in ogni sito devono includere il servizio ADC.
 * Si sconsiglia di aggiungere il servizio ADC a ogni nodo di storage. L'inclusione di un numero eccessivo di servizi ADC può causare rallentamenti dovuti all'aumento della comunicazione tra i nodi.
 * Un singolo grid non deve avere più di 48 nodi di storage con il servizio ADC. Ciò equivale a 16 siti con tre servizi ADC in ogni sito.
-* In generale, quando si seleziona l'impostazione *Servizio ADC* per un nuovo nodo, selezionare *automatico*. Selezionare *Sì* solo se il nuovo nodo sostituirà un altro nodo di storage che include il servizio ADC. Poiché non è possibile smantellare un nodo di archiviazione se rimangono pochi servizi ADC, selezionando *Sì* si garantisce la disponibilità di un nuovo servizio ADC prima della rimozione del vecchio servizio.
+* In generale, quando si seleziona l'impostazione *Servizio ADC* per un nuovo nodo, selezionare *automatico*. Selezionare *Sì* solo se il nuovo nodo sostituirà un altro nodo di storage che include il servizio ADC. Poiché non è possibile decommissionare un nodo di storage se rimangono pochi servizi ADC, questo garantisce che sia disponibile un nuovo servizio ADC prima che il vecchio servizio venga rimosso.
+* Non è possibile aggiungere il servizio ADC a un nodo dopo averlo implementato.
 

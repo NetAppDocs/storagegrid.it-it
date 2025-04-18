@@ -2,7 +2,7 @@
 permalink: audit/whea-swift-head.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, WHEA, Swift HEAD 
-summary: 'Quando un client Swift esegue un"operazione HEAD, viene effettuata una richiesta per verificare l"esistenza di un account, un container o un oggetto e recuperare i metadati rilevanti. Questo messaggio viene emesso dal server se l"operazione ha esito positivo.' 
+summary: 'Quando un client Swift esegue una transazione HEAD, viene inviata una richiesta per verificare l"esistenza di un account, un container o un oggetto e recuperare eventuali metadati pertinenti. Questo messaggio viene emesso dal server se la transazione ha esito positivo.' 
 ---
 = WHEA: TESTA veloce
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Quando un client Swift esegue un"operazione HEAD, viene effettuata una
 
 
 [role="lead"]
-Quando un client Swift esegue un'operazione HEAD, viene effettuata una richiesta per verificare l'esistenza di un account, un container o un oggetto e recuperare i metadati rilevanti. Questo messaggio viene emesso dal server se l'operazione ha esito positivo.
+Quando un client Swift esegue una transazione HEAD, viene inviata una richiesta per verificare l'esistenza di un account, un container o un oggetto e recuperare eventuali metadati pertinenti. Questo messaggio viene emesso dal server se la transazione ha esito positivo.
 
 [cols="1a,1a,4a"]
 |===
@@ -52,7 +52,7 @@ RSLT
  a| 
 Codice risultato
  a| 
-Risultato del funzionamento della TESTA. Il risultato è sempre:
+Risultato dell'operazione PRINCIPALE. Il risultato è sempre:
 
 SUC: Riuscito
 

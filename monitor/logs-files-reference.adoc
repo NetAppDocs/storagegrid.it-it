@@ -47,7 +47,7 @@ L'esportazione dei registri al server syslog offre le seguenti funzionalità:
 * Migliore visibilità delle richieste bloccate dai classificatori del traffico nel bilanciamento del carico.
 
 
-Per esportare i registri, fare riferimento alla link:../monitor/configure-audit-messages.html["Configurare i messaggi di controllo e il server syslog esterno"].
+Per esportare i registri, fare riferimento alla link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"].
 
 
 
@@ -227,6 +227,6 @@ Output dei comandi del container StorageGRID. Contiene informazioni di sistema, 
 
 
 | pacchetto-ripristino-sincronizzazione  a| 
-Correlato al mantenimento della coerenza del pacchetto di ripristino più recente in tutti i nodi di amministrazione e di storage che ospitano il servizio ADC.
+Correlato al mantenimento della coerenza del pacchetto di ripristino più recente in tutti i nodi amministrativi e di archiviazione che ospitano il servizio ADC.
 
 |===

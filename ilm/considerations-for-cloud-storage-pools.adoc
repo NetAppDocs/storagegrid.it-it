@@ -24,7 +24,7 @@ Se si prevede di utilizzare un pool di storage cloud per spostare oggetti fuori 
 * Le seguenti combinazioni di piattaforma, autenticazione e protocollo con blocco oggetto S3 non sono supportate per i pool di archiviazione cloud:
 +
 ** *Piattaforme*: Google Cloud Platform e Azure
-** *Tipi di autenticazione*: Accesso anonimo
+** *Tipi di autenticazione*: I ruoli IAM ovunque e l'accesso anonimo
 ** *Protocollo*: HTTP
 
 

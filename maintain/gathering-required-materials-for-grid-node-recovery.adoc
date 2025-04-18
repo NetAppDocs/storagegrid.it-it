@@ -47,9 +47,9 @@ Ottenere una copia del file del pacchetto di ripristino più recente `.zip`:
 
 Il contenuto del `.zip` file viene aggiornato ogni volta che il sistema viene modificato. Dopo aver apportato tali modifiche, viene richiesto di memorizzare la versione più recente del pacchetto di ripristino in una posizione sicura. Utilizzare la copia più recente per eseguire il ripristino in caso di errori della griglia.
 
-Se il nodo amministrativo primario funziona normalmente, è possibile scaricare il pacchetto di ripristino dal Grid Manager. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+Se il nodo di amministrazione primario funziona normalmente, è possibile scaricare il pacchetto di ripristino da Grid Manager. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
 
-Se non è possibile accedere a Grid Manager, è possibile trovare copie crittografate del pacchetto di ripristino su alcuni nodi di archiviazione che contengono il servizio ADC. Su ogni nodo di archiviazione, esaminare questa posizione per il pacchetto di ripristino: `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg` Utilizzare il pacchetto di ripristino con il numero di revisione più alto.
+Se non è possibile accedere a Grid Manager, è possibile trovare copie crittografate del pacchetto di ripristino su alcuni nodi di storage che contengono il servizio ADC. Su ogni nodo di archiviazione, esaminare questa posizione per il pacchetto di ripristino: `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg` Utilizzare il pacchetto di ripristino con il numero di revisione più alto.
 
 
 

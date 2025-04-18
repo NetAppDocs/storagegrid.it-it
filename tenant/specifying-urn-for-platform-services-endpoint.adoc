@@ -45,7 +45,7 @@ Replica di CloudMirror
  a| 
 Notifiche
  a| 
-`sns`, , `kafka` o `webhook`
+`sns` o. `kafka`
 
 
 
@@ -57,9 +57,7 @@ Integrazione della ricerca
 |===
 Ad esempio, per continuare a specificare l'URN per un endpoint CloudMirror ospitato su StorageGRID, aggiungere `s3` a get `urn:sgws:s3`.
 
-Per la maggior parte degli endpoint, l'elemento finale dell'URN identifica la risorsa di destinazione specifica nell'URI di destinazione, ad esempio `sns-topic-name` .
-
-Per gli endpoint webhook, la risorsa di destinazione è l'URI di destinazione stesso.
+L'elemento finale dell'URN identifica la risorsa di destinazione specifica nell'URI di destinazione.
 
 [cols="1a,2a"]
 |===
@@ -77,8 +75,6 @@ Replica di CloudMirror
 Notifiche
  a| 
 `sns-topic-name` o. `kafka-topic-name`
-
-*Nota:* per gli endpoint webhook, l'elemento finale dell'URN può essere qualsiasi stringa, purché l'URN dell'endpoint sia univoco.
 
 
 
@@ -156,14 +152,6 @@ Specificare un endpoint Kafka:
 [listing]
 ----
 urn:mysite:kafka:optional:optional:kafka-topic-name
-----
-+
-Specificare un punto finale del webhook:
-
-+
-[listing]
-----
-urn:mysite:webhook:optional:optional:webhook-name
 ----
 * Integrazione della ricerca:
 +

@@ -73,6 +73,12 @@ Una volta completato l'aggiornamento, è possibile rivedere gli avvisi relativi 
 
 
 
+== Vengono generate molte notifiche SNMP
+
+Tenere presente che è possibile che vengano generate numerose notifiche SNMP quando i nodi della griglia vengono arrestati e riavviati durante l'aggiornamento. Per evitare notifiche eccessive, deselezionare la casella di controllo *Enable SNMP Agent Notifications* (*CONFIGURATION* > *Monitoring* > *SNMP Agent*) per disattivare le notifiche SNMP prima di avviare l'aggiornamento. Quindi, riattivare le notifiche al termine dell'aggiornamento.
+
+
+
 == Le modifiche alla configurazione sono limitate
 
 
@@ -96,4 +102,23 @@ Fino al completamento dell'attività *fasi finali dell'aggiornamento*:
 
 * Non eseguire una procedura di espansione.
 * Non eseguire una procedura di decommissionamento.
+
+
+
+
+== Non puoi visualizzare i dettagli del bucket o gestire i bucket dal tenant Manager
+
+Durante l'aggiornamento a StorageGRID 11,9 (ovvero quando il sistema funziona come un ambiente in versione mista), non è possibile visualizzare i dettagli del bucket o gestire i bucket utilizzando Gestione tenant. Nella pagina Bucket di Tenant Manager viene visualizzato uno dei seguenti errori:
+
+* Non puoi utilizzare questa API durante l'aggiornamento alla versione 11,9.
+* Non è possibile visualizzare i dettagli delle versioni dei bucket in Tenant Manager durante l'aggiornamento a 11,9.
+
+
+Questo errore viene risolto al termine dell'aggiornamento a 11,9.
+
+.Soluzione alternativa
+Mentre è in corso l'aggiornamento 11,9, utilizzare i seguenti strumenti per visualizzare i dettagli del bucket o gestire i bucket, invece di utilizzare il Tenant Manager:
+
+* Per eseguire operazioni S3 standard su una benna, utilizzare il link:../s3/operations-on-buckets.html["API REST S3"] o il link:../tenant/understanding-tenant-management-api.html["API di gestione del tenant"].
+* Per eseguire operazioni personalizzate di StorageGRID su un bucket (ad esempio, visualizzazione e modifica della coerenza del bucket, attivazione o disattivazione degli aggiornamenti dell'ora dell'ultimo accesso o configurazione dell'integrazione della ricerca), utilizzare l'API Gestione tenant.
 

@@ -76,7 +76,7 @@ NOTE: Il valore di coerenza per la versione bucket, blocco oggetto S3 e crittogr
 Le seguenti impostazioni della benna non utilizzano una forte coerenza e hanno una maggiore disponibilità per le modifiche. Le modifiche a queste impostazioni potrebbero richiedere del tempo prima di avere effetto.
 
 * link:considerations-for-platform-services.html["Configurazione dei servizi della piattaforma: Integrazione di notifica, replica o ricerca"]
-* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["Configurare StorageGRID CORS per bucket e oggetti"]
+* link:configuring-cross-origin-resource-sharing-cors.html["Configurazione CORS"]
 * <<change-bucket-consistency,Modificare la coerenza della benna>>
 
 

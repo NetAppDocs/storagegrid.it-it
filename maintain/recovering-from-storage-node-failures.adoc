@@ -22,11 +22,15 @@ Utilizzare questa tabella per selezionare la procedura di ripristino per un nodo
 
  a| 
 * Si è verificato un errore in più di un nodo di storage.
+* Un secondo nodo di storage si è guastato meno di 15 giorni dopo un guasto o un ripristino di un nodo di storage.
++
+Questo include il caso in cui un nodo di storage si guasta mentre il ripristino di un altro nodo di storage è ancora in corso.
+
 
  a| 
 Contattare il supporto tecnico.
  a| 
-Il ripristino di più di un nodo storage potrebbe influire sull'integrità del database Cassandra, causando una perdita di dati.
+Il ripristino di più di un nodo di storage (o di più nodi di storage entro 15 giorni) potrebbe influire sull'integrità del database Cassandra, causando la perdita di dati.
 
 Il supporto tecnico può determinare quando è sicuro iniziare il ripristino di un secondo nodo di storage.
 

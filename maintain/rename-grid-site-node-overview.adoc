@@ -99,7 +99,7 @@ Visualizzato come nome principale quando l'elemento viene rinominato:
 
 
  a| 
-`Passwords.txt` file nel pacchetto di ripristino
+`Passwords.txt` File nel pacchetto di ripristino
  a| 
 Mostrato come `Server Name`
  a| 

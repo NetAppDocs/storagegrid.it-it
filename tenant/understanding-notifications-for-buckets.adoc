@@ -11,7 +11,7 @@ summary: È possibile attivare la notifica degli eventi per un bucket S3 se si d
 
 
 [role="lead"]
-È possibile abilitare la notifica degli eventi per un bucket S3 se si desidera che StorageGRID invii notifiche relative agli eventi specificati a un cluster Kafka di destinazione, un endpoint webhook o un servizio di notifica Amazon Simple.
+È possibile attivare la notifica degli eventi per un bucket S3 se si desidera che StorageGRID invii notifiche relative agli eventi specificati a un cluster Kafka di destinazione o a un servizio di notifica Amazon Simple.
 
 Ad esempio, è possibile configurare gli avvisi da inviare agli amministratori in merito a ciascun oggetto aggiunto a un bucket, in cui gli oggetti rappresentano i file di registro associati a un evento di sistema critico.
 

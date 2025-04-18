@@ -24,7 +24,7 @@ Quando si installa StorageGRID per la prima volta, il livello di storage *predef
 L'utilizzo di storage grades personalizzati consente di creare pool di storage ILM che contengono solo un tipo specifico di Storage Node. Ad esempio, è possibile che alcuni oggetti vengano memorizzati nei nodi di storage più veloci, ad esempio le appliance di storage all-flash StorageGRID.
 
 
-NOTE: Durante l'installazione è possibile configurare i nodi di storage in modo che contengano dati e metadati degli oggetti (nodo di storage "combinato"), solo metadati degli oggetti o solo dati degli oggetti. Ai nodi di storage con soli metadati non può essere assegnato un livello di storage. Per ulteriori informazioni, vedere link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipi di nodi storage"].
+NOTE: I nodi di storage possono essere configurati durante l'installazione in modo da contenere solo metadati di oggetti e non dati di oggetti. Ai nodi di storage con soli metadati non può essere assegnato un livello di storage. Per ulteriori informazioni, vedere link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipi di nodi storage"].
 
 Se il grado di archiviazione non è un problema (ad esempio, tutti i nodi di archiviazione sono identici), è possibile ignorare questa procedura e utilizzare la selezione *include tutti i gradi di archiviazione* per il grado di archiviazione quando si link:creating-storage-pool.html["creare pool di storage"]. L'utilizzo di questa selezione garantisce che il pool di storage includa ogni nodo di storage del sito, indipendentemente dal suo livello di storage.
 

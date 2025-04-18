@@ -13,7 +13,7 @@ summary: 'È necessario creare almeno un account tenant per controllare l"access
 [role="lead"]
 È necessario creare almeno un account tenant per controllare l'accesso allo storage nel sistema StorageGRID.
 
-I passaggi per la creazione di un account tenant variano a seconda che link:using-identity-federation.html["federazione delle identità"]sia configurato e link:how-sso-works.html["single sign-on"]se l'account Grid Manager utilizzato per creare l'account tenant appartiene a un gruppo di amministratori con autorizzazione di accesso root.
+I passaggi per la creazione di un account tenant variano a seconda che link:using-identity-federation.html["federazione delle identità"]sia configurato e link:configuring-sso.html["single sign-on"]se l'account Grid Manager utilizzato per creare l'account tenant appartiene a un gruppo di amministratori con autorizzazione di accesso root.
 
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
@@ -118,7 +118,7 @@ Il tenant può utilizzare servizi della piattaforma S3 come CloudMirror. Vedere 
  a| 
 Utilizza la propria origine di identità
  a| 
-Il tenant può configurare e gestire la propria origine di identità per gruppi e utenti federati. Questa opzione è disabilitata se si dispone di link:../admin/how-sso-works.html["SSO configurato"] per il sistema StorageGRID.
+Il tenant può configurare e gestire la propria origine di identità per gruppi e utenti federati. Questa opzione è disabilitata se si dispone di link:../admin/configuring-sso.html["SSO configurato"] per il sistema StorageGRID.
 
 
 

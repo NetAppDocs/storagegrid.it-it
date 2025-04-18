@@ -19,6 +19,9 @@ Il programma di installazione dell'appliance StorageGRID indica lo stato fino al
 La pagina Monitor Installation (Installazione monitor) mostra lo stato di avanzamento dell'installazione.
 
 +
+image::../media/monitor_installation_services_appl.png[Installazione del monitor - Appl. Servizi]
+
++
 La barra di stato blu indica l'attività attualmente in corso. Le barre di stato verdi indicano le attività completate correttamente.
 
 +
@@ -40,7 +43,13 @@ Durante questa fase, il programma di installazione copia l'immagine del sistema 
 . Continuare a monitorare l'avanzamento dell'installazione fino a quando non si verifica una delle seguenti condizioni:
 +
 ** Per i nodi gateway dell'appliance o i nodi di amministrazione dell'appliance non primaria, la fase *Install StorageGRID* (Installazione del nodo) viene sospesa e sulla console integrata viene visualizzato un messaggio che richiede di approvare questo nodo nel nodo di amministrazione utilizzando Gestione griglia.
++
+image::../media/monitor_installation_install_sgws.gif[L'immagine viene descritta in base al testo circostante]
+
 ** Per i nodi di amministrazione primari dell'appliance, viene visualizzata una quinta fase (carica programma di installazione StorageGRID). Se la quinta fase è in corso per più di 10 minuti, aggiornare la pagina manualmente.
++
+image::../media/monitor_reinstallation_primary_admin.png[Schermata della 5a fase per la reinstallazione del nodo di amministrazione primario]
+
 
 
 . Passare alla fase successiva del processo di ripristino per il tipo di nodo Grid dell'appliance che si sta ripristinando.

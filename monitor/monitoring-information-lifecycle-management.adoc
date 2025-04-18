@@ -52,11 +52,11 @@ NOTE: I grafici della pagina *NODI* verranno sostituiti con le schede del dashbo
 ** *Evaluation rate (objects/sec)*: La velocità corrente alla quale gli oggetti vengono valutati rispetto alla policy ILM nella griglia.
 
 
+. Nella sezione ILM Queue (coda ILM), esaminare i seguenti attributi.
 +
 
 NOTE: La sezione coda ILM è inclusa solo per la griglia. Queste informazioni non vengono visualizzate nella scheda ILM per un sito o un nodo di storage.
 
-. Nella sezione ILM Queue (coda ILM), esaminare i seguenti attributi.
 +
 ** *Periodo di scansione - stimato*: Il tempo stimato per completare una scansione ILM completa di tutti gli oggetti.
 +
@@ -65,9 +65,12 @@ NOTE: Una scansione completa non garantisce che ILM sia stato applicato a tutti 
 
 ** *Riparazioni tentate*: Il numero totale di operazioni di riparazione degli oggetti per i dati replicati che sono stati tentati. Questo numero aumenta ogni volta che un nodo di storage tenta di riparare un oggetto ad alto rischio. Le riparazioni ILM ad alto rischio hanno la priorità se la rete diventa occupata.
 +
-La stessa riparazione dell'oggetto potrebbe aumentare di nuovo se la replica non è riuscita dopo la riparazione. + questi attributi possono essere utili quando si monitora l'avanzamento del ripristino del volume del nodo di archiviazione. Se il numero di riparazioni tentate ha smesso di aumentare ed è stata completata una scansione completa, la riparazione probabilmente è stata completata.
+
+NOTE: La stessa riparazione dell'oggetto potrebbe aumentare di nuovo se la replica non è riuscita dopo la riparazione.
 
 
 
-. In alternativa, inviare una richiesta Prometheus per `storagegrid_ilm_scan_period_estimated_minutes` e `storagegrid_ilm_repairs_attempted`.
++
+Questi attributi possono essere utili quando si monitora l'avanzamento del ripristino del volume di Storage Node. Se il numero di riparazioni tentate ha smesso di aumentare ed è stata completata una scansione completa, la riparazione probabilmente è stata completata.
+
 

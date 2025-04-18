@@ -33,16 +33,11 @@ Durante l'installazione, è possibile selezionare il tipo di nodo di archiviazio
 
 
 
+NOTE: Non è possibile modificare il tipo una volta completata l'installazione del nodo di archiviazione.
 
-=== Nodo di storage dati e metadati (combinato)
+Nodo di storage dati e metadati (combinato):: Per impostazione predefinita, tutti i nuovi nodi di storage memorizzeranno sia i dati degli oggetti che i metadati. Questo tipo di nodo di storage viene chiamato nodo di storage _combinato_.
+Nodo storage solo metadati:: L'utilizzo di un nodo di storage esclusivamente per i metadati può avere senso se il grid memorizza un numero molto elevato di piccoli oggetti. L'installazione della capacità di metadati dedicata fornisce un migliore equilibrio tra lo spazio necessario per un numero molto elevato di oggetti piccoli e lo spazio necessario per i metadati per tali oggetti. Inoltre, i nodi di storage solo per i metadati ospitati su appliance dalle performance elevate possono migliorare le performance.
 
-Per impostazione predefinita, tutti i nuovi nodi di storage memorizzeranno sia i dati degli oggetti che i metadati. Questo tipo di nodo di storage viene chiamato nodo di storage _combinato_.
-
-
-
-=== Nodo storage solo metadati
-
-L'utilizzo di un nodo di storage esclusivamente per i metadati può avere senso se il grid memorizza un numero molto elevato di piccoli oggetti. L'installazione della capacità di metadati dedicata fornisce un migliore equilibrio tra lo spazio necessario per un numero molto elevato di oggetti piccoli e lo spazio necessario per i metadati per tali oggetti. Inoltre, i nodi di storage solo per i metadati ospitati su appliance dalle performance elevate possono migliorare le performance.
 
 I nodi di storage solo per metadati hanno requisiti hardware specifici:
 
@@ -71,22 +66,15 @@ Quando si installano nodi solo metadati, la griglia deve contenere anche un nume
 
 NOTE: Sebbene i nodi di storage solo per metadati contengano <<ldr-service,Servizio LDR>>e siano in grado di elaborare S3 richieste client, le performance di StorageGRID potrebbero non aumentare.
 
+Nodo storage solo dati:: L'utilizzo di un nodo di storage esclusivamente per i dati può essere utile se i nodi di storage hanno caratteristiche di prestazioni diverse. Ad esempio, per aumentare potenzialmente le performance, potrebbero esserci nodi di storage su disco rotante a elevata capacità e solo dati accompagnati da nodi di storage dalle performance elevate e solo metadati.
 
-
-=== Nodo storage solo dati
-
-L'utilizzo di un nodo di storage esclusivamente per i dati può essere utile se i nodi di storage hanno caratteristiche di prestazioni diverse. Ad esempio, per aumentare potenzialmente le performance, potrebbero esserci nodi di storage su disco rotante a elevata capacità e solo dati accompagnati da nodi di storage dalle performance elevate e solo metadati.
-
-Inoltre, puoi ottenere una maggiore capacità di metadati rimuovendo i nodi a bassa RAM da Cassandra, cosa che aumenta il limite di capacità dei metadati per nodo. Fare riferimento alla link:../admin/managing-object-metadata-storage.html["Gestire lo storage dei metadati degli oggetti"].
 
 Quando si installano nodi solo dati, la griglia deve contenere quanto segue:
 
-* Un minimo di due nodi di storage combinati o solo dati per grid
-* Almeno un nodo di storage combinato o solo dati per sito
-* Un minimo di tre nodi di storage combinati o solo metadati per sito
+* Un minimo di due nodi di storage combinati o solo dati _per grid_
+* Almeno un nodo di storage combinato o solo dati _per sito_
+* Un minimo di tre nodi di storage combinati o solo metadati _per sito_
 
-
-È possibile convertire un nodo di archiviazione che non contiene <<adc-service,Servizio ADC>>in un nodo di archiviazione solo dati. Fare riferimento alla link:../maintain/convert-to-data-only-node.html["Convertire un nodo di storage in un nodo solo dati"].
 
 
 
@@ -110,7 +98,7 @@ Gestisce gli account tenant.
 
 
  a| 
-[[adc-service]]Administrative Domain Controller (ADC)
+ADC (Administrative Domain Controller)
  a| 
 Mantiene la topologia e la configurazione a livello di griglia.
 

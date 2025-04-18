@@ -142,7 +142,7 @@ L'operazione non riuscita può essere rieseguita in un secondo momento seleziona
 ** Se è stato necessario intervenire manualmente (ad esempio per riavviare un nodo) e si è certi che l'azione che lo strumento ritiene non sia riuscita sia stata completata correttamente, immettere *f* per contrassegnarla come riuscita e passare all'operazione successiva.
 
 
-. Scaricare un nuovo pacchetto di ripristino da Grid Manager.
+. Scarica un nuovo pacchetto di ripristino da Grid Manager.
 +
 .. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
 .. Inserire la passphrase di provisioning.

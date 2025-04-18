@@ -74,7 +74,7 @@ Di seguito viene riportato un breve riepilogo dei valori di coerenza disponibili
 
 
 
-NOTE: Prima di selezionare un valore di coerenza, link:../s3/consistency.html["leggi la descrizione completa della coerenza"]. Prima di modificare il valore predefinito, è necessario comprendere i vantaggi e le limitazioni.
+NOTE: Prima di selezionare un valore di coerenza, link:../s3/consistency-controls.html["leggi la descrizione completa della coerenza"]. Prima di modificare il valore predefinito, è necessario comprendere i vantaggi e le limitazioni.
 
 
 

@@ -19,7 +19,17 @@ Dopo il ripristino dei volumi di storage, è necessario verificare che lo stato 
 
 
 .Fasi
-. Selezionare *NODI* > *_nodo di archiviazione_* > *attività*.
-. Se l'elenco a discesa *Stato archiviazione* è impostato su sola lettura o non in linea, selezionare *Online*.
-. Selezionare *Salva*.
+. Selezionare *SUPPORT* > *Tools* > *Grid topology*.
+. Controllare i valori di *Recovery Storage Node* > *LDR* > *Storage* > *Storage state -- Desired* e *Storage state -- Current*.
++
+Il valore di entrambi gli attributi deve essere Online.
+
+. Se lo stato di storage -- desiderato è impostato su sola lettura, attenersi alla seguente procedura:
++
+.. Fare clic sulla scheda *Configurazione*.
+.. Dall'elenco a discesa *Storage state -- Desired* (Stato storage -- desiderato*), selezionare *Online*.
+.. Fare clic su *Applica modifiche*.
+.. Fare clic sulla scheda *Panoramica* e verificare che i valori di *Stato dello storage -- desiderato* e *Stato dello storage -- corrente* siano aggiornati a Online.
+
+
 

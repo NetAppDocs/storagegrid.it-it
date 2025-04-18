@@ -41,7 +41,7 @@ SSO attivato
  a| 
 Si è disconnessi da tutti i nodi di amministrazione ai quali si stava accedendo. Viene visualizzata la pagina di accesso a StorageGRID. *Grid Manager* è elencato come predefinito nell'elenco a discesa *Recent Accounts* (account recenti) e il campo *account ID* (ID account) mostra 0.
 
-*Nota:* se SSO è abilitato e si è anche connessi al Tenant Manager, è necessario anche accedere link:../tenant/signing-out-of-tenant-manager.html["disconnettersi dall'account tenant"]a link:how-sso-works.html["Disconnettersi da SSO"].
+*Nota:* se SSO è abilitato e si è anche connessi al Tenant Manager, è necessario anche accedere link:../tenant/signing-out-of-tenant-manager.html["disconnettersi dall'account tenant"]a link:configuring-sso.html["Disconnettersi da SSO"].
 
 |===
 

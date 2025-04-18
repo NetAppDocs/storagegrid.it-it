@@ -122,7 +122,7 @@ Non vengono registrati messaggi di audit della categoria.
  a| 
 Errore
  a| 
-Vengono registrati solo i messaggi di errore - messaggi di controllo per i quali il codice risultato non è stato "riuscito" (SUCS).
+Vengono registrati solo messaggi di errore - messaggi di audit per i quali il codice risultato non è stato "riuscito" (SUCS).
 
 
 
@@ -169,7 +169,7 @@ Quando le intestazioni HTTP vengono trovate in una richiesta, vengono incluse ne
 
 +
 
-NOTE: Le intestazioni delle richieste del protocollo di controllo vengono registrate solo se il livello di controllo per *Client Reads* o *Client Write* non è *Off*.
+NOTE: Le intestazioni delle richieste del protocollo di audit vengono registrate solo se il livello di audit per *letture client* o *scritture client* non è *disattivato*.
 
 . Selezionare *Salva*
 +

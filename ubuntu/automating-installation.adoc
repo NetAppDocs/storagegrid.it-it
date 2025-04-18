@@ -81,9 +81,6 @@ File di configurazione vuoto da utilizzare con lo script
 * È stato creato un `configure-storagegrid.json` file di configurazione. Per creare questo file, è possibile modificare il file di configurazione di esempio (`configure-storagegrid.sample.json`) o il file di configurazione vuoto (`configure-storagegrid.blank.json`).
 
 
-
-CAUTION: Memorizzare la password di gestione e la passphrase di provisioning dalla sezione Password del file di configurazione modificato `configure-storagegrid.json` in un percorso sicuro. Queste password sono necessarie per le procedure di installazione, espansione e manutenzione. È inoltre necessario eseguire il backup del file di configurazione modificato `configure-storagegrid.json` e memorizzarlo in una posizione sicura.
-
 .A proposito di questa attività
 È possibile utilizzare `configure-storagegrid.py` lo script Python e il `configure-storagegrid.json` file di configurazione per automatizzare la configurazione del sistema StorageGRID.
 
@@ -116,7 +113,7 @@ Ad esempio:
 
 
 .Risultato
-Durante il processo di configurazione viene generato un file del pacchetto di ripristino `.zip` che viene scaricato nella directory in cui viene eseguito il processo di installazione e configurazione. È necessario eseguire il backup del file del pacchetto di ripristino in modo da poter ripristinare il sistema StorageGRID in caso di errore di uno o più nodi della griglia. Ad esempio, copiarla in una posizione di rete sicura e di backup e in una posizione di cloud storage sicura.
+Durante il processo di configurazione viene generato un file del pacchetto di ripristino `.zip` che viene scaricato nella directory in cui viene eseguito il processo di installazione e configurazione. È necessario eseguire il backup del file del pacchetto di ripristino in modo da poter ripristinare il sistema StorageGRID in caso di guasto di uno o più nodi della griglia. Ad esempio, copiarla in una posizione di rete sicura e di backup e in una posizione di cloud storage sicura.
 
 
 CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.

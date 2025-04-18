@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: signing in when sso is down, single sign on failure 
 summary: 'Potrebbe non essere possibile accedere a Grid Manager se il sistema Single Sign-on (SSO) non funziona. In questo caso, è possibile disattivare e riabilitare temporaneamente SSO per un nodo di amministrazione. Per disattivare e riabilitare SSO, è necessario accedere alla shell dei comandi del nodo.' 
 ---
-= Disattivare e riattivare temporaneamente SSO per un nodo amministrativo
+= Disattivare e riabilitare temporaneamente il Single Sign-on per un nodo di amministrazione
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

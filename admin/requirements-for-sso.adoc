@@ -1,10 +1,10 @@
 ---
 permalink: admin/requirements-for-sso.html 
 sidebar: sidebar 
-keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, entra id, ad fs 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
 summary: Prima di abilitare il single sign-on per un sistema StorageGRID, esaminare i requisiti e le considerazioni. 
 ---
-= Requisiti e considerazioni per SSO
+= Requisiti e considerazioni per il single sign-on
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -20,7 +20,7 @@ Prima di abilitare il single sign-on (SSO) per un sistema StorageGRID, esaminare
 StorageGRID supporta i seguenti provider di identità SSO (IdP):
 
 * Active Directory Federation Service (ad FS)
-* ID entra
+* Azure Active Directory (Azure ad)
 * PingFederate
 
 
@@ -35,16 +35,16 @@ StorageGRID supporta i seguenti provider di identità SSO (IdP):
 Active Directory
  a| 
 * Active Directory
-* ID entra
+* Azure
 * PingFederate
 
 
 
 
  a| 
-ID entra
+Azure
  a| 
-ID entra
+Azure
 
 |===
 

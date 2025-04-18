@@ -83,6 +83,9 @@ Se il pulsante *Avvia installazione* non è attivato, potrebbe essere necessario
 
 . Dalla home page del programma di installazione dell'appliance StorageGRID, fare clic su *Avvia installazione*.
 +
+image::../media/appliance_installer_home_start_installation_enabled.gif[Questa figura è descritta dal testo circostante.]
+
++
 Lo stato corrente cambia in "Installazione in corso" e viene visualizzata la pagina Installazione monitor.
 
 +

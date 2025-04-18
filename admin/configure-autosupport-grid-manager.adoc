@@ -30,7 +30,6 @@ Se si desidera modificare la configurazione di StorageGRID AutoSupport, apportar
 * *Evento attivato*: Invia automaticamente pacchetti AutoSupport ogni ora o quando si verificano eventi di sistema significativi. Impostazione predefinita: Enabled (attivato).
 * *Su richiesta*: Consente al supporto tecnico di richiedere che il sistema StorageGRID invii automaticamente i pacchetti AutoSupport, il che è utile quando stanno lavorando attivamente a un problema (richiede il protocollo di trasmissione HTTPS AutoSupport). Impostazione predefinita: Disattivata.
 * *Attivato dall'utente*: Inviare manualmente i pacchetti AutoSupport in qualsiasi momento.
-* *Raccolta registri*:link:../monitor/collecting-log-files-and-system-data.html["Raccogliere manualmente i file di registro e i dati di sistema e inviare un pacchetto AutoSupport"].
 
 
 

@@ -51,6 +51,6 @@ Se si desidera riprovare il ripristino dopo aver reimpostato la procedura, è ne
 . Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID e il trust della parte di base per il nodo di amministrazione ripristinato è stato configurato per utilizzare il certificato dell'interfaccia di gestione predefinita, aggiornare (o eliminare e ricreare) il trust della parte di base del nodo in Active Directory Federation Services (ad FS). Utilizzare il nuovo certificato server predefinito generato durante il processo di ripristino del nodo di amministrazione.
 +
 
-NOTE: Per configurare un'attendibilità con parte di fiducia, vedere link:../admin/configure-sso.html["Configurare il single sign-on"]. Per accedere al certificato del server predefinito, accedere alla shell dei comandi del nodo di amministrazione. Accedere alla `/var/local/mgmt-api` directory e selezionare il `server.crt` file.
+NOTE: Per configurare un'attendibilità con parte di fiducia, vedere link:../admin/configuring-sso.html["Configurare il single sign-on"]. Per accedere al certificato del server predefinito, accedere alla shell dei comandi del nodo di amministrazione. Accedere alla `/var/local/mgmt-api` directory e selezionare il `server.crt` file.
 
 

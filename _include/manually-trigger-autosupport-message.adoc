@@ -3,8 +3,8 @@
 
 
 .Prima di iniziare
-* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
-* Si dispone dell'autorizzazione di accesso root o di altra configurazione della griglia.
+* È necessario accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* È necessario disporre dell'autorizzazione di accesso root o di altra configurazione della griglia.
 
 
 .Fasi
@@ -13,8 +13,8 @@
 +
 StorageGRID tenta di inviare un pacchetto AutoSupport al sito di supporto NetApp. Se il tentativo ha esito positivo, i valori *risultato più recente* e *tempo ultimo successo* nella scheda *risultati* vengono aggiornati. Se si verifica un problema, il valore *risultato più recente* viene aggiornato a "non riuscito" e StorageGRID non tenta di inviare nuovamente il pacchetto AutoSupport.
 
-. Dopo 1 minuto, aggiornare la pagina AutoSupport nel browser per accedere ai risultati più recenti.
++
+
+TIP: Dopo aver inviato un pacchetto AutoSupport attivato dall'utente, aggiornare la pagina AutoSupport nel browser dopo 1 minuto per accedere ai risultati più recenti.
 
 
-
-TIP: Inoltre, è possibile link:../monitor/collecting-log-files-and-system-data.html["raccolta di file di registro e dati di sistema più estesi"]inviarli al sito di assistenza NetApp.

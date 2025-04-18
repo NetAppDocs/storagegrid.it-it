@@ -477,7 +477,9 @@ Raccogliere i file di log e i dati di sistema per il sistema. Selezionare *SUPPO
 
 È possibile raccogliere i log per l'intera griglia o per i nodi selezionati.
 
-Se si stanno raccogliendo registri solo per i nodi selezionati, assicurarsi di includere almeno un nodo di storage che dispone del servizio ADC. I primi tre nodi di archiviazione installati in un sito includono il servizio ADC.
+Se si stanno raccogliendo registri solo per i nodi selezionati, assicurarsi di includere almeno un nodo di storage che dispone del servizio ADC. I primi tre nodi di storage di un sito includono il servizio ADC.
+
+link:../monitor/collecting-log-files-and-system-data.html["Raccogliere i file di log e i dati di sistema"]
 
 
 

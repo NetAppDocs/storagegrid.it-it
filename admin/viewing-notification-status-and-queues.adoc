@@ -2,7 +2,7 @@
 permalink: admin/viewing-notification-status-and-queues.html 
 sidebar: sidebar 
 keywords: NMS service, network management system, interface engine 
-summary: 'Il servizio NMS (Network Management System) sui nodi di amministrazione invia notifiche al server di posta. È possibile visualizzare lo stato del servizio NMS e le dimensioni della relativa coda di notifica nella pagina Interface Engine (motore di interfaccia).' 
+summary: 'Il servizio NMS (Network Management System) sui nodi di amministrazione invia notifiche al server di posta. È possibile visualizzare lo stato corrente del servizio NMS e le dimensioni della relativa coda di notifica nella pagina motore interfaccia.' 
 ---
 = Visualizzare lo stato delle notifiche e le code
 :allow-uri-read: 
@@ -11,12 +11,10 @@ summary: 'Il servizio NMS (Network Management System) sui nodi di amministrazion
 
 
 [role="lead"]
-Il servizio NMS (Network Management System) sui nodi di amministrazione invia notifiche al server di posta. È possibile visualizzare lo stato del servizio NMS e le dimensioni della relativa coda di notifica nella pagina Interface Engine (motore di interfaccia).
+Il servizio NMS (Network Management System) sui nodi di amministrazione invia notifiche al server di posta. È possibile visualizzare lo stato corrente del servizio NMS e le dimensioni della relativa coda di notifica nella pagina motore interfaccia.
 
 Per accedere alla pagina Interface Engine, selezionare *SUPPORT* > *Tools* > *Grid topology*. Quindi selezionare *_site_* > *_Admin Node_* > *NMS* > *Interface Engine*.
 
 image::../media/email_notification_status_and_queues.gif[Pagina motore di interfaccia]
 
-Il sistema invia notifiche una dopo l'altra nell'ordine in cui sono attivate.
-
-Se si verifica un problema, ad esempio un errore di connessione di rete, e il server di posta non è disponibile, il sistema tenta nuovamente di inviare una notifica per 60 secondi. Se la notifica non viene inviata dopo 60 secondi, il sistema elimina la notifica dalla coda e tenta di inviare quella successiva.
+Le notifiche vengono elaborate tramite la coda di notifica e-mail e inviate al server di posta una dopo l'altra nell'ordine in cui vengono attivate. Se si verifica un problema (ad esempio, un errore di connessione di rete) e il server di posta non è disponibile quando si tenta di inviare la notifica, il tentativo più efficace di inviare nuovamente la notifica al server di posta continua per un periodo di 60 secondi. Se la notifica non viene inviata al server di posta dopo 60 secondi, la notifica viene interrotta dalla coda di notifica e viene eseguito un tentativo di invio della notifica successiva nella coda.

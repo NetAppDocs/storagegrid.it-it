@@ -28,7 +28,7 @@ L'esecuzione dell'espansione include le seguenti attività principali dell'utent
 
 . Configurare l'espansione.
 . Avviare l'espansione.
-. Scaricare un nuovo file del pacchetto di ripristino.
+. Scaricare un nuovo file di Recovery Package.
 . Monitorare le fasi e le fasi di espansione fino a quando tutti i nuovi nodi non vengono installati e configurati e tutti i servizi non vengono avviati.
 +
 
@@ -119,10 +119,9 @@ Il ruolo NTP (Network Time Protocol) del nodo Grid:
  a| 
 Servizio ADC (nodi di storage combinati o solo metadati)
  a| 
-Se questo nodo di storage eseguirà il servizio ADC (Administrative Domain Controller). Il servizio ADC tiene traccia della posizione e della disponibilità dei servizi grid. Almeno tre nodi di storage in ogni sito devono includere il servizio ADC.
+Se questo nodo di storage eseguirà il servizio ADC (Administrative Domain Controller). Il servizio ADC tiene traccia della posizione e della disponibilità dei servizi grid. Almeno tre nodi di storage in ogni sito devono includere il servizio ADC. Non è possibile aggiungere il servizio ADC a un nodo dopo averlo implementato.
 
-*** Selezionare *Sì* se il nodo di storage che si sta sostituendo include il servizio ADC. Poiché non è possibile smantellare un nodo di archiviazione se rimangono pochi servizi ADC, questa impostazione garantisce che sia disponibile un nuovo servizio ADC prima della rimozione del vecchio servizio.
-*** È possibile link:../maintain/move-adc-service.html["Spostare il servizio ADC in un altro nodo di archiviazione nello stesso sito"]verificare che il quorum del servizio ADC sia soddisfatto.
+*** Selezionare *Sì* se il nodo di storage che si sta sostituendo include il servizio ADC. Poiché non è possibile decommissionare un nodo di storage se rimangono pochi servizi ADC, questo garantisce che sia disponibile un nuovo servizio ADC prima che il vecchio servizio venga rimosso.
 *** Selezionare *automatico* per consentire al sistema di determinare se questo nodo richiede il servizio ADC.
 
 
@@ -175,12 +174,15 @@ Dopo alcuni minuti, questa pagina viene aggiornata per visualizzare lo stato del
 NOTE: Durante la fase "Installazione dei nodi griglia" per una nuova appliance, il programma di installazione dell'appliance StorageGRID mostra il passaggio dall'installazione della fase 3 alla fase 4, completamento dell'installazione. Al termine della fase 4, il controller viene riavviato.
 
 +
+image::../media/grid_expansion_progress.png[Questa immagine viene spiegata dal testo circostante.]
+
++
 
 NOTE: Un'espansione del sito include un'attività aggiuntiva per configurare Cassandra per il nuovo sito.
 
-. Non appena viene visualizzato il collegamento *Download del pacchetto di ripristino*, scaricare il file del pacchetto di ripristino.
+. Non appena viene visualizzato il collegamento *Download Recovery Package*, scaricare il file Recovery Package.
 +
-È necessario scaricare al più presto una copia aggiornata del file del pacchetto di ripristino dopo aver apportato modifiche alla topologia della griglia al sistema StorageGRID. Il file del pacchetto di ripristino consente di ripristinare il sistema in caso di errore.
+È necessario scaricare una copia aggiornata del file del pacchetto di ripristino il prima possibile dopo aver apportato modifiche alla topologia della griglia al sistema StorageGRID. Il file Recovery Package consente di ripristinare il sistema in caso di errore.
 
 +
 .. Selezionare il collegamento per il download.
@@ -204,6 +206,8 @@ CAUTION: Non riavviare i nodi di storage durante le fasi di "espansione del clus
 .Aggiunta di nodi di storage
 --
 Se si aggiungono nodi di storage a un sito esistente, esaminare la percentuale indicata nel messaggio di stato "Avvio di Cassandra e streaming dei dati".
+
+image::../media/grid_expansion_starting_cassandra.png[Grid Expansion > Avvio di Cassandra e dati in streaming]
 
 Questa percentuale stima il completamento dell'operazione di streaming Cassandra in base alla quantità totale di dati Cassandra disponibili e alla quantità già scritta nel nuovo nodo.
 

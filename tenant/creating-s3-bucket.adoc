@@ -24,7 +24,7 @@ NOTE: Le autorizzazioni per impostare o modificare le proprietà S3 Object Lock 
 * Se ogni tenant avrà 5.000 bucket, ogni nodo storage nella griglia ha un minimo di 64 GB di RAM.
 +
 
-NOTE: Ogni griglia può avere un massimo di 100.000 bucket, incluso link:../tenant/manage-branch-buckets.html["benne per filiali"].
+NOTE: Ogni griglia può avere un massimo di 100.000 secchi.
 
 
 
@@ -87,15 +87,7 @@ L'amministratore di StorageGRID gestisce le regioni disponibili. L'area di un bu
 .Fasi
 . Facoltativamente, attivare il controllo della versione degli oggetti per il bucket.
 +
-Abilitare la versione degli oggetti se si desidera memorizzare ogni versione di ciascun oggetto in questo bucket. È quindi possibile recuperare le versioni precedenti di un oggetto in base alle esigenze.
-
-+
-È necessario abilitare la versione oggetto se:
-
-+
-** Il bucket verrà utilizzato per la replica cross-grid.
-** Si desidera creare un link:../tenant/manage-branch-buckets.html["benna per diramazione"] da questo bucket.
-
+Abilitare la versione degli oggetti se si desidera memorizzare ogni versione di ciascun oggetto in questo bucket. È quindi possibile recuperare le versioni precedenti di un oggetto in base alle esigenze. Se il bucket verrà utilizzato per la replica cross-grid, è necessario attivare il controllo delle versioni degli oggetti.
 
 . Se l'impostazione globale S3 Object Lock (blocco oggetti S3) è attivata, attivare facoltativamente S3 Object Lock (blocco oggetti S3) per memorizzare gli oggetti utilizzando un modello WORM (Write-Once-Read-Many).
 +
@@ -154,16 +146,12 @@ Un _massimo_ periodo di conservazione, che può essere un valore compreso tra 1 
 
 
 
-. [[Capacity-limit]]facoltativamente, selezionare *Enable Capacity limit* (attiva limite capacità*), immettere un valore e selezionare l'unità di capacità.
+. [[Capacity-limit]]facoltativamente, selezionare *Enable Capacity limit* (Abilita limite di capacità).
 +
 Il limite di capacità è la capacità massima disponibile per gli oggetti di questa benna. Questo valore rappresenta una quantità logica (dimensione dell'oggetto), non una quantità fisica (dimensione sul disco).
 
 +
 Se non viene impostato alcun limite, la capacità di questa benna è illimitata. Per ulteriori informazioni, fare riferimento link:../tenant/understanding-tenant-manager-dashboard.html#bucket-capacity-usage["Utilizzo del limite di capacità"] a.
-
-. [[object-count-limit]]facoltativamente, selezionare *Enable object count limit* (Abilita limite di conteggio oggetti) e immettere un numero intero di almeno 1 e non superiore a 1.000.000.000.000.000.000.
-+
-Il limite di conteggio degli oggetti è il numero massimo di oggetti che questo bucket può contenere. Questo valore rappresenta una quantità logica (conteggio oggetti). Se non è impostato alcun limite, il conteggio degli oggetti è illimitato.
 
 . Selezionare *Crea bucket*.
 +
@@ -171,5 +159,3 @@ Il bucket viene creato e aggiunto alla tabella nella pagina Bucket.
 
 . In alternativa, selezionare *Vai alla pagina dettagli bucket* per link:viewing-s3-bucket-details.html["visualizza i dettagli del bucket"] ed eseguire una configurazione aggiuntiva.
 
-
-È possibile anche link:../tenant/manage-branch-buckets.html["creare bucket di filiali"] in base alle necessità.
