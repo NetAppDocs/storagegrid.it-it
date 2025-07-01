@@ -68,7 +68,7 @@ LUN DA 100 GB PER SISTEMA OPERATIVO
 
 3 LUN per ciascun nodo di storage su questo host
 
-*Nota*: Un nodo di storage può avere da 1 a 16 LUN di storage; si consigliano almeno 3 LUN di storage.
+*Nota*: Un nodo di storage può avere da 1 a 48 LUN di storage; si consigliano almeno 3 LUN di storage.
 
 Dimensione minima per LUN: 4 TB
 
@@ -104,10 +104,10 @@ NOTE: A seconda del livello di audit configurato, la dimensione degli input dell
 
 == Requisiti di storage per i nodi di storage
 
-Un nodo di storage basato su software può avere da 1 a 16 volumi di storage: Si consiglia di utilizzare almeno -3 volumi di storage. Ogni volume di storage deve essere pari o superiore a 4 TB.
+Un nodo di archiviazione basato su software può avere da 1 a 48 volumi di archiviazione; si consigliano 3 o più volumi di archiviazione. Ogni volume di storage deve essere pari o superiore a 4 TB.
 
 
-NOTE: Un nodo di storage dell'appliance può avere fino a 48 volumi di storage.
+NOTE: Un nodo di archiviazione dell'appliance può avere fino a 48 volumi di archiviazione.
 
 Come mostrato nella figura, StorageGRID riserva spazio per i metadati degli oggetti sul volume di storage 0 di ciascun nodo di storage. Qualsiasi spazio rimanente sul volume di storage 0 e qualsiasi altro volume di storage nel nodo di storage viene utilizzato esclusivamente per i dati a oggetti.
 
