@@ -22,6 +22,26 @@ summary: È possibile utilizzare lo strumento Change IP per aggiungere o modific
 
 NOTE: Se si apportano modifiche solo all'elenco subnet di rete griglia, utilizzare Grid Manager per aggiungere o modificare la configurazione di rete. In caso contrario, utilizzare lo strumento Change IP se Grid Manager non è accessibile a causa di un problema di configurazione di rete o se si stanno eseguendo contemporaneamente modifiche al routing Grid Network e altre modifiche di rete.
 
+[NOTE]
+====
+Non utilizzare subnet che contengono i seguenti indirizzi IPv4 per la rete Grid, la rete di amministrazione o la rete client di alcun nodo:
+
+* 192.168.130.101
+* 192.168.131.101
+* 192.168.130.102
+* 192.168.131.102
+* 198.51.100.2
+* 198.51.100.4
+
+
+Ad esempio, non utilizzare i seguenti intervalli di subnet per la rete Grid, la rete amministrativa o la rete client di alcun nodo:
+
+* 192.168.130.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 192.168.130.101 e 192.168.130.102
+* 192.168.131.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 192.168.131.101 e 192.168.131.102
+* 198.51.100.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 198.51.100.2 e 198.51.100.4
+
+
+====
 .Fasi
 . Accedere al nodo di amministrazione principale:
 +

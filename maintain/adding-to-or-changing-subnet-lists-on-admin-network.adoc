@@ -19,6 +19,26 @@ summary: 'È possibile aggiungere, eliminare o modificare le subnet nell"elenco 
 
 È possibile aggiungere, eliminare o modificare le subnet in tutti i nodi dell'elenco subnet di rete amministrativa.
 
+[NOTE]
+====
+Non utilizzare subnet che contengono i seguenti indirizzi IPv4 per la rete Grid, la rete di amministrazione o la rete client di alcun nodo:
+
+* 192.168.130.101
+* 192.168.131.101
+* 192.168.130.102
+* 192.168.131.102
+* 198.51.100.2
+* 198.51.100.4
+
+
+Ad esempio, non utilizzare i seguenti intervalli di subnet per la rete Grid, la rete amministrativa o la rete client di alcun nodo:
+
+* 192.168.130.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 192.168.130.101 e 192.168.130.102
+* 192.168.131.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 192.168.131.101 e 192.168.131.102
+* 198.51.100.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 198.51.100.2 e 198.51.100.4
+
+
+====
 .Fasi
 . Accedere al nodo di amministrazione principale:
 +

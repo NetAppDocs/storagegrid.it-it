@@ -23,6 +23,26 @@ StorageGRID mantiene un elenco delle subnet di rete utilizzate per comunicare tr
 .A proposito di questa attività
 Se si sta eseguendo un'attività di espansione che include l'aggiunta di una nuova subnet, è necessario aggiungere una nuova subnet all'elenco delle subnet Grid Network prima di avviare la procedura di espansione. In caso contrario, sarà necessario annullare l'espansione, aggiungere la nuova subnet e riavviare l'espansione.
 
+[NOTE]
+====
+Non utilizzare subnet che contengono i seguenti indirizzi IPv4 per la rete Grid, la rete di amministrazione o la rete client di alcun nodo:
+
+* 192.168.130.101
+* 192.168.131.101
+* 192.168.130.102
+* 192.168.131.102
+* 198.51.100.2
+* 198.51.100.4
+
+
+Ad esempio, non utilizzare i seguenti intervalli di subnet per la rete Grid, la rete amministrativa o la rete client di alcun nodo:
+
+* 192.168.130.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 192.168.130.101 e 192.168.130.102
+* 192.168.131.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 192.168.131.101 e 192.168.131.102
+* 198.51.100.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 198.51.100.2 e 198.51.100.4
+
+
+====
 
 
 == Aggiungere una subnet

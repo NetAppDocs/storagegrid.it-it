@@ -33,6 +33,25 @@ Le seguenti restrizioni vengono applicate da Grid Manager durante l'implementazi
 
 * La subnet mask per qualsiasi indirizzo IP di rete non può essere 255.255.255.254 o 255.255.255.255 (/31 o /32 nella notazione CIDR).
 * La subnet definita da un indirizzo IP dell'interfaccia di rete e dalla subnet mask (CIDR) non può sovrapporsi alla subnet di qualsiasi altra interfaccia configurata sullo stesso nodo.
+* Non utilizzare subnet che contengono i seguenti indirizzi IPv4 per la rete Grid, la rete di amministrazione o la rete client di alcun nodo:
++
+** 192.168.130.101
+** 192.168.131.101
+** 192.168.130.102
+** 192.168.131.102
+** 198.51.100.2
+** 198.51.100.4
+
+
++
+Ad esempio, non utilizzare i seguenti intervalli di subnet per la rete Grid, la rete amministrativa o la rete client di alcun nodo:
+
++
+** 192.168.130.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 192.168.130.101 e 192.168.130.102
+** 192.168.131.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 192.168.131.101 e 192.168.131.102
+** 198.51.100.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 198.51.100.2 e 198.51.100.4
+
+
 * La subnet Grid Network per ciascun nodo deve essere inclusa in GNSL.
 * La subnet Admin Network non può sovrapporsi alla subnet Grid Network, alla subnet Client Network o a qualsiasi subnet in GNSL.
 * Le subnet in AESL non possono sovrapporsi con le subnet in GNSL.
