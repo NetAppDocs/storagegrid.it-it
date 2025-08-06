@@ -68,7 +68,7 @@ LUN DA 100 GB PER SISTEMA OPERATIVO
 
 3 LUN per ciascun nodo di storage su questo host
 
-*Nota*: Un nodo di storage può avere da 1 a 48 LUN di storage; si consigliano almeno 3 LUN di storage.
+*Nota*: un nodo di archiviazione può avere da 1 a 16 LUN di archiviazione; si consigliano almeno 3 LUN di archiviazione.
 
 Dimensione minima per LUN: 4 TB
 
@@ -85,7 +85,7 @@ LUN DA 100 GB PER SISTEMA OPERATIVO
 
 Dimensione minima per LUN: 4 TB
 
-*Nota*: Non esiste una dimensione massima per il singolo LUN. La capacità in eccesso viene risparmiata per uso futuro.
+Dimensione massima LUN testata: 39 TB.
 
 *Nota*: È richiesto un solo rangedb per i nodi di archiviazione di solo metadati.
 
@@ -104,7 +104,7 @@ NOTE: A seconda del livello di audit configurato, la dimensione degli input dell
 
 == Requisiti di storage per i nodi di storage
 
-Un nodo di archiviazione basato su software può avere da 1 a 48 volumi di archiviazione; si consigliano 3 o più volumi di archiviazione. Ogni volume di storage deve essere pari o superiore a 4 TB.
+Un nodo di archiviazione basato su software può avere da 1 a 16 volumi di archiviazione; si consigliano 3 o più volumi di archiviazione.  Ogni volume di archiviazione deve essere pari o superiore a 4 TB.
 
 
 NOTE: Un nodo di archiviazione dell'appliance può avere fino a 48 volumi di archiviazione.
