@@ -50,7 +50,7 @@ Analogamente, durante il normale funzionamento, qualsiasi interfaccia a priorit�
 
 == Visualizzare lo stato corrente del gruppo ha di un nodo
 
-Per verificare se un nodo è assegnato a un gruppo ha e determinarne lo stato corrente, selezionare *NODES* > *_Node_*.
+Per verificare se un nodo è assegnato a un gruppo HA e determinarne lo stato attuale, selezionare *Nodi* > *_nodo_*.
 
 Se la scheda *Panoramica* include una voce per *gruppi ha*, il nodo viene assegnato ai gruppi ha elencati. Il valore dopo il nome del gruppo corrisponde allo stato corrente del nodo nel gruppo ha:
 

@@ -1,0 +1,250 @@
+---
+permalink: tenant/manage-users.html 
+sidebar: sidebar 
+keywords: how to create local tenant users, manage users 
+summary: 'È possibile creare utenti locali e assegnarli a gruppi locali per determinare le funzionalità a cui questi utenti possono accedere. Tenant Manager include un utente locale predefinito, denominato "root". Sebbene sia possibile aggiungere e rimuovere utenti locali, non è possibile rimuovere l"utente root.' 
+---
+= Gestire gli utenti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile creare utenti locali e assegnarli a gruppi locali per determinare a quali funzionalità possono accedere.  È anche possibile importare utenti federati.  Il Tenant Manager include un utente locale predefinito, denominato "root".  Sebbene sia possibile aggiungere e rimuovere utenti locali, non è possibile rimuovere l'utente root.
+
+
+NOTE: Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID, gli utenti locali non potranno accedere al Gestore tenant o all'API di gestione tenant, anche se possono utilizzare le applicazioni client per accedere alle risorse del tenant, in base alle autorizzazioni di gruppo.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* L'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Autorizzazione di accesso root"].
+* Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, è stato esaminato il flusso di lavoro e le considerazioni relative a link:grid-federation-account-clone.html["clonazione di utenti e gruppi tenant"]e si è effettuato l'accesso alla griglia di origine del tenant.
+
+
+
+
+== [[create-user]]Crea un utente locale
+
+È possibile creare un utente locale e assegnarlo a uno o più gruppi locali per controllarne le autorizzazioni di accesso.
+
+Gli utenti S3 che non appartengono a nessun gruppo non dispongono di autorizzazioni di gestione o criteri di gruppo S3 applicati. Questi utenti potrebbero avere accesso al bucket S3 concesso tramite una policy bucket.
+
+
+
+=== Accedere alla procedura guidata Crea utente
+
+.Fasi
+. Selezionare *Gestione accessi* > *Utenti*.
++
+Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, un banner blu indica che si tratta della griglia di origine del tenant. Tutti gli utenti locali creati in questa griglia verranno clonati nell'altra griglia della connessione.
+
++
+image::../media/grid-federation-tenant-user-banner.png[Immagine del banner blu sulla pagina utente se si tratta della griglia di origine del tenant]
+
+. Selezionare *Crea utente*.
+
+
+
+
+=== Immettere le credenziali
+
+.Fasi
+. Per il passo *inserire le credenziali utente*, completare i seguenti campi.
++
+[cols="1a,3a"]
+|===
+| Campo | Descrizione 
+
+
+ a| 
+Nome completo
+ a| 
+Il nome completo dell'utente, ad esempio il nome e il cognome di una persona o il nome di un'applicazione.
+
+
+
+ a| 
+Nome utente
+ a| 
+Il nome utilizzato dall'utente per l'accesso. I nomi utente devono essere univoci e non possono essere modificati.
+
+*Nota*: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, si verificherà un errore di clonazione se lo stesso *Nome utente* esiste già per il tenant nella griglia di destinazione.
+
+
+
+ a| 
+Password e Conferma password
+ a| 
+La password che l'utente utilizzerà inizialmente al momento dell'accesso.
+
+
+
+ a| 
+Negare l'accesso
+ a| 
+Selezionare *Sì* per impedire a questo utente di accedere all'account tenant, anche se potrebbe ancora appartenere a uno o più gruppi.
+
+Ad esempio, selezionare *Sì* per sospendere temporaneamente la possibilità di accesso dell'utente.
+
+|===
+. Selezionare *continua*.
+
+
+
+
+=== Assegnare ai gruppi
+
+.Fasi
+. Assegnare l'utente a uno o più gruppi locali per determinare quali attività possono eseguire.
++
+L'assegnazione di un utente ai gruppi è facoltativa. Se preferisci, puoi selezionare gli utenti quando crei o modifichi i gruppi.
+
++
+Gli utenti che non appartengono a nessun gruppo non disporranno di autorizzazioni di gestione. Le autorizzazioni sono cumulative. Gli utenti disporranno di tutte le autorizzazioni per tutti i gruppi a cui appartengono. Vedere link:tenant-management-permissions.html["Permessi di gestione del tenant"].
+
+. Selezionare *Crea utente*.
++
+Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e ci si trova nella griglia di origine del tenant, il nuovo utente locale viene clonato nella griglia di destinazione del tenant. *Success* viene visualizzato come *Cloning status* nella sezione Overview della pagina dei dettagli dell'utente.
+
+. Selezionare *fine* per tornare alla pagina utenti.
+
+
+
+
+== Visualizzare o modificare l'utente locale
+
+.Fasi
+. Selezionare *Gestione accessi* > *Utenti*.
+. Consultare le informazioni fornite nella pagina utenti, che elenca le informazioni di base per tutti gli utenti locali e federati per questo account tenant.
++
+Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si sta visualizzando l'utente nella griglia di origine del tenant:
+
++
+** Un messaggio banner indica che se si modifica o si rimuove un utente, le modifiche non verranno sincronizzate con l'altra griglia.
+** Se necessario, un messaggio di intestazione indica se gli utenti non sono stati clonati nel tenant sulla griglia di destinazione. È possibile <<clone-users,riprovare un clone utente non riuscito>>.
+
+
+. Se si desidera modificare il nome completo dell'utente:
++
+.. Selezionare la casella di controllo dell'utente.
+.. Selezionare *azioni* > *Modifica nome completo*.
+.. Inserire il nuovo nome.
+.. Selezionare *Salva modifiche.*
+
+
+. Se si desidera visualizzare ulteriori dettagli o apportare modifiche aggiuntive, effettuare una delle seguenti operazioni:
++
+** Selezionare il nome utente.
+** Selezionare la casella di controllo dell'utente e selezionare *azioni* > *Visualizza dettagli utente*.
+
+
+. Consultare la sezione Panoramica, che mostra le seguenti informazioni per ciascun utente:
++
+** Nome completo
+** Nome utente
+** Tipo di utente
+** Accesso negato
+** Modalità di accesso
+** Appartenenza al gruppo
+** Campi aggiuntivi se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e l'utente viene visualizzato nella griglia di origine del tenant:
++
+*** Stato di cloning, *Success* o *Failure*
+*** Un banner blu che indica che se modifichi questo utente, le modifiche non verranno sincronizzate con l'altra griglia.
+
+
+
+
+. Modificare le impostazioni utente in base alle esigenze. Vedere <<create-user,Creare un utente locale>> per i dettagli su cosa immettere.
++
+.. Nella sezione Panoramica , modificare il nome completo selezionando il nome o l'icona di modifica image:../media/icon_edit_tm.png["Icona Edit (Modifica)"].
++
+Impossibile modificare il nome utente.
+
+.. Nella scheda *Password*, modificare la password dell'utente e selezionare *Salva modifiche*.
+.. Nella scheda *accesso*, selezionare *No* per consentire all'utente di accedere o selezionare *Sì* per impedire all'utente di accedere. Quindi, selezionare *Salva modifiche*.
+.. Nella scheda *tasti di accesso*, selezionare *Crea tasto* e seguire le istruzioni per link:creating-another-users-s3-access-keys.html["Creazione delle chiavi di accesso S3 di un altro utente"].
+.. Nella scheda *gruppi*, selezionare *Modifica gruppi* per aggiungere l'utente ai gruppi o rimuoverlo dai gruppi. Quindi, selezionare *Save Changes* (Salva modifiche).
+
+
+. Confermare di aver selezionato *Save Changes* (Salva modifiche) per ciascuna sezione modificata.
+
+
+
+
+== Importa utenti federati
+
+È possibile importare uno o più utenti federati, fino a un massimo di 100 utenti, direttamente nella pagina Utenti.
+
+.Fasi
+. Selezionare *Gestione accessi* > *Utenti*.
+. Seleziona *Importa utenti federati*.
+. Inserisci l'UUID o il nome utente di uno o più utenti federati.
++
+Per voci multiple, aggiungere ogni UUID o nome utente su una nuova riga.
+
+. Selezionare *Importa*.
++
+Se l'importazione nel campo Utenti non riesce per uno o più utenti, procedere come segue:
+
++
+.. Espandi *Utenti non importati* e seleziona *Copia utenti*.
+.. Riprovare l'importazione selezionando *Precedente* e incollando gli utenti copiati nella finestra di dialogo *Importa utenti federati*.
+
+
++
+Dopo aver chiuso la finestra di dialogo *Importa utenti federati*, le informazioni sugli utenti federati vengono visualizzate nella pagina Utenti per gli utenti importati correttamente.
+
+
+
+
+
+== Utente locale duplicato
+
+È possibile duplicare un utente locale per creare un nuovo utente più rapidamente.
+
+
+NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si duplica un utente dalla griglia di origine del tenant, l'utente duplicato verrà clonato nella griglia di destinazione del tenant.
+
+.Fasi
+. Selezionare *Gestione accessi* > *Utenti*.
+. Selezionare la casella di controllo dell'utente che si desidera duplicare.
+. Selezionare *azioni* > *utente duplicato*.
+. Vedere <<create-user,Creare un utente locale>> per i dettagli su cosa immettere.
+. Selezionare *Crea utente*.
+
+
+
+
+== [[clone-users]]Riprova clone utente
+
+Per riprovare un clone non riuscito:
+
+. Selezionare ogni utente che indica _(clonazione non riuscita)_ sotto il nome utente.
+. Selezionare *azioni* > *Clona utenti*.
+. Visualizzare lo stato dell'operazione di clonazione dalla pagina dei dettagli di ciascun utente che si sta clonando.
+
+
+Per ulteriori informazioni, vedere link:grid-federation-account-clone.html["Clonare utenti e gruppi tenant"].
+
+
+
+== Eliminare uno o più utenti locali
+
+È possibile eliminare in modo permanente uno o più utenti locali che non hanno più bisogno di accedere all'account tenant StorageGRID.
+
+
+NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si elimina un utente locale, StorageGRID non eliminerà l'utente corrispondente sull'altra griglia. Se è necessario mantenere queste informazioni sincronizzate, è necessario eliminare lo stesso utente da entrambe le griglie.
+
+
+NOTE: Per eliminare gli utenti federati, è necessario utilizzare l'origine delle identità federate.
+
+.Fasi
+. Selezionare *Gestione accessi* > *Utenti*.
+. Selezionare la casella di controllo per ciascun utente che si desidera eliminare.
+. Selezionare *azioni* > *Elimina utente* o *azioni* > *Elimina utenti*.
++
+Viene visualizzata una finestra di dialogo di conferma.
+
+. Selezionare *Delete user* (Elimina utente) o *Delete users* (Elimina utenti).
+

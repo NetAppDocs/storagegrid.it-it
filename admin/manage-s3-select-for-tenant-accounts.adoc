@@ -73,4 +73,4 @@ CAUTION: Le richieste SelectObjectContent possono ridurre le performance di bila
 
 Consultare la link:../s3/use-s3-select.html["Istruzioni per l'utilizzo di S3 Select"].
 
-Per visualizzare link:../monitor/reviewing-support-metrics.html["Grafici Grafana"]S3 selezionare le operazioni nel tempo, selezionare *SUPPORT* > *Tools* > *Metrics* in Grid Manager.
+Per visualizzarelink:../monitor/reviewing-support-metrics.html["Grafici Grafana"] per le operazioni di selezione S3 nel tempo, selezionare *Supporto* > *Strumenti* > *Metriche* in Grid Manager.

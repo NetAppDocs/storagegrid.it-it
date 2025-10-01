@@ -14,13 +14,12 @@ summary: È possibile monitorare i tassi di acquisizione e recupero degli oggett
 È possibile monitorare i tassi di acquisizione e recupero degli oggetti, nonché le metriche per i conteggi degli oggetti, le query e la verifica. È possibile visualizzare il numero di tentativi riusciti e non riusciti da parte delle applicazioni client di lettura, scrittura e modifica degli oggetti nel sistema StorageGRID.
 
 .Prima di iniziare
-* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
-
+L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 
 .Fasi
 . Dalla dashboard, selezionare la scheda *prestazioni*.
 . Fare riferimento ai grafici S3, che riassumono il numero di operazioni client eseguite dai nodi di archiviazione e il numero di richieste API ricevute dai nodi di archiviazione durante l'intervallo di tempo selezionato.
-. Selezionare *NODI* per accedere alla pagina nodi.
+. Selezionare *Nodi* per accedere alla pagina Nodi.
 . Dalla home page dei nodi (livello griglia), selezionare la scheda *oggetti*.
 +
 Il grafico mostra i tassi di acquisizione e recupero di S3 kb dell'intero sistema StorageGRID in byte al secondo e la quantità di dati acquisiti o recuperati. È possibile selezionare un intervallo di tempo o applicare un intervallo personalizzato.

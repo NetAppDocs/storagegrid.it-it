@@ -1,41 +1,8 @@
 ---
 permalink: rhel/overview-of-installation-rest-api.html 
-sidebar: sidebar 
-keywords: installation overview red hat linux 
-summary: 'StorageGRID fornisce l"API di installazione di StorageGRID per eseguire le attività di installazione.' 
+redirect: storagegrid/swnodes/overview-of-installation-rest-api.html 
 ---
-= API REST di installazione
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-StorageGRID fornisce l'API di installazione di StorageGRID per eseguire le attività di installazione.
-
-L'API utilizza la piattaforma API open source Swagger per fornire la documentazione API. Swagger consente agli sviluppatori e ai non sviluppatori di interagire con l'API in un'interfaccia utente che illustra il modo in cui l'API risponde a parametri e opzioni. La presente documentazione presuppone che l'utente abbia familiarità con le tecnologie Web standard e il formato dati JSON.
-
-
-CAUTION: Tutte le operazioni API eseguite utilizzando la pagina Web documentazione API sono operazioni in tempo reale. Fare attenzione a non creare, aggiornare o eliminare per errore i dati di configurazione o altri dati.
-
-Ogni comando REST API include l'URL dell'API, un'azione HTTP, qualsiasi parametro URL richiesto o opzionale e una risposta API prevista.
-
-
-
-== API di installazione StorageGRID
-
-L'API di installazione di StorageGRID è disponibile solo quando si configura inizialmente il sistema StorageGRID e se è necessario eseguire un ripristino primario del nodo di amministrazione. È possibile accedere all'API di installazione tramite HTTPS da Grid Manager.
-
-Per accedere alla documentazione API, accedere alla pagina Web di installazione nel nodo di amministrazione principale e selezionare *Guida* > *documentazione API* dalla barra dei menu.
-
-L'API di installazione di StorageGRID include le seguenti sezioni:
-
-* *Config* -- operazioni relative alla release del prodotto e alle versioni dell'API. È possibile elencare la versione di release del prodotto e le principali versioni dell'API supportate da tale release.
-* *Grid* -- operazioni di configurazione a livello di griglia. È possibile ottenere e aggiornare le impostazioni della griglia, inclusi i dettagli della griglia, le subnet Grid Network, le password della griglia e gli indirizzi IP dei server NTP e DNS.
-* *Nodi* -- operazioni di configurazione a livello di nodo. È possibile recuperare un elenco di nodi griglia, eliminare un nodo griglia, configurare un nodo griglia, visualizzare un nodo griglia e ripristinare la configurazione di un nodo griglia.
-* *Provision* -- operazioni di provisioning. È possibile avviare l'operazione di provisioning e visualizzare lo stato dell'operazione di provisioning.
-* *Recovery* -- operazioni di recovery del nodo di amministrazione principale. È possibile ripristinare le informazioni, caricare il pacchetto di ripristino, avviare il ripristino e visualizzare lo stato dell'operazione di ripristino.
-* *Recovery-package* -- operazioni per scaricare il pacchetto di ripristino.
-* *Siti* -- operazioni di configurazione a livello di sito. È possibile creare, visualizzare, eliminare e modificare un sito.
-* *Temporary-password* -- operazioni sulla password temporanea per proteggere la Mgmt-api durante l'installazione.
 

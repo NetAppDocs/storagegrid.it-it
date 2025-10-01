@@ -53,13 +53,7 @@ La schermata di accesso che viene visualizzata dipende dall'URL immesso e dalla 
 Se StorageGRID non utilizza SSO, viene visualizzata una delle seguenti schermate:
 
 ** Pagina di accesso a Grid Manager. Selezionare il collegamento *accesso tenant*.
-+
-image::../media/tenant_login_link.png[Link di accesso tenant nella pagina di accesso di Grid Manager]
-
-** La pagina di accesso del tenant manager. Il campo *account* potrebbe essere già completato, come mostrato di seguito.
-+
-image::../media/tenant_user_sign_in.png[Pagina di accesso al tenant Manager]
-
+** La pagina di accesso del Tenant Manager.  Il campo *Account* potrebbe essere già compilato.
 +
 ... Se l'ID account a 20 cifre del tenant non viene visualizzato, selezionare il nome dell'account tenant, se visualizzato nell'elenco degli account recenti, oppure inserire l'ID account.
 ... Immettere il nome utente e la password.
@@ -77,17 +71,11 @@ Viene visualizzata la dashboard di Tenant Manager.
 --
 Se StorageGRID utilizza SSO, viene visualizzata una delle seguenti schermate:
 
-** Pagina SSO della tua organizzazione. Ad esempio:
-+
-image::../media/sso_organization_page.gif[Esempio di pagina di accesso dell'organizzazione per SSO]
-
+** La pagina SSO della tua organizzazione.
 +
 Immettere le credenziali SSO standard e selezionare *Accedi*.
 
 ** La pagina di accesso SSO di Tenant Manager.
-+
-image::../media/sign_in_sso.png[Accesso a un account tenant se SSO è attivato]
-
 +
 ... Se l'ID account a 20 cifre del tenant non viene visualizzato, selezionare il nome dell'account tenant, se visualizzato nell'elenco degli account recenti, oppure inserire l'ID account.
 ... Selezionare *Accedi*.

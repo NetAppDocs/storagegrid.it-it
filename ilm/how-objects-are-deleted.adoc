@@ -92,6 +92,8 @@ Quando gli oggetti sono in versione, le richieste di eliminazione degli oggetti 
 
 Anche se l'oggetto non è stato rimosso, StorageGRID si comporta come se la versione corrente dell'oggetto non fosse più disponibile. Le richieste a quell'oggetto restituiscono 404 non trovato. Tuttavia, poiché i dati dell'oggetto non correnti non sono stati rimossi, le richieste che specificano una versione non corrente dell'oggetto possono avere successo.
 
+Se un client elimina una versione di un oggetto con un ID versione da unlink:../tenant/what-is-branch-bucket.html["secchio di rami"] StorageGRID nasconde l'esistenza della versione dell'oggetto ma non crea un marcatore di eliminazione nel bucket del ramo.  Se un client elimina un oggetto senza un ID versione da un bucket di diramazione, StorageGRID crea un marcatore di eliminazione nel bucket di diramazione in base al comportamento S3 standard.
+
 Per liberare spazio quando si eliminano gli oggetti con versione o per rimuovere i marcatori di eliminazione, utilizzare una delle seguenti opzioni:
 
 * *S3 client request*: Specificare l'ID della versione dell'oggetto nella richiesta di ELIMINAZIONE DELL'oggetto S3 (`DELETE /object?versionId=ID`). Tenere presente che questa richiesta rimuove solo le copie degli oggetti per la versione specificata (le altre versioni occupano ancora spazio).

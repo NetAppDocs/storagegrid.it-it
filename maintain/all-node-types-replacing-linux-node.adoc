@@ -13,7 +13,7 @@ summary: 'Se un guasto richiede l"implementazione di uno o più nuovi host fisic
 [role="lead"]
 Se un guasto richiede l'implementazione di uno o più nuovi host fisici o virtuali o la reinstallazione di Linux su un host esistente, implementare e configurare l'host sostitutivo prima di poter ripristinare il nodo grid. Questa procedura è una fase del processo di ripristino del nodo grid per tutti i tipi di nodi grid.
 
-"Linux" si riferisce a una distribuzione Red Hat® Enterprise Linux®, Ubuntu® o Debian®. Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
+"Linux" si riferisce a una distribuzione Red Hat® Enterprise Linux® (RHEL), Ubuntu® o Debian®.  Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
 
 Questa procedura viene eseguita solo come un passaggio nel processo di ripristino di nodi di archiviazione basati su software, nodi amministrativi primari o non primari o nodi gateway. I passaggi sono identici indipendentemente dal tipo di nodo di griglia che si sta ripristinando.
 

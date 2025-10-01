@@ -62,7 +62,7 @@ Quando si modifica una connessione a federazione di griglie, viene visualizzato 
 Quando si modifica una connessione a federazione di griglie, StorageGRID tenta di salvare un file di "configurazione candidata" su tutti i nodi di amministrazione della prima griglia. Viene visualizzato un messaggio di avviso se il file non può essere salvato in tutti i nodi di amministrazione, ad esempio perché un nodo di amministrazione non è in linea.
 
 .Azioni consigliate
-. Dalla griglia utilizzata per modificare la connessione, selezionare *NODES* (NODI).
+. Dalla griglia che stai utilizzando per modificare la connessione, seleziona *Nodi*.
 . Verificare che tutti i nodi Admin per la griglia siano in linea.
 . Se alcuni nodi sono offline, ripristinarli online e provare a modificare nuovamente la connessione.
 
@@ -84,7 +84,7 @@ Per motivi di sicurezza, quando un account tenant viene clonato dalla griglia di
 .Azioni consigliate
 Prima che l'utente root possa accedere alla griglia di destinazione del tenant, è necessario che un amministratore della griglia link:changing-password-for-tenant-local-root-user.html["modificare la password per l'utente root locale"]si trovi nella griglia di destinazione.
 
-Prima che un utente locale clonato possa accedere alla griglia di destinazione del tenant, l'utente root del tenant clonato deve aggiungere una password per l'utente nella griglia di destinazione. Per istruzioni, vedere link:../tenant/managing-local-users.html["Gestire gli utenti locali"]nelle istruzioni per l'uso di Tenant Manager.
+Prima che un utente locale clonato possa accedere alla griglia di destinazione del tenant, l'utente root del tenant clonato deve aggiungere una password per l'utente sulla griglia di destinazione.  Per le istruzioni, fare riferimento alink:../tenant/manage-users.html["Gestire gli utenti"] nelle istruzioni per l'utilizzo di Tenant Manager.
 
 
 
@@ -99,7 +99,7 @@ Questo problema può verificarsi se gli aggiornamenti allo stato della connessio
 .Azioni consigliate
 . Esaminare i motivi elencati nel messaggio di errore e risolvere eventuali problemi di rete o di altro tipo che potrebbero impedire il funzionamento della connessione. Vedere <<grid-federation-errors,Avvisi ed errori di connessione Grid Federation>>.
 . Seguire le istruzioni per testare una connessione di federazione della griglia in link:grid-federation-manage-connection.html["Gestire le connessioni a federazione di griglie"] per confermare che il problema è stato risolto.
-. Dalla griglia di origine del tenant, selezionare *TENANT*.
+. Dalla griglia di origine del tenant, seleziona *Tenant*.
 . Individuare l'account tenant che non è stato clonato.
 . Selezionare il nome del tenant per visualizzare la pagina dei dettagli.
 . Selezionare *Retry account clone*.
@@ -125,14 +125,16 @@ Quando link:../monitor/grid-federation-monitor-connections.html["visualizzazione
 image::../media/grid-federation-last-error.png[Schermata che mostra un messaggio nella colonna Last error (ultimo errore) di una connessione a federazione di griglie]
 
 .Dettagli
-Per ogni connessione a federazione di griglie, la colonna *ultimo errore* mostra l'errore più recente che si verifica, se presente, quando i dati di un tenant venivano replicati nell'altro grid. In questa colonna viene visualizzato solo l'ultimo errore di replica tra griglie; gli errori precedenti che potrebbero essere stati rilevati non verranno visualizzati. In questa colonna potrebbe verificarsi un errore per uno dei seguenti motivi:
+Per ogni connessione di federazione di griglia, la colonna *Ultimo errore* mostra l'errore più recente verificatosi, se presente, durante la replica dei dati di un tenant sull'altra griglia.  Questa colonna mostra solo l'ultimo errore di replicazione tra griglie verificatosi; gli errori precedenti che potrebbero essersi verificati non vengono mostrati.  Un errore in questa colonna potrebbe verificarsi per uno dei seguenti motivi:
 
-* Versione dell'oggetto di origine non trovata.
-* Bucket di origine non trovato.
+* La versione dell'oggetto sorgente non è stata trovata.
+* Il bucket di origine non è stato trovato.
 * Il bucket di destinazione è stato cancellato.
 * Il bucket di destinazione è stato ricreato da un account diverso.
 * Il bucket di destinazione ha la versione sospesa.
 * Il bucket di destinazione è stato ricreato dallo stesso account, ma ora non è più disponibile.
+* L'oggetto di origine ha impostazioni di blocco degli oggetti S3 che non sono conformi alle impostazioni di conservazione a livello di tenant della griglia di destinazione.
+* L'oggetto di origine ha impostazioni di blocco oggetto S3 e il blocco oggetto S3 è disabilitato sul bucket di destinazione.
 
 
 .Azioni consigliate
@@ -167,7 +169,7 @@ Questo avviso indica che gli oggetti tenant non possono essere replicati tra i b
 
 .Azioni consigliate
 . Accedere alla griglia in cui è stato attivato l'avviso.
-. Accedere a *CONFIGURATION* > *System* > *Grid Federation* e individuare il nome della connessione elencato nell'avviso.
+. Vai su *Configurazione* > *Sistema* > *Federazione di griglia* e individua il nome della connessione elencato nell'avviso.
 . Nella scheda Permitted tenant (tenant consentiti), esaminare la colonna *Last error* (ultimo errore) per determinare quali account tenant presentano errori.
 . Per ulteriori informazioni sugli errori, consultare le istruzioni nella sezione link:../monitor/grid-federation-monitor-connections.html["Monitorare le connessioni a federazione di griglie"] per esaminare le metriche di replica tra griglie.
 . Per ciascun account tenant interessato:
@@ -181,7 +183,6 @@ Questo avviso indica che gli oggetti tenant non possono essere replicati tra i b
 +
 ** Esiste un bucket corrispondente per lo stesso tenant sull'altra griglia (deve utilizzare il nome esatto).
 ** Entrambi i bucket hanno attivato la versione degli oggetti (la versione non può essere sospesa su nessuna griglia).
-** Entrambi i bucket hanno S3 Object Lock disattivato.
 ** Nessuno dei due bucket si trova nello stato *Deleting Objects: Read-only*.
 
 

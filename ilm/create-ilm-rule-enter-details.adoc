@@ -125,7 +125,7 @@ Vincolo di posizione (solo S3)
  a| 
 La regione in cui è stato creato un bucket S3. Utilizzare *ILM* > *regioni* per definire le regioni visualizzate.
 
-*Nota:* Un valore di US-East-1 corrisponde agli oggetti nei bucket creati nella regione US-East-1 e agli oggetti nei bucket che non hanno alcuna regione specificata. Vedere link:configuring-regions-optional-and-s3-only.html["Configurazione delle regioni (opzionale e solo S3)"].
+*Nota:* il valore us-east-1 corrisponderà agli oggetti nei bucket creati nella regione us-east-1 e agli oggetti nei bucket per i quali non è specificata alcuna regione. Vedere link:configuring-regions-optional-and-s3-only.html["Configurare le regioni S3"] .
 
 
 

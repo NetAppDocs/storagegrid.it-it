@@ -37,7 +37,7 @@ TIP: Se si desidera sostituire un vecchio apparecchio con un nuovo apparecchio, 
 
 È possibile dismettere nodi di rete connessi o nodi di rete disconnessi.
 
-Decommissiona i nodi connessi:: In generale, è necessario disattivare i nodi della griglia solo quando sono connessi al sistema StorageGRID e solo quando tutti i nodi sono in condizioni normali (le icone verdi sono presenti nelle pagine *NODI* e nella pagina *nodi di decompressione*).
+Decommissiona i nodi connessi:: In generale, è opportuno disattivare i nodi della griglia solo quando sono connessi al sistema StorageGRID e solo quando tutti i nodi sono in condizioni normali (sono presenti icone verdi nelle pagine *Nodi* e nella pagina *Disattiva nodi*).
 +
 --
 Per istruzioni, vedere link:decommissioning-connected-grid-nodes.html["Decommissionare i nodi di rete connessi"].

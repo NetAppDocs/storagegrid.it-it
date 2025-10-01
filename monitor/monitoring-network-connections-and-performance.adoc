@@ -24,7 +24,7 @@ Utilizza Grid Manager per monitorare la connettività e le performance di rete, 
 Inoltre, è importante link:../admin/managing-traffic-classification-policies.html["creazione di criteri di classificazione del traffico di rete"]monitorare il traffico relativo a tenant, bucket, subnet o endpoint del bilanciamento del carico specifici. È possibile impostare criteri di limitazione del traffico in base alle esigenze.
 
 .Fasi
-. Selezionare *NODI*.
+. Selezionare *Nodi*.
 +
 Viene visualizzata la pagina nodi. Ciascun nodo della griglia viene elencato in formato tabella.
 
@@ -54,7 +54,7 @@ image::../media/nodes_page_network_communication.png[COM. Rete pagina nodi]
 
 . Utilizza le metriche associate alle policy di classificazione del traffico per monitorare il traffico di rete.
 +
-.. Selezionare *CONFIGURAZIONE* > *rete* > *classificazione del traffico*.
+.. Selezionare *Configurazione* > *Rete* > *Classificazione del traffico*.
 +
 Viene visualizzata la pagina Traffic Classification Policies (Criteri di classificazione del traffico) e i criteri esistenti sono elencati nella tabella.
 
@@ -82,7 +82,7 @@ Se un criterio di classificazione del traffico è progettato per limitare il tra
 Monitorare i singoli nodi di griglia per verificare i livelli di utilizzo delle risorse. Se i nodi sono costantemente sovraccarichi, potrebbero essere necessari più nodi per operazioni efficienti.
 
 .Fasi
-. Dalla pagina *NODES*, selezionare il nodo.
+. Dalla pagina *Nodi*, seleziona il nodo.
 . Selezionare la scheda *hardware* per visualizzare i grafici relativi all'utilizzo della CPU e della memoria.
 +
 image::../media/nodes_page_hardware_tab_graphs.png[Scheda hardware della pagina nodi]

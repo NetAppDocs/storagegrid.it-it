@@ -24,7 +24,7 @@ La configurazione dell'e-mail utilizzata per le notifiche di avviso non viene ut
 Se la distribuzione di StorageGRID include più nodi amministrativi, il nodo amministrativo primario è il mittente preferito per le notifiche di avviso, i pacchetti AutoSupport e le trap SNMP e le informazioni. Se il nodo di amministrazione primario non è più disponibile, le notifiche vengono inviate temporaneamente da altri nodi di amministrazione. Vedere link:../primer/what-admin-node-is.html["Che cos'è un nodo amministratore?"].
 
 .Fasi
-. Selezionare *ALERTS* > *email setup*.
+. Selezionare *Avvisi* > *Configurazione e-mail*.
 +
 Viene visualizzata la pagina Configurazione e-mail.
 
@@ -290,7 +290,7 @@ Se viene attivato l'avviso *errore notifica email* o non si riesce a ricevere la
 .Fasi
 . Verificare le impostazioni.
 +
-.. Selezionare *ALERTS* > *email setup*.
+.. Selezionare *Avvisi* > *Configurazione e-mail*.
 .. Verificare che le impostazioni del server e-mail (SMTP) siano corrette.
 .. Verificare di aver specificato indirizzi e-mail validi per i destinatari.
 

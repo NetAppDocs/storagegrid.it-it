@@ -63,7 +63,7 @@ Per impostazione predefinita, le seguenti impostazioni del bucket utilizzano la 
 * link:deleting-s3-bucket-objects.html["Eliminazione bucket vuoto in background"]
 * link:enabling-or-disabling-last-access-time-updates.html["Ora ultimo accesso"]
 * link:../s3/create-s3-lifecycle-configuration.html["Ciclo di vita del bucket"]
-* link:../s3/bucket-and-group-access-policies.html["Politica del bucket"]
+* link:../s3/use-access-policies.html["Politica del bucket"]
 * link:../s3/operations-on-buckets.html["Etichettatura della benna"]
 * link:changing-bucket-versioning.html["Versione bucket"]
 * link:using-s3-object-lock.html["Blocco oggetti S3"]
@@ -76,7 +76,7 @@ NOTE: Il valore di coerenza per la versione bucket, blocco oggetto S3 e crittogr
 Le seguenti impostazioni della benna non utilizzano una forte coerenza e hanno una maggiore disponibilità per le modifiche. Le modifiche a queste impostazioni potrebbero richiedere del tempo prima di avere effetto.
 
 * link:considerations-for-platform-services.html["Configurazione dei servizi della piattaforma: Integrazione di notifica, replica o ricerca"]
-* link:configuring-cross-origin-resource-sharing-cors.html["Configurazione CORS"]
+* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["Configurare StorageGRID CORS per bucket e oggetti"]
 * <<change-bucket-consistency,Modificare la coerenza della benna>>
 
 

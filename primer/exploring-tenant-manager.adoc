@@ -24,7 +24,7 @@ Quando gli utenti tenant accedono a Tenant Manager, si connettono a un nodo Admi
 
 Dopo che un amministratore di grid ha creato un account tenant utilizzando Grid Manager o l'API Grid Management, gli utenti del tenant possono accedere a Tenant Manager.
 
-La dashboard di Tenant Manager consente agli utenti del tenant di monitorare l'utilizzo dello storage in un colpo d'occhio. Il pannello Storage Use (utilizzo storage) contiene un elenco dei bucket più grandi (S3) o container (Swift) per il tenant. Il valore spazio utilizzato è la quantità totale di dati oggetto nel bucket o nel container. Il grafico a barre rappresenta le dimensioni relative di questi bucket o container.
+La dashboard Tenant Manager consente agli utenti tenant di monitorare a colpo d'occhio l'utilizzo dello spazio di archiviazione.  Il pannello Utilizzo dello storage contiene un elenco dei bucket S3 più grandi per il tenant.  Il valore Spazio utilizzato è la quantità totale di dati oggetto nel bucket o nel contenitore.  Il grafico a barre rappresenta le dimensioni relative di questi contenitori o bucket.
 
 Il valore visualizzato sopra il grafico a barre è la somma dello spazio utilizzato per tutti i bucket o i container del tenant. Se al momento della creazione dell'account è stato specificato il numero massimo di gigabyte, terabyte o petabyte disponibili per il tenant, viene visualizzata anche la quantità di quota utilizzata e rimanente.
 
@@ -34,7 +34,13 @@ image::../media/tenant_dashboard_with_buckets.png[Dashboard di tenant Manager]
 
 == Menu Storage (S3)
 
-Il menu Storage (archiviazione) è disponibile solo per gli account tenant S3. Questo menu consente agli utenti S3 di gestire le chiavi di accesso, creare, gestire ed eliminare i bucket, gestire gli endpoint dei servizi della piattaforma e visualizzare le connessioni di federazione di griglie che possono utilizzare.
+Questo menu consente agli utenti S3 di:
+
+* Gestisci le chiavi di accesso
+* Crea, gestisci ed elimina i bucket
+* Gestire gli endpoint dei servizi della piattaforma
+* Visualizza tutte le connessioni di federazione della griglia che sono autorizzati a utilizzare
+
 
 
 

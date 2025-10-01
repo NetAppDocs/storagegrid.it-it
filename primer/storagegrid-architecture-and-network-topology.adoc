@@ -13,15 +13,15 @@ summary: Un sistema StorageGRID è costituito da più tipi di nodi grid in uno o
 [role="lead"]
 Un sistema StorageGRID è costituito da più tipi di nodi grid in uno o più siti del data center.
 
-Consultare la link:nodes-and-services.html["descrizioni dei tipi di nodi della griglia"].
+Scopri di più sulink:nodes-and-services.html["tipi di nodi della griglia"] .
 
-Per ulteriori informazioni sulla topologia, i requisiti e le comunicazioni della rete StorageGRID, vedere link:../network/index.html["Linee guida per il networking"].
+Per ulteriori informazioni sulla topologia di rete StorageGRID , sui requisiti e sulle comunicazioni di rete, fare riferimento alink:../network/index.html["Linee guida per il networking"] .
 
 
 
 == Topologie di implementazione
 
-Il sistema StorageGRID può essere implementato in un singolo sito del data center o in più siti del data center.
+Il sistema StorageGRID può essere distribuito in un singolo sito di data center o in più siti di data center.  Il numero massimo di siti per distribuzione è 16.
 
 
 
@@ -37,11 +37,11 @@ image::../media/data_center_site_single.png[Singolo sito del data center]
 
 In un'implementazione con più siti, è possibile installare diversi tipi e numeri di risorse StorageGRID in ogni sito. Ad esempio, potrebbe essere necessario più storage in un data center che in un altro.
 
-Siti diversi sono spesso collocati in posizioni geografiche diverse in diversi domini di guasto, come ad esempio una linea di guasto sismica o una pianura alluvionale. La condivisione dei dati e il disaster recovery si ottengono attraverso la distribuzione automatica dei dati ad altri siti.
+Spesso i siti sono ubicati in posizioni geografiche diverse, in domini di guasto diversi, come una faglia sismica o una pianura alluvionale.  La condivisione dei dati e il ripristino in caso di disastro vengono ottenuti mediante la distribuzione automatizzata dei dati ad altri siti.
 
 image::../media/data_center_sites_multiple.png[Più siti data center]
 
-In un singolo data center possono inoltre esistere più siti logici per consentire l'utilizzo della replica distribuita e della codifica di cancellazione per aumentare la disponibilità e la resilienza.
+All'interno di un singolo data center possono esistere anche più siti logici per consentire l'uso della replica distribuita e della codifica di cancellazione per una maggiore disponibilità e resilienza.
 
 
 
@@ -61,4 +61,4 @@ I client S3 memorizzano e recuperano oggetti in StorageGRID. Altri client vengon
 
 I client S3 possono connettersi a un nodo gateway o a un nodo amministrativo per utilizzare l'interfaccia di bilanciamento del carico per i nodi di storage. In alternativa, i client S3 possono connettersi direttamente ai nodi storage utilizzando HTTPS.
 
-Gli oggetti possono essere memorizzati all'interno di StorageGRID su nodi di storage basati su software o hardware oppure in pool di storage cloud, costituiti da bucket S3 esterni o container di storage Blob Azure.
+Gli oggetti possono essere archiviati in StorageGRID su nodi di archiviazione basati su software o hardware oppure in pool di archiviazione cloud, costituiti da bucket S3 esterni o contenitori di archiviazione BLOB di Azure.

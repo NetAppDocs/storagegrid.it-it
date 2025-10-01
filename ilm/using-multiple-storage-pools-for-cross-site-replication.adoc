@@ -20,7 +20,7 @@ La replica e l'erasure coding richiedono diverse configurazioni del pool di stor
 
 
 
-CAUTION: Quando si configura la distribuzione di StorageGRID per la protezione contro la perdita di siti, è necessario tenere conto anche degli effetti di link:data-protection-options-for-ingest.html["opzioni di acquisizione"] e link:../s3/consistency-controls.html["coerenza"].
+CAUTION: Quando si configura la distribuzione StorageGRID per la protezione dalle perdite del sito, è necessario tenere conto anche degli effetti dilink:data-protection-options-for-ingest.html["opzioni di acquisizione"] Elink:../s3/consistency.html["coerenza"] .
 
 
 

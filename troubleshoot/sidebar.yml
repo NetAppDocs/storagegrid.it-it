@@ -20,12 +20,8 @@ entries:
     - title: Metodi per il recupero degli oggetti
       pdf-filename: Risolvere i problemi relativi ai dati degli oggetti persi e mancanti
       url: "/troubleshoot/troubleshooting-lost-and-missing-object-data.html"
-    - title: Esaminare gli oggetti persi
-      url: "/troubleshoot/investigating-lost-objects.html"
-    - title: Cercare e ripristinare oggetti potenzialmente persi
-      url: "/troubleshoot/searching-for-and-restoring-potentially-lost-objects.html"
-    - title: Ripristinare i conteggi degli oggetti persi e mancanti
-      url: "/troubleshoot/resetting-lost-and-missing-object-counts.html"
+    - title: Indagare su oggetti potenzialmente persi
+      url: "/troubleshoot/investigating-potentially-lost-objects.html"
   - title: Risolvere i problemi relativi all'avviso di storage dei dati a oggetti
       in esaurimento
     url: "/troubleshoot/troubleshooting-low-object-data-storage-alert.html"
@@ -43,3 +39,6 @@ entries:
   url: "/troubleshoot/troubleshooting-network-hardware-and-platform-issues.html"
 - title: Risolvere i problemi relativi al server syslog esterno
   url: "/troubleshoot/troubleshooting-syslog-server.html"
+- title: Risoluzione dei problemi di memorizzazione nella cache del bilanciatore del
+    carico
+  url: "/troubleshoot/troubleshooting-load-balancer-caching.html"

@@ -25,7 +25,7 @@ summary: È possibile monitorare informazioni di base su tutte le connessioni di
 La pagina Grid Federation mostra informazioni di base su tutte le connessioni a federazione di griglie e su tutti gli account tenant autorizzati a utilizzare le connessioni a federazione di griglie.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 +
 Viene visualizzata la pagina Grid Federation.
 
@@ -107,7 +107,7 @@ image::../media/grid-federation-certificates-tab.png[grid-federation-certificate
 Puoi utilizzare la dashboard di replica cross-grid di Grafana per visualizzare le metriche Prometheus sulle operazioni di replica cross-grid sul tuo grid.
 
 .Fasi
-. Da Grid Manager, selezionare *SUPPORT* > *Tools* > *Metrics*.
+. Da Grid Manager, seleziona *Supporto* > *Strumenti* > *Metriche*.
 +
 
 NOTE: Gli strumenti disponibili nella pagina metriche sono destinati all'utilizzo da parte del supporto tecnico. Alcune funzioni e voci di menu di questi strumenti sono intenzionalmente non funzionali e sono soggette a modifiche. Vedere l'elenco di link:../monitor/commonly-used-prometheus-metrics.html["Metriche Prometheus comunemente utilizzate"].

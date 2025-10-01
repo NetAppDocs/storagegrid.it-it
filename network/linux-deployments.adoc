@@ -1,7 +1,7 @@
 ---
 permalink: network/linux-deployments.html 
 sidebar: sidebar 
-keywords: linux network, container engine, red hat enterprise linux rhel network, ubuntu network 
+keywords: linux network, container engine, red hat enterprise linux network, rhel network, ubuntu network 
 summary: Per garantire efficienza, affidabilità e sicurezza, il sistema StorageGRID viene eseguito su Linux come insieme di motori per container. La configurazione di rete relativa al motore dei container non è richiesta in un sistema StorageGRID. 
 ---
 = Implementazioni Linux
@@ -18,7 +18,7 @@ Utilizzare un dispositivo non-bond, ad esempio una coppia VLAN o Virtual Etherne
 
 CAUTION: Non utilizzare dispositivi bond o bridge direttamente come interfaccia di rete container. In questo modo si potrebbe impedire l'avvio del nodo a causa di un problema del kernel con l'utilizzo di macvlan con dispositivi bond e bridge nello spazio dei nomi dei container.
 
-Consultare le istruzioni di installazione per le link:../rhel/index.html["Red Hat Enterprise Linux"]distribuzioni o.link:../ubuntu/index.html["Ubuntu o Debian"]
+Vedi illink:../swnodes/index.html["istruzioni di installazione"] .
 
 
 
@@ -41,12 +41,14 @@ NOTE: L'host può utilizzare un'interfaccia fisica sull'host e uno o più nodi i
 * Aprire le porte necessarie per l'host.
 * Se si intende utilizzare le interfacce VLAN in StorageGRID, l'host deve disporre di una o più interfacce di trunk che forniscono l'accesso alle VLAN desiderate. Queste interfacce possono essere passate nel contenitore di nodi come eth0, eth2 o come interfacce aggiuntive. Per aggiungere trunk o interfacce di accesso, vedere quanto segue:
 +
-** *RHEL (prima di installare il nodo)*: link:../rhel/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
-** *Ubuntu o Debian (prima di installare il nodo)*: link:../ubuntu/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
-** *RHEL, Ubuntu o Debian (dopo aver installato il nodo)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Aggiunta di interfacce di accesso o trunk a un nodo"]
+** *Linux (prima di installare il nodo)*:link:../swnodes/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
+** *Linux (dopo aver installato il nodo)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Aggiungere interfacce trunk o di accesso a un nodo"]
 
 
 
+
+
+NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
 
 
 
@@ -132,8 +134,4 @@ Ad esempio, per eseguire un nodo Admin, un nodo Gateway e un nodo Storage su un 
 
 In questo scenario, è necessario fornire un minimo di 11 + 20 + 10 = 41 Gbps di larghezza di banda di rete, Che potrebbero essere soddisfatte da due interfacce da 40 Gbps o cinque interfacce da 10 Gbps, potenzialmente aggregate in linee e quindi condivise dalle tre o più VLAN che trasportano le subnet Grid, Admin e Client locali al data center fisico contenente l'host.
 
-Per alcuni metodi consigliati per configurare le risorse fisiche e di rete sugli host del cluster StorageGRID in modo da prepararsi alla distribuzione di StorageGRID, consultare quanto segue:
-
-* link:../rhel/configuring-host-network.html["Configurare la rete host (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html["Configurare la rete host (Ubuntu o Debian)"]
-
+Per alcuni metodi consigliati per configurare le risorse fisiche e di rete sugli host nel cluster StorageGRID per preparare la distribuzione StorageGRID , vederelink:../swnodes/configuring-host-network.html["Configurare la rete host"] .

@@ -13,7 +13,7 @@ summary: 'È necessario creare almeno un account tenant per controllare l"access
 [role="lead"]
 È necessario creare almeno un account tenant per controllare l'accesso allo storage nel sistema StorageGRID.
 
-I passaggi per la creazione di un account tenant variano a seconda che link:using-identity-federation.html["federazione delle identità"]sia configurato e link:configuring-sso.html["single sign-on"]se l'account Grid Manager utilizzato per creare l'account tenant appartiene a un gruppo di amministratori con autorizzazione di accesso root.
+I passaggi per la creazione di un account tenant variano a seconda chelink:using-identity-federation.html["federazione delle identità"] Elink:how-sso-works.html["single sign-on"] sono configurati e se l'account Grid Manager utilizzato per creare l'account tenant appartiene a un gruppo di amministratori con autorizzazione di accesso Root.
 
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
@@ -42,7 +42,7 @@ TIP: Se questo gruppo di amministratori non esiste su entrambe le griglie prima 
 == Accedere alla procedura guidata
 
 .Fasi
-. Selezionare *TENANT*.
+. Selezionare *Inquilini*.
 . Selezionare *Crea*.
 
 
@@ -77,9 +77,7 @@ Se si crea un tenant che utilizzerà una connessione a federazione di griglie, u
  a| 
 Tipo di client
  a| 
-Il tipo di protocollo client utilizzato dal tenant, *S3* o *Swift*.
-
-*Nota*: Il supporto per le applicazioni client Swift è stato obsoleto e verrà rimosso in una release futura.
+Deve essere *S3*.
 
 
 
@@ -118,7 +116,7 @@ Il tenant può utilizzare servizi della piattaforma S3 come CloudMirror. Vedere 
  a| 
 Utilizza la propria origine di identità
  a| 
-Il tenant può configurare e gestire la propria origine di identità per gruppi e utenti federati. Questa opzione è disabilitata se si dispone di link:../admin/configuring-sso.html["SSO configurato"] per il sistema StorageGRID.
+Il tenant può configurare e gestire la propria fonte di identità per gruppi e utenti federati.  Questa opzione è disabilitata se hailink:../admin/how-sso-works.html["SSO configurato"] per il tuo sistema StorageGRID .
 
 
 
@@ -290,7 +288,7 @@ L'URL del tenant manager ha il seguente formato:
  a| 
 Porta 443
  a| 
-* Da Grid Manager, selezionare *TENANT* e selezionare *Sign in* (Accedi) a destra del nome del tenant.
+* Da Grid Manager, seleziona *Tenant* e seleziona * Sign in* a destra del nome del tenant.
 * Inserire l'URL del tenant in un browser Web:
 +
 `https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
@@ -307,7 +305,7 @@ Porta 443
  a| 
 Una porta con restrizioni
  a| 
-* Da Grid Manager, selezionare *TENANT* e selezionare *Restricted*.
+* Da Grid Manager, seleziona *Inquilini* e seleziona *Limitato*.
 * Inserire l'URL del tenant in un browser Web:
 +
 `https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`

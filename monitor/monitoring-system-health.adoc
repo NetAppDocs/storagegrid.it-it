@@ -117,11 +117,10 @@ Non è richiesta alcuna azione.
 
 *Avvisi risolti*: È possibile cercare e visualizzare una cronologia degli avvisi risolti.
 
-Se si desidera, è stato guardato il video: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["Video: Panoramica degli avvisi"^]
+Facoltativamente, hai guardato il video:
 
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
-image::../media/video-screenshot-alert-overview-118.png[Video: Panoramica degli avvisi]
-
+.Panoramica degli avvisi
+video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 La seguente tabella descrive le informazioni visualizzate in Grid Manager per gli avvisi correnti e risolti.
 
 [cols="1a,3a"]

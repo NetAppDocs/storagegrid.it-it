@@ -29,7 +29,7 @@ Utilizzare la procedura di ridenominazione per correggere gli errori di battitur
 
 La seguente tabella riassume i nomi dei sistemi e dei display nell'interfaccia utente di StorageGRID e nei file StorageGRID.
 
-[cols="2a,2a,3a"]
+[cols="1a,1a,3a"]
 |===
 | Posizione | Nome del sistema | Nome visualizzato 
 
@@ -55,20 +55,11 @@ Se un elemento viene rinominato, viene visualizzato invece del nome del sistema 
 
 
  a| 
-Scheda *NODES* > *Overview* per un nodo
+*Nodi* > Scheda *Panoramica* per un nodo
  a| 
 Sempre mostrato
  a| 
 Visualizzato solo se l'elemento viene rinominato
-
-
-
- a| 
-Pagine legacy in Grid Manager (ad esempio, *SUPPORT* > *Grid Topology*)
- a| 
-In figura
- a| 
-Non mostrato
 
 
 
@@ -99,7 +90,7 @@ Visualizzato come nome principale quando l'elemento viene rinominato:
 
 
  a| 
-`Passwords.txt` File nel pacchetto di ripristino
+`Passwords.txt`file nel pacchetto di ripristino
  a| 
 Mostrato come `Server Name`
  a| 

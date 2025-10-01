@@ -141,6 +141,8 @@ Vedere <<Intestazioni di richiesta per la crittografia lato server>>
 
 Le seguenti intestazioni di richiesta non sono supportate:
 
+* `If-Match`
+* `If-None-Match`
 * `x-amz-acl`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`

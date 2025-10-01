@@ -1,0 +1,34 @@
+---
+permalink: admin/manage-external-ssh-access.html 
+sidebar: sidebar 
+keywords: security, external, ssh, access 
+summary: 'Gestisci la protezione SSH bloccando o consentendo l"accesso SSH esterno.' 
+---
+= Gestisci l'accesso SSH esterno
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Gestisci l'accesso SSH per il traffico in entrata nella griglia bloccando o consentendo l'accesso esterno.  La gestione dell'accesso esterno SSH non ha alcun impatto sul traffico tra i nodi della griglia.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:admin-group-permissions.html["Autorizzazione di accesso root"].
+
+
+.A proposito di questa attività
+Per migliorare la sicurezza del sistema, l'accesso SSH esterno è bloccato per impostazione predefinita.  Se devi eseguire attività che richiedono l'accesso SSH in ingresso, come la risoluzione dei problemi, consenti temporaneamente l'accesso esterno.  Una volta completata l'attività, blocca l'accesso esterno.
+
+.Fasi
+. Selezionare *Configurazione* > *Sicurezza* > *Impostazioni di sicurezza*.
+. Selezionare la scheda *Blocca SSH*.
+. Utilizzare l'opzione *Blocca accesso SSH in ingresso* per gestire l'accesso SSH esterno:
++
+.. Selezionare la casella di controllo per bloccare l'accesso (impostazione predefinita).
+.. Deseleziona la casella di controllo per consentire l'accesso.
+
+
+. Selezionare *Salva*.
+

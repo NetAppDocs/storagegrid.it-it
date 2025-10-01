@@ -33,7 +33,7 @@ I metadati degli oggetti sono informazioni che descrivono un oggetto. StorageGRI
 
 I metadati dell'oggetto includono informazioni come:
 
-* Metadati di sistema, tra cui un ID univoco per ciascun oggetto (UUID), il nome dell'oggetto, il nome del bucket S3 o del container Swift, il nome o l'ID dell'account tenant, la dimensione logica dell'oggetto, la data e l'ora in cui l'oggetto è stato creato per la prima volta, e la data e l'ora dell'ultima modifica dell'oggetto.
+* Metadati di sistema, tra cui un ID univoco per ciascun oggetto (UUID), il nome dell'oggetto, il nome del bucket S3, il nome o l'ID dell'account tenant, le dimensioni logiche dell'oggetto, la data e l'ora della prima creazione dell'oggetto e la data e l'ora dell'ultima modifica dell'oggetto.
 * La posizione di storage corrente di ogni copia di oggetto o frammento con codifica di cancellazione.
 * Qualsiasi metadati utente associato all'oggetto.
 

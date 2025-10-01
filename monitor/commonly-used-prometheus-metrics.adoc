@@ -39,7 +39,7 @@ image::../media/nodes_page_network_traffic_graph.png[Grafico Prometheus]
 
 NOTE: Le metriche che includono _private_ nei loro nomi sono destinate esclusivamente all'uso interno e sono soggette a modifiche tra le release di StorageGRID senza preavviso.
 
-* La pagina *SUPPORT* > *Tools* > *Diagnostics* e la pagina *SUPPORT* > *Tools* > *Metrics*: Queste pagine, destinate principalmente al supporto tecnico, forniscono diversi tool e grafici che utilizzano i valori delle metriche Prometheus.
+* La pagina *Supporto* > *Strumenti* > *Diagnostica* e la pagina *Supporto* > *Strumenti* > *Metriche*: queste pagine, destinate principalmente all'assistenza tecnica, forniscono diversi strumenti e grafici che utilizzano i valori delle metriche di Prometheus.
 +
 
 NOTE: Alcune funzioni e voci di menu della pagina metriche sono intenzionalmente non funzionali e sono soggette a modifiche.
@@ -65,8 +65,8 @@ storagegrid_administively_down:: Il nodo non è connesso alla rete per un motivo
 storagegrid_appliance_compute_controller_hardware_status:: Lo stato dell'hardware del controller di calcolo in un'appliance.
 storagegrid_appliance_failed_disks:: Per lo storage controller di un'appliance, il numero di dischi non ottimali.
 storagegrid_appliance_storage_controller_hardware_status:: Lo stato generale dell'hardware dello storage controller in un'appliance.
-storagegrid_content_bucket_and_containers:: Il numero totale di bucket S3 e container Swift noti da questo nodo di storage.
-storagegrid_content_objects:: Il numero totale di oggetti dati S3 e Swift noti da questo nodo di storage. Il conteggio è valido solo per gli oggetti dati creati dalle applicazioni client che si interfacciano con il sistema tramite S3.
+storagegrid_content_bucket_and_containers:: Numero totale di bucket S3 noti a questo nodo di archiviazione.
+storagegrid_content_objects:: Numero totale di oggetti dati S3 noti a questo nodo di archiviazione.  Il conteggio è valido solo per gli oggetti dati creati dalle applicazioni client che interagiscono con il sistema tramite S3.
 storagegrid_content_objects_lost:: Il numero totale di oggetti che il servizio rileva come mancanti dal sistema StorageGRID. È necessario intraprendere azioni per determinare la causa della perdita e se è possibile eseguire il ripristino.
 +
 --
@@ -135,11 +135,6 @@ storagegrid_storage_utilization_metadata_allowed_bytes:: Lo spazio totale sul vo
 storagegrid_storage_utilization_metadata_bytes:: La quantità di metadati oggetto sul volume di storage 0, in byte.
 storagegrid_storage_utilization_total_space_bytes:: La quantità totale di spazio di storage allocato a tutti gli archivi di oggetti.
 storagegrid_storage_utilization_usable_space_bytes:: La quantità totale di spazio di storage a oggetti rimanente. Calcolato sommando la quantità di spazio disponibile per tutti gli archivi di oggetti sul nodo di storage.
-storagegrid_swift_data_transfers_bytes_ingested:: La quantità totale di dati acquisiti dai client Swift a questo nodo di storage dall'ultima reimpostazione dell'attributo.
-storagegrid_swift_data_transfers_bytes_retrieved:: La quantità totale di dati recuperati dai client Swift da questo nodo di storage dall'ultima reimpostazione dell'attributo.
-storagegrid_swift_operations_failed:: Il numero totale di operazioni Swift non riuscite (codici di stato HTTP 4xx e 5xx), escluse quelle causate da un errore di autorizzazione Swift.
-storagegrid_swift_operations_successful:: Il numero totale di operazioni Swift riuscite (codice di stato HTTP 2xx).
-storagegrid_swift_operations_inhautorizzata:: Il numero totale di operazioni Swift non riuscite che sono il risultato di un errore di autorizzazione (codici di stato HTTP 401, 403, 405).
 storagegrid_tenant_usage_data_bytes:: La dimensione logica di tutti gli oggetti per il tenant.
 storagegrid_tenant_usage_object_count:: Il numero di oggetti per il tenant.
 storagegrid_tenant_usage_quota_byte:: La quantità massima di spazio logico disponibile per gli oggetti del tenant. Se non viene fornita una metrica di quota, è disponibile una quantità illimitata di spazio.
@@ -151,6 +146,7 @@ storagegrid_tenant_usage_quota_byte:: La quantità massima di spazio logico disp
 
 [[Obtain-all-metrics]]per ottenere l'elenco completo delle metriche, utilizza l'API Grid Management.
 
+.Fasi
 . Nella parte superiore di Grid Manager, selezionare l'icona della guida e selezionare *documentazione API*.
 . Individuare le operazioni *metriche*.
 . Eseguire l' `GET /grid/metric-names`operazione.

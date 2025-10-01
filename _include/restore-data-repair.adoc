@@ -6,7 +6,7 @@
 
 == Trovare il nome host per il nodo di storage
 
-. Accedere al nodo di amministrazione principale:
+. Accedi a qualsiasi nodo di amministrazione:
 +
 .. Immettere il seguente comando: `ssh admin@_primary_Admin_Node_IP_`
 .. Immettere la password elencata nel `Passwords.txt` file.
@@ -42,7 +42,7 @@ Questo comando ripara i dati replicati su un nodo di storage denominato SG-DC-SN
 `repair-data start-replicated-node-repair --nodes SG-DC-SN3`
 
 
-NOTE: Quando i dati dell'oggetto vengono ripristinati, l'avviso *oggetti persi* viene attivato se il sistema StorageGRID non riesce a individuare i dati dell'oggetto replicati. Gli avvisi potrebbero essere attivati sui nodi di storage all'interno del sistema. È necessario determinare la causa della perdita e se è possibile eseguire il ripristino. Vedere link:../troubleshoot/investigating-lost-objects.html["Esaminare gli oggetti persi"].
+NOTE: Quando i dati degli oggetti vengono ripristinati, viene attivato l'avviso *Oggetti persi* se il sistema StorageGRID non riesce a individuare i dati degli oggetti replicati.  Gli avvisi potrebbero essere attivati ​​sui nodi di archiviazione in tutto il sistema.  Dovresti determinare la causa della perdita e se è possibile un recupero. Vedere link:../troubleshoot/investigating-potentially-lost-objects.html["Indagare su oggetti potenzialmente persi"] .
 
 --
 .Dati con erasure coding (EC)

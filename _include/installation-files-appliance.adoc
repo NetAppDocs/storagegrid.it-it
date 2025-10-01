@@ -2,6 +2,9 @@
 :allow-uri-read: 
 
 
+
+NOTE: Per l'installazione dell'appliance, questi file sono necessari solo se si desidera evitare il traffico di rete.  L'appliance può scaricare i file richiesti dal nodo di amministrazione in cui si esegue la procedura di ripristino.
+
 [cols="1a,1a"]
 |===
 | Percorso e nome del file | Descrizione 
@@ -17,5 +20,3 @@ MD5 checksum per il file `/debs/storagegridwebscale-
 images-version-SHA.deb`.
 
 |===
-
-NOTE: Per l'installazione dell'appliance, questi file sono necessari solo se è necessario evitare il traffico di rete. L'appliance può scaricare i file richiesti dal nodo di amministrazione principale.

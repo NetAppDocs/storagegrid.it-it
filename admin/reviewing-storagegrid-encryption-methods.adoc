@@ -144,3 +144,6 @@ A seconda dei requisiti, è possibile utilizzare più metodi di crittografia all
 
 
 Se solo una piccola parte degli oggetti richiede la crittografia, prendere in considerazione il controllo della crittografia a livello di bucket o di singolo oggetto. L'abilitazione di più livelli di crittografia comporta un costo aggiuntivo per le performance.
+
+.Informazioni correlate
+link:manage-tls-ssh-policy.html#select-a-security-policy["Scopri le opzioni di crittografia certificate FIPS"]

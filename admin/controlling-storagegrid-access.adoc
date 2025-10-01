@@ -32,16 +32,16 @@ Facoltativamente, è possibile configurare un gruppo in modo che sia di sola let
 
 == Attiva single sign-on
 
-Il sistema StorageGRID supporta SSO (Single Sign-on) utilizzando lo standard SAML 2.0 (Security Assertion Markup Language 2.0). Dopo l'utente link:configuring-sso.html["Configurare e abilitare SSO"], tutti gli utenti devono essere autenticati da un provider di identità esterno prima di poter accedere a Grid Manager, Tenant Manager, Grid Management API o Tenant Management API. Gli utenti locali non possono accedere a StorageGRID.
+Il sistema StorageGRID supporta l'accesso Single Sign-On (SSO) utilizzando lo standard Security Assertion Markup Language 2.0 (SAML 2.0).  Dopo di telink:how-sso-works.html["Configurare e abilitare SSO"] , tutti gli utenti devono essere autenticati da un provider di identità esterno prima di poter accedere a Grid Manager, Tenant Manager, Grid Management API o Tenant Management API.  Gli utenti locali non possono accedere a StorageGRID.
 
 
 
 == Modificare la passphrase di provisioning
 
-La passphrase di provisioning è necessaria per molte procedure di installazione e manutenzione e per scaricare il pacchetto di ripristino StorageGRID. La passphrase è necessaria anche per scaricare i backup delle informazioni sulla topologia della griglia e delle chiavi di crittografia per il sistema StorageGRID. È possibile link:changing-provisioning-passphrase.html["modificare la passphrase"] come richiesto.
+La passphrase di provisioning è necessaria per numerose procedure di installazione e manutenzione e per scaricare il pacchetto di ripristino StorageGRID .  La passphrase è necessaria anche per scaricare i backup delle informazioni sulla topologia della griglia e le chiavi di crittografia per il sistema StorageGRID .  Puoilink:changing-provisioning-passphrase.html["modificare la passphrase"] come richiesto.
 
 
 
 == Modificare le password della console dei nodi
 
-Ciascun nodo della griglia dispone di una password univoca per la console del nodo, che deve essere utilizzata per accedere al nodo come "admin" utilizzando SSH o all'utente root con una connessione VM/console fisica. Se necessario, è possibile link:change-node-console-password.html["modificare la password della console del nodo"] per ogni nodo.
+Ogni nodo nella griglia ha una password per la console del nodo, necessaria per accedere al nodo come "admin" tramite SSH oppure come utente root su una connessione alla console fisica/VM.  Se necessario, puoilink:change-node-console-password.html["modificare la password della console del nodo"] per ogni nodo.

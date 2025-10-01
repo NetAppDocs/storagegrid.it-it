@@ -53,13 +53,11 @@ NOTE: Se la link:enabling-s3-object-lock-globally.html["L'impostazione Global S3
 
 --
 ====
-* Se si desidera, è stato guardato il video: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10["Video: Panoramica dei criteri ILM"^]
-+
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10]
-image::../media/video-screenshot-ilm-policies-118.png[Video: Panoramica dei criteri ILM]
+* Facoltativamente, hai guardato il video:
 
 
-
+.Panoramica delle politiche ILM
+video::e768d4da-da88-413c-bbaa-b1ff00874d10[panopto]
 Vedere anche link:ilm-policy-overview.html["Utilizzare i criteri ILM"].
 
 .Fasi
@@ -255,10 +253,10 @@ In alternativa, è possibile attivare un singolo criterio dalla pagina *ILM* > *
 --
 .Attivare più policy
 --
-Per attivare più criteri, è necessario creare tag e assegnare un criterio a ciascun tag.
+Per attivare più policy, è necessario creare tag policy e assegnare una policy a ciascun tag.  Puoi creare un massimo di 10 tag di policy per la tua griglia.
 
 
-TIP: Quando vengono utilizzati più tag, se i tenant riassegnano frequentemente i tag delle policy ai bucket, le performance del grid potrebbero risentirne. Se si dispone di tenant non attendibili, utilizzare solo il tag predefinito.
+TIP: Quando vengono utilizzati più tag di policy, se i tenant riassegnano frequentemente i tag di policy ai bucket, le prestazioni della griglia potrebbero risentirne.  Se hai tenant non attendibili, valuta la possibilità di utilizzare solo il tag di policy Default.
 
 . Selezionare *ILM* > *Policy tag*.
 . Selezionare *Crea*.

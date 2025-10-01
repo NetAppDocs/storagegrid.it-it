@@ -55,7 +55,7 @@ NOTE: Se non si aggiungono nomi di dominio degli endpoint S3 e l'elenco è vuoto
 == Aggiungere un nome di dominio dell'endpoint S3
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *S3 endpoint domain name*.
+. Selezionare *Configurazione* > *Rete* > *Nomi di dominio endpoint S3*.
 . Inserire il nome di dominio nel campo *Domain name 1*. Selezionare *Aggiungi un altro nome di dominio* per aggiungere altri nomi di dominio.
 . Selezionare *Salva*.
 . Assicurarsi che i certificati server utilizzati dai client corrispondano ai nomi di dominio degli endpoint S3 richiesti.
@@ -77,7 +77,7 @@ Ora, quando i client utilizzano l'endpoint `_bucket.s3.company.com_`, il server 
 Se si modifica un nome utilizzato dalle applicazioni S3, le richieste di tipo virtual-hosted non avranno esito positivo.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *S3 endpoint domain name*.
+. Selezionare *Configurazione* > *Rete* > *Nomi di dominio endpoint S3*.
 . Selezionare il campo del nome di dominio che si desidera modificare e apportare le modifiche necessarie.
 . Selezionare *Salva*.
 . Selezionare *Sì* per confermare la modifica.
@@ -90,7 +90,7 @@ Se si modifica un nome utilizzato dalle applicazioni S3, le richieste di tipo vi
 Se si rimuove un nome utilizzato dalle applicazioni S3, le richieste di tipo virtual-hosted non avranno esito positivo.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *S3 endpoint domain name*.
+. Selezionare *Configurazione* > *Rete* > *Nomi di dominio endpoint S3*.
 . Selezionare l'icona di eliminazione image:../media/icon-x-to-remove.png["icona elimina"]accanto al nome del dominio.
 . Selezionare *Sì* per confermare l'eliminazione.
 

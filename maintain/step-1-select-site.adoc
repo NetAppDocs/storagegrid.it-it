@@ -21,7 +21,7 @@ Per determinare se un sito può essere decommissionato, iniziare accedendo alla 
 
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *attività* > *Smantella*.
+. Selezionare *Manutenzione* > *Attività* > *Disattivazione*.
 . Selezionare *Smantella sito*.
 +
 Viene visualizzata la fase 1 (Seleziona sito) della procedura guidata Smantella sito. Questo passaggio include un elenco alfabetico dei siti nel sistema StorageGRID.

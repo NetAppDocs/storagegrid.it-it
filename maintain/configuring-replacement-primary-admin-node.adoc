@@ -16,7 +16,7 @@ Il nodo sostitutivo deve essere configurato come nodo amministratore primario pe
 .Prima di iniziare
 * Per i nodi di amministrazione primari ospitati su macchine virtuali, la macchina virtuale è stata implementata, attivata e inizializzata.
 * Per i nodi di amministrazione primari ospitati su un'appliance di servizi, l'appliance è stata sostituita e il software è stato installato. Consultare la https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["istruzioni per l'installazione dell'apparecchio"^].
-* È disponibile il backup più recente del file del pacchetto di ripristino (`sgws-recovery-package-_id-revision_.zip`).
+* Hai l'ultimo backup del file del pacchetto di ripristino(`sgws-recovery-package-_id-revision_.zip` ).
 * Si dispone della passphrase di provisioning.
 
 
@@ -38,10 +38,10 @@ Il nodo sostitutivo deve essere configurato come nodo amministratore primario pe
 +
 image::../media/install_or_recover_primary_admin_node.png[Installare o ripristinare il nodo di amministrazione primario]
 
-. Caricare il backup più recente del pacchetto di ripristino:
+. Carica il backup più recente del pacchetto di ripristino:
 +
 .. Fare clic su *Sfoglia*.
-.. Individuare il file del pacchetto di ripristino più recente per il sistema StorageGRID in uso e fare clic su *Apri*.
+.. Individua il file del pacchetto di ripristino più recente per il tuo sistema StorageGRID e fai clic su *Apri*.
 
 
 . Inserire la passphrase di provisioning.
@@ -52,7 +52,7 @@ Viene avviato il processo di ripristino. Grid Manager potrebbe non essere dispon
 . Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID e il trust della parte di base per il nodo di amministrazione ripristinato è stato configurato per utilizzare il certificato dell'interfaccia di gestione predefinita, aggiornare (o eliminare e ricreare) il trust della parte di base del nodo in Active Directory Federation Services (ad FS). Utilizzare il nuovo certificato server predefinito generato durante il processo di ripristino del nodo di amministrazione.
 +
 
-NOTE: Per configurare un'attendibilità con parte di fiducia, vedere link:../admin/configuring-sso.html["Configurare il single sign-on"]. Per accedere al certificato del server predefinito, accedere alla shell dei comandi del nodo di amministrazione. Accedere alla `/var/local/mgmt-api` directory e selezionare il `server.crt` file.
+NOTE: Per configurare un trust della parte affidabile, vederelink:../admin/configure-sso.html["Configurare il single sign-on"] .  Per accedere al certificato del server predefinito, accedi alla shell dei comandi del nodo di amministrazione.  Vai al `/var/local/mgmt-api` directory e selezionare la `server.crt` file.
 
 
 

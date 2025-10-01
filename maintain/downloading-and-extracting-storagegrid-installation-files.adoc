@@ -41,7 +41,7 @@ Utilizzare il `.zip` file se si utilizza Windows.
 
 
  a| 
-Red Hat Enterprise Linux
+RHEL
 | `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
 
@@ -62,9 +62,12 @@ VMware
 +
 I percorsi elencati nella fase per ciascuna piattaforma sono relativi alla directory di primo livello installata dal file di archivio.
 
-. Se si sta ripristinando un link:../rhel/index.html["Sistema Red Hat Enterprise Linux"], selezionare i file appropriati.
-
-
+. Se stai recuperando unlink:../swnodes/index.html["nodo basato su software"] , seleziona i file appropriati:
++
+[role="tabbed-block"]
+====
+.RHEL
+--
 [cols="1a,1a"]
 |===
 | Percorso e nome del file | Descrizione 
@@ -139,9 +142,9 @@ Schemi API per StorageGRID.
 *Nota*: Prima di eseguire un aggiornamento, è possibile utilizzare questi schemi per confermare che qualsiasi codice scritto per utilizzare le API di gestione StorageGRID sarà compatibile con la nuova release di StorageGRID se non si dispone di un ambiente StorageGRID non in produzione per il test di compatibilità degli aggiornamenti.
 
 |===
-. Se si sta ripristinando un link:../ubuntu/index.html["Ubuntu o sistema Debian"], selezionare i file appropriati.
-
-
+--
+.Ubuntu o Debian
+--
 [cols="1a,1a"]
 |===
 | Percorso e nome del file | Descrizione 
@@ -221,9 +224,9 @@ Schemi API per StorageGRID.
 *Nota*: Prima di eseguire un aggiornamento, è possibile utilizzare questi schemi per confermare che qualsiasi codice scritto per utilizzare le API di gestione StorageGRID sarà compatibile con la nuova release di StorageGRID se non si dispone di un ambiente StorageGRID non in produzione per il test di compatibilità degli aggiornamenti.
 
 |===
-. Se si sta ripristinando un link:../vmware/index.html["Sistema VMware"], selezionare i file appropriati.
-
-
+--
+.VMware
+--
 [cols="1a,1a"]
 |===
 | Percorso e nome del file | Descrizione 
@@ -318,8 +321,15 @@ Schemi API per StorageGRID.
 *Nota*: Prima di eseguire un aggiornamento, è possibile utilizzare questi schemi per confermare che qualsiasi codice scritto per utilizzare le API di gestione StorageGRID sarà compatibile con la nuova release di StorageGRID se non si dispone di un ambiente StorageGRID non in produzione per il test di compatibilità degli aggiornamenti.
 
 |===
+--
+====
+
+
 . Se si sta ripristinando un sistema basato su appliance StorageGRID, selezionare i file appropriati.
 
+
+
+NOTE: Per l'installazione dell'appliance, questi file sono necessari solo se si desidera evitare il traffico di rete.  L'appliance può scaricare i file richiesti dal nodo di amministrazione in cui si esegue la procedura di ripristino.
 
 [cols="1a,1a"]
 |===
@@ -336,5 +346,3 @@ MD5 checksum per il file `/debs/storagegridwebscale-
 images-version-SHA.deb`.
 
 |===
-
-NOTE: Per l'installazione dell'appliance, questi file sono necessari solo se è necessario evitare il traffico di rete. L'appliance può scaricare i file richiesti dal nodo di amministrazione principale.

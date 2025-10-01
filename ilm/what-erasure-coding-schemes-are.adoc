@@ -66,7 +66,7 @@ NOTE: Non è possibile utilizzare la codifica di cancellazione se il pool di sto
 * Il pool di storage deve includere almeno nodi storage `_k+m_ +1` in grado di memorizzare i dati degli oggetti.
 +
 
-NOTE: I nodi di storage possono essere configurati durante l'installazione in modo da contenere solo metadati di oggetti e non dati di oggetti. Per ulteriori informazioni, vedere link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipi di nodi storage"].
+NOTE: Durante l'installazione, è possibile configurare i nodi di archiviazione in modo che contengano dati e metadati di oggetti (nodo di archiviazione "combinato"), solo metadati di oggetti o solo dati di oggetti. Per ulteriori informazioni, fare riferimento a link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipi di nodi storage"] .
 
 +
 Il numero minimo di nodi di archiviazione richiesto è `k+m`. Tuttavia, disporre di almeno un nodo di storage aggiuntivo può contribuire a prevenire gli errori di acquisizione o i backlog ILM se un nodo di storage richiesto non è temporaneamente disponibile.

@@ -13,7 +13,7 @@ summary: 'Se si desidera che StorageGRID invii notifiche SNMP quando si verifica
 [role="lead"]
 Se si desidera che StorageGRID invii notifiche SNMP quando si verificano avvisi, è necessario attivare l'agente SNMP StorageGRID e configurare una o più destinazioni trap.
 
-È possibile utilizzare l'opzione *CONFIGURAZIONE* > *monitoraggio* > *agente SNMP* in Gestione griglia o gli endpoint SNMP per l'API di gestione griglia per attivare e configurare l'agente SNMP StorageGRID. L'agente SNMP supporta tutte e tre le versioni del protocollo SNMP.
+È possibile utilizzare l'opzione *Configurazione* > *Monitoraggio* > *Agente SNMP* in Grid Manager o gli endpoint SNMP per l'API di gestione della griglia per abilitare e configurare l'agente SNMP StorageGRID .  L'agente SNMP supporta tutte e tre le versioni del protocollo SNMP.
 
 Per informazioni sulla configurazione dell'agente SNMP, vedere link:using-snmp-monitoring.html["Utilizzare il monitoraggio SNMP"].
 

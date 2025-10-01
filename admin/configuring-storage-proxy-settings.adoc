@@ -25,7 +25,7 @@ NOTE: Le impostazioni proxy di storage configurate non si applicano agli endpoin
 È possibile configurare le impostazioni per un singolo proxy di archiviazione.
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *sicurezza* > *Impostazioni proxy*.
+. Selezionare *Configurazione* > *Sicurezza* > *Impostazioni proxy*.
 . Nella scheda *archiviazione*, selezionare la casella di controllo *Abilita proxy di archiviazione*.
 . Selezionare il protocollo per il proxy di archiviazione.
 . Immettere il nome host o l'indirizzo IP del server proxy.

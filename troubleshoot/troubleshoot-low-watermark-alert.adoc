@@ -84,7 +84,7 @@ Seguire questa procedura se sono stati attivati uno o più avvisi *Low Read-only
 === Valutare l'utilizzo dei dati a oggetti per l'intero grid
 
 .Fasi
-. Selezionare *NODI*.
+. Selezionare *Nodi*.
 . Per ogni sito nella griglia, espandere l'elenco dei nodi.
 . Esaminare i valori percentuali mostrati nella colonna *dati oggetto utilizzati* per ciascun nodo di storage in ogni sito.
 +
@@ -105,7 +105,7 @@ image::../media/nodes_page_object_data_used_with_alert.png[Pagina Nodes (nodi) c
 StorageGRID utilizza due metriche Prometheus per mostrare i valori ottimizzati calcolati per il watermark soft di sola lettura del volume di archiviazione. È possibile visualizzare i valori minimi e massimi ottimizzati per ciascun nodo di storage nella griglia.
 
 .Fasi
-. Selezionare *SUPPORT* > *Tools* > *Metrics*.
+. Selezionare *Supporto* > *Strumenti* > *Metriche*.
 . Nella sezione Prometheus, selezionare il collegamento per accedere all'interfaccia utente Prometheus.
 . Per visualizzare la filigrana minima di sola lettura soft consigliata, immettere la seguente metrica Prometheus e selezionare *Esegui*:
 +
@@ -129,7 +129,7 @@ L'ultima colonna mostra il valore massimo ottimizzato del watermark di sola lett
 === [[determina-filigrane ottimizzate]]determinare se è possibile utilizzare filigrane ottimizzate
 
 .Fasi
-. Selezionare *NODI*.
+. Selezionare *Nodi*.
 . Ripetere questi passaggi per ogni nodo di storage online:
 +
 .. Selezionare *_Storage Node_* > *Storage*.
@@ -153,7 +153,7 @@ NOTE: Gli stessi valori di watermark personalizzati vengono applicati a ogni vol
 === [[use-Optimized-watermark]]utilizza filigrane ottimizzate
 
 .Fasi
-. Andare a *SUPPORT* > *other* > *Storage Watermarks*.
+. Vai a *Supporto* > *Altro* > *Filigrane di archiviazione*.
 . Selezionare la casella di controllo *Usa valori ottimizzati*.
 . Selezionare *Salva*.
 

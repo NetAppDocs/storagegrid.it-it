@@ -58,7 +58,7 @@ Selezionare i nodi che si desidera riavviare, rivedere le selezioni, avviare la 
 Come primo passo, accedere alla pagina di riavvio in sequenza e selezionare i nodi che si desidera riavviare.
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *attività* > *riavvio in sequenza*.
+. Selezionare *Manutenzione* > *Attività* > *Riavvio progressivo*.
 . Esaminare le icone di stato della connessione e di avviso nella colonna *Nome nodo*.
 +
 
@@ -129,6 +129,6 @@ Le tabelle forniscono una barra di avanzamento dell'operazione su ciascun nodo e
 È possibile interrompere la procedura di riavvio in sequenza dal nodo amministrativo primario. Quando si arresta la procedura, qualsiasi nodo che abbia lo stato "arresto dei servizi", "riavvio del sistema" o "avvio dei servizi" completerà l'operazione di riavvio. Tuttavia, questi nodi non saranno più registrati come parte della procedura.
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *attività* > *riavvio in sequenza*.
+. Selezionare *Manutenzione* > *Attività* > *Riavvio progressivo*.
 . Dal passaggio *Monitor reboot* (riavvio monitor), selezionare *Stop reboot procedure* (Interrompi procedura di riavvio).
 

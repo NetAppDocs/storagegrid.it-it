@@ -25,7 +25,7 @@ summary: È possibile visualizzare i dettagli di un profilo di erasure coding e 
 È possibile visualizzare i dettagli di un profilo di erasure coding per determinarne lo stato, lo schema di erasure coding utilizzato e altre informazioni.
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *sistema* > *Erasure Coding*.
+. Selezionare *Configurazione* > *Sistema* > *Codifica di cancellazione*.
 . Selezionare il profilo. Viene visualizzata la pagina dei dettagli del profilo.
 . In alternativa, è possibile visualizzare la scheda regole ILM per un elenco di regole ILM che utilizzano il profilo e i criteri ILM che utilizzano tali regole.
 . Facoltativamente, visualizzare la scheda nodi di archiviazione per i dettagli su ciascun nodo di archiviazione nel pool di archiviazione del profilo, ad esempio il sito in cui si trova e l'utilizzo dello storage.
@@ -38,7 +38,7 @@ summary: È possibile visualizzare i dettagli di un profilo di erasure coding e 
 Si consiglia di rinominare un profilo di erasure coding in modo da renderlo più ovvio.
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *sistema* > *Erasure Coding*.
+. Selezionare *Configurazione* > *Sistema* > *Codifica di cancellazione*.
 . Selezionare il profilo che si desidera rinominare.
 . Selezionare *Rinomina*.
 . Immettere un nome univoco per il profilo di erasure coding.
@@ -69,7 +69,7 @@ StorageGRID ti impedisce di disattivare un profilo di erasure coding se si verif
 
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *sistema* > *Erasure Coding*.
+. Selezionare *Configurazione* > *Sistema* > *Codifica di cancellazione*.
 . Nella scheda attivo, esaminare la colonna *Stato* per confermare che il profilo di erasure coding che si desidera disattivare non è utilizzato in nessuna regola ILM.
 +
 Non è possibile disattivare un profilo di erasure coding se è utilizzato in qualsiasi regola ILM. Nell'esempio, il profilo 2+1 Data Center 1 viene utilizzato in almeno una regola ILM.

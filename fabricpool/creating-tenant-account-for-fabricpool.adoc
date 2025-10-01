@@ -23,7 +23,7 @@ Per ulteriori informazioni su questa attività, vedere link:../admin/creating-te
 
 
 .Fasi
-. Selezionare *TENANT*.
+. Selezionare *Inquilini*.
 . Selezionare *Crea*.
 . Per la procedura di inserimento dei dettagli, immettere le seguenti informazioni.
 +
@@ -73,7 +73,7 @@ I tenant FabricPool in genere non devono utilizzare S3 Select.
 .. In alternativa, selezionare *Usa connessione federazione griglia* per consentire al tenant di utilizzare un link:../admin/grid-federation-overview.html["connessione a federazione di griglie"]clone per account e la replica cross-grid. Quindi, selezionare la connessione a federazione di griglie da utilizzare.
 
 
-. Per l'operazione Definisci accesso root, specificare quale utente avrà l'autorizzazione di accesso root iniziale per l'account tenant, a seconda che il sistema StorageGRID utilizzi link:../admin/using-identity-federation.html["federazione delle identità"], link:../admin/configuring-sso.html["SSO (Single Sign-on)"]o entrambi.
+. Per il passaggio Definisci accesso root, specificare quale utente avrà l'autorizzazione di accesso root iniziale per l'account tenant, in base al fatto che il sistema StorageGRID utilizzilink:../admin/using-identity-federation.html["federazione delle identità"] ,link:../admin/how-sso-works.html["SSO (Single Sign-on)"] , o entrambi.
 +
 [cols="1a,2a"]
 |===

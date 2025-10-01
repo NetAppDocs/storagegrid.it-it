@@ -33,23 +33,23 @@ Ogni nodo gateway o nodo amministratore potrebbe richiedere solo pochi minuti o 
 .Fasi
 . Non appena viene generato un nuovo pacchetto di ripristino, scaricare il file.
 +
-image::../media/decommission_site_step_6_recovery_package.png[Pacchetto di ripristino fase 6 per la decommissionazione del sito]
+image::../media/decommission_site_step_6_recovery_package.png[Pacchetto di ripristino del passaggio 6 per la dismissione del sito]
 
 +
 
-NOTE: Scarica il pacchetto di ripristino il prima possibile per assicurarti di ripristinare la griglia in caso di problemi durante la procedura di decommissionamento.
+NOTE: Scarica il pacchetto di ripristino il prima possibile per assicurarti di poter ripristinare la tua rete se qualcosa va storto durante la procedura di dismissione.
 
 +
-.. Selezionare il collegamento nel messaggio o selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+.. Selezionare il collegamento nel messaggio oppure selezionare *Manutenzione* > *Sistema* > *Pacchetto di ripristino*.
 .. Scaricare il `.zip` file.
 +
-Vedere le istruzioni per link:downloading-recovery-package.html["Download del pacchetto di ripristino"].
+Vedi le istruzioni perlink:downloading-recovery-package.html["scaricando il pacchetto di ripristino"] .
 
 
 
 +
 
-NOTE: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.
+NOTE: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID .
 
 . Utilizzando il grafico spostamento dati, monitorare lo spostamento dei dati oggetto da questo sito ad altri siti.
 +

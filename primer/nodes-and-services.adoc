@@ -17,7 +17,7 @@ Il building block di base di un sistema StorageGRID è il nodo grid. I nodi cont
 
 == Tipi di nodi della griglia
 
-Il sistema StorageGRID utilizza quattro tipi di nodi di rete:
+Il sistema StorageGRID utilizza tre tipi di nodi di griglia:
 
 Nodi di amministrazione:: Fornire servizi di gestione quali configurazione, monitoraggio e logging del sistema. Quando si accede a Grid Manager, si sta effettuando la connessione a un nodo amministratore. Ogni grid deve avere un nodo di amministrazione primario e potrebbe avere ulteriori nodi di amministrazione non primari per la ridondanza. È possibile connettersi a qualsiasi nodo amministratore e ciascun nodo amministratore visualizza una vista simile del sistema StorageGRID. Tuttavia, le procedure di manutenzione devono essere eseguite utilizzando il nodo di amministrazione primario.
 +
@@ -30,6 +30,8 @@ Vedere link:what-admin-node-is.html["Che cos'è un nodo amministratore?"]
 Nodi di storage:: Gestisci e archivia dati e metadati degli oggetti. Ciascun sito del sistema StorageGRID deve avere almeno tre nodi storage.
 +
 --
+Durante l'installazione iniziale di un nuovo nodo di archiviazione, è possibile specificare che venga utilizzato solo perlink:../primer/what-storage-node-is.html#types-of-storage-nodes["memorizzazione dei metadati"] .
+
 Vedere link:what-storage-node-is.html["Che cos'è un nodo di storage?"]
 
 --
@@ -45,7 +47,7 @@ Vedere link:what-gateway-node-is.html["Che cos'è un nodo gateway?"]
 
 == Nodi hardware e software
 
-È possibile implementare nodi StorageGRID come nodi di appliance StorageGRID o come nodi basati sul software.
+I nodi StorageGRID possono essere distribuiti come nodi di appliance StorageGRID o come nodi basati su software.  Il numero massimo di nodi (inclusi tutti i tipi di nodi) per sistema è 220.
 
 
 
@@ -63,16 +65,9 @@ Per ulteriori informazioni sulle appliance disponibili, vedere quanto segue:
 
 === Nodi basati su software
 
-I nodi grid basati su software possono essere implementati come macchine virtuali VMware o all'interno di motori container su un host Linux.
-
-* Macchina virtuale (VM) in VMware vSphere: Vedere link:../vmware/index.html["Installare StorageGRID su VMware"].
-* All'interno di un motore container su Red Hat Enterprise Linux: Vedere link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"].
-* All'interno di un motore container su Ubuntu o Debian: Vedere link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"].
-
+I nodi di griglia basati su software possono essere distribuiti come macchine virtuali VMware o all'interno di motori di container su un host Linux. Vedere link:../swnodes/index.html["Installa StorageGRID sui nodi basati su software"] .
 
 Utilizzare https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] per determinare le versioni supportate.
-
-Durante l'installazione iniziale di un nuovo nodo di archiviazione basato su software, è possibile specificare che deve essere utilizzato solo per link:../primer/what-storage-node-is.html#types-of-storage-nodes["memorizzazione dei metadati"].
 
 
 
@@ -109,6 +104,42 @@ AMS (Audit Management System)
 Monitora e registra tutti gli eventi e le transazioni di sistema verificati in un file di log di testo.
  a| 
 Nodi di amministrazione
+
+
+
+ a| 
+Apache Tomcat
+ a| 
+Server web per applicazioni basate su Java.
+ a| 
+Nodi di amministrazione
+
+
+
+ a| 
+Demone Avahi
+ a| 
+Gestisce mDNS, utilizzato per la risoluzione dei nomi e l'individuazione dei servizi all'interno della rete locale.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+Servizio cache
+ a| 
+Viene eseguito sui nodi del bilanciatore del carico (Gateway) e gestisce una cache locale del contenuto degli oggetti.
+ a| 
+Nodi gateway
+
+
+
+ a| 
+Cassandra
+ a| 
+Gestisce il database distribuito per i metadati degli oggetti.
+ a| 
+Nodi di archiviazione (tranne quelli solo dati)
 
 
 
@@ -187,7 +218,7 @@ Nodi Admin e Gateway
  a| 
 Identità (idnt)
  a| 
-Consente di federare le identità degli utenti da LDAP e Active Directory.
+Gestisce utenti e gruppi locali, l'autenticazione e federa le identità degli utenti da LDAP e Active Directory.
  a| 
 Nodi di storage che utilizzano il servizio ADC
 
@@ -239,9 +270,9 @@ Tutti i nodi
 
 
  a| 
-nginx-gw
+Bilanciatore del carico nginx-gw
  a| 
-Alimenta il servizio Load Balancer.
+Bilanciamento del carico del traffico S3 fra i client e i nodi storage. Il servizio Load Balancer può essere configurato tramite la pagina di configurazione degli endpoint del bilanciamento del carico. Questo servizio è noto anche come servizio nginx-gw.
  a| 
 Nodi Admin e Gateway
 
@@ -253,6 +284,24 @@ NMS (Network Management System, sistema di gestione della rete)
 Alimenta le opzioni di monitoraggio, reporting e configurazione visualizzate tramite Grid Manager.
  a| 
 Nodi di amministrazione
+
+
+
+ a| 
+Esportatore di nodi (raccolta dati Prometheus)
+ a| 
+Pubblica statistiche a livello di sistema per la raccolta di metriche di serie temporali di Prometheus.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+ntp
+ a| 
+Servizio NTP (Network Time Protocol).
+ a| 
+Tutti i nodi
 
 
 
@@ -293,7 +342,70 @@ Un'istanza è presente su ogni nodo della griglia
 
 
  a| 
-Raccoglitore di tracce
+Responsabile del server
+ a| 
+Gestisce i servizi StorageGRID .
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+Agente SNMP
+ a| 
+Risponde alle richieste SNMP.
+ a| 
+Nodi di amministrazione
+
+
+
+ a| 
+Servizio di gestione delle porte SNMP
+ a| 
+Gestisce la gestione dinamica delle porte SNMP.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+SSH (Secure Shell)
+ a| 
+Gestisce l'accesso sicuro e la gestione remota del sistema.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+SSM (monitor dello stato del sistema)
+ a| 
+Monitora le condizioni dell'hardware e invia report al servizio NMS.
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+Statistica
+ a| 
+Registra metriche aggiuntive relative ai bucket S3.
+ a| 
+Nodi di storage
+
+
+
+ a| 
+Agente di tracciamento (jaeger-agent)
+ a| 
+Riceve ed elabora le informazioni di tracciamento inviate dal raccoglitore di tracce (jaeger-collector).
+ a| 
+Tutti i nodi
+
+
+
+ a| 
+Trace Collector (jaeger-collector)
  a| 
 Esegue la raccolta di tracce per raccogliere informazioni da utilizzare per il supporto tecnico. Il servizio di raccolta tracce utilizza il software open source Jaeger.
  a| 

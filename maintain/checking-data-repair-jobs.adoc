@@ -11,10 +11,12 @@ summary: Prima di disattivare un nodo di rete, è necessario confermare che non 
 
 
 [role="lead"]
-Prima di disattivare un nodo di rete, è necessario confermare che non sono attivi lavori di riparazione dei dati. Se le riparazioni non sono riuscite, è necessario riavviarle e lasciarle completare prima di eseguire la procedura di decommissionamento.
+Prima di dismettere o espandere un nodo della griglia, è necessario confermare che non siano attivi processi di riparazione dei dati.  Se una riparazione non ha avuto successo, è necessario riavviarla e lasciarla completare prima di eseguire la procedura di dismissione.
+
+Fare riferimento alink:../expand/index.html["Tipi di espansione"] per i dettagli su come espandere un nodo della griglia.
 
 .A proposito di questa attività
-Se è necessario decommissionare un nodo di storage disconnesso, completare questi passaggi anche al termine della procedura di decommissionamento per garantire che il lavoro di riparazione dei dati sia stato completato correttamente. È necessario assicurarsi che tutti i frammenti erasure-coded presenti nel nodo rimosso siano stati ripristinati correttamente.
+Se è necessario dismettere un nodo di archiviazione disconnesso, completare questi passaggi al termine della procedura di dismissione per garantire il completamento del processo di riparazione dei dati.  È necessario assicurarsi che tutti i frammenti con codice di cancellazione presenti sul nodo rimosso siano stati ripristinati.
 
 Questi passaggi si applicano solo ai sistemi che dispongono di oggetti con codifica per la cancellazione.
 

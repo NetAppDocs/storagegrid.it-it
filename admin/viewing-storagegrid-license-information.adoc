@@ -24,7 +24,7 @@ image::../media/dashboard_health_panel_license_status.png[Stato della licenza de
 .Fasi
 . Accedere alla pagina License (licenza) effettuando una delle seguenti operazioni:
 +
-** Selezionare *MANUTENZIONE* > *sistema* > *licenza*.
+** Selezionare *Manutenzione* > *Sistema* > *Licenza*.
 ** Dalla scheda Health status (Stato) sul dashboard, selezionare l'icona License status (Stato licenza) o il collegamento *License* (licenza).
 +
 Questo collegamento viene visualizzato solo in caso di problemi con la licenza.

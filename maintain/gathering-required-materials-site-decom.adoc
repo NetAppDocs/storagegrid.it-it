@@ -19,11 +19,11 @@ Prima di decommissionare un sito, è necessario procurarsi i seguenti materiali.
 
 
  a| 
-File pacchetto di ripristino `.zip`
+Pacchetto di recupero `.zip` file
  a| 
-È necessario scaricare il file del pacchetto di ripristino più recente `.zip`(`sgws-recovery-package-id-revision.zip` ). È possibile utilizzare il file Recovery Package per ripristinare il sistema in caso di errore.
+Devi scaricare il pacchetto di ripristino più recente `.zip` file(`sgws-recovery-package-id-revision.zip` ).  È possibile utilizzare il file del pacchetto di ripristino per ripristinare il sistema in caso di errore.
 
-link:downloading-recovery-package.html["Scaricare il pacchetto di ripristino"]
+link:downloading-recovery-package.html["Scarica il pacchetto di ripristino"]
 
 
 

@@ -50,15 +50,6 @@ NOTE: Per consentire l'accesso alla pagina dei tenant, che contiene l'opzione *M
 
 
 
-== Configurazione della pagina della topologia della griglia
-
-Questa autorizzazione consente di accedere alle schede di configurazione nella pagina *SUPPORTO* > *Strumenti* > *topologia griglia*.
-
-
-NOTE: La pagina della topologia della griglia è stata obsoleta e verrà rimossa in una versione futura.
-
-
-
 == ILM
 
 Questa autorizzazione consente di accedere alle seguenti opzioni del menu *ILM*:
@@ -73,7 +64,7 @@ Questa autorizzazione consente di accedere alle seguenti opzioni del menu *ILM*:
 
 
 
-NOTE: Gli utenti devono disporre delle autorizzazioni *altra configurazione griglia* e *Configurazione della pagina topologia griglia* per gestire i gradi di storage.
+NOTE: Per gestire i livelli di archiviazione, gli utenti devono disporre dell'autorizzazione *Altra configurazione della griglia*.
 
 
 
@@ -81,17 +72,17 @@ NOTE: Gli utenti devono disporre delle autorizzazioni *altra configurazione grig
 
 Gli utenti devono disporre dell'autorizzazione Maintenance per utilizzare queste opzioni:
 
-* *CONFIGURAZIONE* > *controllo degli accessi*:
+* *Configurazione* > *Controllo accessi*:
 +
 ** Password di rete
 
 
-* *CONFIGURAZIONE* > *rete*:
+* *Configurazione* > *Rete*:
 +
 ** Nomi di dominio degli endpoint S3
 
 
-* *MANUTENZIONE* > *attività*:
+* *Manutenzione* > *Attività*:
 +
 ** Decommissionare
 ** Espansione
@@ -99,13 +90,13 @@ Gli utenti devono disporre dell'autorizzazione Maintenance per utilizzare queste
 ** Recovery (recupero)
 
 
-* *MANUTENZIONE* > *sistema*:
+* *Manutenzione* > *Sistema*:
 +
 ** Pacchetto di recovery
 ** Aggiornamento del software
 
 
-* *SUPPORTO* > *Strumenti*:
+* *Supporto* > *Strumenti*:
 +
 ** Registri
 
@@ -114,29 +105,29 @@ Gli utenti devono disporre dell'autorizzazione Maintenance per utilizzare queste
 
 Gli utenti che non dispongono dell'autorizzazione Maintenance possono visualizzare, ma non modificare, le seguenti pagine:
 
-* *MANUTENZIONE* > *rete*:
+* *Manutenzione* > *Rete*:
 +
 ** Server DNS
 ** Grid Network
 ** Server NTP
 
 
-* *MANUTENZIONE* > *sistema*:
+* *Manutenzione* > *Sistema*:
 +
 ** Licenza
 
 
-* *CONFIGURAZIONE* > *rete*:
+* *Configurazione* > *Rete*:
 +
 ** Nomi di dominio degli endpoint S3
 
 
-* *CONFIGURAZIONE* > *sicurezza*:
+* *Configurazione* > *Sicurezza*:
 +
 ** Certificati
 
 
-* *CONFIGURAZIONE* > *monitoraggio*:
+* *Configurazione* > *Monitoraggio*:
 +
 ** Server syslog e audit
 
@@ -155,7 +146,7 @@ Questa autorizzazione consente di accedere alle opzioni per la gestione degli av
 
 Questa autorizzazione consente di accedere a:
 
-* *SUPPORTO* > *Strumenti* > pagina *metriche*
+* Pagina *Supporto* > *Strumenti* > *Metriche*
 * Query di metriche Prometheus personalizzate utilizzando la sezione *metriche* dell'API Grid Management
 * Schede dashboard di Grid Manager che contengono metriche
 
@@ -170,18 +161,15 @@ Questa autorizzazione consente di accedere alla pagina *ILM* > *Object metadata 
 
 == Altra configurazione della griglia
 
-Questa autorizzazione consente di accedere a ulteriori opzioni di configurazione della griglia.
-
-
-TIP: Per visualizzare queste opzioni aggiuntive, gli utenti devono anche disporre dell'autorizzazione *Grid topology page Configuration* (Configurazione pagina topologia griglia).
+Questa autorizzazione fornisce l'accesso alle seguenti opzioni aggiuntive di configurazione della griglia:
 
 * *ILM*:
 +
 ** Gradi di storage
 
 
-* *CONFIGURAZIONE* > *sistema*:
-* *SUPPORTO* > *altro*:
+* *Configurazione* > *Sistema*:
+* *Supporto* > *Altro*:
 +
 ** Costo del collegamento
 

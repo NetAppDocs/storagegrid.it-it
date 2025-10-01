@@ -26,7 +26,7 @@ Quando si installa StorageGRID e si aggiungono siti, viene creato automaticament
 * Se la griglia contiene più siti, la regola predefinita replica una copia di ciascun oggetto in ciascun sito.
 
 
-Se il criterio predefinito non soddisfa i requisiti di storage, è possibile creare regole e policy personalizzate. Vedere link:what-ilm-rule-is.html["Creare una regola ILM"] e link:creating-ilm-policy.html["Creare un criterio ILM"].
+Se la policy predefinita non soddisfa i tuoi requisiti di archiviazione, puoi creare regole e policy personalizzate.  Vederelink:what-ilm-rule-is.html["Creare una regola ILM"] Elink:creating-ilm-policy.html["Creare un criterio ILM"] .
 
 
 
@@ -56,6 +56,11 @@ Tag dei criteri ILM:: Se desideri consentire ai tenant di alternare facilmente t
 Ad esempio, potresti avere tre tag denominati Gold, Silver e Bronze. È possibile assegnare un criterio ILM a ciascun tag in base alla durata e alla posizione in cui tale criterio memorizza gli oggetti. I tenant possono scegliere la policy da utilizzare contrassegnando i propri bucket. Un bucket con tag Gold viene gestito dalla policy Gold e riceve il livello Gold di data Protection e performance.
 
 --
+
+
+
+NOTE: Puoilink:../ilm/creating-ilm-policy.html#activate-ilm-policy["creare un massimo di 10 tag di policy"] per la tua griglia.
+
 Tag criterio ILM predefinito:: Quando si installa StorageGRID, viene creato automaticamente un tag di criterio ILM predefinito. Ogni griglia deve avere un criterio attivo assegnato al tag predefinito. Il criterio predefinito si applica a tutti i bucket S3 non contrassegnati.
 
 

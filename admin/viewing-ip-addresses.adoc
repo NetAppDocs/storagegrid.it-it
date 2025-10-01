@@ -20,7 +20,7 @@ L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web
 Per informazioni sulla modifica degli indirizzi IP, vedere link:../maintain/configuring-ip-addresses.html["Configurare gli indirizzi IP"].
 
 .Fasi
-. Selezionare *NODES* > *_Grid Node_* > *Overview*.
+. Selezionare *Nodi* > *_nodo griglia_* > *Panoramica*.
 . Selezionare *Mostra altri* a destra del titolo indirizzi IP.
 +
 Gli indirizzi IP per il nodo della griglia sono elencati in una tabella.

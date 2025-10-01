@@ -56,7 +56,7 @@ Nodo amministratore primario
 | /var/local/log/gdu-server.log  a| 
 Creato dal servizio GDU. Contiene eventi correlati alle procedure di provisioning e manutenzione gestite dal nodo di amministrazione primario.
  a| 
-Nodo amministratore primario
+Nodi di amministrazione
 
 
 

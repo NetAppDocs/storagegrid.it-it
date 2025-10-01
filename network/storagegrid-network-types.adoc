@@ -91,13 +91,7 @@ Rete client (opzionale)
 eth2
 
 |===
-Per ulteriori informazioni sulla mappatura delle porte fisiche o virtuali alle interfacce di rete dei nodi, consultare le istruzioni di installazione:
-
-.Nodi basati su software
-* link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
-* link:../vmware/index.html["Installare StorageGRID su VMware"]
-
+Per i dettagli sulla mappatura delle porte virtuali o fisiche alle interfacce di rete dei nodi, vederelink:../swnodes/index.html["Installa StorageGRID sui nodi basati su software"] .
 
 .Nodi appliance
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg6100.html["Appliance di storage SG6160"^]

@@ -44,7 +44,7 @@ Quando si creano gruppi e utenti, iniziare sempre dalla griglia di origine del t
 
 
 [role="quick-margin-list"]
-* Se non si utilizza la federazione delle identità, link:creating-groups-for-s3-tenant.html["creare nuovi gruppi locali"]quindi link:managing-local-users.html["creare utenti locali"].
+* Se non si utilizza la federazione delle identità,link:creating-groups-for-s3-tenant.html["creare nuovi gruppi locali"] poilink:manage-users.html["creare utenti locali"] .
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"] Creare S3 chiavi di accesso
@@ -78,9 +78,9 @@ NOTE: Tutti gli utenti selezionati quando si crea un gruppo locale nella griglia
 
 === Gli utenti locali creati sulla griglia di origine vengono clonati
 
-Quando si crea un nuovo utente locale nella griglia di origine, StorageGRID clona automaticamente tale utente nella griglia di destinazione. Sia l'utente originale che il clone hanno lo stesso nome completo, nome utente e impostazione *Nega accesso*. Entrambi gli utenti appartengono anche agli stessi gruppi. Per istruzioni, vedere link:managing-local-users.html["Gestire gli utenti locali"].
+Quando si crea un nuovo utente locale sulla griglia di origine, StorageGRID clona automaticamente tale utente nella griglia di destinazione.  Sia l'utente originale che il suo clone hanno lo stesso nome completo, lo stesso nome utente e l'impostazione *Nega accesso*.  Entrambi gli utenti appartengono anche agli stessi gruppi. Per le istruzioni, vederelink:manage-users.html["Gestire gli utenti"] .
 
-Per motivi di sicurezza, le password degli utenti locali non vengono clonate nella griglia di destinazione. Se un utente locale deve accedere a Tenant Manager nella griglia di destinazione, l'utente root dell'account tenant deve aggiungere una password per tale utente nella griglia di destinazione. Per istruzioni, vedere link:managing-local-users.html["Gestire gli utenti locali"].
+Per motivi di sicurezza, le password degli utenti locali non vengono clonate nella griglia di destinazione.  Se un utente locale deve accedere a Tenant Manager sulla griglia di destinazione, l'utente root dell'account tenant deve aggiungere una password per tale utente sulla griglia di destinazione. Per le istruzioni, vederelink:manage-users.html["Gestire gli utenti"] .
 
 image::../media/grid-federation-local-user-clone.png[immagine che mostra che gli utenti locali vengono clonati dalla griglia di origine alla griglia di destinazione]
 

@@ -44,7 +44,7 @@ TIP: Non è possibile modificare il nome del bucket dopo averlo creato.
 
 .. Selezionare la regione per questo bucket.
 +
-Per impostazione predefinita, tutti i bucket vengono creati nella `us-east-1` regione.
+Per impostazione predefinita, tutti i bucket vengono creati in `us-east-1` regione.  Se la regione predefinita è configurata su una regione diversa da `us-east-1` , inizialmente viene selezionata quest'altra regione nel menu a discesa.
 
 .. Selezionare *continua*.
 .. Selezionare *Crea bucket*.

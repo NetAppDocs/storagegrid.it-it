@@ -48,19 +48,15 @@ Linux RPM o archivio DEB
  a| 
 Se qualsiasi nodo viene distribuito su host Linux, è necessario link:linux-installing-rpm-or-deb-package-on-all-hosts.html["Scaricare e installare il pacchetto RPM o DEB su tutti gli host"] prima di avviare l'aggiornamento.
 
-Accertarsi che il sistema operativo soddisfi i requisiti minimi di versione del kernel di StorageGRID:
-
-* link:../rhel/installing-linux.html["Installare StorageGRID sugli host Red Hat Enterprise Linux"]
-* link:../ubuntu/installing-linux.html["Installare StorageGRID su host Ubuntu o Debian"]
-
+Assicurati che il tuo sistema operativo Linux soddisfi i requisiti minimi di versione del kernel di StorageGRID. Vedere link:../swnodes/installing-linux.html["Installa StorageGRID su host Linux"] .
 
 
 
  a| 
 Documentazione StorageGRID
  a| 
-* link:../release-notes/index.html["Note di rilascio"] Per StorageGRID 11,9 (accesso richiesto). Leggere attentamente queste informazioni prima di avviare l'aggiornamento.
-* https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["Guida alla risoluzione degli aggiornamenti del software StorageGRID"^] per la versione principale a cui si sta effettuando l'aggiornamento (è necessario effettuare l'accesso)
+* link:../release-notes/index.html["Note di rilascio"]per StorageGRID 12.0 (è richiesto l'accesso).  Assicuratevi di leggerli attentamente prima di iniziare l'aggiornamento.
+* https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_12.0_software_upgrade_resolution_guide["Guida alla risoluzione degli aggiornamenti del software StorageGRID"^]per la versione principale a cui stai effettuando l'aggiornamento (è richiesto l'accesso)
 * Altro https://docs.netapp.com/us-en/storagegrid-family/index.html["Documentazione StorageGRID"^], secondo necessità.
 
 

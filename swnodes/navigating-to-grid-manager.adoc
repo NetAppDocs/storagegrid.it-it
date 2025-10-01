@@ -1,0 +1,52 @@
+---
+permalink: swnodes/navigating-to-grid-manager.html 
+sidebar: sidebar 
+keywords: how to navigate to Grid Manager 
+summary: Il Gestore griglia consente di definire tutte le informazioni necessarie per configurare il sistema StorageGRID. 
+---
+= Accedere a Grid Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il Gestore griglia consente di definire tutte le informazioni necessarie per configurare il sistema StorageGRID.
+
+.Prima di iniziare
+Il nodo di amministrazione primario deve essere implementato e aver completato la sequenza di avvio iniziale.
+
+.Fasi
+. Aprire il browser Web e accedere a:
++
+`https://_primary_admin_node_ip_`
+
++
+In alternativa, è possibile accedere a Grid Manager dalla porta 8443:
+
++
+`https://_primary_admin_node_ip_:8443`
+
++
+È possibile utilizzare l'indirizzo IP per l'indirizzo IP del nodo di amministrazione primario sulla rete griglia o sulla rete di amministrazione, a seconda della configurazione di rete. Potrebbe essere necessario utilizzare l'opzione Security/Advanced del browser per accedere a un certificato non attendibile.
+
+. Gestione di una password di installazione temporanea come necessario:
++
+** Se una password è già stata impostata utilizzando uno di questi metodi, immetterla per continuare.
++
+*** Un utente imposta la password durante l'accesso al programma di installazione in precedenza
+*** Per Linux, la password è stata importata automaticamente dal file di configurazione del nodo in `/etc/storagegrid/nodes/_<node_name>_.conf`
+*** Per VMware, la password SSH/console è stata importata automaticamente dalle proprietà OVF
+
+
+** Se non è stata impostata una password, impostare una password per proteggere il programma di installazione di StorageGRID.
+
+
+. Selezionare *Installa un sistema StorageGRID*.
++
+Viene visualizzata la pagina utilizzata per configurare una griglia StorageGRID.
+
++
+image::../media/gmi_installer_first_screen.gif[Prima schermata del programma di installazione di StorageGRID]
+
+

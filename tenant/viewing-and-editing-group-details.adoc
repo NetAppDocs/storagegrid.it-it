@@ -19,7 +19,7 @@ Quando si visualizzano i dettagli di un gruppo, è possibile modificare il nome 
 
 
 .Fasi
-. Selezionare *GESTIONE ACCESSI* > *gruppi*.
+. Selezionare *Gestione accessi* > *Gruppi*.
 . Selezionare il nome del gruppo di cui si desidera visualizzare o modificare i dettagli.
 +
 In alternativa, è possibile selezionare *azioni* > *Visualizza dettagli gruppo*.
@@ -44,10 +44,6 @@ Non puoi modificare il nome univoco di un gruppo. Non è possibile modificare il
 .. Per i criteri di gruppo, apportare le modifiche appropriate al tenant S3.
 +
 *** Se si modifica un gruppo per un tenant S3, selezionare un criterio di gruppo S3 diverso. Se si seleziona un criterio S3 personalizzato, aggiornare la stringa JSON come richiesto.
-*** Se si sta modificando un gruppo per un tenant Swift, selezionare o deselezionare la casella di controllo *Swift Administrator*.
-+
-Per ulteriori informazioni sull'autorizzazione amministratore Swift, consultare le istruzioni per la creazione di gruppi per un tenant Swift.
-
 
 
 .. Facoltativamente, aggiungere o rimuovere utenti.
@@ -58,5 +54,4 @@ Per ulteriori informazioni sull'autorizzazione amministratore Swift, consultare 
 
 .Informazioni correlate
 * link:creating-groups-for-s3-tenant.html["Creare gruppi per il tenant S3"]
-* link:creating-groups-for-swift-tenant.html["Creare gruppi per il tenant Swift"]
 

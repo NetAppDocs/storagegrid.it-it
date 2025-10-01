@@ -25,7 +25,7 @@ TIP: Se un tenant dispone dell'autorizzazione *Usa connessione federazione grigl
 NOTE: L'applicazione delle impostazioni del tenant sulla griglia potrebbe richiedere 15 minuti o più in base a connettività di rete, stato dei nodi e operazioni Cassandra.
 
 .Fasi
-. Selezionare *TENANT*.
+. Selezionare *Inquilini*.
 +
 image::../media/tenant_accounts_page.png[Pagina account tenant]
 

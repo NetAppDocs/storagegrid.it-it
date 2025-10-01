@@ -21,7 +21,7 @@ summary: È possibile creare criteri di classificazione del traffico se si desid
 
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *rete* > *classificazione del traffico*.
+. Selezionare *Configurazione* > *Rete* > *Classificazione del traffico*.
 . Selezionare *Crea*.
 . Inserire un nome e una descrizione (opzionale) per la policy e selezionare *continua*.
 +
@@ -122,7 +122,7 @@ L'unità che descrive il valore immesso.
 
 |===
 +
-Ad esempio, se si desidera creare un limite di larghezza di banda di 40 GB/s per un livello SLA, creare due limiti di larghezza di banda aggregati: GET/HEAD a 40 GB/s e PUT/POST/DELETE a 40 GB/s.
+Ad esempio, se si desidera creare un limite di larghezza di banda di 4 GB/s per un livello SLA, creare due limiti di larghezza di banda aggregati: GET/HEAD a 4 GB/s e PUT/POST/DELETE a 4 GB/s.
 
 . Selezionare *continua*.
 . Leggere e rivedere la policy di classificazione del traffico. Utilizzare il pulsante *precedente* per tornare indietro e apportare le modifiche necessarie. Quando si è soddisfatti della policy, selezionare *Salva e continua*.

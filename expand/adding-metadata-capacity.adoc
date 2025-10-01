@@ -52,7 +52,7 @@ I nodi di storage solo per metadati hanno requisiti hardware specifici:
 *** SSD da 8 TB o storage equivalente per il database Cassandra (rangedb/0)
 
 
-** Se il sito StorageGRID esistente utilizza nodi di archiviazione virtuale con 24 GB di RAM, 8 core CPU e 3 TB o 4TB di memorizzazione di metadati, i nodi basati solo sui metadati del software devono utilizzare risorse simili (24 GB di RAM, 8 core CPU e 4TB di memorizzazione di metadati (rangedb/0).
+** Se il sito StorageGRID esistente utilizza nodi di archiviazione virtuali con 24 GB di RAM, CPU a 8 core e 3 TB o 4 TB di spazio di archiviazione dei metadati, i nodi basati solo su software devono utilizzare risorse simili (24 GB di RAM, CPU a 8 core e 4 TB di spazio di archiviazione dei metadati (rangedb/0)).
 
 
 * Quando si aggiunge un nuovo sito StorageGRID, la capacità totale dei metadati del nuovo sito deve almeno StorageGRID corrispondere ai nodi storage dei siti StorageGRID esistenti e alle nuove risorse del sito.

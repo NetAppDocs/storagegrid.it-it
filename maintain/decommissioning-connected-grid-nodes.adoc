@@ -99,13 +99,13 @@ Viene avviata la procedura di decommissionamento del nodo e viene visualizzato l
 
 CAUTION: Non scollegare un nodo di storage dopo l'avvio della procedura di decommissionamento. La modifica dello stato potrebbe causare la mancata copia di alcuni contenuti in altre posizioni.
 
-. Non appena il nuovo pacchetto di ripristino è disponibile, selezionare il collegamento pacchetto di ripristino nel banner o selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino* per accedere alla pagina pacchetto di ripristino. Quindi, scaricare il `.zip` file.
+. Non appena il nuovo pacchetto di ripristino è disponibile, seleziona il collegamento al pacchetto di ripristino nel banner oppure seleziona *Manutenzione* > *Sistema* > *Pacchetto di ripristino* per accedere alla pagina del pacchetto di ripristino.  Quindi, scarica il `.zip` file.
 +
-Vedere link:downloading-recovery-package.html["Download del pacchetto di ripristino"].
+Vedere link:downloading-recovery-package.html["scaricando il pacchetto di ripristino"] .
 
 +
 
-NOTE: Scarica il pacchetto di ripristino il prima possibile per assicurarti di ripristinare la griglia in caso di problemi durante la procedura di decommissionamento.
+NOTE: Scarica il pacchetto di ripristino il prima possibile per assicurarti di poter ripristinare la tua rete se qualcosa va storto durante la procedura di dismissione.
 
 . Monitorare periodicamente la pagina nodi di decommissionazione per assicurarsi che tutti i nodi selezionati vengano decommissionati correttamente.
 +
@@ -122,7 +122,7 @@ Completare questi passaggi dopo aver completato la procedura di decommissionamen
 
 . Seguire la fase appropriata per la piattaforma. Ad esempio:
 +
-** *Linux*: Si consiglia di scollegare i volumi ed eliminare i file di configurazione del nodo creati durante l'installazione. Vedere link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"] e link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"].
+** *Linux*: Potresti voler staccare i volumi ed eliminare i file di configurazione del nodo creati durante l'installazione. Vedere link:../swnodes/index.html["Installa StorageGRID sui nodi basati su software"] .
 ** *VMware*: Potrebbe essere necessario utilizzare l'opzione "Elimina da disco" di vCenter per eliminare la macchina virtuale. Potrebbe essere necessario eliminare anche i dischi dati indipendenti dalla macchina virtuale.
 ** *Appliance StorageGRID*: Il nodo appliance torna automaticamente allo stato non distribuito, dove è possibile accedere al programma di installazione dell'appliance StorageGRID. È possibile spegnere l'apparecchio o aggiungerlo a un altro sistema StorageGRID.
 

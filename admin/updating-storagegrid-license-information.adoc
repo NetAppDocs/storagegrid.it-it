@@ -20,7 +20,7 @@ summary: È necessario aggiornare le informazioni di licenza per il sistema Stor
 
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *sistema* > *licenza*.
+. Selezionare *Manutenzione* > *Sistema* > *Licenza*.
 . Nella sezione Aggiorna licenza, selezionare *Sfoglia*.
 . Individuare e selezionare il nuovo file di licenza (`.txt`).
 +

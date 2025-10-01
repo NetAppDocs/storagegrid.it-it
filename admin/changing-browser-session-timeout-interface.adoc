@@ -29,7 +29,7 @@ Il timeout di inattività del browser è controllato anche da:
 * Un timer StorageGRID separato, non configurabile, incluso per la sicurezza del sistema. Ogni token di autenticazione dell'utente scade 16 ore dopo l'accesso. Quando l'autenticazione dell'utente scade, l'utente viene automaticamente disconnesso, anche se il timeout di inattività del browser è disattivato o non è stato raggiunto il valore per il timeout del browser. Per rinnovare il token, l'utente deve effettuare nuovamente l'accesso.
 * Impostazioni di timeout per il provider di identità, presupponendo che SSO (Single Sign-on) sia abilitato per StorageGRID.
 +
-Se SSO è attivato e il browser dell'utente si disinserisce, l'utente deve immettere nuovamente le proprie credenziali SSO per accedere nuovamente a StorageGRID. Vedere link:configuring-sso.html["Configurare il single sign-on"].
+Se l'SSO è abilitato e il browser di un utente scade, l'utente deve reinserire le proprie credenziali SSO per accedere nuovamente a StorageGRID . Vedere link:how-sso-works.html["Come funziona SSO"] .
 
 
 
@@ -43,7 +43,7 @@ Questa opzione è disattivata per impostazione predefinita, ma potrebbe essere n
 
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Security settings*.
+. Selezionare *Configurazione* > *Sicurezza* > *Impostazioni di sicurezza*.
 . Selezionare la scheda *interfaccia*.
 . Per modificare l'impostazione del timeout di inattività del browser:
 +

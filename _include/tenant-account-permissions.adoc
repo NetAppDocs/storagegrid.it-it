@@ -17,7 +17,7 @@ Il tenant può utilizzare servizi della piattaforma S3 come CloudMirror. Vedere 
  a| 
 Utilizza la propria origine di identità
  a| 
-Il tenant può configurare e gestire la propria origine di identità per gruppi e utenti federati. Questa opzione è disabilitata se si dispone di link:../admin/configuring-sso.html["SSO configurato"] per il sistema StorageGRID.
+Il tenant può configurare e gestire la propria fonte di identità per gruppi e utenti federati.  Questa opzione è disabilitata se hailink:../admin/how-sso-works.html["SSO configurato"] per il tuo sistema StorageGRID .
 
 
 

@@ -21,7 +21,7 @@ Dopo aver sostituito un nodo gateway, selezionare Avvia ripristino in Grid Manag
 
 
 .Fasi
-. In Grid Manager, selezionare *MANUTENZIONE* > *attività* > *Ripristino*.
+. Da Grid Manager, seleziona *Manutenzione* > *Attività* > *Ripristino*.
 . Selezionare il nodo della griglia che si desidera ripristinare nell'elenco Pending Nodes (nodi in sospeso).
 +
 I nodi vengono visualizzati nell'elenco dopo un errore, ma non è possibile selezionare un nodo fino a quando non è stato reinstallato e pronto per il ripristino.

@@ -14,7 +14,12 @@ summary: Dopo aver attivato una policy ILM, acquisire gli oggetti di test rappre
 Dopo aver attivato una policy ILM, acquisire gli oggetti di test rappresentativi nel sistema StorageGRID, quindi eseguire una ricerca nei metadati degli oggetti per confermare la creazione delle copie nella maniera prevista e il posizionamento nelle posizioni corrette.
 
 .Prima di iniziare
-Si dispone di un identificatore di oggetto, che può essere uno di: * *UUID*: L'identificatore univoco universale dell'oggetto. * *CBID*: L'identificatore univoco dell'oggetto all'interno di StorageGRID. È possibile ottenere il CBID di un oggetto dal log di audit. Inserire il CBID in tutte le lettere maiuscole. * *Bucket S3 e oggetto chiave*: Quando un oggetto viene acquisito tramite l'interfaccia S3, l'applicazione client utilizza una combinazione di bucket e oggetto chiave per memorizzare e identificare l'oggetto. Se il bucket S3 è dotato di versione e si desidera cercare una versione specifica di un oggetto S3 utilizzando il bucket e la chiave Object, si dispone dell' *version ID*.
+Hai un identificatore di oggetto, che può essere uno dei seguenti:
+
+* *UUID*: Identificatore univoco universale dell'oggetto.
+* *CBID*: Identificatore univoco dell'oggetto all'interno StorageGRID.  È possibile ottenere il CBID di un oggetto dal registro di controllo.  Inserire il CBID in maiuscolo.
+* *Chiave oggetto e bucket S3*: quando un oggetto viene acquisito tramite l'interfaccia S3, l'applicazione client utilizza una combinazione di chiave oggetto e bucket per archiviare e identificare l'oggetto.  Se il bucket S3 è sottoposto a controllo di versione e si desidera cercare una versione specifica di un oggetto S3 utilizzando il bucket e la chiave dell'oggetto, si ottiene l'*ID versione*.
+
 
 .Fasi
 . Acquisire l'oggetto.

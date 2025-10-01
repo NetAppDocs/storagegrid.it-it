@@ -13,9 +13,6 @@ summary: Gli endpoint di bilanciamento del carico determinano le porte e i proto
 [role="lead"]
 Gli endpoint di bilanciamento del carico determinano le porte e i protocolli di rete che i client S3 possono utilizzare quando si collegano al bilanciamento del carico StorageGRID sui nodi Gateway e Admin. È inoltre possibile utilizzare gli endpoint per accedere a Grid Manager, Tenant Manager o a entrambi.
 
-
-TIP: I dettagli Swift sono stati rimossi da questa versione del sito della documentazione. Vedere https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-client-connections.html["Configurare le connessioni client S3 e Swift"^].
-
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * Si dispone di link:admin-group-permissions.html["Autorizzazione di accesso root"].
@@ -41,15 +38,15 @@ NOTE: Le modifiche a un certificato endpoint possono richiedere fino a 15 minuti
 
 == Creare un endpoint per il bilanciamento del carico
 
-Ogni endpoint del bilanciamento del carico dei client S3 specifica una porta, un tipo di client (S3) e un protocollo di rete (HTTP o HTTPS). Gli endpoint del bilanciamento del carico dell'interfaccia di gestione specificano una porta, un tipo di interfaccia e una rete client non attendibile.
+Ogni endpoint del bilanciatore del carico del client S3 specifica una porta, un tipo di client (S3) e un protocollo di rete (HTTP o HTTPS).  Gli endpoint del bilanciatore del carico dell'interfaccia di gestione specificano una porta, un tipo di interfaccia e una rete client non attendibile.
 
 
 
 === Accedere alla procedura guidata
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *Load Balancer Endpoints*.
-. Per creare un endpoint per un client S3 o Swift, selezionare la scheda *S3 o Swift client*.
+. Selezionare *Configurazione* > *Rete* > *Endpoint del bilanciatore del carico*.
+. Per creare un endpoint per un client S3, selezionare la scheda *Client S3*.
 . Per creare un endpoint per l'accesso a Grid Manager, Tenant Manager o entrambi, selezionare la scheda *interfaccia di gestione*.
 . Selezionare *Crea*.
 
@@ -64,7 +61,7 @@ Ogni endpoint del bilanciamento del carico dei client S3 specifica una porta, un
 
 [role="tabbed-block"]
 ====
-.Client S3 o Swift
+.Client S3
 --
 [cols="1a,3a"]
 |===
@@ -90,7 +87,7 @@ Se si immette *80* o *8443*, l'endpoint viene configurato solo sui nodi Gateway,
  a| 
 Tipo di client
  a| 
-Il tipo di applicazione client che utilizzerà questo endpoint, *S3* o *Swift*.
+Deve essere *S3*.
 
 
 
@@ -102,6 +99,15 @@ Il protocollo di rete che i client utilizzeranno per la connessione a questo end
 * Selezionare *HTTPS* per la comunicazione sicura con crittografia TLS (scelta consigliata). È necessario allegare un certificato di sicurezza prima di poter salvare l'endpoint.
 * Selezionare *HTTP* per comunicazioni meno sicure e non crittografate. Utilizzare HTTP solo per una griglia non di produzione.
 
+
+
+
+ a| 
+Abilita la memorizzazione nella cache
+ a| 
+Abilita o disabilitalink:../admin/managing-load-balancing.html#considerations-for-load-balancer-caching["memorizzazione nella cache sui nodi gateway"] per questo endpoint del bilanciatore del carico.
+
+Se si verificano problemi con la memorizzazione nella cache, fare riferimento alink:../troubleshoot/troubleshooting-load-balancer-caching.html["Risoluzione dei problemi di memorizzazione nella cache del bilanciatore del carico"] .
 
 |===
 --

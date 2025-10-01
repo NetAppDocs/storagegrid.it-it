@@ -13,16 +13,8 @@ summary: Lo storage sottostante su un nodo di storage è diviso in archivi di og
 [role="lead"]
 Lo storage sottostante su un nodo di storage è diviso in archivi di oggetti. Gli archivi di oggetti sono anche noti come volumi di storage.
 
-È possibile visualizzare le informazioni sull'archivio di oggetti per ciascun nodo di storage. Gli archivi di oggetti sono visualizzati nella parte inferiore della pagina *NODE* > *_Storage Node_* > *Storage*.
+È possibile visualizzare le informazioni sull'archivio oggetti per ciascun nodo di archiviazione.  Selezionare *Nodi* > *Nodo di archiviazione_* > *Archiviazione*.
 
 image::../media/nodes_page_storage_nodes_storage_tables.png[Tabelle di storage dei nodi della pagina Storage Node]
-
-Per ulteriori informazioni link:../monitor/viewing-grid-topology-tree.html["Dettagli su ciascun nodo di storage"], attenersi alla seguente procedura:
-
-. Selezionare *SUPPORT* > *Tools* > *Grid topology*.
-. Selezionare *_Site_* > *_Storage Node_* > *LDR* > *Storage* > *Overview* > *Main*.
-
-
-image::../media/storage_node_object_stores.png[Archivio di oggetti del nodo di storage]
 
 A seconda della natura del guasto, i guasti relativi a un volume di memorizzazione potrebbero essere riportati in link:../monitor/alerts-reference.html["avvisi relativi al volume di storage"]. In caso di guasto di un volume di storage, è necessario riparare il volume di storage guasto per ripristinare la funzionalità completa del nodo di storage il prima possibile. Se necessario, è possibile accedere alla scheda *Configurazione* e link:../maintain/checking-storage-state-after-recovering-storage-volumes.html["Posizionare il nodo di storage in uno stato di sola‐lettura"] in modo che il sistema StorageGRID possa utilizzarlo per il recupero dei dati mentre si prepara per un ripristino completo del server.

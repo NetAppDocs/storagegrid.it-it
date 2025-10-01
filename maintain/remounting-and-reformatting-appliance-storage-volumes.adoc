@@ -18,12 +18,12 @@ summary: È necessario eseguire manualmente due script per rimontare volumi di s
 +
 L'esecuzione `sn-remount-volumes` dello script può aiutare a identificare volumi di storage aggiuntivi guasti.
 
-* È stato verificato che non è in corso la decommissionamento di un nodo di storage oppure che la procedura di decommissionamento del nodo è stata sospesa. (In Grid Manager, selezionare *MANUTENZIONE* > *attività* > *smantellamento*).
-* Hai verificato che non è in corso un'espansione. (In Grid Manager, selezionare *MANUTENZIONE* > *attività* > *espansione*).
+* Hai verificato che non è in corso la dismissione di un nodo di archiviazione oppure hai sospeso la procedura di dismissione del nodo.  (Nel Grid Manager, seleziona *Manutenzione* > *Attività* > *Dismissione*.)
+* Hai verificato che non è in corso un'espansione.  (Nel Grid Manager, seleziona *Manutenzione* > *Attività* > *Espansione*.)
 
 
 
-CAUTION: Contattare il supporto tecnico se più di un nodo di storage non è in linea o se un nodo di storage in questa griglia è stato ricostruito negli ultimi 15 giorni. Non eseguire `sn-recovery-postinstall.sh` lo script. La ricostruzione di Cassandra su due o più nodi di storage entro 15 giorni l'uno dall'altro potrebbe causare la perdita di dati.
+CAUTION: Contattare l'assistenza tecnica se più di un nodo di archiviazione è offline.  Non eseguire il `sn-recovery-postinstall.sh` sceneggiatura.
 
 .A proposito di questa attività
 Per completare questa procedura, eseguire le seguenti attività di alto livello:

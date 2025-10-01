@@ -18,13 +18,13 @@ summary: 'È possibile utilizzare Tenant Manager per creare bucket S3 per i dati
 * L'utente appartiene a un gruppo di utenti che dispone dell'accesso root o Gestisci tutti i bucket link:tenant-management-permissions.html["permesso"]. Queste autorizzazioni sovrascrivono le impostazioni delle autorizzazioni nelle policy di gruppo o bucket.
 +
 
-NOTE: Le autorizzazioni per impostare o modificare le proprietà S3 Object Lock di bucket o oggetti possono essere concesse da link:../s3/bucket-and-group-access-policies.html["policy bucket o policy di gruppo"].
+NOTE: Le autorizzazioni per impostare o modificare le proprietà di blocco degli oggetti S3 di bucket o oggetti possono essere concesse dalink:../s3/use-access-policies.html["policy bucket o policy di gruppo"] .
 
 * Se si prevede di attivare il blocco oggetti S3 per un bucket, un amministratore della griglia ha attivato l'impostazione globale di blocco oggetti S3 per il sistema StorageGRID e sono stati esaminati i requisiti per i bucket e gli oggetti blocco oggetti S3.
 * Se ogni tenant avrà 5.000 bucket, ogni nodo storage nella griglia ha un minimo di 64 GB di RAM.
 +
 
-NOTE: Ogni griglia può avere un massimo di 100.000 secchi.
+NOTE: Ogni griglia può avere un massimo di 100.000 bucket, inclusilink:../tenant/what-is-branch-bucket.html["secchi di rami"] .
 
 
 
@@ -72,7 +72,7 @@ Regione
  a| 
 La regione del bucket.
 
-L'amministratore di StorageGRID gestisce le regioni disponibili. L'area di un bucket può influire sulla policy di protezione dei dati applicata agli oggetti. Per impostazione predefinita, tutti i bucket vengono creati nella `us-east-1` regione.
+L'amministratore StorageGRID gestisce le regioni disponibili.  La regione di un bucket può influire sulla politica di protezione dei dati applicata agli oggetti.  Per impostazione predefinita, tutti i bucket vengono creati in `us-east-1` regione.  Se la regione predefinita è configurata su una regione diversa da `us-east-1` , questa altra regione viene inizialmente selezionata nel menu a discesa.
 
 *Nota*: Non è possibile modificare l'area dopo aver creato il bucket.
 
@@ -87,7 +87,15 @@ L'amministratore di StorageGRID gestisce le regioni disponibili. L'area di un bu
 .Fasi
 . Facoltativamente, attivare il controllo della versione degli oggetti per il bucket.
 +
-Abilitare la versione degli oggetti se si desidera memorizzare ogni versione di ciascun oggetto in questo bucket. È quindi possibile recuperare le versioni precedenti di un oggetto in base alle esigenze. Se il bucket verrà utilizzato per la replica cross-grid, è necessario attivare il controllo delle versioni degli oggetti.
+Abilitare la versione degli oggetti se si desidera memorizzare ogni versione di ciascun oggetto in questo bucket. È quindi possibile recuperare le versioni precedenti di un oggetto in base alle esigenze.
+
++
+È necessario abilitare il controllo delle versioni degli oggetti se:
+
++
+** Il bucket verrà utilizzato per la replica tra griglie.
+** Vuoi creare unlink:../tenant/what-is-branch-bucket.html["secchio di rami"] da questo secchio.
+
 
 . Se l'impostazione globale S3 Object Lock (blocco oggetti S3) è attivata, attivare facoltativamente S3 Object Lock (blocco oggetti S3) per memorizzare gli oggetti utilizzando un modello WORM (Write-Once-Read-Many).
 +
@@ -146,12 +154,16 @@ Un _massimo_ periodo di conservazione, che può essere un valore compreso tra 1 
 
 
 
-. [[Capacity-limit]]facoltativamente, selezionare *Enable Capacity limit* (Abilita limite di capacità).
+. [[capacity-limit]]Facoltativamente, seleziona *Abilita limite di capacità*, inserisci un valore e seleziona l'unità di capacità.
 +
 Il limite di capacità è la capacità massima disponibile per gli oggetti di questa benna. Questo valore rappresenta una quantità logica (dimensione dell'oggetto), non una quantità fisica (dimensione sul disco).
 
 +
 Se non viene impostato alcun limite, la capacità di questa benna è illimitata. Per ulteriori informazioni, fare riferimento link:../tenant/understanding-tenant-manager-dashboard.html#bucket-capacity-usage["Utilizzo del limite di capacità"] a.
+
+. [[object-count-limit]]Facoltativamente, seleziona *Abilita limite conteggio oggetti*.
++
+Il limite del conteggio degli oggetti è il numero massimo di oggetti che questo bucket può contenere.  Questo valore rappresenta un importo logico (conteggio oggetti).  Se non viene impostato alcun limite, il numero di oggetti è illimitato.
 
 . Selezionare *Crea bucket*.
 +
@@ -159,3 +171,5 @@ Il bucket viene creato e aggiunto alla tabella nella pagina Bucket.
 
 . In alternativa, selezionare *Vai alla pagina dettagli bucket* per link:viewing-s3-bucket-details.html["visualizza i dettagli del bucket"] ed eseguire una configurazione aggiuntiva.
 
+
+Puoi anchelink:../tenant/manage-branch-buckets.html["creare bucket di rami"] secondo necessità.

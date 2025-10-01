@@ -16,12 +16,12 @@ Se si verificano errori durante il processo di espansione della griglia che non 
 Prima di contattare il supporto tecnico, raccogliere i file di registro necessari per agevolare la risoluzione dei problemi.
 
 .Fasi
+. L'accesso SSH esterno è bloccato per impostazione predefinita.  Se necessario,link:../admin/manage-external-ssh-access.html["consentire temporaneamente l'accesso"] .
 . Connettersi al nodo di espansione che ha riscontrato errori:
 +
 .. Immettere il seguente comando:``ssh -p 8022 admin@_grid_node_IP_``
 +
-
-NOTE: La porta 8022 è la porta SSH del sistema operativo di base, mentre la porta 22 è la porta SSH del motore dei container che esegue StorageGRID.
+La porta 8022 è la porta SSH del sistema operativo di base, mentre la porta 22 è la porta SSH del motore dei container che esegue StorageGRID.
 
 .. Immettere la password elencata nel `Passwords.txt` file.
 .. Immettere il seguente comando per passare alla directory principale: `su -`
@@ -57,4 +57,5 @@ Linux
 
 
 |===
+. Se hai consentito l'accesso SSH esterno,link:../admin/manage-external-ssh-access.html["bloccare l'accesso"] quando hai terminato il compito.
 

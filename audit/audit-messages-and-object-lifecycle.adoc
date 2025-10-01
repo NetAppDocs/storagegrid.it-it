@@ -28,13 +28,6 @@ S3BK (bucket), S3KY (chiave) o entrambi
 
 
  a| 
-Collegamento delle operazioni Swift
- a| 
-WCON (container), WOBJ (Object) o entrambi
-
-
-
- a| 
 Collegamento delle operazioni interne
  a| 
 CBID (identificatore interno dell'oggetto)

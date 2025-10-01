@@ -17,7 +17,7 @@ I nodi di amministrazione forniscono servizi di gestione quali configurazione, m
 
 == Differenze tra i nodi amministrativi primari e non primari
 
-Quando si accede a Grid Manager o al tenant Manager, si sta effettuando la connessione a un nodo amministratore. È possibile connettersi a qualsiasi nodo amministratore e ciascun nodo amministratore visualizza una vista simile del sistema StorageGRID. Tuttavia, il nodo amministrativo primario fornisce più funzionalità rispetto ai nodi amministrativi non primari. Ad esempio, la maggior parte delle procedure di manutenzione deve essere eseguita dai nodi amministrativi primari.
+Quando accedi a Grid Manager o a Tenant Manager, ti stai connettendo a un nodo di amministrazione.  È possibile connettersi a qualsiasi nodo di amministrazione e ogni nodo di amministrazione visualizza una vista simile del sistema StorageGRID .  Tuttavia, il nodo amministrativo primario offre più funzionalità rispetto ai nodi amministrativi non primari.  Ad esempio, la maggior parte delle procedure di manutenzione devono essere eseguite dal nodo di amministrazione principale.
 
 La tabella riassume le capacità dei nodi amministrativi primari e non primari.
 
@@ -99,6 +99,15 @@ No
 
 
  a| 
+Puoi scaricare il pacchetto di ripristino
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
 Può eseguire il ribilanciamento EC dopo l'espansione del nodo storage
  a| 
 Sì
@@ -121,6 +130,24 @@ Può raccogliere file di registro e dati di sistema da uno o più nodi
  a| 
 Sì
  a| 
+Sì
+
+
+
+ a| 
+Può recuperare Storage, Gateway e nodi amministrativi non primari
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+ a| 
+Può recuperare il nodo di amministrazione primario
+ a| 
+Sì
+ a| 
 No
 
 
@@ -139,12 +166,12 @@ Sì. Funge da mittente di standby.
 
 Se la distribuzione di StorageGRID include più nodi amministrativi, il nodo amministrativo primario è il mittente preferito per le notifiche di avviso, i pacchetti AutoSupport e le trap SNMP e le informazioni.
 
-Nelle normali operazioni di sistema, solo il mittente preferito invia le notifiche. Tuttavia, tutti gli altri nodi Admin monitorano il mittente preferito. Se viene rilevato un problema, gli altri nodi Admin fungono da _mittenti di standby_.
+Durante il normale funzionamento del sistema, solo il mittente preferito invia le notifiche.  Tuttavia, tutti gli altri nodi amministrativi monitorano il mittente preferito.  Se viene rilevato un problema, altri nodi amministrativi agiscono come mittenti in standby.
 
-In questi casi potrebbero essere inviate più notifiche:
+Nei seguenti casi potrebbero essere inviate più notifiche:
 
 * Se i nodi Admin diventano "islanded" l'uno dall'altro, sia il mittente preferito che i mittenti in standby tenteranno di inviare notifiche e potrebbero essere ricevute più copie delle notifiche.
-* Se il mittente in standby rileva problemi con il mittente preferito e inizia a inviare notifiche, il mittente preferito potrebbe riacquistare la capacità di inviare notifiche. In questo caso, potrebbero essere inviate notifiche duplicate. Il mittente in standby interrompe l'invio di notifiche quando non rileva più errori sul mittente preferito.
+* Se un mittente in standby rileva problemi con il mittente preferito e inizia a inviare notifiche, il mittente preferito potrebbe riacquistare la capacità di inviare notifiche.  In tal caso, potrebbero essere inviate notifiche duplicate.  Il mittente in standby interromperà l'invio di notifiche quando non rileverà più errori sul mittente preferito.
 +
 
 NOTE: Quando si testano i pacchetti AutoSupport, tutti i nodi amministrativi inviano il test. Quando si verificano le notifiche di avviso, è necessario accedere a ogni nodo amministratore per verificare la connettività.

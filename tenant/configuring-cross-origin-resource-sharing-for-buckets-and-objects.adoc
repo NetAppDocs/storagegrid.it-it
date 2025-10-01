@@ -1,0 +1,90 @@
+---
+permalink: tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html 
+sidebar: sidebar 
+keywords: how to configure cross-origin resource sharing, cors 
+summary: È possibile configurare la condivisione delle risorse cross-origin per un bucket S3 se si desidera che quel bucket e gli oggetti in quel bucket siano accessibili alle applicazioni web in altri domini. 
+---
+= Configurare StorageGRID CORS per bucket e oggetti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile configurare la condivisione delle risorse cross-origin (CORS) per un bucket S3 se si desidera che quel bucket e gli oggetti in quel bucket siano accessibili alle applicazioni web in altri domini.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Per le richieste di configurazione GET CORS, l'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Gestisci tutti i bucket o Visualizza tutti i bucket"]. Queste autorizzazioni sovrascrivono le impostazioni delle autorizzazioni nelle policy di gruppo o bucket.
+* Per le richieste di configurazione PUT CORS, l'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Gestisci autorizzazioni per tutti i bucket"]. Questa autorizzazione sovrascrive le impostazioni delle autorizzazioni nei criteri di gruppo o bucket.
+* link:tenant-management-permissions.html["Autorizzazione di accesso root"]Fornisce l'accesso a tutte le richieste di configurazione CORS.
+
+
+.A proposito di questa attività
+La condivisione delle risorse tra origini (CORS) è un meccanismo di sicurezza che consente alle applicazioni Web client di un dominio di accedere alle risorse di un dominio diverso. Ad esempio, si supponga di utilizzare un bucket S3 denominato `Images` per memorizzare la grafica. Configurando CORS per il `Images` bucket, è possibile consentire la visualizzazione delle immagini in quel bucket sul sito Web `+http://www.example.com+`.
+
+
+
+== Abilitare il CORS per un bucket
+
+.Fasi
+. Utilizzare un editor di testo per creare l'XML richiesto. Questo esempio mostra l'XML utilizzato per abilitare il CORS per un bucket S3. In particolare:
++
+** Consente a qualsiasi dominio di inviare richieste GET al bucket
+** Consente solo al `+http://www.example.com+` dominio di inviare richieste GET, POST ed ELIMINAZIONE
+** Sono consentite tutte le intestazioni delle richieste
++
+[listing]
+----
+<CORSConfiguration
+    xmlns="http://s3.amazonaws.com/doc/2020-10-22/">
+    <CORSRule>
+        <AllowedOrigin>*</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <AllowedHeader>*</AllowedHeader>
+    </CORSRule>
+    <CORSRule>
+        <AllowedOrigin>http://www.example.com</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <AllowedMethod>POST</AllowedMethod>
+        <AllowedMethod>DELETE</AllowedMethod>
+        <AllowedHeader>*</AllowedHeader>
+    </CORSRule>
+</CORSConfiguration>
+----
++
+Per ulteriori informazioni sull'XML di configurazione CORS, vedere http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html["Documentazione di Amazon Web Services (AWS): Guida utente di Amazon Simple Storage Service"^].
+
+
+
+. Selezionare *View bucket* (Visualizza bucket) dalla dashboard oppure selezionare *STORAGE (S3)* > *Bucket*.
+. Selezionare il nome del bucket dalla tabella.
++
+Viene visualizzata la pagina dei dettagli del bucket.
+
+. Dalla scheda *bucket access*, selezionare la fisarmonica *Cross-Origin Resource Sharing (CORS)*.
+. Selezionare la casella di controllo *Enable CORS* (attiva CORS*).
+. Incollare l'XML di configurazione CORS nella casella di testo.
+. Selezionare *Save Changes* (Salva modifiche).
+
+
+
+
+== Modificare l'impostazione CORS
+
+.Fasi
+. Aggiornare l'XML di configurazione CORS nella casella di testo oppure selezionare *Clear* per ricominciare.
+. Selezionare *Save Changes* (Salva modifiche).
+
+
+
+
+== Disattiva l'impostazione CORS
+
+.Fasi
+. Deselezionare la casella di controllo *Enable CORS* (attiva CORS*).
+. Selezionare *Save Changes* (Salva modifiche).
+
+
+.Informazioni correlate
+link:../admin/enable-cross-origin-resource-sharing-for-management-interface.html["Configurare StorageGRID CORS per un'interfaccia di gestione"]

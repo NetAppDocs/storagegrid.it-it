@@ -14,7 +14,7 @@ summary: È possibile utilizzare i registri di StorageGRID per risolvere i probl
 È possibile utilizzare i registri di StorageGRID per risolvere i problemi.
 
 
-NOTE: Se si desidera inviare i registri a un server syslog esterno o modificare la destinazione delle informazioni di controllo, ad esempio `bycast.log` e `nms.log`, vedere link:../monitor/configure-audit-messages.html#["Configurare i messaggi di audit e le destinazioni dei log"].
+NOTE: Se si desidera inviare i log a un server syslog esterno o modificare la destinazione delle informazioni di controllo come `bycast.log` E `nms.log` , Vederelink:../monitor/configure-log-management.html["Configurare la gestione dei log"] .
 
 
 
@@ -26,14 +26,14 @@ NOTE: Se si desidera inviare i registri a un server syslog esterno o modificare 
 
 
 | /var/local/log/bycast.log  a| 
-Il file primario per la risoluzione dei problemi di StorageGRID. Selezionare *SUPPORT* > *Tools* > *Grid topology*. Quindi selezionare *_Site_* > *_Node_* > *SSM* > *Events*.
+Il file principale per la risoluzione dei problemi StorageGRID .
  a| 
 Tutti i nodi
 
 
 
 | /var/local/log/bycast-err.log  a| 
-Contiene un sottoinsieme di `bycast.log` (messaggi con ERRORE DI gravità e CRITICO). I messaggi CRITICI vengono visualizzati anche nel sistema. Selezionare *SUPPORT* > *Tools* > *Grid topology*. Quindi selezionare *_Site_* > *_Node_* > *SSM* > *Events*.
+Contiene un sottoinsieme di `bycast.log` (messaggi con gravità ERROR e CRITICAL).  Nel sistema vengono visualizzati anche i messaggi CRITICI.
  a| 
 Tutti i nodi
 
@@ -188,6 +188,13 @@ Nodi di storage che eseguono il servizio ADC
 | /var/local/log/ams.errlog  a| 
  a| 
 Nodi di amministrazione
+
+
+
+| /var/local/log/cache-svc.log + /var/local/log/cache-svc.errlog  a| 
+Memorizza i log del servizio di cache.
+ a| 
+Nodi gateway
 
 
 

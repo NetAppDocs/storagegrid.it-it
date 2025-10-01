@@ -25,7 +25,7 @@ Quando si modifica una regola di avviso predefinita, è possibile modificare le 
 CAUTION: Prestare attenzione quando si decide di modificare una regola di avviso. Se si modificano i valori di attivazione, potrebbe non essere rilevato un problema sottostante fino a quando non viene impedita l'esecuzione di un'operazione critica.
 
 .Fasi
-. Selezionare *ALERTS* > *regole*.
+. Selezionare *Avvisi* > *Regole*.
 +
 Viene visualizzata la pagina regole di avviso.
 

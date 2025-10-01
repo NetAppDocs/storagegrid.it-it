@@ -174,6 +174,13 @@ Rilevato guasto al disco DAS dell'appliance
 
 
  a| 
+L'unità DAS dell'appliance si trova nello slot o nel nodo sbagliato
+ a| 
+Un'unità di archiviazione collegata direttamente (DAS) si trova nello slot o nel nodo sbagliato
+
+
+
+ a| 
 Spia localizzatore unità DAS dell'appliance accesa
  a| 
 La spia di posizionamento dell'unità per una o più unità DAS (Direct-Attached Storage) in un nodo di archiviazione dell'appliance è accesa.
@@ -240,6 +247,13 @@ Rilevato guasto alla scheda NIC dell'appliance
 Alimentatore generale dell'appliance degradato
  a| 
 La potenza di un'appliance StorageGRID è diversa dalla tensione di esercizio consigliata.
+
+
+
+ a| 
+Aggiornamento software del sistema operativo SANtricity dell'appliance richiesto
+ a| 
+La versione del software SANtricity è inferiore al minimo consigliato per questa versione di StorageGRID.
 
 
 
@@ -380,7 +394,7 @@ Il nodo non può inoltrare i log al server syslog esterno.
  a| 
 Coda di audit di grandi dimensioni
  a| 
-La coda dei dischi per i messaggi di controllo è piena. Se questa condizione non viene risolta, le operazioni S3 o Swift potrebbero non riuscire.
+La coda del disco per i messaggi di controllo è piena.  Se questa condizione non viene risolta, le operazioni S3 potrebbero fallire.
 
 
 
@@ -609,9 +623,23 @@ Impossibile inviare la notifica via email per un avviso.
 
 
  a| 
+Bucket di destinazione dell'archiviazione dei log non trovato
+ a| 
+Manca il bucket di destinazione per l'archiviazione dei log, il che impedisce l'archiviazione dei log nel bucket di destinazione.
+
+
+
+ a| 
 Errori di notifica SNMP
  a| 
 Errori durante l'invio di notifiche di notifica SNMP a una destinazione trap.
+
+
+
+ a| 
+Accesso esterno SSH abilitato
+ a| 
+L'accesso esterno SSH è abilitato da più di 24 ore.
 
 
 
@@ -681,9 +709,9 @@ Uno o più certificati client stanno per scadere.
 
 
  a| 
-Scadenza del certificato server globale per S3 e Swift
+Scadenza del certificato del server globale per S3
  a| 
-Il certificato server globale per S3 e Swift sta per scadere.
+Il certificato del server globale per S3 sta per scadere.
 
 
 
@@ -944,7 +972,7 @@ L'offset tra l'orologio locale e l'ora NTP (Network Time Protocol) è troppo ele
  a| 
 Bassa capacità del disco di log di audit
  a| 
-Lo spazio disponibile per i registri di controllo è insufficiente. Se questa condizione non viene risolta, le operazioni S3 o Swift potrebbero non riuscire.
+Lo spazio disponibile per i registri di controllo è limitato.  Se questa condizione non viene risolta, le operazioni S3 potrebbero fallire.
 
 
 
@@ -1007,7 +1035,7 @@ Lo spazio disponibile sul disco root è insufficiente.
  a| 
 Bassa capacità dei dati di sistema
  a| 
-Lo spazio disponibile per /var/local è basso. Se questa condizione non viene risolta, le operazioni S3 o Swift potrebbero non riuscire.
+Lo spazio disponibile per /var/local è basso.  Se questa condizione non viene risolta, le operazioni S3 potrebbero fallire.
 
 
 
@@ -1024,6 +1052,13 @@ Lo spazio disponibile nella directory /tmp è insufficiente.
 [cols="1a,2a"]
 |===
 | Nome dell'avviso | Descrizione 
+
+
+ a| 
+Quorum ADC non raggiunto
+ a| 
+Il nodo di archiviazione con servizio ADC è offline.  Le operazioni di espansione e dismissione sono bloccate finché non viene ripristinato il quorum ADC.
+
 
 
  a| 
@@ -1238,9 +1273,16 @@ Il lavoro di verifica dell'esistenza dell'oggetto si è bloccato.
 
 
  a| 
-Oggetti persi
+Oggetti potenzialmente persi
  a| 
-Uno o più oggetti sono stati persi dalla griglia.
+Uno o più oggetti potenzialmente persi dalla griglia.
+
+
+
+ a| 
+Rilevati oggetti orfani
+ a| 
+Sono stati rilevati oggetti orfani.
 
 
 
@@ -1255,6 +1297,21 @@ Un client sta tentando di eseguire un'operazione PUT Object che supera i limiti 
 Rilevato oggetto corrotto non identificato
  a| 
 È stato trovato un file nello storage a oggetti replicato che non è stato possibile identificare come oggetto replicato.
+
+|===
+
+
+== Avvisi di danneggiamento degli oggetti
+
+[cols="1a,2a"]
+|===
+| Nome dell'avviso | Descrizione 
+
+
+ a| 
+Mancata corrispondenza delle dimensioni dell'oggetto
+ a| 
+Rilevata dimensione imprevista dell'oggetto durante la procedura di controllo dell'esistenza dell'oggetto.
 
 |===
 
@@ -1348,14 +1405,14 @@ La configurazione del servizio nginx-gw non è valida. È in uso la configurazio
  a| 
 Riavvio necessario per disattivare FIPS
  a| 
-Il criterio di protezione non richiede la modalità FIPS, ma il modulo di protezione crittografico NetApp è attivato.
+La policy di sicurezza non richiede la modalità FIPS, ma sono in uso i moduli FIPS.
 
 
 
  a| 
 Riavvio necessario per attivare FIPS
  a| 
-Il criterio di protezione richiede la modalità FIPS, ma il modulo di protezione crittografico NetApp è disattivato.
+La policy di sicurezza richiede la modalità FIPS, ma i moduli FIPS non sono in uso.
 
 
 

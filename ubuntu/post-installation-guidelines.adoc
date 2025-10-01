@@ -1,26 +1,8 @@
 ---
 permalink: ubuntu/post-installation-guidelines.html 
-sidebar: sidebar 
-keywords: after installation guidelines ubuntu or debian 
-summary: 'Dopo aver completato l"implementazione e la configurazione del nodo griglia, seguire queste linee guida per l"indirizzamento DHCP e le modifiche alla configurazione di rete.' 
+redirect: storagegrid/swnodes/post-installation-guidelines.html 
 ---
-= Linee guida per la post-installazione
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-Dopo aver completato l'implementazione e la configurazione del nodo griglia, seguire queste linee guida per l'indirizzamento DHCP e le modifiche alla configurazione di rete.
-
-* Se si utilizza DHCP per assegnare indirizzi IP, configurare una prenotazione DHCP per ciascun indirizzo IP sulle reti utilizzate.
-+
-È possibile configurare DHCP solo durante la fase di implementazione. Impossibile impostare DHCP durante la configurazione.
-
-+
-
-NOTE: I nodi si riavviano quando la configurazione della rete griglia viene modificata da DHCP, causando interruzioni nel caso in cui una modifica DHCP influisca su più nodi contemporaneamente.
-
-* Per modificare gli indirizzi IP, le subnet mask e i gateway predefiniti di un nodo griglia, è necessario utilizzare le procedure Change IP (Modifica IP). Vedere link:../maintain/configuring-ip-addresses.html["Configurare gli indirizzi IP"].
-* Se si apportano modifiche alla configurazione di rete, incluse modifiche al routing e al gateway, la connettività del client al nodo di amministrazione primario e ad altri nodi della griglia potrebbe andare persa. A seconda delle modifiche di rete applicate, potrebbe essere necessario ristabilire queste connessioni.
 

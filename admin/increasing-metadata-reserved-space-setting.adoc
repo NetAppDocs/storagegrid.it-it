@@ -15,11 +15,8 @@ summary: 'È possibile aumentare l"impostazione del sistema spazio riservato met
 
 .Di cosa hai bisogno
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:web-browser-requirements.html["browser web supportato"].
-* Si dispone di link:admin-group-permissions.html["Autorizzazione di accesso root o configurazione pagina topologia griglia e altre autorizzazioni di configurazione griglia"].
+* Tu hai illink:admin-group-permissions.html["Autorizzazione di accesso root o altra autorizzazione di configurazione della griglia"] .
 
-
-
-NOTE: La pagina della topologia della griglia è stata obsoleta e verrà rimossa in una versione futura.
 
 .A proposito di questa attività
 Potrebbe essere possibile aumentare manualmente l'impostazione dello spazio riservato dei metadati a livello di sistema fino a 8 TB.
@@ -40,13 +37,13 @@ Per una spiegazione dettagliata del modo in cui l'impostazione spazio riservato 
 .Fasi
 . Determinare l'impostazione corrente di Metadata Reserved Space.
 +
-.. Selezionare *CONFIGURATION* > *System* > *Storage options*.
-.. Nella sezione filigrane di archiviazione, annotare il valore di *spazio riservato metadati*.
+.. Selezionare *Configurazione* > *Sistema* > *Impostazioni di archiviazione*.
+.. Notare il valore di *Spazio riservato ai metadati*.
 
 
 . Assicurarsi di disporre di spazio disponibile sufficiente sul volume di storage 0 di ciascun nodo di storage per aumentare questo valore.
 +
-.. Selezionare *NODI*.
+.. Selezionare *Nodi*.
 .. Selezionare il primo nodo di storage nella griglia.
 .. Selezionare la scheda Storage (archiviazione).
 .. Nella sezione Volumes (volumi), individuare la voce */var/local/rangedb/0*.
@@ -64,7 +61,7 @@ Ad esempio, se l'impostazione spazio riservato metadati è attualmente di 4 TB e
 
 . Assicurarsi di disporre di almeno 128 GB di RAM su ciascun nodo di storage.
 +
-.. Selezionare *NODI*.
+.. Selezionare *Nodi*.
 .. Selezionare il primo nodo di storage nella griglia.
 .. Selezionare la scheda *hardware*.
 .. Posizionare il cursore del mouse sul grafico utilizzo memoria. Assicurarsi che la memoria totale sia di almeno 128 GB.
@@ -78,17 +75,13 @@ Ad esempio, se l'impostazione spazio riservato metadati è attualmente di 4 TB e
 
 . Aggiornare l'impostazione Metadata Reserved Space (spazio riservato metadati).
 +
-.. Selezionare *CONFIGURATION* > *System* > *Storage options*.
-.. Selezionare la scheda Configurazione.
-.. Nella sezione filigrane di archiviazione, selezionare *spazio riservato metadati*.
+.. Selezionare *Configurazione* > *Sistema* > *Impostazioni di archiviazione*.
+.. Selezionare *Spazio riservato ai metadati*.
 .. Inserire il nuovo valore.
 +
 Ad esempio, per inserire 8 TB, che è il valore massimo supportato, inserire *8000000000000* (8, seguito da 12 zeri)
 
-+
-image::../media/metadata_reserved_space.png[Spazio riservato metadati]
-
-.. Selezionare *Applica modifiche*.
+.. Selezionare *Salva*.
 
 
 

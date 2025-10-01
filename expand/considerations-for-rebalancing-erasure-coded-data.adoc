@@ -26,9 +26,9 @@ Procedura di ribilanciamento CE:
 * Sposta solo i dati degli oggetti con codifica erasure. Non sposta i dati degli oggetti replicati.
 * Ridistribuisce i dati all'interno di un sito. Non sposta i dati tra siti.
 * Ridistribuisce i dati tra tutti i nodi di storage di un sito. Non ridistribuisce i dati all'interno dei volumi di storage.
-* Non prende in considerazione l'utilizzo dei dati replicati su ciascun nodo di storage quando determina dove spostare i dati con codifica di cancellazione.
-* Ridistribuisce in modo uniforme i dati con codifica di cancellazione tra i nodi di storage senza considerare le capacità relative di ciascun nodo.
-* Non distribuirà i dati sottoposti a erasure coding ai nodi storage che sono pieni oltre il 80%.
+* Tenta di distribuire lo stesso numero di byte a ciascun nodo.  I nodi che contengono più dati replicati memorizzeranno meno dati con codice di cancellazione una volta completato il ribilanciamento.
+* Ridistribuisce i dati codificati in modo uniforme tra i nodi di archiviazione senza considerare le capacità relative di ciascun nodo.  I dati replicati sono inclusi nel calcolo.
+* Non distribuirà i dati con codice di cancellazione ai nodi di archiviazione pieni per oltre l'80%.
 * Potrebbe diminuire le prestazioni delle operazioni ILM e delle operazioni client S3 quando viene eseguito&#8212;sono necessarie risorse aggiuntive per ridistribuire i frammenti di erasure coding.
 
 
@@ -39,7 +39,7 @@ Al termine della procedura di ribilanciamento EC:
 * I valori utilizzati (%) potrebbero essere diversi tra i nodi di storage per due motivi:
 +
 ** Le copie replicate degli oggetti continueranno a consumare spazio sui nodi esistenti& 8212;la procedura di ribilanciamento EC non sposta i dati replicati.
-** I nodi con capacità maggiore saranno relativamente meno pieni dei nodi con capacità inferiore, anche se tutti i nodi finiranno con una quantità approssimativamente uguale di dati con codifica di cancellazione.
+** I nodi con capacità maggiore saranno relativamente meno pieni rispetto ai nodi con capacità minore, anche se tutti i nodi finiranno con avere approssimativamente la stessa quantità di dati.
 +
 Si supponga, ad esempio, che tre nodi da 200 TB siano riempiti al 80% ciascuno (200 e 215; 0.8 = 160 TB per ogni nodo o 480 TB per il sito). Se si aggiunge un nodo da 400 TB ed si esegue la procedura di ribilanciamento, tutti i nodi avranno ora circa la stessa quantità di dati di erasure-code (480/4 = 120 TB). Tuttavia, il valore utilizzato (%) per il nodo più grande sarà inferiore a quello utilizzato (%) per i nodi più piccoli.
 
@@ -53,6 +53,10 @@ image::../media/used_space_with_larger_node.png[Spazio utilizzato prima dell'esp
 
 
 == Quando ribilanciare i dati con codifica di cancellazione
+
+La procedura di ribilanciamento EC ridistribuisce i dati codificati in modo da garantire che i nodi non diventino o rimangano pieni.  La procedura aiuta a garantire che la codifica EC possa continuare sul sito.
+
+Eseguire la procedura di ribilanciamento quando si verifica un errore preoccupante nella distribuzione dei dati su un sito e il sito memorizza principalmente dati EC (poiché i dati replicati non possono essere spostati tramite ribilanciamento).
 
 Considerare il seguente scenario:
 

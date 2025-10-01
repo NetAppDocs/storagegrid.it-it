@@ -1,47 +1,8 @@
 ---
 permalink: vmware/reviewing-your-configuration-and-completing-installation.html 
-sidebar: sidebar 
-keywords: how to review your configuration and complete vmware installation 
-summary: 'È necessario esaminare attentamente le informazioni di configurazione inserite per assicurarsi che l"installazione venga completata correttamente.' 
+redirect: storagegrid/swnodes/reviewing-your-configuration-and-completing-installation.html 
 ---
-= Esaminare la configurazione e completare l'installazione
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-È necessario esaminare attentamente le informazioni di configurazione inserite per assicurarsi che l'installazione venga completata correttamente.
-
-.Fasi
-. Visualizza la pagina *Riepilogo*.
-+
-image::../media/11_gmi_installer_summary_page.gif[Pagina di riepilogo del programma di installazione di Grid Manager]
-
-. Verificare che tutte le informazioni di configurazione della griglia siano corrette. Utilizzare i link Modify (Modifica) nella pagina Summary (Riepilogo) per tornare indietro e correggere eventuali errori.
-. Fare clic su *Installa*.
-+
-
-NOTE: Se un nodo è configurato per utilizzare la rete client, il gateway predefinito per quel nodo passa dalla rete griglia alla rete client quando si fa clic su *Installa*. In caso di perdita della connettività, assicurarsi di accedere al nodo di amministrazione primario tramite una subnet accessibile. Per ulteriori informazioni, vedere link:../network/index.html["Linee guida per il networking"] .
-
-. Fare clic su *Download Recovery Package*.
-+
-Quando l'installazione procede fino al punto in cui è definita la topologia della griglia, viene richiesto di scaricare il file del pacchetto di ripristino (`.zip`e di confermare che è possibile accedere correttamente al contenuto di questo file. È necessario scaricare il file del pacchetto di ripristino in modo da poter ripristinare il sistema StorageGRID in caso di guasto di uno o più nodi griglia. L'installazione continua in background, ma non è possibile completare l'installazione e accedere al sistema StorageGRID fino a quando non si scarica e si verifica questo file.
-
-. Verificare che sia possibile estrarre il contenuto del `.zip` file e salvarlo in due posizioni sicure, sicure e separate.
-+
-
-CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.
-
-. Selezionare la casella di controllo *ho scaricato e verificato il file del pacchetto di ripristino* e fare clic su *Avanti*.
-+
-Se l'installazione è ancora in corso, viene visualizzata la pagina di stato. Questa pagina indica lo stato di avanzamento dell'installazione per ciascun nodo della griglia.
-
-+
-image::../media/12_gmi_installer_status_page.gif[Questa immagine viene spiegata dal testo circostante.]
-
-+
-Una volta raggiunta la fase completa per tutti i nodi della griglia, viene visualizzata la pagina di accesso per Grid Manager.
-
-. Accedere a Grid Manager utilizzando l'utente "root" e la password specificata durante l'installazione.
 

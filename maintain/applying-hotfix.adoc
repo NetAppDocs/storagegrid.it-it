@@ -26,7 +26,7 @@ La correzione rapida viene applicata automaticamente al nodo di amministrazione 
 
 .Fasi
 . Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
-. Selezionare *MANUTENZIONE* > *sistema* > *aggiornamento software*.
+. Selezionare *Manutenzione* > *Sistema* > *Aggiornamento software*.
 +
 Viene visualizzata la pagina Software Update (aggiornamento software).
 
@@ -70,7 +70,7 @@ Viene visualizzato un avviso che indica che la connessione del browser potrebbe 
 All'avvio della correzione rapida:
 
 +
-.. Vengono eseguite le validazioni della correzione rapida.
+.. Vengono eseguite le convalide degli hotfix, inclusa la verifica della firma del codice.
 +
 
 NOTE: Se vengono segnalati errori, risolverli, caricare nuovamente il file di correzione rapida e selezionare di nuovo *Avvia*.

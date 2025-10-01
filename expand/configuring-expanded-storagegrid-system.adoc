@@ -38,19 +38,19 @@ CAUTION: Assicurarsi che almeno due nodi di ciascun sito possano accedere ad alm
 
 . Se è stato aggiunto un nodo gateway:
 +
-** Se si utilizzano gruppi ad alta disponibilità (ha) per le connessioni client, aggiungere facoltativamente il nodo gateway a un gruppo ha. Selezionare *CONFIGURATION* > *Network* > *High Availability groups* per rivedere l'elenco dei gruppi ha esistenti e aggiungere il nuovo nodo. Vedere link:../admin/configure-high-availability-group.html["Configurare i gruppi ad alta disponibilità"].
+** Se per le connessioni client vengono utilizzati gruppi ad alta disponibilità (HA), è possibile aggiungere facoltativamente il nodo gateway a un gruppo HA.  Selezionare *Configurazione* > *Rete* > *Gruppi ad alta disponibilità* per rivedere l'elenco dei gruppi HA esistenti e aggiungere il nuovo nodo. Vedere link:../admin/configure-high-availability-group.html["Configurare i gruppi ad alta disponibilità"] .
 
 
 . Se è stato aggiunto un nodo amministratore:
 +
-.. Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID, creare un trust per la parte di base per il nuovo nodo di amministrazione. Non è possibile accedere al nodo fino a quando non si crea questo trust per la parte di base. Vedere link:../admin/configuring-sso.html["Configurare il single sign-on"].
-.. Se si intende utilizzare il servizio Load Balancer sui nodi Admin, aggiungere facoltativamente il nuovo nodo Admin a un gruppo ha. Selezionare *CONFIGURATION* > *Network* > *High Availability groups* per rivedere l'elenco dei gruppi ha esistenti e aggiungere il nuovo nodo. Vedere link:../admin/configure-high-availability-group.html["Configurare i gruppi ad alta disponibilità"].
+.. Se per il sistema StorageGRID è abilitato l'accesso singolo (SSO), creare un trust della relying party per il nuovo nodo di amministrazione.  Non è possibile accedere al nodo finché non si crea questo trust della relying party. Vedere link:../admin/configure-sso.html["Configurare il single sign-on"] .
+.. Se si prevede di utilizzare il servizio Load Balancer sui nodi amministrativi, è possibile aggiungere facoltativamente il nuovo nodo amministrativo a un gruppo HA.  Selezionare *Configurazione* > *Rete* > *Gruppi ad alta disponibilità* per rivedere l'elenco dei gruppi HA esistenti e aggiungere il nuovo nodo. Vedere link:../admin/configure-high-availability-group.html["Configurare i gruppi ad alta disponibilità"] .
 .. Facoltativamente, copiare il database del nodo di amministrazione dal nodo di amministrazione primario al nodo di amministrazione di espansione se si desidera mantenere costanti le informazioni di attributo e controllo su ciascun nodo di amministrazione. Vedere link:copying-admin-node-database.html["Copiare il database Admin Node"].
 .. Facoltativamente, copiare il database Prometheus dal nodo di amministrazione primario al nodo di amministrazione di espansione se si desidera mantenere costanti le metriche storiche su ciascun nodo di amministrazione. Vedere link:copying-prometheus-metrics.html["Copia le metriche Prometheus"].
 .. Facoltativamente, copiare i registri di controllo esistenti dal nodo di amministrazione principale al nodo di amministrazione dell'espansione se si desidera mantenere coerenti le informazioni di registro cronologiche su ciascun nodo di amministrazione. Vedere link:copying-audit-logs.html["Copia dei registri di audit"].
 
 
-. Per verificare se i nodi di espansione sono stati aggiunti con una rete client non attendibile o per modificare se la rete client di un nodo è non attendibile o attendibile, andare a *CONFIGURAZIONE* > *sicurezza* > *controllo firewall*.
+. Per verificare se i nodi di espansione sono stati aggiunti con una rete client non attendibile o per modificare se la rete client di un nodo è attendibile o meno, andare su *Configurazione* > *Sicurezza* > *Controllo firewall*.
 +
 Se la rete client sul nodo di espansione non è attendibile, le connessioni al nodo sulla rete client devono essere effettuate utilizzando un endpoint di bilanciamento del carico. Vedere link:../admin/configuring-load-balancer-endpoints.html["Configurare gli endpoint del bilanciamento del carico"] e link:../admin/manage-firewall-controls.html["Gestire i controlli firewall"].
 

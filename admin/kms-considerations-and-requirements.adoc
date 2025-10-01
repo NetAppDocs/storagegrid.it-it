@@ -35,7 +35,7 @@ Le impostazioni del firewall di rete devono consentire a ciascun nodo dell'appli
 
 Le comunicazioni tra i nodi dell'appliance e il KMS configurato utilizzano connessioni TLS sicure. StorageGRID può supportare il protocollo TLS 1,2 o TLS 1,3 quando stabilisce connessioni KMIP a un cluster KMS o KMS, in base a ciò che il KMS supporta e a quale link:manage-tls-ssh-policy.html["Policy TLS e SSH"]stai utilizzando.
 
-StorageGRID negozia il protocollo e il cifrario (TLS 1,2) o la suite di cifratura (TLS 1,3) con il KMS quando effettua la connessione. Per vedere quali versioni di protocollo e pacchetti di crittografia sono disponibili, consultate la `tlsOutbound` sezione dei criteri attivi TLS e SSH della griglia (*CONFIGURATION* > *Security* *Security settings*).
+StorageGRID negozia il protocollo e la crittografia (TLS 1.2) o la suite di crittografia (TLS 1.3) con il KMS quando effettua la connessione.  Per vedere quali versioni del protocollo e cifrari/suite di cifrari sono disponibili, rivedere `tlsOutbound` sezione della policy TLS e SSH attiva della griglia (*Configurazione* > *Sicurezza* *Impostazioni di sicurezza*).
 
 
 

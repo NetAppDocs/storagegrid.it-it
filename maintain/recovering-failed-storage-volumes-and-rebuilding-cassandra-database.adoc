@@ -18,8 +18,8 @@ summary: È necessario eseguire uno script che riformatta e rimontana lo storage
 * I dischi di sistema sul server sono intatti.
 * La causa del guasto è stata identificata e, se necessario, l'hardware di storage sostitutivo è già stato acquistato.
 * Le dimensioni totali dello storage sostitutivo sono le stesse dell'originale.
-* È stato verificato che non è in corso la decommissionamento di un nodo di storage oppure che la procedura di decommissionamento del nodo è stata sospesa. (In Grid Manager, selezionare *MANUTENZIONE* > *attività* > *smantellamento*).
-* Hai verificato che non è in corso un'espansione. (In Grid Manager, selezionare *MANUTENZIONE* > *attività* > *espansione*).
+* Hai verificato che non è in corso la dismissione di un nodo di archiviazione oppure hai sospeso la procedura di dismissione del nodo.  (Nel Grid Manager, seleziona *Manutenzione* > *Attività* > *Dismissione*.)
+* Hai verificato che non è in corso un'espansione.  (Nel Grid Manager, seleziona *Manutenzione* > *Attività* > *Espansione*.)
 * Si dispone di link:reviewing-warnings-about-storage-volume-recovery.html["analisi degli avvisi relativi al ripristino del volume di storage"].
 
 
@@ -28,7 +28,7 @@ summary: È necessario eseguire uno script che riformatta e rimontana lo storage
 +
 Non rimontare i volumi in questa fase. L'archiviazione viene rimontata e aggiunta a `/etc/fstab` in un passaggio successivo.
 
-. In Grid Manager, andare su *NODI* > > *hardware* `*appliance Storage Node*`. Nella sezione dell'appliance StorageGRID della pagina, verificare che la modalità RAID dello storage sia corretta.
+. Nel Grid Manager, vai su *Nodi* > `*appliance Storage Node*` > *Hardware*.  Nella sezione StorageGRID Appliance della pagina, verificare che la modalità Storage RAID sia integra.
 . Accedere al nodo di storage guasto:
 +
 .. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
@@ -51,7 +51,7 @@ NOTE: Il commento di un volume non riuscito nel file non `/etc/fstab` è suffici
 ** Se necessario, viene richiesto di ricostruire il database Cassandra.
 +
 *** Esaminare gli avvisi. Se non sono applicabili, ricostruire il database Cassandra. Immettere: *Y*
-*** Se più di un nodo di storage non è in linea o se un altro nodo di storage è stato ricostruito negli ultimi 15 giorni. Immettere: *N*
+*** Se più di un nodo di archiviazione è offline.  Inserisci: *n*
 +
 Lo script verrà chiuso senza ricostruire Cassandra. Contattare il supporto tecnico.
 

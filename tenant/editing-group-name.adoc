@@ -19,7 +19,7 @@ summary: È possibile modificare il nome visualizzato di un gruppo. Non è possi
 
 
 .Fasi
-. Selezionare *GESTIONE ACCESSI* > *gruppi*.
+. Selezionare *Gestione accessi* > *Gruppi*.
 . Selezionare la casella di controllo del gruppo di cui si desidera modificare il nome visualizzato.
 . Selezionare *azioni* > *Modifica nome gruppo*.
 +

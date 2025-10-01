@@ -36,7 +36,7 @@ NOTE: Se è attivato il Single Sign-on (SSO), gli utenti locali non possono acce
 === Accedere alla procedura guidata
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Access control* > *Admin users*.
+. Selezionare *Configurazione* > *Controllo accessi* > *Utenti amministratori*.
 . Selezionare *Crea utente*.
 
 
@@ -171,6 +171,33 @@ Modifica dei gruppi (solo utenti locali)
 
 
 |===
+
+
+
+
+== Importa utenti federati
+
+È possibile importare uno o più utenti federati, fino a un massimo di 100 utenti, direttamente nella pagina Utenti.
+
+.Fasi
+. Selezionare *Configurazione* > *Controllo accessi* > *Utenti amministratori*.
+. Seleziona *Importa utenti federati*.
+. Inserisci l'UUID o il nome utente di uno o più utenti federati.
++
+Per voci multiple, aggiungere ogni UUID o nome utente su una nuova riga.
+
+. Selezionare *Importa*.
++
+Se l'importazione nel campo Utenti non riesce per uno o più utenti, procedere come segue:
+
++
+.. Espandi *Utenti non importati* e seleziona *Copia utenti*.
+.. Riprovare l'importazione selezionando *Precedente* e incollando gli utenti copiati nella finestra di dialogo *Importa utenti federati*.
+
+
++
+Dopo aver chiuso la finestra di dialogo *Importa utenti federati*, le informazioni sugli utenti federati vengono visualizzate nella pagina Utenti per gli utenti importati correttamente.
+
 
 
 

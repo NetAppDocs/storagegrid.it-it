@@ -17,7 +17,7 @@ In determinate circostanze, uno o più gruppi di nodi potrebbero non essere in g
 L'isolamento del nodo è indicato da:
 
 * Avvisi, come *Impossibile comunicare con il nodo* (*Avvisi* > *corrente*)
-* Diagnostica relativa alla connettività (*SUPPORT* > *Tools* > *Diagnostics*)
+* Diagnostica relativa alla connettività (*Supporto* > *Strumenti* > *Diagnostica*)
 
 
 Di seguito sono riportate alcune delle conseguenze derivanti dall'utilizzo di nodi isolati:

@@ -33,12 +33,12 @@ NOTE: Durante la modifica della connessione, le richieste di replica cross-grid 
 
 .Fasi
 . Accedere a Grid Manager dal nodo di amministrazione principale su una griglia.
-. Selezionare *NODI* e verificare che tutti gli altri nodi Admin del sistema siano in linea.
+. Seleziona *Nodi* e verifica che tutti gli altri nodi amministrativi nel tuo sistema siano online.
 +
 
 NOTE: Quando si modifica una connessione a federazione di griglie, StorageGRID tenta di salvare un file di "configurazione candidata" su tutti i nodi di amministrazione della prima griglia. Se il file non può essere salvato in tutti i nodi di amministrazione, viene visualizzato un messaggio di avviso quando si seleziona *Salva e test*.
 
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Modificare i dettagli della connessione utilizzando il menu *azioni* della pagina Grid Federation o la pagina dei dettagli per una connessione specifica. Vedere link:grid-federation-create-connection.html["Creare connessioni di federazione di griglie"] per informazioni su come accedere.
 +
 [role="tabbed-block"]
@@ -91,7 +91,7 @@ Terminare la modifica della connessione caricando il file di verifica sull'altra
 
 .Fasi
 . Accedere a Grid Manager dal nodo di amministrazione principale.
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Selezionare *carica file di verifica* per accedere alla pagina di caricamento.
 . Selezionare *carica file di verifica*. Quindi, individuare e selezionare il file scaricato dalla prima griglia.
 . Inserire la passphrase di provisioning per la griglia a cui si è attualmente connessi.
@@ -111,7 +111,7 @@ Se è possibile stabilire la connessione utilizzando i valori modificati, viene 
 
 .Fasi
 . Accedere a Grid Manager dal nodo di amministrazione principale.
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Verificare la connessione utilizzando il menu *azioni* della pagina Grid Federation o la pagina dei dettagli per una connessione specifica.
 +
 [role="tabbed-block"]
@@ -186,7 +186,7 @@ CAUTION: Se i certificati a una delle due estremità della connessione scadono, 
 
 .Fasi
 . Accedere a Grid Manager dal nodo di amministrazione principale su una griglia.
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Da una delle schede della pagina Grid Federation, selezionare il nome della connessione per visualizzarne i dettagli.
 . Selezionare la scheda *certificati*.
 . Selezionare *ruota certificati*.
@@ -219,7 +219,7 @@ Prima di rimuovere una connessione, tenere presente quanto segue:
 
 .Fasi
 . Partendo da una griglia, accedere a Grid Manager dal nodo di amministrazione principale.
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Selezionare il nome della connessione per visualizzarne i dettagli.
 . Nella scheda *tenant consentiti*, determinare se la connessione viene utilizzata da qualsiasi tenant.
 . Se sono elencati dei locatari, istruire tutti i locatari a link:../tenant/grid-federation-manage-cross-grid-replication.html["disattiva la replica cross-grid"] per tutti i loro bucket su entrambe le griglie nella connessione.
@@ -236,7 +236,7 @@ TIP: Non è possibile rimuovere l'autorizzazione *use grid Federation Connection
 Una volta disattivata la replica cross-grid per tutti i bucket del tenant, rimuovere l'autorizzazione *Usa federazione grid* da tutti i tenant su entrambe le grid.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Selezionare il nome della connessione per visualizzarne i dettagli.
 . Per ciascun tenant nella scheda *tenant consentiti*, rimuovere l'autorizzazione *Usa connessione federazione griglia* da ciascun tenant. Vedere link:grid-federation-manage-tenants.html["Gestire i tenant autorizzati"].
 . Ripetere questi passaggi per i tenant consentiti sull'altra griglia.
@@ -275,7 +275,7 @@ La rimozione forzata elimina solo la connessione dalla griglia locale. Per rimuo
 Viene visualizzato un messaggio di successo. Questa connessione a federazione di griglie non può più essere utilizzata. Tuttavia, i bucket tenant potrebbero avere ancora la replica cross-grid attivata e alcune copie degli oggetti potrebbero essere già state replicate tra le griglie della connessione.
 
 . Dall'altra griglia della connessione, accedere a Grid Manager dal nodo di amministrazione primario.
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Selezionare il nome della connessione per visualizzarne i dettagli.
 . Selezionare *Rimuovi* e *Sì*.
 . Selezionare *forza rimozione* per rimuovere la connessione da questa griglia.

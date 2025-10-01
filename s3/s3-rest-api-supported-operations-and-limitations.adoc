@@ -44,13 +44,6 @@ Supporto per firma AWS versione 4, con le seguenti eccezioni:
 * Quando si fornisce il valore checksum del payload effettivo in `x-amz-content-sha256`, il valore viene accettato senza convalida, come se il valore `UNSIGNED-PAYLOAD` fosse stato fornito per l'intestazione. Quando si fornisce un `x-amz-content-sha256` valore di intestazione che implica `aws-chunked` lo streaming (ad esempio, STREAMING-AWS4-HMAC-SHA256-PAYLOAD), le firme dei frammenti non vengono verificate in base ai dati dei frammenti.
 
 
-
-
- a| 
-x-amz-security-token
- a| 
-Non implementato. Resi `XNotImplemented`.
-
 |===
 
 

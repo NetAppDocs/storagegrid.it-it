@@ -14,7 +14,7 @@ summary: 'Dopo l"installazione, è possibile aggiungere ulteriori interfacce di 
 Una volta installato il nodo, è possibile aggiungere un trunk o un'interfaccia di accesso a un nodo VM. Le interfacce aggiunte vengono visualizzate nella pagina delle interfacce VLAN e nella pagina dei gruppi ha.
 
 .Prima di iniziare
-* È possibile accedere alle istruzioni per link:../vmware/index.html["Installazione di StorageGRID sulla piattaforma VMware"].
+* Hai accesso alle istruzioni perlink:../swnodes/index.html["Installazione di StorageGRID sulla piattaforma VMware"] .
 * Si dispone di macchine virtuali VMware con nodo di amministrazione e nodo di gateway.
 * Si dispone di una subnet di rete che non viene utilizzata come rete, amministratore o rete client.
 * Si dispone del `Passwords.txt` file.

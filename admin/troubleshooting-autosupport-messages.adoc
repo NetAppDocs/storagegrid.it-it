@@ -11,7 +11,7 @@ summary: Se un tentativo di invio di un pacchetto AutoSupport non riesce, il sis
 
 
 [role="lead"]
-Se un tentativo di invio di un pacchetto AutoSupport non riesce, il sistema StorageGRID esegue azioni diverse a seconda del tipo di pacchetto AutoSupport. È possibile controllare lo stato dei pacchetti AutoSupport selezionando *SUPPORT* > *Tools* > *AutoSupport* > *Results*.
+Se un tentativo di invio di un pacchetto AutoSupport fallisce, il sistema StorageGRID intraprende azioni diverse a seconda del tipo di pacchetto AutoSupport .  È possibile verificare lo stato dei pacchetti AutoSupport selezionando *Supporto* > *Strumenti* > * AutoSupport* > *Risultati*.
 
 Quando il pacchetto AutoSupport non riesce a inviare, viene visualizzato "non riuscito" nella scheda *risultati* della pagina *AutoSupport*.
 
@@ -43,7 +43,7 @@ Se un pacchetto AutoSupport attivato dall'utente o da un evento non riesce a inv
 . Registra l'errore in `nms.log`.
 
 
-Se si verifica un errore e SMTP è il protocollo selezionato, verificare che il server di posta elettronica del sistema StorageGRID sia configurato correttamente e che il server di posta sia in esecuzione (*SUPPORT* > *Allarmi (legacy)* > *Configurazione posta elettronica precedente*). Nella pagina AutoSupport potrebbe essere visualizzato il seguente messaggio di errore: `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`
+Se si verifica un errore e SMTP è il protocollo selezionato, verificare che il server di posta elettronica del sistema StorageGRID sia configurato correttamente e che il server di posta elettronica sia in esecuzione (*Supporto* > *Allarmi (legacy)* > *Configurazione posta elettronica legacy*).  Nella pagina AutoSupport potrebbe apparire il seguente messaggio di errore: `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`
 
 Informazioni su link:../monitor/email-alert-notifications.html["configurare le impostazioni del server di posta elettronica"].
 

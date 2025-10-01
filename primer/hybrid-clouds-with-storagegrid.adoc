@@ -31,7 +31,7 @@ NOTE: L'utilizzo dei pool di storage cloud con FabricPool non è supportato a ca
 I servizi della piattaforma S3 consentono di utilizzare servizi remoti come endpoint per la replica di oggetti, le notifiche di eventi o l'integrazione della ricerca. I servizi della piattaforma operano indipendentemente dalle regole ILM della griglia e sono abilitati per i singoli bucket S3. Sono supportati i seguenti servizi:
 
 * Il servizio di replica CloudMirror esegue automaticamente il mirroring di oggetti specifici in un bucket S3 di destinazione, che può essere su Amazon S3 o su un secondo sistema StorageGRID.
-* Il servizio di notifica degli eventi invia messaggi relativi a azioni specifiche a un endpoint esterno che supporta la ricezione di eventi Simple Notification Service (Amazon SNS).
+* Il servizio di notifica degli eventi invia messaggi sulle azioni specificate a un endpoint esterno che supporta la ricezione di eventi Simple Notification Service (Amazon SNS).
 * Il servizio di integrazione della ricerca invia i metadati degli oggetti a un servizio esterno di Elasticsearch, consentendo la ricerca, la visualizzazione e l'analisi dei metadati mediante strumenti di terze parti.
 
 
@@ -43,10 +43,10 @@ Ad esempio, è possibile utilizzare la replica di CloudMirror per eseguire il mi
 
 È possibile ridurre il costo dello storage ONTAP mediante il tiering dei dati su StorageGRID con FabricPool. FabricPool consente il tiering automatizzato dei dati su Tier di storage a oggetti a basso costo, on-premise o off-premise.
 
-A differenza delle soluzioni di tiering manuale, FabricPool riduce il costo totale di proprietà automatizzando il tiering dei dati per ridurre il costo dello storage. Offre i vantaggi dell'economia del cloud attraverso il tiering su cloud pubblici e privati, incluso StorageGRID.
+A differenza delle soluzioni di suddivisione in livelli manuale, FabricPool riduce il costo totale di proprietà automatizzando la suddivisione in livelli dei dati per abbassare i costi di archiviazione.  Offre i vantaggi dell'economia del cloud tramite la suddivisione in livelli tra cloud pubblici e privati, tra cui StorageGRID.
 
 .Informazioni correlate
-* link:../ilm/what-cloud-storage-pool-is.html["Che cos'è il Cloud Storage Pool?"]
+* link:../ilm/what-cloud-storage-pool-is.html["Che cos'è un pool di storage cloud?"]
 * link:../tenant/what-platform-services-are.html["Gestire i servizi della piattaforma"]
 * link:../fabricpool/index.html["Configurare StorageGRID per FabricPool"]
 

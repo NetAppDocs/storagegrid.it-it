@@ -69,7 +69,7 @@ La filigrana di sola lettura è sempre più grande della filigrana di sola lettu
 È possibile visualizzare le impostazioni correnti del filigrana dello storage in Grid Manager.
 
 .Fasi
-. Selezionare *SUPPORT* > *other* > *Storage Watermarks*.
+. Selezionare *Supporto* > *Altro* > *Filigrane di archiviazione*.
 . Nella pagina Memorizzazione filigrane, controllare la casella di controllo utilizza valori ottimizzati.
 +
 ** Se la casella di controllo è selezionata, tutte e tre le filigrane sono ottimizzate per ogni volume di archiviazione su ogni nodo di archiviazione, in base alle dimensioni del nodo di archiviazione e alla capacità relativa del volume.
@@ -90,7 +90,7 @@ Quando si specificano le impostazioni personalizzate della filigrana, è necessa
 
 StorageGRID utilizza due metriche Prometheus per mostrare i valori ottimizzati calcolati per il watermark soft di sola lettura del volume di archiviazione. È possibile visualizzare i valori minimi e massimi ottimizzati per ciascun nodo di storage nella griglia.
 
-. Selezionare *SUPPORT* > *Tools* > *Metrics*.
+. Selezionare *Supporto* > *Strumenti* > *Metriche*.
 . Nella sezione Prometheus, selezionare il collegamento per accedere all'interfaccia utente Prometheus.
 . Per visualizzare la filigrana minima di sola lettura soft consigliata, immettere la seguente metrica Prometheus e selezionare *Esegui*:
 +

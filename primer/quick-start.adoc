@@ -45,14 +45,12 @@ Scopri come:
 
 [role="quick-margin-list"]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Installare l'hardware dell'appliance"^]
-* link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
-* link:../vmware/index.html["Installare StorageGRID su VMware"]
+* link:../swnodes/index.html["Installa StorageGRID sui nodi basati su software"]
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"] Accedere e controllare lo stato del sistema
 [role="quick-margin-para"]
-Non appena si installa l'Admin Node primario, è possibile accedere a Grid Manager. Da qui, è possibile esaminare lo stato generale del nuovo sistema, abilitare AutoSupport e le email di avviso e impostare i nomi di dominio degli endpoint S3.
+Una volta completata l'installazione della griglia, è possibile accedere a Grid Manager.  Da lì, puoi esaminare lo stato generale del tuo nuovo sistema, abilitare AutoSupport e le e-mail di avviso e configurare i nomi di dominio degli endpoint S3.
 
 [role="quick-margin-para"]
 Scopri come:

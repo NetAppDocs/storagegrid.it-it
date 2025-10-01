@@ -21,7 +21,7 @@ L'avviso S3 PUT object size too large viene attivato se un tenant tenta un'opera
 Determinare quali tenant utilizzano oggetti di dimensioni superiori a 5 GiB, in modo da poterli notificare.
 
 .Fasi
-. Accedere a *CONFIGURAZIONE* > *monitoraggio* > *server di audit e syslog*.
+. Vai a *Configurazione* > *Monitoraggio* > *Server di audit e syslog*.
 . Se le scritture del client sono normali, accedere al registro di controllo:
 +
 .. Invio `ssh admin@_primary_Admin_Node_IP_`
@@ -51,7 +51,7 @@ Nodi locali (impostazione predefinita)
  a| 
 Nodi amministrativi/nodi locali
  a| 
-*** Nodi amministrativi (primario e non primario): `/var/local/audit/export/audit.log`
+*** Nodi amministrativi (primari e non primari): `/var/local/audit/export/audit.log`
 *** Tutti i nodi: Il `/var/local/log/localaudit.log` file è in genere vuoto o mancante in questa modalità.
 
 
@@ -65,7 +65,7 @@ Server syslog esterno
 |===
 In base alle impostazioni della destinazione di controllo, immettere: `cd /var/local/log` O. `/var/local/audit/export/`
 
-Per ulteriori informazioni, fare riferimento a link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Selezionare le destinazioni delle informazioni di audit"].
+Per saperne di più, fare riferimento alink:../monitor/configure-log-management.html#select-log-location["Seleziona la posizione del registro"] .
 
 --
 .. Identificare i tenant che utilizzano oggetti di dimensioni superiori a 5 GiB.
@@ -116,7 +116,7 @@ audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):16729436
 
 . Se le scritture del client non sono normali, utilizzare l'ID tenant dell'avviso per identificare il tenant:
 +
-.. Accedere a *SUPPORT* > *Tools* > *Logs*. Raccogliere i log delle applicazioni per il nodo di storage nell'avviso. Specificare 15 minuti prima e dopo l'avviso.
+.. Vai su *Supporto* > *Strumenti* > *Raccolta registri*.  Raccogliere i registri delle applicazioni per il nodo di archiviazione nell'avviso.  Specificare 15 minuti prima e dopo l'avviso. Fare riferimento a link:../monitor/collecting-log-files-and-system-data.html["Raccogliere i file di log e i dati di sistema"] .
 .. Estrarre il file e andare a `bycast.log`:
 +
 `/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`

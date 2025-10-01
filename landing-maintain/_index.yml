@@ -13,7 +13,7 @@ indexpage:
     links:
     - title: Manutenzione della griglia
       url: "../maintain/index.html"
-    - title: Scarica Recovery Package
+    - title: Scarica il pacchetto di ripristino
       url: "../maintain/downloading-recovery-package.html"
   - title: Decommissioning di nodi o siti
     links:

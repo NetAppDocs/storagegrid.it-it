@@ -40,6 +40,7 @@ Ad esempio, non utilizzare i seguenti intervalli di subnet per la rete Grid, la 
 
 ====
 .Fasi
+. L'accesso SSH esterno è bloccato per impostazione predefinita.  Se necessario,link:../admin/manage-external-ssh-access.html["consentire temporaneamente l'accesso"] .
 . Accedere al nodo di amministrazione principale:
 +
 .. Immettere il seguente comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -102,7 +103,7 @@ image::../media/change_ip_tool_aesl_sample_input.gif[esempio di change ip tool a
 . Una volta pronti, inserire *q* per tornare alla schermata del menu principale. Le modifiche vengono mantenute fino a quando non vengono cancellate o applicate.
 +
 
-NOTE: Se è stata selezionata una delle modalità di selezione dei nodi "all" nel passaggio 2, premere *Invio* (senza *q*) per passare al nodo successivo nell'elenco.
+NOTE: Se nel passaggio 3 è stata selezionata una delle modalità di selezione dei nodi "tutti", premere *Invio* (senza *q*) per passare al nodo successivo nell'elenco.
 
 . Scegliere una delle seguenti opzioni:
 +
@@ -153,8 +154,9 @@ Updating grid network configuration on Name
 
 . Scarica un nuovo pacchetto di ripristino da Grid Manager.
 +
-.. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+.. Selezionare *Manutenzione* > *Sistema* > *Pacchetto di ripristino*.
 .. Inserire la passphrase di provisioning.
 
 
+. Se hai consentito l'accesso SSH esterno,link:../admin/manage-external-ssh-access.html["bloccare l'accesso"] una volta terminato di aggiungere o modificare gli elenchi di subnet.
 

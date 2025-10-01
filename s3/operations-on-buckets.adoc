@@ -25,7 +25,7 @@ Per ulteriori informazioni, vedere quanto segue:
 * link:../admin/configuring-s3-api-endpoint-domain-names.html["Configurare i nomi di dominio degli endpoint S3"]
 
 
-Le operazioni ListObjects (GET Bucket) e ListObjectVersions (GET Bucket Object Versions) supportano StorageGRID link:consistency-controls.html["valori di coerenza"].
+Le operazioni ListObjects (GET Bucket) e ListObjectVersions (GET Bucket object versions) supportano StorageGRIDlink:consistency.html["valori di coerenza"] .
 
 È possibile verificare se gli aggiornamenti dell'ultimo tempo di accesso sono attivati o disattivati per i singoli bucket. Vedere link:get-bucket-last-access-time-request.html["OTTIENI l'ultimo tempo di accesso a bucket"].
 
@@ -230,6 +230,14 @@ Restituisce alcuni o tutti gli oggetti (fino a 1.000) in un bucket. La classe di
 
 Se il bucket contiene un numero elevato di chiavi eliminate con lo stesso prefisso, la risposta potrebbe includere alcune `CommonPrefixes` che non contengono chiavi.
 
+Per le richieste HeadObject e ListObject, StorageGRID restituisce i timestamp LastModified con una precisione diversa, mentre AWS restituisce i timestamp con la stessa precisione, come mostrato negli esempi seguenti:
+
+* StorageGRID HeadObject: "Ultima modifica": "2024-09-26T16:43:24+00:00"
+* StorageGRID ListObject: "Ultima modifica": "2024-09-26T16:43:24.931000+00:00"
+* AWS HeadObject: "Ultima modifica": "2023-10-17T00:19:54+00:00"
+* AWS ListObject: "Ultima modifica": "2023-10-17T00:19:54+00:00"
+
+
 
 
  a| 
@@ -290,7 +298,7 @@ PutBucketNotificationConfiguration
  a| 
 Configura le notifiche per il bucket utilizzando l'XML di configurazione delle notifiche incluso nel corpo della richiesta. È necessario conoscere i seguenti dettagli di implementazione:
 
-* StorageGRID supporta gli argomenti di Amazon Simple Notification Service (Amazon SNS) o Kafka come destinazioni. Gli endpoint SQS (Simple Queue Service) o Amazon Lambda non sono supportati.
+* StorageGRID supporta argomenti Amazon Simple Notification Service (Amazon SNS), argomenti Kafka o endpoint webhook come destinazioni.  Gli endpoint Simple Queue Service (SQS) o AWS Lambda non sono supportati.
 * La destinazione delle notifiche deve essere specificata come URN di un endpoint StorageGRID. Gli endpoint possono essere creati utilizzando il tenant Manager o l'API di gestione tenant.
 +
 L'endpoint deve esistere perché la configurazione della notifica abbia esito positivo. Se l'endpoint non esiste, viene restituito un `400 Bad Request` errore con il codice `InvalidArgument`.
@@ -328,7 +336,7 @@ non incluso
  a| 
 PutBucketPolicy
  a| 
-Imposta il criterio associato al bucket. Vedere link:bucket-and-group-access-policies.html["Utilizza policy di accesso a bucket e gruppi"].
+Imposta la policy associata al bucket. Vedere link:use-access-policies.html["Utilizza policy di accesso a bucket e gruppi"] .
 
 
 

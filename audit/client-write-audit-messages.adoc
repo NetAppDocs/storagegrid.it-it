@@ -23,7 +23,7 @@ OVWR
  a| 
 Object Overwrite: Registra una transazione per sovrascrivere un oggetto con un altro oggetto.
  a| 
-S3 e Swift
+Client S3
  a| 
 link:ovwr-object-overwrite.html["OVWR: Sovrascrittura degli oggetti"]
 
@@ -74,27 +74,5 @@ S3 Metadata Updated: Registra una transazione riuscita per aggiornare i metadati
 Client S3
  a| 
 link:supd-s3-metadata-updated.html["SUPD: Metadati S3 aggiornati"]
-
-
-
- a| 
-WDEL
- a| 
-Eliminazione rapida: Registra una transazione riuscita per eliminare un oggetto o un container.
- a| 
-Client Swift
- a| 
-link:wdel-swift-delete.html["WDEL: ELIMINAZIONE rapida"]
-
-
-
- a| 
-WPUT
- a| 
-Swift PUT: Registra una transazione riuscita per creare un nuovo oggetto o container.
- a| 
-Client Swift
- a| 
-link:wput-swift-put.html["WPUT: MESSA rapida"]
 
 |===

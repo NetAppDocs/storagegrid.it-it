@@ -21,13 +21,14 @@ Se i criteri di rete aziendali limitano l'accesso a una delle porte, è possibil
 
 * Utilizzare link:../admin/configuring-load-balancer-endpoints.html["endpoint del bilanciamento del carico"] per consentire l'accesso alle porte definite dall'utente.
 * Rimappare le porte durante la distribuzione dei nodi. Tuttavia, non è necessario rimappare gli endpoint del bilanciamento del carico. Consultare le informazioni relative alla rimappatura delle porte per il nodo StorageGRID:
-+
-** link:../rhel/creating-node-configuration-files.html#port-remap-keys["Chiavi di rimappatura delle porte per StorageGRID su Red Hat Enterprise Linux"]
-** link:../ubuntu/creating-node-configuration-files.html#port-remap-keys["Le chiavi di rimappatura delle porte per StorageGRID su Ubuntu o Debian"]
-** link:../vmware/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["Rimappare le porte per StorageGRID su VMware"]
-** https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opzionale: Consente di rimappare le porte di rete per l'appliance"^]
 
 
+
+NOTE: Il supporto per la rimappatura delle porte è obsoleto e verrà rimosso in una versione futura. Per rimuovere le porte rimappate, fare riferimento alink:../maintain/removing-port-remaps.html["Rimuovere le rimappature delle porte sugli apparecchi StorageGRID"] Olink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Rimuovere i rimaps delle porte sugli host bare metal"] .
+
+* link:../swnodes/creating-node-configuration-files.html["Chiavi di rimappatura delle porte per StorageGRID su Red Hat Enterprise Linux"]
+* link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["Rimappare le porte per StorageGRID su VMware"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opzionale: Consente di rimappare le porte di rete per l'appliance"^]
 
 
 
@@ -42,21 +43,6 @@ NOTE: Questo elenco non include le porte che potrebbero essere configurate come 
 [cols="1a,1a,1a,1a,1a,4a"]
 |===
 | Porta | TCP o UDP | Protocollo | Da | A. | Dettagli 
-
-
- a| 
-22
- a| 
-TCP
- a| 
-SSH
- a| 
-Laptop di assistenza
- a| 
-Tutti i nodi
- a| 
-L'accesso a SSH o alla console è necessario per le procedure con le procedure della console. In alternativa, è possibile utilizzare la porta 2022 invece di 22.
-
 
 
  a| 
@@ -176,25 +162,6 @@ Nodi di storage
 AWS
  a| 
 Le richieste dei Cloud Storage Pools vengono inviate alle destinazioni AWS che utilizzano HTTP. Gli amministratori della griglia possono ignorare l'impostazione predefinita della porta HTTP 80 quando configurano un Cloud Storage Pool.
-
-
-
- a| 
-111
- a| 
-TCP/UDP
- a| 
-Rpcbind
- a| 
-Client NFS
- a| 
-Nodi di amministrazione
- a| 
-Utilizzato dall'esportazione di audit basata su NFS (portmap).
-
-*Nota:* questa porta è richiesta solo se è abilitata l'esportazione di controllo basata su NFS.
-
-*Nota:* il supporto per NFS è stato obsoleto e verrà rimosso in una versione futura.
 
 
 
@@ -329,59 +296,6 @@ Le richieste dei Cloud Storage Pools vengono inviate alle destinazioni AWS che u
 
 
  a| 
-903
- a| 
-TCP
- a| 
-NFS
- a| 
-Client NFS
- a| 
-Nodi di amministrazione
- a| 
-Utilizzato dall'esportazione di controllo basata su NFS (`rpc.mountd`).
-
-*Nota:* questa porta è richiesta solo se è abilitata l'esportazione di controllo basata su NFS.
-
-*Nota:* il supporto per NFS è stato obsoleto e verrà rimosso in una versione futura.
-
-
-
- a| 
-2022
- a| 
-TCP
- a| 
-SSH
- a| 
-Laptop di assistenza
- a| 
-Tutti i nodi
- a| 
-L'accesso a SSH o alla console è necessario per le procedure con le procedure della console. In alternativa, è possibile utilizzare la porta 22 invece di 2022.
-
-
-
- a| 
-2049
- a| 
-TCP
- a| 
-NFS
- a| 
-Client NFS
- a| 
-Nodi di amministrazione
- a| 
-Utilizzato da NFS (NFS-based audit export).
-
-*Nota:* questa porta è richiesta solo se è abilitata l'esportazione di controllo basata su NFS.
-
-*Nota:* il supporto per NFS è stato obsoleto e verrà rimosso in una versione futura.
-
-
-
- a| 
 5353
  a| 
 UDP
@@ -408,21 +322,6 @@ Appliance
 KM
  a| 
 Traffico esterno del protocollo KMIP (Key Management Interoperability Protocol) dalle appliance configurate per la crittografia del nodo al server di gestione delle chiavi (KMS), a meno che non sia specificata una porta diversa nella pagina di configurazione KMS del programma di installazione dell'appliance StorageGRID.
-
-
-
- a| 
-8022
- a| 
-TCP
- a| 
-SSH
- a| 
-Laptop di assistenza
- a| 
-Tutti i nodi
- a| 
-SSH sulla porta 8022 garantisce l'accesso al sistema operativo di base sulle piattaforme di appliance e nodi virtuali per il supporto e la risoluzione dei problemi. Questa porta non viene utilizzata per i nodi basati su Linux (bare metal) e non è necessaria per essere accessibile tra i nodi di rete o durante le normali operazioni.
 
 
 
@@ -521,21 +420,6 @@ Traffico client S3 direttamente verso i nodi di archiviazione (HTTPS).
 
 
  a| 
-18083
- a| 
-TCP
- a| 
-HTTPS
- a| 
-Client Swift
- a| 
-Nodi di storage
- a| 
-Traffico client Swift direttamente verso i nodi di archiviazione (HTTPS).
-
-
-
- a| 
 18084
  a| 
 TCP
@@ -547,21 +431,6 @@ Client S3
 Nodi di storage
  a| 
 Traffico client S3 direttamente verso i nodi di archiviazione (HTTP).
-
-
-
- a| 
-18085
- a| 
-TCP
- a| 
-HTTP
- a| 
-Client Swift
- a| 
-Nodi di storage
- a| 
-Traffico client Swift direttamente verso i nodi di archiviazione (HTTP).
 
 
 

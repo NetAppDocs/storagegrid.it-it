@@ -44,7 +44,7 @@ Il laptop di assistenza dispone di quanto segue:
  a| 
 `Passwords.txt` file
  a| 
-Contiene le password necessarie per accedere ai nodi della griglia sulla riga di comando. Incluso nel pacchetto di ripristino.
+Contiene le password necessarie per accedere ai nodi della griglia sulla riga di comando.  Incluso nel pacchetto di recupero.
 
 
 
@@ -60,13 +60,7 @@ Documentazione StorageGRID
  a| 
 * link:../admin/index.html["Amministrare StorageGRID"]
 * link:../release-notes/index.html["Note di rilascio"]
-* Istruzioni per l'installazione della piattaforma
-+
-** link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
-** link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
-** link:../vmware/index.html["Installare StorageGRID su VMware"]
-
-
+* link:../swnodes/index.html["Istruzioni per l'installazione della piattaforma"]
 
 
 
@@ -106,7 +100,7 @@ Utilizzare il `.zip` file se sul laptop di assistenza è in esecuzione Windows.
 
 
  a| 
-Red Hat Enterprise Linux
+RHEL
 | `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
 
@@ -134,7 +128,7 @@ Per espandere una distribuzione esistente su OpenStack, è necessario implementa
 +
 I percorsi elencati nella fase per ciascuna piattaforma sono relativi alla directory di primo livello installata dal file di archivio.
 
-. Se state espandendo un sistema Red Hat Enterprise Linux, selezionate i file appropriati.
+. Se si sta espandendo un sistema RHEL, selezionare i file appropriati.
 
 
 [cols="1a,1a"]
@@ -393,6 +387,9 @@ Schemi API per StorageGRID.
 . Se si sta espandendo un sistema basato su appliance StorageGRID, selezionare i file appropriati.
 
 
+
+NOTE: Per l'installazione dell'appliance, questi file sono necessari solo se si desidera evitare il traffico di rete.  L'appliance può scaricare i file richiesti dal nodo di amministrazione in cui si esegue la procedura di ripristino.
+
 [cols="1a,1a"]
 |===
 | Percorso e nome del file | Descrizione 
@@ -408,9 +405,6 @@ MD5 checksum per il file `/debs/storagegridwebscale-
 images-version-SHA.deb`.
 
 |===
-
-NOTE: Per l'installazione dell'appliance, questi file sono necessari solo se è necessario evitare il traffico di rete. L'appliance può scaricare i file richiesti dal nodo di amministrazione principale.
-
 
 
 == Verificare l'hardware e il collegamento in rete

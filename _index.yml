@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: Documentazione del software StorageGRID 11,9
+  title: Documentazione del software StorageGRID 12.0
   summary: NetApp StorageGRID è una suite di storage a oggetti software-defined che
     supporta un'ampia gamma di casi di utilizzo in ambienti multicloud pubblici, privati
     e ibridi. StorageGRID offre il supporto nativo per l'API Amazon S3 e offre innovazioni
@@ -31,12 +31,8 @@ indexpage:
     links:
     - title: Installazione delle appliance StorageGRID
       url: https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html
-    - title: Installare StorageGRID su Red Hat Enterprise Linux
-      url: "/rhel/index.html"
-    - title: Installare StorageGRID su Ubuntu o Debian
-      url: "/ubuntu/index.html"
-    - title: Installare StorageGRID su VMware
-      url: "/vmware/index.html"
+    - title: Installa StorageGRID sui nodi basati su software
+      url: "/swnodes/index.html"
     - title: Eseguire l'aggiornamento alla nuova versione di StorageGRID
       url: "/upgrade/index.html"
     - title: Applicare la correzione rapida
@@ -79,7 +75,7 @@ indexpage:
       url: https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html
   - title: Istruzioni aggiuntive
     links:
-    - title: Abilitare StorageGRID
+    - title: Soluzioni e risorse StorageGRID
       url: https://docs.netapp.com/us-en/storagegrid-enable/index.html
     - title: Videoteca StorageGRID
       url: https://www.youtube.com/playlist?list=PLdXI3bZJEw7nh2wGRA65iulXhtXwLiqrY
@@ -99,7 +95,3 @@ indexpage:
       url: https://netapp.com/blog/
     - title: Community di NetApp
       url: https://community.netapp.com/
-  - title: Versioni precedenti
-    links:
-    - title: Documentazione di StorageGRID 11,4
-      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=63374

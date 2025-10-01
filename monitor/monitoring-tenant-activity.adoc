@@ -25,14 +25,14 @@ Tutte le attività client S3 sono associate agli account tenant StorageGRID. È 
 La pagina tenant mostra le informazioni di base per tutti gli account tenant correnti.
 
 .Fasi
-. Selezionare *TENANT*.
+. Selezionare *Inquilini*.
 . Esaminare le informazioni visualizzate nelle pagine del tenant.
 +
 Lo spazio logico utilizzato, l'utilizzo della quota, la quota e il numero di oggetti sono elencati per ogni tenant. Se una quota non è impostata per un tenant, i campi utilizzo quota e quota contengono un trattino (&#8212;).
 
 +
 
-NOTE: I valori dello spazio utilizzato sono stime. Queste stime sono influenzate dai tempi di acquisizione, dalla connettività di rete e dallo stato dei nodi.
+NOTE: La dimensione logica di tutti gli oggetti appartenenti a questo tenant include caricamenti multiparte incompleti e in corso.  Le dimensioni non includono lo spazio fisico aggiuntivo utilizzato per le policy ILM.  I valori dello spazio utilizzato sono stime.  Tali stime sono influenzate dalla tempistica degli ingest, dalla connettività di rete e dallo stato del nodo.
 
 +
 image::../media/tenant_accounts_page.png[Pagina account tenant]
@@ -75,6 +75,10 @@ image::../media/tenant_usage_modal.png[Modale di utilizzo del tenant]
 . Esaminare la panoramica del tenant nella parte superiore della pagina.
 +
 Questa sezione della pagina dei dettagli fornisce informazioni di riepilogo per il tenant, tra cui il numero di oggetti del tenant, l'utilizzo della quota, lo spazio logico utilizzato e l'impostazione della quota.
+
++
+
+NOTE: La dimensione logica di tutti gli oggetti appartenenti a questo tenant include caricamenti multiparte incompleti e in corso.  Le dimensioni non includono lo spazio fisico aggiuntivo utilizzato per le policy ILM.  I valori dello spazio utilizzato sono stime.  Tali stime sono influenzate dalla tempistica degli ingest, dalla connettività di rete e dallo stato del nodo.
 
 . Dalla scheda *Space disruption* (suddivisione spazio), esaminare il grafico *Space Consumption* (consumo spazio).
 +
@@ -129,7 +133,7 @@ Vedere link:../admin/grid-federation-overview.html["Che cos'è la federazione di
 Se per un tenant sono in vigore criteri di classificazione del traffico, esaminare il traffico di rete per tale tenant.
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *rete* > *classificazione del traffico*.
+. Selezionare *Configurazione* > *Rete* > *Classificazione del traffico*.
 +
 Viene visualizzata la pagina Traffic Classification Policies (Criteri di classificazione del traffico) e i criteri esistenti sono elencati nella tabella.
 
@@ -164,7 +168,7 @@ Per ulteriori informazioni, vedere link:../audit/index.html["Esaminare i registr
 
 Facoltativamente, utilizza le metriche Prometheus per generare report sull'attività del tenant.
 
-* In Grid Manager, selezionare *SUPPORT* > *Tools* > *Metrics*. È possibile utilizzare dashboard esistenti, ad esempio S3 Overview, per esaminare le attività del client.
+* In Grid Manager, seleziona *Supporto* > *Strumenti* > *Metriche*.  È possibile utilizzare dashboard esistenti, come S3 Overview, per esaminare le attività dei clienti.
 +
 
 NOTE: Gli strumenti disponibili nella pagina metriche sono destinati principalmente all'utilizzo da parte del supporto tecnico. Alcune funzioni e voci di menu di questi strumenti sono intenzionalmente non funzionali.

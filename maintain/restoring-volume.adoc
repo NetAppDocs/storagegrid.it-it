@@ -20,7 +20,7 @@ summary: È possibile ripristinare i dati degli oggetti per un volume di storage
 ** link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["Rimontare e riformattare i volumi di storage (procedura manuale)"]
 
 
-* È stato confermato che il nodo di archiviazione in cui si stanno ripristinando gli oggetti ha uno stato di connessione *connessoimage:../media/icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"]* nella scheda *NODI* > *Panoramica* in Grid Manager.
+* Hai confermato che il nodo di archiviazione in cui stai ripristinando gli oggetti ha uno stato di connessione *Connesso*image:../media/icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"] nella scheda *Nodi* > *Panoramica* in Grid Manager.
 * Hai confermato quanto segue:
 +
 ** Non è in corso un'espansione della griglia per aggiungere un nodo di storage.
@@ -34,11 +34,11 @@ summary: È possibile ripristinare i dati degli oggetti per un volume di storage
 
 
 .A proposito di questa attività
-Dopo aver sostituito i dischi ed eseguito le procedure manuali per la formattazione dei volumi, Grid Manager visualizza i volumi come candidati per il ripristino nella scheda *MANUTENZIONE* > *Ripristino volume* > *nodi da ripristinare*.
+Dopo aver sostituito le unità ed eseguito i passaggi manuali per formattare i volumi, Grid Manager visualizza i volumi come candidati per il ripristino nella scheda *Manutenzione* > *Ripristino volume* > *Nodi da ripristinare*.
 
 Se possibile, ripristinare i dati degli oggetti utilizzando la pagina di ripristino del volume in Grid Manager. È possibile <<enable-auto-restore-mode,attivare la modalità di ripristino automatico>>avviare automaticamente il ripristino del volume quando i volumi sono pronti per essere ripristinati o <<manually-restore,eseguire manualmente il ripristino del volume>>. Attenersi alle seguenti linee guida:
 
-* Se i volumi sono elencati in *MANUTENZIONE* > *Ripristino volume* > *nodi da ripristinare*, ripristinare i dati degli oggetti come descritto di seguito. I volumi vengono elencati se:
+* Se i volumi sono elencati in *Manutenzione* > *Ripristino volumi* > *Nodi da ripristinare*, ripristinare i dati dell'oggetto come descritto nei passaggi seguenti.  I volumi saranno elencati se:
 +
 ** Alcuni, ma non tutti, volumi di storage in un nodo sono guasti
 ** Tutti i volumi di storage in un nodo sono guasti e vengono sostituiti con lo stesso numero di volumi o più volumi
@@ -87,7 +87,7 @@ NOTE: Il ripristino dei volumi dipende dalla disponibilità delle risorse in cui
 Quando si attiva la modalità di ripristino automatico, il ripristino del volume si avvia automaticamente quando i volumi sono pronti per essere ripristinati.
 
 .Fasi
-. In Grid Manager, andare a *MANUTENZIONE* > *Volume repristino*.
+. In Grid Manager vai su *Manutenzione* > *Ripristino volume*.
 . Selezionare la scheda *nodi da ripristinare*, quindi spostare l'interruttore per *modalità di ripristino automatico* sulla posizione abilitata.
 . Quando viene visualizzata la finestra di dialogo di conferma, rivedere i dettagli.
 +
@@ -113,7 +113,7 @@ Quando si attiva la modalità di ripristino automatico, il ripristino del volume
 Per ripristinare un volume o un nodo guasto, procedere come segue.
 
 .Fasi
-. In Grid Manager, andare a *MANUTENZIONE* > *Volume repristino*.
+. In Grid Manager vai su *Manutenzione* > *Ripristino volume*.
 . Selezionare la scheda *nodi da ripristinare*, quindi far scorrere l'interruttore per *modalità di ripristino automatico* sulla posizione disattivata.
 +
 Il numero sulla scheda indica il numero di nodi con volumi che richiedono il ripristino.

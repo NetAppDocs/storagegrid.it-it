@@ -18,7 +18,7 @@ Il ripristino del nodo amministrativo primario è stato completato.
 
 .Fasi
 . Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
-. Selezionare *NODI*.
+. Selezionare *Nodi*.
 . Dall'elenco a sinistra, selezionare il nodo di amministrazione principale.
 . Nella scheda Overview (Panoramica), annotare la versione visualizzata nel campo *Software Version* (versione software).
 . Selezionare qualsiasi altro nodo della griglia.

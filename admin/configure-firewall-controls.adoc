@@ -38,7 +38,7 @@ Per ulteriori informazioni sui firewall esterni e sulla protezione della rete, v
 == Accedere ai controlli firewall
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Firewall control*.
+. Selezionare *Configurazione* > *Sicurezza* > *Controllo firewall*.
 +
 Le tre schede di questa pagina sono descritte in link:../admin/manage-firewall-controls.html["Gestire i controlli firewall"].
 

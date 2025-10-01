@@ -38,7 +38,7 @@ Quando StorageGRID riavvia un nodo grid, invia un comando sul nodo, `reboot` pro
 TIP: Se è necessario riavviare più di un nodo, è possibile utilizzare link:../maintain/rolling-reboot-procedure.html["procedura di riavvio in sequenza"].
 
 .Fasi
-. Selezionare *NODI*.
+. Selezionare *Nodi*.
 . Selezionare il nodo della griglia che si desidera riavviare.
 . Selezionare la scheda *Tasks*.
 . Selezionare *Reboot* (Riavvia).

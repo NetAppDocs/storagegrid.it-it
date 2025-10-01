@@ -11,13 +11,11 @@ summary: Si utilizza la gestione del ciclo di vita delle informazioni per contro
 
 
 [role="lead"]
-Si utilizza la gestione del ciclo di vita delle informazioni (ILM) per controllare il posizionamento, la durata e il comportamento di acquisizione di tutti gli oggetti nel sistema StorageGRID. Le regole ILM determinano il modo in cui StorageGRID memorizza gli oggetti nel tempo. Configurare una o più regole ILM e aggiungerle a un criterio ILM.
-
-Una griglia ha solo una policy attiva alla volta. Un criterio può contenere più regole.
+È possibile utilizzare la gestione del ciclo di vita delle informazioni (ILM) per controllare il posizionamento, la durata e il comportamento di acquisizione di tutti gli oggetti nel sistema StorageGRID .  Le regole ILM determinano il modo in cui StorageGRID archivia gli oggetti nel tempo.  È possibile configurare una o più regole ILM e quindi aggiungerle a un criterio ILM.  Una griglia può avere più di una policy attiva contemporaneamente.
 
 Le regole ILM definiscono:
 
-* Quali oggetti devono essere memorizzati. Una regola può essere applicata a tutti gli oggetti oppure è possibile specificare filtri per identificare gli oggetti a cui si applica una regola. Ad esempio, una regola può essere applicata solo agli oggetti associati a determinati account tenant, a specifici bucket S3 o a contenitori Swift o a specifici valori di metadati.
+* Quali oggetti dovrebbero essere conservati.  Una regola può essere applicata a tutti gli oggetti oppure è possibile specificare dei filtri per identificare gli oggetti a cui si applica una regola.  Ad esempio, una regola può essere applicata solo agli oggetti associati a determinati account tenant, bucket S3 specifici o valori di metadati specifici.
 * Il tipo e la posizione di storage. Gli oggetti possono essere memorizzati sui nodi storage o nei pool di cloud storage.
 * Il tipo di copie a oggetti eseguite. È possibile eseguire la replica o l'erasure coding.
 * Per le copie replicate, il numero di copie eseguite.

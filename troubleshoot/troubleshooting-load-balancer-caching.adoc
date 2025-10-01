@@ -1,0 +1,49 @@
+---
+permalink: troubleshoot/troubleshooting-load-balancer-caching.html 
+sidebar: sidebar 
+keywords: how to troubleshoot load balancer caching 
+summary: Scopri i possibili problemi con la memorizzazione nella cache del bilanciatore del carico e come risolverli. 
+---
+= Risoluzione dei problemi di memorizzazione nella cache del bilanciatore del carico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri i possibili problemi con la memorizzazione nella cache del bilanciatore del carico e come risolverli.
+
+
+
+== Determina se una richiesta è stata un hit della cache
+
+* L'intestazione X-Cache viene impostata nella risposta alle richieste gestite dal servizio cache.  Codici possibili:
++
+** `HIT`: L'oggetto è stato servito dalla cache
+** `PARTIAL-HIT`: Il bucket/chiave aveva un record nella cache, ma non tutto l'intervallo richiesto poteva essere servito dalla cache
+** `STALE`: Il bucket/chiave aveva un record nella cache, ma l'oggetto è stato aggiornato dall'ultima volta che è stato servito dalla cache.
+** `MISS`: L'oggetto non era nella cache
+
+
+* IL `nginx-gw/endpoint-access.log.gz` il record per la richiesta include "unix:/run/cache-svc/cache-svc.sock" per le richieste gestite dalla cache.
+* IL `cache-svc/cache-svc.log` segnala un messaggio del tipo "Richiesta 320390: completata con successo (cache hit)" o "Richiesta 320375: completata con successo (cache miss)."  Trova il percorso richiesto cercando altri record con la stessa stringa "Request _<number>_".
+
+
+
+
+== Basso tasso di hit della cache
+
+* Potrebbero verificarsi bassi tassi di hit della cache quando viene aggiunto un nuovo carico di lavoro o quando cambia il set di lavoro a cui accede un carico di lavoro.  In queste situazioni, si prevede che il tasso di successo aumenterà nel tempo.
+* Se più carichi di lavoro utilizzano la memorizzazione nella cache, valutare l'aggiunta di criteri di classificazione del traffico per isolare parti dei carichi di lavoro gestiti dalla cache.  Le metriche relative al tasso di successo della cache sono disponibili in base ai criteri di classificazione del traffico.  Se alcuni carichi di lavoro non riscontrano buoni tassi di successo nella cache, si consiglia di spostare tali carichi di lavoro su altri endpoint che non hanno la memorizzazione nella cache abilitata.
+* Valutare la frequenza di espulsione della cache.  Se la cache è troppo piccola per contenere il working set, si verificheranno alti tassi di espulsione e ciò potrebbe contribuire a ridurre i tassi di successo.
+* Con FPVR potrebbero essere disponibili opzioni per migliorare i tassi di successo di determinati carichi di lavoro.
+
+
+
+
+== Bassa prestazione
+
+* Valutare il tasso di successo della cache.  Bassi tassi di hit della cache possono comportare scarse prestazioni complessive.
+* Valutare la frequenza di espulsione della cache.  Durante l'espulsione, alcune risorse di archiviazione vengono utilizzate per rimuovere oggetti esistenti dal disco.  Se il processo di espulsione non tiene il passo con l'accesso di nuovi oggetti, il sistema potrebbe raggiungere le soglie di hard watermark e iniziare a bypassare la cache.
+* Verificare i limiti di rete utilizzando le diagnosi "Utilizzo ricezione interfacce di rete" e "Utilizzo trasmissione interfacce di rete".
+

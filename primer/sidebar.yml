@@ -20,8 +20,6 @@ entries:
     url: "/primer/what-storage-node-is.html"
   - title: Che cos'è un nodo gateway
     url: "/primer/what-gateway-node-is.html"
-  - title: Che cos'è un nodo di archivio
-    url: "/primer/what-archive-node-is.html"
 - title: Come StorageGRID gestisce i dati
   entries:
   - title: Che cos'è un oggetto

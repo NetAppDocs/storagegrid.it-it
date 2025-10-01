@@ -22,7 +22,7 @@ summary: È possibile disattivare le notifiche SNMP, aggiornare le stringhe di c
 Per informazioni dettagliate su ciascun campo nella pagina dell'agente SNMP, vedere link:configuring-snmp-agent.html["Configurare l'agente SNMP"]. È necessario selezionare *Salva* nella parte inferiore della pagina per confermare le modifiche apportate in ciascuna scheda.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Monitoring* > *SNMP Agent*.
+. Selezionare *Configurazione* > *Monitoraggio* > *Agente SNMP*.
 +
 Viene visualizzata la pagina SNMP Agent.
 

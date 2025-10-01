@@ -33,11 +33,16 @@ Durante l'installazione, è possibile selezionare il tipo di nodo di archiviazio
 
 
 
-NOTE: Non è possibile modificare il tipo una volta completata l'installazione del nodo di archiviazione.
 
-Nodo di storage dati e metadati (combinato):: Per impostazione predefinita, tutti i nuovi nodi di storage memorizzeranno sia i dati degli oggetti che i metadati. Questo tipo di nodo di storage viene chiamato nodo di storage _combinato_.
-Nodo storage solo metadati:: L'utilizzo di un nodo di storage esclusivamente per i metadati può avere senso se il grid memorizza un numero molto elevato di piccoli oggetti. L'installazione della capacità di metadati dedicata fornisce un migliore equilibrio tra lo spazio necessario per un numero molto elevato di oggetti piccoli e lo spazio necessario per i metadati per tali oggetti. Inoltre, i nodi di storage solo per i metadati ospitati su appliance dalle performance elevate possono migliorare le performance.
+=== Nodo di storage dati e metadati (combinato)
 
+Per impostazione predefinita, tutti i nuovi nodi di storage memorizzeranno sia i dati degli oggetti che i metadati. Questo tipo di nodo di storage viene chiamato nodo di storage _combinato_.
+
+
+
+=== Nodo storage solo metadati
+
+L'utilizzo di un nodo di storage esclusivamente per i metadati può avere senso se il grid memorizza un numero molto elevato di piccoli oggetti. L'installazione della capacità di metadati dedicata fornisce un migliore equilibrio tra lo spazio necessario per un numero molto elevato di oggetti piccoli e lo spazio necessario per i metadati per tali oggetti. Inoltre, i nodi di storage solo per i metadati ospitati su appliance dalle performance elevate possono migliorare le performance.
 
 I nodi di storage solo per metadati hanno requisiti hardware specifici:
 
@@ -51,29 +56,34 @@ I nodi di storage solo per metadati hanno requisiti hardware specifici:
 *** SSD da 8 TB o storage equivalente per il database Cassandra (rangedb/0)
 
 
-** Se il sito StorageGRID esistente utilizza nodi di archiviazione virtuale con 24 GB di RAM, 8 core CPU e 3 TB o 4TB di memorizzazione di metadati, i nodi basati solo sui metadati del software devono utilizzare risorse simili (24 GB di RAM, 8 core CPU e 4TB di memorizzazione di metadati (rangedb/0).
+** Se il sito StorageGRID esistente utilizza nodi di archiviazione virtuali con 24 GB di RAM, CPU a 8 core e 3 TB o 4 TB di spazio di archiviazione dei metadati, i nodi basati solo su software devono utilizzare risorse simili (24 GB di RAM, CPU a 8 core e 4 TB di spazio di archiviazione dei metadati (rangedb/0)).
 
 
-* Quando si aggiunge un nuovo sito StorageGRID, la capacità totale dei metadati del nuovo sito deve almeno StorageGRID corrispondere ai nodi storage dei siti StorageGRID esistenti e alle nuove risorse del sito.
-
-
-Quando si installano nodi solo metadati, la griglia deve contenere anche un numero minimo di nodi per lo storage dei dati:
-
-* Per un grid a sito singolo, configurare almeno due nodi di storage combinati o solo dati.
-* Per una griglia multi-sito, configurare almeno un nodo di storage combinato o solo dati _per sito_.
+* Quando si aggiunge un nuovo sito StorageGRID , la capacità totale dei metadati del nuovo sito dovrebbe, come minimo, corrispondere a quella dei siti esistenti.  Le risorse in un nuovo sito devono corrispondere ai nodi di archiviazione nei siti esistenti.
 
 
 
 NOTE: Sebbene i nodi di storage solo per metadati contengano <<ldr-service,Servizio LDR>>e siano in grado di elaborare S3 richieste client, le performance di StorageGRID potrebbero non aumentare.
 
-Nodo storage solo dati:: L'utilizzo di un nodo di storage esclusivamente per i dati può essere utile se i nodi di storage hanno caratteristiche di prestazioni diverse. Ad esempio, per aumentare potenzialmente le performance, potrebbero esserci nodi di storage su disco rotante a elevata capacità e solo dati accompagnati da nodi di storage dalle performance elevate e solo metadati.
 
 
-Quando si installano nodi solo dati, la griglia deve contenere quanto segue:
+=== Nodo storage solo dati
 
-* Un minimo di due nodi di storage combinati o solo dati _per grid_
-* Almeno un nodo di storage combinato o solo dati _per sito_
-* Un minimo di tre nodi di storage combinati o solo metadati _per sito_
+L'utilizzo di un nodo di storage esclusivamente per i dati può essere utile se i nodi di storage hanno caratteristiche di prestazioni diverse. Ad esempio, per aumentare potenzialmente le performance, potrebbero esserci nodi di storage su disco rotante a elevata capacità e solo dati accompagnati da nodi di storage dalle performance elevate e solo metadati.
+
+Inoltre, è possibile ottenere una maggiore capacità di metadati rimuovendo i nodi con poca RAM da Cassandra, il che aumenta il limite di capacità di metadati per nodo. Fare riferimento a link:../admin/managing-object-metadata-storage.html["Gestire lo storage dei metadati degli oggetti"] .
+
+È possibile convertire un nodo di archiviazione che non contiene<<adc-service,Servizio ADC>> a un nodo di archiviazione solo dati. Fare riferimento a link:../maintain/convert-to-data-only-node.html["Convertire un nodo di archiviazione in un nodo solo dati"] .
+
+
+
+== Nodi di archiviazione richiesti per griglia e per sito
+
+Quando selezioni quali nodi di archiviazione utilizzare nella tua topologia, tieni presente che la griglia o ciascun sito nella griglia deve contenere quanto segue:
+
+* Per sito (in una griglia a sito singolo o multiplo): tre<<adc-service,ADC>> Nodi di archiviazione (possono essere qualsiasi combinazione di nodi di archiviazione combinati e solo metadati)
+* Griglia a sito singolo: almeno due nodi di archiviazione di oggetti (possono essere qualsiasi combinazione di combinati e solo dati)
+* Griglia multi-sito: almeno un nodo di archiviazione degli oggetti per sito (può essere combinato o solo dati)
 
 
 
@@ -95,14 +105,16 @@ Account (acct)
  a| 
 Gestisce gli account tenant.
 
+I nodi di archiviazione solo dati non ospitano questo servizio.
+
 
 
  a| 
-ADC (Administrative Domain Controller)
+[[adc-service]]Controller di dominio amministrativo (ADC)
  a| 
 Mantiene la topologia e la configurazione a livello di griglia.
 
-*Nota*: I nodi di archiviazione solo dati non ospitano il servizio ADC.
+I nodi di archiviazione solo dati non ospitano questo servizio.
 
 .Dettagli
 [%collapsible]
@@ -125,7 +137,7 @@ Cassandra
  a| 
 Memorizza e protegge i metadati degli oggetti.
 
-*Nota*: I nodi di storage solo dati non ospitano il servizio Cassandra.
+I nodi di archiviazione solo dati non ospitano questo servizio.
 
 
 
@@ -134,7 +146,7 @@ Cassandra Reaper
  a| 
 Esegue la riparazione automatica dei metadati degli oggetti.
 
-*Nota*: I nodi di storage solo dati non ospitano il servizio Cassandra Reaper.
+I nodi di archiviazione solo dati non ospitano questo servizio.
 
 
 
@@ -171,6 +183,8 @@ Il servizio DDS tiene traccia del numero totale di oggetti acquisiti nel sistema
 Identità (idnt)
  a| 
 Consente di federare le identità degli utenti da LDAP e Active Directory.
+
+I nodi di archiviazione solo dati non ospitano questo servizio.
 
 
 
@@ -220,6 +234,8 @@ Per garantire la ridondanza e quindi la protezione contro la perdita, vengono co
 Replicated state Machine (RSM)
  a| 
 Garantisce che le richieste di servizi della piattaforma S3 vengano inviate ai rispettivi endpoint.
+
+I nodi di archiviazione solo dati non ospitano questo servizio.
 
 
 

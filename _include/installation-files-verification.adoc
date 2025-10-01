@@ -4,7 +4,7 @@
 
 . Estrarre gli artefatti dal pacchetto di verifica:
 +
-`tar -xf StorageGRID_11.9.0_Code_Signature_Verification_Package.tar.gz`
+`tar -xf StorageGRID_12.0.0_Code_Signature_Verification_Package.tar.gz`
 
 . Assicurarsi che questi artefatti siano stati estratti:
 +

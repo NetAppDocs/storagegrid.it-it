@@ -27,7 +27,7 @@ summary: È possibile gestire le autorizzazioni per i gruppi di utenti S3 import
 Come prima fase, accedere alla procedura guidata Crea gruppo.
 
 .Fasi
-. Selezionare *GESTIONE ACCESSI* > *gruppi*.
+. Selezionare *Gestione accessi* > *Gruppi*.
 . Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, verificare che venga visualizzato un banner blu che indica che i nuovi gruppi creati in questa griglia verranno clonati nello stesso tenant nell'altra griglia della connessione. Se questo banner non viene visualizzato, potresti aver effettuato l'accesso alla griglia di destinazione del tenant.
 +
 image::../media/grid-federation-tenant-group-banner.png[Immagine del banner blu nella pagina gruppi della griglia di origine del tenant]

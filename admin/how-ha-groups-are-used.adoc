@@ -49,7 +49,7 @@ Accesso solo al tenant manager
 
 
  a| 
-S3 accesso client -- Servizio di bilanciamento del carico
+Accesso client S3: servizio Load Balancer
  a| 
 * Nodi di amministrazione
 * Nodi gateway

@@ -13,6 +13,8 @@ summary: Puoi espandere la capacità o le funzionalità del tuo sistema StorageG
 [role="lead"]
 Puoi espandere la capacità o le funzionalità del tuo sistema StorageGRID senza interrompere le operazioni di sistema.
 
+Prima di espandere un nodo della griglia, è necessario confermare che non siano attivi processi di riparazione dei dati.  Se una riparazione non ha avuto successo, è necessario riavviarla e lasciarla completare prima di eseguire la procedura di dismissione o espansione. Fare riferimento a link:../maintain/checking-data-repair-jobs.html["Controllare i lavori di riparazione dei dati"] .
+
 Un'espansione StorageGRID consente di aggiungere:
 
 * Volumi storage sui nodi storage
@@ -26,11 +28,6 @@ Seguire la procedura per il tipo di espansione che si sta eseguendo:
 
 [role="tabbed-block"]
 ====
-.Aggiungere volumi di storage
---
-Seguire la procedura per link:adding-storage-volumes-to-storage-nodes.html["Aggiunta di volumi di storage ai nodi di storage"].
-
---
 .Aggiungere nodi griglia
 --
 . Seguire la procedura per link:adding-grid-nodes-to-existing-site-or-adding-new-site.html["aggiunta di nodi griglia a un sito esistente"].
@@ -40,15 +37,21 @@ Seguire la procedura per link:adding-storage-volumes-to-storage-nodes.html["Aggi
 ** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["Appliance"]
 ** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
 ** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["Linux"]
-+
-
-NOTE: "Linux" si riferisce a una distribuzione Red Hat Enterprise Linux, Ubuntu o Debian. Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
 
 
+
+
+
+NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
 
 . link:performing-expansion.html["Eseguire l'espansione"].
 . link:configuring-expanded-storagegrid-system.html["Configurare il sistema espanso"].
 
+
+--
+.Aggiungere volumi di storage
+--
+Seguire la procedura per link:adding-storage-volumes-to-storage-nodes.html["Aggiunta di volumi di storage ai nodi di storage"].
 
 --
 .Aggiungi nuovo sito
@@ -60,11 +63,12 @@ NOTE: "Linux" si riferisce a una distribuzione Red Hat Enterprise Linux, Ubuntu 
 ** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["Appliance"]
 ** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
 ** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["Linux"]
-+
-
-NOTE: "Linux" si riferisce a una distribuzione Red Hat Enterprise Linux, Ubuntu o Debian. Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
 
 
+
+
+
+NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
 
 . link:performing-expansion.html["Eseguire l'espansione"].
 . link:configuring-expanded-storagegrid-system.html["Configurare il sistema espanso"].

@@ -18,15 +18,14 @@ Le regole di avviso definiscono le condizioni che attivano link:alerts-reference
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * Si dispone di link:../admin/admin-group-permissions.html["Gestire gli avvisi o l'autorizzazione di accesso principale"].
-* Se si desidera, è stato guardato il video: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["Video: Panoramica degli avvisi"^]
+* Facoltativamente, hai guardato il video:
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
-image::../media/video-screenshot-alert-overview-118.png[Video: Panoramica degli avvisi]
-
+.Panoramica degli avvisi
+video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 
 
 .Fasi
-. Selezionare *ALERTS* > *regole*.
+. Selezionare *Avvisi* > *Regole*.
 +
 Viene visualizzata la pagina regole di avviso.
 

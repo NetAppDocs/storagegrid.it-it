@@ -25,7 +25,7 @@ Se i nodi di amministrazione sono inclusi in un gruppo ad alta disponibilità (h
 
 === Utilizzare SSO
 
-I passaggi di accesso sono leggermente diversi se link:configuring-sso.html["È stato configurato Single Sign-on (SSO)"].
+I passaggi di accesso sono leggermente diversi selink:how-sso-works.html["È stato configurato Single Sign-on (SSO)"] .
 
 
 
@@ -70,9 +70,6 @@ La schermata di accesso visualizzata dipende dalla configurazione di SSO (Single
 --
 .. Immettere il nome utente e la password per Grid Manager.
 .. Selezionare *Accedi*.
-+
-image::../media/sign_in_grid_manager_no_sso.png[Pagina di accesso]
-
 
 
 --
@@ -81,23 +78,16 @@ image::../media/sign_in_grid_manager_no_sso.png[Pagina di accesso]
 ** Se StorageGRID utilizza SSO ed è la prima volta che si accede all'URL dal browser:
 +
 ... Selezionare *Accedi*. È possibile lasciare lo 0 nel campo account.
+... Inserisci le tue credenziali SSO standard nella pagina di accesso SSO della tua organizzazione.
 +
-image::../media/sso_sign_in_first_time.png[Schermata di accesso se SSO è attivato e non sono presenti cookie]
+Ad esempio, se StorageGRID utilizza SSO e in precedenza hai effettuato l'accesso a Grid Manager o a un account tenant:
 
-... Immettere le credenziali SSO standard nella pagina di accesso SSO dell'organizzazione. Ad esempio:
 +
-image::../media/sso_organization_page.gif[Esempio di pagina di accesso all'organizzazione per SSO]
+.... Inserire *0* (l'ID account per Grid Manager) o selezionare *Grid Manager* se compare nell'elenco degli account recenti.
+.... Selezionare *Accedi*.
+.... Accedi con le tue credenziali SSO standard nella pagina di accesso SSO della tua organizzazione.
 
 
-
-** Se StorageGRID utilizza SSO e si è precedentemente effettuato l'accesso a Grid Manager o a un account tenant:
-+
-... Inserire *0* (l'ID account per Grid Manager) o selezionare *Grid Manager* se compare nell'elenco degli account recenti.
-+
-image::../media/sign_in_grid_manager_sso.png[Selezionare Grid Manager dall'elenco degli account recenti se SSO è attivato]
-
-... Selezionare *Accedi*.
-... Accedi con le tue credenziali SSO standard nella pagina di accesso SSO della tua organizzazione.
 
 
 
@@ -107,8 +97,6 @@ image::../media/sign_in_grid_manager_sso.png[Selezionare Grid Manager dall'elenc
 
 
 Una volta effettuato l'accesso, viene visualizzata la home page di Grid Manager, che include la dashboard. Per informazioni sulle informazioni fornite, vedere link:../monitor/viewing-dashboard.html["Visualizzare e gestire la dashboard"].
-
-image::../media/grid_manager_dashboard.png[dashboard]
 
 
 

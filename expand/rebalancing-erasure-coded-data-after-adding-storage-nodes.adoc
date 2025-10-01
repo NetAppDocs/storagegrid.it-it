@@ -16,7 +16,7 @@ Dopo aver aggiunto i nodi storage, è possibile utilizzare la procedura di ribil
 .Prima di iniziare
 * Sono state completate le fasi di espansione per aggiungere i nuovi nodi di storage.
 * È stata esaminata la link:considerations-for-rebalancing-erasure-coded-data.html["considerazioni per il ribilanciamento dei dati con codifica erasure"].
-* Si comprende che i dati degli oggetti replicati non verranno spostati da questa procedura e che la procedura di ribilanciamento EC non prende in considerazione l'utilizzo dei dati replicati su ciascun nodo di storage quando si determina dove spostare i dati con codifica di cancellazione.
+* Si comprende che i dati degli oggetti replicati non verranno spostati da questa procedura e che la procedura di ribilanciamento EC non sposta i dati replicati.  Tuttavia, quando si determina dove spostare i dati CE, si prendono in considerazione i dati replicati.
 * Si dispone del `Passwords.txt` file.
 
 
@@ -34,16 +34,6 @@ Prima di iniziare la procedura, prendere nota di quanto segue:
 
 NOTE: S3 le operazioni API per caricare oggetti (o parti di oggetti) potrebbero non riuscire durante la procedura di riequilibrio EC se sono necessarie più di 24 ore per il completamento. Le operazioni PUT di lunga durata non avranno esito positivo se la regola ILM applicabile utilizza un posizionamento bilanciato o rigoroso all'acquisizione. Viene segnalato il seguente errore: `500 Internal Server Error`.
 
-* Durante questa procedura, tutti i nodi hanno un limite di capacità storage del 80%. I nodi che superano questo limite, ma che rimangono al di sotto della partizione dei dati di destinazione, sono esclusi da:
-+
-** Il valore di squilibrio del sito
-** Qualsiasi condizione di completamento del lavoro
-+
-
-NOTE: La partizione dei dati di destinazione viene calcolata dividendo i dati totali di un sito per il numero di nodi.
-
-
-
 * *Condizioni di completamento del lavoro*. La procedura di riequilibrio CE è considerata completa quando si verifica una delle seguenti condizioni:
 +
 ** Impossibile spostare altri dati sottoposti a erasure coding.
@@ -56,7 +46,7 @@ NOTE: La partizione dei dati di destinazione viene calcolata dividendo i dati to
 .Fasi
 . [[review_object_storage]]Rivedi i dettagli dello storage a oggetti corrente per il sito che intendi ribilanciare.
 +
-.. Selezionare *NODI*.
+.. Selezionare *Nodi*.
 .. Selezionare il primo nodo di storage nel sito.
 .. Selezionare la scheda *Storage*.
 .. Posizionare il cursore sul grafico Storage Used - Object Data (Storage utilizzato - dati oggetto) per visualizzare la quantità corrente di dati replicati e i dati con codifica di cancellazione sul nodo di storage.
@@ -112,7 +102,7 @@ Per ottenere assistenza sul comando ribilanciamento-dati:
 +
 ** Se `State` è, l'operazione di riequilibrio EC è `In progress` ancora in esecuzione. È necessario monitorare periodicamente la procedura fino al completamento.
 +
-Utilizza il `Site Imbalance` valore per valutare l'utilizzo non bilanciato dei dati dell'erasure coding nei nodi storage del sito. Questo valore può essere compreso tra 1,0 e 0, con 0 che indica che l'utilizzo dei dati con erasure coding è completamente bilanciato in tutti i nodi storage del sito.
+Vai alla pagina Nodi per valutare la distribuzione dei dati tra i nodi di archiviazione nel sito.
 
 +
 Il processo di riequilibrio EC è considerato completo e si interrompe quando i dati in tutti i nodi rientrano in una deviazione del 5% della partizione dei dati di destinazione.

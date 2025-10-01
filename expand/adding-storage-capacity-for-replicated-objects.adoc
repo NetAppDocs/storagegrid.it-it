@@ -21,4 +21,4 @@ Se si dispone di una policy ILM più complessa che include regole che posizionan
 
 La creazione di grafici sulla velocità di consumo della capacità di storage complessiva può aiutare a comprendere la quantità di storage da aggiungere all'espansione e quando sarà necessario lo spazio di storage aggiuntivo. È possibile utilizzare Grid Manager per link:../monitor/monitoring-storage-capacity.html["monitorare e tracciare la capacità di storage"].
 
-Quando si pianifica la tempistica di un'espansione, ricordarsi di considerare quanto tempo potrebbe essere necessario per procurarsi e installare storage aggiuntivo.
+Quando si pianifica la tempistica di un'espansione, bisogna tenere presente quanto tempo potrebbe essere necessario per procurarsi e installare ulteriore spazio di archiviazione.  Per semplificare la pianificazione dell'espansione, valutare l'aggiunta di nodi di archiviazione quando i nodi di archiviazione esistenti raggiungono il 70% della capacità.

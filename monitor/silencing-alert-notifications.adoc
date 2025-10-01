@@ -27,7 +27,7 @@ Se è stato attivato l'agente SNMP, le silenzi sopprimono anche i trap SNMP e in
 CAUTION: Prestare attenzione quando si decide di tacitare una regola di avviso. Se si tacita un avviso, potrebbe non essere possibile rilevare un problema sottostante fino a quando non si impedisce il completamento di un'operazione critica.
 
 .Fasi
-. Selezionare *ALERTS* > *silences*.
+. Selezionare *Avvisi* > *Silenzi*.
 +
 Viene visualizzata la pagina Silences (silenzi).
 
@@ -99,7 +99,7 @@ A quale nodo o nodi si desidera applicare questo silenzio. È possibile eliminar
  a| 
 Modificare un silenzio
  a| 
-.. Selezionare *ALERTS* > *silences*.
+.. Selezionare *Avvisi* > *Silenzi*.
 .. Dalla tabella, selezionare il pulsante di opzione relativo al silenzio che si desidera modificare.
 .. Selezionare *Modifica*.
 .. Modificare la descrizione, il tempo rimanente, le severità selezionate o il nodo interessato.
@@ -111,7 +111,7 @@ Modificare un silenzio
  a| 
 Eliminare un silenzio
  a| 
-.. Selezionare *ALERTS* > *silences*.
+.. Selezionare *Avvisi* > *Silenzi*.
 .. Dalla tabella, selezionare il pulsante di opzione per il silenzio che si desidera rimuovere.
 .. Selezionare *Rimuovi*.
 .. Selezionare *OK* per confermare che si desidera rimuovere questo silenzio.

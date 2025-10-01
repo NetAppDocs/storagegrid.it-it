@@ -13,6 +13,9 @@ summary: Quando si inizia a utilizzare la federazione di griglie, esaminare le a
 [role="lead"]
 Quando si inizia a utilizzare la federazione delle griglie, esaminare le somiglianze e le differenze tra link:grid-federation-what-is-cross-grid-replication.html["replica cross-grid"] e link:../tenant/understanding-cloudmirror-replication-service.html["Servizio di replica di StorageGRID CloudMirror"].
 
+
+NOTE: Non è possibile utilizzare CloudMirror su un bucket replicato tramite replica tra griglie e viceversa.
+
 [cols="1a,3a,3a"]
 |===
 |  | Replica cross-grid | Servizio di replica di CloudMirror 
@@ -25,7 +28,7 @@ Un sistema StorageGRID funge da sistema di disaster recovery. Gli oggetti in un 
  a| 
 Consente a un tenant di replicare automaticamente gli oggetti da un bucket in StorageGRID (origine) a un bucket S3 esterno (destinazione).
 
-La replica di CloudMirror crea una copia indipendente di un oggetto in un'infrastruttura S3 indipendente. Questa copia indipendente non viene utilizzata come backup, ma viene spesso ulteriormente elaborata nel cloud.
+La replica CloudMirror crea una copia indipendente di un oggetto in un'infrastruttura S3 indipendente.  Questa copia indipendente non viene utilizzata come backup, ma spesso viene ulteriormente elaborata nel cloud.
 
 
 

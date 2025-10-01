@@ -37,7 +37,7 @@ Se uno dei sistemi StorageGRID nella connessione a federazione di griglie utiliz
 
 .Fasi
 . Configurare la stessa origine di identità per entrambe le griglie. Vedere link:using-identity-federation.html["USA la federazione delle identità"].
-. Configurare lo stesso provider di identità SSO (IdP) per entrambe le griglie. Vedere link:configuring-sso.html["Configurare il single sign-on"].
+. Configurare lo stesso provider di identità SSO (IdP) per entrambe le griglie. Vedere link:how-sso-works.html["Configurare il single sign-on"] .
 . link:managing-admin-groups.html["Creare lo stesso gruppo di amministratori"] su entrambe le griglie importando lo stesso gruppo federated.
 +
 Quando si crea il tenant, si seleziona questo gruppo per disporre dell'autorizzazione di accesso root iniziale per gli account tenant di origine e di destinazione.

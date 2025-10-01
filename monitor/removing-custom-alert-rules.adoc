@@ -19,7 +19,7 @@ summary: È possibile rimuovere una regola di avviso personalizzata se non si de
 
 
 .Fasi
-. Selezionare *ALERTS* > *regole*.
+. Selezionare *Avvisi* > *Regole*.
 +
 Viene visualizzata la pagina regole di avviso.
 

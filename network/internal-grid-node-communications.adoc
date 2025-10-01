@@ -22,11 +22,10 @@ Oltre a ICMP e alle porte elencate nella tabella, StorageGRID utilizza il protoc
 
 == Linee guida per i nodi basati su Linux
 
-Se i criteri di rete aziendali limitano l'accesso a una di queste porte, è possibile rimappare le porte in fase di implementazione utilizzando un parametro di configurazione dell'implementazione. Per ulteriori informazioni sul remapping delle porte e sui parametri di configurazione della distribuzione, vedere:
+Se i criteri di rete aziendale limitano l'accesso a una qualsiasi di queste porte, è possibile rimappare le porte al momento della distribuzione utilizzando un parametro di configurazione della distribuzione.  Per ulteriori informazioni sulla rimappatura delle porte e sui parametri di configurazione della distribuzione, vederelink:../swnodes/index.html["Installa StorageGRID sui nodi basati su software"] .
 
-* link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
 
+NOTE: Il supporto per la rimappatura delle porte è obsoleto e verrà rimosso in una versione futura. Per rimuovere le porte rimappate, fare riferimento alink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Rimuovere i rimaps delle porte sugli host bare metal"] .
 
 
 
@@ -34,13 +33,19 @@ Se i criteri di rete aziendali limitano l'accesso a una di queste porte, è poss
 
 Configurare le seguenti porte solo se è necessario definire restrizioni firewall esterne alla rete VMware.
 
-Se i criteri di rete aziendali limitano l'accesso a una qualsiasi di queste porte, è possibile rimappare le porte quando si implementano nodi utilizzando VMware vSphere Web Client o utilizzando un'impostazione del file di configurazione quando si automatizza l'implementazione del nodo grid. Per ulteriori informazioni sui parametri di configurazione del remapping delle porte e della distribuzione, vedere link:../vmware/index.html["Installare StorageGRID su VMware"].
+Se i criteri di rete aziendale limitano l'accesso a una qualsiasi di queste porte, è possibile rimappare le porte quando si distribuiscono i nodi tramite VMware vSphere Web Client oppure utilizzando un'impostazione del file di configurazione durante l'automazione della distribuzione dei nodi della griglia.  Per ulteriori informazioni sulla rimappatura delle porte e sui parametri di configurazione della distribuzione, vedere le istruzioni perlink:../swnodes/index.html["installazione di StorageGRID su VMware"] .
+
+
+NOTE: Il supporto per la rimappatura delle porte è obsoleto e verrà rimosso in una versione futura. Per rimuovere le porte rimappate, fare riferimento alink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Rimuovere i rimaps delle porte sugli host bare metal"] .
 
 
 
 == Linee guida per i nodi appliance
 
 Se i criteri di rete aziendali limitano l'accesso a una di queste porte, è possibile rimappare le porte utilizzando il programma di installazione dell'appliance StorageGRID. Vedere https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opzionale: Consente di rimappare le porte di rete per l'appliance"^].
+
+
+NOTE: Il supporto per la rimappatura delle porte è obsoleto e verrà rimosso in una versione futura. Per rimuovere le porte rimappate, fare riferimento alink:../maintain/removing-port-remaps.html["Rimuovere le rimappature delle porte sugli apparecchi StorageGRID"] .
 
 
 
@@ -151,7 +156,7 @@ Tutti i nodi
  a| 
 Nodi di storage
  a| 
-Traffico interno correlato a S3 e Swift.
+Traffico interno correlato a S3.
 
 
 
@@ -425,19 +430,6 @@ Nodi Admin/Storage
 Nodi di storage
  a| 
 Traffico interno correlato a S3.
-
-
-
- a| 
-18083
- a| 
-TCP
- a| 
-Tutti i nodi
- a| 
-Nodi di storage
- a| 
-Traffico interno correlato a Swift.
 
 
 

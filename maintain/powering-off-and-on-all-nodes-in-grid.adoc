@@ -33,6 +33,7 @@ NOTE: Se un singolo host include più di un nodo di griglia, non spegnere l'host
 NOTE: Se necessario, è possibile link:linux-migrating-grid-node-to-new-host.html["Migrare i nodi da un host Linux a un altro"]eseguire la manutenzione dell'host senza influire sulla funzionalità o sulla disponibilità della rete.
 
 .Fasi
+. L'accesso SSH esterno è bloccato per impostazione predefinita.  Se necessario,link:../admin/manage-external-ssh-access.html["consentire temporaneamente l'accesso"] .
 . Impedire a tutte le applicazioni client di accedere alla griglia.
 . [[log_in_to_gn]]Accedi a ciascun nodo gateway:
 +
@@ -141,6 +142,7 @@ Questo LED si accende quando i dati memorizzati nella cache devono essere scritt
 +
 La griglia StorageGRID è stata chiusa.
 
+. Se hai consentito l'accesso SSH esterno,link:../admin/manage-external-ssh-access.html["bloccare l'accesso"] una volta terminato lo spegnimento dei nodi.
 
 
 
@@ -171,7 +173,7 @@ NOTE: Non sarà possibile accedere ai nodi di amministrazione fino a quando i no
 
 . Accendere gli host per tutti i nodi gateway.
 . Accedi a Grid Manager.
-. Selezionare *NODI* e monitorare lo stato dei nodi della griglia. Verificare che non siano presenti icone di avviso accanto ai nomi dei nodi.
+. Selezionare *Nodi* e monitorare lo stato dei nodi della griglia.  Verificare che non vi siano icone di avviso accanto ai nomi dei nodi.
 
 
 .Informazioni correlate

@@ -42,7 +42,7 @@ NOTE: Per massimizzare le opzioni per il recupero completo dei dati in caso di g
 
 == Come configurare un server syslog esterno
 
-Per informazioni su come configurare un server syslog esterno, vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di controllo e il server syslog esterno"].
+Per informazioni su come configurare un server syslog esterno, vederelink:../monitor/configure-log-management.html["Configurare la gestione dei log e il server syslog esterno"] .
 
 Se si intende configurare l'utilizzo del protocollo TLS o RELP/TLS, è necessario disporre dei seguenti certificati:
 

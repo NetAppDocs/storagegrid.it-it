@@ -1,50 +1,8 @@
 ---
 permalink: vmware/cpu-and-ram-requirements.html 
-sidebar: sidebar 
-keywords: cpu, ram, cpu cores 
-summary: 'Prima di installare il software StorageGRID, verificare e configurare l"hardware in modo che sia pronto per il supporto del sistema StorageGRID.' 
+redirect: storagegrid/swnodes/cpu-and-ram-requirements.html 
 ---
-= Requisiti di CPU e RAM
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-Prima di installare il software StorageGRID, verificare e configurare l'hardware in modo che sia pronto per il supporto del sistema StorageGRID.
-
-Ogni nodo StorageGRID richiede le seguenti risorse minime:
-
-* Core CPU: 8 per nodo
-* RAM: A seconda della RAM totale disponibile e della quantità di software non StorageGRID in esecuzione sul sistema
-+
-** In genere, almeno 24 GB per nodo e da 2 a 16 GB in meno rispetto alla RAM totale del sistema
-** Un minimo di 64 GB per ciascun tenant con circa 5.000 bucket
-
-
-
-
-Le risorse dei nodi di solo metadati basate su software devono corrispondere alle risorse dei nodi di storage esistenti. Ad esempio:
-
-* Se il sito StorageGRID esistente utilizza appliance SG6000 o SG6100, i nodi basati solo sui metadati software devono soddisfare i seguenti requisiti minimi:
-+
-** 128 GB DI RAM
-** CPU a 8 core
-** SSD da 8 TB o storage equivalente per il database Cassandra (rangedb/0)
-
-
-* Se il sito StorageGRID esistente utilizza nodi di archiviazione virtuale con 24 GB di RAM, 8 core CPU e 3 TB o 4TB di memorizzazione di metadati, i nodi basati solo sui metadati del software devono utilizzare risorse simili (24 GB di RAM, 8 core CPU e 4TB di memorizzazione di metadati (rangedb/0).
-
-
-Quando si aggiunge un nuovo sito StorageGRID, la capacità totale dei metadati del nuovo sito deve almeno StorageGRID corrispondere ai nodi storage dei siti StorageGRID esistenti e alle nuove risorse del sito.
-
-VMware supporta un nodo per macchina virtuale. Assicurarsi che il nodo StorageGRID non superi la RAM fisica disponibile. Ciascuna macchina virtuale deve essere dedicata all'esecuzione di StorageGRID.
-
-
-CAUTION: Monitorate regolarmente l'utilizzo di CPU e memoria per garantire che queste risorse continuino a soddisfare il vostro carico di lavoro. Ad esempio, raddoppiando l'allocazione di RAM e CPU per i nodi di storage virtuali si fornirebbero risorse simili a quelle fornite per i nodi di appliance StorageGRID. Inoltre, se la quantità di metadati per nodo supera i 500 GB, considerare l'aumento della RAM per nodo a 48 GB o più. Per informazioni sulla gestione dell'archiviazione dei metadati degli oggetti, sull'aumento dell'impostazione spazio riservato metadati e sul monitoraggio dell'utilizzo della CPU e della memoria, vedere le istruzioni per link:../admin/index.html["amministrazione"], link:../monitor/index.html["monitoraggio"]e link:../upgrade/index.html["aggiornamento in corso"]StorageGRID.
-
-Se l'hyperthreading è attivato sugli host fisici sottostanti, è possibile fornire 8 core virtuali (4 core fisici) per nodo. Se l'hyperthreading non è attivato sugli host fisici sottostanti, è necessario fornire 8 core fisici per nodo.
-
-Se si utilizzano macchine virtuali come host e si ha il controllo sulle dimensioni e sul numero di macchine virtuali, è necessario utilizzare una singola macchina virtuale per ciascun nodo StorageGRID e dimensionare di conseguenza la macchina virtuale.
-
-Vedere anche link:storage-and-performance-requirements.html["Requisiti di storage e performance"].

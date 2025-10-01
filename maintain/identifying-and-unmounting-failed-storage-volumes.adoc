@@ -30,28 +30,22 @@ NOTE: Riparare l'hardware e collegare correttamente i dischi prima di eseguire i
 
 CAUTION: Identificare con attenzione i volumi di storage guasti. Queste informazioni verranno utilizzate per verificare quali volumi devono essere riformattati. Dopo la riformattazione di un volume, i dati del volume non possono essere recuperati.
 
-Per ripristinare correttamente i volumi di storage guasti, è necessario conoscere i nomi dei dispositivi dei volumi di storage guasti e i relativi ID dei volumi.
+Per ripristinare i volumi di archiviazione non riusciti, è necessario conoscere sia i nomi dei dispositivi dei volumi di archiviazione non riusciti sia i relativi ID volume.
 
-Al momento dell'installazione, a ciascun dispositivo di storage viene assegnato un UID (Universal Unique Identifier) del file system e viene montato in una directory rangedb sul nodo di storage utilizzando l'UID del file system assegnato. L'UUID del file system e la directory rangedb sono elencati nel `/etc/fstab` file. Il nome del dispositivo, la directory rangedb e le dimensioni del volume montato vengono visualizzati in Grid Manager.
-
-Nell'esempio seguente, il dispositivo `/dev/sdc` ha una dimensione del volume di 4 TB, è montato su `/var/local/rangedb/0`, utilizzando il nome del dispositivo `/dev/disk/by-uuid/822b0547-3b2b-472e-ad5e-e1cf1809faba` nel /`etc/fstab`file:
-
-image::../media/mounting_storage_devices.gif[Esempio di dimensione del volume]
+Durante l'installazione, a ciascun dispositivo di archiviazione viene assegnato un identificatore univoco universale (UUID) del file system e viene montato in una directory rangedb sul nodo di archiviazione utilizzando tale UUID del file system assegnato.  L'UUID del file system e la directory rangedb sono elencati in `/etc/fstab` file.  Il punto di montaggio, il nome del dispositivo e le dimensioni del volume vengono visualizzati in Grid Manager.
 
 .Fasi
 . Completare i seguenti passaggi per registrare i volumi di storage guasti e i relativi nomi dei dispositivi:
 +
-.. Selezionare *SUPPORT* > *Tools* > *Grid topology*.
-.. Selezionare *sito* > *nodo di storage guasto* > *LDR* > *Storage* > *Panoramica* > *principale* e cercare gli archivi di oggetti con allarmi.
+.. Selezionare *Nodi* > *_sito_* > *_Nodo di archiviazione non riuscito_* > *Archiviazione*.
+.. Scorrere verso il basso per individuare la tabella Volumi e la tabella Archivi oggetti e registrare le seguenti informazioni per ciascun volume con stato Sconosciuto o Offline.
 +
-image::../media/ldr_storage_object_stores.gif[Sezione archivi di oggetti]
+*** Dalla tabella Volumi, registrare il punto di montaggio, il dispositivo e la dimensione.
+*** Dalla tabella degli archivi degli oggetti, registrare il `object_store_ID` .
++
+ `object_store_ID`È l'ID del volume di archiviazione guasto. Ad esempio, specificare `0` nel comando un archivio oggetti con ID 0000.
 
-.. Selezionare *sito* > *nodo storage guasto* > *SSM* > *risorse* > *Panoramica* > *principale*. Determinare il punto di montaggio e le dimensioni del volume di ciascun volume di storage guasto identificato nel passaggio precedente.
-+
-Gli archivi di oggetti sono numerati in notazione esadecimale. Ad esempio, 0000 è il primo volume e 000F è il sedicesimo volume. Nell'esempio, l'archivio oggetti con un ID di 0000 corrisponde a `/var/local/rangedb/0` con il nome del dispositivo sdc e una dimensione di 107 GB.
 
-+
-image::../media/ssm_storage_volumes.gif[esempio che mostra gli archivi di oggetti e i punti di montaggio]
 
 
 
@@ -61,17 +55,14 @@ image::../media/ssm_storage_volumes.gif[esempio che mostra gli archivi di oggett
 .. Immettere la password elencata nel `Passwords.txt` file.
 .. Immettere il seguente comando per passare alla directory principale: `su -`
 .. Immettere la password elencata nel `Passwords.txt` file.
-
-
 +
 Quando si è collegati come root, il prompt cambia da `$` a `#`.
+
+
 
 . Eseguire il seguente script per smontare un volume di storage guasto:
 +
 `sn-unmount-volume object_store_ID`
-
-+
- `object_store_ID`È l'ID del volume di archiviazione guasto. Ad esempio, specificare `0` nel comando un archivio oggetti con ID 0000.
 
 . Se richiesto, premere *y* per arrestare il servizio Cassandra a seconda del volume di storage 0.
 +

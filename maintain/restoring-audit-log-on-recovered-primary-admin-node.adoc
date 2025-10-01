@@ -33,7 +33,7 @@ Per impostazione predefinita, le informazioni di controllo vengono inviate al re
 * È stato specificato esplicitamente che i messaggi di audit devono essere salvati solo sui nodi locali che li hanno generati.
 
 
-Per ulteriori informazioni, vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"] .
+Vederelink:../monitor/configure-log-management.html["Configurare la gestione dei log e il server syslog esterno"] per i dettagli.
 
 ====
 .Fasi
@@ -48,12 +48,12 @@ Per ulteriori informazioni, vedere link:../monitor/configure-audit-messages.html
 +
 Dopo aver effettuato l'accesso come root, il prompt passa da `$` a `#`.
 
-. Controllare quali file di controllo sono stati conservati: `cd /var/local/log`
+. Controlla quali file di controllo sono stati conservati: `cd /var/local/audit/export`
 . Copiare i file di log di controllo conservati nel nodo amministrativo recuperato: `scp admin@_grid_node_IP_:/var/local/tmp/saved-audit-logs/YYYY* .`
 +
 Quando richiesto, inserire la password per admin.
 
 . Per motivi di sicurezza, eliminare i registri di controllo dal nodo Grid guasto dopo aver verificato che siano stati copiati correttamente nel nodo Admin ripristinato.
-. Aggiornare le impostazioni dell'utente e del gruppo dei file di registro del controllo sul nodo amministrativo recuperato: `chown ams-user: bycast *`
+. Aggiornare le impostazioni utente e gruppo dei file di registro di controllo sul nodo di amministrazione recuperato: `chown ams-user:bycast *`
 . Disconnettersi come root: `exit`
 

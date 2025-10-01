@@ -2,7 +2,7 @@
 permalink: monitor/collecting-log-files-and-system-data.html 
 sidebar: sidebar 
 keywords: how to collect system data, how to collect logs 
-summary: 'È possibile utilizzare Grid Manager per recuperare i file di log e i dati di sistema (inclusi i dati di configurazione) per il sistema StorageGRID.' 
+summary: È possibile recuperare i file di registro e i dati di sistema StorageGRID , inclusi i dati di configurazione, e inviarli al supporto tecnico. 
 ---
 = Raccogliere i file di log e i dati di sistema
 :allow-uri-read: 
@@ -11,62 +11,71 @@ summary: 'È possibile utilizzare Grid Manager per recuperare i file di log e i 
 
 
 [role="lead"]
-È possibile utilizzare Grid Manager per recuperare i file di log e i dati di sistema (inclusi i dati di configurazione) per il sistema StorageGRID.
+È possibile recuperare i file di registro e i dati di sistema StorageGRID , inclusi i dati di configurazione, e inviarli al supporto tecnico.
 
 .Prima di iniziare
-* È necessario aver effettuato l'accesso al Grid Manager sul nodo amministrativo primario utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Hai effettuato l'accesso a Grid Manager su qualsiasi nodo di amministrazione utilizzando unlink:../admin/web-browser-requirements.html["browser web supportato"] .
 * Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
-* È necessario disporre della passphrase di provisioning.
+* Si dispone della passphrase di provisioning.
 
 
 .A proposito di questa attività
-È possibile utilizzare Grid Manager per raccogliere link:logs-files-reference.html["file di log"], dati di sistema e dati di configurazione da qualsiasi nodo della griglia per il periodo di tempo selezionato. I dati vengono raccolti e archiviati in un file .tar.gz che è possibile scaricare sul computer locale.
+Utilizzare Grid Manager per raccoglierelink:logs-files-reference.html["file di log"] , dati di sistema e dati di configurazione da qualsiasi nodo della griglia per il periodo di tempo selezionato.  I dati vengono raccolti e archiviati in un `.tar.gz` file che potrai poi scaricare sul tuo computer locale o inviare al supporto tecnico.
 
-In alternativa, è possibile modificare la destinazione dei registri di controllo e inviare le informazioni di controllo a un server syslog esterno. I registri locali dei record di controllo continuano a essere generati e memorizzati quando viene configurato un server syslog esterno. Vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"].
+Facoltativamente, è possibile modificare la destinazione dei log di controllo e inviare le informazioni di controllo a un server syslog esterno.  I registri locali dei record di controllo continuano a essere generati e archiviati quando viene configurato un server syslog esterno. Vedere link:../monitor/configure-log-management.html["Configurare la gestione dei log e il server syslog esterno"] .
 
 .Fasi
-. Selezionare *SUPPORT* > *Tools* > *Logs*.
-+
-image::../media/support_logs_select_nodes.png[Schermata dell'interfaccia utente della raccolta dei log]
-
+. Selezionare *Supporto* > *Strumenti* > *Raccolta registri*.  Viene visualizzata una tabella di nodi.
 . Selezionare i nodi della griglia per i quali si desidera raccogliere i file di log.
 +
-Se necessario, è possibile raccogliere i file di log per l'intera griglia o per un intero sito del data center.
+È possibile ordinare in base al nome del nodo, al sito e al tipo di nodo.  Le colonne Tipo di sito e Tipo di nodo contengono filtri per la selezione in base a singoli siti e tipi di nodo.
 
-. Selezionare *ora di inizio* e *ora di fine* per impostare l'intervallo di tempo dei dati da includere nei file di log.
+. Selezionare *continua*.
+. Selezionare l'intervallo di data e ora dei dati da includere nei file di registro.
 +
-Se si seleziona un periodo di tempo molto lungo o si raccolgono i registri da tutti i nodi di una griglia di grandi dimensioni, l'archivio del registro potrebbe diventare troppo grande per essere memorizzato su un nodo o troppo grande per essere raccolto nel nodo di amministrazione primario per il download. In questo caso, è necessario riavviare la raccolta dei log con un set di dati più piccolo.
+Se si seleziona un periodo di tempo molto lungo o si raccolgono i log da tutti i nodi in una griglia di grandi dimensioni, l'archivio dei log potrebbe diventare troppo grande per essere memorizzato su un nodo o troppo grande per essere raccolto da un nodo di amministrazione per il download.  Se si verifica uno dei due scenari, riavviare la raccolta dei registri con un set di dati più piccolo.
 
 . Selezionare i tipi di log che si desidera raccogliere.
 +
-** *Registri delle applicazioni*: Registri specifici delle applicazioni che il supporto tecnico utilizza più frequentemente per la risoluzione dei problemi. I log raccolti sono un sottoinsieme dei log dell'applicazione disponibili.
-** *Audit Logs*: Registri contenenti i messaggi di audit generati durante il normale funzionamento del sistema.
-** *Network Trace*: Registri utilizzati per il debug della rete.
-** *Database Prometheus*: Metriche delle serie temporali dei servizi su tutti i nodi.
+** *Registri delle applicazioni*: registri specifici delle applicazioni che il supporto tecnico utilizza più frequentemente per la risoluzione dei problemi.  I log raccolti sono un sottoinsieme dei log delle applicazioni disponibili.
+** *Registri di controllo*: registri contenenti i messaggi di controllo generati durante il normale funzionamento del sistema.
+** *Traccia di rete*: registri utilizzati per il debug di rete.
+** *Database Prometheus*: Metriche delle serie temporali dai servizi su tutti i nodi.
 
 
-. Se si desidera, inserire le note relative ai file di registro che si stanno raccogliendo nella casella di testo *Notes*.
+. Facoltativamente, utilizzare la casella di testo *Note* per immettere note sui file di registro che si stanno raccogliendo.
 +
 È possibile utilizzare queste note per fornire informazioni di supporto tecnico sul problema che ha richiesto di raccogliere i file di log. Le note vengono aggiunte a un file denominato `info.txt`, insieme ad altre informazioni sulla raccolta di file di registro. Il `info.txt` file viene salvato nel pacchetto di archiviazione del file di registro.
 
-. Inserire la passphrase di provisioning per il sistema StorageGRID nella casella di testo *Passphrase di provisioning*.
-. Selezionare *Collect Logs* (raccolta registri).
+. Nella casella di testo *Passphrase di provisioning*, immettere la passphrase di provisioning per il sistema StorageGRID .
+. Seleziona *Raccogli registri*.
 +
-Quando si invia una nuova richiesta, la raccolta precedente di file di log viene eliminata.
-
-+
-È possibile utilizzare la pagina Logs per monitorare l'avanzamento della raccolta dei file di log per ciascun nodo della griglia.
+È possibile utilizzare la pagina Raccolta log per monitorare l'avanzamento della raccolta dei file di log per ciascun nodo della griglia.
 
 +
 Se viene visualizzato un messaggio di errore relativo alle dimensioni del registro, provare a raccogliere i registri per un periodo di tempo più breve o per un numero inferiore di nodi.
 
-. Selezionare *Download* al termine della raccolta dei file di log.
+. Se la raccolta dei log fallisce:
 +
-Il file _.tar.gz_ contiene tutti i file di log di tutti i nodi della griglia in cui la raccolta dei log ha avuto esito positivo. All'interno del file _.tar.gz_ combinato, è presente un archivio di file di log per ciascun nodo della griglia.
+** Se viene visualizzato il messaggio "Raccolta log non riuscita", è possibile riprovare la raccolta log o terminare la sessione senza riprovare.
+** Se viene visualizzato il messaggio "Raccolta log parzialmente fallita", è possibile riprovare la raccolta log, terminare la sessione, scaricare il file di log parziale o inviarlo ad AutoSupport.
+
+
+. Una volta completata la raccolta dei file di registro:
++
+** Seleziona *Scarica* per scaricare il `.tar.gz` file.
+** Seleziona *Invia ad AutoSupport* per inviare il `.tar.gz` inviare il file al supporto tecnico.
++
+IL `.tar.gz` Il file contiene tutti i file di registro di tutti i nodi della griglia in cui la raccolta dei registri è avvenuta correttamente.  Il combinato `.tar.gz` il file contiene un archivio di file di registro per ogni nodo della griglia.
+
++
+L'oggetto del pacchetto AutoSupport è `USER_TRIGGERED_SUPPORT_BUNDLE` .
 
 
 
-.Al termine
-Se necessario, è possibile scaricare nuovamente il pacchetto di archiviazione del file di log in un secondo momento.
+. Selezionare *fine*.
++
 
-In alternativa, è possibile selezionare *Delete* (Elimina) per rimuovere il pacchetto di archiviazione del file di log e liberare spazio su disco. Il pacchetto di archiviazione del file di log corrente viene automaticamente rimosso alla successiva raccolta dei file di log.
+CAUTION: IL `.tar.gz` il file viene eliminato quando selezioni *Fine*.  Assicurati di scaricare o inviare prima il file.
+
+

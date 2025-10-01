@@ -37,7 +37,7 @@ In questa condizione:
 Se viene attivato un avviso *Low Object Data Storage* maggiore o minore, è necessario eseguire una procedura di espansione il prima possibile.
 
 .Fasi
-. Selezionare *ALERTS* > *current*.
+. Selezionare *Avvisi* > *Correnti*.
 +
 Viene visualizzata la pagina Avvisi.
 
@@ -53,7 +53,7 @@ NOTE: Selezionare l'avviso, non l'intestazione di un gruppo di avvisi.
 ** I valori correnti delle metriche per questo avviso
 
 
-. Selezionare *NODES* > *_Storage Node or Site_* > *Storage*.
+. Selezionare *Nodi* > *Nodo o sito di archiviazione_* > *Archiviazione*.
 . Posizionare il cursore sul grafico Storage Used - Object Data (Storage utilizzato - dati oggetto).
 +
 Vengono visualizzati i seguenti valori:

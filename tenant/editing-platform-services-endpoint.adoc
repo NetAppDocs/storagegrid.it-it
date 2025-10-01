@@ -46,7 +46,7 @@ NOTE: La chiave privata del client deve essere in formato crittografato OpenSSL 
 
 
 
-.. Se necessario, modificare il metodo di verifica del server.
+.. Se necessario, modificare il metodo di verifica dei certificati.
 
 
 . Selezionare *Test e salvare le modifiche*.

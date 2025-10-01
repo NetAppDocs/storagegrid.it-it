@@ -12,10 +12,10 @@ Selezionare *Altro* per configurare i valori per un server LDAP che utilizza Ora
 
 . Se si seleziona *Altro*, completare i campi nella sezione attributi LDAP. In caso contrario, passare alla fase successiva.
 +
-** *User Unique Name* (Nome univoco utente): Il nome dell'attributo che contiene l'identificatore univoco di un utente LDAP. Questo attributo è equivalente a `sAMAccountName` per Active Directory e `uid` per OpenLDAP. Se si sta configurando Oracle Directory Server, immettere `uid`.
-** *UUID utente*: Il nome dell'attributo che contiene l'identificatore univoco permanente di un utente LDAP. Questo attributo è equivalente a `objectGUID` per Active Directory e `entryUUID` per OpenLDAP. Se si sta configurando Oracle Directory Server, immettere `nsuniqueid`. Ogni valore dell'utente per l'attributo specificato deve essere un numero esadecimale a 32 cifre in formato a 16 byte o stringa, dove i trattini vengono ignorati.
-** *Group Unique Name* (Nome univoco gruppo): Il nome dell'attributo che contiene l'identificatore univoco di un gruppo LDAP. Questo attributo è equivalente a `sAMAccountName` per Active Directory e `cn` per OpenLDAP. Se si sta configurando Oracle Directory Server, immettere `cn`.
-** *UUID gruppo*: Il nome dell'attributo che contiene l'identificatore univoco permanente di un gruppo LDAP. Questo attributo è equivalente a `objectGUID` per Active Directory e `entryUUID` per OpenLDAP. Se si sta configurando Oracle Directory Server, immettere `nsuniqueid`. Il valore di ciascun gruppo per l'attributo specificato deve essere un numero esadecimale a 32 cifre nel formato a 16 byte o stringa, dove i trattini vengono ignorati.
+** *Nome univoco utente*: il nome dell'attributo che contiene l'identificatore univoco di un utente LDAP.  Questo attributo è equivalente a `sAMAccountName` per Active Directory e `uid` per OpenLDAP.  Se stai configurando Oracle Directory Server, inserisci `uid` .
+** *UUID utente*: il nome dell'attributo che contiene l'identificatore univoco permanente di un utente LDAP.  Questo attributo è equivalente a `objectGUID` per Active Directory e `entryUUID` per OpenLDAP.  Se stai configurando Oracle Directory Server, inserisci `nsuniqueid` .  Il valore di ciascun utente per l'attributo specificato deve essere un numero esadecimale di 32 cifre in formato stringa o a 16 byte, in cui i trattini vengono ignorati.
+** *Nome univoco del gruppo*: il nome dell'attributo che contiene l'identificatore univoco di un gruppo LDAP.  Questo attributo è equivalente a `sAMAccountName` per Active Directory e `cn` per OpenLDAP.  Se stai configurando Oracle Directory Server, inserisci `cn` .
+** *UUID gruppo*: il nome dell'attributo che contiene l'identificatore univoco permanente di un gruppo LDAP.  Questo attributo è equivalente a `objectGUID` per Active Directory e `entryUUID` per OpenLDAP.  Se stai configurando Oracle Directory Server, inserisci `nsuniqueid` .  Il valore di ciascun gruppo per l'attributo specificato deve essere un numero esadecimale di 32 cifre in formato stringa o a 16 byte, in cui i trattini vengono ignorati.
 
 
 . Per tutti i tipi di servizio LDAP, inserire le informazioni richieste relative al server LDAP e alla connessione di rete nella sezione Configura server LDAP.
@@ -39,7 +39,7 @@ L'utente specificato deve disporre dell'autorizzazione per elencare gruppi e ute
 *** `cn`
 *** `memberOf` o. `isMemberOf`
 *** *Active Directory*: `objectSid`, `primaryGroupID`, `userAccountControl` E `userPrincipalName`
-*** *Azure*: `accountEnabled` And `userPrincipalName`
+*** *ID di ingresso*: `accountEnabled` E `userPrincipalName`
 
 
 ** *Password*: La password associata al nome utente.
@@ -65,8 +65,8 @@ Si consiglia di fornire il formato *bind username* perché può consentire agli 
 Immettere uno di questi modelli:
 
 +
-*** *Modello UserPrincipalName (Active Directory e Azure)*: `[USERNAME]@_example_.com`
-*** *Modello di nome di accesso di livello inferiore (Active Directory e Azure)*: `_example_\[USERNAME]`
+*** *Modello UserPrincipalName (ID AD e Entra)*: `[USERNAME]@_example_.com`
+*** *Modello di nome di accesso di livello inferiore (ID AD e Entra)*: `_example_\[USERNAME]`
 *** *Modello di nome distinto*: `CN=[USERNAME],CN=Users,DC=_example_,DC=com`
 +
 Includi *[NOME UTENTE]* esattamente come scritto.
@@ -77,12 +77,12 @@ Includi *[NOME UTENTE]* esattamente come scritto.
 
 . Nella sezione Transport Layer Security (TLS), selezionare un'impostazione di protezione.
 +
-** *Usa STARTTLS*: Utilizza STARTTLS per proteggere le comunicazioni con il server LDAP. Si tratta dell'opzione consigliata per Active Directory, OpenLDAP o altro, ma questa opzione non è supportata per Azure.
-** *Usa LDAPS*: L'opzione LDAPS (LDAP su SSL) utilizza TLS per stabilire una connessione al server LDAP. Selezionare questa opzione per Azure.
-** *Non utilizzare TLS*: Il traffico di rete tra il sistema StorageGRID e il server LDAP non sarà protetto. Questa opzione non è supportata per Azure.
+** *Usa STARTTLS*: usa STARTTLS per proteggere le comunicazioni con il server LDAP.  Questa è l'opzione consigliata per Active Directory, OpenLDAP o Altro, ma non è supportata per Microsoft Entra ID.
+** *Usa LDAPS*: l'opzione LDAPS (LDAP su SSL) utilizza TLS per stabilire una connessione al server LDAP.  È necessario selezionare questa opzione per Microsoft Entra ID.
+** *Non utilizzare TLS*: il traffico di rete tra il sistema StorageGRID e il server LDAP non sarà protetto.  Questa opzione non è supportata per Microsoft Entra ID.
 +
 
-NOTE: L'utilizzo dell'opzione *non utilizzare TLS* non è supportato se il server Active Directory applica la firma LDAP. È necessario utilizzare STARTTLS o LDAPS.
+NOTE: L'utilizzo dell'opzione *Non utilizzare TLS* non è supportato se il server Active Directory impone la firma LDAP.  È necessario utilizzare STARTTLS o LDAPS.
 
 
 
@@ -105,7 +105,7 @@ Dopo aver inserito tutti i valori, è necessario verificare la connessione prima
 
 .Fasi
 . Selezionare *Test di connessione*.
-. Se non è stato fornito un formato nome utente BIND:
+. Se non hai fornito un formato di nome utente di associazione:
 +
 ** Se le impostazioni di connessione sono valide, viene visualizzato il messaggio "Test connessione riuscito". Selezionare *Salva* per salvare la configurazione.
 ** Se le impostazioni di connessione non sono valide, viene visualizzato il messaggio "Impossibile stabilire la connessione di prova". Selezionare *Chiudi*. Quindi, risolvere eventuali problemi e verificare nuovamente la connessione.

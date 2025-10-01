@@ -1,0 +1,57 @@
+---
+permalink: maintain/convert-to-data-only-node.html 
+sidebar: sidebar 
+keywords: storagegrid, convert node, data-only node 
+summary: Per aumentare le prestazioni, è possibile convertire i nodi di archiviazione non ADC più lenti in nodi di archiviazione solo dati. 
+---
+= Convertire un nodo di archiviazione in un nodo solo dati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per aumentare le prestazioni, è possibile convertire i nodi di archiviazione non ADC più lenti in nodi di archiviazione solo dati.
+
+L'utilizzo di un nodo di storage esclusivamente per i dati può essere utile se i nodi di storage hanno caratteristiche di prestazioni diverse. Ad esempio, per aumentare potenzialmente le performance, potrebbero esserci nodi di storage su disco rotante a elevata capacità e solo dati accompagnati da nodi di storage dalle performance elevate e solo metadati.
+
+Inoltre, è possibile ottenere una maggiore capacità di metadati rimuovendo i nodi con poca RAM da Cassandra, il che aumenta il limite di capacità di metadati per nodo. Fare riferimento a link:../admin/managing-object-metadata-storage.html["Gestire lo storage dei metadati degli oggetti"] .
+
+Quando si convertono nodi solo dati, la griglia deve contenere almeno tre nodi di archiviazione combinati o solo metadati per sito.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di manutenzione o di accesso root"].
+* Il nodo di archiviazione che si desidera convertire non contiene il servizio ADC oppure è presentelink:../maintain/move-adc-service.html["spostato il servizio ADC"] a un altro nodo.
+* Il nodo di archiviazione non è un nodo solo metadati o solo dati.
+* Il nodo di archiviazione che si desidera convertire non contiene il servizio ADC oppure è presentelink:../maintain/move-adc-service.html["spostato il servizio ADC"] a un altro nodo.
+* C'è abbastanza spazio per i metadati su altri nodi del sito (o hailink:../expand/index.html["ha ampliato la tua griglia"] ) per ospitare i metadati che verranno migrati dal nodo di archiviazione che si sta convertendo.
++
+[CAUTION]
+====
+** Se i metadati che migrano verso altri nodi sullo stesso sito superano le dimensioni dellink:../admin/managing-object-metadata-storage.html["spazio riservato ai metadati"] , la rete diventerà instabile.
+** Dopo aver avviato la conversione, non sarà più possibile espandere la griglia.
+
+
+====
+
+
+.A proposito di questa attività
+Utilizzare questa procedura per convertire uno o più nodi di archiviazione combinati che non contengono il servizio ADC in nodi solo dati.
+
+Oltre a convertire il nodo di archiviazione, questa procedura dismette Cassandra dal nodo.  Tutti i metadati verranno migrati verso nodi di archiviazione combinati o contenenti solo metadati.  A seconda della quantità di metadati da migrare, il completamento di questa procedura potrebbe richiedere fino a diversi giorni per nodo.
+
+
+TIP: In genere, è possibile convertire fino a 10 nodi alla volta se l'utilizzo dei metadati per nodo è inferiore a 1 TB.  Se l'utilizzo dei metadati per nodo è superiore a 1 TB, convertire fino a 5 nodi per procedura.
+
+.Fasi
+. Registrare gli ID dei nodi di archiviazione non ADC che si desidera convertire.
+. Nella parte superiore di Grid Manager, selezionare l'icona della guida e selezionare *documentazione API*.
+. Selezionare *Vai alla documentazione API privata*.
+. Seleziona il `POST /private/convert-to-data-only-node/start` operazione. Fare riferimento a link:../admin/using-grid-management-api.html#issue-api-requests["Emettere richieste API"] per maggiori informazioni.
++
+Ogni nodo verrà riavviato durante la procedura.
+
+. Puoi usare `GET /private/convert-to-data-only-node` per monitorare la procedura.  Se si verificano errori, selezionare `POST /private/convert-to-data-only-node/retry` per riprovare la procedura.
+. link:../maintain/downloading-recovery-package.html["Scarica un pacchetto di ripristino"]dopo aver completato questa procedura.
+

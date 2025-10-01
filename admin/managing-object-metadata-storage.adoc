@@ -68,7 +68,7 @@ Lo _spazio riservato metadati_ è un'impostazione a livello di sistema che rappr
 
 
  a| 
-da 11,5 a 11,9
+da 11,5 a 12,0
  a| 
 128 GB o più su ciascun nodo di storage nella griglia
  a| 
@@ -116,7 +116,7 @@ Qualsiasi importo
 Per visualizzare l'impostazione dello spazio riservato ai metadati per il sistema StorageGRID, procedere come segue.
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *sistema* > *Impostazioni archiviazione*.
+. Selezionare *Configurazione* > *Sistema* > *Impostazioni di archiviazione*.
 . Nella pagina Impostazioni archiviazione, espandere la sezione *spazio riservato metadati*.
 
 
@@ -161,7 +161,7 @@ Il minore di questi valori:
 Per visualizzare lo spazio riservato effettivo per i metadati su un nodo di storage specifico, procedere come segue.
 
 .Fasi
-. Da Grid Manager, selezionare *NODES* > *_Storage Node_*.
+. Da Grid Manager, seleziona *Nodi* > *_Nodo di archiviazione_*.
 . Selezionare la scheda *Storage*.
 . Posizionare il cursore sul grafico Storage used - Object Metadata (Storage utilizzato - metadati oggetto) e individuare il valore *Actual reserved* (riservato).
 +
@@ -173,7 +173,7 @@ Nella schermata, il valore *effettivo riservato* è 8 TB. Questa schermata rigua
 
 
 
-== Esempio di spazio riservato effettivo dei metadati
+=== Esempio di spazio riservato effettivo dei metadati
 
 Si supponga di installare un nuovo sistema StorageGRID utilizzando la versione 11,7 o successiva. In questo esempio, si supponga che ogni nodo di storage abbia più di 128 GB di RAM e che il volume 0 del nodo di storage 1 (SN1) sia di 6 TB. In base a questi valori:
 
@@ -237,7 +237,7 @@ La seguente tabella mostra come StorageGRID calcola lo spazio di metadati consen
 Per visualizzare lo spazio di metadati consentito per un nodo di storage, procedere come segue.
 
 .Fasi
-. Da Grid Manager, selezionare *NODES*.
+. Da Grid Manager, seleziona *Nodi*.
 . Selezionare il nodo di storage.
 . Selezionare la scheda *Storage*.
 . Posizionare il cursore sul grafico dei metadati Storage used - Object e individuare il valore *Allowed*.

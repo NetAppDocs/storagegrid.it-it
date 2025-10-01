@@ -45,7 +45,7 @@ NOTE: Alcuni messaggi di errore nella colonna *ultimo errore* potrebbero include
 
 == Problemi relativi ai server proxy
 
-Se è stato configurato un link:configuring-storage-proxy-settings.html["proxy di storage"] tra i nodi di archiviazione e gli endpoint del servizio della piattaforma, potrebbero verificarsi degli errori se il servizio proxy non consente messaggi da StorageGRID. Per risolvere questi problemi, controllare le impostazioni del server proxy per assicurarsi che i messaggi relativi al servizio della piattaforma non siano bloccati.
+Se hai configurato unlink:configuring-storage-proxy-settings.html["proxy di storage"] tra i nodi di archiviazione e gli endpoint del servizio di piattaforma, potrebbero verificarsi errori se il servizio proxy non consente messaggi da StorageGRID.  Per risolvere questi problemi, controlla le impostazioni del tuo server proxy per assicurarti che i messaggi relativi ai servizi della piattaforma non siano bloccati.
 
 
 
@@ -61,8 +61,9 @@ Alcuni problemi relativi ai servizi della piattaforma potrebbero causare il malf
 
 Per controllare lo stato dei servizi:
 
-. Selezionare *SUPPORT* > *Tools* > *Grid topology*.
-. Selezionare *_Site_* > *_Storage Node_* > *SSM* > *Services*.
+. Selezionare *Nodi* > *_sito_* > *_Nodo di archiviazione_* > *Panoramica*.
+. Controllare gli avvisi attivi nella tabella Avvisi.
+. Risolvi tutti gli avvisi attivi.  Se necessario, contattare l'assistenza tecnica.
 
 
 
@@ -78,7 +79,11 @@ Una volta creati gli endpoint, gli errori di richiesta del servizio della piatta
 
 Se StorageGRID rileva un errore ripristinabile, la richiesta di servizio della piattaforma verrà rievitata fino a quando non avrà esito positivo.
 
-Altri errori non sono ripristinabili. Ad esempio, se l'endpoint viene cancellato, si verifica un errore irreversibile.
+Altri errori non sono recuperabili.  Ad esempio, gli errori irrecuperabili potrebbero verificarsi per i seguenti motivi:
+
+* L'endpoint è stato eliminato.
+* Una destinazione endpoint webhook risponde a una richiesta di notifica con un `400 Bad Request` errore.
+
 
 Se StorageGRID rileva un errore irreversibile dell'endpoint:
 
@@ -91,7 +96,7 @@ Se StorageGRID rileva un errore irreversibile dell'endpoint:
 
 == I messaggi dei servizi della piattaforma non possono essere inviati
 
-Se la destinazione incontra un problema che impedisce l'accettazione dei messaggi dei servizi della piattaforma, l'operazione client sul bucket riesce, ma il messaggio dei servizi della piattaforma non viene recapitato. Ad esempio, questo errore potrebbe verificarsi se le credenziali vengono aggiornate sulla destinazione in modo che StorageGRID non possa più autenticare il servizio di destinazione.
+Se la destinazione riscontra un problema che le impedisce di accettare i messaggi dei servizi della piattaforma, l'operazione client sul bucket riesce, ma il messaggio dei servizi della piattaforma non viene recapitato.  Ad esempio, questo errore potrebbe verificarsi se le credenziali vengono aggiornate sulla destinazione in modo tale che StorageGRID non possa più autenticarsi al servizio di destinazione.
 
 Verificare la presenza di avvisi correlati.
 
@@ -111,7 +116,7 @@ L'unico effetto visibile è che l'esecuzione delle richieste S3 in entrata richi
 
 Per visualizzare il tasso di errore della richiesta per i servizi della piattaforma:
 
-. Selezionare *NODI*.
+. Selezionare *Nodi*.
 . Selezionare *_Site_* > *Platform Services*.
 . Visualizza il grafico tasso di errore della richiesta.
 +

@@ -2,7 +2,7 @@
 permalink: tenant/index.html 
 sidebar: sidebar 
 keywords: use tenant account 
-summary: 'Un account tenant consente di utilizzare l"API REST di S3 (Simple Storage Service) o l"API REST di Swift per memorizzare e recuperare oggetti in un sistema StorageGRID.' 
+summary: 'Un account tenant consente di utilizzare l"API REST Simple Storage Service (S3) per archiviare e recuperare oggetti in un sistema StorageGRID .' 
 ---
 = Utilizzare un account tenant
 :allow-uri-read: 
@@ -11,20 +11,20 @@ summary: 'Un account tenant consente di utilizzare l"API REST di S3 (Simple Stor
 
 
 [role="lead"]
-Un account tenant consente di utilizzare l'API REST di S3 (Simple Storage Service) o l'API REST di Swift per memorizzare e recuperare oggetti in un sistema StorageGRID.
+Un account tenant consente di utilizzare l'API REST S3 (Simple Storage Service) per memorizzare e recuperare gli oggetti in un sistema StorageGRID.
 
 
 
 == Che cos'è un account tenant?
 
-Ogni account tenant dispone di gruppi federati o locali, utenti, bucket S3 o container Swift e oggetti.
+Ogni account tenant ha i propri gruppi, utenti, bucket S3 e oggetti federati o locali.
 
 Gli account tenant possono essere utilizzati per separare gli oggetti memorizzati da diverse entità. Ad esempio, è possibile utilizzare più account tenant per uno dei seguenti casi di utilizzo:
 
 * *Caso d'utilizzo aziendale:* se il sistema StorageGRID viene utilizzato all'interno di un'azienda, lo storage a oggetti del grid potrebbe essere separato dai diversi reparti dell'organizzazione. Ad esempio, potrebbero essere presenti account tenant per il reparto Marketing, il reparto Assistenza clienti, il reparto risorse umane e così via.
 +
 
-NOTE: Se si utilizza il protocollo client S3, è anche possibile utilizzare i bucket S3 e le policy bucket per separare gli oggetti tra i reparti di un'azienda. Non è necessario creare account tenant separati. Per ulteriori informazioni, vedere le istruzioni per l'implementazionelink:../s3/bucket-and-group-access-policies.html["Bucket S3 e policy bucket"].
+NOTE: Se si utilizza il protocollo client S3, è possibile utilizzare anche i bucket S3 e i criteri dei bucket per separare gli oggetti tra i reparti di un'azienda.  Non è necessario creare account tenant separati.  Vedi le istruzioni per l'implementazionelink:../s3/use-access-policies.html["Bucket S3 e policy bucket"] per maggiori informazioni.
 
 * *Caso d'utilizzo del provider di servizi:* se il sistema StorageGRID viene utilizzato da un provider di servizi, lo storage a oggetti della griglia potrebbe essere separato dalle diverse entità che affittano lo storage. Ad esempio, potrebbero essere presenti account tenant per la società A, la società B, la società C e così via.
 

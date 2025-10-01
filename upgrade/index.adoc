@@ -16,12 +16,16 @@ Seguire queste istruzioni per aggiornare un sistema StorageGRID a una nuova rele
 Quando esegui l'upgrade, tutti i nodi del sistema StorageGRID vengono aggiornati.
 
 
+CAUTION: Non avviare l'aggiornamento se hai urgente bisogno di espandere lo spazio di archiviazione per aumentarne la capacità (se lo spazio di archiviazione è quasi pieno).  Completare la procedura di aggiornamento nei tempi previsti.  Se è necessario un ripristino, contattare l'assistenza tecnica.
 
-== Prima di iniziare
 
-Esaminate questi argomenti per scoprire le nuove funzioni e i miglioramenti di StorageGRID 11,9, determinare se alcune funzioni sono state deprecate o rimosse e scoprire le modifiche alle API StorageGRID.
 
-* link:whats-new.html["Novità di StorageGRID 11,9"]
+== Prima di effettuare l'aggiornamento
+
+Esamina questi argomenti per scoprire le nuove funzionalità e i miglioramenti di StorageGRID 12.0, determinare se alcune funzionalità sono state deprecate o rimosse e scoprire le modifiche apportate alle API StorageGRID .
+
+* link:how-your-system-is-affected-during-upgrade.html["Impatto del sistema durante l'aggiornamento"]
+* link:whats-new.html["Novità di StorageGRID 12.0"]
 * link:removed-or-deprecated-features.html["Funzionalità rimosse o obsolete"]
 * link:changes-to-grid-management-api.html["Modifiche all'API Grid Management"]
 * link:changes-to-tenant-management-api.html["Modifiche all'API di gestione del tenant"]

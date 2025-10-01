@@ -85,6 +85,7 @@ L'avviso *Grid Network MTU mismatch* (mancata corrispondenza MTU rete griglia) v
 Le differenze nelle impostazioni MTU potrebbero indicare che alcune, ma non tutte, reti eth0 sono configurate per i frame jumbo. Una mancata corrispondenza delle dimensioni MTU superiore a 1000 potrebbe causare problemi di performance di rete.
 
 .Fasi
+. L'accesso SSH esterno è bloccato per impostazione predefinita.  Se necessario,link:../admin/manage-external-ssh-access.html["consentire temporaneamente l'accesso"] .
 . Elencare le impostazioni MTU per eth0 su tutti i nodi.
 +
 ** Utilizzare la query fornita in Grid Manager.
@@ -148,6 +149,7 @@ Il nodo. L'impostazione predefinita è il nodo locale.
 |===
 
 
+. Se hai consentito l'accesso SSH esterno,link:../admin/manage-external-ssh-access.html["bloccare l'accesso"] quando hai terminato il compito.
 
 
 
@@ -257,12 +259,12 @@ Potrebbero verificarsi problemi di connettività di rete per i nodi StorageGRID 
 
 === Clonazione indirizzo MAC
 
-In alcuni casi, i problemi di rete possono essere risolti utilizzando la clonazione dell'indirizzo MAC. Se si utilizzano host virtuali, impostare il valore della chiave di clonazione dell'indirizzo MAC per ciascuna rete su "true" nel file di configurazione del nodo. Questa impostazione fa in modo che l'indirizzo MAC del container StorageGRID utilizzi l'indirizzo MAC dell'host. Per creare i file di configurazione dei nodi, vedere le istruzioni per link:../rhel/creating-node-configuration-files.html["Red Hat Enterprise Linux"] o link:../ubuntu/creating-node-configuration-files.html["Ubuntu o Debian"].
+In alcuni casi, i problemi di rete possono essere risolti utilizzando la clonazione dell'indirizzo MAC.  Se si utilizzano host virtuali, impostare il valore della chiave di clonazione dell'indirizzo MAC per ciascuna delle reti su "true" nel file di configurazione del nodo.  Questa impostazione fa sì che l'indirizzo MAC del contenitore StorageGRID utilizzi l'indirizzo MAC dell'host.  Vedi le istruzioni perlink:../swnodes/creating-node-configuration-files.html["creare file di configurazione del nodo"] .
 
 
 NOTE: Creare interfacce di rete virtuali separate per l'utilizzo da parte del sistema operativo host Linux. L'utilizzo delle stesse interfacce di rete per il sistema operativo host Linux e per il container StorageGRID potrebbe rendere il sistema operativo host irraggiungibile se la modalità promiscua non è stata attivata sull'hypervisor.
 
-Per ulteriori informazioni sull'attivazione della clonazione MAC, vedere le istruzioni per link:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"] o link:../ubuntu/configuring-host-network.html["Ubuntu o Debian"].
+Per maggiori informazioni, consultare le istruzioni perlink:../swnodes/configuring-host-network.html["abilitazione della clonazione MAC"] .
 
 
 
@@ -270,7 +272,7 @@ Per ulteriori informazioni sull'attivazione della clonazione MAC, vedere le istr
 
 Se non si desidera utilizzare la clonazione dell'indirizzo MAC e si desidera consentire a tutte le interfacce di ricevere e trasmettere dati per indirizzi MAC diversi da quelli assegnati dall'hypervisor, Assicurarsi che le proprietà di sicurezza a livello di switch virtuale e gruppo di porte siano impostate su *Accept* per modalità promiscuous, modifiche indirizzo MAC e trasmissione forgiata. I valori impostati sullo switch virtuale possono essere sovrascritti dai valori a livello di gruppo di porte, quindi assicurarsi che le impostazioni siano le stesse in entrambe le posizioni.
 
-Per ulteriori informazioni sull'uso della modalità promiscua, vedere le istruzioni per link:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"] o link:../ubuntu/configuring-host-network.html["Ubuntu o Debian"].
+Per ulteriori informazioni sull'utilizzo della modalità promiscua, consultare le istruzioni perlink:../swnodes/configuring-host-network.html["come configurare la rete host"] .
 
 
 
@@ -327,7 +329,7 @@ Potrebbe essere necessario abilitare il supporto IPv6 nel kernel se sono stati i
 .A proposito di questa attività
 Per visualizzare l'indirizzo IPv6 assegnato a un nodo griglia:
 
-. Selezionare *NODI* e selezionare il nodo.
+. Selezionare *Nodi* e selezionare il nodo.
 . Selezionare *Mostra indirizzi IP aggiuntivi* accanto a *indirizzi IP* nella scheda Panoramica.
 
 

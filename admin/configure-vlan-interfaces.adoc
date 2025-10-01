@@ -26,12 +26,14 @@ summary: È possibile creare interfacce LAN virtuali sui nodi Admin e Gateway e 
 * Per ulteriori informazioni sull'aggiunta di interfacce di linea, consultare quanto segue:
 +
 ** *VMware (dopo l'installazione del nodo)*: link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware: Aggiunta di interfacce di accesso o trunk a un nodo"]
-** *RHEL (prima di installare il nodo)*: link:../rhel/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
-** *Ubuntu o Debian (prima di installare il nodo)*: link:../ubuntu/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
-** *RHEL, Ubuntu o Debian (dopo aver installato il nodo)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Aggiunta di interfacce di accesso o trunk a un nodo"]
+** *Linux (prima di installare il nodo)*:link:../swnodes/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
+** *Linux (dopo aver installato il nodo)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Aggiungere interfacce trunk o di accesso a un nodo"]
 
 
 
+
+
+NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
 
 
 
@@ -54,7 +56,7 @@ L'amministratore di rete potrebbe aver configurato una o più interfacce di trun
 === Accedere alla procedura guidata
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *VLAN interfaces*.
+. Selezionare *Configurazione* > *Rete* > *Interfacce VLAN*.
 . Selezionare *Crea*.
 
 
@@ -101,7 +103,7 @@ image::../media/vlan-create-parent-interfaces.png[Creazione guidata VLAN interfa
 
 
 . Selezionare *Salva*.
-. Attendere fino a 5 minuti che la nuova interfaccia venga visualizzata come selezione nella pagina High Availability groups (gruppi ad alta disponibilità) e sia elencata nella tabella *Network interfaces* (interfacce di rete) per il nodo (*NODES* > *_parent interface node_* > *Network*).
+. Attendere fino a 5 minuti affinché la nuova interfaccia venga visualizzata come selezione nella pagina Gruppi ad alta disponibilità e venga elencata nella tabella *Interfacce di rete* per il nodo (*Nodi* > *_nodo interfaccia padre_* > *Rete*).
 
 
 
@@ -126,7 +128,7 @@ Ad esempio, si supponga che la VLAN 200 sia collegata alle interfacce padre sui 
 
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *VLAN interfaces*.
+. Selezionare *Configurazione* > *Rete* > *Interfacce VLAN*.
 . Selezionare la casella di controllo dell'interfaccia VLAN che si desidera modificare. Quindi, selezionare *azioni* > *Modifica*.
 . Facoltativamente, aggiornare l'ID VLAN o la descrizione. Quindi, selezionare *continua*.
 +
@@ -153,7 +155,7 @@ Per evitare interruzioni del traffico client, è consigliabile eseguire una dell
 
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *VLAN interfaces*.
+. Selezionare *Configurazione* > *Rete* > *Interfacce VLAN*.
 . Selezionare la casella di controllo per ogni interfaccia VLAN che si desidera rimuovere. Quindi, selezionare *azioni* > *Elimina*.
 . Selezionare *Sì* per confermare la selezione.
 +

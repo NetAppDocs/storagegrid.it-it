@@ -19,7 +19,7 @@ Il sistema StorageGRID supporta un set limitato di suite di crittografia per le 
 
 StorageGRID supporta TLS 1.2 e TLS 1.3 per le connessioni a sistemi esterni utilizzati per la federazione delle identità e i pool di storage cloud.
 
-I cifrari TLS supportati per l'utilizzo con sistemi esterni sono stati selezionati per garantire la compatibilità con una vasta gamma di sistemi esterni. L'elenco è più grande dell'elenco di cifrari supportati per l'uso con le applicazioni client S3. Per configurare le crittografia, andare a *CONFIGURATION* > *Security* > *Security settings* e selezionare *TLS and SSH policy*.
+I cifrari TLS supportati per l'uso con sistemi esterni sono stati selezionati per garantire la compatibilità con una vasta gamma di sistemi esterni.  L'elenco è più lungo dell'elenco dei cifrari supportati per l'uso con le applicazioni client S3.  Per configurare i cifrari, vai su *Configurazione* > *Sicurezza* > *Impostazioni di sicurezza* e seleziona *Criteri TLS e SSH*.
 
 
 NOTE: Le opzioni di configurazione TLS, come versioni di protocollo, crittografia, algoritmi di scambio delle chiavi e algoritmi MAC, non sono configurabili in StorageGRID. Se hai richieste specifiche su queste impostazioni, contatta il tuo rappresentante NetApp.

@@ -25,7 +25,7 @@ Gli account tenant possono essere utilizzati per separare gli oggetti memorizzat
 * *Caso d'utilizzo aziendale:* se si amministra un sistema StorageGRID in un'applicazione aziendale, è possibile separare lo storage a oggetti del grid dai diversi reparti dell'organizzazione. In questo caso, è possibile creare account tenant per il reparto Marketing, il reparto Assistenza clienti, il reparto risorse umane e così via.
 +
 
-NOTE: Se si utilizza il protocollo client S3, è possibile utilizzare i bucket S3 e le policy bucket per separare gli oggetti tra i reparti di un'azienda. Non è necessario utilizzare account tenant. Per ulteriori informazioni, vedere le istruzioni per l'implementazionelink:../s3/bucket-and-group-access-policies.html["Bucket S3 e policy bucket"].
+NOTE: Se si utilizza il protocollo client S3, è possibile utilizzare bucket S3 e policy di bucket per separare gli oggetti tra i reparti di un'azienda.  Non è necessario utilizzare account tenant.  Vedi le istruzioni per l'implementazionelink:../s3/use-access-policies.html["Bucket S3 e policy bucket"] per maggiori informazioni.
 
 * *Caso d'utilizzo del provider di servizi:* se si amministra un sistema StorageGRID come provider di servizi, è possibile separare lo storage a oggetti della griglia dalle diverse entità che affitteranno lo storage sulla griglia. In questo caso, è necessario creare account tenant per la società A, la società B, la società C e così via.
 

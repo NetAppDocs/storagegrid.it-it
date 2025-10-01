@@ -2,7 +2,7 @@
 permalink: tenant/understanding-tenant-manager-dashboard.html 
 sidebar: sidebar 
 keywords: how to understand tenant manager dashboard 
-summary: 'La dashboard di Tenant Manager offre una panoramica della configurazione di un account tenant e della quantità di spazio utilizzata dagli oggetti nei bucket del tenant (S3) o nei container (Swift). Se il tenant dispone di una quota, la dashboard mostra la quantità di quota utilizzata e la quantità rimanente. In caso di errori relativi all"account tenant, gli errori vengono visualizzati nella dashboard.' 
+summary: 'La dashboard di Tenant Manager fornisce una panoramica della configurazione di un account tenant e della quantità di spazio utilizzata dagli oggetti nei bucket S3 del tenant.  Se il tenant ha una quota, la dashboard mostra quanta quota è utilizzata e quanta ne rimane.  Se si verificano errori relativi all"account del tenant, gli errori vengono visualizzati nella dashboard.' 
 ---
 = Comprendere la dashboard di Tenant Manager
 :allow-uri-read: 
@@ -11,10 +11,10 @@ summary: 'La dashboard di Tenant Manager offre una panoramica della configurazio
 
 
 [role="lead"]
-La dashboard di Tenant Manager offre una panoramica della configurazione di un account tenant e della quantità di spazio utilizzata dagli oggetti nei bucket (S3) o nei container (Swift) del tenant. Se il tenant dispone di una quota, la dashboard mostra la quantità di quota utilizzata e la quantità rimanente. In caso di errori relativi all'account tenant, gli errori vengono visualizzati nella dashboard.
+La dashboard di Tenant Manager fornisce una panoramica della configurazione di un account tenant e della quantità di spazio utilizzata dagli oggetti nei bucket S3 del tenant.  Se il tenant ha una quota, la dashboard mostra quanta quota è utilizzata e quanta ne rimane.  Se si verificano errori relativi all'account del tenant, gli errori vengono visualizzati nella dashboard.
 
 
-NOTE: I valori di spazio utilizzato sono stime. Queste stime sono influenzate dai tempi di acquisizione, dalla connettività di rete e dallo stato dei nodi.
+NOTE: La dimensione logica di tutti gli oggetti appartenenti a questo tenant include caricamenti multiparte incompleti e in corso.  Le dimensioni non includono lo spazio fisico aggiuntivo utilizzato per le policy ILM.  I valori dello spazio utilizzato sono stime.  Tali stime sono influenzate dalla tempistica degli ingest, dalla connettività di rete e dallo stato del nodo.
 
 Una volta caricati gli oggetti, la dashboard è simile al seguente esempio:
 

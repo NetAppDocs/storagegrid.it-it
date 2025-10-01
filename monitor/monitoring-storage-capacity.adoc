@@ -45,7 +45,7 @@ image::../media/dashboard_storage_over_time.png[Grafico dello storage nel tempo]
 
 . Utilizzare la pagina nodi per ulteriori dettagli sulla quantità di storage utilizzata e sulla quantità di storage disponibile nella griglia per i dati degli oggetti e i metadati degli oggetti.
 +
-.. Selezionare *NODI*.
+.. Selezionare *Nodi*.
 .. Selezionare *_grid_* > *Storage*.
 +
 image::../media/nodes_deployment_storage_tab.png[Scheda Node Deployment Storage (Storage di implementazione]
@@ -82,7 +82,7 @@ Lo spazio utilizzabile è la quantità di spazio di storage disponibile per memo
 image::../media/calculating_watermarks.gif[Disegno concettuale per lo spazio utilizzabile totale]
 
 .Fasi
-. Selezionare *NODES* > *_Storage Node_* > *Storage*.
+. Selezionare *Nodi* > *Nodo di archiviazione_* > *Archiviazione*.
 +
 Vengono visualizzati i grafici e le tabelle del nodo.
 
@@ -140,7 +140,7 @@ In alcuni casi, la capacità dei metadati degli oggetti della griglia potrebbe e
 Alcuni dei fattori che possono aumentare l'utilizzo dei metadati includono la dimensione e la quantità di tag e metadati dell'utente, il numero totale di parti in un caricamento multiparte e la frequenza delle modifiche alle posizioni di storage ILM.
 
 .Fasi
-. Selezionare *NODES* > *_Storage Node_* > *Storage*.
+. Selezionare *Nodi* > *Nodo di archiviazione_* > *Archiviazione*.
 . Posizionare il cursore sul grafico Storage Used - Object metadata (Storage utilizzato - metadati oggetto) per visualizzare i valori relativi a un orario specifico.
 +
 image::../media/storage_used_object_metadata.png[Storage utilizzato - metadati oggetto]

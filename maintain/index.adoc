@@ -14,7 +14,7 @@ summary: Le attività di manutenzione della rete includono la dismissione di un 
 Le attività di manutenzione della rete includono il decommissioning di un nodo o sito, la ridenominazione di una griglia, di un nodo o di un sito e la manutenzione delle reti. È inoltre possibile eseguire procedure host e middleware e procedure dei nodi di rete.
 
 
-NOTE: In queste istruzioni, "Linux" si riferisce a una distribuzione di Red Hat® Enterprise Linux®, Ubuntu® o Debian®. Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp"^] .
+NOTE: In queste istruzioni, "Linux" si riferisce a una distribuzione Red Hat® Enterprise Linux® (RHEL), Ubuntu® o Debian®.  Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp"^] .
 
 
 

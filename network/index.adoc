@@ -51,9 +51,7 @@ Dopo aver stabilito quali reti StorageGRID si desidera utilizzare e come configu
 
 
 .Installare nodi basati su software
-* link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
-* link:../vmware/index.html["Installare StorageGRID su VMware"]
+* link:../swnodes/index.html["Installa StorageGRID sui nodi basati su software"]
 
 
 .Configurare e amministrare il software StorageGRID

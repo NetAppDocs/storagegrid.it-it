@@ -40,7 +40,7 @@ NOTE: Se è necessario comprimere gli oggetti e l'applicazione client deve utili
 
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *sistema* > *Impostazioni archiviazione* > *compressione oggetti*.
+. Selezionare *Configurazione* > *Sistema* > *Impostazioni di archiviazione* > *Compressione oggetti*.
 . Selezionare la casella di controllo *Comprimi oggetti memorizzati*.
 . Selezionare *Salva*.
 

@@ -13,6 +13,8 @@ summary: 'La condivisione dell"audit contiene il file audit.log attivo ed eventu
 [role="lead"]
 La condivisione di controllo contiene il file attivo `audit.log` ed eventuali file di registro di controllo compressi. È possibile accedere ai file di log di controllo direttamente dalla riga di comando del nodo amministrativo.
 
+IL `audit.log` il file rimane vuoto a meno che non si configuri StorageGRID per *Nodi amministrativi/nodi locali* o *Nodo amministrativo e server syslog esterno*. Per ulteriori informazioni, fare riferimento a link:../monitor/configure-log-management.html#select-log-location["Seleziona la posizione del registro"] .
+
 .Prima di iniziare
 * Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
 * È necessario disporre del `Passwords.txt` file.
@@ -33,7 +35,7 @@ Quando si è collegati come root, il prompt cambia da `$` a `#`.
 
 . Accedere alla directory contenente i file di log di controllo:
 +
-`cd /var/local/log`
+`cd  /var/local/audit/export/`
 
 . Visualizzare il file di log di audit corrente o salvato, secondo necessità.
 

@@ -38,27 +38,6 @@ link:sdel-s3-delete.html["SDEL: ELIMINAZIONE S3"]
 |===
 
 
-== Eliminazione rapida dei messaggi di audit
-
-[cols="1a,1a,2a,1a,2a"]
-|===
-| Codice | Nome | Descrizione | Traccia | Vedere 
-
-
- a| 
-WDEL
- a| 
-Eliminazione rapida
- a| 
-Richiesta di eliminazione dell'oggetto da un container o dal container.
- a| 
-CBID, WOBJ
- a| 
-link:wdel-swift-delete.html["WDEL: ELIMINAZIONE rapida"]
-
-|===
-
-
 == Esempio: Eliminazione di oggetti S3
 
 Quando un client S3 elimina un oggetto da un nodo di storage (servizio LDR), viene generato un messaggio di audit e salvato nel registro di audit.

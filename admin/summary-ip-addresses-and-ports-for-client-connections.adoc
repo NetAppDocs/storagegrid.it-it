@@ -88,7 +88,7 @@ Ad esempio, se l'indirizzo IP virtuale del gruppo ha è 192.0.2.5 e il numero di
 . Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 . Per trovare l'indirizzo IP di un nodo Grid:
 +
-.. Selezionare *NODI*.
+.. Selezionare *Nodi*.
 .. Selezionare il nodo Admin, il nodo gateway o il nodo di storage a cui si desidera connettersi.
 .. Selezionare la scheda *Panoramica*.
 .. Nella sezione Node Information (informazioni sul nodo), annotare gli indirizzi IP del nodo.
@@ -110,13 +110,13 @@ NOTE: Se si sta visualizzando un nodo Admin o un nodo Gateway e si tratta del no
 
 . Per trovare l'indirizzo IP virtuale di un gruppo ad alta disponibilità:
 +
-.. Selezionare *CONFIGURATION* > *Network* > *High Availability groups*.
+.. Selezionare *Configurazione* > *Rete* > *Gruppi ad alta disponibilità*.
 .. Nella tabella, annotare l'indirizzo IP virtuale del gruppo ha.
 
 
 . Per trovare il numero di porta di un endpoint Load Balancer:
 +
-.. Selezionare *CONFIGURATION* > *Network* > *Load Balancer Endpoints*.
+.. Selezionare *Configurazione* > *Rete* > *Endpoint del bilanciatore del carico*.
 .. Annotare il numero di porta dell'endpoint che si desidera utilizzare.
 +
 

@@ -29,7 +29,7 @@ Rivedere le impostazioni di conformità dei tenant esistenti dopo aver attivato 
 NOTE: L'impostazione di conformità globale è obsoleta. Se questa impostazione è stata attivata utilizzando una versione precedente di StorageGRID, l'impostazione blocco oggetti S3 viene attivata automaticamente. È possibile continuare a utilizzare StorageGRID per gestire le impostazioni dei bucket conformi esistenti; tuttavia, non è possibile creare nuovi bucket conformi. Per ulteriori informazioni, vedere https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Knowledge base di NetApp: Come gestire i bucket conformi alle versioni precedenti in StorageGRID 11.5"^].
 
 .Fasi
-. Selezionare *CONFIGURATION* > *System* > *S3 Object Lock*.
+. Selezionare *Configurazione* > *Sistema* > *Blocco oggetto S3*.
 +
 Viene visualizzata la pagina S3 Object Lock Settings (Impostazioni blocco oggetti S3).
 

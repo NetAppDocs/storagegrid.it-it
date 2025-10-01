@@ -15,7 +15,7 @@ Questa sezione descrive come il sistema StorageGRID implementa le operazioni API
 
 Le seguenti condizioni si applicano a tutte le operazioni a oggetti:
 
-* StorageGRID link:consistency-controls.html["valori di coerenza"]è supportato da tutte le operazioni sugli oggetti, ad eccezione di quanto segue:
+* StorageGRIDlink:consistency.html["valori di coerenza"] sono supportati da tutte le operazioni sugli oggetti, ad eccezione delle seguenti:
 +
 ** GetObjectAcl
 ** `OPTIONS /`
@@ -26,7 +26,6 @@ Le seguenti condizioni si applicano a tutte le operazioni a oggetti:
 
 * Le richieste dei client in conflitto, come due client che scrivono sulla stessa chiave, vengono risolte in base alle "ultime vincite". La tempistica per la valutazione degli "ultimi successi" si basa sul momento in cui il sistema StorageGRID completa una data richiesta e non sul momento in cui i client S3 iniziano un'operazione.
 * Tutti gli oggetti in un bucket StorageGRID sono di proprietà del proprietario del bucket, inclusi gli oggetti creati da un utente anonimo o da un altro account.
-* Impossibile accedere agli oggetti dati acquisiti nel sistema StorageGRID tramite Swift tramite S3.
 
 
 Nella tabella seguente viene descritto il modo in cui StorageGRID implementa le operazioni degli oggetti API REST S3.

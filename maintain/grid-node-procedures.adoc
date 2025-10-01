@@ -13,18 +13,17 @@ summary: Potrebbe essere necessario eseguire procedure di manutenzione relative 
 [role="lead"]
 Potrebbe essere necessario eseguire procedure di manutenzione relative a specifici nodi di rete o servizi di nodi.
 
-Procedure di Server Manager:: Server Manager viene eseguito su ogni nodo grid per supervisionare l'avvio e l'arresto dei servizi e per garantire che i servizi si uniscano e abbandonino correttamente il sistema StorageGRID. Server Manager monitora inoltre i servizi su ogni nodo grid e tenta automaticamente di riavviare tutti i servizi che segnalano gli errori.
+Sposta ADC:: ILlink:../maintain/understanding-adc-service-quorum.html["Servizio ADC"] si trova su alcuni nodi di archiviazione.  In determinate circostanze di dismissione e conversione dei nodi, è necessario spostare il servizio ADC su un altro nodo di archiviazione nello stesso sito.
+Convertire il nodo di archiviazione in un nodo solo dati:: È possibile convertire i nodi di archiviazione che non contengono il servizio ADC in nodi di archiviazione solo dati.
+Riavvio, spegnimento e alimentazione del nodo:: Queste procedure vengono utilizzate per riavviare uno o più nodi, per arrestare e riavviare i nodi o per spegnere e riaccendere i nodi.
+Rimappatura delle porte:: È possibile utilizzare le procedure di rimappamento delle porte per rimuovere i rimappamenti delle porte da un nodo, ad esempio, se si desidera configurare un endpoint di bilanciamento del carico utilizzando una porta precedentemente rimappata.
+Responsabile del server:: Server Manager viene eseguito su ogni nodo grid per supervisionare l'avvio e l'arresto dei servizi e per garantire che i servizi si uniscano e abbandonino correttamente il sistema StorageGRID. Server Manager monitora inoltre i servizi su ogni nodo grid e tenta automaticamente di riavviare tutti i servizi che segnalano gli errori.
 +
 --
 Per eseguire le procedure di Server Manager, in genere è necessario accedere alla riga di comando del nodo.
 
 
-NOTE: L'accesso a Server Manager deve essere effettuato solo se il supporto tecnico lo ha richiesto.
-
-
-NOTE: Al termine dell'operazione con Server Manager, chiudere la sessione corrente della shell dei comandi e disconnettersi. Immettere: `exit`
+CAUTION: L'accesso a Server Manager deve essere effettuato solo se il supporto tecnico lo ha richiesto.
 
 --
-Procedure di riavvio, spegnimento e alimentazione del nodo:: Queste procedure vengono utilizzate per riavviare uno o più nodi, per arrestare e riavviare i nodi o per spegnere e riaccendere i nodi.
-Procedure di rimappamento delle porte:: È possibile utilizzare le procedure di rimappamento delle porte per rimuovere i rimappamenti delle porte da un nodo, ad esempio, se si desidera configurare un endpoint di bilanciamento del carico utilizzando una porta precedentemente rimappata.
 

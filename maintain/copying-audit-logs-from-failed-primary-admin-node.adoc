@@ -22,7 +22,7 @@ A seconda del tipo di errore, potrebbe non essere possibile copiare i registri d
 NOTE: Se i registri di controllo non sono ora accessibili sul nodo di amministrazione guasto, potrebbe essere possibile accedervi in un secondo momento, ad esempio dopo il ripristino dell'host.
 
 .Fasi
-. Se possibile, accedere al nodo Admin non riuscito. In caso contrario, accedere al nodo di amministrazione primario o a un altro nodo di amministrazione, se disponibile.
+. Se possibile, accedere al nodo di amministrazione primario non riuscito.  In caso contrario, accedi a qualsiasi nodo di amministrazione disponibile.
 +
 .. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
 .. Immettere la password elencata nel `Passwords.txt` file.
@@ -36,14 +36,28 @@ Quando si è collegati come root, il prompt cambia da `$` a `#`.
 . Arrestare il servizio AMS per evitare che crei un nuovo file di registro:``service ams stop``
 . Accedere alla directory di esportazione della verifica:
 +
-`cd /var/local/log`
+`cd /var/local/audit/export`
 
-. Rinominare il file di origine `audit.log` con un nome di file numerato univoco. Ad esempio, rinominare il file audit.log in `2023-10-25.txt.1`.
++
+(O `cd /var/local/log` sui sistemi precedenti)
+
+. Rinominare il file di registro di origine con un nome di file numerato univoco.
++
+[NOTE]
+====
+** Se il file di registro è in `/var/local/audit/export` directory, il suo nome è `audit.log` .
+** Se il file di registro è in `/var/local/log` directory, il suo nome è `localaudit.log` .
+
+
+====
++
+Ad esempio, rinominare il `localaudit.log` file a `2025-10-22.txt.1` .
+
 +
 [listing]
 ----
 ls -l
-mv audit.log 2023-10-25.txt.1
+mv localaudit.log 2025-10-22.txt.1
 ----
 . Riavviare il servizio AMS: `service ams start`
 . Creare la directory per copiare tutti i file di log di controllo in una posizione temporanea su un nodo griglia separato: `ssh admin@_grid_node_IP_ mkdir -p /var/local/tmp/saved-audit-logs`

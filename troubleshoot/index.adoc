@@ -152,27 +152,6 @@ Rivedi gli avvisi attivati in passato per ulteriori informazioni.
 
 
  a| 
-Monitorare gli eventi
- a| 
-Gli eventi includono qualsiasi errore di sistema o evento di guasto per un nodo, inclusi errori come gli errori di rete. Monitorare gli eventi per ottenere ulteriori informazioni sui problemi o per la risoluzione dei problemi.
- a| 
-* link:../monitor/monitoring-events.html["Monitorare gli eventi"]
-
-
-
-
- a| 
-Identificare i trend utilizzando grafici e report di testo
- a| 
-Le tendenze possono fornire indizi preziosi su quando sono comparsi i problemi per la prima volta e possono aiutarti a capire quanto rapidamente le cose stanno cambiando.
- a| 
-* link:../monitor/using-charts-and-reports.html["Utilizzare grafici e grafici"]
-* link:../monitor/types-of-text-reports.html["Utilizzare report di testo"]
-
-
-
-
- a| 
 Stabilire le linee di base
  a| 
 Raccogliere informazioni sui livelli normali dei vari valori operativi. Questi valori di riferimento, e le deviazioni da queste linee di base, possono fornire indizi preziosi.
@@ -335,22 +314,13 @@ Nel grafico Storage used - Object Metadata (Storage utilizzato - metadati oggett
 
 
  a| 
-Tasso di operazioni S3/Swift
+Tasso di operazioni S3
  a| 
 Operazioni/secondo
  a| 
-Nella dashboard di Grid Manager, selezionare *Performance* > *S3 Operations* o *Performance* > *Swift Operations*.
+Nella dashboard di Grid Manager, seleziona *Prestazioni* > *Operazioni S3 per nodi di archiviazione*.
 
-Per visualizzare i tassi di acquisizione e recupero e i conteggi per un sito o nodo specifico, selezionare *NODES* > *_Site o Storage Node_* > *Objects*. Posizionare il cursore sul grafico acquisizione e recupero per S3.
-
-
-
- a| 
-Operazioni S3/Swift non riuscite
- a| 
-Operazioni
- a| 
-Selezionare *SUPPORT* > *Tools* > *Grid topology*. Nella scheda Overview (Panoramica) della sezione API Operations (operazioni API), visualizzare il valore di S3 Operations - Failed (operazioni S3 - non riuscite) o Swift Operations - Failed (operazioni Swift - non riuscite).
+Per visualizzare le velocità e i conteggi di acquisizione e recupero per un sito o un nodo specifico, selezionare *Nodi* > *_sito o Nodo di archiviazione_* > *Oggetti*.  Posiziona il cursore sul grafico di acquisizione e recupero S3.
 
 
 
@@ -370,7 +340,7 @@ Velocità di scansione ILM
  a| 
 Oggetti/secondo
  a| 
-Selezionare *NODI* > *_grid_* > *ILM*.
+Selezionare *Nodi* > *_grid_* > *ILM*.
 
 Nel grafico ILM Queue, individuare un punto in cui la riga è abbastanza stabile. Posizionare il cursore sul grafico per stimare un valore di riferimento per *velocità di scansione* per il sistema.
 
@@ -381,7 +351,7 @@ Oggetti accodati dalle operazioni del client
  a| 
 Oggetti/secondo
  a| 
-Selezionare *NODI* > *_grid_* > *ILM*.
+Selezionare *Nodi* > *_grid_* > *ILM*.
 
 Nel grafico ILM Queue, individuare un punto in cui la riga è abbastanza stabile. Posizionare il cursore sul grafico per stimare un valore di riferimento per *oggetti accodati (da operazioni client)* per il sistema.
 
@@ -392,7 +362,7 @@ Latenza media delle query
  a| 
 Millisecondi
  a| 
-Selezionare *NODI* > *_nodo di storage_* > *oggetti*. Nella tabella Query, visualizzare il valore della latenza media.
+Selezionare *Nodi* > *Nodo di archiviazione_* > *Oggetti*.  Nella tabella Query, visualizza il valore per Latenza media.
 
 |===
 
@@ -445,7 +415,7 @@ Qual è la gravità del problema? Qual è l'impatto sull'applicazione client?
  a| 
 ID sistema StorageGRID
  a| 
-Selezionare *MANUTENZIONE* > *sistema* > *licenza*. L'ID di sistema StorageGRID viene visualizzato come parte della licenza corrente.
+Selezionare *Manutenzione* > *Sistema* > *Licenza*.  L'ID del sistema StorageGRID viene visualizzato come parte della licenza corrente.
 
 
 
@@ -473,13 +443,11 @@ Riepilogare la configurazione del sistema StorageGRID. Ad esempio, elencare quan
  a| 
 File di log e dati di sistema
  a| 
-Raccogliere i file di log e i dati di sistema per il sistema. Selezionare *SUPPORT* > *Tools* > *Logs*.
+Raccogli file di registro e dati di sistema per il tuo sistema.  Selezionare *Supporto* > *Strumenti* > *Raccolta registri*.
 
 È possibile raccogliere i log per l'intera griglia o per i nodi selezionati.
 
-Se si stanno raccogliendo registri solo per i nodi selezionati, assicurarsi di includere almeno un nodo di storage che dispone del servizio ADC. I primi tre nodi di storage di un sito includono il servizio ADC.
-
-link:../monitor/collecting-log-files-and-system-data.html["Raccogliere i file di log e i dati di sistema"]
+Se si raccolgono i log solo per nodi selezionati, assicurarsi di includere almeno un nodo di archiviazione che disponga del servizio ADC.  I primi tre nodi di archiviazione installati in un sito includono il servizio ADC.
 
 
 

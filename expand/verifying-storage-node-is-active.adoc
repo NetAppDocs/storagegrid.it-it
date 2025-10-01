@@ -15,7 +15,7 @@ Al termine di un'operazione di espansione che aggiunge nuovi nodi di storage, il
 
 .Fasi
 . Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
-. Selezionare *NODES* > *_Expansion Storage Node_* > *Storage*.
+. Selezionare *Nodi* > *Nodo di archiviazione di espansione_* > *Archiviazione*.
 . Posizionare il cursore sul grafico *Storage Used - Object Data* (archiviazione utilizzata - dati oggetto) per visualizzare il valore di *Used*, che corrisponde alla quantità di spazio utilizzabile totale utilizzata per i dati dell'oggetto.
 . Verificare che il valore di *used* aumenti man mano che si sposta il cursore a destra sul grafico.
 

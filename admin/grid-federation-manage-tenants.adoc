@@ -52,7 +52,7 @@ TIP: Prima che un utente root locale possa accedere al tenant replicato nella gr
 È possibile visualizzare i dettagli di un tenant autorizzato a utilizzare una connessione a federazione di griglie.
 
 .Fasi
-. Selezionare *TENANT*.
+. Selezionare *Inquilini*.
 . Dalla pagina tenant, selezionare il nome del tenant per visualizzare la pagina dei dettagli del tenant.
 +
 Se si tratta della griglia di origine del tenant (ovvero, se il tenant è stato creato in questa griglia), viene visualizzato un banner per ricordare che il tenant è stato clonato in un'altra griglia. Se modifichi o elimini questo tenant, le modifiche non verranno sincronizzate con l'altra griglia.
@@ -121,7 +121,7 @@ Come primo passo, disattivare la replica cross-grid per tutti i bucket del tenan
 
 .Fasi
 . Partendo da una griglia, accedere a Grid Manager dal nodo di amministrazione principale.
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Selezionare il nome della connessione per visualizzarne i dettagli.
 . Nella scheda *tenant consentiti*, determinare se il tenant sta utilizzando la connessione.
 . Se il locatario è presente nell'elenco, indicare a link:../tenant/grid-federation-manage-cross-grid-replication.html["disattiva la replica cross-grid"] per tutti i bucket su entrambe le griglie della connessione.
@@ -145,7 +145,7 @@ Una volta disattivata la replica cross-grid per i bucket tenant, è possibile ri
 ====
 .Pagina Grid Federation
 --
-.. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+.. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 .. Selezionare il nome della connessione per visualizzarne la pagina dei dettagli.
 .. Nella scheda *tenant consentiti*, selezionare il pulsante di opzione corrispondente al tenant.
 .. Selezionare *Rimuovi permesso*.
@@ -154,7 +154,7 @@ Una volta disattivata la replica cross-grid per i bucket tenant, è possibile ri
 --
 .Pagina tenant
 --
-.. Selezionare *TENANT*.
+.. Selezionare *Inquilini*.
 .. Selezionare il nome del tenant per visualizzare la pagina dei dettagli.
 .. Nella scheda *Grid Federation*, selezionare il pulsante di opzione per la connessione.
 .. Selezionare *Rimuovi permesso*.
@@ -196,7 +196,7 @@ Prima di rimuovere l'autorizzazione di un locatario con la forza, prendere nota 
 
 .Fasi
 . Accedere a Grid Manager dal nodo di amministrazione principale.
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Selezionare il nome della connessione per visualizzarne la pagina dei dettagli.
 . Nella scheda *tenant consentiti*, selezionare il pulsante di opzione corrispondente al tenant.
 . Selezionare *Rimuovi permesso*.

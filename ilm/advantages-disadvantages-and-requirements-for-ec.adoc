@@ -19,9 +19,14 @@ Prima di decidere se utilizzare la replica o la cancellazione del codice per pro
 
 Rispetto alla replica, l'erasure coding offre maggiore affidabilità, disponibilità ed efficienza dello storage.
 
-* *Affidabilità*: L'affidabilità viene misurata in termini di tolleranza agli errori, ovvero il numero di guasti simultanei che possono essere sostenuti senza perdita di dati. Con la replica, più copie identiche vengono memorizzate su nodi diversi e tra siti diversi. Con la codifica erasure, un oggetto viene codificato in dati e frammenti di parità e distribuito su molti nodi e siti. Questa dispersione fornisce protezione da guasti sia a livello di sito che di nodo. Rispetto alla replica, l'erasure coding offre una maggiore affidabilità a costi di storage comparabili.
-* *Disponibilità*: La disponibilità può essere definita come la capacità di recuperare oggetti se i nodi di storage si guastano o diventano inaccessibili. Rispetto alla replica, l'erasure coding offre una maggiore disponibilità a costi di storage comparabili.
-* *Efficienza dello storage*: Per livelli simili di disponibilità e affidabilità, gli oggetti protetti tramite erasure coding consumano meno spazio su disco rispetto agli stessi oggetti se protetti tramite replica. Ad esempio, un oggetto da 10 MB replicato in due siti consuma 20 MB di spazio su disco (due copie), mentre un oggetto che è sottoposto a erasure coding in tre siti con uno schema di erasure coding 6+3 consuma solo 15 MB di spazio su disco.
+* *Affidabilità*: misurata in base al numero di guasti simultanei che possono essere sostenuti senza perdita di dati.
++
+** Replicazione: più copie identiche di oggetti vengono archiviate su nodi diversi e in più siti.
+** Codifica di cancellazione: un oggetto viene codificato in frammenti di dati e parità e distribuito su molti nodi e siti.  Questa dispersione garantisce protezione contro i guasti sia del sito che del nodo.
+
+
+* *Disponibilità*: la capacità di ottenere oggetti se i nodi di archiviazione falliscono o diventano inaccessibili.  Rispetto alla replicazione, la codifica di cancellazione garantisce una maggiore disponibilità a costi di archiviazione comparabili.
+* *Efficienza di archiviazione*: per una disponibilità e un'affidabilità simili, gli oggetti con codice di cancellazione utilizzano meno spazio su disco rispetto agli oggetti replicati.  Ad esempio, un oggetto da 10 MB replicato su due siti consuma 20 MB di spazio su disco (due copie), mentre un oggetto codificato con cancellazione su tre siti con uno schema di codifica con cancellazione 6+3 consuma solo 15 MB di spazio su disco.
 +
 
 NOTE: Lo spazio su disco per gli oggetti con codifica in cancellazione viene calcolato come dimensione dell'oggetto più l'overhead dello storage. La percentuale di overhead dello storage è il numero di frammenti di parità diviso per il numero di frammenti di dati.
@@ -38,7 +43,7 @@ Rispetto alla replica, l'erasure coding presenta i seguenti svantaggi:
 * Aumento dei costi e della complessità delle espansioni dello storage. Per espandere un'implementazione che utilizza la replica, è necessario aggiungere capacità di storage in ogni posizione in cui vengono eseguite le copie a oggetti. Per espandere un'implementazione che utilizza il erasure coding, è necessario prendere in considerazione sia lo schema di erasure coding in uso sia la capacità dei nodi di storage esistenti. Ad esempio, se si attende che i nodi esistenti siano pieni al 100%, è necessario aggiungere almeno `k+m` nodi storage, ma se si espandono quando i nodi esistenti sono pieni al 70%, è possibile aggiungere due nodi per sito e massimizzare la capacità dello storage utilizzabile. Per ulteriori informazioni, vedere link:../expand/adding-storage-capacity-for-erasure-coded-objects.html["Aggiungere capacità di storage per gli oggetti con codifica per la cancellazione"].
 * L'utilizzo di erasure coding in siti distribuiti geograficamente aumenta le latenze di recupero. I frammenti di oggetto per un oggetto sottoposto a erasure coding e distribuito tra i siti remoti richiedono più tempo per il recupero su connessioni WAN rispetto a un oggetto replicato e disponibile in locale (lo stesso sito a cui si connette il client).
 * Quando si utilizza il erasure coding in siti distribuiti geograficamente, il traffico di rete WAN è più elevato per recuperi e riparazioni, in particolare per oggetti recuperati di frequente o per riparazioni di oggetti su connessioni di rete WAN.
-* Quando si utilizza l'erasure coding tra siti, il throughput massimo degli oggetti diminuisce drasticamente con l'aumentare della latenza di rete tra siti. Questa diminuzione è dovuta alla corrispondente diminuzione del throughput di rete TCP, che influisce sulla velocità con cui il sistema StorageGRID può memorizzare e recuperare frammenti di oggetti.
+* Quando si utilizza la codifica di cancellazione su più siti, la velocità massima di elaborazione degli oggetti diminuisce drasticamente all'aumentare della latenza di rete tra i siti.  Questa diminuzione è il risultato di una diminuzione della velocità di trasmissione della rete TCP, che influisce sulla velocità con cui il sistema StorageGRID può archiviare e recuperare frammenti di oggetti.
 * Maggiore utilizzo delle risorse di calcolo.
 
 
@@ -46,7 +51,7 @@ Rispetto alla replica, l'erasure coding presenta i seguenti svantaggi:
 
 == Quando utilizzare la codifica di cancellazione
 
-L'erasure coding è più adatto ai seguenti requisiti:
+Utilizzare la codifica di cancellazione per i seguenti requisiti:
 
 * Oggetti di dimensioni superiori a 1 MB.
 +

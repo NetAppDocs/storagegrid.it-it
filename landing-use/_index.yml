@@ -28,8 +28,8 @@ indexpage:
       url: "../tenant/creating-groups-for-s3-tenant.html"
     - title: Permessi di gestione del tenant
       url: "../tenant/tenant-management-permissions.html"
-    - title: Gestire gli utenti locali
-      url: "../tenant/managing-local-users.html"
+    - title: Gestire gli utenti
+      url: "../tenant/manage-users.html"
   - title: Gestisci bucket e chiavi di accesso S3
     links:
     - title: Gestire le chiavi di accesso S3
@@ -59,7 +59,7 @@ indexpage:
     - title: Operazioni sugli oggetti
       url: "../s3/operations-on-objects.html"
     - title: Policy di accesso a bucket e gruppi
-      url: "../s3/bucket-and-group-access-policies.html"
+      url: "../s3/use-access-policies.html"
   - title: Utilizza Swift REST API (fine del ciclo di vita)
     links:
     - title: USA Swift

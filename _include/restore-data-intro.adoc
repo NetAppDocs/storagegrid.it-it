@@ -8,8 +8,8 @@
 
 Se possibile, ripristinare i dati dell'oggetto utilizzando la pagina *Volume Restore* in Grid Manager.
 
-* Se i volumi sono elencati in *MANUTENZIONE* > *Ripristino volume* > *nodi da ripristinare*, ripristinare i dati degli oggetti utilizzando link:../maintain/restoring-volume.html["Pagina di ripristino dei volumi in Grid Manager"].
-* Se i volumi non sono elencati in *MANUTENZIONE* > *Ripristino volume* > *nodi da ripristinare*, seguire i passaggi riportati di seguito per utilizzare `repair-data` lo script per ripristinare i dati dell'oggetto.
+* Se i volumi sono elencati in *Manutenzione* > *Ripristino volume* > *Nodi da ripristinare*, ripristinare i dati dell'oggetto utilizzandolink:../maintain/restoring-volume.html["Pagina di ripristino dei volumi in Grid Manager"] .
+* Se i volumi non sono elencati in *Manutenzione* > *Ripristino volume* > *Nodi da ripristinare*, seguire i passaggi seguenti per utilizzare `repair-data` script per ripristinare i dati dell'oggetto.
 +
 Se il nodo di archiviazione recuperato contiene un numero inferiore di volumi rispetto al nodo da sostituire, è necessario utilizzare `repair-data` lo script.
 
@@ -23,7 +23,7 @@ NOTE: Lo script dei dati di riparazione è obsoleto e verrà rimosso in una vers
 == Utilizzare `repair-data` lo script per ripristinare i dati degli oggetti
 
 .Prima di iniziare
-* È stato confermato che il nodo di archiviazione recuperato ha uno stato di connessione *connesso* image:../media/icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"]nella scheda *NODI* > *Panoramica* in Grid Manager.
+* Hai confermato che il nodo di archiviazione recuperato ha uno stato di connessione *Connesso*image:../media/icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"] nella scheda *Nodi* > *Panoramica* in Grid Manager.
 
 
 .A proposito di questa attività

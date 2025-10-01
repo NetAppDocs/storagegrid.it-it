@@ -13,4 +13,4 @@ summary: Ottenere informazioni specifiche sulla versione relative a problemi ris
 [role="lead"]
 Ottenere informazioni specifiche sulla versione relative a problemi risolti e problemi noti.
 
-Accedere al sito di supporto NetApp per visualizzare https://library.netapp.com/ecm/ecm_download_file/ECMLP3330064["Visualizzare o scaricare un file PDF"^] le note sulla versione di StorageGRID 11,9.
+Accedi al sito di supporto NetApp per https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Visualizzare o scaricare un file PDF"^] contenente le note di rilascio StorageGRID 12.0.

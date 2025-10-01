@@ -30,7 +30,7 @@ Se possibile, configurare qualsiasi server di gestione delle chiavi specifico de
 Nella fase 1 (dettagli KMS) della procedura guidata Add a Key Management Server (Aggiungi un server di gestione delle chiavi), vengono forniti dettagli sul cluster KMS o KMS.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Key management server*.
+. Selezionare *Configurazione* > *Sicurezza* > *Server di gestione delle chiavi*.
 +
 Viene visualizzata la pagina Key management server (Server di gestione delle chiavi) con la scheda Configuration details (Dettagli di configurazione) selezionata.
 

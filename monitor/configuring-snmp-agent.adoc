@@ -30,7 +30,7 @@ Tutti i nodi nella griglia utilizzano la stessa configurazione SNMP.
 Come prima fase, attivare l'agente SMNP StorageGRID e fornire informazioni di base.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Monitoring* > *SNMP Agent*.
+. Selezionare *Configurazione* > *Monitoraggio* > *Agente SNMP*.
 +
 Viene visualizzata la pagina SNMP Agent.
 
@@ -347,6 +347,9 @@ L'indirizzo dell'agente viene creato e aggiunto alla tabella.
 == [[create-usm-users]]creare utenti USM
 
 Se si utilizza SNMPv3, utilizzare la scheda utenti USM nella sezione altre configurazioni per definire gli utenti USM autorizzati a interrogare il MIB o a ricevere trap e informazioni.
+
+
+NOTE: Per le destinazioni SNMPv3 _trap_, si consiglia di creare un utente USM per ciascun nodo di amministrazione.  Se ogni nodo amministrativo non ha un utente USM, il sistema di gestione potrebbe smettere di ricevere notifiche se il nodo amministrativo primario non funziona.
 
 
 NOTE: SNMPv3 _inform_ le destinazioni devono avere utenti con ID motore. SNMPv3 la destinazione _trap_ non può avere utenti con ID motore.

@@ -30,7 +30,7 @@ I gruppi di amministratori consentono di determinare quali utenti possono accede
 === Accedere alla procedura guidata
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Access control* > *Admin groups*.
+. Selezionare *Configurazione* > *Controllo accessi* > *Gruppi amministratori*.
 . Selezionare *Crea gruppo*.
 
 
@@ -62,7 +62,7 @@ I gruppi di amministratori consentono di determinare quali utenti possono accede
 . Selezionare *Federated group*.
 . Immettere il nome del gruppo che si desidera importare, esattamente come appare nell'origine identità configurata.
 +
-** Per Active Directory e Azure, utilizzare sAMAccountName.
+** Per Active Directory e Microsoft Entra ID, utilizzare sAMAccountName.
 ** Per OpenLDAP, utilizzare il CN (Common Name).
 ** Per un altro LDAP, utilizzare il nome univoco appropriato per il server LDAP.
 

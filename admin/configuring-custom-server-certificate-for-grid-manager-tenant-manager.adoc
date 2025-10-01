@@ -21,7 +21,7 @@ Poiché per tutti i nodi di amministrazione viene utilizzato un singolo certific
 È necessario completare la configurazione sul server e, a seconda dell'autorità di certificazione principale (CA) utilizzata, gli utenti potrebbero dover installare il certificato Grid CA nel browser Web che utilizzeranno per accedere a Grid Manager e a Tenant Manager.
 
 
-NOTE: Per garantire che le operazioni non vengano interrotte da un certificato del server guasto, l'avviso *scadenza del certificato del server per l'interfaccia di gestione* viene attivato quando il certificato del server sta per scadere. Se necessario, è possibile visualizzare la scadenza del certificato corrente selezionando *CONFIGURAZIONE* > *sicurezza* > *certificati* e osservando la data di scadenza del certificato dell'interfaccia di gestione nella scheda Globale.
+NOTE: Per garantire che le operazioni non vengano interrotte da un certificato server non riuscito, l'avviso *Scadenza del certificato server per l'interfaccia di gestione* viene attivato quando il certificato server sta per scadere.  Se necessario, è possibile visualizzare la data di scadenza del certificato corrente selezionando *Configurazione* > *Sicurezza* > *Certificati* e controllando la data di scadenza del certificato dell'interfaccia di gestione nella scheda Globale.
 
 [NOTE]
 ====
@@ -39,7 +39,7 @@ Se si accede a Grid Manager o Tenant Manager utilizzando un nome di dominio inve
 Per aggiungere un certificato di interfaccia di gestione personalizzato, è possibile fornire un certificato personalizzato o generarne uno utilizzando Grid Manager.
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *sicurezza* > *certificati*.
+. Selezionare *Configurazione* > *Sicurezza* > *Certificati*.
 . Nella scheda *Global*, selezionare *Management interface certificate*.
 . Selezionare *Usa certificato personalizzato*.
 . Caricare o generare il certificato.
@@ -166,7 +166,7 @@ NOTE: Dopo aver caricato o generato un nuovo certificato, attendere fino a un gi
 È possibile ripristinare l'utilizzo del certificato dell'interfaccia di gestione predefinita per Grid Manager e Tenant Manager Connections.
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *sicurezza* > *certificati*.
+. Selezionare *Configurazione* > *Sicurezza* > *Certificati*.
 . Nella scheda *Global*, selezionare *Management interface certificate*.
 . Selezionare *Usa certificato predefinito*.
 +
@@ -229,7 +229,7 @@ Includere i tag BEGIN e END nella selezione.
 . Verificare che il certificato sia stato configurato:
 +
 .. Accedere a Grid Manager.
-.. Selezionare *CONFIGURAZIONE* > *sicurezza* > *certificati*
+.. Selezionare *Configurazione* > *Sicurezza* > *Certificati*
 .. Nella scheda *Global*, selezionare *Management interface certificate*.
 
 
@@ -243,7 +243,7 @@ Includere i tag BEGIN e END nella selezione.
 È possibile salvare o copiare il contenuto del certificato dell'interfaccia di gestione per utilizzarlo altrove.
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *sicurezza* > *certificati*.
+. Selezionare *Configurazione* > *Sicurezza* > *Certificati*.
 . Nella scheda *Global*, selezionare *Management interface certificate*.
 . Selezionare la scheda *Server* o *bundle CA*, quindi scaricare o copiare il certificato.
 +

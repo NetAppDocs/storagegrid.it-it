@@ -22,7 +22,7 @@ NOTE: Il pulsante *Pause* (Pausa) viene attivato solo quando vengono raggiunte l
 
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *attività* > *Smantella*.
+. Selezionare *Manutenzione* > *Attività* > *Disattivazione*.
 +
 Viene visualizzata la pagina Decommission.
 

@@ -19,7 +19,7 @@ summary: Se non è più necessario un criterio di classificazione del traffico, 
 
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *rete* > *classificazione del traffico*.
+. Selezionare *Configurazione* > *Rete* > *Classificazione del traffico*.
 +
 Viene visualizzata la pagina Criteri di classificazione del traffico con i criteri esistenti elencati in una tabella.
 

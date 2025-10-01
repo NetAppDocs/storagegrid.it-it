@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disable sso, disable single sign on 
 summary: 'Se non si desidera più utilizzare questa funzionalità, è possibile disattivare il Single Sign-on (SSO). È necessario disattivare il Single Sign-on prima di poter disattivare la federazione delle identità.' 
 ---
-= Disattiva single sign-on
+= Disabilitare SSO
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -19,17 +19,15 @@ summary: 'Se non si desidera più utilizzare questa funzionalità, è possibile 
 
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Access control* > *Single Sign-on*.
+. Selezionare *Configurazione* > *Controllo accessi* > *Single sign-on*.
 +
 Viene visualizzata la pagina Single Sign-on (accesso singolo).
 
-. Selezionare l'opzione *Disabled*.
-. Selezionare *Salva*.
+. Seleziona *Disabilita SSO*.
+. Selezionare *Sì*.
 +
 Viene visualizzato un messaggio di avviso che indica che gli utenti locali potranno accedere.
 
-. Selezionare *OK*.
-+
+
+
 Al successivo accesso a StorageGRID, viene visualizzata la pagina di accesso a StorageGRID e sono necessari il nome utente e la password di un utente StorageGRID locale o federato.
-
-

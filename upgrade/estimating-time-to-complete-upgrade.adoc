@@ -51,7 +51,7 @@ Il file software viene distribuito e il servizio di aggiornamento viene avviato.
  a| 
 Aggiornare altri nodi grid
  a| 
-Il software su tutti gli altri nodi griglia viene aggiornato nell'ordine in cui vengono approvati i nodi. Ogni nodo del sistema verrà spento uno alla volta.
+Il software su tutti gli altri nodi della griglia viene aggiornato nell'ordine in cui si approvano i nodi.  Un nodo di amministrazione o gateway viene aggiornato contemporaneamente a un nodo di archiviazione.
  a| 
 da 15 minuti a 1 ora per nodo, con nodi appliance che richiedono il maggior numero di tempo
 
@@ -85,11 +85,11 @@ Meno di 5 minuti
  a| 
 Aggiornare il database
  a| 
-Il processo di aggiornamento controlla ciascun nodo per verificare che il database Cassandra non debba essere aggiornato.
+Il processo di aggiornamento controlla ogni nodo per verificare che il database Cassandra non debba essere aggiornato.
  a| 
 10 secondi per nodo o pochi minuti per l'intera griglia
  a| 
-L'upgrade da StorageGRID 11,8 a 11,9 non richiede un aggiornamento del database Cassandra; tuttavia, il servizio Cassandra verrà arrestato e riavviato su ogni nodo storage.
+L'aggiornamento a StorageGRID 12.0 include un aggiornamento del database Cassandra.  Dopo l'aggiornamento da StorageGRID 11.9 a 12.0, verrà eseguito in background un aggiornamento del formato dei metadati per uno o tre giorni.  Durante questo periodo, alcune procedure di manutenzione, come l'espansione, saranno disattivate.
 
 Per le future versioni delle funzionalità di StorageGRID, il completamento della fase di aggiornamento del database Cassandra potrebbe richiedere diversi giorni.
 
@@ -105,6 +105,10 @@ I file temporanei vengono rimossi e l'aggiornamento alla nuova release viene com
 Una volta completata l'attività *fasi finali dell'aggiornamento*, è possibile eseguire tutte le procedure di manutenzione.
 
 |===
+
+
+== Stima del tempo per l'aggiornamento
+
 .Fasi
 . Stima del tempo necessario per l'aggiornamento di tutti i nodi della griglia.
 +
@@ -121,7 +125,7 @@ Come regola generale, l'aggiornamento dei nodi appliance richiede più tempo ris
 
 
 
-== Esempio: Tempo stimato per l'aggiornamento a StorageGRID 11,9
+== Esempio: tempo stimato per l'aggiornamento a StorageGRID 12.0
 
 Si supponga che il sistema disponga di 14 nodi grid, di cui 8 nodi Linux.
 
@@ -136,7 +140,7 @@ Il tempo stimato per questa fase è di 2 ore.
 
 . Sommare i valori.
 +
-Sono necessarie fino a 17 ore per completare l'aggiornamento del sistema a StorageGRID 11,9.0.
+Per completare l'aggiornamento del sistema a StorageGRID 12.0.0 potrebbero essere necessarie fino a 17 ore.
 
 
 

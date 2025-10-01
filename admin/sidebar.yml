@@ -34,8 +34,8 @@ entries:
       entries:
       - title: Active Directory
         url: "/admin/use-api-if-sso-is-enabled-adfs.html"
-      - title: Azure
-        url: "/admin/use-api-if-sso-is-enabled-azure.html"
+      - title: Entra ID
+        url: "/admin/use-api-if-sso-is-enabled-entra-id.html"
       - title: PingFederate
         url: "/admin/use-api-if-sso-is-enabled-ping.html"
     - title: Disattivare le funzioni con l'API
@@ -61,24 +61,23 @@ entries:
     url: "/admin/managing-users.html"
   - title: Utilizzo di SSO (Single Sign-on)
     entries:
-    - title: Configurare il single sign-on
-      url: "/admin/configuring-sso.html"
-    - title: Requisiti per il single sign-on
+    - title: Come funziona SSO
+      url: "/admin/how-sso-works.html"
+    - title: Requisiti per SSO
       url: "/admin/requirements-for-sso.html"
     - title: Confermare che gli utenti federati possono accedere
       url: "/admin/confirming-federated-users-can-sign-in.html"
-    - title: USA la modalità sandbox
-      url: "/admin/using-sandbox-mode.html"
+    - title: Configurare SSO
+      url: "/admin/configure-sso.html"
     - title: Creazione di trust di parti di base in ad FS
       url: "/admin/creating-relying-party-trusts-in-ad-fs.html"
-    - title: Crea applicazioni aziendali in Azure
-      url: "/admin/creating-enterprise-application-azure.html"
+    - title: Crea applicazioni aziendali in Entra ID
+      url: "/admin/creating-enterprise-application-entra-id.html"
     - title: Creare connessioni SP in PingFederate
       url: "/admin/creating-sp-connection-ping.html"
-    - title: Disattiva single sign-on
+    - title: Disabilitare SSO
       url: "/admin/disabling-single-sign-on.html"
-    - title: Disattivare e riabilitare temporaneamente il Single Sign-on per un nodo
-        di amministrazione
+    - title: Disabilitare e riabilitare temporaneamente SSO per un nodo di amministrazione
       url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
 - title: USA la federazione di grid
   entries:
@@ -133,6 +132,8 @@ entries:
       url: "/admin/changing-network-options-object-encryption.html"
     - title: Modificare le impostazioni di sicurezza dell'interfaccia
       url: "/admin/changing-browser-session-timeout-interface.html"
+    - title: Gestisci l'accesso SSH esterno
+      url: "/admin/manage-external-ssh-access.html"
   - title: Configurare i server di gestione delle chiavi
     entries:
     - title: Che cos'è il server di gestione delle chiavi
@@ -228,14 +229,16 @@ entries:
 - title: Gestire reti e connessioni
   entries:
   - title: Configurare le impostazioni di rete
-    url: "/admin/configuring-network-settings.html"
     pdf-filename: Gestire reti e connessioni
+    url: "/admin/configuring-network-settings.html"
   - title: Linee guida per le reti StorageGRID
     url: "/admin/guidelines-for-storagegrid-networks.html"
   - title: Visualizzare gli indirizzi IP
     url: "/admin/viewing-ip-addresses.html"
   - title: Configurare le interfacce VLAN
     url: "/admin/configure-vlan-interfaces.html"
+  - title: Abilita CORS per un'interfaccia di gestione
+    url: "/admin/enable-cross-origin-resource-sharing-for-management-interface.html"
   - title: Gestire le policy di classificazione del traffico
     entries:
     - title: Cos'è la politica di classificazione del traffico
@@ -270,10 +273,8 @@ entries:
     url: "/admin/sending-eseries-autosupport-messages-through-storagegrid.html"
 - title: Gestire i nodi di storage
   entries:
-  - title: Gestione del nodo di storage
-    pdf-filename: Gestire i nodi di storage
-    url: "/admin/managing-storage-nodes.html"
   - title: Utilizzare le opzioni di storage
+    pdf-filename: Gestire i nodi di storage
     entries:
     - title: Che cos'è la segmentazione degli oggetti
       url: "/admin/what-object-segmentation-is.html"
@@ -293,5 +294,3 @@ entries:
     url: "/admin/using-multiple-admin-nodes.html"
   - title: Identificare il nodo di amministrazione principale
     url: "/admin/identifying-primary-admin-node.html"
-  - title: Visualizzare lo stato delle notifiche e le code
-    url: "/admin/viewing-notification-status-and-queues.html"

@@ -1,10 +1,10 @@
 ---
 permalink: upgrade/whats-new.html 
 sidebar: sidebar 
-keywords: what is new in StorageGRID 11.9 
-summary: Questa versione di StorageGRID introduce le seguenti funzionalità. 
+keywords: what is new in StorageGRID 12.0 
+summary: Questa versione di StorageGRID introduce le seguenti funzionalità e modifiche funzionali. 
 ---
-= Novità di StorageGRID 11,9
+= Novità di StorageGRID 12.0
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,160 +15,94 @@ Questa versione di StorageGRID introduce le seguenti funzionalità e modifiche f
 
 
 
-== Scalabilità
+== Appliance
 
+* La capacità di stoccaggio e l'efficienza dei costi sono aumentate in modo significativo.
+* Gli aggiornamenti automatici del firmware dell'unità migliorano l'affidabilità del sistema e riducono i costi di manutenzione.
 
 
-=== Nodi storage solo dati
 
-Per consentire una scala più granulare, è ora possibile installare link:../primer/what-storage-node-is.html#types-of-storage-nodes["Nodi storage solo dati"]. Laddove l'elaborazione dei metadati non è di importanza critica, è possibile ottimizzare l'infrastruttura in modo conveniente. Questa flessibilità aiuta a adattarsi a diversi workload e modelli di crescita.
 
+== Intelligenza artificiale (IA) e apprendimento automatico (ML)
 
+* link:../tenant/what-is-branch-bucket.html["Secchi per rami"]consentono versioni point-in-time dei bucket che facilitano un ripristino più rapido del ransomware e set di dati isolati per test e sperimentazioni.
+* Un livello di caching S3 migliora le prestazioni per la formazione AI/ML.
 
-== Miglioramenti dei pool di storage cloud
 
 
 
-=== Ruoli IAM ovunque
+== Capacità
 
-StorageGRID ora supporta le credenziali a breve termine utilizzando link:../ilm/creating-cloud-storage-pool.html["I ruoli IAM ovunque in Amazon S3 per i pool di cloud storage"].
+StorageGRID ora supporta mille miliardi di oggetti, ovvero più del doppio del limite precedente.  Fare riferimento al https://fusion.netapp.com/["Strumento NetApp Fusion"^] per dimensionare e progettare StorageGRID.
 
-L'utilizzo di credenziali a lungo termine per accedere ai bucket S3 comporta rischi di sicurezza se tali credenziali vengono compromesse. Le credenziali a breve termine hanno una durata limitata, che riduce il rischio di accessi non autorizzati.
 
 
+== Aggiornamenti su Cassandra
 
-=== S3 blocchi oggetti
+StorageGRID ora utilizza una versione più recente di Cassandra per l'archiviazione dei metadati.  Questa versione di Cassandra utilizza lo spazio su disco in modo più efficiente per archiviare più metadati.
 
-Ora è possibile link:../ilm/creating-cloud-storage-pool.html["Configurare un Cloud Storage Pool utilizzando un endpoint Amazon S3"]. Il blocco degli oggetti S3 aiuta a prevenire la cancellazione accidentale o dannosa di oggetti. Eseguendo il tiering dei dati da StorageGRID ad Amazon S3, l'attivazione del blocco degli oggetti su entrambi i sistemi migliora la data Protection per tutto il ciclo di vita dei dati.
+Dopo di telink:../upgrade/index.html["aggiornamento da StorageGRID 11.9 a 12.0"] , un aggiornamento del formato dei metadati avverrà in background per uno o tre giorni.  Durante questo periodo, alcune procedure di manutenzione che implicano lo streaming di metadati, come l'espansione, saranno disabilitate.
 
+Fare riferimento a link:../upgrade/performing-upgrade.html#upgrade-other-nodes["Aggiornare altri nodi"] .
 
 
-== Multi-tenancy
 
+== Federazione
 
+* Ora puoilink:../admin/managing-users.html#import-federated-users["importa fino a 100 utenti federati"] in StorageGRID.
+* Ora puoilink:../ilm/configuring-regions-optional-and-s3-only.html["modificare la regione predefinita"] per i bucket S3.  Questa funzionalità garantisce una maggiore flessibilità nella gestione delle impostazioni locali e della conformità dei dati.
+* Ora è possibile configurare la replica tra griglie tra bucket con S3 Object Lock abilitato. Fare riferimento a link:../admin/grid-federation-what-is-cross-grid-replication.html#cgr-with-ol["Replicazione cross-grid con S3 Object Lock"] .
++
+NetApp consiglia di utilizzare questa funzionalità solo tra i bucket di origine e di destinazione StorageGRID 12.0.  Tuttavia, questa funzionalità è supportata tra i bucket di origine StorageGRID 11.9 con S3 Object Lock disabilitato e i bucket di destinazione StorageGRID 12.0 con S3 Object Lock abilitato.
 
-=== Limiti benna
 
-Da link:../tenant/creating-s3-bucket.html["Impostazione dei limiti sulle benne S3"], è possibile impedire ai locatari di monopolizzare la capacità. Inoltre, una crescita incontrollata può comportare costi imprevisti. Avendo limiti definiti, puoi stimare meglio le spese di storage del tenant.
 
 
 
-=== 5.000 bucket per tenant
+== Gestibilità
 
-Per migliorare la scalabilità, StorageGRID ora supporta fino a link:../s3/operations-on-buckets.html["5.000 S3 bucket per tenant"]. Ogni griglia può avere un massimo di 100.000 secchi.
+* Miglioratolink:../maintain/decommission-procedure.html["procedura di dismissione"] riduce i tempi e la complessità per migliorare l'efficienza operativa.
+* Il comportamento migliorato per una coerenza globale forte fornisce tolleranza agli errori del sito per le richieste dei client quando le griglie hanno tre o più siti.
++
+** Le nuove installazioni di StorageGRID 12.0 e successive utilizzeranno per impostazione predefinita la semantica Quorum quandolink:../s3/consistency.html["coerenza globale forte"] è impostato.
+** Se si esegue l'aggiornamento da StorageGRID 11.9 a StorageGRID 12.0, le griglie aggiornate manterranno il comportamento precedente per garantire una coerenza globale elevata.
 
-Per supportare 5.000 bucket, ogni nodo di storage nella griglia deve avere un minimo di 64 GB di RAM.
 
 
 
-== S3 miglioramenti al blocco degli oggetti
 
-Le funzionalità di configurazione per tenant offrono il giusto equilibrio di flessibilità e sicurezza dei dati. Ora è possibile configurare le impostazioni di conservazione per tenant per:
+NOTE: Se è necessario ripristinare il comportamento precedente per una coerenza globale forte, fare riferimento a https://kb.netapp.com/hybrid/StorageGRID/Object_Mgmt/Configuring_StorageGRID_quorum_semantics_for_strong-global_consistency["Configurazione della semantica del quorum StorageGRID per una coerenza globale forte"^] per istruzioni.
 
-* Consenti o disabilita la modalità di conformità
-* Impostare un periodo di conservazione massimo
-
-
-Fare riferimento a:
-
-* link:../ilm/managing-objects-with-s3-object-lock.html["Gestire gli oggetti con S3 Object Lock"]
-* link:../ilm/how-object-retention-is-determined.html#how-grid-administrators-control-object-retention["Come gli amministratori della griglia controllano la conservazione degli oggetti"]
-* link:../admin/creating-tenant-account.html["Creare un account tenant"]
-
-
-
-
-== Compatibilità S3
-
-
-
-=== checksum x-amz-checksum-sha256
-
-* L'API REST S3 ora fornisce il supporto per il link:./S3/operations-on-objects.html checksum].[`x-amz-checksum-sha256`
-* StorageGRID ora offre supporto del checksum SHA-256 per le operazioni PUT, GET e HEAD. Questi checksum migliorano l'integrità dei dati.
-
-
-
-
-=== Modifiche al supporto del protocollo S3
-
-* Aggiunto supporto per punto di montaggio per Amazon S3, che consente alle applicazioni di connettersi direttamente ai bucket S3 come se fossero file system locali. Da oggi puoi utilizzare StorageGRID con un maggior numero di applicazioni e altri casi di utilizzo.
-* Come parte dell'aggiunta del supporto per il punto di montaggio, StorageGRID 11,9 contiene link:../s3/index.html#updates-to-rest-api-support["Modifiche aggiuntive al supporto del protocollo S3"].
-
-
-
-
-== Manutenzione e supporto
-
-
-
-=== AutoSupport
-
-link:../admin/what-is-autosupport.html["AutoSupport"] ora crea automaticamente casi di guasti hardware per appliance legacy.
-
-
-
-=== Espansione delle operazioni di cloning dei nodi
-
-L'usabilità dei cloni dei nodi è stata espansa per supportare nodi storage più grandi.
-
-
-
-=== Gestione ILM migliorata dei marcatori di eliminazione scaduti
-
-Le regole del tempo di acquisizione ILM con un periodo di giorni ora rimuovono anche i marcatori di eliminazione degli oggetti scaduti. I marcatori di eliminazione vengono rimossi solo quando è trascorso un periodo di giorni e il creatore di eliminazione corrente è scaduto (non ci sono versioni non correnti).
-
-Fare riferimento a link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Modalità di eliminazione degli oggetti con versione S3"] e link:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#example-of-bucket-lifecycle-taking-priority-over-ilm-policy["Esempio di priorità del ciclo di vita dei bucket rispetto alla policy ILM"].
-
-
-
-=== Decommissionamento dei nodi migliorato
-
-È stata migliorata l'offerta di una transizione fluida ed efficiente all'hardware StorageGRID di prossima generazionelink:../maintain/grid-node-decommissioning.html["disattivazione nodo"].
-
-
-
-=== Syslog per gli endpoint del bilanciamento del carico
-
-I registri di accesso agli endpoint del bilanciamento del carico contengono informazioni sulla risoluzione dei problemi, ad esempio i codici di stato HTTP. StorageGRID ora supporta link:../monitor/configure-audit-messages.html["esportazione di questi registri in un server syslog esterno"]. Questo miglioramento consente una gestione dei log più efficiente e l'integrazione con i sistemi di monitoraggio e avviso esistenti.
-
-
-
-=== Ulteriori miglioramenti per manutenzione e supportabilità
-
-* Aggiornamento dell'interfaccia utente delle metriche
-* Nuove qualifiche dei sistemi operativi
-* Supporto per i nuovi componenti di terze parti
+* La possibilità di avviare caricamenti di log sulink:../admin/configure-autosupport-grid-manager.html["AutoSupport"] aiuta a migliorare la reattività del supporto.
+* Ridotto https://docs.netapp.com/us-en/storagegrid-appliances/index.html["apparecchio"^] il tempo di riavvio riduce al minimo i tempi di inattività per migliorare la disponibilità complessiva del sistema.
+* link:../maintain/move-adc-service.html["La possibilità di spostare il servizio ADC"]a un altro nodo di archiviazione aumenta la flessibilità e la resilienza nella gestione dei nodi di archiviazione che ospitano il servizio ADC.  È possibile spostare il servizio ADC prima di dismettere un nodo di archiviazione o di convertire un nodo di archiviazione in un nodo solo dati.
+* Per massimizzare la capacità di archiviazione dei dati, è possibilelink:../maintain/convert-to-data-only-node.html["convertire un nodo di archiviazione in un nodo solo dati"] , che determina la migrazione dei metadati su quel nodo verso nodi di archiviazione combinati o solo metadati.
+* La capacità di qualsiasi nodo di amministrazione dilink:../maintain/selecting-node-recovery-procedure.html["recuperare qualsiasi altro nodo"] (ad eccezione del nodo di amministrazione primario) migliora il ripristino del sistema e la tolleranza agli errori, migliorando l'affidabilità complessiva.
+* Gli utenti possono ora utilizzare un bucket S3 perlink:../monitor/configure-log-management.html#use-a-bucket["conservare i registri di controllo per un lungo periodo di tempo"] .
 
 
 
 
 == Sicurezza
 
-
-
-=== Rotazione delle chiavi di accesso SSH
-
-Gli amministratori di grid possono ora link:../admin/change-ssh-access-passwords.html["Aggiornare e ruotare le chiavi SSH"]. La capacità di ruotare le chiavi SSH è una Best practice di sicurezza e un meccanismo di difesa proattivo.
-
-
-
-=== Avvisi per gli accessi root
-
-Quando un'entità sconosciuta accede a Grid Manager come root, link:../monitor/alerts-reference.html["viene attivato un avviso"]. Il monitoraggio degli accessi SSH di root è un passo proattivo verso la salvaguardia dell'infrastruttura.
+* Una crittografia dei dati più efficace e una protezione dell'integrità più efficace garantiscono maggiore sicurezza e prestazioni migliori.
+* Una maggiore sicurezza delle password memorizzate riduce il rischio di accessi non autorizzati.
+* link:../admin/manage-external-ssh-access.html["SSH è bloccato per impostazione predefinita"]per aumentare la sicurezza consentendo al contempo un accesso controllato.
 
 
 
-== Miglioramenti a Grid Manager
+
+== gruppi di inquilini
+
+* Ora puoilink:../tenant/manage-groups.html["configurare una nuova policy di trust S3"] per supportare l'API AssumeRole.  La funzione AssumeRole fornisce credenziali a breve termine per una maggiore sicurezza e un controllo flessibile degli accessi.
+* La quota di conteggio degli oggetti per bucket consente un migliore controllo e una migliore gestione delle risorse di archiviazione.
 
 
 
-=== Pagina profili erasure coding spostata
 
-La pagina dei profili di cancellazione-codifica si trova ora in *CONFIGURAZIONE* > *sistema* > *Erasure Coding*. Era presente nel menu ILM.
+== Interfaccia utente
 
+* Le impostazioni del tema scuro e del tema di sistema sono disponibili nel menu Utente di Grid Manager e Tenant Manager.
+* La pagina del server Audit e syslog, rinominatalink:../monitor/configure-log-management.html["Gestione dei log"] , è stato rifattorizzato con aggiunte per l'archiviazione dei log in un bucket di sistema a scopo di backup.
+* La pagina legacy Topologia griglia è stata rimossa.  Nelle ultime versioni StorageGRID , le operazioni e le metriche disponibili da quella pagina sono state migrate ad altre pagine di Grid Manager, in particolare alink:../monitor/viewing-nodes-page.html["Pagina nodi"] .
 
-
-=== Miglioramenti nella ricerca
-
-La link:../primer/exploring-grid-manager.html#search-field["Campo di ricerca in Grid Manager"]include ora una logica di corrispondenza migliore, che consente di trovare le pagine ricercando abbreviazioni comuni e in base ai nomi di determinate impostazioni all'interno di una pagina. È anche possibile cercare altri tipi di elementi, come nodi, utenti e account tenant.

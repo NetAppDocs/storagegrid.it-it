@@ -25,7 +25,7 @@ Quando una regola di avviso viene disattivata, le sue espressioni non vengono va
 CAUTION: In generale, la disattivazione di una regola di avviso predefinita non è consigliata. Se una regola di avviso è disattivata, potrebbe non essere rilevato un problema sottostante fino a quando non viene impedita l'esecuzione di un'operazione critica.
 
 .Fasi
-. Selezionare *ALERTS* > *regole*.
+. Selezionare *Avvisi* > *Regole*.
 +
 Viene visualizzata la pagina regole di avviso.
 

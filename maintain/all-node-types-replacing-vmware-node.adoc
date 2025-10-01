@@ -33,7 +33,7 @@ Questa procedura è solo una fase del processo di ripristino del nodo grid. La p
 . Se il nodo Grid guasto è un nodo Storage, determinare se uno dei dischi rigidi virtuali utilizzati per lo storage dei dati non è danneggiato e conservarlo per il ricollegamento al nodo Grid ripristinato.
 . Spegnere la macchina virtuale.
 . Selezionare *azioni* > *tutte le azioni vCenter* > *Elimina dal disco* per eliminare la macchina virtuale.
-. Implementare una nuova macchina virtuale come nodo sostitutivo e connetterla a una o più reti StorageGRID. Per istruzioni, vedere link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["Implementazione di un nodo StorageGRID come macchina virtuale"].
+. Distribuisci una nuova macchina virtuale come nodo sostitutivo e collegala a una o più reti StorageGRID .  Per le istruzioni vederelink:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["Implementazione di un nodo StorageGRID come macchina virtuale"] .
 +
 Quando si implementa il nodo, è possibile rimappare le porte del nodo o aumentare le impostazioni della CPU o della memoria.
 

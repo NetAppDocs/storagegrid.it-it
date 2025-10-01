@@ -21,7 +21,7 @@ Per ulteriori informazioni sui nodi amministrativi, vedere link:../primer/what-a
 
 
 .Fasi
-. Selezionare *NODI*.
+. Selezionare *Nodi*.
 . Immettere *primary* nella casella di ricerca.
 +
 Nei risultati della ricerca, identificare il nodo con "nodo amministrativo primario" visualizzato nella colonna tipo. Dovrebbe essere elencato un nodo amministrativo primario.

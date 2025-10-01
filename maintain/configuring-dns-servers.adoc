@@ -33,7 +33,7 @@ Se possibile, utilizzare i server DNS a cui ciascun sito può accedere localment
 Per aggiungere un server DNS, procedere come segue.
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *rete* > *server DNS*.
+. Selezionare *Manutenzione* > *Rete* > *Server DNS*.
 . Selezionare *Aggiungi un altro server* per aggiungere un server DNS.
 . Selezionare *Salva*.
 
@@ -45,7 +45,7 @@ Per aggiungere un server DNS, procedere come segue.
 Per modificare un server DNS, procedere come segue.
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *rete* > *server DNS*.
+. Selezionare *Manutenzione* > *Rete* > *Server DNS*.
 . Selezionare l'indirizzo IP del nome del server che si desidera modificare e apportare le modifiche necessarie.
 . Selezionare *Salva*.
 
@@ -57,7 +57,7 @@ Per modificare un server DNS, procedere come segue.
 Per eliminare un indirizzo IP di un server DNS, procedere come segue.
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *rete* > *server DNS*.
+. Selezionare *Manutenzione* > *Rete* > *Server DNS*.
 . Selezionare l'icona di eliminazione image:../media/icon-x-to-remove.png["icona elimina"]accanto all'indirizzo IP.
 . Selezionare *Salva*.
 

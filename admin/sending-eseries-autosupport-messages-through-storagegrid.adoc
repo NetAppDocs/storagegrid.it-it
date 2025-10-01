@@ -37,7 +37,7 @@ I pacchetti e-Series AutoSupport contengono dettagli sull'hardware di storage e 
 NOTE: Questa procedura si applica solo alla configurazione di un server proxy StorageGRID per i pacchetti AutoSupport e-Series. Per ulteriori informazioni sulla configurazione di e-Series AutoSupport, consultare https://docs.netapp.com/us-en/e-series-family/index.html["Documentazione NetApp e-Series e SANtricity"^] .
 
 .Fasi
-. In Grid Manager, selezionare *NODES*.
+. Nel Grid Manager, seleziona *Nodi*.
 . Dall'elenco dei nodi a sinistra, selezionare il nodo dell'appliance di storage che si desidera configurare.
 . Selezionare *Gestore di sistema SANtricity*.
 +
@@ -46,7 +46,7 @@ Viene visualizzata la home page di Gestore di sistema di SANtricity.
 +
 image::../media/autosupport_santricity_home_page.png[Pagina iniziale di AutoSupport SANtricity]
 
-. Selezionare *SUPPORT* > *Support Center* > *AutoSupport*.
+. Selezionare *Supporto* > *Centro supporto* > * AutoSupport*.
 +
 Viene visualizzata la pagina AutoSupport Operations.
 

@@ -46,7 +46,7 @@ La tabella include le seguenti informazioni per ciascun nodo:
 ** Storage usage (utilizzo storage): La percentuale dello spazio utilizzabile totale per i dati degli oggetti utilizzati per il nodo di storage.
 +
 
-NOTE: Lo stesso valore di utilizzo dello storage (%) viene visualizzato anche nel grafico Storage Used - Object Data per ciascun nodo di storage (selezionare *NODE* > *_Storage Node_* > *Storage*).
+NOTE: Lo stesso valore di utilizzo dello storage (%) viene visualizzato anche nel grafico Storage Used - Object Data per ciascun Storage Node (selezionare *Nodi* > *_Storage Node_* > *Storage*).
 
 
 

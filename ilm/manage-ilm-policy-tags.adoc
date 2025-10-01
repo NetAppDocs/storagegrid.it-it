@@ -63,3 +63,6 @@ In alternativa, selezionare il nome del tag. Viene visualizzata la pagina dei de
 
 . Selezionare *Sì* per eliminare il tag.
 
+
+.Informazioni correlate
+link:creating-ilm-policy.html#activate-ilm-policy["Scopri come creare tag di policy ILM"]

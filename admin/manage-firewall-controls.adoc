@@ -64,7 +64,7 @@ Dopo aver salvato la configurazione, tutte le porte esterne sul nodo di amminist
 
 === Esempio 2: Blocco delle porte sensibili
 
-Si supponga di voler bloccare le porte sensibili e il servizio su tale porta (ad esempio, SSH sulla porta 22). È possibile utilizzare i seguenti passaggi generali:
+Supponiamo di voler bloccare porte sensibili e il servizio su quella porta.  È possibile seguire i seguenti passaggi generali:
 
 . Utilizzare la scheda Privileged address list (elenco indirizzi con privilegi) per concedere l'accesso solo agli host che devono accedere al servizio.
 . Utilizzare la scheda Manage external access (Gestisci accesso esterno) per bloccare tutte le porte.
@@ -73,7 +73,7 @@ Si supponga di voler bloccare le porte sensibili e il servizio su tale porta (ad
 
 CAUTION: Aggiungere l'indirizzo IP con privilegi prima di bloccare l'accesso a tutte le porte assegnate per accedere a Grid Manager e Tenant Manager (le porte preimpostate sono 443 e 8443). Tutti gli utenti attualmente connessi a una porta bloccata, incluso l'utente, perderanno l'accesso a Grid Manager, a meno che il loro indirizzo IP non sia stato aggiunto all'elenco degli indirizzi privilegiati.
 
-Dopo aver salvato la configurazione, la porta 22 e il servizio SSH saranno disponibili per gli host nell'elenco degli indirizzi privilegiati. A tutti gli altri host verrà negato l'accesso al servizio, indipendentemente dall'interfaccia da cui proviene la richiesta.
+Dopo aver salvato la configurazione, la porta sensibile e il servizio su quella porta saranno disponibili agli host nell'elenco degli indirizzi privilegiati.  A tutti gli altri host viene negato l'accesso al servizio, indipendentemente dall'interfaccia da cui proviene la richiesta.
 
 
 

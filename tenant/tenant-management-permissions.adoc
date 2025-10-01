@@ -24,7 +24,7 @@ Per tutte le autorizzazioni, l'impostazione della modalità di accesso del grupp
 
 NOTE: Se un utente appartiene a più gruppi e un gruppo è impostato su sola lettura, l'utente avrà accesso in sola lettura a tutte le impostazioni e funzioni selezionate.
 
-È possibile assegnare a un gruppo le seguenti autorizzazioni. Tenere presente che i tenant S3 e Swift dispongono di permessi di gruppo diversi.
+È possibile assegnare le seguenti autorizzazioni a un gruppo.
 
 [cols="1a,3a,3a"]
 |===
@@ -36,16 +36,6 @@ Accesso root
  a| 
 Fornisce l'accesso completo al tenant Manager e all'API di gestione del tenant.
  a| 
-Gli utenti Swift devono disporre dell'autorizzazione di accesso root per accedere all'account tenant.
-
-
-
- a| 
-Amministratore
- a| 
-Solo tenant Swift. Fornisce l'accesso completo ai container e agli oggetti Swift per questo account tenant
- a| 
-Gli utenti Swift devono disporre dell'autorizzazione di amministratore Swift per eseguire qualsiasi operazione con l'API REST Swift.
 
 
 
@@ -61,30 +51,22 @@ Gli utenti che non dispongono di questa autorizzazione non visualizzano l'opzion
  a| 
 Visualizza tutti i bucket
  a| 
-*S3 locatari*: Consente agli utenti di visualizzare tutte le configurazioni di bucket e bucket.
-
-*Tenant Swift*: Consente agli utenti Swift di visualizzare tutte le configurazioni di container e container utilizzando l'API di gestione dei tenant.
+Consente agli utenti di visualizzare tutti i bucket e le relative configurazioni.
  a| 
 Gli utenti che non dispongono dell'autorizzazione Visualizza tutti i bucket o Gestisci tutti i bucket non visualizzano l'opzione di menu *bucket*.
 
-Questa autorizzazione viene sostituita dall'autorizzazione Gestisci tutti i bucket. Non influisce sui criteri di gruppo o bucket S3 utilizzati dai client S3 o dalla console S3.
-
-È possibile assegnare questa autorizzazione solo ai gruppi Swift dall'API di gestione dei tenant. Non puoi assegnare questa autorizzazione ai gruppi Swift utilizzando il tenant Manager.
+Questa autorizzazione è sostituita dall'autorizzazione Gestisci tutti i bucket.  Non influisce sui bucket S3 o sui criteri di gruppo utilizzati dai client S3 o dalla console S3.
 
 
 
  a| 
 Gestire tutti i bucket
  a| 
-*S3 tenant*: Consente agli utenti di utilizzare Tenant Manager e l'API di gestione tenant per creare ed eliminare bucket S3 e gestire le impostazioni per tutti i bucket S3 nell'account tenant, indipendentemente dai criteri di bucket S3 o di gruppo.
-
-*Tenant Swift*: Consente agli utenti Swift di controllare la coerenza dei container Swift utilizzando l'API di gestione dei tenant.
+Consente agli utenti di utilizzare Tenant Manager e l'API Tenant Management per creare ed eliminare bucket S3 e gestire le impostazioni per tutti i bucket S3 nell'account tenant, indipendentemente dal bucket S3 o dai criteri di gruppo.
  a| 
 Gli utenti che non dispongono dell'autorizzazione Visualizza tutti i bucket o Gestisci tutti i bucket non visualizzano l'opzione di menu *bucket*.
 
-Questa autorizzazione sostituisce l'autorizzazione Visualizza tutti i bucket. Non influisce sui criteri di gruppo o bucket S3 utilizzati dai client S3 o dalla console S3.
-
-È possibile assegnare questa autorizzazione solo ai gruppi Swift dall'API di gestione dei tenant. Non puoi assegnare questa autorizzazione ai gruppi Swift utilizzando il tenant Manager.
+Questa autorizzazione sostituisce l'autorizzazione Visualizza tutti i bucket.  Non influisce sui bucket S3 o sui criteri di gruppo utilizzati dai client S3 o dalla console S3.
 
 
 

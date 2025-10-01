@@ -1,0 +1,33 @@
+---
+permalink: swnodes/specifying-domain-name-system-server-information.html 
+sidebar: sidebar 
+keywords: how to specify domain name system server information, dns 
+summary: È necessario specificare le informazioni DNS per il sistema StorageGRID, in modo da poter accedere ai server esterni utilizzando i nomi host anziché gli indirizzi IP. 
+---
+= Specificare le informazioni sul server DNS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario specificare le informazioni DNS per il sistema StorageGRID, in modo da poter accedere ai server esterni utilizzando i nomi host anziché gli indirizzi IP.
+
+.A proposito di questa attività
+La specifica https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/checking-dns-server-configuration.html["Informazioni sul server DNS"^] consente di utilizzare nomi host FQDN (Fully Qualified Domain Name) anziché indirizzi IP per le notifiche e-mail e AutoSupport.
+
+Per garantire il corretto funzionamento, specificare due o tre server DNS. Se si specificano più di tre, è possibile che ne vengano utilizzati solo tre a causa delle limitazioni del sistema operativo note su alcune piattaforme. Se nel proprio ambiente sono presenti restrizioni di routing, è possibile link:../maintain/modifying-dns-configuration-for-single-grid-node.html["Personalizzare l'elenco dei server DNS"] che singoli nodi (in genere tutti i nodi di un sito) utilizzino un gruppo diverso di un massimo di tre server DNS.
+
+Se possibile, utilizzare i server DNS a cui ciascun sito può accedere localmente per garantire che un sito islanded possa risolvere i FQDN per le destinazioni esterne.
+
+.Fasi
+. Specificare l'indirizzo IPv4 per almeno un server DNS nella casella di testo *Server 1*.
+. Se necessario, selezionare il segno più accanto all'ultima voce per aggiungere altre voci del server.
++
+image::../media/9_gmi_installer_dns_page.gif[Questa immagine viene spiegata dal testo circostante.]
+
++
+Si consiglia di specificare almeno due server DNS. È possibile specificare fino a sei server DNS.
+
+. Selezionare *Avanti*.
+

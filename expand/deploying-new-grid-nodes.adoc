@@ -22,7 +22,7 @@ Quando si espande una griglia, i nodi aggiunti non devono corrispondere ai tipi 
 È necessario implementare una macchina virtuale in VMware vSphere per ciascun nodo VMware che si desidera aggiungere all'espansione.
 
 .Fasi
-. link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["Implementare il nuovo nodo come macchina virtuale"] E collegarla a una o più reti StorageGRID.
+. link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["Implementare il nuovo nodo come macchina virtuale"]e collegarlo a una o più reti StorageGRID .
 +
 Quando si implementa il nodo, è possibile rimappare le porte del nodo o aumentare le impostazioni della CPU o della memoria.
 
@@ -36,12 +36,7 @@ Quando si implementa il nodo, è possibile rimappare le porte del nodo o aumenta
 È possibile implementare nodi grid su nuovi host Linux o su host Linux esistenti. Se sono necessari altri host Linux per supportare i requisiti di CPU, RAM e storage dei nodi StorageGRID che si desidera aggiungere al grid, è necessario prepararli nello stesso modo in cui sono stati preparati gli host al momento dell'installazione. Quindi, i nodi di espansione vengono implementati nello stesso modo in cui vengono implementati i nodi di rete durante l'installazione.
 
 .Prima di iniziare
-* Sono disponibili le istruzioni per l'installazione di StorageGRID per la versione di Linux in uso e i requisiti hardware e storage.
-+
-** link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
-** link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
-
-
+* Hai le istruzioni per installare StorageGRID per la tua versione di Linux e hai esaminato illink:../swnodes/index.html["requisiti hardware e di archiviazione"] .
 * Se si prevede di implementare nuovi nodi grid su host esistenti, è stato confermato che gli host esistenti dispongono di CPU, RAM e capacità di storage sufficienti per i nodi aggiuntivi.
 * Hai un piano per ridurre al minimo i domini di guasto. Ad esempio, non è necessario implementare tutti i nodi gateway su un singolo host fisico.
 +
@@ -145,9 +140,6 @@ Se il pulsante *Avvia installazione* non è attivato, potrebbe essere necessario
 
 . Dalla home page del programma di installazione dell'appliance StorageGRID, selezionare *Avvia installazione*.
 +
-image::../media/appliance_installer_home_start_installation_enabled.gif[Questa immagine viene descritta dal testo circostante.]
-
-+
 Lo stato corrente cambia in "Installazione in corso" e viene visualizzata la pagina Installazione monitor.
 
 . Se l'espansione include più nodi appliance, ripetere i passaggi precedenti per ogni appliance.
@@ -158,9 +150,6 @@ NOTE: Se è necessario implementare più nodi storage dell'appliance contemporan
 . Per accedere manualmente alla pagina Installazione monitor, selezionare *Installazione monitor* dalla barra dei menu.
 +
 La pagina Monitor Installation (Installazione monitor) mostra lo stato di avanzamento dell'installazione.
-
-+
-image::../media/monitor_installation_configure_storage.gif[Questa immagine viene spiegata dal testo circostante.]
 
 +
 La barra di stato blu indica l'attività attualmente in corso. Le barre di stato verdi indicano le attività completate correttamente.
@@ -191,8 +180,5 @@ In questa fase, il programma di installazione copia l'immagine del sistema opera
 +
 
 NOTE: Attendere che tutti i nodi aggiunti a questa espansione siano pronti per l'approvazione prima di passare al Grid Manager per approvare i nodi.
-
-+
-image::../media/monitor_installation_install_sgws.gif[Questa immagine viene spiegata dal testo circostante.]
 
 

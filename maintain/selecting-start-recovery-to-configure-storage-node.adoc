@@ -19,7 +19,6 @@ Dopo aver sostituito un nodo di storage, selezionare Avvia ripristino in Grid Ma
 * Si dispone della passphrase di provisioning.
 * Il nodo sostitutivo è stato implementato e configurato.
 * Si dispone della data di inizio di qualsiasi intervento di riparazione per i dati codificati per la cancellazione.
-* Hai verificato che il nodo di storage non è stato ricostruito negli ultimi 15 giorni.
 
 
 .A proposito di questa attività
@@ -30,7 +29,7 @@ Se Storage Node è installato come container su un host Linux, eseguire questa o
 
 
 .Fasi
-. In Grid Manager, selezionare *MANUTENZIONE* > *attività* > *Ripristino*.
+. Da Grid Manager, seleziona *Manutenzione* > *Attività* > *Ripristino*.
 . Selezionare il nodo della griglia che si desidera ripristinare nell'elenco Pending Nodes (nodi in sospeso).
 +
 I nodi vengono visualizzati nell'elenco dopo un errore, ma non è possibile selezionare un nodo fino a quando non è stato reinstallato e pronto per il ripristino.

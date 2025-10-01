@@ -30,7 +30,7 @@ Ogni archivio di oggetti viene montato su un volume che corrisponde al relativo 
 Prima di aggiungere nuovi volumi di storage, utilizzare Grid Manager per visualizzare gli archivi di oggetti correnti per ciascun nodo di storage e i punti di montaggio corrispondenti. È possibile utilizzare queste informazioni quando si aggiungono volumi di storage.
 
 .Fasi
-. Selezionare *NODES* > *_Site_* > *_Storage Node_* > *Storage*.
+. Selezionare *Nodi* > *_sito_* > *_Nodo di archiviazione_* > *Archiviazione*.
 . Scorrere verso il basso per visualizzare le quantità di storage disponibili per ciascun volume e archivio di oggetti.
 +
 Per i nodi di storage dell'appliance, il nome globale di ciascun disco corrisponde all'identificativo mondiale del volume (WWID) visualizzato quando si visualizzano le proprietà dei volumi standard in SANtricity OS (il software di gestione collegato al controller di storage dell'appliance).

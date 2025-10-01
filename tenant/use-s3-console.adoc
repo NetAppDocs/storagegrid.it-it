@@ -37,12 +37,12 @@ Se l'utilizzo di S3 Console comporta un'operazione troppo lunga (ad esempio, min
 .Prima di iniziare
 * L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * Se si desidera gestire gli oggetti, si appartiene a un gruppo di utenti che dispone dell'autorizzazione di accesso principale. In alternativa, si appartiene a un gruppo di utenti che dispone dell'autorizzazione Usa scheda Console S3 e dell'autorizzazione Visualizza tutti i bucket o Gestisci tutti i bucket. Vedere link:tenant-management-permissions.html["Permessi di gestione del tenant"].
-* Per l'utente è stato configurato un criterio Gruppo S3 o bucket. Vedere link:../s3/bucket-and-group-access-policies.html["Utilizza policy di accesso a bucket e gruppi"].
+* Per l'utente è stato configurato un criterio di gruppo o bucket S3. Vedere link:../s3/use-access-policies.html["Utilizza policy di accesso a bucket e gruppi"] .
 * Conosci l'ID della chiave di accesso dell'utente e la chiave di accesso segreta. Facoltativamente, si dispone di un `.csv` file contenente queste informazioni. Consultare la link:creating-your-own-s3-access-keys.html["istruzioni per la creazione delle chiavi di accesso"].
 
 
 .Fasi
-. Selezionare *STORAGE* > *bucket* > *_bucket name_*.
+. Selezionare *Archiviazione* > *Bucket* > *_nome bucket_*.
 . Selezionare la scheda Console S3.
 . Incollare l'ID della chiave di accesso e la chiave di accesso segreta nei campi. Altrimenti, selezionare *Upload access keys* e selezionare il `.csv` file.
 . Selezionare *Accedi*.

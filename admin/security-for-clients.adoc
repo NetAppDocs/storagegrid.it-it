@@ -69,7 +69,7 @@ I client devono essere configurati in modo da considerare attendibile l'autoritÃ
 
 == Algoritmi di hashing e crittografia supportati per le librerie TLS
 
-Il sistema StorageGRID supporta un insieme di pacchetti di crittografia che le applicazioni client possono utilizzare quando stabiliscono una sessione TLS. Per configurare le crittografia, andare a *CONFIGURATION* > *Security* > *Security settings* e selezionare *TLS and SSH policy*.
+Il sistema StorageGRID supporta un set di suite di cifratura che le applicazioni client possono utilizzare quando stabiliscono una sessione TLS.  Per configurare i cifrari, vai su *Configurazione* > *Sicurezza* > *Impostazioni di sicurezza* e seleziona *Criteri TLS e SSH*.
 
 
 

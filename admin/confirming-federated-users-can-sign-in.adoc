@@ -27,14 +27,14 @@ TIP: Quando si attiva SSO, un'origine identità configurata in Tenant Manager vi
 
 +
 .. Accedi al tenant manager per ogni account tenant.
-.. Selezionare *ACCESS MANAGEMENT* > *Identity Federation*.
+.. Selezionare *Gestione accessi* > *Federazione identità*.
 .. Verificare che la casella di controllo *Enable Identity Federation* (Abilita federazione identità) non sia selezionata.
 .. In tal caso, verificare che i gruppi federati che potrebbero essere in uso per questo account tenant non siano più necessari, deselezionare la casella di controllo e selezionare *Salva*.
 
 
 . Verificare che un utente federated possa accedere a Grid Manager:
 +
-.. Da Grid Manager, selezionare *CONFIGURATION* > *Access control* > *Admin groups*.
+.. Da Grid Manager, seleziona *Configurazione* > *Controllo accessi* > *Gruppi amministratori*.
 .. Assicurarsi che almeno un gruppo federated sia stato importato dall'origine dell'identità di Active Directory e che sia stata assegnata l'autorizzazione di accesso root.
 .. Disconnettersi.
 .. Confermare che è possibile accedere nuovamente a Grid Manager come utente nel gruppo federated.
@@ -42,18 +42,18 @@ TIP: Quando si attiva SSO, un'origine identità configurata in Tenant Manager vi
 
 . Se sono presenti account tenant, verificare che un utente federated che dispone dell'autorizzazione di accesso root possa effettuare l'accesso:
 +
-.. In Grid Manager, selezionare *TENANT*.
+.. Da Grid Manager, seleziona *Inquilini*.
 .. Selezionare l'account tenant e selezionare *azioni* > *Modifica*.
 .. Nella scheda Immetti dettagli, selezionare *continua*.
 .. Se la casella di controllo *Usa origine identità propria* è selezionata, deselezionare la casella e selezionare *Salva*.
-+
-image::../media/sso_uses_own_identity_source_for_tenant.png[Casella di controllo Edit Tenant account > Use own Identity source (Modifica account tenant > Usa origine identità propria) non selezionata]
+
 
 +
 Viene visualizzata la pagina del tenant.
 
++
 .. Selezionare l'account tenant, selezionare *Accedi* e accedere all'account tenant come utente root locale.
-.. Da Tenant Manager, selezionare *ACCESS MANAGEMENT* > *Groups*.
+.. Da Tenant Manager, seleziona *Gestione accessi* > *Gruppi*.
 .. Assicurarsi che almeno un gruppo federated di Grid Manager sia stato assegnato all'autorizzazione di accesso root per questo tenant.
 .. Disconnettersi.
 .. Confermare che è possibile accedere nuovamente al tenant come utente nel gruppo federated.

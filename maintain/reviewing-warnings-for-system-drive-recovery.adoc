@@ -13,23 +13,20 @@ summary: Prima di ripristinare un disco di sistema guasto di un nodo di storage,
 [role="lead"]
 Prima di ripristinare un'unità di sistema guasta di un nodo di archiviazione, esaminare le avvertenze generali link:warnings-and-considerations-for-grid-node-recovery.html["avvertenze e considerazioni per il ripristino del nodo grid"] e specifiche riportate di seguito.
 
-I nodi di storage dispongono di un database Cassandra che include metadati a oggetti. Il database Cassandra potrebbe essere ricostruito nei seguenti casi:
+I nodi di archiviazione dispongono di un database Cassandra che include metadati degli oggetti.  Il database Cassandra potrebbe essere ricostruito se:
 
-* Un nodo di storage viene riportato online dopo essere stato offline per più di 15 giorni.
-* Un volume di storage ha subito un errore e è stato ripristinato.
+* Un volume di archiviazione si guasta e viene recuperato.
 * Il disco di sistema e uno o più volumi di storage si guastano e vengono ripristinati.
 
 
-Quando Cassandra viene ricostruita, il sistema utilizza le informazioni provenienti da altri nodi di storage. Se troppi nodi di storage sono offline, alcuni dati Cassandra potrebbero non essere disponibili. Se Cassandra è stata ricostruita di recente, i dati Cassandra potrebbero non essere ancora coerenti in tutta la griglia. La perdita di dati può verificarsi se Cassandra viene ricostruita quando troppi nodi di storage sono offline o se due o più nodi di storage vengono ricostruiti entro 15 giorni l'uno dall'altro.
+Quando Cassandra viene ricostruita, il sistema utilizza le informazioni provenienti da altri nodi di archiviazione.  Se Cassandra è stata ricostruita di recente, i dati di Cassandra potrebbero non essere ancora coerenti in tutta la griglia.  Se troppi nodi di archiviazione sono offline:
+
+* Alcuni dati di Cassandra potrebbero non essere disponibili.
+* Potrebbe verificarsi una perdita di dati.
 
 
-CAUTION: Se più di un nodo di storage si è guastato (o non è in linea), contattare il supporto tecnico. Non eseguire la seguente procedura di ripristino. Potrebbe verificarsi una perdita di dati.
 
-
-CAUTION: Se si tratta del secondo guasto del nodo di storage in meno di 15 giorni dopo un guasto o un ripristino del nodo di storage, contattare il supporto tecnico. La ricostruzione di Cassandra su due o più nodi di storage entro 15 giorni può causare la perdita di dati.
-
-
-NOTE: Se più di un nodo di storage in un sito si è guastato, potrebbe essere necessaria una procedura di ripristino del sito. Vedere link:how-site-recovery-is-performed-by-technical-support.html["Come il supporto tecnico recupera un sito"].
+CAUTION: Se più di un nodo di archiviazione è guasto (o è offline), contattare l'assistenza tecnica.  Non eseguire la seguente procedura di ripristino.  Potrebbe verificarsi una perdita di dati. Per ulteriori informazioni, fare riferimento a link:how-site-recovery-is-performed-by-technical-support.html["Come il supporto tecnico recupera un sito"] .
 
 
 CAUTION: Se questo nodo di storage è in modalità di manutenzione in sola lettura per consentire il recupero di oggetti da parte di un altro nodo di storage con volumi di storage guasti, ripristinare i volumi sul nodo di storage con volumi di storage guasti prima di ripristinare questo nodo di storage guasto. Vedere le istruzioni per link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["ripristino in seguito a un errore del volume di storage in cui il disco di sistema è intatto"].

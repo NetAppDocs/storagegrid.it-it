@@ -15,7 +15,7 @@ La protezione avanzata del sistema è il processo che consente di eliminare il m
 
 Durante l'installazione e la configurazione di StorageGRID, è possibile utilizzare queste linee guida per raggiungere gli obiettivi di protezione prescritti in termini di riservatezza, integrità e disponibilità.
 
-È necessario utilizzare già le Best practice standard del settore per la protezione avanzata dei sistemi. Ad esempio, si utilizzano password complesse per StorageGRID, HTTPS anziché HTTP e si abilita l'autenticazione basata su certificati, se disponibile.
+Dovresti già utilizzare le best practice standard del settore per il rafforzamento del sistema.  Ad esempio, si utilizzano password complesse per StorageGRID, si utilizza HTTPS anziché HTTP e si abilita l'autenticazione basata su certificato, ove disponibile.  Tali best practice devono includere la sicurezza fisica e ambientale che limiti l'accesso fisico e protegga il data center fisico e l'infrastruttura di supporto.  È inoltre necessario fare riferimento a tutti gli standard normativi e alle raccomandazioni applicabili alla propria attività e area geografica.
 
 StorageGRID segue la https://security.netapp.com/policy/["Policy di gestione delle vulnerabilità di NetApp"^]. Le vulnerabilità segnalate vengono verificate e risolte in base al processo di risposta agli incidenti di sicurezza del prodotto.
 

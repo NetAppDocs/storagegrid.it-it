@@ -46,19 +46,19 @@ Ad esempio, non utilizzare i seguenti intervalli di subnet per la rete Grid, la 
 
 ====
 .Fasi
-. Selezionare *MANUTENZIONE* > *rete* > *rete griglia*.
+. Selezionare *Manutenzione* > *Rete* > *Rete di rete*.
 . Selezionare *Aggiungi un'altra subnet* per aggiungere una nuova subnet nella notazione CIDR.
 +
 Ad esempio, immettere `10.96.104.0/22`.
 
 . Inserire la passphrase di provisioning e selezionare *Save* (Salva).
-. Attendere che le modifiche vengano applicate, quindi scaricare un nuovo pacchetto di ripristino.
+. Attendi che le modifiche vengano applicate, quindi scarica un nuovo pacchetto di ripristino.
 +
-.. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+.. Selezionare *Manutenzione* > *Sistema* > *Pacchetto di ripristino*.
 .. Immettere la *Provisioning Passphrase*.
 +
 
-CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID. Viene inoltre utilizzato per ripristinare il nodo di amministrazione primario.
+CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID .  Viene utilizzato anche per recuperare il nodo di amministrazione primario.
 
 
 

@@ -2,15 +2,15 @@
 :allow-uri-read: 
 
 
-È possibile disattivare temporaneamente o permanentemente la federazione di identità per gruppi e utenti. Quando la federazione delle identità è disattivata, non vi è alcuna comunicazione tra StorageGRID e l'origine delle identità. Tuttavia, tutte le impostazioni configurate vengono conservate, consentendo di riabilitare facilmente la federazione delle identità in futuro.
+È possibile disattivare temporaneamente o permanentemente la federazione delle identità per gruppi e utenti.  Quando la federazione delle identità è disabilitata, non c'è comunicazione tra StorageGRID e l'origine dell'identità.  Tuttavia, tutte le impostazioni configurate vengono mantenute, consentendoti di riattivare facilmente la federazione delle identità in futuro.
 
 .A proposito di questa attività
 Prima di disattivare la federazione delle identità, è necessario tenere presente quanto segue:
 
 * Gli utenti federati non potranno accedere.
 * Gli utenti federati che hanno effettuato l'accesso manterranno l'accesso al sistema StorageGRID fino alla scadenza della sessione, ma non potranno accedere dopo la scadenza della sessione.
-* La sincronizzazione tra il sistema StorageGRID e l'origine dell'identità non viene eseguita e non vengono generati avvisi per gli account che non sono stati sincronizzati.
-* La casella di controllo *Enable Identity Federation* (attiva federazione identità) è disattivata se Single Sign-on (SSO) è impostato su *Enabled* o *Sandbox Mode*. Lo stato SSO nella pagina Single Sign-on deve essere *Disabled* prima di poter disattivare la federazione delle identità. Vedere link:../admin/disabling-single-sign-on.html["Disattiva single sign-on"].
+* La sincronizzazione tra il sistema StorageGRID e l'origine dell'identità non verrà eseguita e non verranno generati avvisi per gli account che non sono stati sincronizzati.
+* La casella di controllo *Abilita federazione delle identità* è disabilitata se lo stato Single Sign-On (SSO) è *Abilitato* o *Modalità sandbox*.  Lo stato SSO nella pagina Single Sign-on deve essere *Disabilitato* prima di poter disabilitare la federazione delle identità. Vedere link:../admin/disabling-single-sign-on.html["Disattiva single sign-on"] .
 
 
 .Fasi

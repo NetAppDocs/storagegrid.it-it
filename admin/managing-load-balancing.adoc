@@ -38,7 +38,7 @@ Come Best practice generale, ogni sito del sistema StorageGRID deve includere du
 
 Un endpoint di bilanciamento del carico definisce la porta e il protocollo di rete (HTTPS o HTTP) che le richieste dell'applicazione client in entrata e in uscita utilizzeranno per accedere ai nodi che contengono il servizio Load Balancer. L'endpoint definisce anche il tipo di client (S3), la modalità di associazione e, facoltativamente, un elenco di tenant consentiti o bloccati.
 
-Per creare un endpoint di bilanciamento del carico, selezionare *CONFIGURAZIONE* > *rete* > *endpoint di bilanciamento del carico* oppure completare la configurazione guidata di FabricPool e S3. Per istruzioni:
+Per creare un endpoint del bilanciatore del carico, utilizzare Grid Manager oppure completare la configurazione guidata di S3 e FabricPool :
 
 * link:configuring-load-balancer-endpoints.html["Configurare gli endpoint del bilanciamento del carico"]
 * link:use-s3-setup-wizard-steps.html["Utilizzare l'installazione guidata S3"]
@@ -47,11 +47,87 @@ Per creare un endpoint di bilanciamento del carico, selezionare *CONFIGURAZIONE*
 
 
 
+=== Considerazioni sulla memorizzazione nella cache del bilanciatore del carico
+
+La memorizzazione nella cache migliora significativamente le prestazioni quando un carico di lavoro opera su un sottoinsieme di dati e accede agli oggetti più volte.  Inoltre, la memorizzazione nella cache fornisce l'accesso remoto all'archiviazione degli oggetti senza una distribuzione completa della griglia.  La memorizzazione nella cache del bilanciatore del carico è disponibile solo per i nodi gateway.
+
+Durante la creazione degli endpoint del bilanciatore del carico:
+
+* Abilita la memorizzazione nella cache solo per i carichi di lavoro memorizzabili nella cache.  I carichi di lavoro che accedono ai dati non memorizzati nella cache più spesso rispetto ai dati memorizzati nella cache avranno prestazioni peggiori rispetto a quelle che avrebbero se non fossero stati gestiti dalla cache.  In alcuni casi, i carichi di lavoro con elevati tassi di sovrascrittura ed espulsione potrebbero anche superare la resistenza di scrittura dell'unità garantita.
+* Si consiglia di valutare l'aggiunta di ulteriori endpoint o nodi per la memorizzazione nella cache di singoli carichi di lavoro che sono buoni candidati per la memorizzazione nella cache.
+* Utilizzare endpoint distinti per carichi di lavoro memorizzabili nella cache e non memorizzabili nella cache.  Questa separazione garantisce che i meccanismi di memorizzazione nella cache vengano applicati in modo appropriato e non interferiscano con l'elaborazione dei dati non memorizzabili nella cache.
+* Valutare un potenziale carico di lavoro memorizzabile nella cache indirizzandolo all'endpoint abilitato alla cache.  Monitorare e verificare il tasso di successo della cache per determinare l'idoneità del carico di lavoro per la memorizzazione nella cache.  Questa valutazione aiuta a ottimizzare le prestazioni e a garantire un utilizzo efficiente delle risorse della cache.
+* link:../audit/index.html["Esaminare i registri di audit"]per determinare se un carico di lavoro esistente sarebbe un buon candidato per la memorizzazione nella cache.  Per un dato periodo di tempo, determina quale percentuale di GET è destinata a oggetti univoci.  Per essere idoneo alla memorizzazione nella cache, questo valore dovrebbe essere inferiore al 50%.
+
+
+
+
+==== Esempi di carichi di lavoro che potrebbero essere buoni candidati per la memorizzazione nella cache
+
+* Laghi di dati
+* Calcolo ad alte prestazioni (HPC)
+* Formazione AI/ML
+* Reti di distribuzione dei contenuti (CDN)
+* Gestione delle risorse multimediali
+* Produzione video
+
+
+[NOTE]
+====
+* È possibile memorizzare nella cache più versioni dell'oggetto.
+* Sono supportate le operazioni di lettura dell'intervallo.
+
+
+====
+
+
+==== Esempi di carichi di lavoro che non sono buoni candidati per la memorizzazione nella cache
+
+* Piscina in tessuto
+* Applicazioni di backup
+* Livelli di archiviazione
+
+
+
+CAUTION: Se un contenuto da servire tramite la cache richiede la crittografia a riposo, https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html["abilitare la crittografia del nodo o dell'unità"^] sul nodo cache.
+
+
+
+==== Tipi di oggetti e richieste che non verranno memorizzati nella cache
+
+* IL `response-content-encoding` parametro di query
+* IL `partNumber` parametro di query
+* Intestazioni condizionali
++
+** `If-Match`
+** `If-Modified-Since`
+** `If-None-Match`
+** `If-Unmodified-Since`
+
+
+* Richieste crittografate a riposo con uno dei seguenti metodi:
++
+** SSE (crittografia lato server con chiavi gestite StorageGRID)
+** SSE-C (crittografia lato server con chiavi fornite dal cliente)
+** Crittografia degli oggetti memorizzati
+
+
+
+
+Tutte le richieste non memorizzate nella cache vengono inoltrate a un LDR upstream come se la cache non fosse abilitata.
+
+.Informazioni correlate
+* link:../troubleshoot/troubleshooting-load-balancer-caching.html["Risoluzione dei problemi di memorizzazione nella cache del bilanciatore del carico"]
+* Per ulteriori informazioni sulla memorizzazione nella cache del bilanciatore del carico, contattare l'assistenza tecnica.
+
+
+
+
 === Considerazioni per la porta
 
 Per impostazione predefinita, la porta di un endpoint di bilanciamento del carico è 10433 per il primo endpoint creato, ma è possibile specificare qualsiasi porta esterna inutilizzata compresa tra 1 e 65535. Se si utilizza la porta 80 o 443, l'endpoint utilizzerà il servizio Load Balancer solo sui nodi gateway. Queste porte sono riservate sui nodi di amministrazione. Se si utilizza la stessa porta per più di un endpoint, è necessario specificare una modalità di binding diversa per ciascun endpoint.
 
-Le porte utilizzate da altri servizi di rete non sono consentite. Consultare la link:../network/network-port-reference.html["Riferimento porta di rete"].
+Non sono consentite le porte utilizzate da altri servizi di rete. Vedere link:../network/internal-grid-node-communications.html#storagegrid-internal-ports["Porte interne StorageGRID"] .
 
 
 

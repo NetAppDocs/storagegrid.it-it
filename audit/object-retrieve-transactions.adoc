@@ -13,7 +13,7 @@ summary: È possibile identificare le transazioni di recupero degli oggetti nel 
 [role="lead"]
 È possibile identificare le transazioni di recupero degli oggetti nel registro di controllo individuando i messaggi di audit S3 specifici per API.
 
-Non tutti i messaggi di audit generati durante una transazione di recupero sono elencati nelle tabelle seguenti. Sono inclusi solo i messaggi necessari per tracciare la transazione di recupero.
+Non tutti i messaggi di controllo generati durante una transazione di recupero sono elencati nella tabella seguente.  Sono inclusi solo i messaggi necessari per tracciare la transazione di recupero.
 
 
 
@@ -34,27 +34,6 @@ Richiesta di recupero di un oggetto da un bucket.
 CBID, S3BK, S3KY
  a| 
 link:sget-s3-get.html["SGET: S3 GET"]
-
-|===
-
-
-== Messaggi di audit per il recupero rapido
-
-[cols="1a,1a,2a,1a,1a"]
-|===
-| Codice | Nome | Descrizione | Traccia | Vedere 
-
-
- a| 
-WGET
- a| 
-OTTENERE rapidamente
- a| 
-Richiesta di recupero di un oggetto da un container.
- a| 
-CBID, WCON, WOBJ
- a| 
-link:wget-swift-get.html["WGET: Swift GET"]
 
 |===
 

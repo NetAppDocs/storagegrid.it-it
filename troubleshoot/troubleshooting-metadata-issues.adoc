@@ -48,7 +48,7 @@ CAUTION: Quando i metadati dell'oggetto utilizzano almeno il 90% dello spazio co
 CAUTION: Se la dimensione del volume 0 è inferiore all'opzione di storage Metadata Reserved Space (ad esempio, in un ambiente non in produzione), il calcolo dell'avviso *Low metadata storage* potrebbe essere impreciso.
 
 .Fasi
-. Selezionare *ALERTS* > *current*.
+. Selezionare *Avvisi* > *Correnti*.
 . Dalla tabella degli avvisi, espandere il gruppo di avvisi *Low metadata storage*, se necessario, e selezionare l'avviso specifico che si desidera visualizzare.
 . Esaminare i dettagli nella finestra di dialogo degli avvisi.
 . Se è stato attivato un avviso importante o critico *Low metadata storage*, eseguire un'espansione per aggiungere immediatamente i nodi di storage.

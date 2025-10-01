@@ -13,11 +13,13 @@ summary: Tutti i servizi StorageGRID generano messaggi di audit durante il norma
 [role="lead"]
 Tutti i servizi StorageGRID generano messaggi di audit durante il normale funzionamento del sistema. È necessario comprendere in che modo questi messaggi di controllo passano dal sistema StorageGRID al `audit.log` file.
 
+I seguenti flussi di lavoro per i messaggi di controllo e la conservazione dei messaggi di controllo sono applicabili solo se StorageGRID è configurato per *Nodi amministrativi/nodi locali* o *Nodo amministrativo e server syslog esterno*.  Se StorageGRID è configurato per "Solo nodi locali" (predefinito) o "Server syslog esterno", i messaggi di controllo vengono salvati localmente su ciascun nodo nel `/var/local/log/localaudit.log` file e non può essere elaborato dai nodi di amministrazione o dai nodi di archiviazione.
+
 
 
 == Controllare il flusso dei messaggi
 
-I messaggi di audit vengono elaborati dai nodi di amministrazione e dai nodi di storage che dispongono di un servizio ADC (Administrative Domain Controller).
+I messaggi di controllo vengono elaborati dai nodi amministrativi quando StorageGRID è configurato per *nodi amministrativi/nodi locali* o *nodo amministrativo e server syslog esterno* e dai nodi di archiviazione che dispongono di un servizio di controller di dominio amministrativo (ADC).
 
 Come mostrato nel diagramma di flusso dei messaggi di audit, ciascun nodo StorageGRID invia i propri messaggi di audit a uno dei servizi ADC nel sito del data center. Il servizio ADC viene attivato automaticamente per i primi tre nodi di storage installati in ogni sito.
 
@@ -33,21 +35,21 @@ image::../media/audit_message_flow.gif[Diagramma che riepiloga il flusso dei mes
 
 StorageGRID utilizza un processo di copia e cancellazione per garantire che non vengano persi messaggi di controllo prima di poter essere scritti nel registro di controllo.
 
-Quando un nodo genera o inoltra un messaggio di audit, il messaggio viene memorizzato in una coda di messaggi di audit sul disco di sistema del nodo Grid. Una copia del messaggio viene sempre conservata in una coda di messaggi di controllo finché il messaggio non viene scritto nel file di registro di controllo nella directory del nodo amministrativo `/var/local/log`. In questo modo si evita la perdita di un messaggio di audit durante il trasporto.
+Quando un nodo genera o inoltra un messaggio di controllo, il messaggio viene memorizzato in una coda di messaggi di controllo sul disco di sistema del nodo della griglia.  Una copia del messaggio viene sempre conservata in una coda di messaggi di controllo finché il messaggio non viene scritto nel file di registro di controllo nel nodo di amministrazione `/var/local/audit/export` elenco.  Ciò aiuta a prevenire la perdita di un messaggio di controllo durante il trasporto.
 
 image::../media/audit_message_retention.gif[Diagramma che riassume la ricezione del messaggio di audit presso l'AMS]
 
-La coda dei messaggi di audit può aumentare temporaneamente a causa di problemi di connettività di rete o di capacità di audit insufficiente. Man mano che le code aumentano, consumano una quantità maggiore di spazio disponibile nella directory di ciascun nodo `/var/local/`. Se il problema persiste e la directory dei messaggi di controllo di un nodo diventa troppo piena, i singoli nodi assegneranno la priorità all'elaborazione del proprio backlog e diventeranno temporaneamente non disponibili per i nuovi messaggi.
+La coda dei messaggi di controllo può aumentare temporaneamente a causa di problemi di connettività di rete o di capacità di controllo insufficiente.  Man mano che le code aumentano, consumano più spazio disponibile in ciascun nodo `/var/local/` elenco.  Se il problema persiste e la directory dei messaggi di controllo di un nodo diventa troppo piena, i singoli nodi danno priorità all'elaborazione del loro arretrato e diventano temporaneamente non disponibili per nuovi messaggi.
 
 In particolare, potrebbero verificarsi i seguenti comportamenti:
 
-* Se la `/var/local/log` directory utilizzata da un nodo amministrativo diventa piena, il nodo amministrativo viene contrassegnato come non disponibile per i nuovi messaggi di controllo finché la directory non è più piena. S3 le richieste dei client non sono interessate. L'allarme XAMS (Unreachable Audit Repository) viene attivato quando un repository di audit non è raggiungibile.
-* Se la `/var/local/` directory utilizzata da un nodo di archiviazione con il servizio ADC è piena al 92%, il nodo viene contrassegnato come non disponibile per i messaggi di controllo finché la directory non è piena solo al 87%. S3 le richieste client ad altri nodi non sono interessate. L'allarme NRLY (Available Audit Relay) viene attivato quando i relè di audit non sono raggiungibili.
+* Se il `/var/local/audit/export` Quando la directory utilizzata da un nodo di amministrazione diventa piena, il nodo di amministrazione viene contrassegnato come non disponibile per nuovi messaggi di controllo finché la directory non è più piena.  Le richieste del client S3 non sono interessate.  L'allarme XAMS (Unreachable Audit Repositories) viene attivato quando un repository di audit non è raggiungibile.
+* Se il `/var/local/` Quando la directory utilizzata da un nodo di archiviazione con il servizio ADC è piena al 92%, il nodo viene contrassegnato come non disponibile per i messaggi di controllo finché la directory non è piena solo all'87%.  Le richieste del client S3 ad altri nodi non sono interessate.  L'allarme NRLY (Available Audit Relays) viene attivato quando i relay di audit non sono raggiungibili.
 +
 
 NOTE: Se non vi sono nodi di archiviazione disponibili con il servizio ADC, i nodi di archiviazione memorizzano i messaggi di controllo localmente nel `/var/local/log/localaudit.log` file.
 
-* Se la `/var/local/` directory utilizzata da un nodo di archiviazione diventa piena al 85%, il nodo inizia a rifiutare le richieste client S3 con `503 Service Unavailable`.
+* Se il `/var/local/` directory utilizzata da un nodo di archiviazione diventa piena all'85%, il nodo inizia a rifiutare le richieste del client S3 con `503 Service Unavailable` .
 
 
 I seguenti tipi di problemi possono causare un aumento delle code dei messaggi di audit:
@@ -65,7 +67,7 @@ Per facilitare il monitoraggio delle dimensioni delle code dei messaggi di contr
 
 Se viene attivato l'avviso *Large audit queue* o l'allarme AMQS legacy, iniziare controllando il carico sul sistema. Se si è verificato un numero significativo di transazioni recenti, l'avviso e l'allarme devono essere risolti nel tempo e possono essere ignorati.
 
-Se l'avviso o l'allarme persiste e aumenta di severità, visualizzare un grafico delle dimensioni della coda. Se il numero aumenta costantemente nel corso di ore o giorni, il carico di audit ha probabilmente superato la capacità di audit del sistema. Ridurre la velocità di funzionamento del client o diminuire il numero di messaggi di audit registrati modificando il livello di audit per le scritture del client e le letture del client su Error (errore) o Off. Vedere link:../monitor/configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"].
+Se l'avviso o l'allarme persiste e aumenta di gravità, visualizza un grafico delle dimensioni della coda.  Se il numero aumenta costantemente nel corso di ore o giorni, è probabile che il carico di controllo abbia superato la capacità di controllo del sistema.  Ridurre la frequenza operativa del client o diminuire il numero di messaggi di controllo registrati modificando il livello di controllo per Scritture client e Letture client su Errore o Disattivato. Vedere link:../monitor/configure-log-management.html["Configurare la gestione dei log e il server syslog esterno"] .
 
 
 

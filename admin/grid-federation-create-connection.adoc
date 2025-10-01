@@ -32,7 +32,7 @@ Eseguire questa procedura su uno dei due sistemi StorageGRID.
 
 .Fasi
 . Accedere a Grid Manager dal nodo di amministrazione principale su una griglia.
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Selezionare *Aggiungi connessione*.
 . Inserire i dettagli della connessione.
 +
@@ -119,7 +119,7 @@ Eseguire questa procedura sul sistema StorageGRID a cui si sta effettuando la co
 
 .Fasi
 . Accedere a Grid Manager dal nodo di amministrazione principale.
-. Selezionare *CONFIGURATION* > *System* > *Grid Federation*.
+. Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Selezionare *carica file di verifica* per accedere alla pagina carica.
 . Selezionare *carica file di verifica*. Quindi, individuare e selezionare il file scaricato dalla prima griglia (`_connection-name_.grid-federation`).
 +

@@ -35,14 +35,14 @@ File di hotfix StorageGRID
 
 
  a| 
-(`.zip`File pacchetto di ripristino )
+pacchetto di recupero(`.zip` ) file
  a| 
-Prima di applicare una correzione rapida, link:downloading-recovery-package.html["Scaricare il file del pacchetto di ripristino più recente"] in caso di problemi durante la correzione rapida. Quindi, dopo aver applicato la correzione rapida, scaricare una nuova copia del file del pacchetto di ripristino e salvarlo in un luogo sicuro. Il file Recovery Package aggiornato consente di ripristinare il sistema in caso di errore.
+Prima di applicare un hotfix,link:downloading-recovery-package.html["scarica il file del pacchetto di ripristino più recente"] nel caso in cui si verifichino problemi durante l'hotfix.  Quindi, dopo aver applicato l'hotfix, scaricare una nuova copia del file del pacchetto di ripristino e salvarla in un luogo sicuro.  Il file del pacchetto di ripristino aggiornato consente di ripristinare il sistema in caso di errore.
 
 
 
 | File Passwords.txt  a| 
-Facoltativo e utilizzato solo se si applica manualmente una correzione rapida utilizzando il client SSH. Il `Passwords.txt` file fa parte del file del pacchetto di ripristino `.zip`.
+Facoltativo e utilizzato solo se si applica un hotfix manualmente tramite il client SSH.  IL `Passwords.txt` il file fa parte del pacchetto di ripristino `.zip` file.
 
 
 

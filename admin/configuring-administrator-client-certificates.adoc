@@ -18,7 +18,7 @@ Se si desidera accedere a StorageGRID utilizzando uno strumento di monitoraggio 
 Vedere link:using-storagegrid-security-certificates.html["Gestire i certificati di sicurezza"] e link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["Configurare certificati server personalizzati"].
 
 
-NOTE: Per garantire che le operazioni non vengano interrotte da un certificato del server guasto, l'avviso *scadenza dei certificati client configurati nella pagina certificati* viene attivato quando il certificato del server sta per scadere. Se necessario, è possibile visualizzare la scadenza del certificato corrente selezionando *CONFIGURAZIONE* > *sicurezza* > *certificati* e osservando la data di scadenza del certificato client nella scheda Client.
+NOTE: Per garantire che le operazioni non vengano interrotte da un certificato server non riuscito, l'avviso *Scadenza dei certificati client configurati nella pagina Certificati* viene attivato quando il certificato server sta per scadere.  Se necessario, è possibile visualizzare la data di scadenza del certificato corrente selezionando *Configurazione* > *Sicurezza* > *Certificati* e controllando la data di scadenza del certificato client nella scheda Client.
 
 
 NOTE: Se si utilizza un server di gestione delle chiavi (KMS) per proteggere i dati su nodi di appliance appositamente configurati, vedere le informazioni specifiche su link:kms-adding.html["Caricamento di un certificato del client KMS"].
@@ -60,7 +60,7 @@ Per aggiungere il certificato client, attenersi a una delle seguenti procedure:
 Utilizzare questa procedura per aggiungere un certificato client se un certificato dell'interfaccia di gestione è già configurato utilizzando una CA, un certificato client e una chiave privata forniti dal cliente.
 
 .Fasi
-. In Grid Manager, selezionare *CONFIGURATION* > *Security* > *Certificates*, quindi selezionare la scheda *Client*.
+. In Grid Manager, seleziona *Configurazione* > *Sicurezza* > *Certificati* e quindi seleziona la scheda *Client*.
 . Selezionare *Aggiungi*.
 . Immettere un nome per il certificato.
 . Per accedere alle metriche Prometheus utilizzando lo strumento di monitoraggio esterno, selezionare *Allow prometheus* (Consenti prometheus).
@@ -91,7 +91,7 @@ Utilizzare questa procedura per aggiungere un certificato client amministratore 
 
 .Fasi
 . Eseguire i passaggi da a link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["configurare un certificato dell'interfaccia di gestione"].
-. In Grid Manager, selezionare *CONFIGURATION* > *Security* > *Certificates*, quindi selezionare la scheda *Client*.
+. In Grid Manager, seleziona *Configurazione* > *Sicurezza* > *Certificati* e quindi seleziona la scheda *Client*.
 . Selezionare *Aggiungi*.
 . Immettere un nome per il certificato.
 . Per accedere alle metriche Prometheus utilizzando lo strumento di monitoraggio esterno, selezionare *Allow prometheus* (Consenti prometheus).
@@ -121,7 +121,7 @@ I nuovi certificati vengono visualizzati nella scheda Client.
 Utilizzare questa procedura per aggiungere un certificato client amministratore se non è stato configurato un certificato dell'interfaccia di gestione e si intende aggiungere un certificato client per Prometheus che utilizza la funzione di generazione del certificato in Grid Manager.
 
 .Fasi
-. In Grid Manager, selezionare *CONFIGURATION* > *Security* > *Certificates*, quindi selezionare la scheda *Client*.
+. In Grid Manager, seleziona *Configurazione* > *Sicurezza* > *Certificati* e quindi seleziona la scheda *Client*.
 . Selezionare *Aggiungi*.
 . Immettere un nome per il certificato.
 . Per accedere alle metriche Prometheus utilizzando lo strumento di monitoraggio esterno, selezionare *Allow prometheus* (Consenti prometheus).
@@ -167,7 +167,7 @@ Specificare il nome del file della chiave privata e la posizione di download.
 +
 Il nuovo certificato viene visualizzato nella scheda Client.
 
-. In Grid Manager, selezionare *CONFIGURATION* > *Security* > *Certificates*, quindi selezionare la scheda *Global*.
+. In Grid Manager, seleziona *Configurazione* > *Sicurezza* > *Certificati* e quindi seleziona la scheda *Globale*.
 . Selezionare *certificato interfaccia di gestione*.
 . Selezionare *Usa certificato personalizzato*.
 . Caricare i file certificate.pem e private_key.pem dal <<client_cert_details,dettagli del certificato del client>>passaggio. Non è necessario caricare il bundle CA.
@@ -228,7 +228,7 @@ Per informazioni sulle metriche, vedere link:../monitor/index.html["Istruzioni p
 È possibile modificare un certificato client amministratore per modificarne il nome, abilitare o disabilitare l'accesso Prometheus o caricare un nuovo certificato quando quello corrente è scaduto.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Certificates*, quindi selezionare la scheda *Client*.
+. Selezionare *Configurazione* > *Sicurezza* > *Certificati* e quindi selezionare la scheda *Client*.
 +
 Le date di scadenza del certificato e le autorizzazioni di accesso Prometheus sono elencate nella tabella. Se un certificato scade presto o è già scaduto, viene visualizzato un messaggio nella tabella e viene attivato un avviso.
 
@@ -249,7 +249,7 @@ Il certificato aggiornato viene visualizzato nella scheda Client.
 È possibile caricare un nuovo certificato una volta scaduto il certificato corrente.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Certificates*, quindi selezionare la scheda *Client*.
+. Selezionare *Configurazione* > *Sicurezza* > *Certificati* e quindi selezionare la scheda *Client*.
 +
 Le date di scadenza del certificato e le autorizzazioni di accesso Prometheus sono elencate nella tabella. Se un certificato scade presto o è già scaduto, viene visualizzato un messaggio nella tabella e viene attivato un avviso.
 
@@ -343,7 +343,7 @@ Il nuovo certificato viene visualizzato nella scheda Client.
 È possibile scaricare o copiare un certificato client da utilizzare altrove.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Certificates*, quindi selezionare la scheda *Client*.
+. Selezionare *Configurazione* > *Sicurezza* > *Certificati* e quindi selezionare la scheda *Client*.
 . Selezionare il certificato che si desidera copiare o scaricare.
 . Scaricare o copiare il certificato.
 +
@@ -384,7 +384,7 @@ Ad esempio: `storagegrid_certificate.pem`
 Se non è più necessario un certificato client amministratore, è possibile rimuoverlo.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Certificates*, quindi selezionare la scheda *Client*.
+. Selezionare *Configurazione* > *Sicurezza* > *Certificati* e quindi selezionare la scheda *Client*.
 . Selezionare il certificato che si desidera rimuovere.
 . Selezionare *Delete* (Elimina), quindi confermare.
 

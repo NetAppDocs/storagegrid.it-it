@@ -34,7 +34,7 @@ Quando si è collegati come root, il prompt cambia da `$` a `#`.
 . Arrestare il servizio AMS per evitare che crei un nuovo file di registro:``service ams stop``
 . Accedere alla directory di esportazione della verifica:
 +
-`cd /var/local/log`
+`cd /var/local/audit/export/`
 
 . Rinominare il file di origine audit.log con un nome di file numerato univoco. Ad esempio, rinominare il file audit.log in `2023-10-25.txt.1`.
 +

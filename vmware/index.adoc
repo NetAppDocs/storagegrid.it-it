@@ -1,49 +1,8 @@
 ---
 permalink: vmware/index.html 
-sidebar: sidebar 
-keywords: vmware 
-summary: Seguire questi passaggi di alto livello per installare un nodo VMware StorageGRID. 
+redirect: storagegrid/swnodes/index.html 
 ---
-= Guida rapida per l'installazione di StorageGRID su VMware
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-Seguire questi passaggi di alto livello per installare un nodo VMware StorageGRID.
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Preparazione
-[role="quick-margin-list"]
-* Ulteriori informazioni su link:../primer/storagegrid-architecture-and-network-topology.html["Architettura StorageGRID e topologia di rete"].
-* Informazioni sulle specifiche di link:../network/index.html["Networking StorageGRID"].
-* Raccogliere e preparare il link:required-materials.html["Informazioni e materiali richiesti"].
-* Installare e configurare link:software-requirements.html["Hypervisor di VMware vSphere, vCenter e host ESX"].
-* Preparare il necessario link:cpu-and-ram-requirements.html["CPU e RAM"].
-* Prevedere link:storage-and-performance-requirements.html["requisiti di storage e performance"].
-
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"] Distribuzione
-[role="quick-margin-para"]
-Implementare i nodi grid. Quando si implementano nodi grid, questi vengono creati come parte del sistema StorageGRID e connessi a una o più reti.
-
-[role="quick-margin-list"]
-* Utilizzare il client Web VMware vSphere, un file .vmdk e un set di modelli di file .ovf nei server preparati al link:collecting-information-about-your-deployment-environment.html["Implementa i nodi basati su software come macchine virtuali (VM)"]passaggio 1.
-* Per implementare i nodi di appliance StorageGRID, seguire la https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Avvio rapido per l'installazione dell'hardware"^].
-
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"] Configurazione
-[role="quick-margin-para"]
-Una volta distribuiti tutti i nodi, utilizzare Grid Manager in link:navigating-to-grid-manager.html["configurare la griglia e completare l'installazione"].
-
-
-
-== Automatizzare l'installazione
-
-Per risparmiare tempo e garantire coerenza, è possibile automatizzare l'implementazione e la configurazione dei nodi grid e la configurazione del sistema StorageGRID.
-
-* link:automating-grid-node-deployment-in-vmware-vsphere.html#automate-grid-node-deployment["Automatizza l'implementazione dei nodi con VMware vSphere"].
-* Dopo aver implementato i nodi griglia, link:automating-grid-node-deployment-in-vmware-vsphere.html#automate-the-configuration-of-storagegrid["Automatizzare la configurazione del sistema StorageGRID"] utilizzando lo script di configurazione Python fornito nell'archivio di installazione.
-* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["Automatizzare l'installazione e la configurazione dei nodi grid delle appliance"^]
-* Se si è uno sviluppatore avanzato di distribuzioni StorageGRID, automatizzare l'installazione dei nodi griglia utilizzando link:overview-of-installation-rest-api.html["API REST di installazione"].
 

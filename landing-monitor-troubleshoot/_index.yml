@@ -31,8 +31,8 @@ indexpage:
       url: "../monitor/using-snmp-monitoring.html"
   - title: Utilizzare i messaggi di controllo e altri registri
     links:
-    - title: Configurare i messaggi di controllo
-      url: "../monitor/configure-audit-messages.html"
+    - title: Configurare la gestione dei log
+      url: "../monitor/configure-log-management.html"
     - title: USA server syslog esterno
       url: "../monitor/considerations-for-external-syslog-server.html"
     - title: Esaminare i registri di audit
@@ -43,6 +43,8 @@ indexpage:
     links:
     - title: Rivedere le metriche di supporto
       url: "../monitor/reviewing-support-metrics.html"
+    - title: Modifica la priorità di I/O
+      url: "../monitor/manage-io-prioritization.html"
     - title: Eseguire la diagnostica
       url: "../monitor/running-diagnostics.html"
     - title: Risolvere i problemi più comuni

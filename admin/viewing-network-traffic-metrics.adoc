@@ -24,7 +24,7 @@ Per qualsiasi criterio di classificazione del traffico esistente, è possibile v
 Anche se non vengono impostati limiti per una policy di classificazione del traffico, vengono raccolte le metriche e i grafici forniscono informazioni utili per comprendere le tendenze del traffico.
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *rete* > *classificazione del traffico*.
+. Selezionare *Configurazione* > *Rete* > *Classificazione del traffico*.
 +
 Viene visualizzata la pagina Criteri di classificazione del traffico e i criteri esistenti vengono elencati nella tabella.
 
@@ -54,9 +54,9 @@ NOTE: Quando le richieste sono complete, questo grafico mostra solo l'utilizzo d
 ** Read request rate by object size (tasso richiesta di lettura per dimensione oggetto): Il tasso per le richieste GET/HEAD corrispondenti a questa policy. Il posizionamento su una singola cella mostra le velocità al secondo. Le velocità mostrate nella vista con il passaggio del mouse sono troncate in conteggi interi e potrebbero riportare 0 quando nel bucket sono presenti richieste diverse da zero.
 
 
-. In alternativa, accedere ai grafici dal menu *SUPPORT*.
+. In alternativa, è possibile accedere ai grafici dal menu *Supporto*.
 +
-.. Selezionare *SUPPORT* > *Tools* > *Metrics*.
+.. Selezionare *Supporto* > *Strumenti* > *Metriche*.
 .. Selezionare *Traffic Classification Policy* dalla sezione *Grafana*.
 .. Selezionare il criterio dal menu in alto a sinistra della pagina.
 .. Posizionare il cursore su un grafico per visualizzare una finestra a comparsa che mostra la data e l'ora del campione, le dimensioni degli oggetti aggregati nel conteggio e il numero di richieste al secondo durante tale periodo di tempo.

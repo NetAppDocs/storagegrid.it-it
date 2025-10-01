@@ -68,11 +68,11 @@ Data center logici nello stesso edificio fisico o campus connessi da una LAN.
 
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
-* Si dispone di link:admin-group-permissions.html["Permesso di configurazione della pagina della topologia della griglia"].
+* Tu hai illink:admin-group-permissions.html["Altre autorizzazioni di configurazione della griglia"] .
 
 
 .Fasi
-. Selezionare *SUPPORTO* > *Altro* > *costo collegamento*.
+. Seleziona *Supporto* > *Altro* > *Costo del collegamento*.
 +
 image::../media/configuring_link_costs.png[Costo del collegamento]
 

@@ -21,7 +21,7 @@ summary: È possibile attivare le notifiche per un bucket creando un XML di conf
 
 
 .A proposito di questa attività
-È possibile configurare le notifiche degli eventi associando l'XML di configurazione delle notifiche a un bucket di origine. La configurazione delle notifiche XML segue le convenzioni S3 per la configurazione delle notifiche bucket, con l'argomento Kafka o Amazon SNS di destinazione specificato come URN di un endpoint.
+È possibile configurare le notifiche degli eventi associando l'XML di configurazione delle notifiche a un bucket di origine.  Il codice XML di configurazione delle notifiche segue le convenzioni S3 per la configurazione delle notifiche dei bucket, con l'argomento Amazon SNS di destinazione, l'argomento Kafka o l'endpoint webhook specificato come URN di un endpoint.
 
 Per informazioni generali sulle notifiche degli eventi e su come configurarle, fare riferimento alla https://docs.aws.amazon.com/s3/["Documentazione Amazon"^] . Per informazioni su come StorageGRID implementa l'API di configurazione delle notifiche bucket S3, fare riferimento alla link:../s3/index.html["Istruzioni per l'implementazione delle applicazioni client S3"].
 
@@ -29,7 +29,7 @@ Durante la configurazione delle notifiche degli eventi per un bucket, osservare 
 
 * Quando si crea e si applica un XML di configurazione di notifica valido, è necessario utilizzare l'URN di un endpoint di notifica degli eventi per ciascuna destinazione.
 * Sebbene la notifica degli eventi possa essere configurata in un bucket con blocco oggetti S3 attivato, i metadati del blocco oggetti S3 (incluso lo stato Mantieni fino alla data e conservazione legale) degli oggetti non verranno inclusi nei messaggi di notifica.
-* Dopo aver configurato le notifiche degli eventi, ogni volta che si verifica un evento specifico per un oggetto nel bucket di origine, viene generata una notifica e inviata all'argomento Amazon SNS o Kafka utilizzato come endpoint di destinazione.
+* Dopo aver configurato le notifiche degli eventi, ogni volta che si verifica un evento specifico per un oggetto nel bucket di origine, viene generata una notifica e inviata all'argomento Amazon SNS, all'argomento Kafka o all'endpoint webhook utilizzato come destinazione.
 * Se si abilitano le notifiche degli eventi per un bucket che contiene oggetti, le notifiche vengono inviate solo per le azioni eseguite dopo il salvataggio della configurazione della notifica.
 
 
@@ -77,7 +77,7 @@ NOTE: I servizi della piattaforma devono essere abilitati per ciascun account te
 +
 Nell'esempio, viene inviata una notifica di evento ogni volta che viene creato un oggetto con il `images/` prefisso.
 
-.. Conferma che è stata inviata una notifica all'argomento Amazon SNS o Kafka di destinazione.
+.. Conferma che una notifica è stata recapitata all'argomento Amazon SNS di destinazione, all'argomento Kafka o all'endpoint webhook.
 +
 Ad esempio, se l'argomento di destinazione è ospitato su Amazon SNS, è possibile configurare il servizio in modo che invii un'e-mail al momento della consegna della notifica.
 
@@ -129,8 +129,7 @@ Se la notifica viene ricevuta nell'argomento di destinazione, il bucket di origi
 
 
 .Informazioni correlate
-link:understanding-notifications-for-buckets.html["Comprendere le notifiche per i bucket"]
+* link:understanding-notifications-for-buckets.html["Comprendere le notifiche per i bucket"]
+* link:../s3/index.html["UTILIZZARE L'API REST S3"]
+* link:creating-platform-services-endpoint.html["Creare endpoint di servizi di piattaforma"]
 
-link:../s3/index.html["UTILIZZARE L'API REST S3"]
-
-link:creating-platform-services-endpoint.html["Creare endpoint di servizi di piattaforma"]

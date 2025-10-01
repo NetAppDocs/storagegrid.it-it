@@ -1,34 +1,8 @@
 ---
 permalink: ubuntu/validating-storagegrid-configuration.html 
-sidebar: sidebar 
-keywords: how to validate StorageGRID configuration 
-summary: Dopo aver creato i file di configurazione in /etc/storagegrid/node per ciascuno dei nodi StorageGRID, è necessario convalidare il contenuto di tali file. 
+redirect: storagegrid/swnodes/validating-storagegrid-configuration.html 
 ---
-= Convalidare la configurazione StorageGRID
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-Dopo aver creato i file di configurazione in `/etc/storagegrid/nodes` per ciascuno dei nodi StorageGRID, è necessario convalidare il contenuto di tali file.
-
-Per convalidare il contenuto dei file di configurazione, eseguire il seguente comando su ciascun host:
-
-[listing]
-----
-sudo storagegrid node validate all
-----
-Se i file sono corretti, l'output mostra *PASSED* per ciascun file di configurazione, come mostrato nell'esempio.
-
-
-NOTE: Quando si utilizza un solo LUN sui nodi solo metadati, è possibile che venga visualizzato un messaggio di avviso che può essere ignorato.
-
-image::../media/rhel_node_configuration_file_output.gif[Questa immagine viene spiegata dal testo circostante.]
-
-
-TIP: Per un'installazione automatica, è possibile eliminare questo output utilizzando le `-q` opzioni o `--quiet` nel `storagegrid` comando (ad esempio, `storagegrid --quiet...`). Se si elimina l'output, il comando avrà un valore di uscita diverso da zero se vengono rilevati avvisi o errori di configurazione.
-
-Se i file di configurazione non sono corretti, i problemi vengono visualizzati come *WARNING* e *ERROR*, come mostrato nell'esempio. Se vengono rilevati errori di configurazione, è necessario correggerli prima di procedere con l'installazione.
-
-image::../media/rhel_node_configuration_file_output_with_errors.gif[Questa immagine viene spiegata dal testo circostante.]

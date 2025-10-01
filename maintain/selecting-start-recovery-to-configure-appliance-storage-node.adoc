@@ -19,11 +19,10 @@ Selezionare Start Recovery (Avvia ripristino) in Grid Manager (Gestione griglia)
 * Si dispone della passphrase di provisioning.
 * Hai implementato un nodo storage dell'appliance di recovery.
 * Si dispone della data di inizio di qualsiasi intervento di riparazione per i dati codificati per la cancellazione.
-* Hai verificato che il nodo di storage non è stato ricostruito negli ultimi 15 giorni.
 
 
 .Fasi
-. In Grid Manager, selezionare *MANUTENZIONE* > *attività* > *Ripristino*.
+. Da Grid Manager, seleziona *Manutenzione* > *Attività* > *Ripristino*.
 . Selezionare il nodo della griglia che si desidera ripristinare nell'elenco Pending Nodes (nodi in sospeso).
 +
 I nodi vengono visualizzati nell'elenco dopo un errore, ma non è possibile selezionare un nodo fino a quando non è stato reinstallato e pronto per il ripristino.

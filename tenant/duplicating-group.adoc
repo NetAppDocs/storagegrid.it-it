@@ -19,9 +19,9 @@ summary: È possibile creare nuovi gruppi più rapidamente duplicando un gruppo 
 
 
 .Fasi
-. Selezionare *GESTIONE ACCESSI* > *gruppi*.
+. Selezionare *Gestione accessi* > *Gruppi*.
 . Selezionare la casella di controllo del gruppo che si desidera duplicare.
-. Selezionare *Duplica gruppo*. Per ulteriori informazioni sulla creazione di un gruppo, vedere le istruzioni per la creazione di gruppi per link:creating-groups-for-s3-tenant.html["Un tenant S3"] o per link:creating-groups-for-swift-tenant.html["Tenant Swift"].
+. Seleziona *Duplica gruppo*.  Per ulteriori dettagli sulla creazione di un gruppo, vedere le istruzioni per la creazione di gruppi perlink:creating-groups-for-s3-tenant.html["Un tenant S3"] .
 . Selezionare la scheda *Local group* (Gruppo locale) per creare un gruppo locale oppure la scheda *Federated group* (Gruppo federato) per importare un gruppo dall'origine dell'identità precedentemente configurata.
 +
 Se SSO (Single Sign-on) è attivato per il sistema StorageGRID, gli utenti appartenenti a gruppi locali non potranno accedere a Gestore tenant, anche se possono utilizzare le applicazioni client per gestire le risorse del tenant, in base a link:tenant-management-permissions.html["permessi di gruppo"].

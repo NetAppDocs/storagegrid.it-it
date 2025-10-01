@@ -25,7 +25,7 @@ Per ulteriori informazioni, vedere link:../admin/configuring-client-connections.
 .Fasi
 . Se i client S3 si connettono utilizzando il servizio Load Balancer, controllare che i nodi Admin o Gateway distribuiscano attivamente il traffico come previsto:
 +
-.. Selezionare *NODI*.
+.. Selezionare *Nodi*.
 .. Selezionare un nodo gateway o un nodo amministratore.
 .. Nella scheda *Overview*, verificare se un'interfaccia di nodo è in un gruppo ha e se l'interfaccia di nodo ha il ruolo di primario.
 +

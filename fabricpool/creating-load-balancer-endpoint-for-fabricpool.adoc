@@ -24,7 +24,7 @@ Per completare questa attività mediante la procedura guidata di installazione d
 
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *Load Balancer Endpoints*.
+. Selezionare *Configurazione* > *Rete* > *Endpoint del bilanciatore del carico*.
 . Selezionare *Crea*.
 . Per il passo *inserire i dettagli dell'endpoint*, completare i seguenti campi.
 +

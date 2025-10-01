@@ -1,0 +1,33 @@
+---
+permalink: monitor/manage-io-prioritization.html 
+sidebar: sidebar 
+keywords: ec repair priority, ec purge priority 
+summary: 'La priorità di input/output (I/O) consente di modificare le priorità relative per le operazioni di I/O sulla griglia.' 
+---
+= Modifica la priorità di I/O
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La priorità di input/output (I/O) consente di modificare le priorità relative per le operazioni di I/O sulla griglia.
+
+Per impostazione predefinita, al traffico I/O PUT e GET del client viene assegnata la priorità più alta rispetto alle attività in background, come l'eliminazione dei dati con codice di cancellazione (EC) e la riparazione degli EC.  Aumentando la priorità dell'eliminazione dei dati codificati in modo errato (EC) e delle attività di riparazione EC, è possibile completare queste attività più rapidamente.  L'efficacia delle modifiche alla priorità di I/O è influenzata dalla frequenza delle richieste dei client, dalle fluttuazioni del traffico di rete e da altre attività di rete in corso.
+
+.Prima di iniziare
+* Esaminare la pagina di priorità I/O per determinare quali opzioni potrebbero avere un impatto sulla rete.
+* Valutare se il traffico client in corso può gestire in sicurezza tempi di attesa più lunghi o timeout dei client.
+* Siate pronti a monitorare l'effetto del cambiamento di priorità e ad apportare le modifiche necessarie.  Queste modifiche vengono implementate rapidamente, ma potrebbero volerci ore prima che i loro effetti diventino visibili.
+
+
+.Fasi
+. Selezionare *Supporto* > *Priorità I/O*.
+. (Facoltativo) Modificare la priorità di eliminazione e riparazione EC, per le operazioni in background che eliminano i dati EC, rispetto ai valori predefiniti.
++
+
+NOTE: Utilizzare la priorità di eliminazione e riparazione EC bassa predefinita per le griglie che dispongono di nodi basati su RAID.
+
+. Selezionare *Salva*.
+. Monitorare illink:../monitor/commonly-used-prometheus-metrics.html#where-are-prometheus-metrics-used["metrica"] per valutare l'effetto dei cambiamenti di priorità.
+

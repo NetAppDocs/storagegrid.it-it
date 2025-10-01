@@ -28,56 +28,80 @@ NOTE: Alcuni servizi StorageGRID non sono stati aggiornati per utilizzare le cri
 == Selezionare una policy di sicurezza
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Security settings*.
+. Selezionare *Configurazione* > *Sicurezza* > *Impostazioni di sicurezza*.
 +
 La scheda *TLS and SSH policies* (Criteri TLS e SSH) mostra i criteri disponibili. Il criterio attualmente attivo è contrassegnato da un segno di spunta verde sul riquadro del criterio.
 
 +
 image::../media/securitysettings_tls_ssh_policies_current.png[Policy TLS e SSH]
 
-. Consulta i riquadri per scoprire le policy disponibili.
+. Consulta le schede per conoscere le policy disponibili.
 +
-[cols="1a,2a"]
-|===
-| Policy | Descrizione 
+[role="tabbed-block"]
+====
+.Compatibilità moderna (impostazione predefinita)
+--
+Utilizza il criterio predefinito se hai bisogno di una crittografia avanzata e non hai requisiti particolari.  Questa policy è compatibile con la maggior parte dei client TLS e SSH.
+
+--
+.Compatibilità con le versioni precedenti
+--
+Utilizzare il criterio di compatibilità Legacy se sono necessarie opzioni di compatibilità aggiuntive per i client più vecchi.  Le opzioni aggiuntive presenti in questa policy potrebbero renderla meno sicura rispetto alla policy di compatibilità moderna.
+
+--
+.Criteri comuni
+--
+Se hai bisogno della certificazione Common Criteria, utilizza la politica Common Criteria.
+
+--
+.FIPS rigoroso
+--
+Utilizzare la politica FIPS strict se è richiesta la certificazione Common Criteria e si deve utilizzare il modulo NetApp Cryptographic Security Module (NCSM) 3.0.8 o NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 per le connessioni client esterne agli endpoint del bilanciatore del carico, Tenant Manager e Grid Manager.  L'utilizzo di questa policy potrebbe ridurre le prestazioni.
+
+Il modulo NCSM 3.0.8 e NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 vengono utilizzati nelle seguenti operazioni:
+
+** NCSM
++
+*** Connessioni TLS tra i seguenti servizi: ADC, AMS, CMN, DDS, LDR, SSM, NMS, mgmt-api, nginx, nginx-gw e cache-svc
+*** Connessioni TLS tra i client e il servizio nginx-gw (endpoint del bilanciatore del carico)
+*** Connessioni TLS tra i client e il servizio LDR
+*** Crittografia del contenuto dell'oggetto per SSE-S3, SSE-C e impostazione di crittografia dell'oggetto archiviato
+*** connessioni SSH
 
 
- a| 
-Compatibilità moderna (impostazione predefinita)
- a| 
-Utilizzare il criterio predefinito se è necessaria una crittografia avanzata e se non si dispone di requisiti speciali. Questo criterio è compatibile con la maggior parte dei client TLS e SSH.
++
+Per ulteriori informazioni, fare riferimento al programma di convalida degli algoritmi crittografici del NISTlink:https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4838["Certificato n. 4838"^] .
+
+** Modulo API di crittografia del kernel NetApp StorageGRID
++
+Il modulo API NetApp StorageGRID Kernel Crypto è presente solo sulle piattaforme VM e appliance StorageGRID .
+
++
+*** Raccolta di entropia
+*** Crittografia dei nodi
+
+
++
+Per ulteriori informazioni, fare riferimento al programma di convalida degli algoritmi crittografici del NISTlink:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/validation-search?searchMode=implementation&product=NetApp+StorageGRID+Kernel+Crypto+API&productType=-1&ipp=50["Certificati #A6242 attraverso #A6257"^] Elink:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["Certificato di entropia n. E223"^] .
 
 
 
- a| 
-Compatibilità con le versioni precedenti
- a| 
-Utilizzare questo criterio se sono necessarie ulteriori opzioni di compatibilità per i client meno recenti. Le opzioni aggiuntive di questa policy potrebbero renderla meno sicura rispetto alla moderna policy di compatibilità.
+*Nota*: Dopo aver selezionato questa policy,link:../maintain/rolling-reboot-procedure.html["eseguire un riavvio progressivo"] affinché tutti i nodi attivino l'NCSM.  Utilizzare *Manutenzione* > *Riavvio progressivo* per avviare e monitorare i riavvii.
 
-
-
- a| 
-Criteri comuni
- a| 
-Utilizzare questa policy se si richiede la certificazione Common Criteria.
-
-
-
- a| 
-FIPS rigoroso
- a| 
-Utilizzare questo criterio se si richiede la certificazione Common Criteria e si deve utilizzare il modulo di protezione Cryptographic NetApp 3.0.8 per connessioni client esterne agli endpoint di bilanciamento del carico, a Gestore tenant e a Gestione griglia. L'utilizzo di questo criterio potrebbe ridurre le performance.
-
-*Nota*: Dopo aver selezionato questo criterio, tutti i nodi devono link:../maintain/rolling-reboot-procedure.html["riavviato in modo scorrevole"]attivare il modulo di protezione crittografica NetApp. Utilizzare *manutenzione* > *riavvio in sequenza* per avviare e riavviare il monitor.
-
-
-
- a| 
-Personalizzato
- a| 
+--
+.Personalizzato
+--
 Creare un criterio personalizzato se è necessario applicare le proprie crittografia.
 
-|===
+Facoltativamente, se StorageGRID ha requisiti di crittografia FIPS 140, abilitare la funzionalità Modalità FIPS per utilizzare il modulo NCSM 3.0.8 e NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64:
+
+.. Imposta il `fipsMode` parametro a `true` .
+.. Quando richiesto,link:../maintain/rolling-reboot-procedure.html["eseguire un riavvio progressivo"] affinché tutti i nodi attivino i moduli di crittografia.  Utilizzare *Manutenzione* > *Riavvio progressivo* per avviare e monitorare i riavvii.
+.. Selezionare *Supporto* > *Diagnostica* per visualizzare le versioni attive del modulo FIPS.
+
+
+--
+====
 . Per visualizzare i dettagli relativi a crittografia, protocolli e algoritmi di ogni policy, selezionare *Visualizza dettagli*.
 . Per modificare la policy corrente, selezionare *Usa policy*.
 +

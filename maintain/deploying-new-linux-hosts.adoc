@@ -13,11 +13,10 @@ summary: Con alcune eccezioni, è possibile preparare i nuovi host come durante 
 [role="lead"]
 Con alcune eccezioni, è possibile preparare i nuovi host come durante il processo di installazione iniziale.
 
-Per implementare host Linux fisici o virtuali nuovi o reinstallati, seguire la procedura per la preparazione degli host nelle istruzioni di installazione di StorageGRID per il sistema operativo Linux in uso:
+Per distribuire host Linux fisici o virtuali nuovi o reinstallati, seguire la procedura di preparazione degli host nelle istruzioni di installazione di StorageGRID per il sistema operativo Linux. Vedere link:../swnodes/installing-linux.html["Installare Linux"] .
 
-* link:../rhel/installing-linux.html["Installare Linux (Red Hat Enterprise Linux)"]
-* link:../ubuntu/installing-linux.html["Installare Linux (Ubuntu o Debian)"]
 
+NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
 
 Questa procedura include i passaggi per eseguire le seguenti attività:
 

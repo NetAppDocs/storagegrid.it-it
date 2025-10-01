@@ -24,7 +24,7 @@ Per ulteriori informazioni su AutoSupport, vedere link:configure-autosupport-gri
 È possibile configurare le impostazioni per un singolo proxy amministratore.
 
 .Fasi
-. Selezionare *CONFIGURAZIONE* > *sicurezza* > *Impostazioni proxy*.
+. Selezionare *Configurazione* > *Sicurezza* > *Impostazioni proxy*.
 +
 Viene visualizzata la pagina Impostazioni proxy. Per impostazione predefinita, l'opzione Storage (archiviazione) è selezionata nel menu Tab (scheda).
 

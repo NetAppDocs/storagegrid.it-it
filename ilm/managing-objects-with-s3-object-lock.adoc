@@ -102,7 +102,7 @@ Se è stata utilizzata la funzionalità di conformità legacy in una versione pr
  a| 
 In che modo la funzionalità è abilitata a livello globale?
  a| 
-Da Grid Manager, selezionare *CONFIGURATION* > *System* > *S3 Object Lock*.
+Da Grid Manager, seleziona *Configurazione* > *Sistema* > *Blocco oggetto S3*.
  a| 
 Non più supportato.
 

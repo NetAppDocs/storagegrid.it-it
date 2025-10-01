@@ -67,7 +67,7 @@ La tabella seguente definisce i valori per tutte le chiavi supportate. Ogni chia
 
 
  a| 
-Grid Network IPv4 address del nodo di amministrazione principale per la griglia a cui appartiene questo nodo. Utilizzare lo stesso valore specificato per GRID_NETWORK_IP per il nodo Grid con NODE_TYPE = VM_Admin_Node e ADMIN_ROLE = Primary. Se si omette questo parametro, il nodo tenta di rilevare un nodo Admin primario utilizzando mDNS.
+Indirizzo IPv4 della rete Grid del nodo di amministrazione che si desidera utilizzare per installare il nodo basato su Linux.  Per il ripristino, utilizzare l'IP del nodo di amministrazione primario, se disponibile; in caso contrario, utilizzare l'IP di un nodo di amministrazione non primario.  Se si omette questo parametro, il nodo tenta di individuare un nodo amministrativo primario tramite mDNS.
 
 link:how-grid-nodes-discover-primary-admin-node.html["In che modo i nodi della griglia rilevano il nodo di amministrazione primario"]
 
@@ -277,11 +277,7 @@ Impostare la chiave su "true" per fare in modo che il container StorageGRID util
 
 *Best practice:* nelle reti in cui sarebbe richiesta la modalità promiscua, utilizzare la chiave ADMIN_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC.
 
-Per ulteriori informazioni sulla clonazione MAC:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e raccomandazioni per la clonazione degli indirizzi MAC (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e raccomandazioni per la clonazione degli indirizzi MAC (Ubuntu o Debian)"]
-
+Per maggiori dettagli sulla clonazione MAC per Linux, vederelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e consigli per la clonazione degli indirizzi MAC"]
  a| 
 Best practice
 
@@ -639,11 +635,7 @@ Impostare la chiave su "true" per fare in modo che il container StorageGRID util
 
 *Best practice:* nelle reti in cui sarebbe richiesta la modalità promiscua, utilizzare invece la chiave CLIENT_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC.
 
-Per ulteriori informazioni sulla clonazione MAC:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e raccomandazioni per la clonazione degli indirizzi MAC (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e raccomandazioni per la clonazione degli indirizzi MAC (Ubuntu o Debian)"]
-
+Per maggiori dettagli sulla clonazione MAC per Linux, vederelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e consigli per la clonazione degli indirizzi MAC"]
  a| 
 Best practice
 
@@ -834,11 +826,7 @@ Impostare il valore della chiave su "true" per fare in modo che il contenitore S
 
 *Best practice:* nelle reti in cui sarebbe richiesta la modalità promiscua, utilizzare invece la chiave GRID_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC.
 
-Per ulteriori informazioni sulla clonazione MAC:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e raccomandazioni per la clonazione degli indirizzi MAC (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e raccomandazioni per la clonazione degli indirizzi MAC (Ubuntu o Debian)"]
-
+Per maggiori dettagli sulla clonazione MAC per Linux, vederelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e consigli per la clonazione degli indirizzi MAC"]
  a| 
 Best practice
 
@@ -980,6 +968,9 @@ Opzionale
 
 
 === Tasti di rimappatura delle porte
+
+
+NOTE: Il supporto per la rimappatura delle porte è obsoleto e verrà rimosso in una versione futura. Per rimuovere le porte rimappate, fare riferimento alink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Rimuovere i rimaps delle porte sugli host bare metal"] .
 
 
 

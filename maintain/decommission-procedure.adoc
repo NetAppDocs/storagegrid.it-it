@@ -22,3 +22,5 @@ Per rimuovere un nodo della griglia o un sito, eseguire una delle seguenti proce
 CAUTION: Prima di eseguire un decommissionamento del sito disconnesso, contatta il tuo rappresentante NetApp. NetApp esaminerà i tuoi requisiti prima di attivare tutte le fasi della procedura guidata Decommission Site. Non tentare di decommissionare un sito disconnesso se si ritiene possibile ripristinare il sito o i dati degli oggetti dal sito.
 
 
+
+Prima di dismettere un nodo della griglia, è necessario confermare che non siano attivi processi di riparazione dei dati.  Se una riparazione non ha avuto successo, è necessario riavviarla e lasciarla completare prima di eseguire la procedura di dismissione. Fare riferimento a link:../maintain/checking-data-repair-jobs.html["Controllare i lavori di riparazione dei dati"] .

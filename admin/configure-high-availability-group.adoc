@@ -13,19 +13,24 @@ summary: 'È possibile configurare gruppi ad alta disponibilità per fornire l"a
 [role="lead"]
 È possibile configurare i gruppi ad alta disponibilità (ha) per fornire l'accesso altamente disponibile ai servizi sui nodi Admin o Gateway.
 
+
+NOTE: Un sistema StorageGRID può avere un massimo di 255 gruppi HA.
+
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * Si dispone di link:admin-group-permissions.html["Autorizzazione di accesso root"].
 * Se si intende utilizzare un'interfaccia VLAN in un gruppo ha, l'interfaccia VLAN è stata creata. Vedere link:../admin/configure-vlan-interfaces.html["Configurare le interfacce VLAN"].
 * Se si intende utilizzare un'interfaccia di accesso per un nodo in un gruppo ha, l'interfaccia è stata creata:
 +
-** *Red Hat Enterprise Linux (prima di installare il nodo)*: link:../rhel/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
-** *Ubuntu o Debian (prima di installare il nodo)*: link:../ubuntu/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
-** *Linux (dopo aver installato il nodo)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Aggiunta di interfacce di accesso o trunk a un nodo"]
-** *VMware (dopo l'installazione del nodo)*: link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware: Aggiunta di interfacce di accesso o trunk a un nodo"]
+** *Linux (prima di installare il nodo)*:link:../swnodes/creating-node-configuration-files.html["Creare file di configurazione del nodo"]
+** *Linux (dopo aver installato il nodo)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Aggiungere interfacce trunk o di accesso a un nodo"]
+** *VMware (dopo l'installazione del nodo)*:link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["Aggiungere interfacce trunk o di accesso a un nodo"]
 
 
 
+
+
+NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
 
 
 
@@ -40,7 +45,7 @@ Un'interfaccia deve essere un nodo gateway o un nodo amministratore per essere i
 === Accedere alla procedura guidata
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *High Availability groups*.
+. Selezionare *Configurazione* > *Rete* > *Gruppi ad alta disponibilità*.
 . Selezionare *Crea*.
 
 
@@ -154,7 +159,7 @@ Se si utilizza questo gruppo ha per il bilanciamento del carico, creare un endpo
 Ad esempio, potrebbe essere necessario modificare un gruppo ha se si desidera rimuovere il nodo associato a un'interfaccia selezionata in una procedura di decommissionamento del sito o del nodo.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *High Availability groups*.
+. Selezionare *Configurazione* > *Rete* > *Gruppi ad alta disponibilità*.
 +
 La pagina High Availability groups (gruppi ad alta disponibilità) mostra tutti i gruppi ha esistenti.
 
@@ -199,10 +204,10 @@ TIP: Non è possibile rimuovere un gruppo ha se è associato a un endpoint di bi
 Per evitare interruzioni dei client, aggiornare le applicazioni client S3 interessate prima di rimuovere un gruppo ha. Aggiornare ciascun client per la connessione utilizzando un altro indirizzo IP, ad esempio l'indirizzo IP virtuale di un gruppo ha diverso o l'indirizzo IP configurato per un'interfaccia durante l'installazione.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *High Availability groups*.
+. Selezionare *Configurazione* > *Rete* > *Gruppi ad alta disponibilità*.
 . Esaminare la colonna *endpoint del bilanciamento del carico* per ciascun gruppo ha che si desidera rimuovere. Se sono elencati endpoint del bilanciamento del carico:
 +
-.. Andare a *CONFIGURATION* > *Network* > *Load Balancer Endpoints*.
+.. Vai a *Configurazione* > *Rete* > *Endpoint del bilanciatore del carico*.
 .. Selezionare la casella di controllo per l'endpoint.
 .. Selezionare *azioni* > *Modifica modalità di associazione endpoint*.
 .. Aggiornare la modalità di binding per rimuovere il gruppo ha.

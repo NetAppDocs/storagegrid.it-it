@@ -103,7 +103,7 @@ Motore container Docker
  a| 
 DA DEFINIRE
  a| 
-Il supporto di Docker come motore container per implementazioni solo software è obsoleto. In una release futura, Docker sostituirà un altro motore per container. Fare riferimento alla link:../ubuntu/software-requirements.html#docker-versions-tested["Elenco delle versioni di Docker attualmente supportate"].
+Il supporto per Docker come motore di container per distribuzioni esclusivamente software è deprecato.  Docker verrà sostituito con un altro motore di container in una versione futura.  Fare riferimento allink:../swnodes/software-requirements.html["requisiti software per i nodi basati su software"] per un elenco delle versioni di Docker attualmente supportate.
 
 
 
@@ -117,6 +117,18 @@ Esportazione con audit NFS
 12,0
  a| 
 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-audit-client-access.html["Configurare l'accesso al client di controllo per NFS (StorageGRID 11,8)"^]
+
+
+
+ a| 
+Rimappatura delle porte
+ a| 
+12,0
+ a| 
+12,1
+ a| 
+12,2
+ a| 
 
 
 

@@ -1,0 +1,88 @@
+---
+permalink: swnodes/installing-storagegrid-webscale-host-services.html 
+sidebar: sidebar 
+keywords: how to install StorageGRID host services 
+summary: Per installare i servizi host StorageGRID , utilizzare il pacchetto StorageGRID adatto al tipo di sistema operativo in uso. 
+---
+= Installare i servizi host StorageGRID (Linux)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per installare i servizi host StorageGRID , utilizzare il pacchetto StorageGRID adatto al tipo di sistema operativo in uso.
+
+
+NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
+
+[role="tabbed-block"]
+====
+.RHEL
+--
+Si utilizza il pacchetto RPM di StorageGRID per installare i servizi host di StorageGRID.
+
+.A proposito di questa attività
+Queste istruzioni descrivono come installare i servizi host dai pacchetti RPM. In alternativa, è possibile utilizzare i metadati del repository DNF inclusi nell'archivio di installazione per installare i pacchetti RPM in remoto. Consultare le istruzioni del repository DNF per il sistema operativo Linux in uso.
+
+.Fasi
+. Copiare i pacchetti RPM di StorageGRID in ciascuno degli host o renderli disponibili nello storage condiviso.
++
+Ad esempio, inserirli nella `/tmp` directory, in modo da poter utilizzare il comando di esempio nel passaggio successivo.
+
+. Accedere a ciascun host come root o utilizzando un account con autorizzazione sudo ed eseguire i seguenti comandi nell'ordine specificato:
++
+[listing]
+----
+sudo dnf --nogpgcheck localinstall /tmp/StorageGRID-Webscale-Images-version-SHA.rpm
+----
++
+[listing]
+----
+sudo dnf --nogpgcheck localinstall /tmp/StorageGRID-Webscale-Service-version-SHA.rpm
+----
++
+
+CAUTION: È necessario installare prima il pacchetto immagini e poi il pacchetto servizi.
+
++
+
+NOTE: Se i pacchetti sono stati inseriti in una directory diversa da `/tmp`, modificare il comando in modo che rifletta il percorso utilizzato.
+
+
+
+--
+.Ubuntu o Debian
+--
+Per installare i servizi host StorageGRID per Ubuntu o Debian, è possibile utilizzare il pacchetto StorageGRID DEB.
+
+.A proposito di questa attività
+Queste istruzioni descrivono come installare i servizi host dai pacchetti DEB. In alternativa, è possibile utilizzare i metadati del repository APT inclusi nell'archivio di installazione per installare i pacchetti DEB in remoto. Consultare le istruzioni del repository APT per il sistema operativo Linux in uso.
+
+.Fasi
+. Copiare i pacchetti DEB di StorageGRID in ciascuno degli host o renderli disponibili nello storage condiviso.
++
+Ad esempio, inserirli nella `/tmp` directory, in modo da poter utilizzare il comando di esempio nel passaggio successivo.
+
+. Accedere a ciascun host come root o utilizzando un account con autorizzazione sudo ed eseguire i seguenti comandi.
++
+È necessario installare prima il `images` pacchetto e il `service` secondo. Se i pacchetti sono stati inseriti in una directory diversa da `/tmp`, modificare il comando in modo che rifletta il percorso utilizzato.
+
++
+[listing]
+----
+sudo dpkg --install /tmp/storagegrid-webscale-images-version-SHA.deb
+----
++
+[listing]
+----
+sudo dpkg --install /tmp/storagegrid-webscale-service-version-SHA.deb
+----
++
+
+NOTE: Per poter installare i pacchetti StorageGRID , è necessario che Python 3 sia già installato.  IL `sudo dpkg --install /tmp/storagegrid-webscale-images-version-SHA.deb` il comando fallirà finché non lo avrai fatto.
+
+
+
+--
+====

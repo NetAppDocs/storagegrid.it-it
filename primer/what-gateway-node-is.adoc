@@ -31,6 +31,13 @@ La tabella seguente mostra i servizi primari per i nodi gateway; tuttavia, quest
 
 
  a| 
+Servizio cache
+ a| 
+Gestisce una cache locale del contenuto dell'oggetto.
+
+
+
+ a| 
 Alta disponibilità
  a| 
 Gestisce gli indirizzi IP virtuali ad alta disponibilità per gruppi di nodi di amministrazione e nodi gateway.

@@ -21,24 +21,24 @@ summary: È necessario utilizzare un browser Web supportato.
  a| 
 Google Chrome
  a| 
-119
+138
 
 
 
  a| 
 Microsoft Edge
  a| 
-119
+138
 
 
 
  a| 
 Mozilla Firefox
  a| 
-119
+140
 
 |===
-Impostare la larghezza consigliata per la finestra del browser.
+Imposta la larghezza consigliata per la finestra del browser.
 
 [cols="3a,1a"]
 |===

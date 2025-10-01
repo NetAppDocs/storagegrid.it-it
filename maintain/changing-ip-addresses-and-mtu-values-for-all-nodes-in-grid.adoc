@@ -36,12 +36,13 @@ NOTE: Se i server DNS esistenti non sono accessibili alla griglia dei nuovi indi
 
 +
 
-NOTE: Se SSO è attivato per il sistema StorageGRID e i trust di qualsiasi parte che si basa sono configurati utilizzando gli indirizzi IP del nodo di amministrazione (invece di nomi di dominio completi, come consigliato), è necessario essere pronti ad aggiornare o riconfigurare i trust di tali parti in Active Directory Federation Services (ad FS) Subito dopo aver modificato gli indirizzi IP. Vedere link:../admin/configuring-sso.html["Configurare il single sign-on"].
+NOTE: Se SSO è abilitato per il sistema StorageGRID e tutti i trust delle parti affidabili sono stati configurati utilizzando indirizzi IP del nodo di amministrazione (anziché nomi di dominio completi, come consigliato), prepararsi ad aggiornare o riconfigurare tali trust delle parti affidabili in Active Directory Federation Services (AD FS) subito dopo aver modificato gli indirizzi IP. Vedere link:../admin/configure-sso.html["Configurare il single sign-on"] .
 
 +
 
 NOTE: Se necessario, aggiungere la nuova subnet per i nuovi indirizzi IP.
 
+. L'accesso SSH esterno è bloccato per impostazione predefinita.  Se necessario,link:../admin/manage-external-ssh-access.html["consentire temporaneamente l'accesso"] .
 . Accedere al nodo di amministrazione principale:
 +
 .. Immettere il seguente comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -132,10 +133,11 @@ NOTE: L'intera griglia deve essere chiusa, in modo che tutti i nodi siano spenti
 
 . Scarica il nuovo pacchetto di ripristino da Grid Manager.
 +
-.. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+.. Selezionare *Manutenzione* > *Sistema* > *Pacchetto di ripristino*.
 .. Inserire la passphrase di provisioning.
 
 
+. Se hai consentito l'accesso SSH esterno,link:../admin/manage-external-ssh-access.html["bloccare l'accesso"] quando hai finito di modificare gli indirizzi IP.
 
 
 .Informazioni correlate

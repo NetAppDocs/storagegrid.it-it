@@ -16,7 +16,7 @@ La tabella seguente descrive i messaggi di errore che potrebbero essere correlat
 Per ulteriori informazioni sull'invio di informazioni di audit a un server syslog esterno, consultare:
 
 * link:../monitor/considerations-for-external-syslog-server.html["Considerazioni sull'utilizzo di un server syslog esterno"]
-* link:../monitor/configure-audit-messages.html["Configurare i messaggi di controllo e il server syslog esterno"]
+* link:../monitor/configure-log-management.html["Configurare la gestione dei log e il server syslog esterno"]
 
 
 [cols="1a,3a"]

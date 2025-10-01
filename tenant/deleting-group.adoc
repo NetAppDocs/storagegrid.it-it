@@ -19,7 +19,7 @@ summary: 'È possibile eliminare un gruppo dal sistema. Gli utenti che apparteng
 
 
 .Fasi
-. Selezionare *GESTIONE ACCESSI* > *gruppi*.
+. Selezionare *Gestione accessi* > *Gruppi*.
 . Selezionare la casella di controllo per ciascun gruppo che si desidera eliminare.
 . Selezionare *azioni* > *Elimina gruppo*.
 . Selezionare *Delete group* (Elimina gruppo).

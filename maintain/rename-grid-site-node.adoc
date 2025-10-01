@@ -14,11 +14,7 @@ summary: 'È possibile utilizzare questa procedura per aggiungere o aggiornare i
 È possibile utilizzare questa procedura per aggiungere o aggiornare i nomi di visualizzazione utilizzati per la griglia, i siti e i nodi. È possibile rinominare un singolo elemento, più elementi o anche tutti gli elementi contemporaneamente. La definizione o l'aggiornamento di un nome visualizzato non influisce in alcun modo sulle operazioni StorageGRID.
 
 .Prima di iniziare
-* Da *nodo amministrativo primario*, si è effettuato l'accesso al Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
-+
-
-NOTE: È possibile aggiungere o aggiornare i nomi visualizzati da un nodo di amministrazione non primario, ma è necessario accedere al nodo di amministrazione primario per scaricare un pacchetto di ripristino.
-
+* Da qualsiasi nodo di amministrazione, accedi a Grid Manager utilizzando unlink:../admin/web-browser-requirements.html["browser web supportato"] .
 * Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di manutenzione o di accesso root"].
 * Si dispone della passphrase di provisioning.
 * Hai compreso i requisiti e le Best practice per i nomi visualizzati. Vedere link:../maintain/rename-grid-site-node-overview.html["Rinominare la griglia, i siti e i nodi"].
@@ -39,7 +35,7 @@ NOTE: È possibile aggiungere o aggiornare i nomi visualizzati da un nodo di amm
 Per iniziare, selezionare gli elementi che si desidera rinominare.
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *attività* > *Rinomina griglia, siti e nodi*.
+. Selezionare *Manutenzione* > *Attività* > *Rinomina griglia, siti e nodi*.
 . Per il passo *Select Names*, selezionare gli elementi che si desidera rinominare.
 +
 [cols="1a,2a"]
@@ -165,13 +161,13 @@ Viene visualizzato un messaggio di successo. I nuovi nomi visualizzati vengono o
 ====
 
 
-=== [[download-recovery-package]]Download del pacchetto di ripristino
+=== [[download-recovery-package]]Scarica il pacchetto di ripristino
 
-Una volta terminata la ridenominazione degli elementi, scaricare e salvare un nuovo pacchetto di ripristino. I nuovi nomi visualizzati per gli elementi rinominati vengono inclusi nel `Passwords.txt` file.
+Una volta terminata la ridenominazione degli elementi, scarica e salva un nuovo pacchetto di ripristino.  I nuovi nomi visualizzati per gli elementi rinominati sono inclusi nel `Passwords.txt` file.
 
 .Fasi
 . Inserire la passphrase di provisioning.
-. Selezionare *Download Recovery Package* (Scarica pacchetto di ripristino).
+. Selezionare *Download recovery package* (Scarica pacchetto di ripristino).
 +
 Il download viene avviato immediatamente.
 
@@ -179,7 +175,7 @@ Il download viene avviato immediatamente.
 . Copiare il `sgws-recovery-package-_id-revision_.zip` file in due posizioni sicure, sicure e separate.
 +
 
-CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.
+CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID .
 
 . Selezionare *fine* per tornare al primo passaggio.
 
@@ -191,7 +187,7 @@ CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contie
 È possibile ripristinare il nome di sistema originale di una griglia, di un sito o di un nodo rinominato. Quando si ripristina il nome di sistema di un elemento, le pagine di Grid Manager e altre posizioni StorageGRID non mostrano più un *Nome visualizzato* per quell'elemento. Viene visualizzato solo il nome di sistema dell'elemento.
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *attività* > *Rinomina griglia, siti e nodi*.
+. Selezionare *Manutenzione* > *Attività* > *Rinomina griglia, siti e nodi*.
 . Per il passo *Select Names*, selezionare gli elementi che si desidera ripristinare ai nomi di sistema.
 . Selezionare *continua*.
 . Per il passo *proporre nuovi nomi*, ripristinare i nomi visualizzati in nomi di sistema singolarmente o in blocco.
@@ -229,7 +225,7 @@ Viene visualizzato un messaggio di successo. I nomi visualizzati per questi elem
 
 --
 ====
-. <<download-recovery-package,Scaricare e salvare un nuovo pacchetto di ripristino>>.
+. <<download-recovery-package,Scarica e salva un nuovo pacchetto di ripristino>> .
 +
 I nomi visualizzati per gli elementi ripristinati non sono più inclusi nel `Passwords.txt` file.
 

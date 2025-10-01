@@ -39,8 +39,8 @@ Queste istruzioni descrivono come:
 
 * link:managing-alerts.html["Gestire gli avvisi"]
 * link:logs-files-reference.html["Visualizzare i file di registro"]
-* link:configure-audit-messages.html["Configurare i messaggi di audit e le destinazioni dei log"]
+* link:configure-log-management.html["Configurare la gestione dei log e il server syslog esterno"]
 * link:considerations-for-external-syslog-server.html["Utilizzare un server syslog esterno"] per raccogliere le informazioni di controllo
 * link:using-snmp-monitoring.html["Utilizzare SNMP per il monitoraggio"]
-* link:using-charts-and-reports.html["Ottenere ulteriori dati StorageGRID"], comprese le metriche e la diagnostica
+* link:manage-io-prioritization.html["Modifica la priorità di I/O"]per modificare le priorità relative per le operazioni di I/O
 

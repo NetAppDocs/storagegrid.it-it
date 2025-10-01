@@ -39,14 +39,12 @@ entries:
     entries:
     - title: Creare gruppi S3
       url: "/tenant/creating-groups-for-s3-tenant.html"
-    - title: Creare gruppi Swift
-      url: "/tenant/creating-groups-for-swift-tenant.html"
     - title: Permessi di gestione del tenant
       url: "/tenant/tenant-management-permissions.html"
     - title: Gestire i gruppi
       url: "/tenant/manage-groups.html"
-  - title: Gestire gli utenti locali
-    url: "/tenant/managing-local-users.html"
+  - title: Gestire gli utenti
+    url: "/tenant/manage-users.html"
 - title: Gestire le chiavi di accesso S3
   entries:
   - title: Chiavi di accesso del tenant
@@ -70,6 +68,10 @@ entries:
     url: "/tenant/creating-s3-bucket.html"
   - title: Visualizza i dettagli del bucket
     url: "/tenant/viewing-s3-bucket-details.html"
+  - title: Che cosa è un branch bucket
+    url: "/tenant/what-is-branch-bucket.html"
+  - title: Gestisci i bucket delle filiali
+    url: "/tenant/manage-branch-buckets.html"
   - title: Applica tag criterio ILM al bucket
     url: "/tenant/ilm-policy-tags.html"
   - title: Gestire le policy del bucket
@@ -84,8 +86,8 @@ entries:
     url: "/tenant/using-s3-object-lock.html"
   - title: Aggiorna la conservazione predefinita del blocco oggetti S3
     url: "/tenant/update-default-retention-settings.html"
-  - title: Configurare la condivisione delle risorse tra origini (CORS)
-    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
+  - title: Configurare CORS per bucket e oggetti
+    url: "/tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html"
   - title: Eliminare gli oggetti nel bucket
     url: "/tenant/deleting-s3-bucket-objects.html"
   - title: Elimina bucket

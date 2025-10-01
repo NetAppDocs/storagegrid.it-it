@@ -14,12 +14,7 @@ summary: È possibile aggiungere trunk o interfacce di accesso supplementari a u
 È possibile aggiungere trunk o interfacce di accesso supplementari a un nodo Linux dopo averlo installato. Le interfacce aggiunte vengono visualizzate nella pagina delle interfacce VLAN e nella pagina dei gruppi ha.
 
 .Prima di iniziare
-* Hai accesso alle istruzioni per l'installazione di StorageGRID sulla tua piattaforma Linux.
-+
-** link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
-** link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
-
-
+* Hai accesso allink:../swnodes/index.html["istruzioni per l'installazione di StorageGRID"] sulla tua piattaforma Linux.
 * Si dispone del `Passwords.txt` file.
 * Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
 

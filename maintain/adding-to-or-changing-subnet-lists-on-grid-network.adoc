@@ -43,6 +43,7 @@ Ad esempio, non utilizzare i seguenti intervalli di subnet per la rete Grid, la 
 
 ====
 .Fasi
+. L'accesso SSH esterno è bloccato per impostazione predefinita.  Se necessario,link:../admin/manage-external-ssh-access.html["consentire temporaneamente l'accesso"] .
 . Accedere al nodo di amministrazione principale:
 +
 .. Immettere il seguente comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -149,7 +150,7 @@ Se non si è a conoscenza del fatto che le modifiche proposte richiedono il riav
 
 
 +
-Una volta applicate o apportate le modifiche, viene generato un nuovo pacchetto di ripristino in seguito alla modifica della configurazione della griglia.
+Dopo aver applicato o organizzato le modifiche, viene generato un nuovo pacchetto di ripristino come risultato della modifica alla configurazione della griglia.
 
 . Se la configurazione viene interrotta a causa di errori, sono disponibili le seguenti opzioni:
 +
@@ -164,12 +165,13 @@ L'operazione non riuscita può essere rieseguita in un secondo momento seleziona
 
 . Scarica un nuovo pacchetto di ripristino da Grid Manager.
 +
-.. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+.. Selezionare *Manutenzione* > *Sistema* > *Pacchetto di ripristino*.
 .. Inserire la passphrase di provisioning.
 
 
 +
 
-CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.
+CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID .
 
+. Se hai consentito l'accesso SSH esterno,link:../admin/manage-external-ssh-access.html["bloccare l'accesso"] una volta terminato di aggiungere o modificare gli elenchi di subnet.
 

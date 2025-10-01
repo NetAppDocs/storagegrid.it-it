@@ -25,7 +25,7 @@ Per ulteriori informazioni su questa attività, vedere link:../admin/managing-hi
 
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Network* > *High Availability groups*.
+. Selezionare *Configurazione* > *Rete* > *Gruppi ad alta disponibilità*.
 . Selezionare *Crea*.
 . Per la fase *inserire i dettagli*, completare i seguenti campi.
 +

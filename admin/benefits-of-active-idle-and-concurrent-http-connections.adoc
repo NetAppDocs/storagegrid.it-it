@@ -24,7 +24,7 @@ La modalità di configurazione delle connessioni HTTP può influire sulle presta
 
 == I vantaggi di mantenere aperte le connessioni HTTP inattive
 
-È necessario mantenere aperte le connessioni HTTP anche quando le applicazioni client sono inattive per consentire alle applicazioni client di eseguire transazioni successive sulla connessione aperta. In base alle misurazioni del sistema e all'esperienza di integrazione, è necessario mantenere aperta una connessione HTTP inattiva per un massimo di 10 minuti. StorageGRID potrebbe chiudere automaticamente una connessione HTTP che rimane aperta e inattiva per più di 10 minuti.
+Mantenere aperte le connessioni HTTP quando le applicazioni client sono inattive per consentire transazioni successive.  Mantenere aperta una connessione HTTP inattiva per un massimo di 10 minuti.  StorageGRID potrebbe chiudere automaticamente una connessione HTTP aperta e inattiva per più di 10 minuti.
 
 Le connessioni HTTP aperte e inattive offrono i seguenti vantaggi:
 
@@ -36,7 +36,7 @@ La latenza ridotta è il vantaggio principale, in particolare per il tempo neces
 * Notifica istantanea di diverse classi di condizioni di errore che interrompono la connettività tra l'applicazione client e il sistema StorageGRID
 
 
-Determinare per quanto tempo mantenere aperta una connessione inattiva è un compromesso‐tra i benefici dell'avvio lento associati alla connessione esistente e l'allocazione ideale della connessione alle risorse di sistema interne.
+Decidi per quanto tempo mantenere aperta una connessione inattiva bilanciando i vantaggi dell'avvio lento e l'allocazione delle risorse.
 
 
 
@@ -50,7 +50,7 @@ Per le connessioni client ai nodi di storage, la limitazione delle connessioni H
 
 * Consente un bilanciamento ottimale del carico nel sistema StorageGRID.
 +
-Con il passare del tempo, una connessione HTTP potrebbe non essere più ottimale con il variare dei requisiti di bilanciamento del carico. Il sistema esegue il miglior bilanciamento del carico quando le applicazioni client stabiliscono una connessione HTTP separata per ciascuna transazione, ma questo nega i guadagni molto più preziosi associati alle connessioni persistenti.
+Nel tempo, una connessione HTTP potrebbe non essere più ottimale poiché cambiano i requisiti di bilanciamento del carico.  Il sistema ottiene il miglior bilanciamento del carico quando le applicazioni client stabiliscono una connessione HTTP separata per ogni transazione, ma questo metodo annulla i preziosi vantaggi associati alle connessioni persistenti.
 
 * Consente alle applicazioni client di indirizzare le transazioni HTTP ai servizi LDR che dispongono di spazio disponibile.
 * Consente l'avvio delle procedure di manutenzione.
@@ -81,9 +81,9 @@ Il sistema StorageGRID può eseguire transazioni parallele e aumentare il throug
 
 Le applicazioni client devono stabilire più connessioni HTTP. Quando un'applicazione client deve eseguire una transazione, può selezionare e utilizzare immediatamente qualsiasi connessione stabilita che non sta elaborando una transazione.
 
-La topologia di ciascun sistema StorageGRID presenta un throughput di picco diverso per le transazioni e le connessioni simultanee prima che le performance comincino a degradarsi. Il throughput massimo dipende da fattori quali risorse di calcolo, risorse di rete, risorse di storage e collegamenti WAN. Anche il numero di server e servizi e il numero di applicazioni supportate dal sistema StorageGRID sono fattori.
+Ogni topologia del sistema StorageGRID presenta una diversa velocità di picco per transazioni e connessioni simultanee.  La capacità massima di elaborazione dipende dalle risorse di elaborazione, di rete, di archiviazione, dai collegamenti WAN e dal numero di server, servizi e applicazioni supportati dal sistema StorageGRID .
 
-I sistemi StorageGRID spesso supportano più applicazioni client. Tenere presente questo aspetto quando si determina il numero massimo di connessioni simultanee utilizzate da un'applicazione client. Se l'applicazione client è costituita da più entità software che stabiliscono connessioni al sistema StorageGRID, è necessario sommare tutte le connessioni tra le entità. Potrebbe essere necessario regolare il numero massimo di connessioni simultanee nelle seguenti situazioni:
+I sistemi StorageGRID spesso supportano più applicazioni client.  Tenetelo presente quando determinate il numero massimo di connessioni simultanee.  Se l'applicazione client è composta da più entità software, ciascuna delle quali stabilisce connessioni al sistema StorageGRID , sommare tutte le connessioni tra le entità.  Potrebbe essere necessario modificare il numero massimo di connessioni simultanee nelle seguenti situazioni:
 
 * La topologia del sistema StorageGRID influisce sul numero massimo di transazioni e connessioni simultanee supportate dal sistema.
 * Le applicazioni client che interagiscono con il sistema StorageGRID su una rete con larghezza di banda limitata potrebbero dover ridurre il grado di concorrenza per garantire che le singole transazioni vengano completate in un tempo ragionevole.

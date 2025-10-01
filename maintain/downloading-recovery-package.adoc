@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery package 
 summary: Il file del pacchetto di ripristino consente di ripristinare il sistema StorageGRID in caso di errore. 
 ---
-= Scarica Recovery Package
+= Scarica il pacchetto di ripristino
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,23 +14,23 @@ summary: Il file del pacchetto di ripristino consente di ripristinare il sistema
 Il file del pacchetto di ripristino consente di ripristinare il sistema StorageGRID in caso di errore.
 
 .Prima di iniziare
-* Dal nodo amministrativo primario, si è effettuato l'accesso al Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Da qualsiasi nodo di amministrazione, accedi a Grid Manager utilizzando unlink:../admin/web-browser-requirements.html["browser web supportato"] .
 * Si dispone della passphrase di provisioning.
 * Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
 
 
-Scaricare il file del pacchetto di ripristino corrente prima di apportare modifiche alla topologia della griglia al sistema StorageGRID o prima di aggiornare il software. Quindi, scaricare una nuova copia del pacchetto di ripristino dopo aver apportato modifiche alla topologia della griglia o dopo aver aggiornato il software.
+Scaricare il file del pacchetto di ripristino corrente prima di apportare modifiche alla topologia della griglia nel sistema StorageGRID o prima di aggiornare il software.  Quindi, dopo aver apportato modifiche alla topologia della griglia o dopo aver aggiornato il software, scaricare una nuova copia del pacchetto di ripristino.
 
 .Fasi
-. Selezionare *MANUTENZIONE* > *sistema* > *pacchetto di ripristino*.
+. Selezionare *Manutenzione* > *Sistema* > *Pacchetto di ripristino*.
 . Immettere la passphrase di provisioning e selezionare *Avvia download*.
 +
 Il download viene avviato immediatamente.
 
 . Al termine del download, aprire il `.zip` file e confermare che sia possibile accedere al contenuto, incluso il `Passwords.txt` file.
-. Copiare il file del pacchetto di ripristino scaricato (`.zip`) in due posizioni sicure, sicure e separate.
+. Copia il file del pacchetto di ripristino scaricato(`.zip` ) in due luoghi sicuri, protetti e separati.
 +
 
-CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.
+CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID .
 
 

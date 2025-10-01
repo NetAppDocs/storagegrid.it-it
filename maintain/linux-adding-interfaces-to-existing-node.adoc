@@ -13,11 +13,7 @@ summary: 'Seguire questa procedura per aggiungere un"interfaccia sulla rete di a
 [role="lead"]
 Seguire questa procedura per aggiungere un'interfaccia sulla rete di amministrazione o sulla rete client a un nodo Linux dopo l'installazione.
 
-Se NON sono stati configurati ADMIN_NETWORK_TARGET o CLIENT_NETWORK_TARGET nel file di configurazione del nodo sull'host Linux durante l'installazione, utilizzare questa procedura per aggiungere l'interfaccia. Per ulteriori informazioni sul file di configurazione del nodo, consultare le istruzioni relative al sistema operativo Linux in uso:
-
-* link:../rhel/index.html["Installare StorageGRID su Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Installare StorageGRID su Ubuntu o Debian"]
-
+Se non hai configurato ADMIN_NETWORK_TARGET o CLIENT_NETWORK_TARGET nel file di configurazione del nodo sull'host Linux durante l'installazione, usa questa procedura per aggiungere l'interfaccia.  Per ulteriori informazioni sul file di configurazione del nodo, vederelink:../swnodes/index.html["Installa StorageGRID sui nodi basati su software"] .
 
 Questa procedura viene eseguita sul server Linux che ospita il nodo che richiede la nuova assegnazione di rete, non all'interno del nodo. Questa procedura aggiunge l'interfaccia solo al nodo; si verifica un errore di convalida se si tenta di specificare altri parametri di rete.
 

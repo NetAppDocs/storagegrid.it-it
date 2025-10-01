@@ -91,12 +91,12 @@ entries:
     url: "/monitor/deployment-and-maintenance-logs.html"
   - title: A proposito di bycast.log
     url: "/monitor/about-bycast-log.html"
-- title: Configurare le destinazioni dei messaggi di controllo e del registro
+- title: Configurare la gestione dei log e il server syslog esterno
   entries:
   - title: Considerazioni sul server syslog esterno
     url: "/monitor/considerations-for-external-syslog-server.html"
-  - title: Configurare i messaggi di controllo e il server syslog esterno
-    url: "/monitor/configure-audit-messages.html"
+  - title: Configurare la gestione dei log
+    url: "/monitor/configure-log-management.html"
 - title: Utilizzare il monitoraggio SNMP
   entries:
   - title: Monitoraggio SNMP
@@ -110,26 +110,20 @@ entries:
     url: "/monitor/access-snmp-mib.html"
 - title: Raccogliere dati StorageGRID aggiuntivi
   entries:
-  - title: Utilizzare grafici e grafici
-    url: "/monitor/using-charts-and-reports.html"
-  - title: Utilizzare report di testo
-    url: "/monitor/types-of-text-reports.html"
   - title: Monitorare L'EFFICIENZA e OTTENERE le performance
     url: "/monitor/monitoring-put-and-get-performance.html"
   - title: Monitorare le operazioni di verifica degli oggetti
     url: "/monitor/monitoring-object-verification-operations.html"
-  - title: Monitorare gli eventi
-    url: "/monitor/monitoring-events.html"
   - title: Esaminare i messaggi di audit
     url: "/monitor/reviewing-audit-messages.html"
   - title: Raccogliere i file di log e i dati di sistema
     url: "/monitor/collecting-log-files-and-system-data.html"
   - title: Attivare manualmente un pacchetto AutoSupport
     url: "/monitor/manually-triggering-autosupport-message.html"
-  - title: Visualizzare l'albero topologia griglia
-    url: "/monitor/viewing-grid-topology-tree.html"
   - title: Rivedere le metriche di supporto
     url: "/monitor/reviewing-support-metrics.html"
+  - title: Modifica la priorità di I/O
+    url: "/monitor/manage-io-prioritization.html"
   - title: Eseguire la diagnostica
     url: "/monitor/running-diagnostics.html"
   - title: Creare applicazioni di monitoraggio personalizzate

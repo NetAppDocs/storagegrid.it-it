@@ -13,9 +13,10 @@ summary: 'Invece di configurare il DNS a livello globale per l"intera implementa
 [role="lead"]
 Invece di configurare il DNS a livello globale per l'intera implementazione, è possibile eseguire uno script per configurare il DNS in modo diverso per ciascun nodo della griglia.
 
-In generale, utilizzare l'opzione *MANUTENZIONE* > *rete* > *server DNS* in Grid Manager per configurare i server DNS. Utilizzare il seguente script solo se è necessario utilizzare server DNS diversi per nodi griglia diversi.
+In generale, dovresti usare l'opzione *Manutenzione* > *Rete* > *Server DNS* su Grid Manager per configurare i server DNS.  Utilizzare lo script seguente solo se è necessario utilizzare server DNS diversi per nodi di griglia diversi.
 
 .Fasi
+. L'accesso SSH esterno è bloccato per impostazione predefinita.  Se necessario,link:../admin/manage-external-ssh-access.html["consentire temporaneamente l'accesso"] .
 . Accedere al nodo di amministrazione principale:
 +
 .. Immettere il seguente comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -77,4 +78,5 @@ Enter command [`add search <domain>|remove search <domain>|add nameserver <ip>`]
 . [[close_cmd_shell]]chiudere la shell dei comandi sul server: `exit`
 . Per ciascun nodo della griglia, ripetere i passaggi da <<log_in_to_node,accesso al nodo>> a <<close_cmd_shell,chiudere la shell dei comandi>>.
 . Se non si richiede più l'accesso senza password ad altri server, rimuovere la chiave privata dall'agente SSH. Immettere: `ssh-add -D`
+. Se hai consentito l'accesso SSH esterno,link:../admin/manage-external-ssh-access.html["bloccare l'accesso"] una volta terminata la modifica della configurazione DNS.
 

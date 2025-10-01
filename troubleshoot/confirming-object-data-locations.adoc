@@ -27,7 +27,7 @@ A seconda del problema, potrebbe essere necessario scegliere link:../audit/objec
 . Selezionare *ILM* > *Object metadata lookup*.
 . Digitare l'identificativo dell'oggetto nel campo *Identifier*.
 +
-È possibile immettere UUID, CBID, S3 bucket/object-key o Swift container/object-name.
+È possibile immettere un UUID, un CBID o un bucket/chiave oggetto S3.
 
 . Se si desidera cercare una versione specifica dell'oggetto, inserire l'ID versione (facoltativo).
 +

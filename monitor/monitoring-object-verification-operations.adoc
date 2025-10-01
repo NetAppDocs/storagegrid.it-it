@@ -40,7 +40,7 @@ Il controllo dell'esistenza degli oggetti verifica se tutte le copie replicate p
 .Fasi
 . Esaminare i risultati delle verifiche in background:
 +
-.. Selezionare *NODI* > *_nodo di storage_* > *oggetti*.
+.. Selezionare *Nodi* > *Nodo di archiviazione_* > *Oggetti*.
 .. Verificare i risultati della verifica:
 +
 *** Per controllare la verifica dei dati degli oggetti replicati, esaminare gli attributi nella sezione verifica.
@@ -60,8 +60,8 @@ Selezionare il punto interrogativo image:../media/icon_nms_question.png["punto i
 
 . Esaminare i risultati dei job di controllo dell'esistenza di oggetti:
 +
-.. Selezionare *MANUTENZIONE* > *verifica dell'esistenza dell'oggetto* > *Cronologia lavori*.
-.. Eseguire la scansione della colonna copie oggetto mancanti rilevate. Se un lavoro ha causato 100 o più copie di oggetti mancanti e l'avviso *oggetti persi* è stato attivato, contattare il supporto tecnico.
+.. Selezionare *Manutenzione* > *Controllo esistenza oggetto* > *Cronologia lavori*.
+.. Esaminare la colonna Copie di oggetti mancanti rilevate.  Se un processo ha causato la perdita di 100 o più copie di oggetti ed è stato attivato l'avviso *Oggetti potenzialmente persi*, contattare l'assistenza tecnica.
 +
 image::../media/oec_job_history.png[Cronologia del processo di controllo dell'esistenza di oggetti]
 

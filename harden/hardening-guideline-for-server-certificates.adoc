@@ -11,7 +11,7 @@ summary: 'È necessario sostituire i certificati predefiniti creati durante l"in
 
 
 [role="lead"]
-È necessario sostituire i certificati predefiniti creati durante l'installazione e selezionare il criterio di protezione appropriato per le connessioni TLS e SSH.
+Dovresti controllare l'accesso SSH, sostituire i certificati TLS predefiniti e selezionare la policy di sicurezza appropriata per le connessioni TLS e SSH.
 
 
 
@@ -48,6 +48,12 @@ Inoltre, i client devono utilizzare un rigoroso controllo del nome host quando c
 
 È possibile selezionare un criterio di protezione per determinare quali protocolli e cifrature utilizzare per stabilire connessioni TLS sicure con applicazioni client e connessioni SSH sicure ai servizi StorageGRID interni.
 
-Il criterio di sicurezza controlla il modo in cui TLS e SSH crittografano i dati in movimento. Come procedura consigliata, è necessario disattivare le opzioni di crittografia non necessarie per la compatibilità delle applicazioni. Utilizzare il criterio moderno predefinito, a meno che il sistema non debba essere conforme ai criteri comuni o non sia necessario utilizzare altre crittografia.
+La policy di sicurezza controlla il modo in cui TLS e SSH crittografano i dati in movimento.  Come buona pratica, dovresti disabilitare le opzioni di crittografia non necessarie per la compatibilità dell'applicazione.  Utilizzare la politica Modern predefinita, a meno che il sistema non debba essere conforme ai Common Criteria, conforme a FIPS 140-2 o non sia necessario utilizzare altri cifrari
 
 Per ulteriori informazioni e istruzioni, vederelink:../admin/manage-tls-ssh-policy.html["Gestire i criteri TLS e SSH"].
+
+
+
+== Gestisci l'accesso SSH esterno
+
+Per migliorare la sicurezza del sistema, l'accesso SSH esterno è bloccato per impostazione predefinita.  Abilitare l'accesso SSH solo quando è necessario eseguire attività che richiedono l'accesso SSH in ingresso, ad esempio la risoluzione dei problemi.  Fare riferimento alink:../admin/manage-external-ssh-access.html["Gestisci l'accesso SSH esterno"] per dettagli e istruzioni.

@@ -30,7 +30,7 @@ StorageGRID può inviare informazioni di audit per impostazione predefinita, opp
 * Il valore predefinito di StorageGRID per le destinazioni di audit dei nodi locali.
 * Le voci del registro di controllo di Grid Manager e Tenant Manager potrebbero essere inviate a un nodo di archiviazione.
 * In alternativa, è possibile modificare la destinazione dei registri di controllo e inviare le informazioni di controllo a un server syslog esterno. I registri locali dei record di controllo continuano a essere generati e memorizzati quando viene configurato un server syslog esterno.
-* link:../monitor/configure-audit-messages.html["Informazioni sulla configurazione dei messaggi di controllo e delle destinazioni dei log"].
+* link:../monitor/configure-log-management.html["Scopri come configurare la gestione dei log"] .
 
 
 Per informazioni dettagliate sul file di log di audit, sul formato dei messaggi di audit, sui tipi di messaggi di audit e sugli strumenti disponibili per analizzare i messaggi di audit, vedere link:../audit/index.html["Esaminare i registri di audit"].

@@ -25,7 +25,7 @@ La gestione di un server di gestione delle chiavi (KMS) comporta la visualizzazi
 È possibile visualizzare informazioni su ciascun server di gestione delle chiavi (KMS) nel sistema StorageGRID, inclusi i dettagli delle chiavi e lo stato corrente dei certificati server e client.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Key management server*.
+. Selezionare *Configurazione* > *Sicurezza* > *Server di gestione delle chiavi*.
 +
 Viene visualizzata la pagina del server di gestione delle chiavi con le seguenti informazioni:
 
@@ -147,7 +147,7 @@ Risolvere tempestivamente eventuali problemi relativi ai certificati server o cl
 CAUTION: Per mantenere l'accesso ai dati, è necessario risolvere al più presto eventuali problemi di certificato.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Key management server*.
+. Selezionare *Configurazione* > *Sicurezza* > *Server di gestione delle chiavi*.
 . Nella tabella, esaminare il valore della scadenza del certificato per ogni KMS.
 . Se la scadenza del certificato per qualsiasi KMS è sconosciuta, attendere fino a 30 minuti, quindi aggiornare il browser Web.
 . Se la colonna scadenza certificato indica che un certificato è scaduto o è prossimo alla scadenza, selezionare il KMS per accedere alla pagina dei dettagli del KMS.
@@ -173,7 +173,7 @@ NOTE: Se lo stato del certificato *Server è sconosciuto*, assicurarsi che il KM
 È possibile visualizzare informazioni sui nodi appliance nel sistema StorageGRID per i quali è stata attivata l'impostazione *crittografia nodo*.
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Key management server*.
+. Selezionare *Configurazione* > *Sicurezza* > *Server di gestione delle chiavi*.
 +
 Viene visualizzata la pagina Key Management Server (Server di gestione delle chiavi). La scheda Dettagli configurazione mostra tutti i server di gestione delle chiavi configurati.
 
@@ -274,7 +274,7 @@ Potrebbe essere necessario modificare la configurazione di un server di gestione
 
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Key management server*.
+. Selezionare *Configurazione* > *Sicurezza* > *Server di gestione delle chiavi*.
 +
 Viene visualizzata la pagina Key management server (Server di gestione delle chiavi) che mostra tutti i server di gestione delle chiavi configurati.
 
@@ -382,7 +382,7 @@ In alcuni casi, potrebbe essere necessario rimuovere un server di gestione delle
 
 
 .Fasi
-. Selezionare *CONFIGURATION* > *Security* > *Key management server*.
+. Selezionare *Configurazione* > *Sicurezza* > *Server di gestione delle chiavi*.
 +
 Viene visualizzata la pagina Key management server (Server di gestione delle chiavi) che mostra tutti i server di gestione delle chiavi configurati.
 
