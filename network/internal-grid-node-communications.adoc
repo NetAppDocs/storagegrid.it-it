@@ -239,6 +239,19 @@ Traffico interno dei metadati.
 
 
  a| 
+5353
+ a| 
+UDP
+ a| 
+Tutti i nodi
+ a| 
+Tutti i nodi
+ a| 
+Fornisce il servizio DNS multicast (mDNS) utilizzato per le modifiche IP dell'intera griglia e per l'individuazione del nodo di amministrazione primario durante l'installazione, l'espansione e il ripristino.
+
+
+
+ a| 
 7001
  a| 
 TCP
@@ -412,11 +425,11 @@ Traffico interno del servizio Data Mover per i pool di storage cloud.
  a| 
 TCP
  a| 
-Nodi di storage
+Tutti i nodi
  a| 
-Nodi di storage
+Tutti i nodi
  a| 
-Traffico interno del servizio di chunk per la cancellazione del codice.
+Traffico interno del servizio Chunk per la codifica di cancellazione e la replicazione
 
 
 
@@ -438,9 +451,9 @@ Traffico interno correlato a S3.
  a| 
 TCP
  a| 
-Tutti i nodi della griglia
+Tutti i nodi
  a| 
-Tutti i nodi storage
+Nodi di storage
  a| 
 Traffico interno relativo al servizio LDR.
 

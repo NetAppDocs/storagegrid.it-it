@@ -246,7 +246,7 @@ Nodi di amministrazione
  a| 
 Utilizzato dai browser Web e dai client API di gestione per accedere a Grid Manager e Tenant Manager.
 
-*Nota*: Se si chiudono le porte 443 o 8443 di Grid Manager, tutti gli utenti attualmente connessi a una porta bloccata, incluso l'utente, perderanno l'accesso a Grid Manager, a meno che il loro indirizzo IP non sia stato aggiunto all'elenco degli indirizzi privilegiati. Vedere link:../admin/configure-firewall-controls.html["Configurare i controlli firewall"] per configurare gli indirizzi IP con privilegi.
+*Nota*: se chiudi le porte 443 o 8443 di Grid Manager, tutti gli utenti attualmente connessi su una porta bloccata, incluso te, perderanno l'accesso a Grid Manager, a meno che il loro indirizzo IP non sia stato aggiunto all'elenco degli indirizzi privilegiati. Fare riferimento alink:../admin/configure-firewall-controls.html["Configurare i controlli firewall"] per configurare indirizzi IP privilegiati.
 
 
 
@@ -306,7 +306,7 @@ Tutti i nodi
  a| 
 Tutti i nodi
  a| 
-Fornisce il servizio DNS multicast (mDNS) utilizzato per le modifiche dell'IP full-grid e per il rilevamento del nodo amministratore primario durante l'installazione, l'espansione e il ripristino.
+Fornisce il servizio DNS multicast (mDNS) utilizzato per le modifiche IP dell'intera griglia e per l'individuazione del nodo di amministrazione primario durante l'installazione, l'espansione e il ripristino.
 
 
 
@@ -336,9 +336,26 @@ Browser
  a| 
 Nodi di amministrazione
  a| 
-Opzionale. Utilizzato dai browser Web e dai client API di gestione per l'accesso a Grid Manager. Può essere utilizzato per separare le comunicazioni di Grid Manager e Tenant Manager.
+Opzionale. Utilizzato dai browser Web e dai client API di gestione per accedere a Grid Manager. Può essere utilizzato per separare le comunicazioni tra Grid Manager e Tenant Manager.
 
-*Nota*: Se si chiudono le porte 443 o 8443 di Grid Manager, tutti gli utenti attualmente connessi a una porta bloccata, incluso l'utente, perderanno l'accesso a Grid Manager, a meno che il loro indirizzo IP non sia stato aggiunto all'elenco degli indirizzi privilegiati. Vedere link:../admin/configure-firewall-controls.html["Configurare i controlli firewall"] per configurare gli indirizzi IP con privilegi.
+*Nota*: se chiudi le porte 443 o 8443 di Grid Manager, tutti gli utenti attualmente connessi su una porta bloccata, incluso te, perderanno l'accesso a Grid Manager, a meno che il loro indirizzo IP non sia stato aggiunto all'elenco degli indirizzi privilegiati.  Fare riferimento alink:../admin/configure-firewall-controls.html["Configurare i controlli firewall"] per configurare indirizzi IP privilegiati.
+
+
+
+ a| 
+8443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Browser
+ a| 
+Appliance
+ a| 
+Utilizzato dai browser Web e dai client API di gestione per accedere al programma di installazione dell'appliance StorageGRID .
+
+*Nota*: la porta 443 reindirizza alla porta 8443 per StorageGRID Appliance Installer.
 
 
 
@@ -400,7 +417,7 @@ Browser
  a| 
 Nodi di amministrazione
  a| 
-Opzionale. Utilizzato dai browser Web e dai client API di gestione per l'accesso a Tenant Manager. Può essere utilizzato per separare le comunicazioni di Grid Manager e Tenant Manager.
+Opzionale. Utilizzato dai browser Web e dai client API di gestione per accedere a Tenant Manager. Può essere utilizzato per separare le comunicazioni tra Grid Manager e Tenant Manager.
 
 
 
