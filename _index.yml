@@ -82,7 +82,7 @@ indexpage:
     - title: Servizi di apprendimento NetApp
       url: https://www.netapp.com/support-and-training/netapp-university/
     - title: Gestione StorageGRID tramite NetApp Console
-      url: https://docs.netapp.com/us-en/console-storagegrid/index.html
+      url: https://docs.netapp.com/us-en/storage-management-storagegrid/index.html
   - title: Più risorse
     links:
     - title: Pagina di supporto di StorageGRID
