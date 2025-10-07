@@ -557,7 +557,7 @@ Un banner verde indica che la configurazione è stata salvata.
 +
 I risultati del test vengono visualizzati continuamente sulla pagina fino a quando non si interrompe il test. Mentre il test è in corso, i messaggi di controllo continuano a essere inviati alle destinazioni precedentemente configurate.
 
-. Se si ricevono errori, correggerli e selezionare di nuovo *Invia messaggi di prova*.
+. Se si verificano errori durante la configurazione del server syslog o in fase di esecuzione, correggerli e selezionare nuovamente *Invia messaggi di prova*.
 +
 Per  informazioni sulla risoluzione di eventuali errori, consultare la sezionelink:../troubleshoot/troubleshooting-syslog-server.html["Risolvere i problemi di un server syslog esterno"].
 

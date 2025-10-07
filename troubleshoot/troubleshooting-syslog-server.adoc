@@ -13,6 +13,10 @@ summary: La tabella seguente descrive i messaggi di errore che potrebbero essere
 [role="lead"]
 La tabella seguente descrive i messaggi di errore che potrebbero essere correlati a un server syslog esterno ed elenca le azioni correttive.
 
+Questi errori vengono visualizzati dalla procedura guidata Configura server syslog esterno se si verificano problemi durante l'invio di messaggi di prova per convalidare la corretta configurazione del server syslog esterno.
+
+Problemi in fase di esecuzione potrebbero essere segnalati dallink:../monitor/alerts-reference.html#audit-and-syslog-alerts["Errore di inoltro del server syslog esterno"] allerta.  Se ricevi questo avviso, segui le istruzioni contenute nell'avviso per inviare nuovamente i messaggi di prova e ottenere messaggi di errore dettagliati.
+
 Per ulteriori informazioni sull'invio di informazioni di audit a un server syslog esterno, consultare:
 
 * link:../monitor/considerations-for-external-syslog-server.html["Considerazioni sull'utilizzo di un server syslog esterno"]

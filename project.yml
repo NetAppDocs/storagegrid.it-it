@@ -404,8 +404,8 @@ sidebar:
       url: "/maintain/how-site-recovery-is-performed-by-technical-support.html"
   - title: Soluzioni e risorse StorageGRID
     url: "/storagegrid-enable.html"
-  - title: StorageGRID e BlueXP
-    url: "/storagegrid-bluexp.html"
+  - title: StorageGRID e NetApp Console
+    url: "/storagegrid-console.html"
   - title: Note legali
     url: "/legal-notices.html"
 product-family:
