@@ -11,7 +11,7 @@ summary: È possibile creare interfacce LAN virtuali sui nodi Admin e Gateway e 
 
 
 [role="lead"]
-È possibile creare interfacce LAN virtuale (VLAN) su nodi Admin e nodi Gateway e utilizzarle in gruppi ha ed endpoint di bilanciamento del carico per isolare e partizionare il traffico per garantire sicurezza, flessibilità e performance.
+Crea interfacce LAN virtuali (VLAN) sui nodi di amministrazione e sui nodi gateway e utilizzale nei gruppi HA e negli endpoint del bilanciatore del carico per isolare e partizionare il traffico per garantire sicurezza, flessibilità e prestazioni. I nodi selezionati nel gruppo HA possono utilizzare le interfacce VLAN per condividere fino a 10 indirizzi IP virtuali, in modo che se un nodo si guasta, un altro nodo subentri nel traffico da e verso gli indirizzi IP virtuali.
 
 
 
