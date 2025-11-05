@@ -249,6 +249,8 @@ Tutti i nodi
  a| 
 Fornisce il servizio DNS multicast (mDNS) utilizzato per le modifiche IP dell'intera griglia e per l'individuazione del nodo di amministrazione primario durante l'installazione, l'espansione e il ripristino.
 
+*Nota*: la configurazione di questa porta è facoltativa.
+
 
 
  a| 

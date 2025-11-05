@@ -2,7 +2,7 @@
 permalink: troubleshoot/investigating-potentially-lost-objects.html 
 sidebar: sidebar 
 keywords: lost objects, investigating, objects 
-summary: 'Quando viene attivato l"avviso *Oggetti potenzialmente persi*, è necessario indagare immediatamente.  Raccogliere informazioni sugli oggetti interessati e contattare l"assistenza tecnica.' 
+summary: 'Quando viene attivato l"avviso Oggetti potenzialmente persi, è necessario indagare immediatamente. Raccogliere informazioni sugli oggetti interessati e contattare l"assistenza tecnica.' 
 ---
 = Indagare su oggetti potenzialmente persi
 :allow-uri-read: 

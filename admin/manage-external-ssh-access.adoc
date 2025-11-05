@@ -28,6 +28,10 @@ Per migliorare la sicurezza del sistema, l'accesso SSH esterno è bloccato per i
 +
 .. Selezionare la casella di controllo per bloccare l'accesso (impostazione predefinita).
 .. Deseleziona la casella di controllo per consentire l'accesso.
++
+
+NOTE: Richiede l'accesso sulla porta 22 tra il laptop di servizio e tutti gli altri nodi della griglia.  Una volta completata l'attività di manutenzione, rimuovere l'accesso alla porta 22.
+
 
 
 . Selezionare *Salva*.

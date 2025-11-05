@@ -70,7 +70,7 @@ Se l'account utente federated non funziona, provare ad accedere a Grid Manager c
 ** Se l'utente locale non riesce ad accedere e si è certi che le credenziali siano corrette, passare alla fase successiva.
 
 
-. Utilizzare Secure Shell (ssh) per accedere al nodo di amministrazione:
+. Utilizzare Secure Shell (SSH) per accedere al nodo di amministrazione:
 +
 .. Immettere il seguente comando: `ssh admin@Admin_Node_IP`
 .. Immettere la password elencata nel `Passwords.txt` file.
