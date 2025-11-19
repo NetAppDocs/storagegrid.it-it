@@ -16,8 +16,6 @@ summary: 'È necessario completare un set specifico di attività per eseguire il
 
 CAUTION: Devi riparare o sostituire tempestivamente un nodo amministrativo primario guasto, altrimenti il grid potrebbe perdere la capacità di acquisire nuovi oggetti. Il periodo di tempo esatto dipende dal tasso di acquisizione degli oggetti: Se hai bisogno di una valutazione più accurata del periodo di tempo per la tua griglia, contatta il supporto tecnico.
 
-Il servizio CMN (Configuration Management Node) sul nodo di amministrazione primario è responsabile dell'emissione di blocchi di identificatori di oggetti per la griglia. Questi identificatori vengono assegnati agli oggetti man mano che vengono acquisiti. Non è possibile acquisire nuovi oggetti a meno che non siano disponibili identificatori. L'acquisizione degli oggetti può continuare anche quando la CMN non è disponibile, poiché la fornitura di identificatori di circa un mese viene memorizzata nella cache della griglia. Tuttavia, una volta esauriti gli identificatori memorizzati nella cache, non è possibile aggiungere nuovi oggetti.
-
 Seguire questi passaggi di alto livello per ripristinare un nodo amministrativo primario:
 
 . link:copying-audit-logs-from-failed-primary-admin-node.html["Copia i registri di controllo dal nodo di amministrazione primario non riuscito"]

@@ -46,7 +46,7 @@ Quando si ripristinano i nodi della griglia, si presume che siano presenti tutte
 
 == Ordine di recovery del nodo in caso di guasto di un server che ospita più di un nodo griglia
 
-Se un server che ospita più di un nodo della griglia si guasta, è possibile ripristinare i nodi in qualsiasi ordine.  Tuttavia, se il server in errore ospita il nodo di amministrazione primario, è necessario prima ripristinare tale nodo.
+Se un server che ospita più di un nodo della griglia si guasta, è possibile ripristinare i nodi in qualsiasi ordine. Tuttavia, se il server in errore ospita il nodo amministrativo primario e non esistono nodi amministrativi non primari, è necessario prima ripristinare il nodo amministrativo primario.
 
 
 
