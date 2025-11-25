@@ -43,6 +43,12 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 
 
 
+== licenza API
+
+La presente documentazione non concede alcuna licenza o altri diritti alla StorageGRID S3 REST API. Qualsiasi utilizzo o accesso alla StorageGRID S3 REST API richiede ed è soggetto a un contratto di licenza separato con NetApp.
+
+
+
 == Open source
 
 I file di avviso forniscono informazioni sul copyright e sulle licenze di terze parti utilizzate nel software NetApp.
