@@ -2,7 +2,7 @@
 permalink: troubleshoot/troubleshooting-low-object-data-storage-alert.html 
 sidebar: sidebar 
 keywords: how to troubleshoot the Low object data storage alert 
-summary: 'L"avviso *Low Object Data Storage* monitora lo spazio disponibile per memorizzare i dati degli oggetti su ciascun nodo di storage.' 
+summary: 'L"avviso di spazio di archiviazione dati oggetto insufficiente monitora la quantità di spazio disponibile per l"archiviazione dei dati oggetto su ciascun nodo di archiviazione.' 
 ---
 = Risolvere i problemi relativi all'avviso di storage dei dati a oggetti in esaurimento
 :allow-uri-read: 
