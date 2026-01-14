@@ -1,10 +1,10 @@
 ---
 permalink: expand/copying-admin-node-database.html 
 sidebar: sidebar 
-keywords: copy Admin Node database, alert history, Admin Node expansion 
+keywords: copy Admin Node database, alert history, Admin Node expansion, StorageGRID 
 summary: Quando si aggiungono nodi di amministrazione tramite una procedura di espansione, è possibile copiare il database dal nodo di amministrazione primario al nuovo nodo di amministrazione. La copia del database consente di conservare informazioni cronologiche su attributi, avvisi e avvisi. 
 ---
-= Copia database nodo amministratore
+= Copia il database del nodo amministrativo nei nuovi nodi amministrativi in ​​StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

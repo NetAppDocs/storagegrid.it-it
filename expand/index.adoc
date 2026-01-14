@@ -1,17 +1,17 @@
 ---
 permalink: expand/index.html 
 sidebar: sidebar 
-keywords: expand grid 
+keywords: expand grid, StorageGRID 
 summary: Puoi espandere la capacità o le funzionalità del tuo sistema StorageGRID senza interrompere le operazioni di sistema. 
 ---
-= Tipi di espansione
+= Scopri come espandere il tuo sistema StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puoi espandere la capacità o le funzionalità del tuo sistema StorageGRID senza interrompere le operazioni di sistema.
+Scopri come espandere il tuo sistema StorageGRID per aumentare la capacità o le funzionalità senza interrompere le operazioni. È possibile aggiungere volumi di archiviazione ai nodi di archiviazione esistenti, aggiungere nuovi nodi di griglia a un sito esistente o aggiungere un nuovo sito.
 
 Prima di espandere un nodo della griglia, è necessario confermare che non siano attivi processi di riparazione dei dati.  Se una riparazione non ha avuto successo, è necessario riavviarla e lasciarla completare prima di eseguire la procedura di dismissione o espansione. Fare riferimento a link:../maintain/checking-data-repair-jobs.html["Controllare i lavori di riparazione dei dati"] .
 

@@ -1,10 +1,10 @@
 ---
 permalink: expand/copying-prometheus-metrics.html 
 sidebar: sidebar 
-keywords: prometheus, copy metrics, Admin Node expansion 
+keywords: prometheus, copy metrics, Admin Node expansion, StorageGRID 
 summary: Dopo aver aggiunto un nuovo nodo di amministrazione, è possibile copiare facoltativamente le metriche storiche gestite da Prometheus dal nodo di amministrazione primario al nuovo nodo di amministrazione. La copia delle metriche garantisce che le metriche storiche siano coerenti tra i nodi di amministrazione. 
 ---
-= Copia le metriche Prometheus
+= Copia le metriche di Prometheus nei nuovi nodi amministrativi in ​​StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html 
 sidebar: sidebar 
-keywords: grid node, add node, add site, expand, expansion 
+keywords: grid node, add node, add site, expand, expansion, StorageGRID 
 summary: Seguire questa procedura per aggiungere nodi di griglia a siti esistenti o per aggiungere un nuovo sito. È possibile eseguire un solo tipo di espansione alla volta. 
 ---
-= Aggiunta di nodi di griglia al sito esistente o aggiunta di un nuovo sito
+= Riepilogo del flusso di lavoro per l'aggiunta di nodi della griglia o nuovi siti a StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -24,7 +24,7 @@ NOTE: Non è possibile avviare un'espansione mentre è in corso un'altra procedu
 
 
 .Fasi
-. link:updating-subnets-for-grid-network.html["Aggiornare le subnet per Grid Network"].
-. link:deploying-new-grid-nodes.html["Implementare nuovi nodi grid"].
+. link:updating-subnets-for-grid-network.html["Aggiorna le subnet per la rete Grid"].
+. link:deploying-new-grid-nodes.html["Distribuisci i nuovi nodi della griglia"].
 . link:performing-expansion.html["Eseguire l'espansione"].
 

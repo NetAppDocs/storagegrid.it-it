@@ -1,10 +1,10 @@
 ---
 permalink: expand/contacting-technical-support.html 
 sidebar: sidebar 
-keywords: troubleshoot expansion, contact technical support 
+keywords: troubleshoot expansion, contact technical support, StorageGRID 
 summary: 'Se si verificano errori durante il processo di espansione della griglia che non è possibile risolvere o se un"operazione della griglia non riesce, raccogliere i file di registro e contattare il supporto tecnico.' 
 ---
-= Risolvere i problemi di espansione
+= Risoluzione dei problemi di espansione in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

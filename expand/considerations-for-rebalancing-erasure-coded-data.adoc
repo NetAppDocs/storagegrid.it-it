@@ -1,10 +1,10 @@
 ---
 permalink: expand/considerations-for-rebalancing-erasure-coded-data.html 
 sidebar: sidebar 
-keywords: erasure coding, rebalance, ec rebalance, site rebalance 
+keywords: erasure coding, rebalance, ec rebalance, site rebalance, StorageGRID 
 summary: 'Se si sta eseguendo un"espansione per aggiungere nodi di storage e si utilizzano le regole ILM per erasure dei dati del codice, potrebbe essere necessario eseguire la procedura di ribilanciamento EC se non è possibile aggiungere un numero sufficiente di nodi di storage per lo schema di erasure coding in uso.' 
 ---
-= Considerazioni per il ribilanciamento dei dati con codifica erasure
+= Scopri di più sul ribilanciamento EC dopo l'espansione in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

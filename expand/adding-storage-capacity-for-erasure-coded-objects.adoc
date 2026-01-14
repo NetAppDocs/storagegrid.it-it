@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-storage-capacity-for-erasure-coded-objects.html 
 sidebar: sidebar 
-keywords: erasure coding, capacity, storage nodes, ec, expand, expansion 
+keywords: erasure coding, capacity, storage nodes, ec, expand, expansion, StorageGRID 
 summary: 'Se il criterio ILM include una regola che crea copie con codifica di cancellazione, è necessario pianificare dove aggiungere nuovo storage e quando aggiungere nuovo storage. La quantità di storage aggiunta e la tempistica dell"aggiunta possono influire sulla capacità di storage utilizzabile del grid.' 
 ---
-= Aggiungere capacità di storage per gli oggetti con codifica per la cancellazione
+= Pianificazione dell'espansione per i dati con codice di cancellazione (EC) in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

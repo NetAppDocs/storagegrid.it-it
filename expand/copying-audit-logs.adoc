@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: expand/copying-audit-logs.html 
-keywords: copy audit log, Admin Node expansion, 
+keywords: copy audit log, Admin Node expansion, StorageGRID 
 summary: 'Quando si aggiunge un nuovo nodo amministrativo tramite una procedura di espansione, il suo servizio AMS registra solo gli eventi e le azioni che si verificano dopo l"adesione al sistema.  Se necessario, è possibile copiare i registri di controllo da un nodo di amministrazione installato in precedenza al nuovo nodo di amministrazione di espansione, in modo che sia sincronizzato con il resto del sistema StorageGRID .' 
 ---
-= Copia dei registri di audit
+= Copia i registri di controllo nei nuovi nodi di amministrazione in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
