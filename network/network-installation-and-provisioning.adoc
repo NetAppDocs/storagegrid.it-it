@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network install, network provisioning 
 summary: 'È necessario comprendere in che modo la rete grid e le reti amministrative e client opzionali vengono utilizzate durante l"implementazione del nodo e la configurazione del grid.' 
 ---
-= Installazione e provisioning di rete
+= Installazione e provisioning di rete per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

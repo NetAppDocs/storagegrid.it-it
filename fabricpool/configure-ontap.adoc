@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/configure-ontap.html 
 sidebar: sidebar 
-keywords: fabricPool, system manager, ONTAP CLI, add cloud tier 
+keywords: fabricPool, StorageGRID, system manager, ONTAP CLI, add cloud tier 
 summary: Dopo aver ottenuto le informazioni StorageGRID richieste, puoi accedere a ONTAP per aggiungere StorageGRID come livello cloud. 
 ---
-= Configurare Gestore di sistema di ONTAP
+= Configura ONTAP System Manager per aggiungere StorageGRID come livello cloud FabricPool
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network gateway requirements 
 summary: Attenersi ai seguenti requisiti e linee guida per gateway o router di rete. 
 ---
-= Requisiti del gateway di rete
+= Requisiti del gateway di rete per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking after installation, dhcp networking 
 summary: 'Dopo aver completato l"implementazione e la configurazione del nodo griglia, seguire queste linee guida per l"indirizzamento DHCP e le modifiche alla configurazione di rete.' 
 ---
-= Linee guida per la post-installazione
+= Linee guida post-installazione per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

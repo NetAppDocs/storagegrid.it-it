@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: linux network, container engine, red hat enterprise linux network, rhel network, ubuntu network 
 summary: Per garantire efficienza, affidabilità e sicurezza, il sistema StorageGRID viene eseguito su Linux come insieme di motori per container. La configurazione di rete relativa al motore dei container non è richiesta in un sistema StorageGRID. 
 ---
-= Implementazioni Linux
+= Configurazione di rete per le distribuzioni StorageGRID Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

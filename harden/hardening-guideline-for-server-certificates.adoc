@@ -1,10 +1,10 @@
 ---
 permalink: harden/hardening-guideline-for-server-certificates.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, certificates 
+keywords: StorageGRID, hardening guidelines, certificates 
 summary: 'È necessario sostituire i certificati predefiniti creati durante l"installazione e selezionare il criterio di protezione appropriato per le connessioni TLS e SSH.' 
 ---
-= Linee guida per la protezione avanzata di TLS e SSH
+= Linee guida per l'hardening di TLS e SSH in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

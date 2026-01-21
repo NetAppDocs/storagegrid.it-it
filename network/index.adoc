@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network, networking, ethernet, subnet, routing 
 summary: 'Utilizza queste linee guida per conoscere l"architettura StorageGRID e le topologie di rete e per conoscere i requisiti per la configurazione e il provisioning di rete.' 
 ---
-= Linee guida per il networking
+= Linee guida di networking per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

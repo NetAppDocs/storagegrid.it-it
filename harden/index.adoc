@@ -1,10 +1,10 @@
 ---
 permalink: harden/index.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, system, security 
+keywords: StorageGRID, hardening guidelines, system, security 
 summary: La protezione avanzata del sistema è il processo che consente di eliminare il maggior numero possibile di rischi per la sicurezza da un sistema StorageGRID. 
 ---
-= Considerazioni generali per l'indurimento del sistema
+= Scopri il rafforzamento del sistema per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

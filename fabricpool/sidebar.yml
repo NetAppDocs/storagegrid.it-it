@@ -1,15 +1,15 @@
 ---
 section: fabricpool
-title: Configurare StorageGRID per FabricPool
+title: StorageGRID con FabricPool
 entries:
-- title: Avvio rapido
-  pdf-filename: Configurare StorageGRID per FabricPool
+- title: Flusso di lavoro di configurazione
+  pdf-filename: StorageGRID con FabricPool
   url: "/fabricpool/index.html"
-- title: Informazioni necessarie per collegare StorageGRID come Tier cloud
+- title: Informazioni per il livello cloud FabricPool
   url: "/fabricpool/information-needed-to-attach-storagegrid-as-cloud-tier.html"
 - title: Utilizzare l'installazione guidata di FabricPool
   entries:
-  - title: Considerazioni e requisiti
+  - title: Panoramica del setup wizard
     url: "/fabricpool/use-fabricpool-setup-wizard.html"
   - title: Accedere e completare la procedura guidata
     url: "/fabricpool/use-fabricpool-setup-wizard-steps.html"
@@ -27,19 +27,19 @@ entries:
     url: "/fabricpool/using-storagegrid-ilm-with-fabricpool-data.html"
   - title: Creare una policy di classificazione del traffico
     url: "/fabricpool/creating-traffic-classification-policy-for-fabricpool.html"
-- title: Configurare Gestore di sistema di ONTAP
+- title: Configura ONTAP per StorageGRID
   url: "/fabricpool/configure-ontap.html"
-- title: Configurare il server DNS
+- title: Configura le voci del DNS server
   url: "/fabricpool/configure-dns-server.html"
 - title: Best practice StorageGRID per FabricPool
   entries:
   - title: Best practice per i gruppi ha
     url: "/fabricpool/best-practices-for-high-availability-groups.html"
-  - title: Best practice per il bilanciamento del carico per FabricPool
+  - title: Best practice per il bilanciamento del carico
     url: "/fabricpool/best-practices-for-load-balancing.html"
   - title: Best practice per ILM
     url: "/fabricpool/best-practices-ilm.html"
-  - title: Altre Best practice
+  - title: Best practice per le impostazioni globali
     url: "/fabricpool/other-best-practices-for-storagegrid-and-fabricpool.html"
 - title: Rimuovere i dati FabricPool da StorageGRID
   url: "/fabricpool/remove-fabricpool-data.html"

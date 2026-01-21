@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/creating-tenant-account-for-fabricpool.html 
 sidebar: sidebar 
-keywords: fabricPool, tenant, SSO 
+keywords: fabricPool, StorageGRID, tenant, SSO 
 summary: 'È necessario creare un account tenant in Grid Manager per l"utilizzo con FabricPool.' 
 ---
-= Creare un account tenant per FabricPool
+= Crea un account tenant per FabricPool in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-storage-node-is.html 
 sidebar: sidebar 
-keywords: what is a storage node, how many storage nodes 
+keywords: StorageGRID, what is a storage node, how many storage nodes 
 summary: I nodi di storage gestiscono e memorizzano i dati e i metadati degli oggetti. I nodi di storage includono i servizi e i processi necessari per memorizzare, spostare, verificare e recuperare dati e metadati degli oggetti su disco. 
 ---
-= Che cos'è un nodo di storage?
+= Che cos'è un nodo di archiviazione StorageGRID?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

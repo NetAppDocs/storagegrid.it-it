@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network topology for storagegrid 
 summary: 'È possibile configurare tutte e tre le reti in una topologia di rete costituita da una rete griglia privata, reti amministrative specifiche del sito delimitate e reti client aperte. L"utilizzo di endpoint di bilanciamento del carico e reti client non attendibili può fornire ulteriore sicurezza, se necessario.' 
 ---
-= Topologia per tutte e tre le reti
+= Topologia di rete per tutte e tre le reti StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

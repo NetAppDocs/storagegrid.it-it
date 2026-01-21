@@ -1,10 +1,10 @@
 ---
 permalink: harden/other-hardening-guidelines.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, security 
+keywords: StorageGRID, hardening guidelines, security 
 summary: Oltre a seguire le linee guida per la protezione avanzata per reti e nodi StorageGRID, è necessario seguire le linee guida per la protezione avanzata per altre aree del sistema StorageGRID. 
 ---
-= Altre linee guida per la protezione avanzata
+= Linee guida per il rafforzamento della sicurezza per log, password e messaggi di audit in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

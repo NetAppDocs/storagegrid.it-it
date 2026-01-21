@@ -1,10 +1,10 @@
 ---
 permalink: primer/retrieve-data-flow.html 
 sidebar: sidebar 
-keywords: object data, retrieve 
+keywords: StorageGRID, object data, retrieve 
 summary: 'Un"operazione di recupero consiste in un flusso di dati definito tra il sistema StorageGRID e il client. Il sistema utilizza gli attributi per tenere traccia del recupero dell"oggetto da un nodo di storage o, se necessario, da un pool di cloud storage.' 
 ---
-= Recuperare il flusso di dati
+= Come StorageGRID gestisce il recupero degli oggetti
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, networking requirements, network requirements, nat 
 summary: 'È necessario verificare che l"infrastruttura e la configurazione di rete correnti siano in grado di supportare la progettazione pianificata della rete StorageGRID.' 
 ---
-= Requisiti di rete
+= Requisiti di rete per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

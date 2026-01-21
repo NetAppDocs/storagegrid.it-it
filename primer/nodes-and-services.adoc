@@ -1,10 +1,10 @@
 ---
 permalink: primer/nodes-and-services.html 
 sidebar: sidebar 
-keywords: services, grid nodes, primary admin, storage, gateway 
+keywords: StorageGRID, services, grid nodes, primary admin, storage, gateway 
 summary: Il building block di base di un sistema StorageGRID è il nodo grid. I nodi contengono servizi, ovvero moduli software che forniscono un insieme di funzionalità a un nodo grid. 
 ---
-= Nodi e servizi Grid
+= Nodi e servizi di griglia StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

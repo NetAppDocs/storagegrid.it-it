@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: client network topology 
 summary: 'La disponibilità di una rete client è opzionale. L"utilizzo di una rete client consente di separare il traffico di rete client \(ad esempio, S3\) dal traffico interno della rete, consentendo una rete di rete più sicura. Il traffico amministrativo può essere gestito dal client o dalla rete griglia quando la rete amministrativa non è configurata.' 
 ---
-= Topologia di rete del client
+= Topologia di rete client per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

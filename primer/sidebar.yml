@@ -13,7 +13,7 @@ entries:
   entries:
   - title: Nodi e servizi
     url: "/primer/nodes-and-services.html"
-    pdf-filename: Nodi e servizi
+    pdf-filename: Nodi e servizi StorageGRID
   - title: Che cos'è un nodo amministrativo
     url: "/primer/what-admin-node-is.html"
   - title: Che cos'è un nodo di storage
@@ -25,15 +25,15 @@ entries:
   - title: Che cos'è un oggetto
     pdf-filename: Panoramica sulla gestione dei dati da parte di StorageGRID
     url: "/primer/how-storagegrid-manages-data.html"
-  - title: La vita di un oggetto
+  - title: Ciclo di vita degli oggetti
     url: "/primer/life-of-object.html"
-  - title: Acquisire il flusso di dati
+  - title: Ingestione dei dati
     url: "/primer/ingest-data-flow.html"
   - title: Gestione delle copie
     url: "/primer/copy-management.html"
-  - title: Recuperare il flusso di dati
+  - title: Recupero dati
     url: "/primer/retrieve-data-flow.html"
-  - title: Eliminare il flusso di dati
+  - title: Cancellazione dei dati
     url: "/primer/delete-data-flow.html"
   - title: Gestione del ciclo di vita delle informazioni
     url: "/primer/using-information-lifecycle-management.html"

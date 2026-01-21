@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-gateway-node-is.html 
 sidebar: sidebar 
-keywords: gateway nodes, api gateway 
+keywords: StorageGRID, gateway nodes, api gateway 
 summary: 'I nodi di gateway forniscono un"interfaccia di bilanciamento del carico dedicata che le applicazioni client S3 possono utilizzare per la connessione a StorageGRID. Il bilanciamento del carico massimizza la velocità e la capacità di connessione distribuendo il carico di lavoro tra più nodi di storage. I nodi del gateway sono opzionali.' 
 ---
-= Che cos'è un nodo gateway?
+= Che cos'è un nodo gateway StorageGRID?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

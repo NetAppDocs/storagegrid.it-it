@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin network topology, using admin network 
 summary: Disporre di una rete amministrativa è facoltativo. Un modo per utilizzare una rete amministrativa e una rete griglia consiste nel configurare una rete griglia instradabile e una rete amministrativa limitata per ciascun nodo. 
 ---
-= Topologia della rete amministrativa
+= Topologia di rete Admin per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
