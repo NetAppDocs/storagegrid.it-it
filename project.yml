@@ -28,7 +28,7 @@ sidebar:
   - title: Software StorageGRID 12.0
     url: "/index.html"
   - title: Appliance StorageGRID
-    url: "/storagegrid-hardware.html"
+    url: "/swnodes/storagegrid-hardware.html"
   - title: Note di rilascio
     url: "/release-notes/index.html"
   - title: Inizia subito
@@ -41,8 +41,6 @@ sidebar:
   - title: Installazione, aggiornamento e correzione rapida
     url: "/landing-install-upgrade/index.html"
     entries:
-    - title: Installare nodi basati su appliance
-      url: "/storagegrid-hardware.html"
     - section: swnodes
     - section: upgrade
     - title: Applicare la correzione rapida StorageGRID

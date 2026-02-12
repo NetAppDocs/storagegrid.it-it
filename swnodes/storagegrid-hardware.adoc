@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: storagegrid-hardware.html 
+permalink: swnodes/storagegrid-hardware.html 
 keywords: storagegrid, software, grid 
 summary: 'Scopri come installare, configurare e utilizzare l"hardware dell"appliance StorageGRID.' 
 ---
