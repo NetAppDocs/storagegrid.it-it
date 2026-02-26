@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot metadata issues 
 summary: 'Se si verificano problemi relativi ai metadati, gli avvisi ti informeranno sull"origine dei problemi e sulle azioni consigliate da intraprendere. In particolare, è necessario aggiungere nuovi nodi di archiviazione se viene attivato l"avviso archiviazione metadati bassa.' 
 ---
-= Risolvere i problemi relativi ai metadati
+= Risolvere i problemi relativi ai metadati in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

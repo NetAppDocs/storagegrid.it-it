@@ -4,9 +4,8 @@ sidebar: sidebar
 keywords: operations, buckets, custom, storagegrid bucket operations 
 summary: 'Il sistema StorageGRID supporta operazioni personalizzate che vengono aggiunte all"API REST S3.' 
 ---
-= Operazioni personalizzate di StorageGRID
+= Operazioni personalizzate sui bucket supportate in StorageGRID
 :allow-uri-read: 
-:icons: font
 :imagesdir: ../media/
 
 

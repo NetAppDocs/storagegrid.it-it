@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: server side encryption, encryption, operations on objects, objects 
 summary: 'La crittografia lato server consente di proteggere i dati a oggetti inattivi. StorageGRID crittografa i dati durante la scrittura dell"oggetto e li decrta quando si accede all"oggetto.' 
 ---
-= Utilizzare la crittografia lato server
+= Come StorageGRID utilizza la crittografia lato server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

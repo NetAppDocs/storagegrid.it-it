@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, version, current version, previous version 
 summary: 'Prima di avviare l"aggiornamento, verificare che la versione precedente di StorageGRID sia attualmente installata con la correzione rapida più recente disponibile applicata.' 
 ---
-= Verificare la versione installata di StorageGRID
+= Verificare la versione installata di StorageGRID prima dell'aggiornamento
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot network, how to troubleshoot hardware, how to troubleshoot platform 
 summary: 'È possibile eseguire diverse attività per determinare l"origine dei problemi relativi a problemi di rete, hardware e piattaforma StorageGRID.' 
 ---
-= Risolvere i problemi di rete, hardware e piattaforma
+= Risolvi i problemi di rete, hardware e piattaforma in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

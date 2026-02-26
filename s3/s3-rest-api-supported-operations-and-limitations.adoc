@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 rest api supported operations, s3 rest api limitations 
 summary: 'Il sistema StorageGRID implementa l"API del servizio di storage semplice (API versione 2006-03-01) con il supporto per la maggior parte delle operazioni e con alcune limitazioni. È necessario comprendere i dettagli dell"implementazione quando si integrano le applicazioni client API REST S3.' 
 ---
-= Dettagli sull'implementazione dell'API REST S3
+= Operazioni supportate e limitazioni dell'API REST S3 in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

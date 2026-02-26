@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit log, auditing bucket and object operations, S3 audit messages 
 summary: I messaggi di audit vengono generati dai servizi StorageGRID e memorizzati in file di log di testo. È possibile rivedere i messaggi di audit specifici per S3 nel registro di audit per ottenere dettagli sulle operazioni di bucket e oggetti. 
 ---
-= Operazioni S3 registrate nei registri di audit
+= Operazioni S3 tracciate nei log di controllo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

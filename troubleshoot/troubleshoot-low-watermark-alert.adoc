@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot low soft read-only watermark override alert, optimized watermarks 
 summary: 'Se si utilizzano valori personalizzati per le filigrane dei volumi di storage, potrebbe essere necessario risolvere l"avviso di sovrascrittura del watermark Low Read-Only. Se possibile, aggiornare il sistema per iniziare a utilizzare i valori ottimizzati.' 
 ---
-= Risolvere i problemi relativi agli avvisi di override del watermark di sola lettura bassa
+= Risolvi l'override della filigrana in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: initiate multipart upload, CreateMultipartUpload, upload ID 
 summary: 'L"operazione CreateMultipartUpload avvia un caricamento multiparte per un oggetto e restituisce un ID di caricamento.' 
 ---
-= CreateMultipartUpload
+= Intestazioni e opzioni delle richieste S3 CreateMultipartUpload in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

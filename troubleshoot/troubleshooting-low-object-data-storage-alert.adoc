@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot the Low object data storage alert 
 summary: 'L"avviso di spazio di archiviazione dati oggetto insufficiente monitora la quantità di spazio disponibile per l"archiviazione dei dati oggetto su ciascun nodo di archiviazione.' 
 ---
-= Risolvere i problemi relativi all'avviso di storage dei dati a oggetti in esaurimento
+= Risolvi l'avviso di archiviazione dati oggetto insufficiente in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

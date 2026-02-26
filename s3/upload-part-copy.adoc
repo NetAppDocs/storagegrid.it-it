@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: UploadPart, UploadPartCopy, multipart uploads, uploads, 
 summary: 'L"operazione UploadPartCopy carica una parte di un oggetto copiando i dati da un oggetto esistente come origine dati.' 
 ---
-= UploadPartCopy
+= Carica una parte di un oggetto in StorageGRID con l'operazione S3 UploadPartCopy
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

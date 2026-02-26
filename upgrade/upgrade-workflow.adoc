@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade workflow 
 summary: 'Prima di iniziare l"aggiornamento, esaminare il flusso di lavoro generale. La pagina aggiornamento StorageGRID guida l"utente attraverso la procedura di aggiornamento.' 
 ---
-= Avvio rapido dell'aggiornamento
+= Avvio rapido per gli aggiornamenti di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

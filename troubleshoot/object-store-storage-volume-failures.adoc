@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to confirm object location, object metadata lookup 
 summary: Lo storage sottostante su un nodo di storage è diviso in archivi di oggetti. Gli archivi di oggetti sono anche noti come volumi di storage. 
 ---
-= Errori dell'archivio di oggetti (volume di storage)
+= Scopri i guasti dell'archivio di oggetti per i volumi di storage in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

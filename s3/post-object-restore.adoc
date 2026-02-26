@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: post, RestoreObject, object 
 summary: È possibile utilizzare la richiesta S3 RestoreObject per ripristinare un oggetto memorizzato in un Cloud Storage Pool. 
 ---
-= RestoreObject
+= Ripristina un oggetto in StorageGRID con la richiesta S3 RestoreObject
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: 'Alcune funzioni e funzionalità sono state rimosse o obsolete in questa release. Esaminare questi elementi per capire se è necessario aggiornare le applicazioni client o modificare la configurazione prima di eseguire l"aggiornamento.' 
 ---
-= Funzioni e funzionalità rimosse o obsolete
+= Funzionalità e funzionalità rimosse o deprecate in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

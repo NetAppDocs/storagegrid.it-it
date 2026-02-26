@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, how to perform a software upgrade 
 summary: 'È possibile eseguire l"aggiornamento a StorageGRID 12.0 e applicare contemporaneamente l"hotfix più recente per quella versione.  La pagina di aggiornamento StorageGRID fornisce il percorso di aggiornamento consigliato e link diretti alle pagine di download corrette.' 
 ---
-= Eseguire l'aggiornamento
+= Eseguire un aggiornamento StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

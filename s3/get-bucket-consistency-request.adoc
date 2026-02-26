@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET bucket consistency 
 summary: La richiesta di coerenza GET Bucket consente di determinare la coerenza applicata a un determinato bucket. 
 ---
-= COERENZA del bucket
+= Recupera il livello di coerenza del bucket in StorageGRID con la richiesta GET Bucket consistency
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

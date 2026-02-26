@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: conflicting client requests 
 summary: 'Le richieste dei client in conflitto, come due client che scrivono sulla stessa chiave, vengono risolte in base alle "ultime vincite".' 
 ---
-= Richieste client in conflitto
+= Come StorageGRID S3 REST API risolve le richieste client in conflitto
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

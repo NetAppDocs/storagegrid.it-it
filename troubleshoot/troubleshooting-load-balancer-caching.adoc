@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot load balancer caching 
 summary: Scopri i possibili problemi con la memorizzazione nella cache del bilanciatore del carico e come risolverli. 
 ---
-= Risoluzione dei problemi di memorizzazione nella cache del bilanciatore del carico
+= Scopri i problemi di memorizzazione nella cache del bilanciatore del carico in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

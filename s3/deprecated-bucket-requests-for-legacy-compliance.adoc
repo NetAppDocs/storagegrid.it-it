@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, deprecated bucket requests 
 summary: 'Potrebbe essere necessario utilizzare l"API REST di StorageGRID S3 per gestire i bucket creati utilizzando la funzionalità di conformità legacy.' 
 ---
-= Richieste bucket obsolete per conformità legacy
+= Richieste di bucket deprecate per la Compliance StorageGRID legacy
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

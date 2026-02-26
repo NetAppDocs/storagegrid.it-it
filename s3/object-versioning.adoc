@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object version, object versioning 
 summary: 'È possibile impostare lo stato di versione di un bucket se si desidera mantenere più versioni di un oggetto. L"abilitazione della versione per un bucket può aiutare a proteggere dalla cancellazione accidentale di oggetti e consente di recuperare e ripristinare le versioni precedenti di un oggetto.' 
 ---
-= Versione degli oggetti
+= Come StorageGRID utilizza il versioning degli oggetti
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 rest api support changes 
 summary: 'Si consiglia di essere a conoscenza delle modifiche apportate al supporto del sistema StorageGRID per l"API REST S3.' 
 ---
-= Modifiche al supporto delle API REST S3
+= Modifiche al supporto di StorageGRID per l'API REST S3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

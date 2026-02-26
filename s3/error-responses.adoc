@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: error, error responses 
 summary: 'Il sistema StorageGRID supporta tutte le risposte di errore standard dell"API REST S3 applicabili. Inoltre, l"implementazione di StorageGRID aggiunge diverse risposte personalizzate.' 
 ---
-= Risposte agli errori
+= Risposte di errore dell'API REST S3 di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

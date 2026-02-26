@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 lifecycle, object deletion, bucket 
 summary: È possibile creare una configurazione del ciclo di vita S3 per controllare quando oggetti specifici vengono cancellati dal sistema StorageGRID. 
 ---
-= Creare la configurazione del ciclo di vita S3
+= Scopri la configurazione del ciclo di vita S3 per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

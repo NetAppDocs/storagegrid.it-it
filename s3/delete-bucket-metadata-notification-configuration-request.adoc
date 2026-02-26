@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, DELETE Bucket metadata notification configuration request 
 summary: La richiesta di configurazione DELLA notifica dei metadati DEL bucket DELETE consente di disattivare il servizio di integrazione della ricerca per i singoli bucket eliminando il file XML di configurazione. 
 ---
-= ELIMINA la configurazione di notifica dei metadati del bucket
+= Disabilitare il servizio di integrazione della ricerca con la richiesta di configurazione della notifica dei metadati DELETE Bucket in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

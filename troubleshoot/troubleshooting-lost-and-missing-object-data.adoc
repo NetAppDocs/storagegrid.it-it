@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot lost object data, how to troubleshoot missing object data 
 summary: 'Gli oggetti possono essere recuperati per diversi motivi, tra cui le richieste di lettura da un"applicazione client, le verifiche in background dei dati degli oggetti replicati, le rivalutazioni ILM e il ripristino dei dati degli oggetti durante il ripristino di un nodo di storage.' 
 ---
-= Risolvere i problemi relativi ai dati degli oggetti persi e mancanti
+= Scopri i dati degli oggetti persi e mancanti in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 UploadPart operation 
 summary: 'L"operazione UploadPart carica una parte in un upload multiparte per un oggetto.' 
 ---
-= UploadPart
+= Intestazioni di richiesta supportate e non supportate per le operazioni S3 UploadPart in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

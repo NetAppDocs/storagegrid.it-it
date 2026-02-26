@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to confirm object location, object metadata lookup 
 summary: 'A seconda del problema, potrebbe essere necessario confermare la posizione in cui vengono memorizzati i dati dell"oggetto. Ad esempio, è possibile verificare che il criterio ILM funzioni come previsto e che i dati degli oggetti vengano memorizzati dove previsto.' 
 ---
-= Confermare le posizioni dei dati degli oggetti
+= Conferma le posizioni dei dati degli oggetti in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

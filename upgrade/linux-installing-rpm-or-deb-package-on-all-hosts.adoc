@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, linux, rpm, deb, 
 summary: 'Se un qualsiasi nodo StorageGRID viene distribuito su host Linux, installare un pacchetto RPM o DEB aggiuntivo su ciascuno di questi host prima di avviare l"aggiornamento.' 
 ---
-= Linux: Scaricare e installare il pacchetto RPM o DEB su tutti gli host
+= Scarica e installa i pacchetti RPM o DEB su tutti gli host Linux per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

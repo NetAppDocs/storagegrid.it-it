@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: multipart upload, object, object size 
 summary: 'L"operazione CompleteMultipartUpload completa il caricamento multiparte di un oggetto assemblando le parti caricate in precedenza.' 
 ---
-= CompleteMultipartUpload
+= Come StorageGRID S3 REST API completa i caricamenti multiparte
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

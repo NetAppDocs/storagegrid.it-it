@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: group policy examples 
 summary: Utilizzare gli esempi di questa sezione per creare criteri di accesso StorageGRID per i gruppi. 
 ---
-= Criteri di gruppo di esempio
+= Esempi di criteri di gruppo dell'API REST S3 di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

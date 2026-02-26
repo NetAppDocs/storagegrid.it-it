@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: lost objects, investigating, objects 
 summary: 'Quando viene attivato l"avviso Oggetti potenzialmente persi, è necessario indagare immediatamente. Raccogliere informazioni sugli oggetti interessati e contattare l"assistenza tecnica.' 
 ---
-= Indagare su oggetti potenzialmente persi
+= Risolvi l'avviso degli oggetti potenzialmente persi in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

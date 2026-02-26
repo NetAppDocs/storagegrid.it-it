@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, deprecated GET compliance requests 
 summary: La richiesta DI compliance GET Bucket è obsoleta. Tuttavia, è possibile continuare a utilizzare questa richiesta per determinare le impostazioni di conformità attualmente in vigore per un bucket compatibile esistente. 
 ---
-= Deprecato: OTTIENI una richiesta di conformità bucket
+= Richiesta GET Bucket di conformità obsoleta in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

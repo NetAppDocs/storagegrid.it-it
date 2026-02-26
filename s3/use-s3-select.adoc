@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use S3 Select, S3 Select 
 summary: StorageGRID supporta le seguenti condizioni, tipi di dati, operatori e parole chiave riservate Amazon S3 Select per il comando SelectObjectContent. 
 ---
-= USA S3 Select
+= Operazioni Amazon S3 Select supportate in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

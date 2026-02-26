@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: put object copy, CopyObject 
 summary: 'È possibile utilizzare la richiesta CopyObject S3 per creare una copia di un oggetto già memorizzato in S3. Un"operazione CopyObject è la stessa dell"esecuzione di un GET e quindi di un PUT.' 
 ---
-= Oggetto CopyObject
+= Crea una copia di un oggetto in StorageGRID con la richiesta S3 CopyObject
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
