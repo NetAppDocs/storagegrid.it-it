@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, system, ECOC, ETAF, GNRG, GNUR, GTED, GTST, GTSU, LLST, OLST, SADD, SADE, SVRF, SVRU, SYSD, SYST, SYSU, VLST 
 summary: 'I messaggi di audit appartenenti alla categoria di audit del sistema vengono utilizzati per gli eventi correlati al sistema di audit stesso, agli stati dei nodi della griglia, all"attività delle attività a livello di sistema (attività della griglia) e alle operazioni di backup del servizio.' 
 ---
-= Messaggi di audit del sistema
+= Messaggi di audit per gli eventi di sistema in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

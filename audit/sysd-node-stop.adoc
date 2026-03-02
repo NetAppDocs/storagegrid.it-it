@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SYSD, Node Stop 
 summary: 'Quando un servizio viene arrestato correttamente, viene generato questo messaggio per indicare che è stato richiesto lo shutdown. In genere, questo messaggio viene inviato solo dopo un riavvio successivo, in quanto la coda dei messaggi di controllo non viene cancellata prima dell"arresto. Se il servizio non è stato riavviato, cercare il messaggio SYST inviato all"inizio della sequenza di arresto.' 
 ---
-= SYSD: Interruzione nodo
+= Messaggio di audit SYSD per arresti di nodi regolari in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

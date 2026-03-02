@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, IDEL, ILM Initiated Delete 
 summary: Questo messaggio viene generato quando ILM avvia il processo di eliminazione di un oggetto. 
 ---
-= IDEL: Eliminazione avviata da ILM
+= Messaggio di audit IDEL per le eliminazioni avviate da ILM in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit messages, ILM, IDEL, LKCU, ORLM 
 summary: I messaggi di audit appartenenti alla categoria di audit ILM vengono utilizzati per gli eventi relativi alle operazioni del ciclo di vita delle informazioni. 
 ---
-= Messaggi di controllo ILM
+= Messaggi di audit ILM di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

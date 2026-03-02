@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTSU, Grid Task Submitted 
 summary: 'Questo messaggio di audit indica che un"attività Grid è stata inviata al servizio CMN.' 
 ---
-= GTSU: Task Grid inviato
+= Messaggio di audit GTSU per le attività di grid inviate in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

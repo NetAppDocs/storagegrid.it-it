@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, LLST, Location Lost 
 summary: 'Questo messaggio viene generato ogni volta che non è possibile trovare una posizione per una copia dell"oggetto \(replicata o con erasure coding\).' 
 ---
-= LLST: Località persa
+= Messaggio di audit LLST per le posizioni di copia degli oggetti persi in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

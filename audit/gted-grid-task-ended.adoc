@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTED, Grid Task Ended 
 summary: 'Questo messaggio di audit indica che il servizio CMN ha terminato l"elaborazione dell"attività di griglia specificata e che l"attività è stata spostata nella tabella Cronologia. Se il risultato è SUCS, ABRT o ROLF, verrà visualizzato un messaggio di audit Grid Task Started (attività griglia avviata) corrispondente. Gli altri risultati indicano che l"elaborazione di questa attività della griglia non è mai stata avviata.' 
 ---
-= GTED: Task Grid terminato
+= Messaggio di audit GTED per le attività di grid terminate in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

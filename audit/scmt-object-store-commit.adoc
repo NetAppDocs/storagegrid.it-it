@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SCMT, Object Store Commit 
 summary: 'Il contenuto della griglia non viene reso disponibile o riconosciuto come memorizzato fino a quando non è stato assegnato (ovvero è stato memorizzato in modo persistente). Il contenuto memorizzato in maniera persistente è stato completamente scritto su disco e ha superato i relativi controlli di integrità. Questo messaggio viene emesso quando un blocco di contenuto viene assegnato allo storage.' 
 ---
-= SCMT: Commit dell'archivio di oggetti
+= Messaggio di controllo SCMT per i commit dell'archivio di oggetti in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

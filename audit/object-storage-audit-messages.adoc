@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit, object storage, object management, object retrieval, node transfer, verification, BROR, CBSE, CBRE, CGRR, EBDL, EBKR, SCMT, SREM 
 summary: 'Si consiglia di acquisire familiarità con i messaggi di audit appartenenti alla categoria di audit dello storage a oggetti. Si tratta di eventi correlati allo storage e alla gestione di oggetti all"interno del sistema StorageGRID. Tra cui storage a oggetti e recuperi, trasferimenti da grid-node a grid-node e verifiche.' 
 ---
-= Messaggi di audit dello storage a oggetti
+= Messaggi di controllo per gli eventi di storage a oggetti in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, log, log file, access, accessing 
 summary: 'La condivisione dell"audit contiene il file audit.log attivo ed eventuali file di log dell"audit compressi. È possibile accedere ai file di log di controllo direttamente dalla riga di comando del nodo amministrativo.' 
 ---
-= Accedere al file di log di audit
+= Accedi ai file di log di audit dalla riga di comando del nodo Admin di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

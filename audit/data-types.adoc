@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, data, types, UI32, UI64, FC32, IPAD, CSTR, IPAD 
 summary: Per memorizzare le informazioni nei messaggi di audit vengono utilizzati diversi tipi di dati. 
 ---
-= Tipi di dati
+= Tipi di dati nei messaggi di controllo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

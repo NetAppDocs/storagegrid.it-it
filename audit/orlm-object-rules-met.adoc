@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit message, ORLM, Object Rules Met, ilm rule 
 summary: 'Questo messaggio viene generato quando l"oggetto viene memorizzato e copiato correttamente come specificato dalle regole ILM.' 
 ---
-= ORLM: Regole oggetto soddisfatte
+= Messaggio di audit ORLM per le regole ILM soddisfatte in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

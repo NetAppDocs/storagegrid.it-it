@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ECOC, Corrupt Erasure-Coded Data Fragment 
 summary: Questo messaggio di audit indica che il sistema ha rilevato un frammento di dati corrotto con codifica di cancellazione. 
 ---
-= ECOC: Frammento di dati con codice di cancellazione corrotto
+= Messaggio di audit ECOC per dati con codice di cancellazione corrotti in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

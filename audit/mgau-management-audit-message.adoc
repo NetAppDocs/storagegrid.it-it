@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, MGAU, Management audit message 
 summary: 'La categoria Gestione registra le richieste degli utenti all"API di gestione. Ogni richiesta che non è UNA richiesta GET o HEAD all"API registra una risposta con il nome utente, l"IP e il tipo di richiesta all"API.' 
 ---
-= MGAU: Messaggio di audit della gestione
+= Messaggio di audit MGAU per le richieste API di gestione in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

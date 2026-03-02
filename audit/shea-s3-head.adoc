@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SHEA, S3 HEAD 
 summary: 'Quando un client S3 emette un"operazione HEAD, viene effettuata una richiesta per verificare l"esistenza di un oggetto o di un bucket e recuperare i metadati relativi a un oggetto.  Questo messaggio viene emesso dal server se l"operazione ha esito positivo.' 
 ---
-= SHEA: TESTA S3
+= Messaggio di audit SHEA per le operazioni S3 HEAD in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SADD, Security Audit Disable 
 summary: 'Questo messaggio indica che il servizio di origine (ID nodo) ha disattivato la registrazione del messaggio di audit; i messaggi di audit non vengono più raccolti o consegnati.' 
 ---
-= SADD: Disattivazione dell'audit di sicurezza
+= Messaggio di audit SADD per la disattivazione dell'audit di sicurezza in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

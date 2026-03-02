@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTST, Grid Task Started 
 summary: 'Questo messaggio di audit indica che il servizio CMN ha avviato l"elaborazione dell"attività Grid specificata. Il messaggio di audit segue immediatamente il messaggio Grid Task Submitted per le attività Grid avviate dal servizio interno Grid Task Submission e selezionate per l"attivazione automatica. Per le attività della griglia inoltrate nella tabella Pending (in sospeso), questo messaggio viene generato quando l"utente avvia l"attività della griglia.' 
 ---
-= GTST: Task Grid avviato
+= Messaggio di audit GTST per le attività di grid avviate in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

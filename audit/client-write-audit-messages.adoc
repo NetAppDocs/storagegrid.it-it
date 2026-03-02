@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, client write, OVWR, SDEL, SPOS, SPUT, SUPD, WDEL, WPUT, S3 
 summary: 'I messaggi di controllo in scrittura del client vengono registrati quando un"applicazione client S3 richiede di creare o modificare un oggetto.' 
 ---
-= Messaggi di audit di scrittura del client
+= Messaggi di audit per le operazioni di scrittura del client in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

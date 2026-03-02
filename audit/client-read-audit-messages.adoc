@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3 
 summary: 'I messaggi di controllo in lettura dei client vengono registrati quando un"applicazione client S3 richiede di recuperare un oggetto.' 
 ---
-= Messaggi di audit in lettura del client
+= Messaggi di audit per le operazioni di lettura del client in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

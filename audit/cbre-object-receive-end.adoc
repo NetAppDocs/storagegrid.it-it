@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, CBRE, Object Receive End 
 summary: 'Al termine del trasferimento di un blocco di contenuto da un nodo all"altro, questo messaggio viene emesso dall"entità di destinazione.' 
 ---
-= CBRE: Fine ricezione oggetto
+= Messaggio di audit CBRE per la ricezione dell'oggetto in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

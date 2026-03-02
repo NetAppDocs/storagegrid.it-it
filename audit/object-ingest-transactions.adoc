@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object ingest transaction, S3 ingest, SPUT, ORLM, WPUT 
 summary: 'Nell"audit log, puoi identificare le transazioni di acquisizione dei client individuando S3 messaggi di audit specifici di API.' 
 ---
-= Transazioni di acquisizione degli oggetti
+= Messaggi di audit per le transazioni di ingestione di oggetti in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, log file, audit.log, audit.log file, rotation, save, autosave, auto save, auto-save 
 summary: I file dei registri di controllo vengono salvati nella directory /var/local/audit/export/ di un nodo di amministrazione.  I file di registro di controllo attivi sono denominati audit.log. 
 ---
-= Controllo della rotazione del file di log
+= Scopri la rotazione dei file di log di audit in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

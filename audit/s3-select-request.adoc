@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, S3SL, S3 Select request 
 summary: Questo messaggio indica che un utente ha avviato un processo S3 Select. 
 ---
-= S3SL: Richiesta S3 Select
+= Messaggio di audit S3SL per le richieste S3 Select in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
