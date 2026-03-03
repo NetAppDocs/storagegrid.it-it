@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a storage grade, create storage grade 
 summary: I gradi di storage identificano il tipo di storage utilizzato da un nodo di storage. È possibile creare gradi di storage se si desidera che le regole ILM posizionino determinati oggetti su determinati nodi di storage. 
 ---
-= Creare e assegnare i gradi di storage
+= Crea e assegna gradi di storage in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename erasure-coding profile, ec profile 
 summary: È possibile visualizzare i dettagli di un profilo di erasure coding e rinominare un profilo, se necessario. È possibile disattivare un profilo di erasure coding se non è attualmente utilizzato in nessuna regola ILM. 
 ---
-= Gestire i profili di erasure coding
+= Gestisci i profili di codifica di cancellazione in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

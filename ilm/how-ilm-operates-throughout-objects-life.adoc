@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm lifecycle, object lifecycle and ILM 
 summary: Comprendere come StorageGRID utilizza ILM per gestire gli oggetti in ogni fase della loro vita può aiutarti a progettare una policy più efficace. 
 ---
-= Come ILM opera per tutta la vita di un oggetto
+= Come funziona ILM durante il ciclo di vita di un oggetto in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

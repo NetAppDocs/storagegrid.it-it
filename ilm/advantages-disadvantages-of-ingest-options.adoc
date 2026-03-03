@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ingest options, balance ingest, strict ingest, dual commit ingest 
 summary: 'Comprendere i vantaggi e gli svantaggi di ciascuna delle tre opzioni per la protezione dei dati al momento dell"acquisizione (Balanced, Strict o Dual Commit) può aiutare a decidere quale scegliere per una regola ILM.' 
 ---
-= Vantaggi, svantaggi e limitazioni delle opzioni di acquisizione
+= Vantaggi, svantaggi e limitazioni delle opzioni di ingestione ILM in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

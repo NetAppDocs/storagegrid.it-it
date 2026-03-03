@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy tag 
 summary: È possibile visualizzare i dettagli dei tag dei criteri ILM, modificare un tag o rimuovere un tag. 
 ---
-= Gestire i tag dei criteri ILM
+= Gestisci i tag dei criteri ILM in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

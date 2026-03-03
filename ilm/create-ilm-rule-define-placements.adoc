@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm rule step 2, define placements 
 summary: 'La fase Definisci posizionamenti della procedura guidata Crea regola ILM consente di definire le istruzioni di posizionamento che determinano la durata dell"archiviazione degli oggetti, il tipo di copie \(replicate o sottoposte a erasure coding\), la posizione di archiviazione e il numero di copie.' 
 ---
-= Fase 2 di 3: Definizione delle posizioni
+= Definisci le istruzioni di posizionamento per una regola StorageGRID ILM
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

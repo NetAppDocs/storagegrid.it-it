@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage pool guidelines 
 summary: Configurare e utilizzare i pool di storage per proteggersi dalla perdita di dati distribuendo i dati su più siti. Le copie replicate e le copie con codice di cancellazione richiedono diverse configurazioni del pool di storage. 
 ---
-= Linee guida per la creazione di pool di storage
+= Linee guida per la configurazione del pool di storage in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: dual commit, single commit, number of copies for replication 
 summary: Quando si crea una regola ILM per creare copie replicate, è necessario specificare almeno due copie per un periodo di tempo qualsiasi nelle istruzioni di posizionamento. 
 ---
-= Perché non utilizzare la replica a copia singola
+= Rischi della replica a copia singola in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

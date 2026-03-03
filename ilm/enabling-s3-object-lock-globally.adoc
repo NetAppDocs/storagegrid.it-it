@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable s3 object lock, object lock 
 summary: 'Se un account tenant S3 deve rispettare i requisiti normativi durante il salvataggio dei dati degli oggetti, è necessario attivare il blocco oggetti S3 per l"intero sistema StorageGRID. L"attivazione dell"impostazione globale S3 Object Lock consente a qualsiasi utente del tenant S3 di creare e gestire bucket e oggetti con S3 Object Lock.' 
 ---
-= Attiva il blocco oggetti S3 a livello globale
+= Abilita S3 Object Lock a livello globale in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

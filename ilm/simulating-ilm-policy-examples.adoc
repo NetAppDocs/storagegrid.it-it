@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: simulate ilm policy 
 summary: 'Gli esempi di simulazioni dei criteri ILM forniscono linee guida per strutturare e modificare le simulazioni per l"ambiente in uso.' 
 ---
-= Esempi di simulazioni dei criteri ILM
+= Esempi di simulazioni di policy ILM in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

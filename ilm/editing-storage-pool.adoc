@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit storage pool 
 summary: È possibile modificare un pool di storage per modificarne il nome o per aggiornare siti e gradi di storage. 
 ---
-= Modificare il pool di storage
+= Modifica un pool di storage in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

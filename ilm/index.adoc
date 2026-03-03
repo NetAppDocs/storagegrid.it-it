@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: information lifecycle management overview, about information lifecycle management, ilm overview, about ilm 
 summary: 'Le regole \(ILM\) di gestione del ciclo di vita delle informazioni contenute in un criterio ILM indicano a StorageGRID come creare e distribuire copie dei dati degli oggetti e come gestirle nel tempo.' 
 ---
-= Gestire gli oggetti con ILM
+= Gestisci gli oggetti con ILM in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

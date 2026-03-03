@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example ILM rule, information lifecycle rule examples 
 summary: È possibile utilizzare le regole e i criteri di esempio seguenti per garantire che le immagini di dimensioni superiori a 1 MB siano sottoposte a erasure coding e che vengano create due copie di immagini di dimensioni inferiori. 
 ---
-= Esempio 3: Regole e policy ILM per una migliore protezione dei file di immagine
+= Regole e policy ILM per la protezione dei file immagine in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

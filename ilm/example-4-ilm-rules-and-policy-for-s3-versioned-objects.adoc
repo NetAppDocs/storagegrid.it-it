@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object versions, example ILM rule, information lifecycle rule examples 
 summary: 'Se si dispone di un bucket S3 con la versione attivata, è possibile gestire le versioni degli oggetti non correnti includendo le regole nella policy ILM che utilizzano l"ora non corrente come tempo di riferimento.' 
 ---
-= Esempio 4: Regole ILM e policy per gli oggetti con versione S3
+= Regole e policy ILM per le versioni non correnti degli oggetti S3 in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replication, object copies 
 summary: 'La replica è uno dei due metodi utilizzati da StorageGRID per memorizzare i dati degli oggetti. Quando gli oggetti corrispondono a una regola ILM che utilizza la replica, il sistema crea copie esatte dei dati dell"oggetto e memorizza le copie sui nodi storage.' 
 ---
-= Che cos'è la replica?
+= Scopri la replica in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

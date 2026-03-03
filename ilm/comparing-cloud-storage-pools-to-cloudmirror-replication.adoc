@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cloud storage pools, cloudmirror replication 
 summary: Quando si inizia a utilizzare i pool di storage cloud, potrebbe essere utile comprendere le analogie e le differenze tra i pool di storage cloud e il servizio di replica di StorageGRID CloudMirror. 
 ---
-= Confronto tra Cloud Storage Pools e la replica di CloudMirror
+= Pool di storage cloud e replica CloudMirror in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

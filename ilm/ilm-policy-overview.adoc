@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy, information lifecycle policy considerations 
 summary: 'Un criterio ILM (Information Lifecycle Management) è un insieme ordinato di regole ILM che determina il modo in cui il sistema StorageGRID gestisce i dati degli oggetti nel tempo.' 
 ---
-= Utilizzare i criteri ILM
+= Scopri le policy ILM in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

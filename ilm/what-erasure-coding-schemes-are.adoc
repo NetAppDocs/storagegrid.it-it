@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure-coding scheme 
 summary: Gli schemi di erasure coding controllano il numero di frammenti di dati e il numero di frammenti di parità creati per ciascun oggetto. 
 ---
-= Cosa sono gli schemi di erasure coding?
+= Scopri gli schemi di codifica di cancellazione in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

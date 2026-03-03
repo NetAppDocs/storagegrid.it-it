@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create default ilm rule 
 summary: 'Prima di creare un criterio ILM, è necessario creare una regola predefinita per inserire nel criterio gli oggetti non corrispondenti a un"altra regola. La regola predefinita non può utilizzare alcun filtro. Deve essere applicato a tutti i tenant, a tutti i bucket e a tutte le versioni degli oggetti.' 
 ---
-= Creare una regola ILM predefinita
+= Crea una regola ILM predefinita in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

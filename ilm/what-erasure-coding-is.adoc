@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is erasure coding, what is ec 
 summary: 'L"erasure coding è uno dei due metodi utilizzati da StorageGRID per memorizzare i dati degli oggetti. Quando gli oggetti corrispondono a una regola ILM che utilizza la codifica erasure, vengono suddivisi in frammenti di dati, vengono calcolati ulteriori frammenti di parità e ciascun frammento viene memorizzato in un nodo di storage diverso.' 
 ---
-= Cos'è la codifica erasure?
+= Scopri la codifica di cancellazione in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

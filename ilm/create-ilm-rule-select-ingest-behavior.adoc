@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm rule step 3, define ingest behavior 
 summary: 'Il passaggio 3 della procedura guidata Crea regola ILM consente di scegliere la modalità di protezione degli oggetti filtrati da questa regola durante l"acquisizione.' 
 ---
-= Fase 3 di 3: Selezionare il comportamento di acquisizione
+= Selezionare il comportamento di acquisizione per una regola StorageGRID ILM
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

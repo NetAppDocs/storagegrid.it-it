@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create ILM rule, information lifecycle rule 
 summary: Per creare una regola ILM, utilizzare la procedura guidata Crea regola ILM. 
 ---
-= Accedere alla procedura guidata Crea una regola ILM
+= Accedi alla procedura guidata Crea una regola ILM in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

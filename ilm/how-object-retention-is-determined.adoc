@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how object retention is determined 
 summary: 'StorageGRID offre agli amministratori di grid e ai singoli utenti tenant opzioni per specificare la durata della memorizzazione degli oggetti. In generale, tutte le istruzioni di conservazione fornite da un utente tenant hanno la precedenza sulle istruzioni di conservazione fornite dall"amministratore della griglia.' 
 ---
-= Come viene determinata la conservazione degli oggetti
+= Come StorageGRID determina la conservazione degli oggetti
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

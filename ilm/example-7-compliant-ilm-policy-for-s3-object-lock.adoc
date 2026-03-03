@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy,S3 Object Lock 
 summary: È possibile utilizzare il bucket S3, le regole ILM e il criterio ILM in questo esempio come punto di partenza quando si definisce un criterio ILM per soddisfare i requisiti di protezione e conservazione degli oggetti nei bucket con blocco oggetti S3 attivato. 
 ---
-= Esempio 7: Policy ILM conforme per il blocco oggetti S3
+= Criterio ILM conforme per S3 Object Lock in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

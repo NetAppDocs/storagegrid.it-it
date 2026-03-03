@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: consistency error, s3 object lock and consistency 
 summary: Se un sito del data center o più nodi di storage in un sito non sono più disponibili, potrebbe essere necessario aiutare gli utenti del tenant S3 ad applicare le modifiche alla configurazione S3 Object Lock o legacy Compliance. 
 ---
-= Risolvi gli errori di coerenza durante l'aggiornamento della configurazione blocco oggetti S3 o Compliance legacy
+= Risolvi gli errori di coerenza durante l'aggiornamento delle impostazioni di S3 Object Lock o di Compliance legacy in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

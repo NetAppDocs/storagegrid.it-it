@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure coding advantages, disadvantages, EC requirements 
 summary: Prima di decidere se utilizzare la replica o la cancellazione del codice per proteggere i dati degli oggetti dalla perdita, è necessario comprendere i vantaggi, gli svantaggi e i requisiti per la cancellazione del codice. 
 ---
-= Vantaggi, svantaggi e requisiti per l'erasure coding
+= Vantaggi, svantaggi e requisiti per l'erasure coding in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

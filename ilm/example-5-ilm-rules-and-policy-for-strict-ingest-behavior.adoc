@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: strict ingest example, example ILM rule, information lifecycle rule examples 
 summary: È possibile utilizzare un filtro di posizione e il rigoroso comportamento di acquisizione in una regola per impedire che gli oggetti vengano salvati in una determinata posizione del data center. 
 ---
-= Esempio 5: Regole e policy ILM per un comportamento rigoroso di acquisizione
+= Regole e policy ILM per il comportamento di acquisizione rigoroso in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: last access time, ilm rule reference time 
 summary: 'In una regola ILM, è possibile utilizzare l"ultimo tempo di accesso come ora di riferimento. Ad esempio, è possibile lasciare oggetti che sono stati visualizzati negli ultimi tre mesi sui nodi di storage locali, mentre si spostano oggetti che non sono stati visualizzati di recente in una posizione off-site. È inoltre possibile utilizzare l"ultimo tempo di accesso come filtro avanzato se si desidera che una regola ILM si applichi solo agli oggetti a cui è stato effettuato l"ultimo accesso in una data specifica.' 
 ---
-= USA l'ultimo tempo di accesso nelle regole ILM
+= Utilizzare l'orario dell'ultimo accesso nelle regole ILM di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

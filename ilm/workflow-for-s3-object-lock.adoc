@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object lock workflow 
 summary: In qualità di amministratore della griglia, è necessario coordinare strettamente gli utenti tenant per garantire che gli oggetti siano protetti in modo da soddisfare i requisiti di conservazione. 
 ---
-= S3 attività di blocco degli oggetti
+= Flusso di lavoro S3 Object Lock in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
