@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure host storage 
 summary: È necessario allocare volumi di archiviazione a blocchi a ciascun host Linux. 
 ---
-= Configurare l'archiviazione host (Linux)
+= Configurare l'archiviazione host StorageGRID per le distribuzioni Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

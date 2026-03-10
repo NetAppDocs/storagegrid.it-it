@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how grid nodes discover the primary Admin Node 
 summary: 'I nodi Grid comunicano con il nodo Admin primario per la configurazione e la gestione. Ciascun nodo della griglia deve conoscere l"indirizzo IP del nodo di amministrazione primario sulla rete di griglia.' 
 ---
-= In che modo i nodi della griglia rilevano il nodo di amministrazione primario
+= Come i nodi della griglia scoprono il nodo di amministrazione primario in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

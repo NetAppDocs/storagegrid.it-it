@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify Network Time Protocol server information 
 summary: 'È necessario specificare le informazioni di configurazione NTP (Network Time Protocol) per il sistema StorageGRID, in modo che le operazioni eseguite su server separati possano essere mantenute sincronizzate.' 
 ---
-= Specificare le informazioni sul server Network Time Protocol
+= Specificare le informazioni del server Network Time Protocol per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

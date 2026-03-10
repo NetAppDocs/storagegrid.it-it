@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: installation REST API 
 summary: 'StorageGRID fornisce l"API di installazione di StorageGRID per eseguire le attività di installazione.' 
 ---
-= API REST di installazione
+= Scopri l'API REST di installazione di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

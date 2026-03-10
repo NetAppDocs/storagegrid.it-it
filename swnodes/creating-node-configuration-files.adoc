@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create rhel ubuntu or debian node configuration files, port, remap, port remap 
 summary: I file di configurazione dei nodi sono piccoli file di testo che forniscono le informazioni necessarie al servizio host StorageGRID per avviare un nodo e collegarlo alla rete appropriata e bloccare le risorse di storage. I file di configurazione dei nodi vengono utilizzati per i nodi virtuali e non per i nodi appliance. 
 ---
-= Creare file di configurazione dei nodi per le distribuzioni Linux
+= Creare file di configurazione del nodo StorageGRID per le distribuzioni Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

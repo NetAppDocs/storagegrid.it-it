@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to approve pending grid nodes 
 summary: È necessario approvare ciascun nodo della griglia prima che possa unirsi al sistema StorageGRID. 
 ---
-= Approvare i nodi griglia in sospeso
+= Approva i nodi della griglia in sospeso per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

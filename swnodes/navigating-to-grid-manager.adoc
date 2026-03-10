@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to navigate to Grid Manager 
 summary: Il Gestore griglia consente di definire tutte le informazioni necessarie per configurare il sistema StorageGRID. 
 ---
-= Accedere a Grid Manager
+= Accedi a StorageGRID Grid Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

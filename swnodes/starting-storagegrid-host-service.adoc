@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to start host service 
 summary: 'Per avviare i nodi StorageGRID e assicurarsi che vengano riavviati dopo un riavvio dell"host, è necessario attivare e avviare il servizio host StorageGRID.' 
 ---
-= Avviare il servizio host StorageGRID (Linux)
+= Avvia il servizio host StorageGRID su Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

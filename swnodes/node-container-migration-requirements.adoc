@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to migrate a node 
 summary: 'La funzione di migrazione dei nodi consente di spostare manualmente un nodo da un host all"altro. In genere, entrambi gli host si trovano nello stesso data center fisico.' 
 ---
-= Requisiti di migrazione del contenitore Node (Linux)
+= Requisiti di migrazione del container del nodo StorageGRID per Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

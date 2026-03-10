@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure container engine storage volume, Docker, Podman 
 summary: Prima di installare il motore del contenitore Docker o Podman, potrebbe essere necessario formattare il volume di archiviazione e montarlo. 
 ---
-= Configurare il volume di archiviazione del motore del contenitore (Linux)
+= Configura il volume di archiviazione del motore del container per StorageGRID su Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

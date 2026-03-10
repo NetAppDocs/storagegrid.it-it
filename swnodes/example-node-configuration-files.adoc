@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example debian node configuration file, example ubuntu linux node configuration file, example red hat linux node configuration file, example rhel node configuration file 
 summary: È possibile utilizzare i file di configurazione dei nodi di esempio per configurare i file di configurazione dei nodi per il sistema StorageGRID. Gli esempi mostrano i file di configurazione dei nodi per tutti i tipi di nodi griglia. 
 ---
-= File di configurazione dei nodi di esempio (Linux)
+= File di configurazione di esempio per i nodi StorageGRID su Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

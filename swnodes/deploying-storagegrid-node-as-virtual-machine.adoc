@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to deploy grid nodes in vsphere or vsphere web client, port, remap, port remap, vmware 
 summary: 'VMware vSphere Web Client consente di implementare ciascun nodo grid come macchina virtuale. Durante l"implementazione, ciascun nodo grid viene creato e connesso a una o più reti StorageGRID.' 
 ---
-= Distribuire un nodo StorageGRID come macchina virtuale (VMware)
+= Distribuisci i nodi di griglia come macchine virtuali per StorageGRID con VMware vSphere
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to validate StorageGRID configuration 
 summary: Dopo aver creato i file di configurazione in /etc/storagegrid/node per ciascuno dei nodi StorageGRID, è necessario convalidare il contenuto di tali file. 
 ---
-= Convalida la configurazione StorageGRID (Linux)
+= Convalida la configurazione di StorageGRID su Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

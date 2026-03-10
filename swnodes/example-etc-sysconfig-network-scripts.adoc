@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to aggregate red hat linux interface, how to aggregate rhel interface, LACP bond, network scripts 
 summary: 'È possibile utilizzare i file di esempio per aggregare quattro interfacce fisiche Linux in un unico collegamento LACP e quindi stabilire tre interfacce VLAN che sottendere il collegamento per l"utilizzo come interfacce di rete StorageGRID, amministratore e client.' 
 ---
-= Esempio /etc/sysconfig/network-scripts (RHEL)
+= Esempio di consolidamento di quattro interfacce fisiche in un unico bond per StorageGRID su RHEL
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

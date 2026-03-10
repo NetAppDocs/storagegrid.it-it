@@ -2,9 +2,9 @@
 permalink: swnodes/automating-grid-node-deployment-in-vmware-vsphere.html 
 sidebar: sidebar 
 keywords: how to automate installation 
-summary: 'È possibile utilizzare lo strumento VMware OVF per automatizzare l"implementazione dei nodi grid. È inoltre possibile automatizzare la configurazione di StorageGRID.' 
+summary: È possibile utilizzare VMware OVF Tool per automatizzare la distribuzione dei nodi grid in StorageGRID. È anche possibile automatizzare la configurazione di StorageGRID. 
 ---
-= Automatizzare l'installazione (VMware)
+= Automatizza la distribuzione dei nodi della griglia in StorageGRID con VMware vSphere
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

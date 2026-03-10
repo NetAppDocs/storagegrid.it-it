@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to collect information about your vmware deployment environment 
 summary: 'Prima di implementare i nodi grid, è necessario raccogliere informazioni sulla configurazione di rete e sull"ambiente VMware.' 
 ---
-= Raccogli informazioni sul tuo ambiente di distribuzione (VMware)
+= Raccogli informazioni sul tuo ambiente VMware per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

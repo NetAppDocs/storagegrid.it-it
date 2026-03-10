@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot ubuntu or debian installation 
 summary: 'Se si verificano problemi durante l"installazione del sistema StorageGRID, è possibile accedere ai file di log dell"installazione. Per risolvere i problemi, potrebbe essere necessario utilizzare anche i file di log dell"installazione.' 
 ---
-= Risolvere i problemi di installazione
+= Risoluzione dei problemi di installazione di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
