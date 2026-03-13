@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: log management, audit level, external syslog server, log destinations 
 summary: Se necessario, configurare i livelli di controllo, le intestazioni del protocollo e la posizione dei messaggi e dei registri di controllo. 
 ---
-= Configurare la gestione dei log
+= Configura la gestione dei log in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

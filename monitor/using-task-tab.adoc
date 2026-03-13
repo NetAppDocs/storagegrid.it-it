@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Tasks tab, rename node, reboot node, storage state, maintenance mode 
 summary: La scheda Attività viene visualizzata per tutti i nodi.  È possibile utilizzare questa scheda per rinominare o riavviare un nodo oppure per mettere un nodo appliance in modalità di manutenzione.  Per i nodi di archiviazione, è possibile impostare lo stato di archiviazione. 
 ---
-= Utilizzare la scheda attività
+= Utilizzare la scheda Attività di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

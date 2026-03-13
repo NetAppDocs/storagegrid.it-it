@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: put, get, performance 
 summary: 'È possibile monitorare le performance di alcune operazioni, come ad esempio l"archiviazione e il recupero di oggetti, per identificare le modifiche che potrebbero richiedere ulteriori analisi.' 
 ---
-= Monitorare L'EFFICIENZA e OTTENERE le performance
+= Monitorare le prestazioni PUT e GET in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

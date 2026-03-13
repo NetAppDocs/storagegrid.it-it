@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: alerts reference 
 summary: Questo riferimento elenca gli avvisi predefiniti visualizzati in Grid Manager. Le azioni consigliate sono contenute nel messaggio di avviso ricevuto. 
 ---
-= Riferimenti agli avvisi
+= Avvisi in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

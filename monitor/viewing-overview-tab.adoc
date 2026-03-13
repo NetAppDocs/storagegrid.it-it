@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: overview tab 
 summary: La scheda Panoramica fornisce informazioni di base su ciascun nodo. Inoltre, vengono visualizzati tutti gli avvisi che attualmente influiscono sul nodo. 
 ---
-= Visualizzare la scheda Panoramica
+= Visualizza la scheda Panoramica di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

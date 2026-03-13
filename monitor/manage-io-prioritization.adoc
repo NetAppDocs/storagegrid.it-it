@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ec repair priority, ec purge priority 
 summary: 'La priorità di input/output (I/O) consente di modificare le priorità relative per le operazioni di I/O sulla griglia.' 
 ---
-= Modifica la priorità di I/O
+= Modifica la priorità di I/O in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use snmp notifications for alerts 
 summary: 'Se si desidera che StorageGRID invii notifiche SNMP quando si verificano avvisi, è necessario attivare l"agente SNMP StorageGRID e configurare una o più destinazioni trap.' 
 ---
-= Impostare le notifiche SNMP per gli avvisi
+= Imposta le notifiche SNMP per gli avvisi StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

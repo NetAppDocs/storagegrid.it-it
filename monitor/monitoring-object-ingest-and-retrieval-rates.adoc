@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object ingest rates, object retrieval rates, monitor s3, client operations 
 summary: È possibile monitorare i tassi di acquisizione e recupero degli oggetti, nonché le metriche per i conteggi degli oggetti, le query e la verifica. È possibile visualizzare il numero di tentativi riusciti e non riusciti da parte delle applicazioni client di lettura, scrittura e modifica degli oggetti nel sistema StorageGRID. 
 ---
-= Monitorare S3 operazioni client
+= Monitorare le operazioni del client S3 in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

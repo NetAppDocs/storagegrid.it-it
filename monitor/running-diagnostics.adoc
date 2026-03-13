@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to run diagnostics 
 summary: Durante la risoluzione di un problema, è possibile collaborare con il supporto tecnico per eseguire la diagnostica sul sistema StorageGRID e rivedere i risultati. 
 ---
-= Eseguire la diagnostica
+= Esegui la diagnostica in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: when to monitor, what to monitor 
 summary: 'Anche se il sistema StorageGRID può continuare a funzionare quando si verificano errori o parti della griglia non sono disponibili, è necessario monitorare e risolvere potenziali problemi prima che influiscano sull"efficienza o sulla disponibilità della rete.' 
 ---
-= Cosa e quando monitorare
+= Cosa e quando monitorare in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

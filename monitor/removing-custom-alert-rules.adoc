@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to disable alert rules, how to remove a custom alert rule 
 summary: È possibile rimuovere una regola di avviso personalizzata se non si desidera più utilizzarla. 
 ---
-= Rimuovere le regole di avviso personalizzate
+= Rimuovi le regole di avviso personalizzate in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

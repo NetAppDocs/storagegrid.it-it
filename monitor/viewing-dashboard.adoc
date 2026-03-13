@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view dashboard, how to configure dashboard 
 summary: 'È possibile utilizzare la dashboard per monitorare le attività del sistema in un colpo d"occhio. È possibile creare dashboard personalizzati per monitorare l"implementazione di StorageGRID.' 
 ---
-= Visualizzare e gestire la dashboard
+= Visualizza e gestisci la dashboard in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

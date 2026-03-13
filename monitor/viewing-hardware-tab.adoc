@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: hardware tab 
 summary: 'La scheda hardware visualizza l"utilizzo della CPU e della memoria per ciascun nodo, oltre a informazioni aggiuntive sull"hardware delle appliance.' 
 ---
-= Visualizzare la scheda hardware
+= Visualizza la scheda Hardware di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

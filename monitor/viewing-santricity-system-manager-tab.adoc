@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SANtricity System Manager tab, hardware diagnostics 
 summary: 'La scheda Gestore di sistema di SANtricity consente di accedere a Gestore di sistema di SANtricity senza dover configurare o collegare la porta di gestione dell"appliance di storage. È possibile utilizzare questa scheda per esaminare le informazioni ambientali e di diagnostica dell"hardware, nonché i problemi relativi ai dischi.' 
 ---
-= Visualizza la scheda SANtricity System Manager (solo e-Series)
+= Visualizza la scheda SANtricity System Manager di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

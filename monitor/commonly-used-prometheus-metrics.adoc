@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: prometheus, Prometheus metrics, metrics 
 summary: Fare riferimento a questo elenco di metriche Prometheus comunemente utilizzate per comprendere meglio le condizioni nelle regole di avviso predefinite o per creare le condizioni per le regole di avviso personalizzate. 
 ---
-= Metriche Prometheus comunemente utilizzate
+= Metriche Prometheus comunemente utilizzate in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

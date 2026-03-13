@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services tab 
 summary: 'La scheda Platform Services (servizi piattaforma) fornisce informazioni sulle operazioni di servizio della piattaforma S3 in un sito.' 
 ---
-= Visualizzare la scheda Platform Services (servizi piattaforma)
+= Visualizza la scheda Servizi della piattaforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

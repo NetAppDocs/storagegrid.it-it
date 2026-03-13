@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: objects tab 
 summary: 'La scheda Objects fornisce informazioni sui tassi di acquisizione e recupero di S3:1.' 
 ---
-= Visualizzare la scheda oggetti
+= Visualizza la scheda Oggetti di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

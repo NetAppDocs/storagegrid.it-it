@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage alert rules 
 summary: 'Le regole di avviso definiscono le condizioni che attivano avvisi specifici. StorageGRID include una serie di regole di avviso predefinite, che è possibile utilizzare così com"è o modificare, oppure è possibile creare regole di avviso personalizzate.' 
 ---
-= Visualizzare le regole degli avvisi
+= Visualizza le regole di avviso di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

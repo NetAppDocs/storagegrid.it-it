@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: nodes page 
 summary: 'Quando hai bisogno di informazioni più dettagliate sul tuo sistema StorageGRID rispetto a quelle fornite dalla dashboard, puoi utilizzare la pagina Nodes per visualizzare le metriche per l"intera griglia, ogni sito nella griglia e ogni nodo di un sito.' 
 ---
-= Visualizzare la pagina nodi
+= Visualizza la pagina dei nodi StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

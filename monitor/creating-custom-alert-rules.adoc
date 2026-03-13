@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create custom alert rules 
 summary: È possibile creare regole di avviso personalizzate per definire le proprie condizioni di attivazione degli avvisi. 
 ---
-= Creare regole di avviso personalizzate
+= Crea regole di avviso personalizzate in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

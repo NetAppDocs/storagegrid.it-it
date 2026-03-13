@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: log, logs, log files 
 summary: StorageGRID fornisce registri utilizzati per acquisire eventi, messaggi di diagnostica e condizioni di errore. Potrebbe essere richiesto di raccogliere i file di log e inoltrarli al supporto tecnico per agevolare la risoluzione dei problemi. 
 ---
-= Riferimenti ai file di log
+= File di log di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

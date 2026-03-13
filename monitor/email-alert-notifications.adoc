@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to disable alert rules, how to remove a custom alert rule 
 summary: Se si desidera che le notifiche e-mail vengano inviate quando si verificano avvisi, è necessario fornire informazioni sul server SMTP. È inoltre necessario immettere gli indirizzi e-mail per i destinatari delle notifiche di avviso. 
 ---
-= Imposta le notifiche via email per gli avvisi
+= Configura le notifiche e-mail per gli avvisi di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

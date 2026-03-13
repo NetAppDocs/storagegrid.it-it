@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: autosupport, triggering autosupport, manually triggering autosupport, autosupport triggers 
 summary: 'Per assistere il supporto tecnico nella risoluzione dei problemi del sistema StorageGRID, è possibile attivare manualmente l"invio di un pacchetto AutoSupport.' 
 ---
-= Attivare manualmente un pacchetto AutoSupport
+= Attivare manualmente un pacchetto StorageGRID AutoSupport
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: monitoring, monitoring network connections, network, network performance 
 summary: 'L"integrità e la larghezza di banda della rete tra nodi e siti, nonché l"utilizzo delle risorse da parte dei singoli nodi di rete, sono fondamentali per operazioni efficienti.' 
 ---
-= Monitorare le risorse di rete e di sistema
+= Monitora le risorse di rete e di sistema in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

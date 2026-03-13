@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load balancer tab 
 summary: La scheda bilanciamento del carico include i grafici delle performance e diagnostici relativi al funzionamento del servizio bilanciamento del carico. 
 ---
-= Visualizzare la scheda bilanciamento del carico
+= Visualizza la scheda del bilanciatore del carico StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

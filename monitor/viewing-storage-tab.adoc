@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage tab 
 summary: La scheda Storage riepiloga la disponibilità dello storage e altre metriche di storage. 
 ---
-= Visualizzare la scheda Storage (archiviazione)
+= Visualizza la scheda Storage della StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

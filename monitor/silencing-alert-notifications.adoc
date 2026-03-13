@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to disable alert rules, how to remove a custom alert rule 
 summary: In alternativa, è possibile configurare le silenzi in modo da eliminare temporaneamente le notifiche di avviso. 
 ---
-= Tacitare le notifiche di avviso
+= Silenzia le notifiche di alert in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

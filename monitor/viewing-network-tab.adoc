@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network tab 
 summary: 'La scheda Network (rete) visualizza un grafico che mostra il traffico di rete ricevuto e inviato attraverso tutte le interfacce di rete del nodo, del sito o della griglia.' 
 ---
-= Visualizzare la scheda rete
+= Visualizza la scheda Rete di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

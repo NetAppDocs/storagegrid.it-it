@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, monitor connection, cross grid replication metrics 
 summary: È possibile monitorare informazioni di base su tutte le connessioni di federazione di griglie, informazioni dettagliate su una connessione specifica o metriche Prometheus sulle operazioni di replica cross-grid. È possibile monitorare una connessione da entrambe le griglie. 
 ---
-= Monitorare le connessioni a federazione di griglie
+= Monitorare le connessioni della federazione della griglia StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

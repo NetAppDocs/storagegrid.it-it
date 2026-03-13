@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: alert rules, managing alerts, alerts, alert notifications. edit alert rules 
 summary: 'Il sistema di avviso fornisce un"interfaccia di facile utilizzo per rilevare, valutare e risolvere i problemi che possono verificarsi durante il funzionamento di StorageGRID.' 
 ---
-= Gestire gli avvisi
+= Gestisci gli avvisi in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to edit alert rules 
 summary: È possibile modificare una regola di avviso per modificare le condizioni di attivazione; per una regola di avviso personalizzata, è anche possibile aggiornare il nome della regola, la descrizione e le azioni consigliate. 
 ---
-= Modificare le regole degli avvisi
+= Modifica le regole di avviso in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
