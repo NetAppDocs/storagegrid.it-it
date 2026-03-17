@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view your s3 access key 
 summary: 'Se si utilizza un tenant S3 e si dispone delle autorizzazioni appropriate, è possibile visualizzare un elenco delle chiavi di accesso S3. È possibile ordinare l"elenco in base alla data di scadenza, in modo da determinare quali chiavi scadranno a breve. In base alle esigenze, è possibile creare nuove chiavi o eliminare chiavi che non vengono più utilizzate.' 
 ---
-= Visualizzare le chiavi di accesso S3
+= Visualizza le tue chiavi di accesso S3 in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

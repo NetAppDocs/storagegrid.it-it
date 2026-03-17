@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view and edit group 
 summary: Quando si visualizzano i dettagli di un gruppo, è possibile modificare il nome visualizzato del gruppo, le autorizzazioni, i criteri e gli utenti che appartengono al gruppo. 
 ---
-= Visualizzare e modificare i dettagli del gruppo
+= Visualizza e modifica i dettagli del gruppo di tenant in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

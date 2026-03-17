@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand tenant manager dashboard 
 summary: 'La dashboard di Tenant Manager fornisce una panoramica della configurazione di un account tenant e della quantità di spazio utilizzata dagli oggetti nei bucket S3 del tenant.  Se il tenant ha una quota, la dashboard mostra quanta quota è utilizzata e quanta ne rimane.  Se si verificano errori relativi all"account del tenant, gli errori vengono visualizzati nella dashboard.' 
 ---
-= Comprendere la dashboard di Tenant Manager
+= Dashboard Tenant Manager in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

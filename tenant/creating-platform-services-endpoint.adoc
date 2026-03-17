@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create platform services endpoint 
 summary: È necessario creare almeno un endpoint del tipo corretto prima di poter attivare un servizio di piattaforma. 
 ---
-= Creare endpoint di servizi di piattaforma
+= Creare un endpoint dei servizi della piattaforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

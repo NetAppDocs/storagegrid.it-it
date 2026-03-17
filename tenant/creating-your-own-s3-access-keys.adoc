@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create your own S3 access key 
 summary: 'Se si utilizza un tenant S3 e si dispone dell"autorizzazione appropriata, è possibile creare le proprie chiavi di accesso S3. Per accedere ai bucket e agli oggetti, è necessario disporre di una chiave di accesso.' 
 ---
-= Creare le proprie chiavi di accesso S3
+= Crea le tue chiavi di accesso S3 in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create S3 bucket 
 summary: 'È possibile utilizzare Tenant Manager per creare bucket S3 per i dati dell"oggetto.' 
 ---
-= Creare un bucket S3
+= Crea un bucket S3 di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

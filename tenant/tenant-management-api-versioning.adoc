@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant management api version 
 summary: 'L"API di gestione tenant utilizza il controllo delle versioni per supportare aggiornamenti senza interruzioni.' 
 ---
-= Versione dell'API di gestione tenant
+= Versionamento dell'API di gestione dei tenant di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

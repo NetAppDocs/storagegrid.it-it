@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create other user S3 access key 
 summary: 'Se si utilizza un tenant S3 e si dispone dell"autorizzazione appropriata, è possibile creare chiavi di accesso S3 per altri utenti, ad esempio applicazioni che richiedono l"accesso a bucket e oggetti.' 
 ---
-= Creare le chiavi di accesso S3 di un altro utente
+= Crea le chiavi di accesso S3 di un altro utente in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure CloudMirror replication, replication xml 
 summary: 'È possibile abilitare la replica CloudMirror per un bucket creando XML di configurazione della replica bucket e utilizzando Tenant Manager per applicare l"XML al bucket.' 
 ---
-= Configurare la replica di CloudMirror
+= Configura la replica CloudMirror in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

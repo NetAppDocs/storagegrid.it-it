@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view bucket details 
 summary: 'È possibile visualizzare i bucket nell"account tenant.' 
 ---
-= Visualizza i dettagli del bucket
+= Visualizza i dettagli del bucket S3 in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

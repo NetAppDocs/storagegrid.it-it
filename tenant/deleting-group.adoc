@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete tenant group 
 summary: 'È possibile eliminare un gruppo dal sistema. Gli utenti che appartengono solo a quel gruppo non potranno più accedere al tenant manager o utilizzare l"account tenant.' 
 ---
-= Elimina gruppo
+= Eliminare un gruppo tenant di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

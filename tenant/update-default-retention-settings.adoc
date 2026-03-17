@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: update default retention for s3 object lock bucket, default retention mode, default retention period, compliance, governance 
 summary: 'Se al momento della creazione del bucket è stato attivato il blocco oggetti S3, è possibile modificare il bucket per modificare le impostazioni di conservazione predefinite. È possibile attivare (o disattivare) la conservazione predefinita e impostare una modalità di conservazione e un periodo di conservazione predefiniti.' 
 ---
-= Aggiorna la conservazione predefinita del blocco oggetti S3
+= Aggiorna la conservazione predefinita di S3 Object Lock in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

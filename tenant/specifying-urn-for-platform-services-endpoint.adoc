@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify platform services urn 
 summary: 'Quando si crea un endpoint dei servizi della piattaforma, è necessario specificare un nome di risorsa (URN) univoco. Verrà utilizzato l"URN per fare riferimento all"endpoint quando si crea un XML di configurazione per il servizio di piattaforma. L"URN per ciascun endpoint deve essere univoco.' 
 ---
-= Specificare URN per l'endpoint dei servizi della piattaforma
+= Specificare un URN per un endpoint dei servizi della piattaforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete tenant platform services endpoint 
 summary: È possibile eliminare un endpoint se non si desidera più utilizzare il servizio di piattaforma associato. 
 ---
-= Eliminare l'endpoint dei servizi della piattaforma
+= Eliminare un endpoint dei servizi della piattaforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

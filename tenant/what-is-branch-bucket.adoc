@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create branch bucket 
 summary: 'Un bucket di diramazione fornisce l"accesso agli oggetti in un bucket così come esistevano in un determinato momento.' 
 ---
-= Cos'è un branch bucket?
+= Scopri i bucket di ramo di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

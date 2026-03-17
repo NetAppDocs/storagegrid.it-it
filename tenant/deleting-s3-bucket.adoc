@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete S3 bucket 
 summary: È possibile utilizzare Tenant Manager per eliminare un bucket S3 vuoto. 
 ---
-= Elimina bucket S3
+= Eliminare un bucket S3 di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

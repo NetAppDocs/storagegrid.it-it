@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to edit tenant group name 
 summary: È possibile modificare il nome visualizzato di un gruppo. Non è possibile modificare il nome univoco di un gruppo. 
 ---
-= Modificare il nome del gruppo
+= Modifica il nome di un gruppo di tenant in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

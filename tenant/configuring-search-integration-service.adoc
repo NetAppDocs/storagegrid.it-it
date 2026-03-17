@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure search integration service 
 summary: 'È possibile abilitare l"integrazione della ricerca per un bucket creando XML di configurazione dell"integrazione della ricerca e utilizzando Tenant Manager per applicare l"XML a un bucket.' 
 ---
-= Configurare il servizio di integrazione della ricerca
+= Configura il servizio di integrazione della ricerca in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

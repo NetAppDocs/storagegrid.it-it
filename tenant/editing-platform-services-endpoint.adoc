@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to edit platform services endpoint 
 summary: 'È possibile modificare la configurazione di un endpoint di servizi di piattaforma per modificarne il nome, l"URI o altri dettagli. Ad esempio, potrebbe essere necessario aggiornare le credenziali scadute o modificare l"URI in modo che punti a un indice Elasticsearch di backup per il failover. Non è possibile modificare l"URN per un endpoint di servizi di piattaforma.' 
 ---
-= Modifica dell'endpoint dei servizi della piattaforma
+= Modifica un endpoint dei servizi della piattaforma in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

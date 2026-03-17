@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to enable or disable last access time updates 
 summary: 'Quando gli amministratori della griglia creano le regole di gestione del ciclo di vita delle informazioni per un sistema StorageGRID, possono facoltativamente specificare che l"ultimo tempo di accesso di un oggetto deve essere utilizzato per determinare se spostare l"oggetto in una posizione di storage diversa. Se si utilizza un tenant S3, è possibile sfruttare tali regole attivando gli ultimi aggiornamenti del tempo di accesso per gli oggetti in un bucket S3.' 
 ---
-= Attiva o disattiva gli ultimi aggiornamenti dell'orario di accesso
+= Abilita o disabilita gli aggiornamenti dell'ora dell'ultimo accesso in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

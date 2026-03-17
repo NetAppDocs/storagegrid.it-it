@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to change bucket versioning, disabled versioning, enabled versioning, suspended versioning 
 summary: Se si utilizza un tenant S3, è possibile modificare lo stato di versione per i bucket S3. 
 ---
-= Modificare la versione degli oggetti per un bucket
+= Modifica la versione degli oggetti per un bucket S3 in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

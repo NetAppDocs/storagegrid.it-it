@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: account clone, cloning tenant, grid federation, cross-grid replication 
 summary: 'Se un tenant è stato creato o modificato per utilizzare una connessione di federazione griglia, tale tenant viene replicato da un sistema StorageGRID \(il tenant di origine\) a un altro sistema StorageGRID \(il tenant di replica\). Dopo la replica del tenant, tutti i gruppi e gli utenti aggiunti al tenant di origine vengono clonati sul tenant di replica.' 
 ---
-= Clonare utenti e gruppi tenant
+= Clona gruppi di tenant e utenti in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

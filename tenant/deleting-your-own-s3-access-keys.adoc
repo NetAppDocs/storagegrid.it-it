@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete S3 access key 
 summary: 'Se si utilizza un tenant S3 e si dispone delle autorizzazioni appropriate, è possibile eliminare le proprie chiavi di accesso S3. Una volta eliminata, una chiave di accesso non può più essere utilizzata per accedere agli oggetti e ai bucket dell"account tenant.' 
 ---
-= Eliminare le proprie chiavi di accesso S3
+= Elimina le tue chiavi di accesso S3 in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

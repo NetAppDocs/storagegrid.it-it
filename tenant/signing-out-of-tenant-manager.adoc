@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to sign out of tenant manager 
 summary: Una volta terminata la collaborazione con il tenant manager, è necessario disconnettersi per garantire che gli utenti non autorizzati non possano accedere al sistema StorageGRID. La chiusura del browser potrebbe non disconnettersi dal sistema, in base alle impostazioni dei cookie del browser. 
 ---
-= Disconnettersi da Tenant Manager
+= Sign out di StorageGRID Tenant Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

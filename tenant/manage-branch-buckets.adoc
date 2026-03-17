@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create branch bucket 
 summary: Utilizzare Tenant Manager per creare e visualizzare i dettagli dei bucket delle filiali. 
 ---
-= Gestisci i bucket delle filiali
+= Gestisci i bucket di filiale di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

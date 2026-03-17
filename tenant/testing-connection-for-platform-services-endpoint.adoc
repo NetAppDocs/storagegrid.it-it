@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to test platform services endpoint connection 
 summary: 'Se la connessione a un servizio della piattaforma è stata modificata, è possibile verificare la connessione per l"endpoint per verificare l"esistenza della risorsa di destinazione e che sia possibile raggiungerla utilizzando le credenziali specificate.' 
 ---
-= Verifica della connessione per l'endpoint dei servizi della piattaforma
+= Verifica la connessione per un endpoint dei servizi della piattaforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

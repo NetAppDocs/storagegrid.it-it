@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation connection, view, clear error, last error 
 summary: 'Se l"account tenant dispone dell"autorizzazione di connessione Usa federazione griglia, è possibile visualizzare le connessioni consentite.' 
 ---
-= Visualizza connessioni di federazione di griglie
+= Visualizza le connessioni di federazione della griglia in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

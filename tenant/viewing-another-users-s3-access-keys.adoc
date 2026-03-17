@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view other user access key 
 summary: 'Se si utilizza un tenant S3 e si dispone delle autorizzazioni appropriate, è possibile visualizzare le chiavi di accesso S3 di un altro utente. È possibile ordinare l"elenco in base all"ora di scadenza, in modo da determinare quali chiavi scadranno a breve. Se necessario, è possibile creare nuove chiavi ed eliminare chiavi che non sono più in uso.' 
 ---
-= Visualizzare le chiavi di accesso S3 di un altro utente
+= Visualizza le chiavi di accesso S3 di un altro utente in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

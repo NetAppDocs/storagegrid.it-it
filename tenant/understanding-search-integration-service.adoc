@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand search integration service 
 summary: 'È possibile attivare l"integrazione della ricerca per un bucket S3 se si desidera utilizzare un servizio di ricerca e analisi dei dati esterno per i metadati degli oggetti.' 
 ---
-= Comprendere il servizio di integrazione della ricerca
+= Scopri il servizio di integrazione della ricerca StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

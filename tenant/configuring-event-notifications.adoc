@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure event notifications, bucket notification 
 summary: È possibile attivare le notifiche per un bucket creando un XML di configurazione delle notifiche e utilizzando Gestione tenant per applicare il file XML a un bucket. 
 ---
-= Configurare le notifiche degli eventi
+= Configura le notifiche degli eventi in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
