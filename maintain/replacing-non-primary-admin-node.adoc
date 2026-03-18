@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace non-primary admin node, replacing non-primary admin node, non-primary admin node 
 summary: 'Per ripristinare un nodo di amministrazione non primario, è necessario sostituire l"hardware fisico o virtuale.' 
 ---
-= Sostituire nodo amministratore non primario
+= Sostituire il nodo di amministrazione non primario di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

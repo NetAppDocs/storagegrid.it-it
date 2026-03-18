@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
 summary: 'È possibile monitorare lo stato dei lavori di riparazione utilizzando `repair-data` lo script dalla riga di comando.' 
 ---
-= Monitorare i lavori dei dati di riparazione
+= Monitorare i processi di riparazione dei dati di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage volume, failed storage volume, unmount failed volume 
 summary: Durante il ripristino di un nodo di storage con volumi di storage guasti, è necessario identificare e smontare i volumi guasti. È necessario verificare che solo i volumi di storage guasti vengano riformattati come parte della procedura di ripristino. 
 ---
-= Identificare e smontare i volumi di storage guasti
+= Identifica e smonta i volumi di storage non funzionanti in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

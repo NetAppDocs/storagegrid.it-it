@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, non-primary admin node 
 summary: Dopo aver sostituito un nodo Admin non primario, selezionare Avvia ripristino in Grid Manager per configurare il nuovo nodo come sostituzione del nodo guasto. 
 ---
-= Selezionare Avvia ripristino per configurare il nodo di amministrazione non primario
+= Seleziona Avvia ripristino per configurare il nodo di amministrazione StorageGRID non primario
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

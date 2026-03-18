@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add extra interface to node, access interface, VM interface 
 summary: 'Dopo l"installazione, è possibile aggiungere ulteriori interfacce di accesso o trunk a un nodo VM. Le interfacce aggiunte vengono visualizzate nella pagina delle interfacce VLAN e nella pagina dei gruppi ha.' 
 ---
-= VMware: Aggiunta di interfacce di accesso o trunk a un nodo
+= Aggiungi interfacce trunk o di accesso a un nodo VMware in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reboot nodes, rolling reboot procedure 
 summary: 'È possibile eseguire un riavvio in sequenza per riavviare più nodi grid senza causare un"interruzione del servizio.' 
 ---
-= Eseguire un riavvio a rotazione
+= Eseguire un riavvio progressivo di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

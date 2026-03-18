@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node decommission, considerations, appliance node clone 
 summary: Prima del decommissioning di un nodo storage, prendi in considerazione la possibilità di clonare il nodo. Quindi, se si decide di decommissionare il nodo, controlla il modo in cui StorageGRID gestisce oggetti e metadati durante la procedura di decommissionamento. 
 ---
-= Considerazioni per la disattivazione dei nodi di storage
+= Considerazioni sulla decommission dei nodi di archiviazione in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

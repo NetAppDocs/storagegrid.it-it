@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, gateway node 
 summary: Dopo aver sostituito un nodo gateway, selezionare Avvia ripristino in Grid Manager per configurare il nuovo nodo come sostituzione del nodo guasto. 
 ---
-= Selezionare Avvia ripristino per configurare il nodo gateway
+= Seleziona Avvia ripristino per configurare il nodo gateway di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

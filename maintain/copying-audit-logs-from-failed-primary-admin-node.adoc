@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit log, copy audit log, copying audit log, primary admin node, primary admin node 
 summary: 'Se si riesce a copiare i registri di audit dal nodo di amministrazione principale guasto, è necessario conservarli per mantenere il record dell"attività e dell"utilizzo del sistema della griglia. È possibile ripristinare i registri di controllo conservati nel nodo di amministrazione primario recuperato dopo che è attivo e in esecuzione.' 
 ---
-= Copia i registri di controllo dal nodo di amministrazione primario non riuscito
+= Copia i log di controllo da un nodo di amministrazione StorageGRID primario non riuscito
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

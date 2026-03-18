@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop services, power down host, power off host 
 summary: Prima di spegnere un host, è necessario interrompere i servizi su tutti i nodi della rete su tale host. 
 ---
-= Spegnere l'host
+= Spegnere un host StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
 summary: 'Quando si ripristina un nodo di storage dell"appliance, è necessario prima preparare l"appliance per la reinstallazione del software StorageGRID.' 
 ---
-= Preparare l'appliance Storage Node per la reinstallazione
+= Preparare il nodo di archiviazione dell'appliance StorageGRID per la reinstallazione
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

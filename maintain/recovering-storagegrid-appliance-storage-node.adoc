@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, appliance storage node failure, workflow 
 summary: 'La procedura per il ripristino di un nodo di storage dell"appliance StorageGRID guasto è la stessa, sia che si stia ripristinando dalla perdita del disco di sistema che dalla perdita dei soli volumi di storage.' 
 ---
-= Avvisi per il ripristino dei nodi di archiviazione dell'appliance
+= Avvisi per il ripristino dei nodi di archiviazione dell'appliance StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

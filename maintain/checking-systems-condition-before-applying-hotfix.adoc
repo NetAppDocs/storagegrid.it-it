@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: Verificare che il sistema sia pronto per la correzione rapida. 
 ---
-= Controllare le condizioni del sistema prima di applicare la correzione rapida
+= Verificare le condizioni del sistema prima di applicare un hotfix StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

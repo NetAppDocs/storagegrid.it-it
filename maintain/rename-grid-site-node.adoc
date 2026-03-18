@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename grid, rename sites, rename node, change display name, bulk rename tool 
 summary: 'È possibile utilizzare questa procedura per aggiungere o aggiornare i nomi di visualizzazione utilizzati per la griglia, i siti e i nodi. È possibile rinominare un singolo elemento, più nomi o anche tutti gli elementi contemporaneamente. La definizione o l"aggiornamento di un nome visualizzato non influisce in alcun modo sulle operazioni StorageGRID.' 
 ---
-= Aggiungere o aggiornare i nomi visualizzati
+= Aggiungi o aggiorna i nomi visualizzati di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

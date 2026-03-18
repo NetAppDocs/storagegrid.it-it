@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, power nodes, power on nodes, power off nodes, power down nodes 
 summary: 'Potrebbe essere necessario spegnere l"intero sistema StorageGRID, ad esempio, se si sta spostando un data center. Questi passaggi forniscono una panoramica di alto livello della sequenza consigliata per l"esecuzione di uno shutdown e di un startup controllati.' 
 ---
-= Spegnere e riaccendere tutti i nodi della rete
+= Spegnere e riaccendere tutti i nodi StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

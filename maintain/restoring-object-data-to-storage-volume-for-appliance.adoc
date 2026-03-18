@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
 summary: 'Dopo il ripristino dei volumi di storage per il nodo di storage dell"appliance, è possibile ripristinare i dati degli oggetti replicati o codificati in cancellazione che sono stati persi in caso di guasto del nodo di storage.' 
 ---
-= Ripristinare i dati dell'oggetto nel volume di storage per l'appliance
+= Ripristinare i dati degli oggetti in un volume di archiviazione per un'appliance StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

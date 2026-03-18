@@ -2,16 +2,16 @@
 permalink: maintain/restarting-server-manager-and-all-services.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, server manager, restart server manager 
-summary: Potrebbe essere necessario riavviare il server manager e tutti i servizi in esecuzione su un nodo grid. 
+summary: Potrebbe essere necessario riavviare Server Manager e tutti i servizi in esecuzione su un nodo della griglia. 
 ---
-= Riavviare Server Manager e tutti i servizi
+= Riavviare StorageGRID Server Manager e tutti i servizi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Potrebbe essere necessario riavviare il server manager e tutti i servizi in esecuzione su un nodo grid.
+Potrebbe essere necessario riavviare Server Manager e tutti i servizi in esecuzione su un nodo della griglia.
 
 .Prima di iniziare
 Si dispone del `Passwords.txt` file.

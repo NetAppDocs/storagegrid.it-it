@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reboot grid node, tasks tab 
 summary: È possibile riavviare un singolo nodo della griglia dalla scheda attività della pagina nodi. 
 ---
-= Riavviare il nodo della griglia dalla scheda attività
+= Riavvia il nodo StorageGRID dalla scheda Attività
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

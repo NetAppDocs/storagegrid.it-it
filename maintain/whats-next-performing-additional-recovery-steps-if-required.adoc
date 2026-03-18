@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, corrective action, additional recovery 
 summary: 'A seconda delle azioni specifiche intraprese per eseguire i nodi StorageGRID sull"host sostitutivo, potrebbe essere necessario eseguire ulteriori operazioni di ripristino per ciascun nodo.' 
 ---
-= Cosa succederà dopo: Se necessario, eseguire ulteriori passaggi di ripristino
+= Eseguire ulteriori passaggi di ripristino del nodo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

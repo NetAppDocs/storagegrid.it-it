@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, volume warning 
 summary: Prima di ripristinare i volumi di storage guasti per un nodo di storage, è necessario esaminare i seguenti avvisi. 
 ---
-= Avvertenze per il ripristino del volume di archiviazione
+= Avvisi per il ripristino dei volumi di storage StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

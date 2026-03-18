@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover storage node, recover storage volume 
 summary: Dopo il ripristino di un volume di storage su un nodo di storage in cui il disco di sistema è intatto, è possibile ripristinare i dati degli oggetti replicati o codificati in cancellazione che sono stati persi in caso di guasto del volume di storage. 
 ---
-= Ripristinare i dati degli oggetti nel volume di storage in cui il disco di sistema è intatto
+= Ripristina i dati dell'oggetto nel volume di archiviazione StorageGRID dove l'unità di sistema è intatta
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

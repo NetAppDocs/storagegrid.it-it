@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance storage node 
 summary: 'Selezionare Start Recovery (Avvia ripristino) in Grid Manager (Gestione griglia) per configurare un nodo di storage dell"appliance come sostituzione del nodo guasto.' 
 ---
-= Selezionare Start Recovery (Avvia ripristino) per configurare il nodo di storage dell'appliance
+= Seleziona Avvia ripristino per configurare il nodo di archiviazione dell'appliance StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

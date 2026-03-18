@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add extra interface to node, trunk interface, access interface 
 summary: È possibile aggiungere trunk o interfacce di accesso supplementari a un nodo Linux dopo averlo installato. Le interfacce aggiunte vengono visualizzate nella pagina delle interfacce VLAN e nella pagina dei gruppi ha. 
 ---
-= Linux: Aggiunta di interfacce di accesso o trunk a un nodo
+= Aggiungi interfacce trunk o di accesso a un nodo Linux in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

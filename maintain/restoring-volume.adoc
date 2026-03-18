@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, volume 
 summary: È possibile ripristinare i dati degli oggetti per un volume di storage o un nodo di storage guasto utilizzando Grid Manager. È inoltre possibile utilizzare Grid Manager per monitorare i processi di ripristino in corso e visualizzare una cronologia di ripristino. 
 ---
-= Ripristinare i dati degli oggetti utilizzando Grid Manager
+= Ripristina i dati degli oggetti utilizzando StorageGRID Grid Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

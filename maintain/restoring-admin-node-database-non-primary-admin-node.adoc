@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore admin node database, restore database, non-primary admin node 
 summary: Se si desidera conservare le informazioni cronologiche sugli attributi e gli avvisi su un nodo amministrativo non primario che non ha superato il test, è possibile ripristinare il database del nodo amministrativo dal nodo amministrativo primario. 
 ---
-= Ripristinare il database Admin Node durante il ripristino del nodo Admin non primario
+= Ripristina il database di StorageGRID Admin Node durante il recupero di un nodo Admin non primario
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

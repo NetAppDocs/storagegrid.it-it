@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, terminate service, terminating service, force terminate 
 summary: 'Se è necessario arrestare immediatamente un servizio, è possibile utilizzare il `force-stop` comando .' 
 ---
-= Forzare l'interruzione del servizio
+= Forzare la terminazione di un servizio StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

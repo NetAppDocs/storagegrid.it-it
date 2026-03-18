@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, restore node to host, node configuration file, start host service 
 summary: Per ripristinare un nodo Grid guasto in un nuovo host Linux, eseguire questa procedura per ripristinare il file di configurazione del nodo. 
 ---
-= Ripristinare i nodi della griglia nell'host
+= Ripristina i nodi StorageGRID sull'host
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission 
 summary: Prima di decommissionare un sito, è necessario procurarsi i seguenti materiali. 
 ---
-= Raccogliere il materiale necessario
+= Raccogliere il materiale necessario per il decommission del sito StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

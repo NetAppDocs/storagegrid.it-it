@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, procedure 
 summary: Selezionare la procedura di ripristino corretta per il tipo di nodo che ha avuto esito negativo. 
 ---
-= Selezionare la procedura di ripristino del nodo
+= Selezionare la procedura di ripristino del nodo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

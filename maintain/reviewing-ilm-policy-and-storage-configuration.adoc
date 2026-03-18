@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, ilm policy, storage configuration 
 summary: Se si prevede di decommissionare un nodo di storage, è necessario rivedere la policy ILM del sistema StorageGRID prima di avviare il processo di decommissionamento. 
 ---
-= Esaminare i criteri ILM e la configurazione dello storage
+= Esaminare la policy ILM di StorageGRID e la configurazione dello storage
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

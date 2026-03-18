@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, subnet list, admin network 
 summary: 'È possibile aggiungere, eliminare o modificare le subnet nell"elenco subnet di rete amministrativa di uno o più nodi.' 
 ---
-= Aggiungere o modificare gli elenchi di subnet nella rete amministrativa
+= Aggiungere o modificare gli elenchi di sottoreti sulla rete di amministrazione in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

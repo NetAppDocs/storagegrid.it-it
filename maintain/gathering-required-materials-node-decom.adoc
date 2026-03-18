@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, node decommission, decommission 
 summary: Prima di eseguire la decommissionazione di un nodo di rete, è necessario ottenere le seguenti informazioni. 
 ---
-= Raccogliere il materiale necessario
+= Raccogliere il materiale necessario per il decommissionare del nodo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

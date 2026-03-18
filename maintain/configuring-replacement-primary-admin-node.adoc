@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, replace primary admin node, replacing primary admin node 
 summary: Il nodo sostitutivo deve essere configurato come nodo amministratore primario per il sistema StorageGRID. 
 ---
-= Configurare il nodo amministrativo primario sostitutivo
+= Configura un nodo Admin primario sostitutivo in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

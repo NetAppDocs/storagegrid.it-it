@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: Quando si applica una hotfix, è necessario comprendere in che modo il sistema StorageGRID verrà influenzato. 
 ---
-= Impatto del sistema quando si applica una correzione rapida
+= Come StorageGRID è influenzato quando si applica un hotfix
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

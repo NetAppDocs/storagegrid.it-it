@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, network connection, restore network connection, isolated node, restore isolated node connection 
 summary: In determinate circostanze, uno o più gruppi di nodi potrebbero non essere in grado di contattare il resto della griglia. Ad esempio, le modifiche degli indirizzi IP a livello di sito o di rete possono causare nodi isolati. 
 ---
-= Ripristinare la connettività di rete per i nodi isolati
+= Ripristinare la connettività di rete per i nodi StorageGRID isolati
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, server manager, start server manager, start services, start all services 
 summary: Potrebbe essere necessario avviare Server Manager, che avvia anche tutti i servizi sul nodo Grid. 
 ---
-= Avviare Server Manager e tutti i servizi
+= Avvia StorageGRID Server Manager e tutti i servizi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

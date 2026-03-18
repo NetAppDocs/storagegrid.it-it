@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, subnet list, grid network 
 summary: È possibile utilizzare lo strumento Change IP per aggiungere o modificare le subnet nella rete griglia. 
 ---
-= Aggiungere o modificare gli elenchi di subnet su Grid Network
+= Aggiungi o modifica gli elenchi di subnet sulla Grid Network in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

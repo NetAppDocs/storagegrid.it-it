@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, service, status 
 summary: È possibile visualizzare lo stato corrente di tutti i servizi in esecuzione su un nodo Grid in qualsiasi momento. 
 ---
-= Visualizzare lo stato corrente di tutti i servizi
+= Visualizza lo stato attuale di tutti i servizi StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

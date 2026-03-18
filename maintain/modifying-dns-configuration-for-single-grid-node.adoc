@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, dns, modify dns 
 summary: 'Invece di configurare il DNS a livello globale per l"intera implementazione, è possibile eseguire uno script per configurare il DNS in modo diverso per ciascun nodo della griglia.' 
 ---
-= Modificare la configurazione DNS per un nodo griglia singolo
+= Modificare la configurazione DNS per un singolo nodo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

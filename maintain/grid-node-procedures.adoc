@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, grid node procedure 
 summary: Potrebbe essere necessario eseguire procedure di manutenzione relative a specifici nodi di rete o servizi di nodi. 
 ---
-= Procedure di manutenzione dei nodi
+= Procedure di manutenzione dei nodi StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

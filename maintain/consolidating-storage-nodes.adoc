@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage node, consolidate storage node, consolidating storage node 
 summary: 'È possibile consolidare i nodi di storage per ridurre il numero di nodi di storage per un sito o un"implementazione, aumentando al contempo la capacità di storage.' 
 ---
-= Consolidare i nodi di storage
+= Consolida i nodi di archiviazione StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

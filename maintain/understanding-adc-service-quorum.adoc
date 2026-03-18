@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, adc, adc quorum 
 summary: 'È possibile che non sia possibile smantellare alcuni nodi di archiviazione in un sito se dopo lo smantellamento rimanessero pochi servizi del controller di dominio amministrativo \(ADC\).' 
 ---
-= Cos'è il quorum ADC?
+= Cos'è il quorum ADC di StorageGRID?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

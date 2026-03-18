@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, select site 
 summary: Per determinare se un sito può essere decommissionato, iniziare accedendo alla procedura guidata Decommissionare il sito. 
 ---
-= Fase 1: Selezionare Site (Sito)
+= Seleziona un sito da decommissionare in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

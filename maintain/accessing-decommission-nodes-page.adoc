@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission nodes, decommissioning nodes, maintenance task 
 summary: 'Quando si accede alla pagina nodi di disattivazione in Grid Manager, è possibile visualizzare a colpo d"occhio i nodi che possono essere disattivati.' 
 ---
-= Accedere alla pagina nodi di smantellamento
+= Accedi alla pagina Decommissiona nodi in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

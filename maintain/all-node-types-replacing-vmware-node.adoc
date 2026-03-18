@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace VMware node 
 summary: Quando si ripristina un nodo StorageGRID guasto ospitato su VMware, si rimuove il nodo guasto e si implementa un nodo di ripristino. 
 ---
-= Sostituire il nodo VMware
+= Sostituire un nodo VMware in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

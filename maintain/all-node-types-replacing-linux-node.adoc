@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace linux node 
 summary: 'Se un guasto richiede l"implementazione di uno o più nuovi host fisici o virtuali o la reinstallazione di Linux su un host esistente, implementare e configurare l"host sostitutivo prima di poter ripristinare il nodo grid. Questa procedura è una fase del processo di ripristino del nodo grid per tutti i tipi di nodi grid.' 
 ---
-= Sostituire il nodo Linux
+= Sostituire un nodo Linux in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

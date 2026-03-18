@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network configuration, node network configuration 
 summary: È possibile modificare la configurazione di rete di uno o più nodi utilizzando lo strumento Change IP. È possibile modificare la configurazione di Grid Network o aggiungere, modificare o rimuovere le reti Admin o Client. 
 ---
-= Modificare la configurazione di rete del nodo
+= Modificare la configurazione di rete del nodo in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

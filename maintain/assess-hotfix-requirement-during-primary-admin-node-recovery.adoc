@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, hotfix 
 summary: Dopo il ripristino di un nodo amministrativo primario, determinare se è necessario applicare una correzione rapida. 
 ---
-= Determinare il requisito di hotfix per il nodo amministrativo primario
+= Determinare i requisiti di hotfix per il nodo amministratore primario in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

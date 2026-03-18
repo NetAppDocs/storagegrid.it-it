@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, node recovery, storage state 
 summary: 'Dopo aver ripristinato un nodo di storage dell"appliance, è necessario verificare che lo stato desiderato del nodo di storage dell"appliance sia impostato su online e assicurarsi che lo stato sia online per impostazione predefinita ogni volta che si riavvia il server del nodo di storage.' 
 ---
-= Controllare lo stato dello storage dopo il ripristino del nodo di storage dell'appliance
+= Verifica lo stato dello storage dopo il ripristino di un nodo di storage dell'appliance StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

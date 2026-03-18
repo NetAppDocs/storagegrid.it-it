@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, system drive warning, storage node 
 summary: Prima di ripristinare un disco di sistema guasto di un nodo di storage, esaminare gli avvisi e le considerazioni generali per il ripristino del nodo di rete e i seguenti avvisi specifici. 
 ---
-= Avvisi per il ripristino delle unità del sistema Storage Node
+= Avvisi per il ripristino dell'unità di sistema del nodo di storage StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

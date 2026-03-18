@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover services appliance, recover appliance, recovering appliance, recovering services appliance, install services appliance, installing services appliance, services appliance 
 summary: 'Quando si ripristina un nodo Grid guasto ospitato su VMware o su un host Linux e si utilizza un"appliance di servizi per il nodo sostitutivo, è necessario prima installare il nuovo hardware dell"appliance utilizzando lo stesso nome di nodo (nome di sistema) del nodo guasto.' 
 ---
-= Installare l'appliance di servizi (solo modifica della piattaforma)
+= Installare l'appliance di servizi StorageGRID (solo cambio di piattaforma)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

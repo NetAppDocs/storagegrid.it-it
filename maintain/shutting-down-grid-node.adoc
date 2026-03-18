@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, node shutdown, shut down node, node shut down 
 summary: È possibile chiudere un nodo Grid dalla shell dei comandi del nodo. 
 ---
-= Chiudere il nodo della griglia
+= Arrestare il nodo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop server manager, stop all services, stop services 
 summary: Server Manager è progettato per essere eseguito in qualsiasi momento, ma potrebbe essere necessario interrompere Server Manager e tutti i servizi in esecuzione su un nodo grid. 
 ---
-= Arrestare Server Manager e tutti i servizi
+= Arresta StorageGRID Server Manager e tutti i servizi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

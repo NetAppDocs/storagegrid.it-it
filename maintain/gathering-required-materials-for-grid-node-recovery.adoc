@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, grid node recovery, node recovery 
 summary: Prima di eseguire le procedure di manutenzione, assicurarsi di disporre dei materiali necessari per ripristinare un nodo della griglia guasto. 
 ---
-= Raccogliere i materiali necessari per il ripristino dei nodi grid
+= Raccogli il materiale necessario per il ripristino del nodo della griglia StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

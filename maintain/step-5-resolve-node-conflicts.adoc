@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, resolve node conflict 
 summary: Dal passaggio 5 della procedura guidata Smantieni i nodi, è possibile determinare se i nodi nel sistema StorageGRID sono disconnessi o se i nodi nel sito selezionato appartengono a un gruppo ad alta disponibilità. Una volta risolti i conflitti di nodo, avviare la procedura di decommissionamento da questa pagina. 
 ---
-= Fase 5: Risolvere i conflitti dei nodi (e avviare la decommissionazione)
+= Risolvere i conflitti tra i nodi e avviare la decommission in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, software update 
 summary: 'La correzione rapida viene applicata automaticamente al nodo di amministrazione primario. Quindi, è necessario approvare l"applicazione della correzione rapida ad altri nodi della griglia fino a quando tutti i nodi non eseguono la stessa versione software. È possibile personalizzare la sequenza di approvazione selezionando per approvare singoli nodi della griglia, gruppi di nodi della griglia o tutti i nodi della griglia.' 
 ---
-= Applicare la correzione rapida
+= Applicare un hotfix in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

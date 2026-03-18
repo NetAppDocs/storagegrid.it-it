@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, download 
 summary: Prima di applicare la correzione rapida, è necessario scaricare il file della correzione rapida. 
 ---
-= Scaricare il file hotfix
+= Scarica un file hotfix di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, connected nodes, decommission node 
 summary: È possibile decommissionare e rimuovere in modo permanente i nodi collegati alla rete. 
 ---
-= Decommissionare i nodi di rete connessi
+= Decommissionare i nodi StorageGRID collegati
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

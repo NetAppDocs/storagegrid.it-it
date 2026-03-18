@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace failed node, services appliance 
 summary: 'È possibile utilizzare un"appliance di servizi per recuperare un nodo gateway guasto, un nodo di amministrazione non primario guasto o un nodo di amministrazione primario guasto ospitato su VMware, un host Linux o un"appliance di servizi. Questa procedura è una fase della procedura di ripristino del nodo di rete.' 
 ---
-= Sostituire il nodo guasto con l'appliance di servizi
+= Sostituire il nodo StorageGRID guasto con l'appliance di servizi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

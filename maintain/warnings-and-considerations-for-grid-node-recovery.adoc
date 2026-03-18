@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, warning 
 summary: In caso di guasto di un nodo della griglia, è necessario ripristinarlo il prima possibile. Prima di iniziare, è necessario esaminare tutti gli avvisi e le considerazioni per il ripristino del nodo. 
 ---
-= Avvertenze e considerazioni per il ripristino del nodo grid
+= Avvertenze e considerazioni per il ripristino dei nodi StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance 
 summary: 'Il programma di installazione dell"appliance StorageGRID indica lo stato fino al completamento dell"installazione. Una volta completata l"installazione del software, l"appliance viene riavviata.' 
 ---
-= Monitorare l'installazione delle appliance di servizi
+= Monitorare l'installazione degli appliance di servizi StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

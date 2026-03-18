@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, storage node failure, Reaper 
 summary: La procedura per il ripristino di un nodo di storage guasto dipende dal tipo di guasto e dal tipo di nodo di storage guasto. 
 ---
-= Ripristino da guasti del nodo di storage
+= Ripristina dai guasti dei nodi di archiviazione StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

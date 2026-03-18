@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, linux, migrate node, migrating node, new host for node 
 summary: È possibile migrare uno o più nodi StorageGRID da un host Linux a un altro host Linux per eseguire la manutenzione degli host senza influire sulle funzionalità o sulla disponibilità del grid. 
 ---
-= Linux: Migrazione del nodo grid al nuovo host
+= Migrare un nodo StorageGRID su un nuovo host Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, archive node failure, workflow 
 summary: Il supporto per i nodi archivio è stato rimosso. 
 ---
-= Ripristino da errori del nodo di archiviazione
+= Ripristina dai guasti del nodo di archiviazione StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, primary admin node failure 
 summary: 'È necessario completare un set specifico di attività per eseguire il ripristino da un guasto primario del nodo di amministrazione. Il nodo di amministrazione primario ospita il servizio (CMN) del nodo di gestione della configurazione per la griglia.' 
 ---
-= Ripristino da guasti principali del nodo di amministrazione
+= Ripristina dai guasti del nodo amministratore primario di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

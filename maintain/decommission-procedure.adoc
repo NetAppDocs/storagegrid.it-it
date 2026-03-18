@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to decommission 
 summary: È possibile eseguire una procedura di decommissionamento per rimuovere in modo permanente i nodi della griglia o un intero sito dal sistema StorageGRID. 
 ---
-= Decommissionare il nodo o il sito
+= Decommissionare un nodo StorageGRID o un sito StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

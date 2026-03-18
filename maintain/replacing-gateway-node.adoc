@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace gateway node, replacing gateway node 
 summary: 'È possibile sostituire un nodo gateway guasto con un nodo gateway in esecuzione sullo stesso hardware fisico o virtuale oppure sostituire un nodo gateway in esecuzione su VMware o su un host Linux con un nodo gateway in hosting su un"appliance di servizi.' 
 ---
-= Sostituire il nodo gateway
+= Sostituire il nodo gateway di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

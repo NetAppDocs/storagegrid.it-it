@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore audit log, non-primary admin node 
 summary: Se è stato possibile conservare il registro di controllo dal nodo di amministrazione non primario non riuscito, in modo da conservare le informazioni del registro di controllo cronologico, è possibile copiarle nel nodo di amministrazione non primario che si sta ripristinando. 
 ---
-= Ripristina log di audit su nodo Admin non primario recuperato
+= Ripristina il registro di controllo sul nodo di amministrazione StorageGRID non primario recuperato
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

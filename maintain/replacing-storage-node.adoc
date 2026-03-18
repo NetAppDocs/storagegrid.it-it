@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace storage node, replacing storage node 
 summary: Se il disco di sistema presenta un guasto, è necessario sostituire il nodo di storage. 
 ---
-= Sostituire il nodo di storage
+= Sostituire il nodo di storage StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

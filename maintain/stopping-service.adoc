@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop service, service 
 summary: 'Alcune procedure di manutenzione richiedono l"interruzione di un singolo servizio mantenendo in esecuzione altri servizi sul nodo grid. Interrompere i singoli servizi solo quando richiesto da una procedura di manutenzione.' 
 ---
-= Interrompere il servizio
+= Interrompi un servizio StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

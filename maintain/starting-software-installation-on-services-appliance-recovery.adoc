@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, services appliance, start software installation 
 summary: 'Per installare un nodo gateway o un nodo amministrativo su un"appliance di servizi, utilizzare il programma di installazione dell"appliance StorageGRID, incluso nell"appliance.' 
 ---
-= Avviare l'installazione del software sull'appliance di servizi
+= Avvia l'installazione del software StorageGRID su un'appliance di servizi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

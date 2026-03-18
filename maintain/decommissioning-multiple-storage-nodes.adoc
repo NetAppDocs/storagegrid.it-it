@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission nodes, storage node, multiple storage nodes 
 summary: Se è necessario rimuovere più di un nodo di storage, è possibile decommissionarli in sequenza o in parallelo. 
 ---
-= Decommissionare più nodi di storage
+= Decommissionare più Storage Nodes di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

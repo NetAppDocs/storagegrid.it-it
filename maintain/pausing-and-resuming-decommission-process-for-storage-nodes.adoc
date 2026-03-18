@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to pause decommission 
 summary: 'Se è necessario eseguire una seconda procedura di manutenzione, è possibile sospendere la procedura di decommissionamento per un nodo di storage durante determinate fasi. Al termine dell"altra procedura, è possibile riprendere la decommissionamento.' 
 ---
-= Mettere in pausa e riprendere il processo di decommissionamento per i nodi di storage
+= Metti in pausa e riprendi il processo di decommission per i nodi di storage StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

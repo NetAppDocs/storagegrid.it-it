@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: maintain overview, maintenance overview, about maintain, about maintenance 
 summary: Le attività di manutenzione della rete includono la dismissione di un nodo o di un sito, la ridenominazione di una griglia, di un nodo o di un sito e la manutenzione della rete. È inoltre possibile eseguire procedure host e middleware e procedure dei nodi di rete. 
 ---
-= Manutenzione della griglia
+= Manutenzione della grid StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

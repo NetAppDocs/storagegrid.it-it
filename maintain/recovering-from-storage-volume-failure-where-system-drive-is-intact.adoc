@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, storage volume failure, volume failure, system drive intact 
 summary: È necessario completare una serie di attività per ripristinare un nodo di storage basato su software in cui uno o più volumi di storage sul nodo di storage si sono guastati, ma il disco di sistema è intatto. Se solo i volumi di storage sono guasti, il nodo di storage è ancora disponibile per il sistema StorageGRID. 
 ---
-= Ripristino in seguito a un errore del volume di storage in cui il disco di sistema è intatto
+= Ripristinare da un errore del volume di archiviazione StorageGRID in cui l'unità di sistema è intatta
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

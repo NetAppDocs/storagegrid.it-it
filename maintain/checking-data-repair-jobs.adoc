@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, data repair 
 summary: Prima di disattivare un nodo di rete, è necessario confermare che non sono attivi lavori di riparazione dei dati. Se le riparazioni non sono riuscite, è necessario riavviarle e lasciarle completare prima di eseguire la procedura di decommissionamento. 
 ---
-= Controllare i lavori di riparazione dei dati
+= Verifica i job di riparazione dei dati in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

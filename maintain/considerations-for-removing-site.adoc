@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to remove site 
 summary: Prima di utilizzare la procedura di decommissionamento del sito per rimuovere un sito, è necessario esaminare le considerazioni. 
 ---
-= Considerazioni per la rimozione di un sito
+= Considerazioni relative alla decommission del sito in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

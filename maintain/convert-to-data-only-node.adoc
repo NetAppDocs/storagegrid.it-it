@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, convert node, data-only node 
 summary: Per aumentare le prestazioni, è possibile convertire i nodi di archiviazione non ADC più lenti in nodi di archiviazione solo dati. 
 ---
-= Convertire un nodo di archiviazione in un nodo solo dati
+= Convertire un nodo di storage StorageGRID in un nodo di soli dati
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

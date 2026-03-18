@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configure ip address, change IP tool, ethernet, dhcp, ha group 
 summary: 'È possibile eseguire la configurazione di rete configurando gli indirizzi IP per i nodi della griglia utilizzando lo strumento Change IP (Modifica IP).' 
 ---
-= Linee guida per l'indirizzo IP
+= Linee guida sugli indirizzi IP di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

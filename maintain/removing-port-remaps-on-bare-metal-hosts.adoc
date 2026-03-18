@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, linux, linux host, bare metal host, baremetal host, remove port remap, removing port remap, port remap 
 summary: 'Se si desidera configurare un endpoint per il servizio Load Balancer e si desidera utilizzare una porta che è già stata configurata come porta mappata di un remap di porta, è necessario prima rimuovere il remap di porta esistente, altrimenti l"endpoint non sarà efficace.' 
 ---
-= Rimuovere i rimaps delle porte sugli host bare metal
+= Rimuovere le rimappature delle porte di StorageGRID sugli host bare metal
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

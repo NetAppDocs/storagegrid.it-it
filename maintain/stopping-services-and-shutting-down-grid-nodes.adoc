@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, stop services, shut down nodes, node shutdown 
 summary: Prima di spegnere un sistema StorageGRID, è necessario arrestare tutti i servizi in esecuzione su ciascun nodo di rete e quindi arrestare tutte le macchine virtuali VMware, i motori di container e le appliance StorageGRID. 
 ---
-= Arrestare i servizi e chiudere i nodi di rete
+= Interrompere i servizi e arrestare i nodi StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

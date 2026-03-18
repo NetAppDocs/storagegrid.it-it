@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, remove grid node 
 summary: È possibile utilizzare la procedura di decommissionamento dei nodi per rimuovere uno o più nodi della griglia in uno o più siti. Non è possibile decommissionare il nodo di amministrazione primario. 
 ---
-= Decommissionare il nodo di rete
+= Decommission del nodo grid StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
