@@ -142,7 +142,13 @@ Vedere <<Intestazioni di richiesta per la crittografia lato server>>
 Le seguenti intestazioni di richiesta non sono supportate:
 
 * `If-Match`
++
+Il `If-Match header` è accettato ma non funzionale.
+
 * `If-None-Match`
++
+The `If-None-Match header` è accettato ma non funzionale.
+
 * `x-amz-acl`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`

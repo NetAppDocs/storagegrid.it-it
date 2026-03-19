@@ -101,6 +101,14 @@ Le seguenti intestazioni di richiesta non sono supportate:
 * `Content-Encoding`
 * `Content-Language`
 * `Expires`
+* `If-Match`
++
+Il `If-Match header` è accettato ma non funzionale.
+
+* `If-None-Match`
++
+The `If-None-Match header` è accettato ma non funzionale.
+
 * `x-amz-checksum-algorithm`
 +
 Quando si copia un oggetto, se l'oggetto di origine ha un checksum, StorageGRID non copia tale valore checksum nel nuovo oggetto. Questo comportamento si applica sia che si provi o meno a utilizzare `x-amz-checksum-algorithm` nella richiesta dell'oggetto.
