@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: primary admin node, configuration management node 
 summary: Il nodo amministrativo primario fornisce più funzionalità rispetto ai nodi amministrativi non primari. Ad esempio, alcune procedure di manutenzione devono essere eseguite utilizzando il nodo amministrativo primario. 
 ---
-= Identificare il nodo di amministrazione principale
+= Identificare il nodo Admin primario in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

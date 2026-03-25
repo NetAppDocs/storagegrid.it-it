@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sso configuration 
 summary: 'Prima di attivare il Single Sign-on (SSO), devi confermare che almeno un utente federated può accedere a Grid Manager e a Tenant Manager per qualsiasi account tenant esistente.' 
 ---
-= Confermare che gli utenti federati possono accedere
+= Conferma che gli utenti federati possano eseguire Sign in a StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure vlan interfaces, vlan interfaces, trunk interface 
 summary: È possibile creare interfacce LAN virtuali sui nodi Admin e Gateway e utilizzarle nei gruppi ha e negli endpoint del bilanciamento del carico per isolare e partizionare il traffico per garantire sicurezza, flessibilità e performance. 
 ---
-= Configurare le interfacce VLAN
+= Configura le interfacce VLAN in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

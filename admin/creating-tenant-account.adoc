@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create tenant, tenant account 
 summary: 'È necessario creare almeno un account tenant per controllare l"accesso allo storage nel sistema StorageGRID.' 
 ---
-= Creare un account tenant
+= Crea un account tenant di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

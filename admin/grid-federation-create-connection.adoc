@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, create connection, configure connection 
 summary: È possibile creare una connessione a federazione di griglie tra due sistemi StorageGRID se si desidera clonare i dettagli del tenant e replicare i dati degli oggetti. 
 ---
-= Creare connessioni di federazione di griglie
+= Creare connessioni di federazione della griglia StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

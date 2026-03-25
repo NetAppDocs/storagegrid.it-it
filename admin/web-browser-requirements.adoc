@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: web browser requirements, supported browser, chrome, edge, firefox 
 summary: È necessario utilizzare un browser Web supportato. 
 ---
-= Requisiti del browser Web
+= Requisiti del browser web per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

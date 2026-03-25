@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services message delivery 
 summary: Tutte le operazioni dei servizi della piattaforma vengono eseguite in base al sito. 
 ---
-= Erogazione per sito di messaggi relativi ai servizi della piattaforma
+= Consegna per sito dei messaggi dei servizi della piattaforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: increase metadata reserved space setting 
 summary: 'È possibile aumentare l"impostazione del sistema spazio riservato metadati se i nodi di archiviazione soddisfano requisiti specifici per la RAM e lo spazio disponibile.' 
 ---
-= Aumentare l'impostazione spazio riservato metadati
+= Aumentare l'impostazione Metadata Reserved Space in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

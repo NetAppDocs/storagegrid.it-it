@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: link cost, site latency, manage link costs, prioritize sites 
 summary: I costi di collegamento consentono di assegnare la priorità al sito del data center che fornisce un servizio richiesto quando esistono due o più siti del data center. È possibile regolare i costi di collegamento in modo da riflettere la latenza tra i siti. 
 ---
-= Gestire i costi di collegamento
+= Gestisci i costi dei collegamenti in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

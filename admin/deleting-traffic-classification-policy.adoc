@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete traffic classification policy 
 summary: Se non è più necessario un criterio di classificazione del traffico, è possibile eliminarlo. 
 ---
-= Eliminare una policy di classificazione del traffico
+= Eliminare una policy di classificazione del traffico StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

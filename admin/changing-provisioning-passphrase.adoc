@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: provisioning passphrase, change passphrase 
 summary: Utilizzare questa procedura per modificare la passphrase di provisioning StorageGRID .  La passphrase è necessaria per le procedure di recupero, espansione e manutenzione.  La passphrase è necessaria anche per scaricare i backup dei pacchetti di ripristino che includono le informazioni sulla topologia della griglia, le password della console del nodo della griglia e le chiavi di crittografia per il sistema StorageGRID . 
 ---
-= Modificare la passphrase di provisioning
+= Modificare la passphrase di provisioning di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

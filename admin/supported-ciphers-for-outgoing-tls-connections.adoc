@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tls cipher suites, transport layer security connections 
 summary: 'Il sistema StorageGRID supporta un set limitato di suite di crittografia per le connessioni TLS (Transport Layer Security) ai sistemi esterni utilizzati per la federazione di identità e i pool di storage cloud.' 
 ---
-= Crittografia supportata per le connessioni TLS in uscita
+= Algoritmi di cifratura supportati per le connessioni TLS in uscita in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

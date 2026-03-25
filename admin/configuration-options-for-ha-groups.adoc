@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: ha groups, best practices, high availability group options 
 summary: Il seguente diagramma fornisce esempi di diversi modi per configurare i gruppi ha. Ogni opzione presenta vantaggi e svantaggi. 
 ---
-= Opzioni di configurazione per i gruppi ha
+= Opzioni di configurazione per i gruppi di alta disponibilità di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-I seguenti diagrammi forniscono esempi di diversi modi per configurare i gruppi ha. Ogni opzione presenta vantaggi e svantaggi.
+I seguenti diagrammi forniscono esempi di diverse modalità in cui è possibile configurare i gruppi ad alta disponibilità (HA). Ogni opzione presenta vantaggi e svantaggi.
 
 Nei diagrammi, il blu indica l'interfaccia principale nel gruppo ha e il giallo indica l'interfaccia di backup nel gruppo ha.
 

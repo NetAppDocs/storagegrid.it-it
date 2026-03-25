@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: relying party trust, active directory, ad fs, single sign on, sso 
 summary: 'È necessario utilizzare Active Directory Federation Services (ad FS) per creare un trust di parte per ciascun nodo di amministrazione nel sistema. È possibile creare trust di parti che utilizzano i comandi PowerShell, importando metadati SAML da StorageGRID o immettendo i dati manualmente.' 
 ---
-= Creazione di trust di parti di base in ad FS
+= Crea trust di relying party in AD FS per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

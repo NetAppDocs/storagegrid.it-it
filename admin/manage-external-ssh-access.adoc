@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, external, ssh, access 
 summary: 'Gestisci la protezione SSH bloccando o consentendo l"accesso SSH esterno.' 
 ---
-= Gestisci l'accesso SSH esterno
+= Gestisci l'accesso SSH esterno in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage load balancing, balance workload, client ingest, client retrieval, distribute connection 
 summary: Attraverso il bilanciamento del carico è possibile gestire i carichi di lavoro di acquisizione e recupero da client S3. 
 ---
-= Considerazioni per il bilanciamento del carico
+= Scopri il bilanciamento del carico di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, S3, client application, TLS 
 summary: Gli account tenant StorageGRID utilizzano applicazioni client S3 per salvare i dati degli oggetti in StorageGRID. È necessario esaminare le misure di protezione implementate per le applicazioni client. 
 ---
-= Sicurezza per S3 client
+= Sicurezza per i client S3 in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

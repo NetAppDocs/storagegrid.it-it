@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit tenant account, change tenant name, allow platform services, tenant quota 
 summary: È possibile modificare un account tenant per modificare il nome visualizzato, la quota di storage o le autorizzazioni del tenant. 
 ---
-= Modificare l'account tenant
+= Modificare un account tenant di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

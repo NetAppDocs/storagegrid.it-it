@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 connection, connect to storagegrid, s3 setup wizard 
 summary: In qualità di amministratore di rete, è possibile gestire le opzioni di configurazione che controllano il modo in cui le applicazioni client S3 si connettono al sistema StorageGRID per archiviare e recuperare i dati. 
 ---
-= Configurare connessioni client S3
+= Configura le connessioni client S3 a StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

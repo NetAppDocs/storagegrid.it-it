@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: QoS, quality of service, traffic classification, best practices, limit traffic, monitor traffic 
 summary: I criteri di classificazione del traffico consentono di identificare e monitorare diversi tipi di traffico di rete. Queste policy possono aiutarti a limitare il traffico e a monitorarle per migliorare le tue offerte di qualità del servizio. 
 ---
-= Cosa sono le policy di classificazione del traffico?
+= Politiche di classificazione del traffico in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

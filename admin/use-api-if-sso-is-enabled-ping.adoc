@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to access storagegrid API if SSO is enabled with PingFederate 
 summary: 'Se è stato configurato e abilitato il Single Sign-on (SSO) e si utilizza PingFederate come provider SSO, è necessario emettere una serie di richieste API per ottenere un token di autenticazione valido per l"API Grid Management o l"API Tenant Management.' 
 ---
-= Utilizzare l'API se è attivato il Single Sign-on (PingFederate)
+= Utilizzare l'API StorageGRID se il single sign-on è abilitato (PingFederate)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

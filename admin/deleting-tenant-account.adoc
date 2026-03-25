@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant, delete, remove tenant 
 summary: 'È possibile eliminare un account tenant se si desidera rimuovere in modo permanente l"accesso del tenant al sistema.' 
 ---
-= Elimina account tenant
+= Eliminare un account tenant StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

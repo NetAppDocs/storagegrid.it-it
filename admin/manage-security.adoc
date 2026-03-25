@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage security 
 summary: È possibile configurare diverse impostazioni di sicurezza da Gestione griglia per proteggere il sistema StorageGRID. 
 ---
-= Gestire la sicurezza
+= Gestisci la sicurezza in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

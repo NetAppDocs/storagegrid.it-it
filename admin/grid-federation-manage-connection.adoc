@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, edit connection, remove connection, rotate certificates 
 summary: La gestione delle connessioni a federazione di griglie tra sistemi StorageGRID include la modifica dei dettagli di connessione, la rotazione dei certificati, la rimozione delle autorizzazioni del tenant e la rimozione delle connessioni inutilizzate. 
 ---
-= Gestire le connessioni a federazione di griglie
+= Gestisci le connessioni di federazione della griglia StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

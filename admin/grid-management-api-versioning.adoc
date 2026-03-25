@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid management api, api versioning 
 summary: 'L"API Grid Management utilizza il controllo delle versioni per supportare aggiornamenti senza interruzioni.' 
 ---
-= Versione dell'API Grid Management
+= Versioning dell'API Grid Management in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

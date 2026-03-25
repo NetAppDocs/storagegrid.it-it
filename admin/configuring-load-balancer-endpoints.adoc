@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure load balancer endpoint, how to attach certificate to load balancer endpoint 
 summary: Gli endpoint di bilanciamento del carico determinano le porte e i protocolli di rete che i client S3 possono utilizzare quando si collegano al bilanciamento del carico StorageGRID sui nodi Gateway e Admin. È inoltre possibile utilizzare gli endpoint per accedere a Grid Manager, Tenant Manager o a entrambi. 
 ---
-= Configurare gli endpoint del bilanciamento del carico
+= Configurare gli endpoint del bilanciamento del carico StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

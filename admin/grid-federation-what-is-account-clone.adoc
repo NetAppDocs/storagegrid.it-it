@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: account clone, tenant replication, disaster recovery, grid federation 
 summary: 'Il clone dell"account è la replica automatica di un account tenant, di gruppi tenant, di utenti tenant e, facoltativamente, S3 access key tra i sistemi StorageGRID in una connessione a federazione di griglie.' 
 ---
-= Che cos'è il clone dell'account?
+= Scopri il clone dell'account in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

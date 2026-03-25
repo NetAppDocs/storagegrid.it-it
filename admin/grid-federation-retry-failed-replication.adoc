@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, troubleshoot 
 summary: 'Dopo aver risolto l"avviso di errore permanente della replica cross-grid, è necessario determinare se non è stato possibile replicare oggetti o marcatori di eliminazione nell"altra griglia. È quindi possibile recuperare questi oggetti o utilizzare l"API Grid Management per riprovare la replica.' 
 ---
-= Identificare e riprovare le operazioni di replica non riuscite
+= Identificare e riprovare le operazioni di replica di StorageGRID non riuscite
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

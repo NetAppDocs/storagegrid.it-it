@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services, ports for platform services, 443, 80 
 summary: Se si consente a un tenant S3 di utilizzare i servizi della piattaforma, è necessario configurare la rete per la griglia per garantire che i messaggi dei servizi della piattaforma possano essere recapitati alle rispettive destinazioni. 
 ---
-= Rete e porte per i servizi della piattaforma
+= Rete e porte per i servizi della piattaforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

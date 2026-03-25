@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit traffic classification policy 
 summary: È possibile modificare un criterio di classificazione del traffico per modificarne il nome o la descrizione oppure per creare, modificare o eliminare eventuali regole o limiti per il criterio. 
 ---
-= Modificare la policy di classificazione del traffico
+= Modificare una policy di classificazione del traffico StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot platform services, platform services endpoint error 
 summary: 'Gli endpoint utilizzati nei servizi della piattaforma vengono creati e gestiti dagli utenti del tenant in Tenant Manager; tuttavia, se un tenant ha problemi nella configurazione o nell"utilizzo dei servizi della piattaforma, potrebbe essere possibile utilizzare Grid Manager per risolvere il problema.' 
 ---
-= Risolvere i problemi relativi ai servizi della piattaforma
+= Risoluzione dei problemi dei servizi della piattaforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

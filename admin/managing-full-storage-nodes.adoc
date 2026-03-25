@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node is full 
 summary: 'Man mano che i nodi di storage raggiungono la capacità, è necessario espandere il sistema StorageGRID con l"aggiunta di nuovo storage. Sono disponibili tre opzioni: Aggiunta di volumi di storage, aggiunta di shelf di espansione dello storage e aggiunta di nodi di storage.' 
 ---
-= Gestire nodi storage completi
+= Gestisci nodi di storage completi in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

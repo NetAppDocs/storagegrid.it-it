@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform service, cloudmirror replication, event notification, search integration service 
 summary: I servizi della piattaforma includono la replica di CloudMirror, le notifiche degli eventi e il servizio di integrazione della ricerca. 
 ---
-= Cosa sono i servizi della piattaforma?
+= Scopri i servizi della piattaforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

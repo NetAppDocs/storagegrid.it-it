@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid manager, sign on, log out 
 summary: 'Una volta terminato l"utilizzo di Grid Manager, è necessario disconnettersi per garantire che gli utenti non autorizzati non possano accedere al sistema StorageGRID. La chiusura del browser potrebbe non disconnettersi dal sistema, in base alle impostazioni dei cookie del browser.' 
 ---
-= Disconnettersi da Grid Manager
+= Disconnettiti da StorageGRID Grid Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

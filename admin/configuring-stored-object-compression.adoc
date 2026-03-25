@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object compression, compress stored objects 
 summary: È possibile attivare la compressione degli oggetti per ridurre le dimensioni degli oggetti memorizzati in StorageGRID, in modo che gli oggetti consumino meno spazio di storage. 
 ---
-= Compressione degli oggetti memorizzati
+= Comprimi gli oggetti memorizzati in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

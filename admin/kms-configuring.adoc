@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configure kms, key management server, kmip, Key Management Interoperability Protocol 
 summary: 'Un server di gestione delle chiavi \(KMS\) è un sistema esterno di terze parti che fornisce chiavi di crittografia ai nodi di appliance StorageGRID nel sito StorageGRID associato utilizzando il protocollo di interoperabilità di gestione delle chiavi \(KMIP\)' 
 ---
-= Che cos'è un server di gestione delle chiavi (KMS)?
+= Scopri i server di gestione delle chiavi in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

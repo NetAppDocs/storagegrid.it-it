@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage proxy, non-transparent proxy, platform service endpoint 
 summary: 'Se si utilizzano servizi di piattaforma o Cloud Storage Pool, è possibile configurare un proxy non trasparente tra i nodi di storage e gli endpoint S3 esterni. Ad esempio, potrebbe essere necessario un proxy non trasparente per consentire l"invio dei messaggi dei servizi della piattaforma a endpoint esterni, ad esempio un endpoint su Internet.' 
 ---
-= Configurare il proxy di archiviazione
+= Configurare un proxy StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

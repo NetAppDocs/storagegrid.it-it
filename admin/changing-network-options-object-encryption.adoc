@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable http, storage node connections 
 summary: È possibile configurare la protezione della rete e degli oggetti per crittografare gli oggetti archiviati, impedire determinate richieste S3 o consentire alle connessioni client ai nodi di archiviazione di utilizzare HTTP invece di HTTPS. 
 ---
-= Configurare la sicurezza della rete e degli oggetti
+= Configurare la sicurezza di rete e degli oggetti di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

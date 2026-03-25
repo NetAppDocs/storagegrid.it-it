@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use sandbox mode for sso, how to test single sign-on 
 summary: 'È possibile seguire la procedura guidata Configura SSO e accedere alla modalità sandbox per configurare e testare l"accesso Single Sign-On (SSO) prima di abilitarlo per tutti gli utenti StorageGRID .  Dopo aver abilitato l"SSO, è possibile tornare alla modalità sandbox quando necessario per modificare o testare nuovamente la configurazione.' 
 ---
-= Configurare SSO
+= Configura il single sign-on in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

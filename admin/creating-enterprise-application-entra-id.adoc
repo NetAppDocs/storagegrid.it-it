@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enterprise application, entra id, single sign on, sso 
 summary: 'Puoi utilizzare Entra ID per creare un"applicazione aziendale per ogni nodo amministrativo del tuo sistema.' 
 ---
-= Crea applicazioni aziendali in Entra ID
+= Crea applicazioni aziendali in Entra ID per StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

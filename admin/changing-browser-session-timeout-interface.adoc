@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, browser inactivity timeout, management API stack track 
 summary: 'Le impostazioni di protezione dell"interfaccia consentono di controllare se gli utenti sono disconnessi se sono inattivi per un periodo di tempo superiore a quello specificato e se una traccia dello stack è inclusa nelle risposte di errore API.' 
 ---
-= Modificare le impostazioni di sicurezza dell'interfaccia
+= Modificare le impostazioni di sicurezza dell'interfaccia StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

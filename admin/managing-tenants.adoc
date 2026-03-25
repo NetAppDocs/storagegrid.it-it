@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage tenants, tenant account, what is a tenant 
 summary: 'Un account tenant consente di utilizzare l"API REST del servizio di archiviazione semplice \(S3\) per memorizzare e recuperare gli oggetti in un sistema StorageGRID.' 
 ---
-= Cosa sono gli account tenant?
+= Account tenant in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

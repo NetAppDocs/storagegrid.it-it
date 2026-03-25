@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3, S3 setup wizard 
 summary: 'È possibile utilizzare l"installazione guidata S3 per configurare StorageGRID come sistema di storage a oggetti per un"applicazione S3.' 
 ---
-= Utilizzare l'installazione guidata S3: Considerazioni e requisiti
+= Considerazioni e requisiti relativi alla procedura guidata di configurazione S3 di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
