@@ -55,7 +55,7 @@ Assicurati che il tuo sistema operativo Linux soddisfi i requisiti minimi di ver
  a| 
 Documentazione StorageGRID
  a| 
-* link:../release-notes/index.html["Note di rilascio"]per StorageGRID 12.0 (è richiesto l'accesso).  Assicuratevi di leggerli attentamente prima di iniziare l'aggiornamento.
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Note di rilascio"^]. È necessario accedere con il proprio account NetApp o crearne uno per accedere alle note di rilascio. Assicurarsi di leggerle attentamente prima di iniziare l'aggiornamento.
 * https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_12.0_software_upgrade_resolution_guide["Guida alla risoluzione degli aggiornamenti del software StorageGRID"^]per la versione principale a cui stai effettuando l'aggiornamento (è richiesto l'accesso)
 * Altro https://docs.netapp.com/us-en/storagegrid-family/index.html["Documentazione StorageGRID"^], secondo necessità.
 

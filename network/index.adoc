@@ -56,5 +56,5 @@ Dopo aver stabilito quali reti StorageGRID si desidera utilizzare e come configu
 
 .Configurare e amministrare il software StorageGRID
 * link:../admin/index.html["Amministrare StorageGRID"]
-* link:../release-notes/index.html["Note di rilascio"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Note di rilascio"^]. È necessario accedere con il proprio account NetApp o crearne uno per accedere alle note di rilascio.
 

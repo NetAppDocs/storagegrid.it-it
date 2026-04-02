@@ -59,7 +59,7 @@ La passphrase viene creata e documentata al momento dell'installazione del siste
 Documentazione StorageGRID
  a| 
 * link:../admin/index.html["Amministrare StorageGRID"]
-* link:../release-notes/index.html["Note di rilascio"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Note di rilascio"^]. È necessario accedere con il proprio account NetApp o crearne uno per accedere alle note di rilascio.
 * link:../swnodes/index.html["Istruzioni per l'installazione della piattaforma"]
 
 

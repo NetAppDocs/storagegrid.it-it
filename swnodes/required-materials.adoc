@@ -60,7 +60,7 @@ Il laptop di assistenza deve disporre di:
 Documentazione StorageGRID::
 +
 --
-* link:../release-notes/index.html["Note di rilascio"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Note di rilascio"^]. È necessario accedere con il proprio account NetApp o crearne uno per accedere alle note di rilascio.
 * link:../admin/index.html["Istruzioni per l'amministrazione di StorageGRID"]
 
 
