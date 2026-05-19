@@ -825,7 +825,7 @@ RestoreObject
 |===
 
 
-== Utilizza l'autorizzazione PutOverwriteObject
+== [[use-putoverwriteobject-permission]]Utilizza il permesso PutOverwriteObject
 
 l'autorizzazione s3:PutOverwriteObject è un'autorizzazione StorageGRID personalizzata che si applica alle operazioni che creano o aggiornano oggetti. L'impostazione di questa autorizzazione determina se il client può sovrascrivere i dati di un oggetto, i metadati definiti dall'utente o il tagging degli oggetti S3.
 
