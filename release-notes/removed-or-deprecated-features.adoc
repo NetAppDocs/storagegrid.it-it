@@ -39,7 +39,7 @@ NOTE: In alcune situazioni, NetApp potrebbe interrompere il supporto per determi
 
 
  a| 
-Allarmi legacy (_NOT Alerts_)
+Allarmi, legacy (non Alerts)
  a| 
 11,7
  a| 
@@ -104,6 +104,19 @@ Motore container Docker
 DA DEFINIRE
  a| 
 Il supporto per Docker come motore di container per distribuzioni esclusivamente software è deprecato.  Docker verrà sostituito con un altro motore di container in una versione futura.  Fare riferimento allink:../swnodes/software-requirements.html["requisiti software per i nodi basati su software"] per un elenco delle versioni di Docker attualmente supportate.
+
+
+
+ a| 
+Configurazione email (legacy)
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+12,1
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/monitor/managing-alarms.html#configure-notifications-for-alarms-legacy-system["Configura le notifiche per gli allarmi (sistema legacy) (StorageGRID 11.8)"^]
 
 
 

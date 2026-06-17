@@ -2,7 +2,7 @@
 permalink: maintain/decommissioning-disconnected-grid-nodes.html 
 sidebar: sidebar 
 keywords: storagegrid, disconnected nodes, decommission node 
-summary: 'Potrebbe essere necessario decommissionare un nodo che non è attualmente connesso alla rete (uno il cui stato di salute è sconosciuto o amministrativamente inattivo).' 
+summary: 'Potrebbe essere necessario decommissionare un nodo che non è attualmente connesso alla rete (un nodo il cui stato di salute è sconosciuto o amministrativamente inattivo).' 
 ---
 = Decommissionare i nodi StorageGRID disconnessi
 :allow-uri-read: 

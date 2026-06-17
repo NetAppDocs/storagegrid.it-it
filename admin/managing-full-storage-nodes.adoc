@@ -2,7 +2,7 @@
 permalink: admin/managing-full-storage-nodes.html 
 sidebar: sidebar 
 keywords: storage node is full 
-summary: 'Man mano che i nodi di storage raggiungono la capacità, è necessario espandere il sistema StorageGRID con l"aggiunta di nuovo storage. Sono disponibili tre opzioni: Aggiunta di volumi di storage, aggiunta di shelf di espansione dello storage e aggiunta di nodi di storage.' 
+summary: 'Quando i nodi di archiviazione raggiungono la capacità, devi espandere il sistema StorageGRID aggiungendo nuovo storage. Hai tre opzioni disponibili: aggiungere volumi di storage, aggiungere shelf di espansione dello storage e aggiungere nodi di archiviazione.' 
 ---
 = Gestisci nodi di storage completi in StorageGRID
 :allow-uri-read: 

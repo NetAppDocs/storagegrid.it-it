@@ -2,7 +2,7 @@
 permalink: maintain/step-2-view-details.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, view details 
-summary: Dalla fase 2 della procedura guidata Decommission Site, è possibile esaminare i nodi inclusi nel sito, verificare la quantità di spazio utilizzata su ciascun nodo di storage e valutare la quantità di spazio disponibile negli altri siti della griglia. 
+summary: 'Dalla fase 2 (Visualizza dettagli) della procedura guidata Decommission Site, è possibile esaminare i nodi inclusi nel sito, verificare la quantità di spazio utilizzata su ciascun nodo di storage e valutare la quantità di spazio libero disponibile negli altri siti della griglia.' 
 ---
 = Rivedere i dettagli del sito prima di decommissionare in StorageGRID
 :allow-uri-read: 

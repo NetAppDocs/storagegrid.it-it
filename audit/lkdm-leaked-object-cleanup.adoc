@@ -2,7 +2,7 @@
 permalink: audit/lkdm-leaked-object-cleanup.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, LKDM, Leaked Object Cleanup 
-summary:  
+summary: Il messaggio di audit LKDM viene generato quando un chunk perso è stato ripulito o eliminato. 
 ---
 = Messaggio di audit LKDM per la pulizia degli oggetti trapelati in StorageGRID
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: admin/kms-overview-of-kms-and-appliance-configuration.html 
 sidebar: sidebar 
 keywords: kms, appliance configuration, node encryption 
-summary: 'Prima di poter utilizzare un server di gestione delle chiavi per proteggere i dati StorageGRID sui nodi appliance, è necessario completare due attività di configurazione: La configurazione di uno o più server KMS e l"abilitazione della crittografia dei nodi per i nodi appliance. Una volta completate queste due attività di configurazione, il processo di gestione delle chiavi viene eseguito automaticamente.' 
+summary: 'Prima di poter utilizzare un server di gestione delle chiavi (KMS) per proteggere i dati di StorageGRID sui nodi dell"appliance, devi completare due attività di configurazione: impostare uno o più server KMS e abilitare la crittografia dei nodi per i nodi dell"appliance. Quando queste due attività di configurazione sono complete, il processo di gestione delle chiavi avviene automaticamente.' 
 ---
 = StorageGRID configurazione del server e dell'appliance di gestione delle chiavi
 :allow-uri-read: 

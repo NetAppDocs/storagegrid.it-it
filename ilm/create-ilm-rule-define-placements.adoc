@@ -2,7 +2,7 @@
 permalink: ilm/create-ilm-rule-define-placements.html 
 sidebar: sidebar 
 keywords: ilm rule step 2, define placements 
-summary: 'La fase Definisci posizionamenti della procedura guidata Crea regola ILM consente di definire le istruzioni di posizionamento che determinano la durata dell"archiviazione degli oggetti, il tipo di copie \(replicate o sottoposte a erasure coding\), la posizione di archiviazione e il numero di copie.' 
+summary: 'La fase "Definisci posizionamenti" della procedura guidata "Crea regola ILM" ti permette di definire le istruzioni di posizionamento che determinano per quanto tempo gli oggetti vengono conservati, il tipo di copie (replicate o con codifica di cancellazione), la posizione di archiviazione e il numero di copie.' 
 ---
 = Definisci le istruzioni di posizionamento per una regola StorageGRID ILM
 :allow-uri-read: 

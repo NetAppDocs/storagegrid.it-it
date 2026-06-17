@@ -2,7 +2,7 @@
 permalink: admin/kms-considerations-for-changing-for-site.html 
 sidebar: sidebar 
 keywords: kms cluster, copy kms encryption key 
-summary: 'Ogni server di gestione delle chiavi o cluster KMS fornisce una chiave di crittografia a tutti i nodi appliance di un singolo sito o di un gruppo di siti. Se è necessario modificare il KMS utilizzato per un sito, potrebbe essere necessario copiare la chiave di crittografia da un KMS all"altro.' 
+summary: 'Ciascun server di gestione delle chiavi (KMS) o cluster KMS fornisce una chiave di crittografia a tutti i nodi appliance di un singolo sito o di un gruppo di siti. Se è necessario modificare il KMS utilizzato per un sito, potrebbe essere necessario copiare la chiave di crittografia da un KMS all"altro.' 
 ---
 = Considerazioni sulla modifica del KMS per un sito StorageGRID
 :allow-uri-read: 

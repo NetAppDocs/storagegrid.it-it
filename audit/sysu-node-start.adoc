@@ -2,7 +2,7 @@
 permalink: audit/sysu-node-start.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, SYSU, Node Start 
-summary: 'Quando un servizio viene riavviato, questo messaggio viene generato per indicare se lo spegnimento precedente era pulito (comando) o disordinato (imprevisto).' 
+summary: 'Quando un servizio viene riavviato, questo messaggio viene generato per indicare se l"arresto precedente era pulito (comandato) o disordinato (imprevisto).' 
 ---
 = Messaggio di audit SYSU per il nodo avviato in StorageGRID
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: tenant/using-storagegrid-tenant-account.html 
 sidebar: sidebar 
 keywords: how to use tenant account 
-summary: 'Un account tenant consente di utilizzare l"API REST del servizio di archiviazione semplice \(S3\) per memorizzare e recuperare gli oggetti in un sistema StorageGRID.' 
+summary: 'Un account tenant consente di utilizzare l"API REST S3 (Simple Storage Service) per memorizzare e recuperare gli oggetti in un sistema StorageGRID.' 
 ---
 = Utilizza l'account tenant StorageGRID
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: admin/disabling-single-sign-on.html 
 sidebar: sidebar 
 keywords: disable sso, disable single sign on 
-summary: 'Se non si desidera più utilizzare questa funzionalità, è possibile disattivare il Single Sign-on (SSO). È necessario disattivare il Single Sign-on prima di poter disattivare la federazione delle identità.' 
+summary: 'È possibile disattivare SSO (Single Sign-on) se non si desidera più utilizzare questa funzionalità. È necessario disattivare il Single Sign-on prima di poter disattivare la federazione delle identità.' 
 ---
 = Disabilita SSO in StorageGRID
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: maintain/step-3-revise-ilm-policy.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, revise ilm policies 
-summary: 'Dal passaggio 3 \(Revisiona criteri ILM\) della procedura guidata Decommission Site, è possibile determinare se il sito è referenziato da qualsiasi criterio ILM.' 
+summary: 'Dal passaggio 3 (Rivedi criteri ILM) della procedura guidata Decommission Site, è possibile determinare se il sito è referenziato da qualsiasi criterio ILM.' 
 ---
 = Rivedere le politiche ILM per il decommission di un sito in StorageGRID
 :allow-uri-read: 

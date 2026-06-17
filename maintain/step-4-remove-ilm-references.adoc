@@ -2,7 +2,7 @@
 permalink: maintain/step-4-remove-ilm-references.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, remove ilm reference 
-summary: 'Dal passaggio 4 \(Rimuovi riferimenti ILM\) della procedura guidata Decommission Site, è necessario eliminare o modificare eventuali regole ILM non utilizzate che fanno riferimento al sito, anche se le regole non sono utilizzate in alcun criterio ILM.' 
+summary: 'Dal passaggio 4 (Rimuovi riferimenti ILM) della procedura guidata Decommission Site (Sito di decontaminazione), è necessario eliminare o modificare eventuali regole ILM non utilizzate che fanno riferimento al sito, anche se le regole non sono utilizzate in alcun criterio ILM.' 
 ---
 = Rimuovi i riferimenti ILM a un sito in StorageGRID
 :allow-uri-read: 

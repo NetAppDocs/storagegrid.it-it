@@ -2,7 +2,7 @@
 permalink: maintain/understanding-adc-service-quorum.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, adc, adc quorum 
-summary: 'È possibile che non sia possibile smantellare alcuni nodi di archiviazione in un sito se dopo lo smantellamento rimanessero pochi servizi del controller di dominio amministrativo \(ADC\).' 
+summary: 'Potrebbe non essere possibile smantellare alcuni nodi di archiviazione in un sito se dopo lo smantellamento rimanessero pochi servizi ADC (Administrative Domain Controller).' 
 ---
 = Cos'è il quorum ADC di StorageGRID?
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: s3/index.html 
 sidebar: sidebar 
 keywords: about s3, s3 rest api, s3 overview 
-summary: 'StorageGRID supporta l"API Simple Storage Service (S3), implementata come insieme di servizi Web REST (Representational state Transfer).' 
+summary: 'StorageGRID supporta l"API S3 (Simple Storage Service), implementata come set di servizi Web REST (Representational state Transfer).' 
 ---
 = Versioni e aggiornamenti supportati dall'API REST S3 di StorageGRID
 :allow-uri-read: 

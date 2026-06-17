@@ -2,7 +2,7 @@
 permalink: expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html 
 sidebar: sidebar 
 keywords: erasure coding, EC, rebalancing, site rebalance procedure, StorageGRID 
-summary: 'Dopo aver aggiunto i nodi storage, è possibile utilizzare la procedura di ribilanciamento dell"erasure coding per ridistribuire i frammenti sottoposti a erasure coding tra i nodi storage nuovi ed esistenti.' 
+summary: Dopo che hai aggiunto i nodi di archiviazione, puoi usare la procedura di ribilanciamento della codifica di cancellazione per ridistribuire i frammenti codificati con codifica di cancellazione tra i nodi di archiviazione esistenti e quelli nuovi. 
 ---
 = Ribilancia i dati codificati in modo da essere cancellati dopo aver aggiunto nodi al tuo sistema StorageGRID
 :allow-uri-read: 

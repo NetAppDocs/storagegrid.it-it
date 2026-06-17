@@ -2,7 +2,7 @@
 permalink: s3/use-access-policies.html 
 sidebar: sidebar 
 keywords: bucket access policies, group access policies, session policies 
-summary:  
+summary: 'StorageGRID utilizza il linguaggio delle policy di Amazon Web Services (AWS) per consentire ai tenant S3 di controllare l"accesso ai bucket e agli oggetti all"interno di tali bucket.' 
 ---
 = Come StorageGRID utilizza le policy AWS per controllare l'accesso ai bucket e agli oggetti S3
 :allow-uri-read: 

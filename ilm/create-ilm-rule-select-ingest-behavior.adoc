@@ -2,7 +2,7 @@
 permalink: ilm/create-ilm-rule-select-ingest-behavior.html 
 sidebar: sidebar 
 keywords: ilm rule step 3, define ingest behavior 
-summary: 'Il passaggio 3 della procedura guidata Crea regola ILM consente di scegliere la modalità di protezione degli oggetti filtrati da questa regola durante l"acquisizione.' 
+summary: 'Il passaggio 3 (Seleziona il comportamento di acquisizione) della procedura guidata Crea regola ILM ti permette di scegliere come vengono protetti gli oggetti filtrati da questa regola mentre vengono acquisiti.' 
 ---
 = Selezionare il comportamento di acquisizione per una regola StorageGRID ILM
 :allow-uri-read: 

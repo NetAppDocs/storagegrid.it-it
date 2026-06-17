@@ -2,7 +2,7 @@
 permalink: maintain/step-6-monitor-decommission.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, monitor decommission, decommission 
-summary: 'Dalla fase 6 della procedura guidata della pagina Decommissionare il sito, è possibile monitorare l"avanzamento durante la rimozione del sito.' 
+summary: 'Dalla fase 6 (Monitor Decommission) della procedura guidata della pagina Decommission Site (Smantella sito), è possibile monitorare l"avanzamento della procedura di rimozione del sito.' 
 ---
 = Monitora l'avanzamento della decommission del sito in StorageGRID
 :allow-uri-read: 

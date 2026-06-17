@@ -30,9 +30,13 @@ Se uno dei nuovi nodi ha un indirizzo IP Grid Network su una subnet non utilizza
 Non utilizzare subnet che contengono i seguenti indirizzi IPv4 per la rete Grid, la rete di amministrazione o la rete client di alcun nodo:
 
 * 192.168.130.101
+* 192.168.130.121
 * 192.168.131.101
+* 192.168.131.121
 * 192.168.130.102
+* 192.168.130.122
 * 192.168.131.102
+* 192.168.131.122
 * 198.51.100.2
 * 198.51.100.4
 

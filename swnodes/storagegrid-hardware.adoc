@@ -10,7 +10,7 @@ summary: 'Scopri come installare, configurare e utilizzare l"hardware dell"appli
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

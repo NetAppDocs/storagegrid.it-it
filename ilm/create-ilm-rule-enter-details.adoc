@@ -2,7 +2,7 @@
 permalink: ilm/create-ilm-rule-enter-details.html 
 sidebar: sidebar 
 keywords: ILM rule step 1, define basics 
-summary: Il passaggio 1 della procedura guidata Crea una regola ILM consente di immettere un nome e una descrizione per la regola e di definire i filtri per la regola. 
+summary: 'Il passaggio 1 (Inserisci i dettagli) della procedura guidata Crea una regola ILM ti permette di inserire un nome e una descrizione per la regola e di definire i filtri per la regola.' 
 ---
 = Inserisci dettagli e filtri per una regola ILM di StorageGRID
 :allow-uri-read: 
