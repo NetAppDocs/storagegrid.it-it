@@ -386,7 +386,7 @@ Se non riesci a risolvere il problema da solo, contatta il supporto tecnico. Pri
 
 [cols="1a,2a,4a"]
 |===
-| image:../media/feature_checkmark.gif["selezionare"] | Elemento | Note 
+| image:feature_checkmark.gif["selezionare"] | Elemento | Note 
 
 
  a| 

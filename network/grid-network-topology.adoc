@@ -24,6 +24,6 @@ In questo esempio, tutto il traffico condivide la stessa rete, incluso il traffi
 
 NOTE: Questa topologia è appropriata per implementazioni a singolo sito che non sono disponibili esternamente, implementazioni proof-of-concept o di test o quando un bilanciamento del carico di terze parti agisce come limite di accesso al client. Se possibile, la rete Grid deve essere utilizzata esclusivamente per il traffico interno. Sia la rete di amministrazione che la rete client presentano ulteriori restrizioni firewall che bloccano il traffico esterno verso i servizi interni. È supportato l'utilizzo di Grid Network per il traffico client esterno, ma questo tipo di utilizzo offre meno livelli di protezione.
 
-image::../media/grid_network.png[Grid Network]
+image:grid_network.png["Grid Network"]
 
-image::../media/grid_network_ips.png[IP di rete grid]
+image:grid_network_ips.png["IP di rete grid"]

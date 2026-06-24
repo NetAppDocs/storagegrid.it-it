@@ -69,7 +69,7 @@ Un'interfaccia deve essere un nodo gateway o un nodo amministratore per essere i
 Utilizzare le intestazioni di colonna per ordinare le righe o inserire un termine di ricerca per individuare le interfacce più rapidamente.
 
 +
-image::../media/ha_group_add_interfaces.png[Gruppi HA Aggiungi interfacce]
+image:ha_group_add_interfaces.png["Gruppi HA Aggiungi interfacce"]
 
 +
 
@@ -84,7 +84,7 @@ NOTE: Dopo aver creato un'interfaccia VLAN, attendere fino a 5 minuti per visual
 ** Se si selezionano interfacce su diversi tipi di nodi, viene visualizzata una nota informativa. Si ricorda che, in caso di failover, i servizi forniti dal nodo precedentemente attivo potrebbero non essere disponibili sul nodo appena attivo. Ad esempio, un nodo gateway di backup non può fornire la protezione ha dei servizi del nodo amministratore. Analogamente, un nodo Admin di backup non può eseguire tutte le procedure di manutenzione che il nodo Admin primario può fornire.
 ** Se non è possibile selezionare un'interfaccia, la relativa casella di controllo è disattivata. Il suggerimento fornisce ulteriori informazioni.
 +
-image::../media/vlan_parent_interface_tooltip.png[Suggerimento per l'interfaccia VLAN]
+image:vlan_parent_interface_tooltip.png["Suggerimento per l'interfaccia VLAN"]
 
 ** Non è possibile selezionare un'interfaccia se il relativo valore di sottorete o il gateway è in conflitto con un'altra interfaccia selezionata.
 ** Non è possibile selezionare un'interfaccia configurata se non dispone di un indirizzo IP statico.
@@ -105,7 +105,7 @@ Se il gruppo ha include più di un'interfaccia, è possibile determinare quale s
 La prima interfaccia nell'elenco è l'interfaccia primaria. L'interfaccia principale è l'interfaccia attiva a meno che non si verifichi un errore.
 
 +
-image::../media/ha_group_determine_failover.png[I gruppi HA determinano l'ordine di priorità]
+image:ha_group_determine_failover.png["I gruppi HA determinano l'ordine di priorità"]
 
 +
 
@@ -128,7 +128,7 @@ L'indirizzo di rete non deve avere bit host impostati. Ad esempio, `192.16.0.0/2
 NOTE: Se si utilizza un prefisso a 32 bit, l'indirizzo di rete VIP funge anche da indirizzo del gateway e da indirizzo VIP.
 
 +
-image::../media/ha_group_select_virtual_ips.png[I gruppi HA inseriscono i VIP]
+image:ha_group_select_virtual_ips.png["I gruppi HA inseriscono i VIP"]
 
 . Facoltativamente, se un client S3 amministrativo o tenant accede a questi indirizzi VIP da una subnet diversa, immettere l'indirizzo IP *Gateway*. L'indirizzo del gateway deve trovarsi all'interno della subnet VIP.
 +

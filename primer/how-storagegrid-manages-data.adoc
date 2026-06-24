@@ -17,7 +17,7 @@ Lo storage a oggetti separa la posizione fisica dei dati dal metodo utilizzato p
 
 Ogni oggetto in un sistema di storage basato su oggetti ha due parti: Dati oggetto e metadati oggetto.
 
-image::../media/object_conceptual_drawing.png[Oggetto]
+image:object_conceptual_drawing.png["Oggetto"]
 
 
 
@@ -56,7 +56,7 @@ Quando StorageGRID abbina gli oggetti a una regola di Information Lifecycle mana
 
 Nell'esempio seguente, la regola Make 2 copies specifica che due copie replicate di ciascun oggetto devono essere collocate in un pool di storage che contiene tre nodi di storage.
 
-image::../media/ilm_replication_make_2_copies.png[Regola di creazione di 2 copie]
+image:ilm_replication_make_2_copies.png["Regola di creazione di 2 copie"]
 
 
 
@@ -66,7 +66,7 @@ Quando StorageGRID associa oggetti a una regola ILM configurata per creare copie
 
 Nell'esempio riportato di seguito viene illustrato l'utilizzo della codifica erasure sui dati di un oggetto. In questo esempio, la regola ILM utilizza uno schema di erasure coding 4+2. Ciascun oggetto viene suddiviso in quattro frammenti di dati uguali e due frammenti di parità vengono calcolati dai dati dell'oggetto. Ciascuno dei sei frammenti viene memorizzato su un nodo di storage diverso in tre data center per fornire protezione dei dati in caso di guasti al nodo o perdita del sito.
 
-image::../media/ec_three_sites_4_plus_2.png[Erasure Coded Three Sites 4 Plus 2]
+image:ec_three_sites_4_plus_2.png["Erasure Coded Three Sites 4 Plus 2"]
 
 .Informazioni correlate
 * link:../ilm/index.html["Gestire gli oggetti con ILM"]

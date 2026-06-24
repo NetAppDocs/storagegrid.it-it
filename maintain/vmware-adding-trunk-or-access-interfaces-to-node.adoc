@@ -34,7 +34,7 @@ Il nodo potrebbe non essere disponibile per un breve periodo di tempo quando si 
 .Fasi
 . In vCenter, aggiungere una nuova scheda di rete (tipo VMXNET3) a un nodo di amministrazione e a una macchina virtuale del nodo gateway. Selezionare le caselle di controllo *connesso* e *Connetti all'accensione*.
 +
-image::../media/vcenter.png[VCenter]
+image:vcenter.png["VCenter"]
 
 . Utilizzare SSH per accedere al nodo di amministrazione o al nodo gateway.
 . Utilizzare `ip link show` per confermare il rilevamento della nuova interfaccia di rete ens256.

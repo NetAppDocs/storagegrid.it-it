@@ -21,7 +21,7 @@ Viene visualizzata la scheda Overview (Panoramica) per tutti i nodi.
 
 La sezione Node Information (informazioni nodo) della scheda Overview (Panoramica) elenca le informazioni di base sul nodo.
 
-image::../media/nodes_page_overview_tab.png[Scheda Panoramica pagina nodi]
+image:nodes_page_overview_tab.png["Scheda Panoramica pagina nodi"]
 
 Le informazioni generali per un nodo includono quanto segue:
 
@@ -31,13 +31,13 @@ Le informazioni generali per un nodo includono quanto segue:
 * *ID*: Identificatore univoco del nodo, chiamato anche UUID.
 * *Stato connessione*: Uno dei tre stati. Viene visualizzata l'icona dello stato più grave.
 +
-** *Sconosciuto* image:../media/icon_alarm_blue_unknown.png["icona del punto interrogativo blu"]: per un motivo sconosciuto, il nodo non è connesso alla rete oppure uno o più servizi sono inattesi. Ad esempio, la connessione di rete tra i nodi è stata persa, l'alimentazione è inattiva o un servizio è inattivo. Potrebbe essere attivato anche l'avviso *Impossibile comunicare con il nodo*. Potrebbero essere attivi anche altri avvisi. Questa situazione richiede un'attenzione immediata.
+** *Sconosciuto* image:icon_alarm_blue_unknown.png["icona del punto interrogativo blu"]: Per un motivo sconosciuto, il nodo non è connesso alla grid oppure uno o più servizi sono inaspettatamente non disponibili. Ad esempio, la connessione di rete tra i nodi è stata persa, manca l'alimentazione o un servizio non è disponibile. Potrebbe anche essere attivato l'avviso *Unable to communicate with node*. Potrebbero essere attivi anche altri avvisi. Questa situazione richiede un intervento immediato.
 +
 
 NOTE: Un nodo potrebbe apparire come sconosciuto durante le operazioni di shutdown gestite. In questi casi, è possibile ignorare lo stato Unknown (Sconosciuto).
 
-** *Amministrativamente inattivo* image:../media/icon_alarm_gray_administratively_down.png["icona del punto interrogativo grigio"]: il nodo non è connesso alla rete per un motivo previsto. Ad esempio, il nodo o i servizi sul nodo sono stati normalmente spenti, il nodo è in fase di riavvio o il software è in fase di aggiornamento. Potrebbero essere attivi anche uno o più avvisi.
-** *Connesso* image:../media/icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"]: il nodo è collegato alla rete.
+** *Inattivo per motivi amministrativi* image:icon_alarm_gray_administratively_down.png["icona del punto interrogativo grigio"]: Il nodo non è connesso alla grid per un motivo previsto. Ad esempio, il nodo o i servizi sul nodo sono stati arrestati correttamente, il nodo si sta riavviando oppure il software viene aggiornato. Potrebbero anche essere attivi uno o più avvisi.
+** *Connesso* image:icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"]: Il nodo è connesso alla griglia.
 
 
 * *Storage utilizzato*: Solo per nodi di storage.
@@ -57,6 +57,6 @@ NOTE: Un nodo potrebbe apparire come sconosciuto durante le operazioni di shutdo
 
 La sezione Avvisi della scheda Panoramica elenca qualsiasi link:monitoring-system-health.html#view-current-and-resolved-alerts["avvisi che attualmente interessano questo nodo e che non sono stati tacitati"]. Selezionare il nome dell'avviso per visualizzare ulteriori dettagli e le azioni consigliate.
 
-image::../media/nodes_page_alerts_table.png[Tabella Notifiche pagina nodi]
+image:nodes_page_alerts_table.png["Tabella Notifiche pagina nodi"]
 
 Gli avvisi sono inclusi anche per link:monitoring-system-health.html#monitor-node-connection-states["stati di connessione del nodo"].

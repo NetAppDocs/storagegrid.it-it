@@ -75,7 +75,7 @@ StorageGRID ti impedisce di disattivare un profilo di erasure coding se si verif
 Non è possibile disattivare un profilo di erasure coding se è utilizzato in qualsiasi regola ILM. Nell'esempio, il profilo 2+1 Data Center 1 viene utilizzato in almeno una regola ILM.
 
 +
-image::../media/ec_profile_used_in_ilm_rule.png[Profilo EC utilizzato nella regola ILM]
+image:ec_profile_used_in_ilm_rule.png["Profilo EC utilizzato nella regola ILM"]
 
 . Se il profilo viene utilizzato in una regola ILM, attenersi alla seguente procedura:
 +

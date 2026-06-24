@@ -37,7 +37,7 @@ I nodi vengono visualizzati nell'elenco dopo un errore, ma non è possibile sele
 . Immettere la *Provisioning Passphrase*.
 . Fare clic su *Start Recovery* (Avvia ripristino).
 +
-image::../media/4b_select_recovery_node.png[Schermata che mostra la pagina manutenzione > Ripristino]
+image:4b_select_recovery_node.png["screenshot che mostra la pagina Maintenance > Recovery"]
 
 . Monitorare l'avanzamento del ripristino nella tabella Recovery Grid Node (nodo griglia di ripristino).
 +
@@ -45,7 +45,7 @@ image::../media/4b_select_recovery_node.png[Schermata che mostra la pagina manut
 NOTE: Durante l'esecuzione della procedura di ripristino, fare clic su *Reset* (Ripristina) per avviare un nuovo ripristino. Viene visualizzata una finestra di dialogo che indica che il nodo viene lasciato in uno stato indeterminato se si ripristina la procedura.
 
 +
-image::../media/recovery_reset_warning.gif[schermata che mostra la finestra di dialogo di avviso di ripristino]
+image:recovery_reset_warning.gif["schermata che mostra la finestra di dialogo di avviso di ripristino"]
 
 +
 Se si desidera riprovare il ripristino dopo aver reimpostato la procedura, è necessario ripristinare il nodo a uno stato preinstallato, come segue:
@@ -57,6 +57,6 @@ Se si desidera riprovare il ripristino dopo aver reimpostato la procedura, è ne
 
 . Quando il nodo di archiviazione raggiunge la fase "in attesa delle fasi manuali", passare a link:remounting-and-reformatting-storage-volumes-manual-steps.html["Rimontare e riformattare i volumi di storage (procedura manuale)"].
 +
-image::../media/recovery_reset_button.gif[schermata che mostra la fase "in attesa di passaggi manuali"]
+image:recovery_reset_button.gif["schermata che mostra la fase \"in attesa di passaggi manuali\""]
 
 

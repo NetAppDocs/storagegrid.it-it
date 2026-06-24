@@ -28,7 +28,7 @@ La dashboard Tenant Manager consente agli utenti tenant di monitorare a colpo d'
 
 Il valore visualizzato sopra il grafico a barre è la somma dello spazio utilizzato per tutti i bucket o i container del tenant. Se al momento della creazione dell'account è stato specificato il numero massimo di gigabyte, terabyte o petabyte disponibili per il tenant, viene visualizzata anche la quantità di quota utilizzata e rimanente.
 
-image::../media/tenant_dashboard_with_buckets.png[Dashboard di tenant Manager]
+image:tenant_dashboard_with_buckets.png["Dashboard di tenant Manager"]
 
 
 

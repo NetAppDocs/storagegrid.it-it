@@ -79,15 +79,15 @@ Ciascuna regola può definire più posizioni per un singolo periodo di tempo e p
 
 L'esempio mostra due istruzioni di posizionamento nella pagina Definisci posizioni della creazione guidata regola ILM.
 
-image::../media/ilm_rule_multiple_placements_in_single_time_period.png[Schermata ILM placements (posizionamenti ILM) di Grid Manager]
+image:ilm_rule_multiple_placements_in_single_time_period.png["Schermata ILM placements (posizionamenti ILM) di Grid Manager"]
 
-La prima istruzione di inserimento image:../media/icon_number_1.png["Icona numero 1"]ha due righe per il primo anno:
+La prima istruzione di assegnazione image:icon_number_1.png["Icona numero 1"] ha due righe per il primo anno:
 
 * La prima riga crea due copie di oggetti replicate in due siti del data center.
 * La seconda riga crea una copia con erasure coding pari a 6+3 usando tutti i siti del data center.
 
 
-La seconda istruzione di posizionamento image:../media/icon_number_2.png["Icona numero 1"]crea due copie dopo un anno e le conserva per sempre.
+La seconda istruzione di collocazione image:icon_number_2.png["Icona numero 1"] crea due copie dopo un anno e conserva tali copie per sempre.
 
 Quando si definisce il set di istruzioni di posizionamento per una regola, è necessario assicurarsi che almeno un'istruzione di posizionamento inizi al giorno 0, che non vi siano intervalli tra i periodi di tempo definiti, e che l'istruzione finale di posizionamento continui per sempre o fino a quando non si richiede più alcuna copia oggetto.
 

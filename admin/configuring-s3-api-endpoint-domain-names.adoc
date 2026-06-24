@@ -91,7 +91,7 @@ Se si rimuove un nome utilizzato dalle applicazioni S3, le richieste di tipo vir
 
 .Fasi
 . Selezionare *Configurazione* > *Rete* > *Nomi di dominio endpoint S3*.
-. Selezionare l'icona di eliminazione image:../media/icon-x-to-remove.png["icona elimina"]accanto al nome del dominio.
+. Seleziona l'icona di eliminazione image:icon-x-to-remove.png["icona elimina"] accanto al domain name.
 . Selezionare *Sì* per confermare l'eliminazione.
 
 

@@ -48,7 +48,7 @@ Le varianti dei tipi di certificato server e client vengono implementate in dive
 .Fasi
 . Da Grid Manager, seleziona *Configurazione* > *Sicurezza* > *Certificati*.
 +
-image::security_certificates.png[Pagina certificati]
+image:security_certificates.png["Pagina certificati"]
 
 . Selezionare una scheda nella pagina certificati per informazioni su ciascuna categoria di certificati e per accedere alle impostazioni del certificato. È possibile accedere a una scheda se si dispone di link:admin-group-permissions.html["autorizzazione appropriata"].
 +

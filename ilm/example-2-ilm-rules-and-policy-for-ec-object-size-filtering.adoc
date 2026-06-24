@@ -57,7 +57,7 @@ Posizionamenti
 Creare una copia 2+1 con codifica per la cancellazione utilizzando tre siti
 
 |===
-image::../media/policy_2_rule_1_ec_objects_adv_filtering.png[ILM regola 1 per esempio 2: Utilizzare EC per tutti gli oggetti superiori a 1 MB]
+image:policy_2_rule_1_ec_objects_adv_filtering.png["ILM regola 1 per esempio 2: Utilizzare EC per tutti gli oggetti superiori a 1 MB"]
 
 
 

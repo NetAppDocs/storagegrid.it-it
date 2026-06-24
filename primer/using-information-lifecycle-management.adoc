@@ -81,7 +81,7 @@ Ad esempio, un criterio ILM potrebbe contenere tre regole ILM che specificano qu
 
 
 
-image::../media/ilm_policy_and_rules.png[Policy e regole ILM]
+image:ilm_policy_and_rules.png["Policy e regole ILM"]
 
 .Informazioni correlate
 * link:../ilm/index.html["Gestire gli oggetti con ILM"]

@@ -34,7 +34,7 @@ NOTE: Se si desidera utilizzare un servizio LDAP v3 non presente nell'elenco, co
 .A proposito di questa attività
 La possibilità di configurare un servizio di federazione delle identità per il tenant dipende dalla configurazione dell'account tenant. Il tenant potrebbe condividere il servizio di federazione delle identità configurato per Grid Manager. Se viene visualizzato questo messaggio quando si accede alla pagina Identity Federation, non è possibile configurare un'origine di identità federata separata per questo tenant.
 
-image::../media/tenant_shares_identity_federation.png[Il tenant condivide Identity Federation]
+image:tenant_shares_identity_federation.png["Il tenant condivide Identity Federation"]
 
 
 
@@ -47,7 +47,7 @@ Quando si configura Identify Federation, vengono forniti i valori necessari a St
 . Selezionare *Enable Identity Federation* (attiva federazione identità).
 . Nella sezione tipo di servizio LDAP, selezionare il tipo di servizio LDAP che si desidera configurare.
 +
-image::../media/ldap_service_type.png[Pagina Identity Federation che mostra le opzioni relative al tipo di servizio LDAP]
+image:ldap_service_type.png["Pagina Identity Federation che mostra le opzioni relative al tipo di servizio LDAP"]
 
 +
 Selezionare *Altro* per configurare i valori per un server LDAP che utilizza Oracle Directory Server.
@@ -158,7 +158,7 @@ Dopo aver inserito tutti i valori, è necessario verificare la connessione prima
 Ad esempio, inserire il proprio nome utente e la propria password. Non includere caratteri speciali nel nome utente, ad esempio @ o /.
 
 +
-image::../media/identity_federation_test_connection.png[Richiesta di federazione delle identità per validare il formato del nome utente BIND]
+image:identity_federation_test_connection.png["Richiesta di federazione delle identità per validare il formato del nome utente BIND"]
 
 +
 ** Se le impostazioni di connessione sono valide, viene visualizzato il messaggio "Test connessione riuscito". Selezionare *Salva* per salvare la configurazione.

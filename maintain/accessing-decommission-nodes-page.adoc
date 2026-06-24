@@ -36,7 +36,7 @@ Viene visualizzata la pagina nodi di decommissionazione. Da questa pagina è pos
 In questo esempio, la colonna Decommission possible (Decommission possibile) indica che è possibile decommissionare il nodo gateway e uno dei quattro nodi di archiviazione.
 
 +
-image::../media/decommission_nodes_page_all_connected.png[Pagina Decommissionate Nodes]
+image:decommission_nodes_page_all_connected.png["Pagina Decommissionate Nodes"]
 
 
 
@@ -68,8 +68,8 @@ Non è possibile decommissionare un nodo di rete connesso se un nodo di rete è 
 
 La colonna *Health* include una di queste icone per i nodi della griglia disconnessi:
 
-** image:../media/icon_alarm_gray_administratively_down.png["icona del punto interrogativo grigio"] (Grigio): Amministrativamente giù
-** image:../media/icon_alarm_blue_unknown.png["icona del punto interrogativo blu"] (Blu): Sconosciuto
+** image:icon_alarm_gray_administratively_down.png["icona del punto interrogativo grigio"] (grigio): Amministrativamente chiuso
+** image:icon_alarm_blue_unknown.png["icona del punto interrogativo blu"] (blu): Sconosciuto
 
  a| 
 È necessario riportare tutti i nodi disconnessi in linea o link:decommissioning-disconnected-grid-nodes.html["decommissionare tutti i nodi disconnessi"] prima di rimuovere un nodo connesso.

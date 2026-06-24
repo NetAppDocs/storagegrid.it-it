@@ -88,7 +88,7 @@ Seguire questa procedura se sono stati attivati uno o più avvisi *Low Read-only
 . Per ogni sito nella griglia, espandere l'elenco dei nodi.
 . Esaminare i valori percentuali mostrati nella colonna *dati oggetto utilizzati* per ciascun nodo di storage in ogni sito.
 +
-image::../media/nodes_page_object_data_used_with_alert.png[Pagina Nodes (nodi) che mostra i dati degli oggetti utilizzati per 3 SNS]
+image:nodes_page_object_data_used_with_alert.png["Pagina Nodes (nodi) che mostra i dati degli oggetti utilizzati per 3 SNS"]
 
 . Seguire la procedura appropriata:
 +

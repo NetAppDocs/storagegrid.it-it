@@ -26,7 +26,7 @@ summary: È possibile modificare il nome visualizzato di un gruppo. Non è possi
 Viene visualizzata la finestra di dialogo Edit group name (Modifica nome gruppo).
 
 +
-image::../media/edit_group_name.png[Modificare il nome del gruppo]
+image:edit_group_name.png["Modificare il nome del gruppo"]
 
 . Se si sta modificando un gruppo locale, aggiornare il nome visualizzato in base alle necessità.
 +

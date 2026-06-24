@@ -68,7 +68,7 @@ Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione gri
 
 . Modificare le impostazioni del gruppo secondo necessità.  Fare riferimento alink:creating-groups-for-s3-tenant.html["Creare gruppi per un tenant S3"] per i dettagli su cosa inserire.
 +
-.. Nella sezione Panoramica , modificare il nome visualizzato selezionando il nome o l'icona di modifica image:../media/icon_edit_tm.png["Icona Edit (Modifica)"].
+.. Nella sezione Panoramica, modifica il nome visualizzato selezionando il nome o l'icona di modifica image:icon_edit_tm.png["Icona Edit (Modifica)"].
 .. Nella scheda *permessi di gruppo*, aggiornare le autorizzazioni e selezionare *Salva modifiche*.
 .. Nella scheda *Criteri di gruppo*, apportare le modifiche desiderate e selezionare *Salva modifiche*.
 +
@@ -80,7 +80,7 @@ Facoltativamente, selezionare un criterio di gruppo S3 diverso o immettere la st
 +
 .. Selezionare la scheda Users (utenti).
 +
-image::../media/manage_users.png[Gestire gli utenti]
+image:manage_users.png["Gestire gli utenti"]
 
 .. Selezionare *Aggiungi utenti*.
 .. Selezionare gli utenti che si desidera aggiungere e selezionare *Aggiungi utenti*.

@@ -17,7 +17,7 @@ Viene visualizzata la scheda ILM per ciascun nodo di storage, ciascun sito e l'i
 
 Per i nodi storage, la scheda ILM fornisce dettagli sulla valutazione ILM e sulla verifica in background per gli oggetti sottoposti a erasure coding.
 
-image::../media/nodes_page_ilm_tab.png[Scheda ILM della pagina nodi]
+image:nodes_page_ilm_tab.png["Scheda ILM della pagina nodi"]
 
 .Informazioni correlate
 * link:monitoring-information-lifecycle-management.html["Monitorare la gestione del ciclo di vita delle informazioni"]

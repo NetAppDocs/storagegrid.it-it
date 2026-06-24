@@ -15,7 +15,7 @@ summary: È possibile creare una connessione a federazione di griglie tra due si
 
 Come illustrato nella figura, la creazione di una connessione a federazione di griglie include operazioni su entrambe le griglie. La connessione viene aggiunta su una griglia e completata sull'altra. È possibile iniziare da una delle due griglie.
 
-image::../media/grid-federation-create-connection.png[panoramica grafica dei passaggi per la creazione di una connessione su due griglie]
+image:grid-federation-create-connection.png["panoramica grafica dei passaggi per la creazione di una connessione su due griglie"]
 
 .Prima di iniziare
 * È stata esaminata la link:grid-federation-overview.html["considerazioni e requisiti"] per la configurazione delle connessioni di federazione della griglia.

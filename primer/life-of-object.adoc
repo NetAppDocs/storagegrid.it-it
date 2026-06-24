@@ -21,7 +21,7 @@ La durata di un oggetto include le operazioni di acquisizione, gestione delle co
 * *Delete*: Processo di rimozione di tutte le copie di oggetti dalla griglia. Gli oggetti possono essere eliminati in seguito all'invio da parte dell'applicazione client di una richiesta di eliminazione al sistema StorageGRID o in seguito a un processo automatico eseguito da StorageGRID alla scadenza della vita dell'oggetto.
 
 
-image::../media/object_lifecycle.png[diagramma che mostra la vita di un oggetto]
+image:object_lifecycle.png["diagramma che mostra la vita di un oggetto"]
 
 .Informazioni correlate
 * link:../ilm/index.html["Gestire gli oggetti con ILM"]

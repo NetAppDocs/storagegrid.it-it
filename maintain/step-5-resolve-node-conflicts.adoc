@@ -16,7 +16,7 @@ Dalla fase 5 (Risolvi conflitti di nodi) della procedura guidata Smantella sito,
 .Prima di iniziare
 È necessario assicurarsi che tutti i nodi nel sistema StorageGRID siano nello stato corretto, come indicato di seguito:
 
-* Tutti i nodi del sistema StorageGRID devono essere collegati (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]).
+* Tutti i nodi nel tuo sistema StorageGRID devono essere connessi (image:icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]).
 +
 
 NOTE: Se si sta eseguendo una decommissionazione del sito disconnesso, tutti i nodi del sito che si sta rimuovendo devono essere disconnessi e tutti i nodi di tutti gli altri siti devono essere connessi.
@@ -56,9 +56,9 @@ NOTE: Se è necessario eseguire un'altra procedura di manutenzione durante la de
 
 
 .Fasi
-. Esaminare la sezione nodi disconnessi del passaggio 5 (risoluzione dei conflitti tra nodi) per determinare se uno dei nodi del sistema StorageGRID presenta uno stato di connessione sconosciuto () o non attivo dal punto diimage:../media/icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"] vista amministrativo (image:../media/icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"]).
+. Esamina la sezione relativa ai nodi disconnessi del passaggio 5 (Risolvi i conflitti tra nodi) per determinare se uno qualsiasi dei nodi nel tuo sistema StorageGRID ha uno stato di connessione Unknown (image:icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"]) o Administratively Down (image:icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"]).
 +
-image::../media/decommission_site_step_5_disconnected_nodes.png[Decommissionare il sito fase 5 risolvere i conflitti dei nodi]
+image:decommission_site_step_5_disconnected_nodes.png["Decommissionare il sito fase 5 risolvere i conflitti dei nodi"]
 
 . Se alcuni nodi sono disconnessi, riportarli in linea.
 +
@@ -69,7 +69,7 @@ Consultare la link:../maintain/grid-node-procedures.html["Procedure dei nodi"]. 
 Questa tabella elenca tutti i nodi del sito selezionato che appartengono a un gruppo ad alta disponibilità (ha).
 
 +
-image::../media/decommission_site_step_5_ha_groups.png[Decommissionare i gruppi ha fase 5 del sito]
+image:decommission_site_step_5_ha_groups.png["Decommissionare i gruppi ha fase 5 del sito"]
 
 . Se nell'elenco sono presenti nodi, eseguire una delle seguenti operazioni:
 +
@@ -85,21 +85,21 @@ Se tutti i nodi sono connessi e nessun nodo nel sito selezionato viene utilizzat
 Il pulsante *Avvia decommissionazione* viene attivato.
 
 +
-image::../media/decommission_site_step_5_provision_passphrase.png[Decommissionare il sito fase 5 eseguire il provisioning della passphrase]
+image:decommission_site_step_5_provision_passphrase.png["Decommissionare il sito fase 5 eseguire il provisioning della passphrase"]
 
 . Se si è pronti per avviare la procedura di decommissionamento del sito, selezionare *Avvia decommissionazione*.
 +
 Un avviso elenca il sito e i nodi che verranno rimossi. Ti ricordiamo che potrebbero essere necessari giorni, settimane o mesi per rimuovere completamente il sito.
 
 +
-image::../media/decommission_site_step_5_warning.png[Decommissionare il sito fase 5 attenzione]
+image:decommission_site_step_5_warning.png["Decommissionare il sito fase 5 attenzione"]
 
 . Esaminare l'avviso. Se si è pronti per iniziare, selezionare *OK*.
 +
 Quando viene generata la nuova configurazione della griglia, viene visualizzato un messaggio. Questo processo potrebbe richiedere del tempo, a seconda del tipo e del numero di nodi di rete decommissionati.
 
 +
-image::../media/decommission_site_step_5_grid_configuration.png[Decommissionare il sito fase 5 Configurazione griglia]
+image:decommission_site_step_5_grid_configuration.png["Decommissionare il sito fase 5 Configurazione griglia"]
 
 +
 Una volta generata la nuova configurazione della griglia, viene visualizzato il punto 6 (Monitor Decommission).

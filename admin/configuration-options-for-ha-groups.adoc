@@ -15,7 +15,7 @@ I seguenti diagrammi forniscono esempi di diverse modalità in cui è possibile 
 
 Nei diagrammi, il blu indica l'interfaccia principale nel gruppo ha e il giallo indica l'interfaccia di backup nel gruppo ha.
 
-image::../media/high_availability_examples.png[ESEMPI DI HA]
+image:high_availability_examples.png["ESEMPI DI HA"]
 
 La tabella riassume i vantaggi di ciascuna configurazione ha mostrata nel diagramma.
 

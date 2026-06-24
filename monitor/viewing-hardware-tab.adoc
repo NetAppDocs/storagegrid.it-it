@@ -18,13 +18,13 @@ NOTE: Grid Manager viene aggiornato con ogni versione e potrebbe non corrisponde
 
 Viene visualizzata la scheda hardware per tutti i nodi.
 
-image::../media/nodes_page_hardware_tab_graphs.png[Scheda hardware della pagina nodi]
+image:nodes_page_hardware_tab_graphs.png["Scheda hardware della pagina nodi"]
 
 Per visualizzare un intervallo di tempo diverso, selezionare uno dei comandi sopra il grafico o il grafico. È possibile visualizzare le informazioni disponibili per intervalli di 1 ora, 1 giorno, 1 settimana o 1 mese. È inoltre possibile impostare un intervallo personalizzato, che consente di specificare intervalli di data e ora.
 
 Per visualizzare i dettagli relativi all'utilizzo della CPU e della memoria, posizionare il cursore su ciascun grafico.
 
-image::../media/nodes_page_memory_usage_details.png[Pagina nodi > hardware > Dettagli sull'utilizzo della memoria]
+image:nodes_page_memory_usage_details.png["Pagina dei nodi > Hardware > Dettagli sull'utilizzo della memoria"]
 
 Se il nodo è un nodo appliance, questa scheda include anche una sezione con ulteriori informazioni sull'hardware dell'appliance.
 
@@ -45,7 +45,7 @@ La sezione Node information (informazioni nodo) della scheda Overview (Panoramic
 ** *Hic*: Una delle porte fisiche 10, 25 o 100 GbE dell'appliance. Queste porte possono essere collegate tra loro e collegate alla rete griglia StorageGRID (eth0) e alla rete client (eth2).
 ** *mtc*: Una delle porte 1 GbE fisiche dell'appliance. Una o più interfacce mtc sono collegate per formare l'interfaccia di rete amministrativa StorageGRID (eth1). È possibile lasciare altre interfacce mtc disponibili per la connettività locale temporanea per un tecnico del data center.
 +
-image::../media/nodes_page_overview_tab_extended.png[Panoramica pagina nodi estesa]
+image:nodes_page_overview_tab_extended.png["Panoramica pagina nodi estesa"]
 
 +
 La sezione Avvisi della scheda Panoramica visualizza gli avvisi attivi per il nodo.
@@ -56,7 +56,7 @@ La sezione Avvisi della scheda Panoramica visualizza gli avvisi attivi per il no
 +
 .. Visualizzare i grafici relativi all'utilizzo della CPU e della memoria per determinare le percentuali di utilizzo della CPU e della memoria nel tempo. Per visualizzare un intervallo di tempo diverso, selezionare uno dei comandi sopra il grafico o il grafico. È possibile visualizzare le informazioni disponibili per intervalli di 1 ora, 1 giorno, 1 settimana o 1 mese. È inoltre possibile impostare un intervallo personalizzato, che consente di specificare intervalli di data e ora.
 +
-image::../media/nodes_page_hardware_tab_graphs.png[Grafici hardware]
+image:nodes_page_hardware_tab_graphs.png["Grafici hardware"]
 
 .. Scorrere verso il basso per visualizzare la tabella dei componenti dell'appliance. Questa tabella contiene informazioni quali il nome del modello dell'appliance, i nomi dei controller, i numeri di serie e gli indirizzi IP e lo stato di ciascun componente.
 +
@@ -67,7 +67,7 @@ NOTE: Alcuni campi, ad esempio Compute controller BMC IP e Compute hardware, ven
 I componenti per gli shelf di storage e gli shelf di espansione, se sono parte dell'installazione, vengono visualizzati in una tabella separata sotto la tabella dell'appliance.
 
 +
-image::../media/nodes_page_hardware_tab_for_appliance.png[Scheda Nodes Page hardware (hardware pagina nodi) per Appliance]
+image:nodes_page_hardware_tab_for_appliance.png["Scheda Nodes Page hardware (hardware pagina nodi) per Appliance"]
 
 +
 [cols="1a,2a"]
@@ -375,12 +375,12 @@ Se uno stato non è "nominale", esaminare eventuali avvisi correnti. Puoi anche 
 Il grafico del traffico di rete fornisce un riepilogo del traffico di rete complessivo.
 
 +
-image::../media/nodes_page_network_traffic_graph.png[Pagina nodi grafico traffico di rete]
+image:nodes_page_network_traffic_graph.png["Pagina nodi grafico traffico di rete"]
 
 +
 .. Consultare la sezione interfacce di rete.
 +
-image::../media/nodes_page_network_interfaces.png[Interfacce di rete della pagina Nodes (nodi)]
+image:nodes_page_network_interfaces.png["Interfacce di rete della pagina Nodes (nodi)"]
 
 +
 Utilizzare la seguente tabella con i valori nella colonna *Speed* della tabella Network Interfaces (interfacce di rete) per determinare se le porte di rete 10/25-GbE dell'appliance sono state configurate per l'utilizzo della modalità Active/backup o LACP.
@@ -468,16 +468,16 @@ Consultare https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/co
 Le tabelle di ricezione e trasmissione mostrano quanti byte e pacchetti sono stati ricevuti e inviati attraverso ciascuna rete, nonché altre metriche di ricezione e trasmissione.
 
 +
-image::../media/nodes_page_network_communication.png[COM. Rete pagina nodi]
+image:nodes_page_network_communication.png["COM. Rete pagina nodi"]
 
 
 
 . Selezionare *Storage* per visualizzare i grafici che mostrano le percentuali di storage utilizzate nel tempo per i dati degli oggetti e i metadati degli oggetti, nonché informazioni su dischi, volumi e archivi di oggetti.
 +
-image::../media/nodes_page_storage_used_object_data.png[Storage utilizzato - dati oggetto]
+image:nodes_page_storage_used_object_data.png["Storage utilizzato - dati oggetto"]
 
 +
-image::../media/storage_used_object_metadata.png[Storage utilizzato - metadati oggetto]
+image:storage_used_object_metadata.png["Storage utilizzato - metadati oggetto"]
 
 +
 .. Scorrere verso il basso per visualizzare le quantità di storage disponibili per ciascun volume e archivio di oggetti.
@@ -488,7 +488,7 @@ Il nome internazionale di ciascun disco corrisponde all'identificativo mondiale 
 Per semplificare l'interpretazione delle statistiche di lettura e scrittura dei dischi relative ai punti di montaggio del volume, la prima parte del nome visualizzato nella colonna *Name* della tabella Disk Devices (periferiche disco) (ovvero _sdc_, _sdd_, _sde_ e così via) corrisponde al valore visualizzato nella colonna *Device* della tabella Volumes (volumi).
 
 +
-image::../media/nodes_page_storage_tables.png[Tabelle di archiviazione delle pagine dei nodi]
+image:nodes_page_storage_tables.png["Tabelle di archiviazione delle pagine dei nodi"]
 
 
 
@@ -512,7 +512,7 @@ La sezione Node information (informazioni nodo) della scheda Overview (Panoramic
 ** *Hic*: Una delle porte fisiche 10, 25 o 100 GbE dell'appliance. Queste porte possono essere collegate tra loro e collegate alla rete griglia StorageGRID (eth0) e alla rete client (eth2).
 ** *mtc*: Una delle porte 1-GbE fisiche dell'appliance. Una o più interfacce mtc sono collegate per formare l'interfaccia Admin Network (eth1). È possibile lasciare altre interfacce mtc disponibili per la connettività locale temporanea per un tecnico del data center.
 +
-image::../media/nodes_page_overview_tab_services_appliance.png[Scheda Panoramica della pagina nodi per l'appliance di servizi]
+image:nodes_page_overview_tab_services_appliance.png["Scheda Panoramica della pagina nodi per l'appliance di servizi"]
 
 
 
@@ -523,11 +523,11 @@ La sezione Avvisi della scheda Panoramica visualizza gli avvisi attivi per il no
 +
 .. Visualizzare i grafici relativi all'utilizzo della CPU e della memoria per determinare le percentuali di utilizzo della CPU e della memoria nel tempo. Per visualizzare un intervallo di tempo diverso, selezionare uno dei comandi sopra il grafico o il grafico. È possibile visualizzare le informazioni disponibili per intervalli di 1 ora, 1 giorno, 1 settimana o 1 mese. È inoltre possibile impostare un intervallo personalizzato, che consente di specificare intervalli di data e ora.
 +
-image::../media/nodes_page_hardware_tab_graphs_services_appliance.png[Pagina nodi grafici della scheda hardware per l'appliance di servizi]
+image:nodes_page_hardware_tab_graphs_services_appliance.png["Pagina nodi grafici della scheda hardware per l'appliance di servizi"]
 
 .. Scorrere verso il basso per visualizzare la tabella dei componenti dell'appliance. Questa tabella contiene informazioni come il nome del modello, il numero di serie, la versione del firmware del controller e lo stato di ciascun componente.
 +
-image::../media/nodes_page_hardware_tab_services_appliance.png[Scheda hardware della pagina nodi per l'appliance di servizi]
+image:nodes_page_hardware_tab_services_appliance.png["Scheda hardware della pagina nodi per l'appliance di servizi"]
 
 +
 [cols="1a,2a"]
@@ -624,12 +624,12 @@ Se uno stato non è "nominale", esaminare eventuali avvisi correnti.
 Il grafico del traffico di rete fornisce un riepilogo del traffico di rete complessivo.
 
 +
-image::../media/nodes_page_network_traffic_graph.png[Pagina nodi grafico traffico di rete]
+image:nodes_page_network_traffic_graph.png["Pagina nodi grafico traffico di rete"]
 
 +
 .. Consultare la sezione interfacce di rete.
 +
-image::../media/nodes_page_hardware_tab_network_services_appliance.png[Pagina nodi scheda hardware Network Services Appliance]
+image:nodes_page_hardware_tab_network_services_appliance.png["Pagina nodi scheda hardware Network Services Appliance"]
 
 +
 Utilizzare la seguente tabella con i valori nella colonna *Speed* della tabella Network Interfaces (interfacce di rete) per determinare se le quattro porte di rete 40/100-GbE dell'appliance sono state configurate per l'utilizzo della modalità Active/backup o LACP.
@@ -714,12 +714,12 @@ Attivo/Backup
 Le tabelle di ricezione e trasmissione mostrano quanti byte e pacchetti sono stati ricevuti e inviati attraverso ciascuna rete, nonché altre metriche di ricezione e trasmissione.
 
 +
-image::../media/nodes_page_network_communication.png[COM. Rete pagina nodi]
+image:nodes_page_network_communication.png["COM. Rete pagina nodi"]
 
 
 
 . Selezionare *Storage* per visualizzare le informazioni relative ai dischi e ai volumi sull'appliance di servizi.
 +
-image::../media/nodes_page_storage_tab_services_appliance.png[Scheda Nodes Page Storage Services Appliance]
+image:nodes_page_storage_tab_services_appliance.png["Scheda Nodes Page Storage Services Appliance"]
 
 

@@ -77,7 +77,7 @@ Ad esempio: `storagegrid-alerts@example.com`
 
 .. Nella sezione destinatari, immettere un indirizzo e-mail per ciascun elenco o persona che deve ricevere un'e-mail quando si verifica un avviso.
 +
-Selezionare l'icona più image:../media/icon_plus_sign_black_on_white.gif["icona più"]per aggiungere i destinatari.
+Seleziona l'icona più image:icon_plus_sign_black_on_white.gif["icona più"] per aggiungere i destinatari.
 
 
 
@@ -101,7 +101,7 @@ Selezionare l'icona più image:../media/icon_plus_sign_black_on_white.gif["icona
 
 +
 
-NOTE: Se è necessario modificare la configurazione della posta elettronica, selezionare l'icona a forma di matita image:../media/icon_edit_tm.png["Icona Edit (Modifica)"]per aggiornare questo campo.
+NOTE: Se devi modificare le impostazioni dell'email, seleziona l'icona della matita image:icon_edit_tm.png["Icona Edit (Modifica)"] per aggiornare questo campo.
 
 
 
@@ -167,7 +167,7 @@ Dopo aver configurato il server di posta SMTP, le notifiche e-mail vengono invia
 
 Le notifiche e-mail includono le seguenti informazioni:
 
-image::../media/alerts_email_notification.png[Notifiche e-mail]
+image:alerts_email_notification.png["Notifiche e-mail"]
 
 [cols="1a,6a"]
 |===

@@ -59,7 +59,7 @@ Quando richiesto, inserire i valori per i seguenti argomenti:
 ** L'indirizzo per StorageGRID
 ** L'ID account tenant, se si desidera accedere all'API di gestione tenant.
 +
-image::../media/sso_auth_python_script_ping.png[SSO Authentication script for Ping Federate]
+image:sso_auth_python_script_ping.png["SSO Authentication script for Ping Federate"]
 
 +
 Il token di autorizzazione StorageGRID viene fornito nell'output. È ora possibile utilizzare il token per altre richieste, in modo simile a come si utilizzerebbe l'API se SSO non fosse utilizzato.

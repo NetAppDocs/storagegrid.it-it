@@ -27,7 +27,7 @@ Per determinare se un sito può essere decommissionato, iniziare accedendo alla 
 Viene visualizzata la fase 1 (Seleziona sito) della procedura guidata Smantella sito. Questo passaggio include un elenco alfabetico dei siti nel sistema StorageGRID.
 
 +
-image::../media/decommission_site_step_select_site.png[Decommissionare il sito fase 1 selezionare il sito]
+image:decommission_site_step_select_site.png["Decommissionare il sito fase 1 selezionare il sito"]
 
 . Visualizzare i valori nella colonna *capacità di storage utilizzata* per determinare la quantità di storage attualmente utilizzata per i dati a oggetti in ogni sito.
 +
@@ -54,7 +54,7 @@ NOTE: Se vi sono più motivi per cui un sito non può essere dismesso, viene vis
 
 
  a| 
-Segno di spunta verde (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"])
+Segno di spunta verde (image:icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"])
  a| 
 È possibile decommissionare questo sito.
  a| 
@@ -83,7 +83,7 @@ Nessuno. Impossibile eseguire questa procedura.
  a| 
 No. Tutti i nodi in questo sito sono disconnessi. Contatta il tuo rappresentante commerciale NetApp.
  a| 
-Non è possibile eseguire lo smantellamento di un sito connesso a meno che ogni nodo del sito non sia connesso (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]).
+Non puoi eseguire il decommission di un sito connesso a meno che ogni nodo del sito sia connesso (image:icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]).
  a| 
 Se si desidera eseguire una decommissionazione del sito disconnesso, è necessario contattare il rappresentante commerciale NetApp, che esaminerà i requisiti e attiverà il resto della procedura guidata Decommission Site.
 
@@ -91,7 +91,7 @@ Se si desidera eseguire una decommissionazione del sito disconnesso, è necessar
 
 |===
 +
-L'esempio mostra un sistema StorageGRID con tre siti. Il segno di spunta verde (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]) per i siti di Raleigh e Sunnyvale indica che è possibile smantellare tali siti. Tuttavia, non è possibile decommissionare il sito di Vancouver perché contiene il nodo di amministrazione primario.
+L'esempio mostra un sistema StorageGRID con tre siti. Il segno di spunta verde (image:icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]) per i siti di Raleigh e Sunnyvale indica che puoi decommissionare quei siti. Tuttavia, non puoi decommissionare il sito di Vancouver perché contiene il nodo Admin primario.
 
 
 

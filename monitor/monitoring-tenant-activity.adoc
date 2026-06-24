@@ -35,10 +35,10 @@ Lo spazio logico utilizzato, l'utilizzo della quota, la quota e il numero di ogg
 NOTE: La dimensione logica di tutti gli oggetti appartenenti a questo tenant include caricamenti multiparte incompleti e in corso.  Le dimensioni non includono lo spazio fisico aggiuntivo utilizzato per le policy ILM.  I valori dello spazio utilizzato sono stime.  Tali stime sono influenzate dalla tempistica degli ingest, dalla connettività di rete e dallo stato del nodo.
 
 +
-image::../media/tenant_accounts_page.png[Pagina account tenant]
+image:tenant_accounts_page.png["Pagina account tenant"]
 
-. Se si desidera, accedere a un account tenant selezionando il collegamento di accesso image:../media/icon_tenant_sign_in.png["Icona di accesso tenant"]nella colonna *Accedi/Copia URL*.
-. Se si desidera, copiare l'URL della pagina di accesso di un tenant selezionando il collegamento Copia URL image:../media/icon_tenant_copy_url.png["Icona URL copia tenant"]nella colonna *Accedi/Copia URL*.
+. Facoltativamente, effettua il Sign in a un tenant account selezionando il link di Sign in image:icon_tenant_sign_in.png["Icona di accesso tenant"] nella colonna *Sign in/Copy URL*.
+. Facoltativamente, puoi copiare l'URL della pagina di Sign in di un tenant selezionando il link Copia URL image:icon_tenant_copy_url.png["Icona URL copia tenant"] nella colonna *Sign in/Copia URL*.
 . In alternativa, selezionare *Esporta in CSV* per visualizzare ed esportare un `.csv` file contenente i valori di utilizzo per tutti i tenant.
 +
 Viene richiesto di aprire o salvare il `.csv` file.
@@ -47,7 +47,7 @@ Viene richiesto di aprire o salvare il `.csv` file.
 Il contenuto del `.csv` file è simile al seguente esempio:
 
 +
-image::../media/tenant_accounts_example_csv.png[Esempio di account tenant .csv]
+image:tenant_accounts_example_csv.png["Esempio di account tenant .csv"]
 
 +
 È possibile aprire il `.csv` file in un foglio di calcolo o utilizzarlo in automazione.
@@ -70,7 +70,7 @@ Non puoi rimuovere un account tenant se l'account include bucket o container.
 Viene visualizzata la pagina dei dettagli del tenant.
 
 +
-image::../media/tenant_usage_modal.png[Modale di utilizzo del tenant]
+image:tenant_usage_modal.png["Modale di utilizzo del tenant"]
 
 . Esaminare la panoramica del tenant nella parte superiore della pagina.
 +
@@ -91,7 +91,7 @@ Se è stata impostata una quota per questo tenant, la quantità di quota utilizz
 È possibile posizionare il cursore sul grafico a barre per visualizzare lo storage utilizzato da ciascun bucket o container. È possibile posizionare il cursore sul segmento di spazio libero per visualizzare la quantità di spazio rimanente.
 
 +
-image::../media/tenant_bucket_space_consumption_GM.png[Grafico a barre del consumo del bucket tenant]
+image:tenant_bucket_space_consumption_GM.png["Grafico a barre del consumo del bucket tenant"]
 
 +
 
@@ -114,7 +114,7 @@ Questa tabella elenca i bucket S3 per il tenant. Lo spazio utilizzato è la quan
 Il contenuto di un singolo file del tenant S3 `.csv` è simile al seguente esempio:
 
 +
-image::../media/tenant_bucket_details_csv.png[Esempio CSV dettagli bucket tenant]
+image:tenant_bucket_details_csv.png["Esempio CSV dettagli bucket tenant"]
 
 +
 È possibile aprire il `.csv` file in un foglio di calcolo o utilizzarlo in automazione.

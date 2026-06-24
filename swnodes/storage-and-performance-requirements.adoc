@@ -395,7 +395,7 @@ NOTE: Un nodo di archiviazione dell'appliance può avere fino a 48 volumi di arc
 
 Come mostrato nella figura, StorageGRID riserva spazio per i metadati degli oggetti sul volume di storage 0 di ciascun nodo di storage. Qualsiasi spazio rimanente sul volume di storage 0 e qualsiasi altro volume di storage nel nodo di storage viene utilizzato esclusivamente per i dati a oggetti.
 
-image::../media/metadata_space_storage_node.png[Nodo di storage spazio metadati]
+image:metadata_space_storage_node.png["Nodo di storage spazio metadati"]
 
 Per garantire la ridondanza e proteggere i metadati degli oggetti dalla perdita, StorageGRID memorizza tre copie dei metadati per tutti gli oggetti del sistema in ogni sito. Le tre copie dei metadati degli oggetti sono distribuite in modo uniforme in tutti i nodi di storage di ciascun sito.
 

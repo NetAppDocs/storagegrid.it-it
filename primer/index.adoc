@@ -17,7 +17,7 @@ StorageGRID offre uno storage sicuro e durevole per i dati non strutturati su la
 
 StorageGRID è composto da nodi eterogenei, ridondanti e distribuiti geograficamente, che possono essere integrati con le applicazioni client esistenti e di prossima generazione.
 
-image::../media/storagegrid_system_diagram.png[Immagine con più client]
+image:storagegrid_system_diagram.png["Immagine con più client"]
 
 
 NOTE: Il supporto per i nodi archivio è stato rimosso. Lo spostamento di oggetti da un nodo di archivio a un sistema di archiviazione esterno tramite l'API S3 è stato sostituito da link:../ilm/what-cloud-storage-pool-is.html["Pool di cloud storage ILM"], che offre più funzionalità.

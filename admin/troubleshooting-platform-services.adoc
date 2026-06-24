@@ -32,11 +32,11 @@ NOTE: La creazione dell'endpoint non riesce se i servizi della piattaforma non s
 
 Se si verifica un errore quando StorageGRID tenta di raggiungere un endpoint esistente, viene visualizzato un messaggio sul dashboard in Gestione tenant.
 
-image::../media/tenant_dashboard_endpoint_error.png[messaggio di errore dell'endpoint sulla dashboard]
+image:tenant_dashboard_endpoint_error.png["messaggio di errore dell'endpoint sulla dashboard"]
 
-Gli utenti del tenant possono accedere alla pagina degli endpoint per esaminare il messaggio di errore più recente per ciascun endpoint e per determinare quanto tempo fa si è verificato l'errore. La colonna *ultimo errore* visualizza il messaggio di errore più recente per ciascun endpoint e indica per quanto tempo si è verificato l'errore. Gli errori che includono l'image:../media/icon_alert_red_critical.png["Icona X rossa"]icona si sono verificati negli ultimi 7 giorni.
+Gli utenti del tenant possono andare alla pagina Endpoint per vedere il messaggio di errore più recente per ciascun endpoint e per capire quanto tempo fa si è verificato l'errore. La colonna *Ultimo errore* mostra il messaggio di errore più recente per ciascun endpoint e indica quanto tempo fa si è verificato l'errore. Gli errori che includono l'icona image:icon_alert_red_critical.png["Icona X rossa"] si sono verificati negli ultimi 7 giorni.
 
-image::../media/endpoints_last_error.png[Schermata della pagina Endpoint che mostra la colonna Last Error (ultimo errore)]
+image:endpoints_last_error.png["Schermata della pagina Endpoint che mostra la colonna Last Error (ultimo errore)"]
 
 
 NOTE: Alcuni messaggi di errore nella colonna *ultimo errore* potrebbero includere un LOGID tra parentesi. Un amministratore della griglia o il supporto tecnico può utilizzare questo ID per individuare informazioni più dettagliate sull'errore nel file bycast.log.
@@ -120,7 +120,7 @@ Per visualizzare il tasso di errore della richiesta per i servizi della piattafo
 . Selezionare *_Site_* > *Platform Services*.
 . Visualizza il grafico tasso di errore della richiesta.
 +
-image::../media/nodes_page_site_level_platform_services.gif[Servizi della piattaforma a livello di sito della pagina Nodes]
+image:nodes_page_site_level_platform_services.gif["Servizi della piattaforma a livello di sito della pagina Nodes"]
 
 
 

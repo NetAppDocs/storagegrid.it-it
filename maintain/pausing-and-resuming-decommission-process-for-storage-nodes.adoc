@@ -40,7 +40,7 @@ Viene visualizzata la pagina nodi di decommissionazione. Quando la procedura di 
 La fase corrente viene messa in pausa e il pulsante *Riprendi* viene attivato.
 
 +
-image::../media/decommission_nodes_procedure_paused.png[Decommissionare nodi procedura in pausa]
+image:decommission_nodes_procedure_paused.png["Decommissionare nodi procedura in pausa"]
 
 . Al termine dell'altra procedura di manutenzione, selezionare *Riprendi* per procedere con la decommissionazione.
 

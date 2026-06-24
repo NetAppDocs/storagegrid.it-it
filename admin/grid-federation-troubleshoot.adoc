@@ -104,10 +104,7 @@ Questo problema può verificarsi se gli aggiornamenti allo stato della connessio
 . Selezionare il nome del tenant per visualizzare la pagina dei dettagli.
 . Selezionare *Retry account clone*.
 +
-image::../media/grid-federation-retry-account-clone.png[Schermata che mostra un messaggio di errore e il pulsante Retry account clone]
-
-+
-Se l'errore è stato risolto, l'account tenant verrà clonato nell'altra griglia.
+image:grid-federation-retry-account-clone.png["Schermata che mostra un messaggio di errore e il pulsante Retry account clone"]Se l'errore è stato risolto, il tenant account verrà ora clonato sull'altra griglia.
 
 
 
@@ -122,7 +119,7 @@ Se l'errore è stato risolto, l'account tenant verrà clonato nell'altra griglia
 .Problema
 Quando link:../monitor/grid-federation-monitor-connections.html["visualizzazione di una connessione a federazione di griglie"] (o quando link:grid-federation-manage-tenants.html["gestione dei tenant consentiti"] per una connessione) si nota un errore nella colonna *ultimo errore* nella pagina dei dettagli della connessione. Ad esempio:
 
-image::../media/grid-federation-last-error.png[Schermata che mostra un messaggio nella colonna Last error (ultimo errore) di una connessione a federazione di griglie]
+image:grid-federation-last-error.png["Schermata che mostra un messaggio nella colonna Last error (ultimo errore) di una connessione a federazione di griglie"]
 
 .Dettagli
 Per ogni connessione di federazione di griglia, la colonna *Ultimo errore* mostra l'errore più recente verificatosi, se presente, durante la replica dei dati di un tenant sull'altra griglia.  Questa colonna mostra solo l'ultimo errore di replicazione tra griglie verificatosi; gli errori precedenti che potrebbero essersi verificati non vengono mostrati.  Un errore in questa colonna potrebbe verificarsi per uno dei seguenti motivi:

@@ -32,7 +32,7 @@ NOTE: Se si desidera configurare StorageGRID per l'utilizzo con qualsiasi altra 
 . Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 . Se nella dashboard viene visualizzato il banner *FabricPool and S3 setup wizard*, selezionare il link nel banner. Se il banner non viene più visualizzato, selezionare l'icona della guida dalla barra di intestazione in Gestione griglia e selezionare *Installazione guidata FabricPool and S3*.
 +
-image::../media/help_menu.png[menu guida]
+image:help_menu.png["menu guida"]
 
 . Nella sezione FabricPool della pagina di installazione guidata di FabricPool e S3, selezionare *Configura ora*.
 +
@@ -432,7 +432,7 @@ NOTE: Non selezionare un bucket con blocco oggetti S3 abilitato per l'utilizzo c
 Durante questa fase, è possibile scaricare un file da utilizzare per immettere i valori in Gestione di sistema di ONTAP.
 
 .Fasi
-. In alternativa, selezionare l'icona di copia (image:../media/icon_tenant_copy_url.png["icona di copia"]) per copiare sia l'ID della chiave di accesso che la chiave di accesso segreta negli Appunti.
+. Facoltativamente, seleziona l'icona di copia (image:icon_tenant_copy_url.png["icona di copia"]) per copiare negli appunti sia l'ID della chiave di accesso che la chiave di accesso segreta.
 +
 Questi valori sono inclusi nel file di download, ma è possibile salvarli separatamente.
 

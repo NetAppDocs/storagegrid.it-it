@@ -37,7 +37,7 @@ NOTE: È necessario disporre del firmware SANtricity 8.70 o superiore per accede
 
 La scheda visualizza la home page di Gestore di sistema di SANtricity.
 
-image::../media/nodes_page_santricity_tab.png[Scheda SANtricity della pagina nodi]
+image:nodes_page_santricity_tab.png["Scheda SANtricity della pagina nodi"]
 
 
 NOTE: È possibile utilizzare il collegamento Gestore di sistema di SANtricity per aprire Gestione di sistema di SANtricity in una nuova finestra del browser per una visualizzazione più semplice.

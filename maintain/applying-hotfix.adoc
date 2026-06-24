@@ -31,14 +31,14 @@ La correzione rapida viene applicata automaticamente al nodo di amministrazione 
 Viene visualizzata la pagina Software Update (aggiornamento software).
 
 +
-image::../media/software_update_landing.png[Landing page per l'aggiornamento del software]
+image:software_update_landing.png["Landing page per l'aggiornamento del software"]
 
 . Selezionare *Apply Hotfix* (Applica correzione rapida).
 +
 Viene visualizzata la pagina Hotfix StorageGRID.
 
 +
-image::../media/hotfix_choose_file.png[Hotfix Scegli file]
+image:hotfix_choose_file.png["Hotfix Scegli file"]
 
 . Selezionare il file hotfix scaricato dal NetApp Support Site.
 +
@@ -81,7 +81,7 @@ Questa tabella mostra tutti i nodi della griglia e la fase corrente dell'install
 
 .. La barra di avanzamento raggiunge il completamento, quindi il nodo amministrativo primario viene visualizzato come "completo".
 +
-image::../media/hotfix_progress_table.png[Tabella di avanzamento della correzione rapida]
+image:hotfix_progress_table.png["Tabella di avanzamento della correzione rapida"]
 
 
 
@@ -108,7 +108,7 @@ NOTE: È necessario completare la correzione rapida StorageGRID prima di poter a
 Quando Stage va oltre "in coda", il pulsante *Rimuovi* è nascosto e non è più possibile rimuovere il nodo dal processo di correzione rapida.
 
 +
-image::../media/approve_all_progresstable.png[Aggiornamento rapido in corso con il pulsante di rimozione]
+image:approve_all_progresstable.png["Aggiornamento rapido in corso con il pulsante di rimozione"]
 
 
 

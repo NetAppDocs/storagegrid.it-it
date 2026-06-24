@@ -39,7 +39,7 @@ NOTE: Quando si clonano le chiavi di accesso S3 per un utente federato, sia l'ut
 `POST /org/users/current-user/replicate-s3-access-key`
 
 +
-image::../media/grid-federation-post-current-user-replicate.png[POST endpoint per la replica della propria chiave di accesso]
+image:grid-federation-post-current-user-replicate.png["POST endpoint per la replica della propria chiave di accesso"]
 
 . Selezionare *Provalo*.
 . Nella casella di testo *body*, sostituire le voci di esempio per *accessKey* e *secretAccessKey* con i valori del file *.csv* scaricato.
@@ -47,7 +47,7 @@ image::../media/grid-federation-post-current-user-replicate.png[POST endpoint pe
 Assicurarsi di conservare le virgolette doppie intorno a ciascuna stringa.
 
 +
-image::../media/grid-federation-clone-access-key.png[API di tenant Manager che immette i valori per clonare la chiave di accesso]
+image:grid-federation-clone-access-key.png["API di tenant Manager che immette i valori per clonare la chiave di accesso"]
 
 . Se la chiave scade, sostituire la voce di esempio *Expires* con la data e l'ora di scadenza come stringa nel formato dati-ora ISO 8601 (ad esempio, `2024-02-28T22:46:33-08:00`). Se la chiave non scade, inserire *Null* come valore per la voce *Expires* (oppure rimuovere la riga *Expires* e la virgola precedente).
 . Selezionare *Esegui*.
@@ -80,7 +80,7 @@ image::../media/grid-federation-clone-access-key.png[API di tenant Manager che i
 `POST /org/users/{userId}/replicate-s3-access-key`
 
 +
-image::../media/grid-federation-post-other-user.png[ENDPOINT POST per la replica della chiave di accesso di un altro utente]
+image:grid-federation-post-other-user.png["ENDPOINT POST per la replica della chiave di accesso di un altro utente"]
 
 . Selezionare *Provalo*.
 . Nella casella di testo *ID utente*, incollare l'ID utente copiato.

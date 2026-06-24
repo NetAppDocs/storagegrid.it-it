@@ -68,7 +68,7 @@ Se la scheda *Panoramica* include una voce per *gruppi ha*, il nodo viene assegn
 
 In questo esempio, il nodo di amministrazione primario è stato aggiunto a due gruppi ha. Questo nodo è attualmente l'interfaccia attiva per il gruppo di client di amministrazione e un'interfaccia di backup per il gruppo di client FabricPool.
 
-image::../media/ha_group_primary_interface.png[Interfaccia primaria del gruppo HA]
+image:ha_group_primary_interface.png["Interfaccia primaria del gruppo HA"]
 
 
 

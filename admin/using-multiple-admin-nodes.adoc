@@ -15,7 +15,7 @@ Un sistema StorageGRID può includere più nodi di amministrazione per consentir
 
 Se un nodo amministrativo non è disponibile, l'elaborazione degli attributi continua, gli avvisi vengono ancora attivati e le notifiche e-mail e i pacchetti AutoSupport vengono ancora inviati. Tuttavia, la disponibilità di più nodi amministrativi non fornisce protezione dal failover, ad eccezione delle notifiche e dei pacchetti AutoSupport.
 
-image::../media/admin_node_redundancy.png[Diagramma di ridondanza del nodo di amministrazione]
+image:admin_node_redundancy.png["Diagramma di ridondanza del nodo di amministrazione"]
 
 Sono disponibili due opzioni per continuare a visualizzare e configurare il sistema StorageGRID in caso di errore di un nodo di amministrazione:
 

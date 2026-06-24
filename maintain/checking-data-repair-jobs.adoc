@@ -37,7 +37,7 @@ Quando si è collegati come root, il prompt cambia da `$` a `#`.
 ** Se non è mai stato eseguito un lavoro di riparazione dati, l'output è `No job found`. Non è necessario riavviare alcun lavoro di riparazione.
 ** Se il lavoro di riparazione dei dati è stato eseguito in precedenza o è in esecuzione, l'output elenca le informazioni per la riparazione. Ogni riparazione ha un ID di riparazione univoco.
 +
-image::../media/repair-data-status.png[Stato dei dati di riparazione]
+image:repair-data-status.png["Stato dei dati di riparazione"]
 
 
 

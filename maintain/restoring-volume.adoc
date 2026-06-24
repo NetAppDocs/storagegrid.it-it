@@ -20,7 +20,7 @@ summary: È possibile ripristinare i dati degli oggetti per un volume di storage
 ** link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["Rimontare e riformattare i volumi di storage (procedura manuale)"]
 
 
-* Hai confermato che il nodo di archiviazione in cui stai ripristinando gli oggetti ha uno stato di connessione *Connesso*image:../media/icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"] nella scheda *Nodi* > *Panoramica* in Grid Manager.
+* Hai verificato che il nodo di archiviazione su cui stai ripristinando gli oggetti ha uno stato di connessione *Connesso* image:icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"] nella scheda *Nodi* > *Panoramica* del Grid Manager.
 * Hai confermato quanto segue:
 +
 ** Non è in corso un'espansione della griglia per aggiungere un nodo di storage.

@@ -62,7 +62,7 @@ Come primo passo, accedere alla pagina di riavvio in sequenza e selezionare i no
 . Esaminare le icone di stato della connessione e di avviso nella colonna *Nome nodo*.
 +
 
-TIP: Non è possibile riavviare un nodo se è disconnesso dalla griglia. Le caselle di controllo sono disattivate per i nodi con queste icone: image:../media/icon_alarm_gray_administratively_down.png["icona con punto interrogativo grigio"] O image:../media/icon_alarm_blue_unknown.png["icona del punto interrogativo blu"].
+TIP: Non puoi riavviare un nodo se è disconnesso dalla grid. Le caselle di controllo sono disabilitate per i nodi con queste icone: image:icon_alarm_gray_administratively_down.png["icona con punto interrogativo grigio"] o image:icon_alarm_blue_unknown.png["icona del punto interrogativo blu"].
 
 . Se in un nodo sono presenti avvisi attivi, esaminare l'elenco degli avvisi nella colonna *Riepilogo avvisi*.
 +

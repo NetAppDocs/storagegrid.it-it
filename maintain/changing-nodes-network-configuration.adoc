@@ -60,7 +60,7 @@ Quando si è collegati come root, il prompt cambia da `$` a `#`.
 Viene visualizzato il menu principale.
 
 +
-image::../media/change_ip_tool_main_menu.png[Schermata di benvenuto dello strumento Change IP]
+image:change_ip_tool_main_menu.png["Schermata di benvenuto dello strumento Change IP"]
 
 . Se si desidera, selezionare *1* per scegliere i nodi da aggiornare. Quindi selezionare una delle seguenti opzioni:
 +
@@ -111,7 +111,7 @@ Le modifiche vengono mantenute fino a quando non vengono cancellate o applicate.
 +
 ** *5*: Mostra le modifiche nell'output isolato per mostrare solo l'elemento modificato. Le modifiche sono evidenziate in verde (aggiunte) o in rosso (eliminazioni), come mostrato nell'output di esempio:
 +
-image::../media/change_ip_tool_edit_ip_mask_sample_output.png[schermata descritta dal testo circostante]
+image:change_ip_tool_edit_ip_mask_sample_output.png["schermata descritta dal testo circostante"]
 
 ** *6*: Mostra le modifiche nell'output che visualizza la configurazione completa. Le modifiche sono evidenziate in verde (aggiunte) o in rosso (eliminazioni).
 +
@@ -128,13 +128,13 @@ Questa convalida garantisce che le regole per le reti Grid, Admin e Client, come
 In questo esempio, la convalida ha restituito errori.
 
 +
-image::../media/change_ip_tool_validate_sample_error_messages.gif[schermata descritta dal testo circostante]
+image:change_ip_tool_validate_sample_error_messages.gif["schermata descritta dal testo circostante"]
 
 +
 In questo esempio, la convalida è stata superata.
 
 +
-image::../media/change_ip_tool_validate_sample_passed_messages.gif[schermata descritta dal testo circostante]
+image:change_ip_tool_validate_sample_passed_messages.gif["schermata descritta dal testo circostante"]
 
 . Dopo il superamento della convalida, scegliere una delle seguenti opzioni:
 +

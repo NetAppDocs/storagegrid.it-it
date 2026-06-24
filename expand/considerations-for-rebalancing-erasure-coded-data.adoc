@@ -44,7 +44,7 @@ Al termine della procedura di ribilanciamento EC:
 Si supponga, ad esempio, che tre nodi da 200 TB siano riempiti al 80% ciascuno (200 e 215; 0.8 = 160 TB per ogni nodo o 480 TB per il sito). Se si aggiunge un nodo da 400 TB ed si esegue la procedura di ribilanciamento, tutti i nodi avranno ora circa la stessa quantità di dati di erasure-code (480/4 = 120 TB). Tuttavia, il valore utilizzato (%) per il nodo più grande sarà inferiore a quello utilizzato (%) per i nodi più piccoli.
 
 +
-image::../media/used_space_with_larger_node.png[Spazio utilizzato prima dell'espansione]
+image:used_space_with_larger_node.png["Spazio utilizzato prima dell'espansione"]
 
 
 
@@ -64,7 +64,7 @@ Considerare il seguente scenario:
 * Il criterio ILM utilizza una regola di erasure coding 2+1 per tutti gli oggetti più grandi di 1.0 MB e una regola di replica a 2 copie per gli oggetti più piccoli.
 * Tutti i nodi di storage sono completamente pieni. L'avviso *Low Object Storage* è stato attivato al livello di gravità maggiore.
 +
-image::../media/used_space_before_expansion.png[Spazio utilizzato prima dell'espansione]
+image:used_space_before_expansion.png["Spazio utilizzato prima dell'espansione"]
 
 
 
@@ -74,7 +74,7 @@ image::../media/used_space_before_expansion.png[Spazio utilizzato prima dell'esp
 
 Per capire quando non è richiesto il ribilanciamento EC, supponiamo di aver aggiunto tre (o più) nuovi nodi di storage. In questo caso, non è necessario eseguire il ribilanciamento EC. I nodi di storage originali rimarranno pieni, ma i nuovi oggetti ora utilizzeranno i tre nuovi nodi per la codifica di cancellazione 2+1& 8212; i due frammenti di dati e un frammento di parità possono essere memorizzati su un nodo diverso.
 
-image::../media/used_space_after_3_node_expansion.png[Spazio utilizzato dopo l'espansione a 3 nodi]
+image:used_space_after_3_node_expansion.png["Spazio utilizzato dopo l'espansione a 3 nodi"]
 
 
 CAUTION: Anche se in questo caso è possibile eseguire la procedura di ribilanciamento EC, lo spostamento dei dati con codifica di cancellazione esistenti ridurrà temporaneamente le prestazioni della griglia, con un impatto sulle operazioni del client.
@@ -85,11 +85,11 @@ CAUTION: Anche se in questo caso è possibile eseguire la procedura di ribilanci
 
 Per capire quando è necessario ribilanciare EC, supponiamo di poter aggiungere solo due nodi storage, invece di tre. Poiché lo schema 2+1 richiede almeno tre nodi di storage per avere spazio disponibile, i nodi vuoti non possono essere utilizzati per i nuovi dati con codifica di cancellazione.
 
-image::../media/used_space_after_2_node_expansion.png[Spazio utilizzato dopo l'espansione a 2 nodi]
+image:used_space_after_2_node_expansion.png["Spazio utilizzato dopo l'espansione a 2 nodi"]
 
 Per utilizzare i nuovi nodi di storage, è necessario eseguire la procedura di ribilanciamento EC. Quando viene eseguita questa procedura, StorageGRID ridistribuisce i dati con codifica di cancellazione e i frammenti di parità esistenti tra tutti i nodi di storage del sito. In questo esempio, quando la procedura di ribilanciamento EC è completa, tutti e cinque i nodi sono ora pieni solo al 60% e gli oggetti possono continuare ad essere acquisiti nello schema di erasure coding 2+1 su tutti i nodi Storage.
 
-image::../media/used_space_after_ec_rebalance.png[Spazio utilizzato aAfter EC ribilanciamento]
+image:used_space_after_ec_rebalance.png["Spazio utilizzato aAfter EC ribilanciamento"]
 
 
 

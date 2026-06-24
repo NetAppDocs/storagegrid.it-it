@@ -85,7 +85,7 @@ La tabella elenca le interfacce disponibili per tutti i nodi Admin e Gateway in 
 Ad esempio, è possibile collegare una VLAN all'interfaccia di rete client (eth2) per un nodo gateway e un nodo amministratore.
 
 +
-image::../media/vlan-create-parent-interfaces.png[Creazione guidata VLAN interfacce principali]
+image:vlan-create-parent-interfaces.png["Creazione guidata VLAN interfacce principali"]
 
 . Selezionare *continua*.
 
@@ -99,7 +99,7 @@ image::../media/vlan-create-parent-interfaces.png[Creazione guidata VLAN interfa
 +
 ** Se è necessario modificare l'ID o la descrizione della VLAN, selezionare *Enter VLAN details* (Inserisci dettagli VLAN) nella parte superiore della pagina.
 ** Per modificare un'interfaccia padre, selezionare *Choose parent interfaces* (Scegli interfacce padre) nella parte superiore della pagina oppure selezionare *Previous* (precedente).
-** Se è necessario rimuovere un'interfaccia principale, selezionare il cestino image:../media/icon-trash-can.png["icona del cestino"].
+** Se devi rimuovere un'interfaccia padre, seleziona l'icona del cestino image:icon-trash-can.png["icona del cestino"].
 
 
 . Selezionare *Salva*.

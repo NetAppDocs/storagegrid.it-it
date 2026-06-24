@@ -18,12 +18,12 @@ NOTE: Non utilizzare una regola ILM che crea una sola copia replicata per qualsi
 
 Nell'esempio seguente, la regola Make 1 Copy ILM specifica che una copia replicata di un oggetto deve essere inserita in un pool di storage che contiene tre nodi di storage. Quando viene acquisito un oggetto che corrisponde a questa regola, StorageGRID inserisce una singola copia su un solo nodo di storage.
 
-image::../media/ilm_replication_make_1_copy.png[Replica ILM Copia 1]
+image:ilm_replication_make_1_copy.png["Replica ILM Copia 1"]
 
 Quando una regola ILM crea una sola copia replicata di un oggetto, l'oggetto diventa inaccessibile quando il nodo di storage non è disponibile. In questo esempio, l'accesso all'oggetto AAA viene temporaneamente perso ogni volta che il nodo di storage 2 non è in linea, ad esempio durante un aggiornamento o un'altra procedura di manutenzione. In caso di guasto del nodo di storage 2, l'oggetto AAA andrà perso completamente.
 
-image::../media/ilm_replication_make_1_copy_sn_fails.png[Il numero di serie di Make 1 Copy della replica ILM non riesce]
+image:ilm_replication_make_1_copy_sn_fails.png["Il numero di serie di Make 1 Copy della replica ILM non riesce"]
 
 Per evitare di perdere i dati degli oggetti, è necessario eseguire almeno due copie di tutti gli oggetti che si desidera proteggere con la replica. Se esistono due o più copie, è comunque possibile accedere all'oggetto se un nodo di storage si guasta o non è in linea.
 
-image::../media/ilm_replication_make_2_copies_sn_fails.png[Il numero di serie di 2 copie di ILM Replication non riesce]
+image:ilm_replication_make_2_copies_sn_fails.png["Il numero di serie di 2 copie di ILM Replication non riesce"]

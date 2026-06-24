@@ -33,7 +33,7 @@ Quando si è collegati come root, il prompt cambia da `$` a `#`.
 Ad esempio, l'output per il nodo di amministrazione primario mostra lo stato corrente dei servizi AMS, CMN e NMS in esecuzione. Questo output viene aggiornato immediatamente se lo stato di un servizio cambia.
 
 +
-image::../media/storagegrid_status_output.gif[screenshot dell'output dei comandi storage-grid]
+image:storagegrid_status_output.gif["screenshot dell'output dei comandi storage-grid"]
 
 . Tornare alla riga di comando, premere *Ctrl*+*C*.
 . Facoltativamente, visualizzare un report statico per tutti i servizi in esecuzione sul nodo griglia: `/usr/local/servermanager/reader.rb`

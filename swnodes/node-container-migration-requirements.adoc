@@ -44,7 +44,7 @@ Per spostare un nodo da un host a un altro, il servizio host StorageGRID deve av
 
 Si supponga, ad esempio, che StorageGRID NodeA in esecuzione sull'host 1 sia stato configurato con le seguenti mappature di interfaccia:
 
-image::../media/eth0_bond.gif[Questa immagine viene spiegata dal testo circostante.]
+image:eth0_bond.gif["Questa immagine viene spiegata dal testo circostante."]
 
 Il lato sinistro delle frecce corrisponde alle interfacce tradizionali visualizzate all'interno di un container StorageGRID (ovvero le interfacce griglia, Amministratore e rete client, rispettivamente). Il lato destro delle frecce corrisponde alle interfacce host effettive che forniscono queste reti, che sono tre interfacce VLAN subordinate allo stesso legame di interfaccia fisico.
 
@@ -66,4 +66,4 @@ Data questa modalità operativa, tutti i dati di sistema e i volumi di storage a
 
 Nell'esempio seguente viene illustrata una soluzione per la mappatura dei dispositivi di blocco per un nodo di storage StorageGRID, in cui il multipathing DM è in uso sugli host e il campo alias è stato utilizzato in `/etc/multipath.conf` per fornire nomi di dispositivi di blocco coerenti e facili disponibili su tutti gli host.
 
-image::../media/block_device_mapping_rhel.gif[Mappatura dei dispositivi a blocchi]
+image:block_device_mapping_rhel.gif["Mappatura dei dispositivi a blocchi"]

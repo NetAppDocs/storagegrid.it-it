@@ -24,7 +24,7 @@ Potrebbe essere necessario decommissionare un nodo che non è attualmente connes
 
 
 .A proposito di questa attività
-È possibile identificare i nodi disconnessi cercando l'icona blu Sconosciuto image:../media/icon_alarm_blue_unknown.png["Icona sconosciuta"]o l'icona grigia amministrativamente giù image:../media/icon_alarm_gray_administratively_down.png["Icona amministrativamente giù"]nella colonna *Salute*.
+Puoi identificare i nodi disconnessi cercando l'icona blu "Sconosciuto" image:icon_alarm_blue_unknown.png["Icona sconosciuta"] o l'icona grigia "Amministrativamente non disponibile" image:icon_alarm_gray_administratively_down.png["Icona amministrativamente giù"] nella colonna *Integrità*.
 
 Prima di disattivare qualsiasi nodo disconnesso, tenere presente quanto segue:
 

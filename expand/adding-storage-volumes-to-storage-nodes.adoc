@@ -39,7 +39,7 @@ Per i nodi di storage dell'appliance, il nome globale di ciascun disco corrispon
 Per semplificare l'interpretazione delle statistiche di lettura e scrittura dei dischi relative ai punti di montaggio del volume, la prima parte del nome visualizzato nella colonna *Name* della tabella Disk Devices (periferiche disco) (ovvero _sdc_, _sdd_, _sde_ e così via) corrisponde al valore visualizzato nella colonna *Device* della tabella Volumes (volumi).
 
 +
-image::../media/nodes_page_storage_tables_vol_expansion.png[Tabelle di archiviazione delle pagine dei nodi]
+image:nodes_page_storage_tables_vol_expansion.png["Tabelle di archiviazione delle pagine dei nodi"]
 
 . Seguire le istruzioni della piattaforma per aggiungere nuovi volumi di storage al nodo di storage.
 +

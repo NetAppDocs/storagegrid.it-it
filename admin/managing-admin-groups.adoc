@@ -141,7 +141,7 @@ Modifica nome visualizzato (solo gruppi locali)
 
  a| 
 .. Selezionare il nome del gruppo per visualizzare i dettagli.
-.. Selezionare l'icona di modifica image:../media/icon_edit_tm.png["Icona Edit (Modifica)"].
+.. Seleziona l'icona di modifica image:icon_edit_tm.png["Icona Edit (Modifica)"].
 .. Inserire il nuovo nome.
 .. Selezionare *Save Changes* (Salva modifiche).
 

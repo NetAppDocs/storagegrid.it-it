@@ -29,6 +29,6 @@ Il grafico mostra i tassi di acquisizione e recupero di S3 kb dell'intero sistem
 Il grafico mostra le velocità di acquisizione e recupero per il nodo. Questa scheda include inoltre metriche per il numero di oggetti, le query sui metadati e le operazioni di verifica.
 
 +
-image::../media/nodes_storage_node_objects_help.png[Schermata dei nodi > _Storage Node_ > oggetti > Guida attributi]
+image:nodes_storage_node_objects_help.png["screenshot di Nodi > _Nodo di archiviazione_ > Oggetti > aiuto attributo"]
 
 

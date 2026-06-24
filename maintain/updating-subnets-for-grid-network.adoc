@@ -95,7 +95,7 @@ Le subnet specificate vengono configurate automaticamente per il sistema Storage
 
 .Fasi
 . Selezionare *Manutenzione* > *Rete* > *Rete di rete*.
-. Selezionare l'icona di eliminazione image:../media/icon-x-to-remove.png["icona elimina"]accanto alla subnet.
+. Seleziona l'icona di eliminazione image:icon-x-to-remove.png["icona elimina"] accanto alla sottorete.
 . Inserire la passphrase di provisioning e selezionare *Save* (Salva).
 . Selezionare *Sì* nella finestra di dialogo di conferma.
 . Attendi che le modifiche vengano applicate, quindi scarica un nuovo pacchetto di ripristino.

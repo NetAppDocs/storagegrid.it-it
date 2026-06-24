@@ -42,7 +42,7 @@ CAUTION: Alcune fasi e fasi di espansione potrebbero richiedere molto tempo per 
 Viene visualizzata la pagina Grid Expansion (espansione griglia). La sezione Pending Nodes (nodi in sospeso) elenca i nodi che sono pronti per essere aggiunti.
 
 +
-image::../media/grid_expansion_page.png[Schermata che mostra la pagina Grid Expansion]
+image:grid_expansion_page.png["Schermata che mostra la pagina Grid Expansion"]
 
 . Selezionare *Configure Expansion* (Configura espansione).
 +
@@ -60,7 +60,7 @@ Viene visualizzata la finestra di dialogo Site Selection (selezione sito).
 Se necessario, puoi posizionare il cursore su *Grid Network MAC Address* di un nodo per visualizzare i dettagli relativi a tale nodo.
 
 +
-image::../media/grid_node_details.png[Schermata dei dettagli del nodo di griglia]
+image:grid_node_details.png["Schermata dei dettagli del nodo di griglia"]
 
 +
 

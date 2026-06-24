@@ -24,7 +24,7 @@ I costi di collegamento consentono di assegnare la priorità al sito del data ce
 
 Il diagramma mostra una griglia a tre siti con costi di collegamento configurati tra i siti:
 
-image::../media/link_costs.gif[Diagramma concettuale per i costi di collegamento tra i data center]
+image:link_costs.gif["Diagramma concettuale per i costi di collegamento tra i data center"]
 
 * Il servizio Load Balancer sui nodi Admin e Gateway distribuisce in modo uguale le connessioni client a tutti i nodi Storage nello stesso sito del data center e a qualsiasi sito del data center con un costo di collegamento pari a 0.
 +
@@ -74,14 +74,14 @@ Data center logici nello stesso edificio fisico o campus connessi da una LAN.
 .Fasi
 . Seleziona *Supporto* > *Altro* > *Costo del collegamento*.
 +
-image::../media/configuring_link_costs.png[Costo del collegamento]
+image:configuring_link_costs.png["Costo del collegamento"]
 
 . Selezionare un sito in *link Source* (origine collegamento) e immettere un valore di costo compreso tra 0 e 100 in *link Destination* (destinazione collegamento).
 +
 Non puoi modificare il costo del collegamento se l'origine è la stessa della destinazione.
 
 +
-Per annullare le modifiche, selezionare image:../media/nms_revert.gif["icona di annullamento"]*Ripristina*.
+Per annullare le modifiche, seleziona image:nms_revert.gif["icona di annullamento"]*Revert*.
 
 . Selezionare *Applica modifiche*.
 

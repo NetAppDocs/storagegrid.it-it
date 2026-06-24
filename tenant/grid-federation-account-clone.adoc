@@ -23,7 +23,7 @@ Il cloning delle informazioni dell'account tenant è necessario per link:../admi
 
 Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, consultare il diagramma del flusso di lavoro per visualizzare i passaggi che verranno eseguiti per clonare gruppi, utenti e chiavi di accesso S3.
 
-image::../media/grid-federation-account-clone-workflow-tm.png[il workflow del tenant per il clone dell'account. I passaggi sono descritti nel testo seguente.]
+image:grid-federation-account-clone-workflow-tm.png["il workflow del tenant per il clone dell'account. I passaggi sono descritti nel testo seguente."]
 
 Questi sono i passaggi principali del flusso di lavoro:
 
@@ -69,7 +69,7 @@ Dopo aver creato e replicato un account tenant nella griglia di destinazione, St
 
 Sia il gruppo originale che il clone dispongono della stessa modalità di accesso, delle stesse autorizzazioni di gruppo e dei criteri di gruppo S3. Per istruzioni, vedere link:creating-groups-for-s3-tenant.html["Creare gruppi per il tenant S3"].
 
-image::../media/grid-federation-account-clone.png[immagine che mostra che i gruppi locali vengono clonati dalla griglia di origine alla griglia di destinazione]
+image:grid-federation-account-clone.png["immagine che mostra che i gruppi locali vengono clonati dalla griglia di origine alla griglia di destinazione"]
 
 
 NOTE: Tutti gli utenti selezionati quando si crea un gruppo locale nella griglia di origine non vengono inclusi quando il gruppo viene clonato nella griglia di destinazione. Per questo motivo, non selezionare gli utenti quando si crea il gruppo. Al momento della creazione degli utenti, selezionare il gruppo.
@@ -82,7 +82,7 @@ Quando si crea un nuovo utente locale sulla griglia di origine, StorageGRID clon
 
 Per motivi di sicurezza, le password degli utenti locali non vengono clonate nella griglia di destinazione.  Se un utente locale deve accedere a Tenant Manager sulla griglia di destinazione, l'utente root dell'account tenant deve aggiungere una password per tale utente sulla griglia di destinazione. Per le istruzioni, vederelink:manage-users.html["Gestire gli utenti"] .
 
-image::../media/grid-federation-local-user-clone.png[immagine che mostra che gli utenti locali vengono clonati dalla griglia di origine alla griglia di destinazione]
+image:grid-federation-local-user-clone.png["immagine che mostra che gli utenti locali vengono clonati dalla griglia di origine alla griglia di destinazione"]
 
 
 
@@ -94,7 +94,7 @@ Entrambi i gruppi dispongono della stessa modalità di accesso, delle stesse aut
 
 Una volta creati i gruppi federati per il tenant di origine e clonati nel tenant di destinazione, gli utenti federati possono accedere al tenant su entrambi i grid.
 
-image::../media/grid-federation-federated-group-clone.png[immagine che mostra che i gruppi federati vengono clonati dalla griglia di origine alla griglia di destinazione]
+image:grid-federation-federated-group-clone.png["immagine che mostra che i gruppi federati vengono clonati dalla griglia di origine alla griglia di destinazione"]
 
 
 
@@ -108,7 +108,7 @@ Per gestire le chiavi di accesso sulle due griglie, è possibile eseguire una de
 * Se è necessario utilizzare gli stessi tasti su entrambe le griglie, è possibile creare i tasti sulla griglia di origine e quindi utilizzare l'API di Tenant Manager per passare manualmente link:../tenant/grid-federation-clone-keys-with-api.html["clonare le chiavi"] alla griglia di destinazione.
 
 
-image::../media/grid-federation-s3-access-key.png[immagine che mostra che le chiavi di accesso s3 possono essere clonate facoltativamente dalla griglia di origine alla griglia di destinazione]
+image:grid-federation-s3-access-key.png["immagine che mostra che le chiavi di accesso s3 possono essere clonate facoltativamente dalla griglia di origine alla griglia di destinazione"]
 
 
 NOTE: Quando si clonano le chiavi di accesso S3 per un utente federato, sia l'utente che le chiavi di accesso S3 vengono clonate nel tenant di destinazione.
@@ -119,7 +119,7 @@ NOTE: Quando si clonano le chiavi di accesso S3 per un utente federato, sia l'ut
 
 La clonazione avviene solo dalla griglia di origine del tenant alla griglia di destinazione del tenant. Se si creano o importano gruppi e utenti nella griglia di destinazione del tenant, StorageGRID non clonerà questi elementi nella griglia di origine del tenant.
 
-image::../media/grid-federation-account-not-cloned.png[immagine che mostra che i dettagli sulla griglia di destinazione non vengono clonati nella griglia di origine]
+image:grid-federation-account-not-cloned.png["immagine che mostra che i dettagli sulla griglia di destinazione non vengono clonati nella griglia di origine"]
 
 
 
@@ -129,4 +129,4 @@ La clonazione avviene solo quando si creano nuovi gruppi e utenti.
 
 Se si modificano o eliminano gruppi, utenti o chiavi di accesso in una griglia, le modifiche non verranno clonate nell'altra griglia.
 
-image::../media/grid-federation-account-clone-edit-delete.png[immagine che mostra che i dettagli modificati o cancellati non vengono clonati]
+image:grid-federation-account-clone-edit-delete.png["immagine che mostra che i dettagli modificati o cancellati non vengono clonati"]

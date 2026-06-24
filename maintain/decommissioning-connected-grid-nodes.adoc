@@ -30,7 +30,7 @@ NOTE: La decommissionazione non si avvia se uno o più volumi sono offline (non 
 
 NOTE: Se uno o più volumi vengono disconnessi mentre è in corso una decommissionazione, il processo di decommissionamento viene completato dopo che questi volumi sono tornati online.
 
-* Tutti i nodi della griglia presentano un'integrità normale (verde) image:../media/icon_alert_green_checkmark.png["icona del segno di spunta verde"]. Se nella colonna *Health* viene visualizzata una di queste icone, provare a risolvere il problema:
+* Tutti i nodi della griglia hanno uno stato di salute normale (verde) image:icon_alert_green_checkmark.png["icona del segno di spunta verde"]. Se visualizzi una di queste icone nella colonna *Salute*, devi provare a risolvere il problema:
 +
 [cols="1a,1a,3a"]
 |===
@@ -38,7 +38,7 @@ NOTE: Se uno o più volumi vengono disconnessi mentre è in corso una decommissi
 
 
  a| 
-image:../media/icon_alarm_yellow_notice.gif["icona quadrata gialla"]
+image:icon_alarm_yellow_notice.gif["icona quadrata gialla"]
  a| 
 Giallo
  a| 
@@ -47,7 +47,7 @@ Avviso
 
 
  a| 
-image:../media/icon_alert_yellow_minor.png["icona a forma di diamante arancione chiaro"]
+image:icon_alert_yellow_minor.png["icona a forma di diamante arancione chiaro"]
  a| 
 Arancione chiaro
  a| 
@@ -56,7 +56,7 @@ Minore
 
 
  a| 
-image:../media/icon_alert_orange_major.png["icona a forma di diamante arancione scuro"]
+image:icon_alert_orange_major.png["icona a forma di diamante arancione scuro"]
  a| 
 Arancione scuro
  a| 
@@ -65,7 +65,7 @@ Maggiore
 
 
  a| 
-image:../media/icon_alert_red_critical.png["icona x rossa"]
+image:icon_alert_red_critical.png["icona x rossa"]
  a| 
 Rosso
  a| 

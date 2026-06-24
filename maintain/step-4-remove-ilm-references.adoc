@@ -25,7 +25,7 @@ NOTE: Quando StorageGRID decomprime il sito, disattiva automaticamente tutti i p
 . Modificare o eliminare ogni regola inutilizzata:
 +
 ** Per modificare una regola, andare alla pagina ILM rules (regole ILM) e aggiornare tutti i posizionamenti che utilizzano un profilo di erasure coding o un pool di storage che fa riferimento al sito. Quindi, tornare al *Passo 4 (Rimozione dei riferimenti ILM)*.
-** Per eliminare una regola, selezionare l'icona del cestino image:../media/icon_trash_can.png["Il Cestino delle icone può"]e selezionare *OK*.
+** Per eliminare una regola, seleziona l'icona del cestino image:icon_trash_can.png["Il Cestino delle icone può"] e seleziona *OK*.
 +
 
 NOTE: È necessario eliminare la regola *Make 2 copies* prima di poter decommissionare un sito.

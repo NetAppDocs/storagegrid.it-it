@@ -35,7 +35,7 @@ Viene visualizzata la pagina regole di avviso.
 Viene visualizzata la finestra di dialogo Edit Rule (Modifica regola). Questo esempio mostra una regola di avviso predefinita: I campi Nome univoco, Descrizione e azioni consigliate sono disattivati e non possono essere modificati.
 
 +
-image::../media/alert_rules_edit_rule.png[Avvisi > Modifica regola]
+image:alert_rules_edit_rule.png["Avvisi > Modifica regola"]
 
 . Selezionare o deselezionare la casella di controllo *Enabled* per determinare se questa regola di avviso è attualmente attivata.
 +
@@ -86,7 +86,7 @@ Facoltativamente, le azioni consigliate da intraprendere quando viene attivato q
 NOTE: Se si desidera ripristinare il valore originale di una condizione per una regola di avviso predefinita modificata, selezionare i tre punti a destra della condizione modificata.
 
 +
-image::../media/alert_rules_edit_revert_to_default.png[Alert rules (regole di avviso): Ripristino di una condizione modificata al valore predefinito]
+image:alert_rules_edit_revert_to_default.png["Alert rules (regole di avviso): Ripristino di una condizione modificata al valore predefinito"]
 
 +
 

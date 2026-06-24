@@ -40,7 +40,7 @@ Gli utenti S3 che non appartengono a nessun gruppo non dispongono di autorizzazi
 Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, un banner blu indica che si tratta della griglia di origine del tenant. Tutti gli utenti locali creati in questa griglia verranno clonati nell'altra griglia della connessione.
 
 +
-image::../media/grid-federation-tenant-user-banner.png[Immagine del banner blu sulla pagina utente se si tratta della griglia di origine del tenant]
+image:grid-federation-tenant-user-banner.png["Immagine del banner blu sulla pagina utente se si tratta della griglia di origine del tenant"]
 
 . Selezionare *Crea utente*.
 
@@ -157,7 +157,7 @@ Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione gri
 
 . Modificare le impostazioni utente in base alle esigenze. Vedere <<create-user,Creare un utente locale>> per i dettagli su cosa immettere.
 +
-.. Nella sezione Panoramica , modificare il nome completo selezionando il nome o l'icona di modifica image:../media/icon_edit_tm.png["Icona Edit (Modifica)"].
+.. Nella sezione Panoramica, modifica il nome completo selezionando il nome o l'icona di modifica image:icon_edit_tm.png["Icona Edit (Modifica)"].
 +
 Impossibile modificare il nome utente.
 

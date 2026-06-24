@@ -77,7 +77,7 @@ Poiché la regola ILM 1 si applica a tutte le versioni dell'oggetto, è necessar
 
 Per creare una regola che utilizza "ora non corrente" come ora di riferimento, selezionare *Sì* per la domanda "Applica questa regola solo alle versioni di oggetti precedenti (nei bucket S3 con versione abilitata)?" Nel passaggio 1 (immettere i dettagli) della procedura guidata Crea una regola ILM. Quando si seleziona *Sì*, viene automaticamente selezionata l'opzione _ora non corrente_ per l'ora di riferimento e non è possibile selezionare un'ora di riferimento diversa.
 
-image::../media/ilm-rule-apply-only-to-older-object-verions.png[Applica la regola ILM solo alle versioni di oggetti precedenti (ora non corrente)]
+image:ilm-rule-apply-only-to-older-object-verions.png["Applica la regola ILM solo alle versioni di oggetti precedenti (ora non corrente)"]
 
 In questo esempio, vengono memorizzate solo due copie delle versioni non correnti, che verranno memorizzate per due anni.
 

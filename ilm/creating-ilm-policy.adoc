@@ -194,7 +194,7 @@ Simula una policy sugli oggetti di test prima di attivarla e applicarla ai dati 
 CAUTION: Esaminare eventuali modifiche al posizionamento degli oggetti replicati e con erasure coding esistenti. La modifica della posizione di un oggetto esistente potrebbe causare problemi di risorse temporanee quando i nuovi posizionamenti vengono valutati e implementati.
 
 .Risultati
-Eventuali modifiche alle regole del criterio verranno riflesse nei risultati di Simulation e mostreranno la nuova corrispondenza e la corrispondenza precedente. La finestra dei criteri di simulazione mantiene gli oggetti testati fino a quando non si seleziona *Cancella tutto* o l'icona di rimozione image:../media/icon-x-to-remove.png["Icona Remove (Rimuovi)"]per ogni oggetto nell'elenco dei risultati di Simulation.
+Qualsiasi modifica alle regole della policy si rifletterà nei risultati della simulazione e mostrerà la nuova corrispondenza e la corrispondenza precedente. La finestra Simula policy conserva gli oggetti che hai testato finché non selezioni *Cancella tutto* o l'icona di rimozione image:icon-x-to-remove.png["Icona Remove (Rimuovi)"] per ciascun oggetto nell'elenco dei risultati della simulazione.
 
 .Informazioni correlate
 link:simulating-ilm-policy-examples.html["Esempi di simulazioni dei criteri ILM"]

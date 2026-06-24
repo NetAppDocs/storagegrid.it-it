@@ -429,7 +429,7 @@ L'indirizzo IP inserito nel record DNS dipende dall'utilizzo di un gruppo ha di 
 * Per visualizzare le informazioni di base per tutti gli endpoint del bilanciamento del carico, esaminare le tabelle nella pagina Endpoints del bilanciamento del carico.
 * Per visualizzare tutti i dettagli relativi a un endpoint specifico, inclusi i metadati del certificato, selezionare il nome dell'endpoint nella tabella. Le informazioni visualizzate variano a seconda del tipo di endpoint e della sua configurazione.
 +
-image::../media/load_balancer_endpoint_details.png[Dettagli dell'endpoint del bilanciamento del carico]
+image:load_balancer_endpoint_details.png["Dettagli dell'endpoint del bilanciamento del carico"]
 
 * Per modificare un endpoint, utilizzare il menu *azioni* nella pagina Endpoints del bilanciamento del carico.
 +
@@ -456,7 +456,7 @@ Modificare il nome dell'endpoint
 
  a| 
 .. Selezionare il nome dell'endpoint per visualizzare i dettagli.
-.. Selezionare l'icona di modifica image:../media/icon_edit_tm.png["Icona Edit (Modifica)"].
+.. Seleziona l'icona di modifica image:icon_edit_tm.png["Icona Edit (Modifica)"].
 .. Inserire il nuovo nome.
 .. Selezionare *Salva*.
 

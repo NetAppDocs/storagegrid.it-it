@@ -48,7 +48,7 @@ Viene visualizzata la pagina regole di avviso.
 Viene visualizzata la finestra di dialogo Create Custom Rule (Crea regola personalizzata).
 
 +
-image::../media/alerts_create_custom_rule.png[Avvisi > Crea regola personalizzata]
+image:alerts_create_custom_rule.png["Avvisi > Crea regola personalizzata"]
 
 . Selezionare o deselezionare la casella di controllo *Enabled* per determinare se questa regola di avviso è attualmente attivata.
 +
@@ -98,7 +98,7 @@ Questa espressione attiva un avviso se la quantità di RAM installata per un nod
 `node_memory_MemTotal_bytes < 24000000000`
 
 +
-Per visualizzare le metriche disponibili e testare le espressioni Prometheus, selezionare l'icona della guida image:../media/icon_nms_question.png["icona del punto interrogativo"]e seguire il collegamento alla sezione metriche dell'API di gestione griglia.
+Per visualizzare le metriche disponibili e testare le espressioni Prometheus, seleziona l'icona di aiuto image:icon_nms_question.png["icona del punto interrogativo"] e segui il collegamento alla sezione Metrics dell'API Grid Management.
 
 . Nel campo *durata*, immettere il periodo di tempo in cui una condizione deve rimanere in vigore continuamente prima che l'allarme venga attivato e selezionare un'unità di tempo.
 +

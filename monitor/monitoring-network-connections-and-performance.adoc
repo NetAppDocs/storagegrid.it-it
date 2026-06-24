@@ -29,26 +29,26 @@ Inoltre, è importante link:../admin/managing-traffic-classification-policies.ht
 Viene visualizzata la pagina nodi. Ciascun nodo della griglia viene elencato in formato tabella.
 
 +
-image::../media/nodes_menu.png[Menu nodi]
+image:nodes_menu.png["Menu nodi"]
 
 . Selezionare il nome della griglia, un sito del data center specifico o un nodo della griglia, quindi selezionare la scheda *Network*.
 +
 Il grafico del traffico di rete fornisce un riepilogo del traffico di rete complessivo per l'intera griglia, il sito del data center o il nodo.
 
 +
-image::../media/nodes_page_network_traffic_graph.png[Pagina nodi grafico traffico di rete]
+image:nodes_page_network_traffic_graph.png["Pagina nodi grafico traffico di rete"]
 
 +
 .. Se è stato selezionato un nodo della griglia, scorrere verso il basso per esaminare la sezione *Network Interfaces* della pagina.
 +
-image::../media/nodes_page_network_interfaces.png[Interfacce di rete della pagina Nodes (nodi)]
+image:nodes_page_network_interfaces.png["Interfacce di rete della pagina Nodes (nodi)"]
 
 .. Per i nodi della griglia, scorrere verso il basso per esaminare la sezione *Network Communication* della pagina.
 +
 Le tabelle di ricezione e trasmissione mostrano quanti byte e pacchetti sono stati ricevuti e inviati attraverso ciascuna rete, nonché altre metriche di ricezione e trasmissione.
 
 +
-image::../media/nodes_page_network_communication.png[COM. Rete pagina nodi]
+image:nodes_page_network_communication.png["COM. Rete pagina nodi"]
 
 
 
@@ -59,7 +59,7 @@ image::../media/nodes_page_network_communication.png[COM. Rete pagina nodi]
 Viene visualizzata la pagina Traffic Classification Policies (Criteri di classificazione del traffico) e i criteri esistenti sono elencati nella tabella.
 
 +
-image::../media/traffic_classification_policies_main_screen_w_examples.png[Esempio di policy sul traffico per il grafico]
+image:traffic_classification_policies_main_screen_w_examples.png["Esempio di policy sul traffico per il grafico"]
 
 .. Per visualizzare i grafici che mostrano le metriche di rete associate a un criterio, selezionare il pulsante di opzione a sinistra del criterio, quindi fare clic su *metriche*.
 .. Esaminare i grafici per comprendere il traffico di rete associato alla policy.
@@ -85,7 +85,7 @@ Monitorare i singoli nodi di griglia per verificare i livelli di utilizzo delle 
 . Dalla pagina *Nodi*, seleziona il nodo.
 . Selezionare la scheda *hardware* per visualizzare i grafici relativi all'utilizzo della CPU e della memoria.
 +
-image::../media/nodes_page_hardware_tab_graphs.png[Scheda hardware della pagina nodi]
+image:nodes_page_hardware_tab_graphs.png["Scheda hardware della pagina nodi"]
 
 . Per visualizzare un intervallo di tempo diverso, selezionare uno dei comandi sopra il grafico o il grafico. È possibile visualizzare le informazioni disponibili per intervalli di 1 ora, 1 giorno, 1 settimana o 1 mese. È inoltre possibile impostare un intervallo personalizzato, che consente di specificare intervalli di data e ora.
 . Se il nodo è ospitato su un'appliance di storage o su un'appliance di servizi, scorrere verso il basso per visualizzare le tabelle dei componenti. Lo stato di tutti i componenti deve essere "nominale". Esaminare i componenti che presentano qualsiasi altro stato.

@@ -201,8 +201,8 @@ Quando si definisce il filtraggio avanzato, è possibile specificare più tipi d
 * Il secondo valore di metadati specifica gli oggetti inferiori o uguali a 100 MB.
 
 
-image::../media/advanced_filtering_size_between.png[Esempio di filtraggio avanzato per le dimensioni degli oggetti]
+image:advanced_filtering_size_between.png["Esempio di filtraggio avanzato per le dimensioni degli oggetti"]
 
 L'utilizzo di più voci consente di avere un controllo preciso su quali oggetti vengono associati. Nell'esempio seguente, la regola si applica agli oggetti che hanno il marchio A o il marchio B come valore dei metadati utente camera_TYPE. Tuttavia, la regola si applica solo agli oggetti Brand B di dimensioni inferiori a 10 MB.
 
-image::../media/advanced_filtering_multiple_rows.png[Esempio di filtraggio avanzato per i metadati dell'utente]
+image:advanced_filtering_multiple_rows.png["Esempio di filtraggio avanzato per i metadati dell'utente"]

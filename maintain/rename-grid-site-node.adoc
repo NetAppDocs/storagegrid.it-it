@@ -108,7 +108,7 @@ Seguire questa procedura per inserire un nome visualizzato per ciascun elemento 
 +
 Vedere link:../maintain/rename-grid-site-node-overview.html["Rinominare la griglia, i siti e i nodi"] per conoscere i requisiti di denominazione.
 
-. Per rimuovere gli elementi che non si desidera rinominare, selezionare image:../media/icon-x-to-remove.png["Icona X."] nella colonna *Rimuovi dall'elenco*.
+. Per rimuovere gli elementi che non vuoi rinominare, seleziona image:icon-x-to-remove.png["Icona X."] nella colonna *Rimuovi dall'elenco*.
 +
 Se non si intende proporre un nuovo nome per un elemento, è necessario rimuoverlo dalla tabella.
 
@@ -132,12 +132,12 @@ L'anteprima *Rename (Rinomina)* include tutti gli elementi visualizzati per il p
 +
 Durante la digitazione, il testo viene evidenziato ovunque si trovi nei nomi a sinistra.
 
-. Selezionare image:../media/icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non si desidera rinominare con questo strumento.
+. Seleziona image:icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non vuoi rinominare con questo strumento.
 +
-Ad esempio, si supponga di voler rinominare tutti i nodi che contengono la stringa `Data-Center-1`, ma non si desidera rinominare il `Data-Center-1` sito stesso. Selezionare image:../media/icon-x-to-remove.png["Icona X."] per rimuovere il sito dall'anteprima di ridenominazione.
+Ad esempio, supponi di voler rinominare tutti i nodi che contengono la stringa  `Data-Center-1`, ma non vuoi rinominare il sito  `Data-Center-1` stesso. Seleziona image:icon-x-to-remove.png["Icona X."] per rimuovere il sito dall'anteprima di rinomina.
 
 +
-image::../media/rename-bulk-rename-tool.png[In precedenza, rinominare in blocco lo strumento]
+image:rename-bulk-rename-tool.png["In precedenza, rinominare in blocco lo strumento"]
 
 . Nel campo *New string* (Nuova stringa), immettere la stringa sostitutiva che si desidera utilizzare. Ad esempio, inserire *DC1*.
 +
@@ -147,10 +147,10 @@ Vedere link:../maintain/rename-grid-site-node-overview.html["Rinominare la grigl
 Quando si inserisce la stringa di sostituzione, i nomi a sinistra vengono aggiornati, in modo da verificare che i nuovi nomi siano corretti.
 
 +
-image::../media/rename-bulk-rename-tool-after.png[Rinominare in blocco dopo]
+image:rename-bulk-rename-tool-after.png["Rinominare in blocco dopo"]
 
 . Una volta soddisfatti dei nomi visualizzati nell'anteprima, selezionare *Aggiungi nomi* per aggiungere i nomi alla tabella per il passo *proporre nuovi nomi*.
-. Apportare eventuali modifiche aggiuntive richieste o selezionare image:../media/icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non si desidera rinominare.
+. Apporta le modifiche aggiuntive necessarie oppure seleziona image:icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non vuoi rinominare.
 . Quando si è pronti a rinominare tutti gli elementi della tabella, selezionare *Rinomina*.
 +
 Viene visualizzato un messaggio di successo. I nuovi nomi visualizzati vengono ora utilizzati in Grid Manager.
@@ -196,7 +196,7 @@ CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contie
 ====
 .Ripristinare i nomi di sistema singolarmente
 --
-.. Copiare il nome di sistema originale di ciascun elemento e incollarlo nel campo *Nome visualizzato* oppure selezionare image:../media/icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non si desidera ripristinare.
+.. Copia il nome di sistema originale di ciascun elemento e incollalo nel campo *Nome visualizzato*, oppure seleziona image:icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non vuoi ripristinare.
 +
 Per ripristinare un nome visualizzato, il nome del sistema deve essere visualizzato nel campo *Nome visualizzato*, ma il nome non fa distinzione tra maiuscole e minuscole.
 
@@ -213,7 +213,7 @@ Viene visualizzato un messaggio di successo. I nomi visualizzati per questi elem
 .. Nel campo *existing string*, immettere la stringa del nome da sostituire.
 .. Nel campo *New string*, immettere la stringa del nome di sistema che si desidera utilizzare.
 .. Selezionare *Aggiungi nomi* per aggiungere i nomi alla tabella per il passo *proporre nuovi nomi*.
-.. Verificare che ogni voce nel campo *Display name* corrisponda al nome nel campo *System name*. Apportare eventuali modifiche o selezionare image:../media/icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non si desidera ripristinare.
+.. Verifica che ogni voce nel campo *Nome visualizzato* corrisponda al nome nel campo *Nome di sistema*. Apporta le modifiche necessarie o seleziona image:icon-x-to-remove.png["Icona X."] per rimuovere gli elementi che non vuoi ripristinare.
 +
 Per ripristinare un nome visualizzato, il nome del sistema deve essere visualizzato nel campo *Nome visualizzato*, ma il nome non fa distinzione tra maiuscole e minuscole.
 

@@ -24,7 +24,7 @@ Se possibile, utilizzare i server DNS a cui ciascun sito può accedere localment
 . Specificare l'indirizzo IPv4 per almeno un server DNS nella casella di testo *Server 1*.
 . Se necessario, selezionare il segno più accanto all'ultima voce per aggiungere altre voci del server.
 +
-image::../media/9_gmi_installer_dns_page.gif[Questa immagine viene spiegata dal testo circostante.]
+image:9_gmi_installer_dns_page.gif["Questa immagine viene spiegata dal testo circostante."]
 
 +
 Si consiglia di specificare almeno due server DNS. È possibile specificare fino a sei server DNS.

@@ -15,7 +15,7 @@ La segmentazione degli oggetti è il processo di suddivisione di un oggetto in u
 
 Quando un oggetto viene acquisito nel sistema StorageGRID, il servizio LDR suddivide l'oggetto in segmenti e crea un container di segmenti che elenca le informazioni di intestazione di tutti i segmenti come contenuto.
 
-image::../media/object_segmentation_diagram.gif[Workflow di segmentazione degli oggetti]
+image:object_segmentation_diagram.gif["Workflow di segmentazione degli oggetti"]
 
 Al momento del recupero di un container di segmenti, il servizio LDR assembla l'oggetto originale dai suoi segmenti e lo restituisce al client.
 

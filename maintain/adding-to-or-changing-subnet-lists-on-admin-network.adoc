@@ -62,7 +62,7 @@ Quando si è collegati come root, il prompt cambia da `$` a `#`.
 Viene visualizzato il menu principale.
 
 +
-image::../media/change_ip_tool_main_menu.png[Schermata di benvenuto dello strumento Change IP]
+image:change_ip_tool_main_menu.png["Schermata di benvenuto dello strumento Change IP"]
 
 . Facoltativamente, limitare le reti/nodi su cui vengono eseguite le operazioni. Scegliere una delle seguenti opzioni:
 +
@@ -101,7 +101,7 @@ TIP: È possibile ridurre la quantità di digitazione richiesta utilizzando la "
 
 L'esempio riportato di seguito mostra l'aggiunta di subnet all'elenco subnet di rete amministrativa:
 
-image::../media/change_ip_tool_aesl_sample_input.gif[esempio di change ip tool aesl]
+image:change_ip_tool_aesl_sample_input.gif["esempio di change ip tool aesl"]
 
 --
 . Una volta pronti, inserire *q* per tornare alla schermata del menu principale. Le modifiche vengono mantenute fino a quando non vengono cancellate o applicate.
@@ -113,7 +113,7 @@ NOTE: Se nel passaggio 3 è stata selezionata una delle modalità di selezione d
 +
 ** Selezionare l'opzione *5* per visualizzare le modifiche nell'output isolato in modo da visualizzare solo l'elemento modificato. Le modifiche sono evidenziate in verde (aggiunte) o in rosso (eliminazioni), come mostrato nell'esempio riportato di seguito:
 +
-image::../media/change_ip_tool_aesl_sample_output.png[schermata descritta dal testo circostante]
+image:change_ip_tool_aesl_sample_output.png["schermata descritta dal testo circostante"]
 
 ** Selezionare l'opzione *6* per visualizzare le modifiche nell'output che visualizza la configurazione completa. Le modifiche sono evidenziate in verde (aggiunte) o in rosso (eliminazioni). *Nota:* alcuni emulatori di terminali potrebbero mostrare aggiunte ed eliminazioni utilizzando la formattazione strikehrough.
 +

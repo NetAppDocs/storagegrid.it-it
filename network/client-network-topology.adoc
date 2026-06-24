@@ -19,9 +19,9 @@ Se si configura una rete client per un nodo durante l'installazione, il gateway 
 
 In questo esempio, la rete client viene utilizzata per le richieste client S3 e per le funzioni amministrative, mentre la rete Grid è dedicata alle operazioni interne di gestione degli oggetti.
 
-image::../media/grid_client_networks.png[Reti client grid]
+image:grid_client_networks.png["Reti client grid"]
 
-image::../media/grid_client_networks_ips.png[IP Grid Client Networks]
+image:grid_client_networks_ips.png["IP Grid Client Networks"]
 
 .Informazioni correlate
 link:../maintain/changing-nodes-network-configuration.html["Modificare la configurazione di rete del nodo"]

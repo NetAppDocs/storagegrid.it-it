@@ -27,7 +27,7 @@ NOTE: Se manca un nodo griglia, verificare che sia stato distribuito correttamen
 
 . Selezionare il pulsante di opzione accanto al nodo in sospeso che si desidera approvare.
 +
-image::../media/5_gmi_installer_grid_nodes_pending.gif[Questa immagine viene spiegata dal testo circostante.]
+image:5_gmi_installer_grid_nodes_pending.gif["Questa immagine viene spiegata dal testo circostante."]
 
 . Fare clic su *approva*.
 . In General Settings (Impostazioni generali), modificare le impostazioni per le seguenti proprietà, in base alle necessità:
@@ -125,7 +125,7 @@ Per ulteriori informazioni, consultare https://docs.netapp.com/us-en/storagegrid
 La voce del nodo della griglia viene spostata nell'elenco dei nodi approvati.
 
 +
-image::../media/7_gmi_installer_grid_nodes_approved.gif[Questa immagine viene spiegata dal testo circostante.]
+image:7_gmi_installer_grid_nodes_approved.gif["Questa immagine viene spiegata dal testo circostante."]
 
 . Ripetere questi passaggi per ogni nodo griglia in sospeso che si desidera approvare.
 +

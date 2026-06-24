@@ -38,7 +38,7 @@ CAUTION: Assicurarsi che almeno due nodi di ciascun sito possano accedere ad alm
 . Specificare gli indirizzi IPv4 per almeno quattro server NTP nelle caselle di testo da *Server 1* a *Server 4*.
 . Se necessario, selezionare il segno più accanto all'ultima voce per aggiungere altre voci del server.
 +
-image::../media/8_gmi_installer_ntp_page.gif[Questa immagine viene spiegata dal testo circostante.]
+image:8_gmi_installer_ntp_page.gif["Questa immagine viene spiegata dal testo circostante."]
 
 . Selezionare *Avanti*.
 

@@ -205,7 +205,7 @@ In generale, utilizzare lo stesso numero di giorni per i certificati su entrambi
 
 È possibile rimuovere una connessione a federazione di griglia da una delle griglie della connessione. Come illustrato nella figura, è necessario eseguire i passaggi necessari su entrambe le griglie per confermare che la connessione non viene utilizzata da alcun tenant su nessuna griglia.
 
-image::../media/grid-federation-remove-connection.png[procedura per la rimozione della connessione a federazione di griglie]
+image:grid-federation-remove-connection.png["procedura per la rimozione della connessione a federazione di griglie"]
 
 Prima di rimuovere una connessione, tenere presente quanto segue:
 

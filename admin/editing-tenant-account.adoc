@@ -27,7 +27,7 @@ NOTE: L'applicazione delle impostazioni del tenant sulla griglia potrebbe richie
 .Fasi
 . Selezionare *Inquilini*.
 +
-image::../media/tenant_accounts_page.png[Pagina account tenant]
+image:tenant_accounts_page.png["Pagina account tenant"]
 
 . Individuare l'account tenant che si desidera modificare.
 +

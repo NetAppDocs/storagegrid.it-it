@@ -15,6 +15,6 @@ La scheda Platform Services (servizi piattaforma) fornisce informazioni sulle op
 
 Viene visualizzata la scheda Platform Services (servizi piattaforma) per ciascun sito. Questa scheda fornisce informazioni sui servizi della piattaforma S3, come la replica CloudMirror e il servizio di integrazione della ricerca. I grafici di questa scheda mostrano metriche come il numero di richieste in sospeso, la percentuale di completamento della richiesta e la percentuale di guasti della richiesta.
 
-image::../media/nodes_page_site_level_platform_services.gif[Servizi della piattaforma a livello di sito della pagina Nodes]
+image:nodes_page_site_level_platform_services.gif["Servizi della piattaforma a livello di sito della pagina Nodes"]
 
 Per ulteriori informazioni sui servizi della piattaforma S3, inclusi i dettagli sulla risoluzione dei problemi, vedere link:../admin/index.html["Istruzioni per l'amministrazione di StorageGRID"].

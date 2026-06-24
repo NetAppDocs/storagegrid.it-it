@@ -25,7 +25,7 @@ Se le istruzioni di posizionamento del contenuto di una regola ILM richiedono co
 
 Il motore ILM nel servizio LDR controlla la replica e garantisce che il numero corretto di copie venga memorizzato nelle posizioni corrette e per il tempo corretto.
 
-image::../media/replication_data_flow.png[diagramma che mostra il processo descritto nel testo circostante]
+image:replication_data_flow.png["diagramma che mostra il processo descritto nel testo circostante"]
 
 . Il motore ILM interroga il servizio ADC per determinare il servizio LDR di destinazione migliore all'interno del pool di storage specificato dalla regola ILM. Quindi, invia al servizio LDR un comando per avviare la replica.
 . Il servizio LDR di destinazione interroga il servizio ADC per la migliore posizione di origine. Quindi, invia una richiesta di replica al servizio LDR di origine.
@@ -42,7 +42,7 @@ Se una regola ILM include istruzioni per creare copie codificate dei dati degli 
 
 Il motore ILM, che è un componente del servizio LDR, controlla l'erasure coding e garantisce che il profilo di erasure coding venga applicato ai dati dell'oggetto.
 
-image::../media/erasure_coding_data_flow.png[Erasure coding Data Flow (Erasure Coding Data Flow]
+image:erasure_coding_data_flow.png["Erasure coding Data Flow (Erasure Coding Data Flow"]
 
 . Il motore ILM interroga il servizio ADC per determinare quale servizio DDS può eseguire al meglio l'operazione di erasure coding. Una volta stabilito, il motore ILM invia una richiesta di "avvio" a tale servizio.
 . Il servizio DDS richiede a un LDR di eseguire la cancellazione del codice dei dati dell'oggetto.
@@ -60,7 +60,7 @@ Se le istruzioni di posizionamento del contenuto di una regola ILM richiedono ch
 
 Il motore ILM, che è un componente del servizio LDR, e il servizio Data Mover controllano lo spostamento degli oggetti nel Cloud Storage Pool.
 
-image::../media/cloud_storage_pool_data_flow.png[Flusso di dati del pool di cloud storage]
+image:cloud_storage_pool_data_flow.png["Flusso di dati del pool di cloud storage"]
 
 . Il motore ILM seleziona un servizio Data Mover da replicare nel Cloud Storage Pool.
 . Il servizio Data Mover invia i dati dell'oggetto al Cloud Storage Pool.

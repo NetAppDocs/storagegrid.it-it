@@ -19,13 +19,13 @@ Se si verifica un errore quando StorageGRID tenta di comunicare con un endpoint 
 
 Se si sono verificati errori degli endpoint dei servizi della piattaforma negli ultimi 7 giorni, la dashboard di Tenant Manager visualizza un messaggio di avviso. Per ulteriori informazioni sull'errore, visitare la pagina relativa agli endpoint dei servizi della piattaforma.
 
-image::../media/tenant_dashboard_endpoint_error.png[messaggio di errore dell'endpoint sulla dashboard]
+image:tenant_dashboard_endpoint_error.png["messaggio di errore dell'endpoint sulla dashboard"]
 
 Lo stesso errore visualizzato nella dashboard viene visualizzato anche nella parte superiore della pagina Platform Services Endpoint. Per visualizzare un messaggio di errore più dettagliato:
 
 .Fasi
 . Dall'elenco degli endpoint, selezionare l'endpoint che presenta l'errore.
-. Nella pagina dei dettagli dell'endpoint, selezionare *connessione*. Questa scheda visualizza solo l'errore più recente per un endpoint e indica quanto tempo fa si è verificato l'errore. Negli ultimi 7 giorni si sono verificati errori che includono l'icona X rossaimage:../media/icon_alert_red_critical.png["Icona X rossa"].
+. Nella pagina dei dettagli dell'endpoint, seleziona *Connessione*. Questa scheda mostra solo l'errore più recente per un endpoint e indica quanto tempo fa si è verificato. Gli errori che includono l'icona X rossa image:icon_alert_red_critical.png["Icona X rossa"] si sono verificati negli ultimi 7 giorni.
 
 
 

@@ -25,7 +25,7 @@ Se si dispone di più subnet di rete, è necessario il gateway Grid Network. Tut
 ** Se è già stato implementato almeno un nodo, fare clic su *Discover Grid Networks Subnet* (rileva subnet Grid Network) per compilare automaticamente Grid Network Subnet List (elenco subnet Grid Network) con le subnet segnalate dai nodi Grid registrati con Grid Manager.
 ** È necessario aggiungere manualmente le sottoreti per NTP, DNS, LDAP o altri server esterni a cui si accede tramite il gateway di rete Grid.
 +
-image::../media/4_gmi_installer_grid_network_page.gif[Specificare le subnet]
+image:4_gmi_installer_grid_network_page.gif["Specificare le subnet"]
 
 
 

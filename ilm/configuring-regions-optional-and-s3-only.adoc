@@ -66,7 +66,7 @@ NOTE: Non è possibile rimuovere o modificare la regione predefinita nella sched
 +
 Quando si crea il bucket S3 corrispondente, è necessario utilizzare il nome esatto della regione come elemento di richiesta LocationConstraint.
 
-.. Per rimuovere una regione inutilizzata, selezionare l'icona di eliminazione image:../media/icon-x-to-remove.png["Icona Remove (Rimuovi)"].
+.. Per rimuovere un'area non utilizzata, seleziona l'icona di eliminazione image:icon-x-to-remove.png["Icona Remove (Rimuovi)"].
 +
 Se si tenta di rimuovere una regione attualmente utilizzata in qualsiasi criterio (attivo o inattivo), viene visualizzato un messaggio di errore.
 

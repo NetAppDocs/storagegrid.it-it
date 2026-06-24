@@ -33,7 +33,7 @@ NOTE: Alcuni servizi StorageGRID non sono stati aggiornati per utilizzare le cri
 La scheda *TLS and SSH policies* (Criteri TLS e SSH) mostra i criteri disponibili. Il criterio attualmente attivo è contrassegnato da un segno di spunta verde sul riquadro del criterio.
 
 +
-image::../media/securitysettings_tls_ssh_policies_current.png[Policy TLS e SSH]
+image:securitysettings_tls_ssh_policies_current.png["Policy TLS e SSH"]
 
 . Consulta le schede per conoscere le policy disponibili.
 +
@@ -119,7 +119,7 @@ Un segno di spunta verde viene visualizzato accanto a *policy corrente* nel riqu
 . Dal riquadro del criterio più simile al criterio personalizzato che si desidera creare, selezionare *Visualizza dettagli*.
 . Selezionare *Copia negli Appunti*, quindi selezionare *Annulla*.
 +
-image::../media/securitysettings-custom-security-policy-copy.png[copia di un criterio esistente per creare un criterio personalizzato]
+image:securitysettings-custom-security-policy-copy.png["copia di un criterio esistente per creare un criterio personalizzato"]
 
 . Dal riquadro *Custom policy*, selezionare *Configure and use* (Configura e utilizza).
 . Incollare il JSON copiato e apportare le modifiche necessarie.

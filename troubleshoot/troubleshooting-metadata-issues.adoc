@@ -21,7 +21,7 @@ Seguire le azioni consigliate per ogni avviso relativo ai metadati attivato. Se 
 
 StorageGRID riserva una certa quantità di spazio sul volume 0 di ciascun nodo di storage per i metadati dell'oggetto. Questo spazio, noto come _spazio riservato effettivo_, è suddiviso nello spazio consentito per i metadati dell'oggetto (lo spazio dei metadati consentito) e nello spazio richiesto per le operazioni essenziali del database, come la compattazione e la riparazione. Lo spazio consentito per i metadati regola la capacità complessiva degli oggetti.
 
-image::../media/metadata_allowed_space_volume_0.png[Volume spazio consentito metadati 0]
+image:metadata_allowed_space_volume_0.png["Volume spazio consentito metadati 0"]
 
 Se i metadati degli oggetti consumano più del 100% dello spazio consentito per i metadati, le operazioni del database non possono essere eseguite in modo efficiente e si verificano errori.
 

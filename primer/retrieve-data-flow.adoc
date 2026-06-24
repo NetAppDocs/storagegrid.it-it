@@ -18,7 +18,7 @@ Il servizio LDR di Storage Node interroga l'archivio di metadati per la posizion
 
 NOTE: Se l'unica copia dell'oggetto si trova sullo storage AWS Glacier o nel Tier Azure Archive, l'applicazione client deve emettere una richiesta S3 RestoreObject per ripristinare una copia recuperabile in Cloud Storage Pool.
 
-image::../media/retrieve_data_flow.png[Recuperare]
+image:retrieve_data_flow.png["Recuperare"]
 
 . Il servizio LDR riceve una richiesta di recupero dall'applicazione client.
 . Il servizio LDR interroga l'archivio di metadati per la posizione dei dati dell'oggetto e i metadati.

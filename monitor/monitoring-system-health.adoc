@@ -18,7 +18,7 @@ Il sistema StorageGRID può continuare a funzionare quando le parti della grigli
 
 Per essere avvisati degli avvisi non appena vengono attivati, è possibile https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/setting-up-email-notifications-for-alerts.html["imposta le notifiche via email per gli avvisi"^] o link:using-snmp-monitoring.html["Configurare i trap SNMP"].
 
-image::../media/health_status_card.png[Scheda di stato dello stato di salute - dashboard]
+image:health_status_card.png["Scheda di stato dello stato di salute - dashboard"]
 
 In caso di problemi, vengono visualizzati collegamenti che consentono di visualizzare ulteriori dettagli:
 
@@ -66,7 +66,7 @@ Se uno o più nodi sono disconnessi dalla rete, potrebbero verificarsi problemi 
 
 
  a| 
-image:../media/icon_alarm_blue_unknown.png["icona del punto interrogativo blu"]
+image:icon_alarm_blue_unknown.png["icona del punto interrogativo blu"]
  a| 
 *Non connesso - Sconosciuto*
 
@@ -83,7 +83,7 @@ Ad esempio, potrebbe essere necessario riavviare un servizio che ha arrestato o 
 
 
  a| 
-image:../media/icon_alarm_gray_administratively_down.png["icona del punto interrogativo grigio"]
+image:icon_alarm_gray_administratively_down.png["icona del punto interrogativo grigio"]
  a| 
 *Non connesso - amministrazione non attiva*
 
@@ -100,7 +100,7 @@ Se sono attivi uno o più avvisi, <<Visualizzare gli avvisi correnti e risolti,s
 
 
  a| 
-image:../media/icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"]
+image:icon_alert_green_checkmark.png["icona di avviso segno di spunta verde"]
  a| 
 *Connesso*
 
@@ -140,11 +140,11 @@ Severità
  a| 
 La severità dell'avviso. Per gli avvisi correnti, se sono raggruppati più avvisi, la riga del titolo mostra il numero di istanze di tale avviso che si verificano a ogni livello di gravità.
 
-image:../media/icon_alert_red_critical.png["Icona Avviso rosso critico"] *Critico*: Esiste una condizione anomala che ha interrotto le normali operazioni di un nodo o servizio StorageGRID. È necessario risolvere immediatamente il problema sottostante. Se il problema non viene risolto, potrebbero verificarsi interruzioni del servizio e perdita di dati.
+image:icon_alert_red_critical.png["Icona Avviso rosso critico"] *Critico*: Si è verificata una condizione anomala che ha interrotto le normali operazioni di un nodo o servizio StorageGRID. Devi risolvere immediatamente il problema alla radice. Se il problema non viene risolto, potrebbero verificarsi interruzioni del servizio e perdita di dati.
 
-image:../media/icon_alert_orange_major.png["Icona Alert arancione maggiore"] *Maggiore*: Esiste una condizione anomala che influisce sulle operazioni correnti o si avvicina alla soglia per un avviso critico. È necessario analizzare gli avvisi principali e risolvere eventuali problemi sottostanti per assicurarsi che le condizioni anomale non interrompano il normale funzionamento di un nodo o servizio StorageGRID.
+image:icon_alert_orange_major.png["Icona Alert arancione maggiore"]*Grave*: Si è verificata una condizione anomala che sta influenzando le operazioni in corso o si sta avvicinando alla soglia per un avviso critico. Dovresti esaminare gli avvisi gravi e risolvere eventuali problemi sottostanti per assicurarti che la condizione anomala non interrompa il normale funzionamento di un nodo o servizio StorageGRID.
 
-image:../media/icon_alert_yellow_minor.png["Icona Avviso giallo minore"] *Minore*: Il sistema funziona normalmente, ma esiste una condizione anomala che potrebbe influire sulla capacità del sistema di funzionare se continua. È necessario monitorare e risolvere gli avvisi minori che non vengono risolti da soli per garantire che non causino problemi più gravi.
+image:icon_alert_yellow_minor.png["Icona Avviso giallo minore"]*Minore*: Il sistema funziona normalmente, ma è presente una condizione anomala che, se persiste, potrebbe compromettere la capacità del sistema di funzionare. Dovresti monitorare e risolvere gli avvisi minori che non si risolvono da soli per assicurarti che non causino un problema più serio.
 
 
 
@@ -208,9 +208,9 @@ La pagina degli avvisi correnti viene aggiornata ogni due minuti.
 
 
 
-. Per espandere gruppi di avvisi, selezionare il pulsante freccia giù image:../media/icon_alert_caret_down.png["icona freccia giù"]. Per comprimere singoli avvisi in un gruppo, selezionare il cursore su image:../media/icon_alert_caret_up.png["Icona freccia su"]o selezionare il nome del gruppo.
+. Per espandere i gruppi di avvisi, seleziona la freccia in basso image:icon_alert_caret_down.png["icona freccia giù"]. Per comprimere i singoli avvisi di un gruppo, seleziona la freccia in alto image:icon_alert_caret_up.png["Icona freccia su"] o il nome del gruppo.
 . Per visualizzare singoli avvisi invece di gruppi di avvisi, deselezionare la casella di controllo *Group alerts* (Avvisi di gruppo).
-. Per ordinare gli avvisi correnti o i gruppi di avvisi, selezionare le frecce su/giù image:../media/icon_alert_sort_column.png["Icona delle frecce di ordinamento"]nell'intestazione di ciascuna colonna.
+. Per ordinare gli avvisi correnti o i gruppi di avvisi, seleziona le frecce su/giù image:icon_alert_sort_column.png["Icona delle frecce di ordinamento"] nell'intestazione di ciascuna colonna.
 +
 ** Quando si seleziona *Group alerts* (Avvisi di gruppo), vengono ordinati sia i gruppi di avvisi che i singoli avvisi all'interno di ciascun gruppo. Ad esempio, è possibile ordinare gli avvisi in un gruppo in base all'ora * attivata per trovare l'istanza più recente di un avviso specifico.
 ** Quando l'opzione *Group alerts* (Avvisi di gruppo) viene deselezionata, viene ordinato l'intero elenco di avvisi. Ad esempio, è possibile ordinare tutti gli avvisi in base a *nodo/sito* per visualizzare tutti gli avvisi relativi a un nodo specifico.

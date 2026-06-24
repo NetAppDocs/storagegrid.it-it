@@ -84,7 +84,7 @@ Comportamento di acquisizione
 Rigoroso. Utilizza sempre le posizioni di questa regola per l'acquisizione. L'acquisizione non riesce se non è possibile memorizzare due copie dell'oggetto nel data center di Parigi.
 
 |===
-image::../media/ilm_rule_1_example_5_strict_ingest.png[ILM Rule 1 esempio 5 Strict Ingest]
+image:ilm_rule_1_example_5_strict_ingest.png["ILM Rule 1 esempio 5 Strict Ingest"]
 
 
 

@@ -15,4 +15,4 @@ La scheda oggetti fornisce informazioni su link:../s3/index.html["Tassi di acqui
 
 Viene visualizzata la scheda oggetti per ciascun nodo di storage, ciascun sito e l'intera griglia. Per i nodi di storage, la scheda oggetti fornisce anche conteggi di oggetti e informazioni sulle query dei metadati e sulla verifica in background.
 
-image::../media/nodes_page_objects_tab.png[Scheda oggetti della pagina nodi]
+image:nodes_page_objects_tab.png["Scheda oggetti della pagina nodi"]

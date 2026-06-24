@@ -40,9 +40,9 @@ Per impostazione predefinita, viene creato un pool di storage per ciascun sito d
 
 Posizionamento delle regole ILM:
 
-image::../media/ilm_replication_at_2_sites.png[Replica di 1 copia ciascuno in 2 siti]
+image:ilm_replication_at_2_sites.png["Replica di 1 copia ciascuno in 2 siti"]
 
-image::../media/ilm_replication_make_2_copies_2_pools_2_sites.png[Eseguire una copia in ciascuno dei 2 siti: Pool di storage specifico del sito]
+image:ilm_replication_make_2_copies_2_pools_2_sites.png["Eseguire una copia in ciascuno dei 2 siti: Pool di storage specifico del sito"]
 
 In caso di perdita di un sito, le copie degli oggetti sono disponibili nell'altro sito.
 
@@ -58,7 +58,7 @@ La disponibilità di pool di storage costituiti da più di un sito per pool di s
 
 Posizionamento delle regole ILM:
 
-image::../media/ilm_erasure_coding_site_loss_protection_4+2.png[Pool di storage EC 1 9 nodi di storage 3 siti]
+image:ilm_erasure_coding_site_loss_protection_4+2.png["Pool di storage EC 1 9 nodi di storage 3 siti"]
 
 In questo esempio:
 
@@ -72,8 +72,8 @@ NOTE: La codifica di cancellazione è consentita nei pool di storage contenenti 
 
 Regola ILM con schema di erasure coding 4+2:
 
-image::../media/ec_three_sites_4_plus_2_site_loss_example_template.png[Memorizzare gli oggetti cancellando il codice utilizzando uno schema EC 4+2 in 3 siti]
+image:ec_three_sites_4_plus_2_site_loss_example_template.png["Memorizzare gli oggetti cancellando il codice utilizzando uno schema EC 4+2 in 3 siti"]
 
 In caso di perdita di un sito, è possibile recuperare i dati:
 
-image::../media/ec_three_sites_4_plus_2_site_loss_example.png[Erasure coding 4+2 EC schema 1 sito perso]
+image:ec_three_sites_4_plus_2_site_loss_example.png["Erasure coding 4+2 EC schema 1 sito perso"]

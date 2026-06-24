@@ -62,7 +62,7 @@ Lo script Python chiamerà quindi lo script Node.js corrispondente per eseguire 
 
 . Quando richiesto, inserisci la password e preparati a fornire un'autorizzazione MFA a Entra ID, se richiesto.
 +
-image::../media/sso_api_password_mfa.png[Richiedi di inserire password e MFA]
+image:sso_api_password_mfa.png["Richiedi di inserire password e MFA"]
 
 +
 

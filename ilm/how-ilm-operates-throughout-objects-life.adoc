@@ -29,4 +29,4 @@ NOTE: Gli oggetti in un bucket con S3 Object Lock abilitato non possono essere c
 
 Il diagramma riassume il funzionamento di ILM durante l'intero ciclo di vita di un oggetto.
 
-image::../media/overview_of_object_lifecycle.png[Panoramica del ciclo di vita degli oggetti]
+image:overview_of_object_lifecycle.png["Panoramica del ciclo di vita degli oggetti"]

@@ -31,7 +31,7 @@ A seconda del problema, potrebbe essere necessario scegliere link:../audit/objec
 
 . Se si desidera cercare una versione specifica dell'oggetto, inserire l'ID versione (facoltativo).
 +
-image::../media/object_lookup.png[Pagina Object Lookup (Ricerca oggetto)]
+image:object_lookup.png["Pagina Object Lookup (Ricerca oggetto)"]
 
 . Selezionare *Cerca*.
 +
@@ -52,6 +52,6 @@ Nell'esempio seguente vengono illustrati i risultati della ricerca dei metadati 
 
 
 +
-image::../media/object_lookup_results.png[Risultati della ricerca di oggetti]
+image:object_lookup_results.png["Risultati della ricerca di oggetti"]
 
 

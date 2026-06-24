@@ -32,7 +32,7 @@ Una volta completata la procedura di decommissionamento del sito:
 È possibile utilizzare la procedura di decommissionamento del sito per rimuovere un sito in cui tutti i nodi sono connessi a StorageGRID (chiamata decommissionazione di un sito connesso) o per rimuovere un sito in cui tutti i nodi sono disconnessi da StorageGRID (chiamata decommissionazione di un sito disconnesso). Prima di iniziare, è necessario comprendere le differenze tra queste procedure.
 
 
-NOTE: Se un sito contiene una combinazione di nodi connessi (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]) e disconnessi (image:../media/icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"] o image:../media/icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"]), è necessario riportare tutti i nodi non in linea.
+NOTE: Se un sito contiene un mix di nodi connessi (image:icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]) e nodi disconnessi (image:icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"] o image:icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"]), devi riportare online tutti i nodi offline.
 
 * La decommissionazione di un sito connesso consente di rimuovere un sito operativo dal sistema StorageGRID. Ad esempio, è possibile eseguire la decommissionazione di un sito connesso per rimuovere un sito funzionante ma non più necessario.
 * Quando StorageGRID rimuove un sito connesso, utilizza ILM per gestire i dati dell'oggetto nel sito. Prima di avviare la decommissionazione di un sito connesso, è necessario rimuovere il sito da tutte le regole ILM e attivare una nuova policy ILM. I processi ILM per la migrazione dei dati degli oggetti e i processi interni per la rimozione di un sito possono essere eseguiti contemporaneamente, ma la procedura consigliata consiste nel consentire il completamento dei passaggi ILM prima di avviare la procedura di decommissionamento effettiva.
@@ -54,8 +54,8 @@ Prima di rimuovere un sito connesso o disconnesso, è necessario conoscere i seg
 
 * Non è possibile decommissionare un sito che include il nodo di amministrazione primario.
 * Non è possibile decommissionare un sito se uno dei nodi dispone di un'interfaccia che appartiene a un gruppo ad alta disponibilità (ha). È necessario modificare il gruppo ha per rimuovere l'interfaccia del nodo o rimuovere l'intero gruppo ha.
-* Non è possibile smantellare un sito se contiene una combinazione diimage:../media/icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"] nodi connessi () e disconnessiimage:../media/icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"] (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"] o ).
-* Non è possibile decommissionare un sito se un nodo di un altro sito è disconnesso (image:../media/icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"] o image:../media/icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"]).
+* Non puoi decommissionare un sito se contiene una combinazione di nodi connessi (image:icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]) e disconnessi (image:icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"] o image:icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"]).
+* Non puoi decommissionare un sito se un nodo di un altro sito è disconnesso (image:icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"] o image:icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"]).
 * Non è possibile avviare la procedura di decommissionamento del sito se è in corso un'operazione di riparazione del nodo ec. Vedere link:checking-data-repair-jobs.html["Controllare i lavori di riparazione dei dati"] per tenere traccia delle riparazioni dei dati sottoposti a erasure coding.
 * Durante l'esecuzione della procedura di decommissionamento del sito:
 +
@@ -117,7 +117,7 @@ CAUTION: Non creare mai una regola ILM a copia singola per consentire la rimozio
 
 Prima che StorageGRID possa rimuovere un sito connesso, è necessario assicurarsi che:
 
-* Tutti i nodi nel sistema StorageGRID devono avere uno stato di connessione *connesso* (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]); tuttavia, i nodi possono avere avvisi attivi.
+* Tutti i nodi nel tuo sistema StorageGRID devono avere uno stato di connessione *Connesso* (image:icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]); tuttavia, i nodi possono avere avvisi attivi.
 +
 
 NOTE: Se uno o più nodi sono disconnessi, è possibile completare i passaggi 1-4 della procedura guidata Smantella sito. Tuttavia, non è possibile completare la fase 5 della procedura guidata, che avvia il processo di decommissionamento, a meno che tutti i nodi non siano connessi.
@@ -147,11 +147,11 @@ CAUTION: Non tentare di decommissionare un sito disconnesso se si ritiene che si
 
 * Tutti i nodi del sito devono avere uno stato di connessione di uno dei seguenti:
 +
-** *Sconosciuto* (image:../media/icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"]): Per un motivo sconosciuto, un nodo è disconnesso o i servizi sul nodo sono inaspettatamente inattivi. Ad esempio, un servizio sul nodo potrebbe essere stato arrestato o il nodo potrebbe aver perso la connessione di rete a causa di un'interruzione dell'alimentazione o di un'interruzione imprevista.
-** *Amministrativamente inattivo* (image:../media/icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"]): Il nodo non è connesso alla rete per un motivo previsto. Ad esempio, il nodo o i servizi sul nodo sono stati normalmente chiusi.
+** *Sconosciuto* (image:icon_alarm_blue_unknown.png["Icona allarme blu sconosciuto"]): Per un motivo sconosciuto, un nodo è disconnesso o i servizi sul nodo sono inaspettatamente inattivi. Ad esempio, un servizio sul nodo potrebbe essere stato arrestato oppure il nodo potrebbe aver perso la connessione di rete a causa di un'interruzione di corrente o di un'interruzione imprevista.
+** *Amministrativamente non disponibile* (image:icon_alarm_gray_administratively_down.png["Icona Alarm Grey amministrativamente in basso"]): Il nodo non è connesso alla grid per un motivo previsto. Ad esempio, il nodo o i servizi sul nodo sono stati arrestati correttamente.
 
 
-* Tutti i nodi di tutti gli altri siti devono avere uno stato di connessione *connesso* (image:../media/icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]); tuttavia, questi altri nodi possono avere avvisi attivi.
+* Tutti i nodi in tutti gli altri siti devono avere uno stato di connessione *Connected* (image:icon_alert_green_checkmark.png["Icona Avviso segno di spunta verde"]); tuttavia, questi altri nodi possono avere avvisi attivi.
 * È necessario comprendere che non sarà più possibile utilizzare StorageGRID per visualizzare o recuperare i dati degli oggetti memorizzati nel sito. Quando StorageGRID esegue questa procedura, non tenta di conservare i dati del sito disconnesso.
 +
 

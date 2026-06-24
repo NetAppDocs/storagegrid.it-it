@@ -32,14 +32,14 @@ CAUTION: Prestare attenzione quando si decide di tacitare una regola di avviso. 
 Viene visualizzata la pagina Silences (silenzi).
 
 +
-image::../media/alerts_silences_page.png[Pagina Avvisi > silenzi]
+image:alerts_silences_page.png["Pagina Avvisi > Silenziamenti"]
 
 . Selezionare *Crea*.
 +
 Viene visualizzata la finestra di dialogo Crea silenzio.
 
 +
-image::../media/alerts_create_silence.png[Avvisi > Crea silenzio]
+image:alerts_create_silence.png["Avvisi > Crea silenzio"]
 
 . Selezionare o inserire le seguenti informazioni:
 +

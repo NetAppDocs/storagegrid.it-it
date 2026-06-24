@@ -45,14 +45,14 @@ Il controllo dell'esistenza degli oggetti verifica se tutte le copie replicate p
 +
 *** Per controllare la verifica dei dati degli oggetti replicati, esaminare gli attributi nella sezione verifica.
 +
-image::../media/nodes_storage_node_object_verification.png[Nodi > nodo di storage > oggetto > verifica]
+image:nodes_storage_node_object_verification.png["Nodi > Nodo di archiviazione > Oggetto > Verifica"]
 
 *** Per controllare la verifica dei frammenti con codifica di cancellazione, selezionare *_Storage Node_* > *ILM* e controllare gli attributi nella sezione Erasure coding verifcation.
 +
-image::../media/nodes_storage_node_ilm_ec_verification.png[Nodi > nodo storage > ILM > verifica EC]
+image:nodes_storage_node_ilm_ec_verification.png["Nodi > Nodo di archiviazione > ILM > Verifica EC"]
 
 +
-Selezionare il punto interrogativo image:../media/icon_nms_question.png["punto interrogativo"]accanto al nome di un attributo per visualizzare il testo della guida.
+Seleziona il punto interrogativo image:icon_nms_question.png["punto interrogativo"] accanto al nome di un attributo per visualizzare il testo di aiuto.
 
 
 
@@ -63,7 +63,7 @@ Selezionare il punto interrogativo image:../media/icon_nms_question.png["punto i
 .. Selezionare *Manutenzione* > *Controllo esistenza oggetto* > *Cronologia lavori*.
 .. Esaminare la colonna Copie di oggetti mancanti rilevate.  Se un processo ha causato la perdita di 100 o più copie di oggetti ed è stato attivato l'avviso *Oggetti potenzialmente persi*, contattare l'assistenza tecnica.
 +
-image::../media/oec_job_history.png[Cronologia del processo di controllo dell'esistenza di oggetti]
+image:oec_job_history.png["Cronologia del processo di controllo dell'esistenza di oggetti"]
 
 
 

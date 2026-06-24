@@ -85,7 +85,7 @@ Per visualizzare i dettagli di una regola ILM, inclusi il diagramma di conservaz
 . Selezionare *ILM* > *regole*.
 . Selezionare il nome della regola di cui si desidera visualizzare i dettagli. Esempio:
 +
-image::../media/ilm_rule_details_page.png[Pagina dei dettagli della regola ILM]
+image:ilm_rule_details_page.png["Pagina dei dettagli della regola ILM"]
 
 
 
@@ -174,9 +174,9 @@ NOTE: Poiché la dashboard può essere personalizzata, la scheda ILM potrebbe no
 
 . Monitorare le metriche nella scheda ILM.
 +
-È possibile selezionare il punto interrogativo image:../media/icon_nms_question.png["icona del punto interrogativo"]per visualizzare una descrizione degli elementi nella scheda ILM.
+Puoi selezionare il punto interrogativo image:icon_nms_question.png["icona del punto interrogativo"] per vedere una descrizione degli elementi nella scheda ILM.
 
 +
-image::../media/ilm_metrics_on_dashboard.png[Metriche ILM sulla dashboard di Grid Manager]
+image:ilm_metrics_on_dashboard.png["Metriche ILM sulla dashboard di Grid Manager"]
 
 

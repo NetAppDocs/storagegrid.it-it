@@ -19,7 +19,7 @@ Un'operazione di acquisizione, o salvataggio, consiste in un flusso di dati defi
 
 Quando un client acquisisce un oggetto nel sistema StorageGRID, il servizio LDR sui nodi di storage elabora la richiesta e memorizza i metadati e i dati su disco.
 
-image::../media/ingest_data_flow.png[Acquisire con posizionamento sincrono]
+image:ingest_data_flow.png["Acquisire con posizionamento sincrono"]
 
 . L'applicazione client crea l'oggetto e lo invia al sistema StorageGRID tramite una richiesta HTTP PUT.
 . L'oggetto viene valutato in base al criterio ILM del sistema.

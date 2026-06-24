@@ -24,7 +24,7 @@ Se si accede a Grid Manager o Tenant Manager utilizzando un nome di dominio inve
 
 L'esempio seguente mostra un errore di certificato quando il certificato dell'interfaccia di gestione personalizzata è scaduto:
 
-image::../media/certificate_error.png[Esempio di errore nel certificato]
+image:certificate_error.png["Esempio di errore nel certificato"]
 
 Per garantire che le operazioni non vengano interrotte da un certificato del server guasto, l'avviso *scadenza del certificato del server per l'interfaccia di gestione* viene attivato quando il certificato del server sta per scadere.
 

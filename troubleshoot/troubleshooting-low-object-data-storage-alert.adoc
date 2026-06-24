@@ -67,7 +67,7 @@ Vengono visualizzati i seguenti valori:
 
 
 +
-image::../media/nodes_page_storage_used_object_data.png[Nodes Page Storage Uused Object Data]
+image:nodes_page_storage_used_object_data.png["Nodes Page Storage Uused Object Data"]
 
 . Selezionare i controlli dell'ora sopra il grafico per visualizzare l'utilizzo dello storage in diversi periodi di tempo.
 +

@@ -18,7 +18,7 @@ TIP: Per modificare le unità per i valori di storage visualizzati in Grid Manag
 
 Il dashboard potrebbe essere diverso a seconda della configurazione del sistema.
 
-image::../media/grid_manager_dashboard.png[Dashboard di Grid Manager]
+image:grid_manager_dashboard.png["Dashboard di Grid Manager"]
 
 
 
@@ -69,7 +69,7 @@ Nodi
 Utilizzo di CPU, dati e memoria per nodo. S3 operazioni per nodo. Distribuzione da nodo a sito.
 
 |===
-Alcune schede possono essere massimizzate per una visualizzazione più semplice. Selezionare l'icona Ingrandisci image:../media/icon_dashboard_card_maximize.png["Icona Ingrandisci"]nell'angolo superiore destro della scheda. Per chiudere una scheda ingrandita, selezionare l'icona Riduci a icona image:../media/icon_dashboard_card_minimize.png["Icona Riduci a icona"] o selezionare *Chiudi*.
+Alcune schede possono essere ingrandite per una visualizzazione più agevole. Seleziona l'icona di ingrandimento image:icon_dashboard_card_maximize.png["Icona Ingrandisci"] nell'angolo in alto a destra della scheda. Per chiudere una scheda ingrandita, seleziona l'icona di riduzione image:icon_dashboard_card_minimize.png["Icona Riduci a icona"] oppure seleziona *Close*.
 
 
 
@@ -91,7 +91,7 @@ NOTE: Se si dispone di altre autorizzazioni oltre all'accesso root, è possibile
 
 Per gestire i dashboard, selezionare *azioni* > *Gestisci dashboard*.
 
-image::../media/dashboard_manage.png[Gestire i dashboard]
+image:dashboard_manage.png["Gestire i dashboard"]
 
 
 
@@ -112,4 +112,4 @@ Durante la configurazione di una dashboard, è possibile:
 * Selezionare le dimensioni delle singole schede selezionando *S*, *M*, *L* o *XL* nella parte superiore della scheda
 
 
-image::../media/dashboard_configure.png[Configurare la dashboard]
+image:dashboard_configure.png["Configurare la dashboard"]

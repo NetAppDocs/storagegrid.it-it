@@ -43,7 +43,7 @@ Per ulteriori informazioni, vedere link:../ilm/how-objects-are-deleted.html["Mod
 
 == Eliminazione del flusso di dati per il client
 
-image::../media/delete_data_flow.png[Flusso di dati di eliminazione del client]
+image:delete_data_flow.png["Flusso di dati di eliminazione del client"]
 
 . Il servizio LDR riceve una richiesta di eliminazione dall'applicazione client.
 . Il servizio LDR aggiorna l'archivio di metadati in modo che l'oggetto venga cancellato dalle richieste del client e istruisce il motore ILM a rimuovere tutte le copie dei dati dell'oggetto.
@@ -54,7 +54,7 @@ image::../media/delete_data_flow.png[Flusso di dati di eliminazione del client]
 
 == Flusso di dati per l'eliminazione di ILM
 
-image::../media/automatic_deletion_data_flow.png[Flusso di dati per l'eliminazione automatica]
+image:automatic_deletion_data_flow.png["Flusso di dati per l'eliminazione automatica"]
 
 . Il motore ILM determina che l'oggetto deve essere cancellato.
 . Il motore ILM invia una notifica all'archivio di metadati. L'archivio di metadati aggiorna i metadati degli oggetti in modo che l'oggetto venga cancellato dalle richieste del client.

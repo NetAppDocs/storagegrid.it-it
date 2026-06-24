@@ -21,7 +21,7 @@ Il clone dell'account è la replica automatica di un account tenant, di gruppi d
 
 Il diagramma del flusso di lavoro mostra i passaggi che gli amministratori della griglia e i tenant autorizzati eseguiranno per impostare il clone dell'account. Queste operazioni vengono eseguite dopo il link:grid-federation-create-connection.html["la connessione a federazione di griglie è configurata"].
 
-image::../media/grid-federation-account-clone-workflow.png[workflow per il clone dell'account]
+image:grid-federation-account-clone-workflow.png["workflow per il clone dell'account"]
 
 
 

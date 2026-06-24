@@ -35,11 +35,11 @@ La dashboard di Grid Manager consente di valutare rapidamente la quantità di st
 NOTE: Il riepilogo non include i supporti di archiviazione.
 
 +
-image::../media/dashboard_data_and_metadata_space_usage_breakdown.png[Analisi dell'utilizzo dello spazio di dati e metadati]
+image:dashboard_data_and_metadata_space_usage_breakdown.png["Analisi dell'utilizzo dello spazio di dati e metadati"]
 
 .. Annotare il grafico sulla scheda Storage over Time (archiviazione nel tempo). Utilizzare il menu a discesa Time Period (periodo di tempo) per determinare la velocità di utilizzo dello storage.
 +
-image::../media/dashboard_storage_over_time.png[Grafico dello storage nel tempo]
+image:dashboard_storage_over_time.png["Grafico dello storage nel tempo"]
 
 
 
@@ -48,7 +48,7 @@ image::../media/dashboard_storage_over_time.png[Grafico dello storage nel tempo]
 .. Selezionare *Nodi*.
 .. Selezionare *_grid_* > *Storage*.
 +
-image::../media/nodes_deployment_storage_tab.png[Scheda Node Deployment Storage (Storage di implementazione]
+image:nodes_deployment_storage_tab.png["Scheda Node Deployment Storage (Storage di implementazione"]
 
 .. Posizionare il cursore sui grafici *Storage used - Object data* e *Storage used - Object metadata* per verificare la quantità di storage a oggetti e metadati a oggetti disponibile per l'intera griglia e la quantità di storage utilizzata nel tempo.
 +
@@ -79,7 +79,7 @@ Monitorare lo spazio totale utilizzabile per ciascun nodo di storage per garanti
 .A proposito di questa attività
 Lo spazio utilizzabile è la quantità di spazio di storage disponibile per memorizzare gli oggetti. Lo spazio totale utilizzabile per un nodo di storage viene calcolato sommando lo spazio disponibile in tutti gli archivi di oggetti all'interno del nodo.
 
-image::../media/calculating_watermarks.gif[Disegno concettuale per lo spazio utilizzabile totale]
+image:calculating_watermarks.gif["Disegno concettuale per lo spazio utilizzabile totale"]
 
 .Fasi
 . Selezionare *Nodi* > *Nodo di archiviazione_* > *Archiviazione*.
@@ -97,17 +97,17 @@ Vengono visualizzati i seguenti valori:
 ** *Erasure-coded data*: Stima della quantità di dati dell'oggetto con codifica di cancellazione su questo nodo, sito o griglia.
 ** *Total*: Quantità totale di spazio utilizzabile su questo nodo, sito o griglia. Il valore utilizzato è la `storagegrid_storage_utilization_data_bytes` metrica.
 +
-image::../media/nodes_page_storage_used_object_data.png[Nodes Page Storage Uused Object Data]
+image:nodes_page_storage_used_object_data.png["Nodes Page Storage Uused Object Data"]
 
 
 
 . Esaminare i valori disponibili nelle tabelle volumi e archivi di oggetti, sotto i grafici.
 +
 
-NOTE: Per visualizzare i grafici di questi valori, fare clic sulle icone del grafico image:../media/icon_chart_new_for_11_5.png["Icona del grafico"]nelle colonne disponibili.
+NOTE: Per visualizzare i grafici di questi valori, clicca sulle icone dei grafici image:icon_chart_new_for_11_5.png["Icona del grafico"] nelle colonne Disponibili.
 
 +
-image::../media/nodes_page_storage_tables.png[L'oggetto memorizza le tabelle]
+image:nodes_page_storage_tables.png["L'oggetto memorizza le tabelle"]
 
 . Monitorare i valori nel tempo per stimare il tasso di consumo dello spazio di storage utilizzabile.
 . Per mantenere le normali operazioni di sistema, aggiungere nodi di storage, aggiungere volumi di storage o archiviare i dati degli oggetti prima di consumare lo spazio utilizzabile.
@@ -143,7 +143,7 @@ Alcuni dei fattori che possono aumentare l'utilizzo dei metadati includono la di
 . Selezionare *Nodi* > *Nodo di archiviazione_* > *Archiviazione*.
 . Posizionare il cursore sul grafico Storage Used - Object metadata (Storage utilizzato - metadati oggetto) per visualizzare i valori relativi a un orario specifico.
 +
-image::../media/storage_used_object_metadata.png[Storage utilizzato - metadati oggetto]
+image:storage_used_object_metadata.png["Storage utilizzato - metadati oggetto"]
 
 +
 Utilizzato (%):: La percentuale dello spazio consentito per i metadati che è stato utilizzato su questo nodo di storage.
@@ -202,4 +202,4 @@ Se si dispone di una nuova installazione StorageGRID, consentire l'accumulo di d
 . Utilizza questi valori per valutare quando sarà necessario aggiungere nuovi nodi di storage per lo storage di dati e metadati.
 
 
-image::../media/forecast-metadata-usage.png[Previsione dell'utilizzo dei metadati per sito]
+image:forecast-metadata-usage.png["Previsione dell'utilizzo dei metadati per sito"]

@@ -28,7 +28,7 @@ In questo esempio, la *policy ILM di esempio* viene simulata rispetto agli ogget
 
 Dopo aver simulato il criterio, verificare che ogni oggetto sia stato associato alla regola corretta.
 
-image::../media/simulate_policy_screen.png[Simulare i risultati delle policy]
+image:simulate_policy_screen.png["Simulare i risultati delle policy"]
 
 In questo esempio:
 
@@ -57,7 +57,7 @@ In questo esempio, viene simulata la policy *Demo*. Questo criterio, che ha lo s
 Vengono visualizzati i risultati di Simulation, che mostrano che l' `Havok.png`oggetto è stato associato alla regola *PNGS*.
 
 +
-image::../media/simulate_reorder_rules_pngs_result.png[Esempio 2: Riordinamento delle regole durante la simulazione di un criterio ILM]
+image:simulate_reorder_rules_pngs_result.png["Esempio 2: Riordinamento delle regole durante la simulazione di un criterio ILM"]
 
 +
 Tuttavia, `Havok.png` era destinato a testare la regola *X-men*.
@@ -75,7 +75,7 @@ Tuttavia, `Havok.png` era destinato a testare la regola *X-men*.
 Gli oggetti precedentemente testati vengono rivalutati in base alla policy aggiornata e vengono visualizzati i risultati della nuova simulazione. Nell'esempio, la colonna regola corrispondente mostra che l' `Havok.png`oggetto ora corrisponde alla regola dei metadati X-MEN, come previsto. La colonna di confronto precedente mostra che la regola PNG corrisponde all'oggetto nella simulazione precedente.
 
 +
-image::../media/simulate_reorder_rules_correct_result.png[Esempio 2: Riordinamento delle regole durante la simulazione di un criterio ILM]
+image:simulate_reorder_rules_correct_result.png["Esempio 2: Riordinamento delle regole durante la simulazione di un criterio ILM"]
 
 
 
@@ -87,7 +87,7 @@ Questo esempio mostra come simulare una policy, correggere una regola nella poli
 
 In questo esempio, viene simulata la policy *Demo*. Questo criterio consente di trovare oggetti che contengono `series=x-men` metadati dell'utente. Tuttavia, si sono verificati risultati imprevisti durante la simulazione di questo criterio rispetto all' `Beast.jpg`oggetto. Invece di corrispondere alla regola dei metadati X-MEN, l'oggetto corrisponde alla regola predefinita, due copie di due data center.
 
-image::../media/simulate_results_for_object_wrong_metadata.png[Esempio 3: Correzione di una regola durante la simulazione di un criterio ILM]
+image:simulate_results_for_object_wrong_metadata.png["Esempio 3: Correzione di una regola durante la simulazione di un criterio ILM"]
 
 Quando un oggetto di test non corrisponde alla regola prevista nel criterio, è necessario esaminare ciascuna regola del criterio e correggere eventuali errori.
 
@@ -108,6 +108,6 @@ Ad esempio, supponiamo che i metadati per la regola X-men siano stati immessi co
 In questo esempio, la regola X-MEN corretta corrisponde ora all' `Beast.jpg`oggetto in base ai `series=x-men` metadati dell'utente, come previsto.
 
 +
-image::../media/simulate_results_for_object_corrected_metadata.png[Esempio 3: Correzione di una regola durante la simulazione di un criterio ILM]
+image:simulate_results_for_object_corrected_metadata.png["Esempio 3: Correzione di una regola durante la simulazione di un criterio ILM"]
 
 

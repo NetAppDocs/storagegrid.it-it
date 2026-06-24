@@ -28,7 +28,7 @@ In alternativa, è possibile selezionare *azioni* > *Visualizza dettagli gruppo*
 Viene visualizzata la pagina dei dettagli del gruppo. L'esempio seguente mostra la pagina dei dettagli del gruppo S3.
 
 +
-image::../media/tenant_group_details.png[Visualizza dettagli gruppo]
+image:tenant_group_details.png["Visualizza dettagli gruppo"]
 
 . Apportare le modifiche necessarie alle impostazioni del gruppo.
 +
@@ -36,7 +36,7 @@ image::../media/tenant_group_details.png[Visualizza dettagli gruppo]
 TIP: Per assicurarsi che le modifiche vengano salvate, selezionare *Save changes* (Salva modifiche) dopo aver apportato le modifiche in ciascuna sezione. Una volta salvate le modifiche, nell'angolo superiore destro della pagina viene visualizzato un messaggio di conferma.
 
 +
-.. In alternativa, selezionare il nome visualizzato o l'icona di modifica image:../media/icon_edit_tm.png["Icona Edit (Modifica)"]per aggiornare il nome visualizzato.
+.. Facoltativamente, seleziona il nome visualizzato o l'icona di modifica image:icon_edit_tm.png["Icona Edit (Modifica)"] per aggiornare il nome visualizzato.
 +
 Non puoi modificare il nome univoco di un gruppo. Non è possibile modificare il nome visualizzato per un gruppo federated.
 

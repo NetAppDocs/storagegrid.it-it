@@ -19,7 +19,7 @@ L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web
 .A proposito di questa attività
 In caso di problemi con la licenza software per questo sistema StorageGRID, la scheda di stato dello stato di salute sul dashboard include un'icona di stato della licenza e un collegamento *licenza*. Il numero indica il numero di problemi relativi alla licenza.
 
-image::../media/dashboard_health_panel_license_status.png[Stato della licenza della scheda dello stato di salute della dashboard]
+image:dashboard_health_panel_license_status.png["Stato della licenza della scheda dello stato di salute della dashboard"]
 
 .Fasi
 . Accedere alla pagina License (licenza) effettuando una delle seguenti operazioni:

@@ -17,7 +17,7 @@ Viene visualizzata la scheda Load Balancer (bilanciamento carico) per i nodi Adm
 
 Se non viene eseguito alcun i/o attraverso il servizio di bilanciamento del carico o non è configurato alcun bilanciamento del carico, i grafici visualizzano "Nessun dato".
 
-image::../media/nodes_page_load_balancer_tab.png[Scheda bilanciamento carico pagina nodi]
+image:nodes_page_load_balancer_tab.png["Scheda bilanciamento carico pagina nodi"]
 
 
 

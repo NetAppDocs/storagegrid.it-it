@@ -27,7 +27,7 @@ A sua volta, ogni servizio ADC agisce come un relay e invia la propria raccolta 
 
 Ogni nodo amministrativo memorizza i messaggi di controllo in file di registro di testo; il file di registro attivo è denominato `audit.log`.
 
-image::../media/audit_message_flow.gif[Diagramma che riepiloga il flusso dei messaggi di audit attraverso i relay]
+image:audit_message_flow.gif["Diagramma che riepiloga il flusso dei messaggi di audit attraverso i relay"]
 
 
 
@@ -37,7 +37,7 @@ StorageGRID utilizza un processo di copia e cancellazione per garantire che non 
 
 Quando un nodo genera o inoltra un messaggio di controllo, il messaggio viene memorizzato in una coda di messaggi di controllo sul disco di sistema del nodo della griglia.  Una copia del messaggio viene sempre conservata in una coda di messaggi di controllo finché il messaggio non viene scritto nel file di registro di controllo nel nodo di amministrazione `/var/local/audit/export` elenco.  Ciò aiuta a prevenire la perdita di un messaggio di controllo durante il trasporto.
 
-image::../media/audit_message_retention.gif[Diagramma che riassume la ricezione del messaggio di audit presso l'AMS]
+image:audit_message_retention.gif["Diagramma che riassume la ricezione del messaggio di audit presso l'AMS"]
 
 La coda dei messaggi di controllo può aumentare temporaneamente a causa di problemi di connettività di rete o di capacità di controllo insufficiente.  Man mano che le code aumentano, consumano più spazio disponibile in ciascun nodo `/var/local/` elenco.  Se il problema persiste e la directory dei messaggi di controllo di un nodo diventa troppo piena, i singoli nodi danno priorità all'elaborazione del loro arretrato e diventano temporaneamente non disponibili per nuovi messaggi.
 

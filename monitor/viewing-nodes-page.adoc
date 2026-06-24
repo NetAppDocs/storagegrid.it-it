@@ -24,7 +24,7 @@ NOTE: Per modificare le unità per i valori di storage visualizzati in Grid Mana
 
 NOTE: Le schermate mostrate sono esempi. I risultati possono variare a seconda della versione di StorageGRID in uso.
 
-image::../media/nodes_table.png[Menu nodi]
+image:nodes_table.png["Menu nodi"]
 
 
 
@@ -38,7 +38,7 @@ Se un nodo viene disconnesso dalla griglia, accanto al nome del nodo viene visua
 
 
  a| 
-image:../media/icon_alarm_blue_unknown.png["icona del punto interrogativo blu"]
+image:icon_alarm_blue_unknown.png["icona del punto interrogativo blu"]
  a| 
 *Non connesso - Sconosciuto*
 
@@ -55,7 +55,7 @@ Ad esempio, potrebbe essere necessario riavviare un servizio che ha arrestato o 
 
 
  a| 
-image:../media/icon_alarm_gray_administratively_down.png["icona del punto interrogativo grigio"]
+image:icon_alarm_gray_administratively_down.png["icona del punto interrogativo grigio"]
  a| 
 *Non connesso - amministrazione non attiva*
 
@@ -78,11 +78,11 @@ Se un nodo è disconnesso dalla griglia, potrebbe essere presente un avviso sott
 
 Se è presente un avviso attivo per un nodo, accanto al nome del nodo viene visualizzata una delle seguenti icone:
 
-image:../media/icon_alert_red_critical.png["Icona Avviso rosso critico"] *Critico*: Esiste una condizione anomala che ha interrotto le normali operazioni di un nodo o servizio StorageGRID. È necessario risolvere immediatamente il problema sottostante. Se il problema non viene risolto, potrebbero verificarsi interruzioni del servizio e perdita di dati.
+image:icon_alert_red_critical.png["Icona Avviso rosso critico"] *Critico*: Si è verificata una condizione anomala che ha interrotto le normali operazioni di un nodo o servizio StorageGRID. Devi risolvere immediatamente il problema alla radice. Se il problema non viene risolto, potrebbero verificarsi interruzioni del servizio e perdita di dati.
 
-image:../media/icon_alert_orange_major.png["Icona Alert arancione maggiore"] *Maggiore*: Esiste una condizione anomala che influisce sulle operazioni correnti o si avvicina alla soglia per un avviso critico. È necessario analizzare gli avvisi principali e risolvere eventuali problemi sottostanti per assicurarsi che le condizioni anomale non interrompano il normale funzionamento di un nodo o servizio StorageGRID.
+image:icon_alert_orange_major.png["Icona Alert arancione maggiore"]*Grave*: Si è verificata una condizione anomala che sta influenzando le operazioni in corso o si sta avvicinando alla soglia per un avviso critico. Dovresti esaminare gli avvisi gravi e risolvere eventuali problemi sottostanti per assicurarti che la condizione anomala non interrompa il normale funzionamento di un nodo o servizio StorageGRID.
 
-image:../media/icon_alert_yellow_minor.png["Icona Avviso giallo minore"] *Minore*: Il sistema funziona normalmente, ma esiste una condizione anomala che potrebbe influire sulla capacità del sistema di funzionare se continua. È necessario monitorare e risolvere gli avvisi minori che non vengono risolti da soli per garantire che non causino problemi più gravi.
+image:icon_alert_yellow_minor.png["Icona Avviso giallo minore"]*Minore*: Il sistema funziona normalmente, ma è presente una condizione anomala che, se persiste, potrebbe compromettere la capacità del sistema di funzionare. Dovresti monitorare e risolvere gli avvisi minori che non si risolvono da soli per assicurarti che non causino un problema più serio.
 
 
 

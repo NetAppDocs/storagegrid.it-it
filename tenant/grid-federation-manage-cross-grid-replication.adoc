@@ -19,7 +19,7 @@ Se all'account tenant è stata assegnata l'autorizzazione *Usa connessione feder
 
 Il diagramma del flusso di lavoro riassume i passaggi da eseguire per configurare la replica tra griglie tra bucket su due griglie.  Questi passaggi sono descritti più dettagliatamente sotto il diagramma.
 
-image::../media/grid-federation-cgr-workflow.png[Workflow di replica cross-grid]
+image:grid-federation-cgr-workflow.png["Workflow di replica cross-grid"]
 
 
 
@@ -86,7 +86,7 @@ TIP: Secondo necessità, ogni benna può utilizzare una regione diversa.
 *** *Sì* (impostazione predefinita): Un marcatore di eliminazione viene aggiunto al bucket di origine e replicato nel bucket di destinazione.
 *** *No*: un marcatore di eliminazione viene aggiunto al bucket di origine ma non viene replicato nel bucket di destinazione.
 +
-image::../media/grid-federation-cross-grid-replication-client-deletes.png[immagine che mostra l'eliminazione del client replicato su entrambe le griglie]
+image:grid-federation-cross-grid-replication-client-deletes.png["immagine che mostra l'eliminazione del client replicato su entrambe le griglie"]
 
 +
 

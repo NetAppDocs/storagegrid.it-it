@@ -19,6 +19,6 @@ La rete amministrativa può essere univoca per ciascun nodo e può essere costit
 
 In questo esempio, la rete Grid viene utilizzata per il traffico correlato alle richieste client S3 e alla gestione degli oggetti, mentre la rete Admin viene utilizzata per le funzioni amministrative.
 
-image::../media/grid_admin_networks.png[Grid Admin Networks]
+image:grid_admin_networks.png["Grid Admin Networks"]
 
-image::../media/grid_admin_networks_ips.png[IP Grid Admin Networks]
+image:grid_admin_networks_ips.png["IP Grid Admin Networks"]

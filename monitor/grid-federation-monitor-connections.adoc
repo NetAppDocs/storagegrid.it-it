@@ -39,7 +39,7 @@ Da questa scheda è possibile:
 
 
 +
-image::../media/grid-federation-connections-tab.png[Scheda Grid Federation Connections]
+image:grid-federation-connections-tab.png["Scheda Grid Federation Connections"]
 
 . Per visualizzare le informazioni di base per tutti gli account tenant di questa griglia che dispongono dell'autorizzazione *Usa connessione federazione griglia*, selezionare la scheda *tenant consentiti*.
 +
@@ -51,7 +51,7 @@ Da questa scheda è possibile:
 ** Selezionare un tenant consentito e link:../admin/grid-federation-manage-tenants.html["rimuovere l'autorizzazione"].
 ** Verificare la presenza di errori di replica tra griglie e cancellare l'ultimo errore, se presente. Vedere link:../admin/grid-federation-troubleshoot.html["Risolvere i problemi relativi agli errori di federazione della griglia"].
 +
-image::../media/grid-federation-permitted-tenants-tab.png[Scheda tenant consentiti per la federazione di griglie]
+image:grid-federation-permitted-tenants-tab.png["Scheda tenant consentiti per la federazione di griglie"]
 
 
 
@@ -82,7 +82,7 @@ Da questa scheda è possibile:
 ** link:../admin/grid-federation-manage-tenants.html["Rimuovere l'autorizzazione di un tenant"] per utilizzare la connessione.
 ** Verificare la presenza di errori di replica tra griglie e cancellare l'ultimo errore. Vedere link:../admin/grid-federation-troubleshoot.html["Risolvere i problemi relativi agli errori di federazione della griglia"].
 +
-image::../media/grid-federation-permitted-tenants-tab-for-connection.png[grid-federation-permitted-tenants-tab-for-connection]
+image:grid-federation-permitted-tenants-tab-for-connection.png["grid-federation-permitted-tenants-tab-for-connection"]
 
 
 
@@ -94,7 +94,7 @@ Da questa scheda è possibile:
 ** link:../admin/grid-federation-manage-connection.html["Ruotare i certificati di connessione"].
 ** Selezionare *Server* o *Client* per visualizzare o scaricare il certificato associato o copiare il PEM del certificato.
 +
-image::../media/grid-federation-certificates-tab.png[grid-federation-certificates-tab]
+image:grid-federation-certificates-tab.png["grid-federation-certificates-tab"]
 
 
 

@@ -36,7 +36,7 @@ CAUTION: Conservare la passphrase di provisioning in un luogo sicuro.  È necess
 Al termine della modifica della passphrase di provisioning, il sistema visualizza un banner verde di successo.
 
 +
-image::../media/change_provisioning_passphrase_success.png[Messaggio di successo per la passphrase di provisioning modificato]
+image:change_provisioning_passphrase_success.png["Messaggio di successo per la passphrase di provisioning modificato"]
 
 . Selezionare *Recovery Package* (pacchetto di ripristino).
 . Immettere la nuova passphrase di provisioning per scaricare il nuovo pacchetto di ripristino.

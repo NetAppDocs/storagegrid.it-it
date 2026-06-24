@@ -23,7 +23,7 @@ Ogni istruzione di posizionamento può avere più righe se si desidera creare di
 
 In questo esempio, la regola ILM memorizza una copia replicata nel sito 1 e una copia replicata nel sito 2 per il primo anno. Dopo un anno, viene creata una copia 2+1 con codice di cancellazione e salvata in un solo sito.
 
-image::../media/ilm_create_ilm_rule_wizard_2.png[Creazione guidata regole ILM fase 2]
+image:ilm_create_ilm_rule_wizard_2.png["Creazione guidata regole ILM fase 2"]
 
 .Fasi
 . Per *Reference Time* (tempo di riferimento), selezionare il tipo di tempo da utilizzare per il calcolo dell'ora di inizio di un'istruzione di posizionamento.
@@ -170,7 +170,7 @@ La sezione analisi delle regole del diagramma di conservazione riporta:
 Fare riferimento alla link:using-multiple-storage-pools-for-cross-site-replication.html["Abilita la protezione contro la perdita di sito."]
 
 +
-image::../media/ilm_rule_retention_diagram.png[Diagramma di conservazione delle regole ILM]
+image:ilm_rule_retention_diagram.png["Diagramma di conservazione delle regole ILM"]
 
 
 

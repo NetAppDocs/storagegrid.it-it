@@ -17,7 +17,7 @@ Quando si configura una regola ILM per la creazione di copie replicate, specific
 
 Nell'esempio seguente, la regola ILM specifica che due copie replicate di ciascun oggetto devono essere collocate in un pool di storage che contiene tre nodi di storage.
 
-image::../media/ilm_replication_make_2_copies.png[Regola di creazione di 2 copie]
+image:ilm_replication_make_2_copies.png["Regola di creazione di 2 copie"]
 
 Quando StorageGRID associa gli oggetti a questa regola, crea due copie dell'oggetto, collocando ciascuna copia su un nodo di storage diverso nel pool di storage. Le due copie possono essere collocate su due dei tre nodi di storage disponibili. In questo caso, la regola ha posizionato le copie degli oggetti sui nodi di storage 2 e 3. Poiché sono presenti due copie, l'oggetto può essere recuperato in caso di guasto di uno qualsiasi dei nodi del pool di storage.
 

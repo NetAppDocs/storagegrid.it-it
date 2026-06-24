@@ -34,7 +34,7 @@ Viene visualizzata la pagina dei dettagli dell'endpoint.
 NOTE: Non è possibile modificare l'URN di un endpoint dopo la creazione dell'endpoint.
 
 +
-.. Per modificare il nome di visualizzazione per l'endpoint, selezionare l'icona di modifica image:../media/icon_edit_tm.png["Icona Edit (Modifica)"].
+.. Per modificare il nome visualizzato dell'endpoint, seleziona l'icona di modifica image:icon_edit_tm.png["Icona Edit (Modifica)"].
 .. Se necessario, modificare l'URI.
 .. Se necessario, modificare il tipo di autenticazione.
 +

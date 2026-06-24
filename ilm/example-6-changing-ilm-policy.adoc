@@ -47,7 +47,7 @@ NOTE: StorageGRID considera ogni profilo di erasure coding come univoco e non ri
 
 In questo esempio, la policy ILM attiva è stata inizialmente progettata per un sistema StorageGRID a due siti e utilizza due regole ILM.
 
-image::../media/policy_6_active_policy.png[Esempio di criterio ILM 6 Active Policy]
+image:policy_6_active_policy.png["Esempio di criterio ILM 6 Active Policy"]
 
 In questa policy ILM, gli oggetti appartenenti al tenant A sono protetti da una codifica di cancellazione 2+1 in un singolo sito, mentre gli oggetti appartenenti a tutti gli altri tenant sono protetti in due siti utilizzando la replica a 2 copie.
 

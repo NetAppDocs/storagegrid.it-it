@@ -76,7 +76,7 @@ NOTE: In questa colonna viene visualizzato solo l'ultimo errore di replica tra g
 Ad esempio, questo errore indica che il bucket di destinazione per la replica cross-grid era in uno stato non valido, probabilmente perché il controllo delle versioni era stato sospeso o S3 Object Lock era attivato.
 
 +
-image::../media/grid-federation-cgr-object-example-last-error.png[grid-federation-cgr-object-example-last-error]
+image:grid-federation-cgr-object-example-last-error.png["grid-federation-cgr-object-example-last-error"]
 
 . Eseguire le azioni consigliate. Ad esempio, se il controllo delle versioni è stato sospeso nel bucket di destinazione per la replica cross-grid, riabilitare il controllo delle versioni per quel bucket.
 . Selezionare la connessione dalla tabella.

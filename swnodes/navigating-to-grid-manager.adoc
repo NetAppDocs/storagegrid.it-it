@@ -47,6 +47,6 @@ In alternativa, è possibile accedere a Grid Manager dalla porta 8443:
 Viene visualizzata la pagina utilizzata per configurare una griglia StorageGRID.
 
 +
-image::../media/gmi_installer_first_screen.gif[Prima schermata del programma di installazione di StorageGRID]
+image:gmi_installer_first_screen.gif["Prima schermata del programma di installazione di StorageGRID"]
 
 

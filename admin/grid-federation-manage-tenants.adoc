@@ -58,7 +58,7 @@ TIP: Prima che un utente root locale possa accedere al tenant replicato nella gr
 Se si tratta della griglia di origine del tenant (ovvero, se il tenant è stato creato in questa griglia), viene visualizzato un banner per ricordare che il tenant è stato clonato in un'altra griglia. Se modifichi o elimini questo tenant, le modifiche non verranno sincronizzate con l'altra griglia.
 
 +
-image::../media/grid-federation-tenant-detail.png[Scheda Grid Federation (federazione griglia) dalla pagina dei dettagli del tenant]
+image:grid-federation-tenant-detail.png["Scheda Grid Federation (federazione griglia) dalla pagina dei dettagli del tenant"]
 
 . Se si desidera, selezionare la scheda *federazione griglia* in link:../monitor/grid-federation-monitor-connections.html["monitorare la connessione alla federazione di griglie"].
 
@@ -96,7 +96,7 @@ Per evitare questi errori, rimuovere il permesso del tenant di utilizzare la con
 
 Per impedire a un tenant di utilizzare una connessione a federazione di griglie, è necessario rimuovere l'autorizzazione *Usa connessione a federazione di griglie*.
 
-image::../media/grid-federation-remove-permission.png[procedura per la rimozione della connessione a federazione di griglie]
+image:grid-federation-remove-permission.png["procedura per la rimozione della connessione a federazione di griglie"]
 
 Prima di rimuovere l'autorizzazione di un tenant a utilizzare una connessione a federazione di griglie, tenere presente quanto segue:
 
@@ -167,7 +167,7 @@ Una volta disattivata la replica cross-grid per i bucket tenant, è possibile ri
 ** Se l'autorizzazione può essere rimossa, viene visualizzata nuovamente la pagina dei dettagli e viene visualizzato un messaggio di conferma. Questo tenant non può più utilizzare la connessione a federazione di grid.
 ** Se in uno o più bucket tenant è ancora attivata la replica cross-grid, viene visualizzato un errore.
 +
-image::../media/grid-federation-remove-permission-error.png[viene visualizzato un messaggio di errore se il tenant ha cgr attivato per un bucket]
+image:grid-federation-remove-permission-error.png["viene visualizzato un messaggio di errore se il tenant ha cgr attivato per un bucket"]
 
 +
 È possibile effettuare una delle seguenti operazioni:

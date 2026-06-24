@@ -66,7 +66,7 @@ Posizionamenti
 Creare una copia 2+1 con codifica per la cancellazione utilizzando tre siti
 
 |===
-image::../media/policy_3_rule_1_ec_images_adv_filtering.png[ILM regola 1 per esempio 3: Utilizzare EC per file di immagini superiori a 1 MB]
+image:policy_3_rule_1_ec_images_adv_filtering.png["ILM regola 1 per esempio 3: Utilizzare EC per file di immagini superiori a 1 MB"]
 
 Poiché questa regola è configurata come prima regola del criterio, l'istruzione di posizionamento della codifica di cancellazione si applica solo ai file .jpg e .png che sono superiori a 1 MB.
 
@@ -121,4 +121,4 @@ Questo esempio di policy ILM include tre regole:
 * La regola predefinita si applica a tutti gli oggetti rimanenti (ovvero a tutti i file non immagine).
 
 
-image::../media/policy_3_configured_policy.png[Policy ILM per esempio 3: Migliore protezione per i file di immagine]
+image:policy_3_configured_policy.png["Policy ILM per esempio 3: Migliore protezione per i file di immagine"]

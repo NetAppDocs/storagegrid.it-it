@@ -26,6 +26,6 @@ Per informazioni sulla modifica degli indirizzi IP, vedere link:../maintain/conf
 Gli indirizzi IP per il nodo della griglia sono elencati in una tabella.
 
 +
-image::../media/nodes_page_overview_tab_extended.png[Indirizzi IP della pagina nodi]
+image:nodes_page_overview_tab_extended.png["Indirizzi IP della pagina nodi"]
 
 

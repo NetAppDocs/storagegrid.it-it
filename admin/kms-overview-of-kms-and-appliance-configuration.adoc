@@ -15,7 +15,7 @@ Prima di utilizzare un server di gestione delle chiavi (KMS) per proteggere i da
 
 Il diagramma di flusso mostra i passaggi di alto livello per l'utilizzo di un KMS per proteggere i dati StorageGRID sui nodi dell'appliance.
 
-image::../media/kms_configuration_overview.png[Flusso di lavoro di configurazione KMS, descritto nel testo seguente]
+image:kms_configuration_overview.png["Flusso di lavoro di configurazione KMS, descritto nel testo seguente"]
 
 Il diagramma di flusso mostra la configurazione di KMS e dell'appliance in parallelo; tuttavia, è possibile configurare i server di gestione delle chiavi prima o dopo aver attivato la crittografia dei nodi per i nuovi nodi appliance, in base ai requisiti.
 

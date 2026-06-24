@@ -21,7 +21,7 @@ A seconda della scelta, StorageGRID esegue copie temporanee e mette in coda gli 
 
 Il diagramma di flusso mostra cosa accade quando gli oggetti vengono associati da una regola ILM che utilizza ciascuna delle tre opzioni di acquisizione.
 
-image::../media/ingest_object_lifecycle.png[Diagramma che mostra come avviene l'acquisizione di oggetti per ciascuna opzione di acquisizione]
+image:ingest_object_lifecycle.png["Diagramma che mostra come avviene l'acquisizione di oggetti per ciascuna opzione di acquisizione"]
 
 
 

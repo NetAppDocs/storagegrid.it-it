@@ -24,7 +24,7 @@ Per i nodi di storage, ciascun sito e l'intero grid, la scheda Storage include g
 
 NOTE: Quando un nodo non è connesso alla griglia, ad esempio durante l'aggiornamento o uno stato disconnesso, alcune metriche potrebbero non essere disponibili o essere escluse dai totali del sito e della griglia. Dopo che un nodo si ricollega alla griglia, attendere alcuni minuti per consentire la stabilizzazione dei valori.
 
-image::../media/nodes_storage_node_storage_tab.png[Nodes (nodi) > Storage Node (nodo storage) > scheda Storage]
+image:nodes_storage_node_storage_tab.png["Nodi > Nodo di archiviazione > Scheda di archiviazione"]
 
 
 
@@ -32,7 +32,7 @@ image::../media/nodes_storage_node_storage_tab.png[Nodes (nodi) > Storage Node (
 
 Per tutti i nodi, la scheda Storage contiene i dettagli relativi ai dischi e ai volumi sul nodo. Per i nodi di storage, la tabella degli archivi di oggetti fornisce informazioni su ciascun volume di storage.
 
-image::../media/nodes_page_storage_tables.png[Tabelle di archiviazione delle pagine dei nodi]
+image:nodes_page_storage_tables.png["Tabelle di archiviazione delle pagine dei nodi"]
 
 .Informazioni correlate
 link:monitoring-storage-capacity.html["Monitorare la capacità dello storage"]

@@ -23,7 +23,7 @@ La regola predefinita è l'ultima regola da valutare in un criterio ILM, quindi 
 
 In questo criterio di esempio, la prima regola si applica solo agli oggetti appartenenti a test-tenant-1. La regola predefinita, ultima, si applica agli oggetti appartenenti a tutti gli altri account tenant.
 
-image::../media/ilm_policies_page_default_rule.png[Regola predefinita della pagina Criteri ILM]
+image:ilm_policies_page_default_rule.png["Regola predefinita della pagina Criteri ILM"]
 
 Quando si crea la regola predefinita, tenere presenti i seguenti requisiti:
 

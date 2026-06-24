@@ -70,4 +70,4 @@ La figura seguente mostra come StorageGRID ridistribuisce i metadati degli ogget
 
 Il lato destro della figura mostra come vengono ridistribuiti i metadati esistenti dopo l'aggiunta di due nodi di storage al sito. La quantità di metadati su ciascun nodo è diminuita, l'avviso *Low metadata storage* non viene più attivato e lo spazio disponibile per i metadati è aumentato.
 
-image::../media/metadata_space_after_expansion.png[Diagramma dei metadati ridistribuiti dopo l'aggiunta di due nodi di storage]
+image:metadata_space_after_expansion.png["Diagramma dei metadati ridistribuiti dopo l'aggiunta di due nodi di storage"]

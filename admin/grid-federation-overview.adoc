@@ -25,7 +25,7 @@ Una connessione a federazione di griglie è una connessione bidirezionale, affid
 
 Il diagramma del flusso di lavoro riassume i passaggi per la configurazione di una connessione di federazione di grid tra due grid.
 
-image::../media/grid-federation-workflow.png[Workflow di connessione a Grid Federation]
+image:grid-federation-workflow.png["Workflow di connessione a Grid Federation"]
 
 
 
@@ -85,7 +85,7 @@ Quando si configura una connessione a federazione di griglie, StorageGRID genera
 * Certificati server e client per autenticare e crittografare le informazioni inviate dalla griglia 2 alla griglia 1
 
 
-image::../media/grid-federation-certificates.png[Certificati di federazione grid]
+image:grid-federation-certificates.png["Certificati di federazione grid"]
 
 Per impostazione predefinita, i certificati sono validi per 730 giorni (2 anni). Quando questi certificati si avvicinano alla data di scadenza, l'avviso *scadenza del certificato federazione griglia* ricorda di ruotare i certificati, operazione che è possibile eseguire utilizzando Grid Manager.
 

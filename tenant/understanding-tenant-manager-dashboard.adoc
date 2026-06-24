@@ -18,7 +18,7 @@ NOTE: La dimensione logica di tutti gli oggetti appartenenti a questo tenant inc
 
 Una volta caricati gli oggetti, la dashboard è simile al seguente esempio:
 
-image::../media/tenant_dashboard_with_buckets.png[Dashboard - elenco bucket]
+image:tenant_dashboard_with_buckets.png["Dashboard - elenco bucket"]
 
 
 
@@ -48,11 +48,11 @@ CAUTION: L'utilizzo delle quote si basa su stime interne e in alcuni casi potreb
 È possibile posizionare il cursore su uno dei segmenti del grafico per visualizzare lo spazio totale consumato da quel bucket o container.
 
 +
-image::../media/tenant_dashboard_storage_usage_segment.png[Segmento del grafico a barre]
+image:tenant_dashboard_storage_usage_segment.png["Segmento del grafico a barre"]
 
 * Per corrispondere al grafico a barre, un elenco dei bucket o container più grandi, inclusa la quantità totale di dati oggetto e il numero di oggetti per ciascun bucket o container.
 +
-image::../media/tenant_dashboard_buckets.png[Bucket del pannello di controllo del tenant]
+image:tenant_dashboard_buckets.png["Bucket del pannello di controllo del tenant"]
 
 +
 Se il tenant ha più di nove bucket o container, tutti gli altri bucket o container vengono combinati in una singola voce in fondo all'elenco.
@@ -89,6 +89,6 @@ Se non viene impostato alcun limite per una benna, la sua capacità è illimitat
 
 Se hai utilizzato Grid Manager per configurare uno o più endpoint da utilizzare con i servizi della piattaforma, la dashboard di Tenant Manager visualizza un avviso se si sono verificati errori degli endpoint negli ultimi sette giorni.
 
-image::../media/tenant_dashboard_endpoint_error.png[Dashboard che mostra il messaggio dell'endpoint]
+image:tenant_dashboard_endpoint_error.png["Dashboard che mostra il messaggio dell'endpoint"]
 
 Per link:troubleshooting-platform-services-endpoint-errors.html["errori degli endpoint dei servizi della piattaforma"]visualizzare i dettagli su , selezionare *punti finali* per visualizzare la pagina punti finali.

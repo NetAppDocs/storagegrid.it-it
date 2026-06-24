@@ -64,7 +64,7 @@ Il grado dello storage, _include tutti i gradi dello storage_, include tutti i n
 NOTE: Viene visualizzato un avviso se si aggiungono più voci con diversi gradi di storage per un sito.
 
 +
-Per rimuovere una voce, selezionare l'icona Elimina image:../media/icon-x-to-remove.png["icona elimina"].
+Per rimuovere una voce, seleziona l'icona di eliminazione image:icon-x-to-remove.png["icona elimina"].
 
 . Quando si è soddisfatti delle selezioni effettuate, selezionare *Save* (Salva).
 +

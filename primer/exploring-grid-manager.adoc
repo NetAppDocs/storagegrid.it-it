@@ -28,9 +28,9 @@ Quando accedi per la prima volta al Grid Manager, puoi usare il dashboard per li
 
 La dashboard contiene informazioni su stato e performance del sistema, utilizzo dello storage, processi ILM, operazioni S3 e nodi nel grid. È possibile link:../monitor/viewing-dashboard.html["configurare il cruscotto"]selezionare da una raccolta di schede che contengono le informazioni necessarie per monitorare efficacemente il sistema.
 
-image::../media/grid_manager_dashboard_and_menu.png[Dashboard in Grid Manager]
+image:grid_manager_dashboard_and_menu.png["Dashboard in Grid Manager"]
 
-Per una spiegazione delle informazioni visualizzate su ciascuna scheda, selezionare l'icona della guida image:../media/icon_nms_question.png["icona del punto interrogativo"]relativa alla scheda.
+Per una spiegazione delle informazioni visualizzate su ciascuna scheda, seleziona l'icona di aiuto image:icon_nms_question.png["icona del punto interrogativo"] per quella scheda.
 
 
 
@@ -44,7 +44,7 @@ Il campo *Search* nella barra di intestazione consente di accedere rapidamente a
 
 == Menu Guida
 
-Il menu della guida image:../media/icon-help-menu-bar.png["icona della guida sulla barra dei menu"]consente di accedere a:
+Il menu di aiuto image:icon-help-menu-bar.png["icona della guida sulla barra dei menu"] offre accesso a:
 
 * ILlink:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"] Elink:../admin/use-s3-setup-wizard.html["Impostazione S3"] maghi
 * Il sito della documentazione di StorageGRID per la versione corrente
