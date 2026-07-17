@@ -17,6 +17,7 @@ StorageGRID convalida gli endpoint dei servizi della piattaforma durante la loro
 
 
 
+[[urn-elements]]
 == Elementi DI URNA
 
 L'URN per un endpoint dei servizi di piattaforma deve iniziare con `arn:aws` o `urn:mysite`, come segue:
@@ -92,6 +93,7 @@ Integrazione della ricerca
 |===
 
 
+[[urns-for-services-hosted-on-aws-and-gcp]]
 == Urns per i servizi ospitati su AWS e GCP
 
 Per le entità AWS e GCP, l'URN completo è un ARN AWS valido. Ad esempio:
@@ -122,6 +124,7 @@ NOTE: Per un endpoint di integrazione della ricerca AWS, `domain-name` deve incl
 
 
 
+[[urns-for-locally-hosted-services]]
 == Urns per servizi in hosting locale
 
 Quando si utilizzano servizi ospitati in locale invece di servizi cloud, è possibile specificare l'URN in qualsiasi modo che crei un URN valido e univoco, purché l'URN includa gli elementi richiesti nella terza e ultima posizione. È possibile lasciare vuoti gli elementi indicati da opzionale oppure specificarli in qualsiasi modo che consenta di identificare la risorsa e rendere l'URN unico. Ad esempio:

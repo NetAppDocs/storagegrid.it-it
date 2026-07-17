@@ -20,6 +20,7 @@ summary: È possibile visualizzare utenti locali e federati. È inoltre possibil
 
 
 
+[[create-a-local-user]]
 == Creare un utente locale
 
 È possibile creare uno o più utenti locali e assegnare ciascun utente a uno o più gruppi locali. Le autorizzazioni del gruppo controllano a quali funzioni dell'API Grid Manager e Grid Management l'utente può accedere.
@@ -33,6 +34,7 @@ NOTE: Se è attivato il Single Sign-on (SSO), gli utenti locali non possono acce
 
 
 
+[[access-the-wizard]]
 === Accedere alla procedura guidata
 
 .Fasi
@@ -42,6 +44,7 @@ NOTE: Se è attivato il Single Sign-on (SSO), gli utenti locali non possono acce
 
 
 
+[[enter-user-credentials]]
 === Immettere le credenziali dell'utente
 
 .Fasi
@@ -52,6 +55,7 @@ NOTE: Se è attivato il Single Sign-on (SSO), gli utenti locali non possono acce
 
 
 
+[[assign-to-groups]]
 === Assegnare ai gruppi
 
 .Fasi
@@ -67,6 +71,7 @@ Se un utente appartiene a più gruppi, le autorizzazioni sono cumulative. Per ul
 
 
 
+[[view-and-edit-local-users]]
 == Visualizzare e modificare gli utenti locali
 
 È possibile visualizzare i dettagli degli utenti locali e federati esistenti. È possibile modificare un utente locale per modificare il nome completo, la password o l'appartenenza al gruppo dell'utente. È inoltre possibile impedire temporaneamente a un utente di accedere a Grid Manager e all'API Grid Management.
@@ -175,6 +180,7 @@ Modifica dei gruppi (solo utenti locali)
 
 
 
+[[import-federated-users]]
 == Importa utenti federati
 
 È possibile importare uno o più utenti federati, fino a un massimo di 100 utenti, direttamente nella pagina Utenti.
@@ -202,6 +208,7 @@ Dopo aver chiuso la finestra di dialogo *Importa utenti federati*, le informazio
 
 
 
+[[duplicate-a-user]]
 == Duplicare un utente
 
 È possibile duplicare un utente esistente per creare un nuovo utente con le stesse autorizzazioni.
@@ -214,6 +221,7 @@ Dopo aver chiuso la finestra di dialogo *Importa utenti federati*, le informazio
 
 
 
+[[delete-a-user]]
 == Eliminare un utente
 
 È possibile eliminare un utente locale per rimuoverlo definitivamente dal sistema.

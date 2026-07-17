@@ -19,6 +19,7 @@ I dati degli oggetti vengono gestiti dal servizio LDR.
 
 
 
+[[content-protection-replication]]
 == Protezione del contenuto: Replica
 
 Se le istruzioni di posizionamento del contenuto di una regola ILM richiedono copie replicate dei dati dell'oggetto, le copie vengono eseguite e memorizzate su disco dai nodi di storage che compongono il pool di storage configurato.
@@ -36,6 +37,7 @@ image:replication_data_flow.png["diagramma che mostra il processo descritto nel 
 
 
 
+[[content-protection-erasure-coding]]
 == Protezione del contenuto: Erasure coding
 
 Se una regola ILM include istruzioni per creare copie codificate dei dati degli oggetti, lo schema di erasure coding applicabile suddivide i dati degli oggetti in fragment di dati e parità e distribuisce tali fragment nei nodi di storage configurati nel profilo di erasure coding.
@@ -54,6 +56,7 @@ image:erasure_coding_data_flow.png["Erasure coding Data Flow (Erasure Coding Dat
 
 
 
+[[content-protection-cloud-storage-pool]]
 == Protezione dei contenuti: Pool di storage cloud
 
 Se le istruzioni di posizionamento del contenuto di una regola ILM richiedono che una copia replicata dei dati dell'oggetto venga memorizzata in un Cloud Storage Pool, i dati dell'oggetto vengono duplicati nel bucket S3 esterno o nel container di storage Azure Blob specificato per il Cloud Storage Pool.

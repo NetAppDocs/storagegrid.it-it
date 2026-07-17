@@ -20,6 +20,7 @@ Per ulteriori informazioni, visitare il sito Web all'indirizzo link:../tenant/un
 
 
 
+[[new-api-for-object-replication]]
 == Nuova API per la replicazione degli oggetti
 
 Puoi usare il `/org/cross-grid-replication/{versionId}/replicate` API per replicare manualmente gli oggetti su un bucket esistente con replica tra griglie appena configurata.

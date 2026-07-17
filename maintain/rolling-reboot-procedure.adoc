@@ -47,12 +47,14 @@ Quando si riavvia il nodo amministrativo primario, il browser perde temporaneame
 
 
 
+[[perform-a-rolling-reboot]]
 == Eseguire un riavvio a rotazione
 
 Selezionare i nodi che si desidera riavviare, rivedere le selezioni, avviare la procedura di riavvio e monitorare l'avanzamento.
 
 
 
+[[select-nodes]]
 === Selezionare nodi
 
 Come primo passo, accedere alla pagina di riavvio in sequenza e selezionare i nodi che si desidera riavviare.
@@ -79,6 +81,7 @@ TIP: Per visualizzare tutti gli avvisi correnti per un nodo, è anche possibile 
 
 
 
+[[review-selection]]
 === Selezione di revisione
 
 In questo passaggio, è possibile determinare il tempo necessario per la procedura di riavvio totale e confermare di aver selezionato i nodi corretti.
@@ -96,6 +99,7 @@ NOTE: Il nodo amministrativo primario sarà l'ultimo nodo da riavviare. Durante 
 
 
 
+[[monitor-a-rolling-reboot]]
 === Monitorare un riavvio continuo
 
 Durante l'esecuzione della procedura di riavvio in sequenza, è possibile monitorarla dal nodo amministrativo principale.
@@ -124,6 +128,7 @@ Le tabelle forniscono una barra di avanzamento dell'operazione su ciascun nodo e
 
 
 
+[[stop-the-rolling-reboot-procedure]]
 == Interrompere la procedura di riavvio in sequenza
 
 È possibile interrompere la procedura di riavvio in sequenza dal nodo amministrativo primario. Quando si arresta la procedura, qualsiasi nodo che abbia lo stato "arresto dei servizi", "riavvio del sistema" o "avvio dei servizi" completerà l'operazione di riavvio. Tuttavia, questi nodi non saranno più registrati come parte della procedura.

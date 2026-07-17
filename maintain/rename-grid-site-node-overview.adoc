@@ -15,6 +15,7 @@ Se necessario, è possibile modificare i nomi visualizzati in Grid Manager per l
 
 
 
+[[what-is-the-rename-procedure]]
 == Qual è la procedura di ridenominazione?
 
 Quando si installa inizialmente StorageGRID, specificare un nome per la griglia, ciascun sito e ciascun nodo. Questi nomi iniziali sono noti come _nomi di sistema_ e sono i nomi inizialmente mostrati in StorageGRID.
@@ -25,6 +26,7 @@ Utilizzare la procedura di ridenominazione per correggere gli errori di battitur
 
 
 
+[[where-do-system-and-display-names-appear]]
 == Dove vengono visualizzati i nomi di sistema e di visualizzazione?
 
 La seguente tabella riassume i nomi dei sistemi e dei display nell'interfaccia utente di StorageGRID e nei file StorageGRID.
@@ -121,12 +123,14 @@ Vuoto a meno che gli elementi non siano stati rinominati; in caso contrario, gli
 |===
 
 
+[[display-name-requirements]]
 == Requisiti per i nomi visualizzati
 
 Prima di utilizzare questa procedura, esaminare i requisiti per i nomi visualizzati.
 
 
 
+[[display-names-for-nodes]]
 === Visualizza i nomi dei nodi
 
 I nomi visualizzati per i nodi devono seguire queste regole:
@@ -144,6 +148,7 @@ I nomi visualizzati per i nodi devono seguire queste regole:
 
 
 
+[[display-names-for-grid-and-sites]]
 === Visualizza i nomi della griglia e dei siti
 
 I nomi visualizzati per la griglia e i siti seguono le stesse regole con le seguenti eccezioni:
@@ -156,6 +161,7 @@ I nomi visualizzati per la griglia e i siti seguono le stesse regole con le segu
 
 
 
+[[display-name-best-practices]]
 == Best practice per i nomi visualizzati
 
 Se si prevede di rinominare più elementi, documentare lo schema di denominazione generale prima di utilizzare questa procedura. Un sistema che garantisce nomi univoci, coerenti e facili da comprendere a colpo d'occhio.
@@ -171,6 +177,7 @@ Pensa due volte prima di aggiungere dettagli specifici ai nomi che potrebbero ca
 
 
 
+[[example-display-names]]
 === Esempi di nomi visualizzati
 
 Si supponga che il sistema StorageGRID disponga di tre data center e di nodi di tipi diversi in ciascun data center. I nomi visualizzati potrebbero essere semplici come questi:

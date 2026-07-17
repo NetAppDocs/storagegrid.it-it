@@ -15,6 +15,7 @@ Utilizza queste linee guida per conoscere l'architettura StorageGRID e le topolo
 
 
 
+[[about-these-instructions]]
 == A proposito di queste istruzioni
 
 Queste linee guida forniscono informazioni utili per creare l'infrastruttura di rete StorageGRID prima di implementare e configurare i nodi StorageGRID. Utilizzare queste linee guida per garantire che la comunicazione possa avvenire tra tutti i nodi della griglia e tra la griglia e i client e i servizi esterni.
@@ -38,6 +39,7 @@ La rete StorageGRID deve essere configurata in modo appropriato per gestire il t
 
 
 
+[[before-you-begin]]
 == Prima di iniziare
 
 La configurazione della rete per un sistema StorageGRID richiede un livello elevato di esperienza con switch Ethernet, reti TCP/IP, subnet, routing di rete e firewall.

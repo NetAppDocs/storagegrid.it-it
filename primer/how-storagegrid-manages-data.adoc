@@ -21,12 +21,14 @@ image:object_conceptual_drawing.png["Oggetto"]
 
 
 
+[[what-is-object-data]]
 == Che cos'è un dato a oggetti?
 
 I dati degli oggetti possono essere qualsiasi cosa, ad esempio una fotografia, un filmato o un documento medico.
 
 
 
+[[what-is-object-metadata]]
 == Che cos'è il metadata a oggetti?
 
 I metadati degli oggetti sono informazioni che descrivono un oggetto. StorageGRID utilizza i metadati degli oggetti per tenere traccia delle posizioni di tutti gli oggetti nella griglia e gestire il ciclo di vita di ciascun oggetto nel tempo.
@@ -44,12 +46,14 @@ Per informazioni dettagliate su come e dove StorageGRID archivia i metadati degl
 
 
 
+[[how-is-object-data-protected]]
 == Come vengono protetti i dati a oggetti?
 
 Il sistema StorageGRID offre due meccanismi per proteggere i dati degli oggetti dalla perdita: Replica e erasure coding.
 
 
 
+[[replication]]
 === Replica
 
 Quando StorageGRID abbina gli oggetti a una regola di Information Lifecycle management (ILM) configurata per creare copie replicate, il sistema crea copie esatte dei dati degli oggetti e li memorizza sui nodi storage o sui pool di cloud storage. Le regole ILM determinano il numero di copie effettuate, la posizione in cui vengono memorizzate e la durata della conservazione da parte del sistema. Se una copia viene persa, ad esempio, a causa della perdita di un nodo di storage, l'oggetto rimane disponibile se una copia di esso esiste altrove nel sistema StorageGRID.
@@ -60,6 +64,7 @@ image:ilm_replication_make_2_copies.png["Regola di creazione di 2 copie"]
 
 
 
+[[erasure-coding]]
 === Erasure coding
 
 Quando StorageGRID associa oggetti a una regola ILM configurata per creare copie con codifica di cancellazione, slice i dati degli oggetti in frammenti di dati, calcola ulteriori frammenti di parità e memorizza ogni frammento su un nodo di storage diverso. Quando si accede a un oggetto, questo viene riassemblato utilizzando i frammenti memorizzati. Se un dato o un frammento di parità viene corrotto o perso, l'algoritmo di erasure coding può ricreare quel frammento utilizzando un sottoinsieme dei rimanenti dati e frammenti di parità. Le regole ILM e i profili di erasure coding determinano lo schema di erasure coding utilizzato.

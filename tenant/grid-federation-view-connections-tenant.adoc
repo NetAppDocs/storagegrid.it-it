@@ -55,6 +55,7 @@ Per ogni connessione a federazione di griglie, si verifica l'errore più recente
 
 
 
+[[clear-last-errorclear-the-last-error]]
 == [[clear-last-error]]Cancella l'ultimo errore
 
 Nella colonna *ultimo errore* potrebbe essere visualizzato un errore per uno dei seguenti motivi:

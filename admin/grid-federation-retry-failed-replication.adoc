@@ -17,6 +17,7 @@ L'avviso *errore permanente di replica cross-grid* indica che gli oggetti tenant
 
 
 
+[[determine-if-any-objects-failed-to-be-replicated]]
 == Determinare se non è stato possibile replicare oggetti
 
 Per determinare se gli oggetti o i marcatori di eliminazione non sono stati replicati nell'altra griglia, è possibile cercare i messaggi nel registro di controllolink:../audit/cgrr-cross-grid-replication-request.html["CGRR (Cross-Grid Replication Request)"]. Questo messaggio viene aggiunto al registro quando StorageGRID non riesce a replicare un oggetto, un oggetto multiparte o un indicatore di eliminazione nel bucket di destinazione.
@@ -116,6 +117,7 @@ Il tipo di errore. Se la replica cross-grid non riesce, l'errore è "General err
 
 
 
+[[retry-failed-replications]]
 == Riprovare a eseguire repliche non riuscite
 
 Dopo aver generato un elenco di oggetti e marker di eliminazione che non sono stati replicati nel bucket di destinazione e aver risolto i problemi sottostanti, è possibile riprovare la replica in due modi:
@@ -150,6 +152,7 @@ NOTE: In sospeso indica che la richiesta di replica cross-grid è stata aggiunta
 
 
 
+[[monitor-replication-retries]]
 == Monitorare i tentativi di replica
 
 È necessario monitorare le operazioni di ripetizione della replica per assicurarsi che vengano completate.

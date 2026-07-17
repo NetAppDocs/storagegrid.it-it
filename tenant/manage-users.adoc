@@ -24,6 +24,7 @@ NOTE: Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID, gli ute
 
 
 
+[[create-usercreate-a-local-user]]
 == [[create-user]]Crea un utente locale
 
 È possibile creare un utente locale e assegnarlo a uno o più gruppi locali per controllarne le autorizzazioni di accesso.
@@ -32,6 +33,7 @@ Gli utenti S3 che non appartengono a nessun gruppo non dispongono di autorizzazi
 
 
 
+[[access-the-create-user-wizard]]
 === Accedere alla procedura guidata Crea utente
 
 .Fasi
@@ -47,6 +49,7 @@ image:grid-federation-tenant-user-banner.png["Immagine del banner blu sulla pagi
 
 
 
+[[enter-credentials]]
 === Immettere le credenziali
 
 .Fasi
@@ -93,6 +96,7 @@ Ad esempio, selezionare *Sì* per sospendere temporaneamente la possibilità di 
 
 
 
+[[assign-to-groups]]
 === Assegnare ai gruppi
 
 .Fasi
@@ -112,6 +116,7 @@ Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione gri
 
 
 
+[[view-or-edit-local-user]]
 == Visualizzare o modificare l'utente locale
 
 .Fasi
@@ -172,6 +177,7 @@ Impossibile modificare il nome utente.
 
 
 
+[[import-federated-users]]
 == Importa utenti federati
 
 È possibile importare uno o più utenti federati, fino a un massimo di 100 utenti, direttamente nella pagina Utenti.
@@ -199,6 +205,7 @@ Dopo aver chiuso la finestra di dialogo *Importa utenti federati*, le informazio
 
 
 
+[[duplicate-local-user]]
 == Utente locale duplicato
 
 È possibile duplicare un utente locale per creare un nuovo utente più rapidamente.
@@ -216,6 +223,7 @@ NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazio
 
 
 
+[[clone-usersretry-user-clone]]
 == [[clone-users]]Riprova clone utente
 
 Per riprovare un clone non riuscito:
@@ -229,6 +237,7 @@ Per ulteriori informazioni, vedere link:grid-federation-account-clone.html["Clon
 
 
 
+[[delete-one-or-more-local-users]]
 == Eliminare uno o più utenti locali
 
 È possibile eliminare in modo permanente uno o più utenti locali che non hanno più bisogno di accedere all'account tenant StorageGRID.

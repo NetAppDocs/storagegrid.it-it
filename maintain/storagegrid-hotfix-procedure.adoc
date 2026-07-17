@@ -17,6 +17,7 @@ Le hotfix StorageGRID contengono modifiche software rese disponibili al di fuori
 
 
 
+[[considerations-for-applying-a-hotfix]]
 == Considerazioni per l'applicazione di una correzione rapida
 
 Non è possibile applicare una correzione rapida StorageGRID quando è in esecuzione un'altra procedura di manutenzione. Ad esempio, non è possibile applicare una correzione rapida mentre è in esecuzione una procedura di decommissionamento, espansione o ripristino.
@@ -32,6 +33,7 @@ Mentre i nodi della griglia vengono aggiornati con la nuova versione di hotfix, 
 
 
 
+[[how-hotfixes-are-applied-for-recovery-and-expansion]]
 == Modalità di applicazione degli hotfix per il ripristino e l'espansione
 
 Una volta applicata una correzione rapida alla griglia, il nodo di amministrazione primario installa automaticamente la stessa versione della correzione rapida su qualsiasi nodo ripristinato mediante operazioni di ripristino o aggiunto in un'espansione.

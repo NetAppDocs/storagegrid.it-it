@@ -30,6 +30,7 @@ Se il nodo è un nodo appliance, questa scheda include anche una sezione con ult
 
 
 
+[[view-information-about-appliance-storage-nodes]]
 == Visualizza informazioni sui nodi di storage dell'appliance
 
 La pagina Nodes (nodi) elenca le informazioni sullo stato di salute del servizio e tutte le risorse di calcolo, di dispositivo su disco e di rete per ciascun nodo di storage dell'appliance. È inoltre possibile visualizzare memoria, hardware di storage, versione del firmware del controller, risorse di rete, interfacce di rete, indirizzi di rete e ricevere e trasmettere dati.
@@ -496,6 +497,7 @@ image:nodes_page_storage_tables.png["Tabelle di archiviazione delle pagine dei n
 
 
 
+[[view-information-about-appliance-admin-nodes-and-gateway-nodes]]
 == Visualizza informazioni sui nodi di amministrazione dell'appliance e sui nodi gateway
 
 La pagina Nodes (nodi) elenca le informazioni sullo stato del servizio e tutte le risorse di calcolo, di dispositivo su disco e di rete per ogni appliance di servizi utilizzata come nodo di amministrazione o nodo gateway. È inoltre possibile visualizzare memoria, hardware di storage, risorse di rete, interfacce di rete, indirizzi di rete, e ricevere e trasmettere dati.

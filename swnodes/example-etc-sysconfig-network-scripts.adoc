@@ -15,6 +15,7 @@ summary: 'È possibile utilizzare i file di esempio per aggregare quattro interf
 
 
 
+[[physical-interfaces]]
 == Interfacce fisiche
 
 Si noti che gli switch alle altre estremità dei collegamenti devono anche considerare le quattro porte come un singolo trunk LACP o canale di porta e devono passare almeno le tre VLAN a cui si fa riferimento con tag.
@@ -69,6 +70,7 @@ SLAVE=yes
 ----
 
 
+[[bond-interface]]
 == Interfaccia bond
 
 `*/etc/sysconfig/network-scripts/ifcfg-bond0*`
@@ -84,6 +86,7 @@ BONDING_OPTS=mode=802.3ad
 ----
 
 
+[[vlan-interfaces]]
 == Interfacce VLAN
 
 `*/etc/sysconfig/network-scripts/ifcfg-bond0.1001*`

@@ -19,6 +19,7 @@ Il numero di nodi da aggiungere dipende anche dal livello di riempimento dei nod
 
 
 
+[[general-recommendation-for-adding-storage-capacity-for-erasure-coded-objects]]
 == Raccomandazioni generali per l'aggiunta di capacità di storage per gli oggetti con codifica di cancellazione
 
 Se si desidera evitare calcoli dettagliati, è possibile aggiungere due nodi di storage per sito quando i nodi di storage esistenti raggiungono il 70% della capacità.

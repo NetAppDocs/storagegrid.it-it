@@ -26,6 +26,7 @@ Facoltativamente, puoilink:../monitor/considerations-for-external-syslog-server.
 
 
 
+[[change-audit-message-levels]]
 == Modificare i livelli dei messaggi di controllo
 
 È possibile impostare un livello di audit diverso per ciascuna delle seguenti categorie di messaggi nel registro di audit:
@@ -148,6 +149,7 @@ NOTE: Se non hai bisogno di un registro dettagliato delle operazioni di lettura 
 
 
 
+[[define-http-request-headers]]
 == Definire le intestazioni delle richieste HTTP
 
 Facoltativamente, è possibile definire qualsiasi intestazione di richiesta HTTP che si desidera includere nei messaggi di controllo di lettura e scrittura del client.
@@ -170,6 +172,7 @@ NOTE: Le intestazioni delle richieste del protocollo di controllo vengono regist
 
 
 
+[[configure-log-location]]
 == Configura la posizione del registro
 
 Per impostazione predefinita, i messaggi di controllo e i registri vengono salvati sui nodi in cui vengono generati.  Vengono ruotati periodicamente e alla fine eliminati per evitare che occupino troppo spazio sul disco.  Se si desidera salvare esternamente i messaggi di controllo e un sottoinsieme di registri,<<use-external-syslog-server,utilizzare un server syslog esterno>> .
@@ -178,6 +181,7 @@ Se si desidera salvare i file di registro internamente, scegliere un tenant e un
 
 
 
+[[use-external-syslog-serveruse-an-external-syslog-server]]
 === [[use-external-syslog-server]]Usa un server syslog esterno
 
 In alternativa, è possibile configurare un server syslog esterno per salvare registri di controllo, registri delle applicazioni e registri di eventi di sicurezza in una posizione esterna alla griglia.
@@ -579,6 +583,7 @@ NOTE: Le informazioni di controllo StorageGRID non vengono inviate al server sys
 
 
 
+[[select-log-location]]
 === Seleziona la posizione del registro
 
 È possibile specificare dove salvare i registri di controllo, i registri degli eventi di sicurezza,link:../monitor/storagegrid-software-logs.html["Registri delle applicazioni StorageGRID"] e vengono inviati i registri di accesso.
@@ -650,6 +655,7 @@ I nuovi registri vengono inviati alle destinazioni selezionate. I registri esist
 
 
 
+[[use-bucketuse-a-bucket]]
 === [[use-bucket]]Usa un secchio
 
 I registri vengono ruotati periodicamente.  Utilizzare un bucket S3 nella stessa griglia per archiviare i log per un periodo di tempo prolungato.

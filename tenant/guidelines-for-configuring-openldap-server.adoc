@@ -15,12 +15,14 @@ Se si desidera utilizzare un server OpenLDAP per la federazione delle identità,
 
 
 
+[[memberof-and-refint-overlays]]
 == MemberOf e refint overlay
 
 Gli overlay memberof e refint devono essere attivati. Per ulteriori informazioni, consultare le istruzioni per la manutenzione inversa dell'appartenenza al gruppo nella _Guida dell'amministratore del software OpenLDAP_.
 
 
 
+[[indexing]]
 == Indicizzazione
 
 È necessario configurare i seguenti attributi OpenLDAP con le parole chiave di indice specificate:

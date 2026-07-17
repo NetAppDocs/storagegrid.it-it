@@ -17,6 +17,7 @@ Vedere link:using-multiple-storage-pools-for-cross-site-replication.html["Esempi
 
 
 
+[[guidelines-for-all-storage-pools]]
 == Linee guida per tutti i pool di storage
 
 * Le configurazioni del pool di storage sono il più semplici possibile. Non creare più pool di storage del necessario.
@@ -27,6 +28,7 @@ Vedere link:using-multiple-storage-pools-for-cross-site-replication.html["Esempi
 
 
 
+[[guidelines-for-storage-pools-used-for-replicated-copies]]
 == Linee guida per i pool di storage utilizzati per le copie replicate
 
 * Per la protezione contro la perdita del sito mediante link:what-replication-is.html["replica"], specificare uno o più pool di archiviazione specifici del sito in link:create-ilm-rule-define-placements.html["Istruzioni di posizionamento per ogni regola ILM"].
@@ -43,6 +45,7 @@ L'utilizzo di un pool di storage per ciascun sito garantisce che le copie degli 
 
 
 
+[[guidelines-for-storage-pools-used-for-erasure-coded-copies]]
 == Linee guida per i pool di storage utilizzati per le copie erasure-coded
 
 * Per la protezione delle perdite di sito mediante link:what-erasure-coding-is.html["erasure coding"], creare pool di archiviazione composti da almeno tre siti. Se un pool di storage include solo due siti, non è possibile utilizzare tale pool di storage per la cancellazione del codice. Non sono disponibili schemi di erasure coding per un pool di storage con due siti.

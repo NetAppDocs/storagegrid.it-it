@@ -23,6 +23,7 @@ CAUTION: NetApp consiglia vivamente di applicare l'hotfix più recente per ogni 
 
 
 
+[[verify-installed-version]]
 == Verifica la versione installata
 
 .Fasi
@@ -37,6 +38,7 @@ Fare riferimento al seguente esempio di aggiornamento.
 
 
 
+[[example-upgrade-pathexample-upgrade-to-storagegrid-12-0-from-version-11-8]]
 == [[example-upgrade-path]]Esempio: aggiornamento a StorageGRID 12.0 dalla versione 11.8
 
 L'esempio seguente mostra i passaggi per eseguire l'aggiornamento dalla versione 11.8 StorageGRID alla versione 11.9 in preparazione per un aggiornamento a StorageGRID 12.0.

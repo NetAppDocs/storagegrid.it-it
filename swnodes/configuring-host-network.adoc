@@ -39,6 +39,7 @@ NOTE: Non utilizzare dispositivi bond o bridge direttamente come interfaccia di 
 
 
 
+[[considerations-and-recommendations-for-mac-address-cloning]]
 == Considerazioni e consigli per la clonazione degli indirizzi MAC
 
 .[[clonazione_indirizzo_mac]]
@@ -46,6 +47,7 @@ La clonazione dell'indirizzo MAC fa in modo che il container utilizzi l'indirizz
 
 
 
+[[enabling-mac-cloning]]
 === Abilitazione della clonazione MAC
 
 In alcuni ambienti, la sicurezza può essere migliorata mediante la clonazione dell'indirizzo MAC, in quanto consente di utilizzare una NIC virtuale dedicata per Admin Network, Grid Network e Client Network. Il fatto che il container utilizzi l'indirizzo MAC della scheda NIC dedicata sull'host consente di evitare l'utilizzo di configurazioni di rete promiscue mode.
@@ -72,6 +74,7 @@ NOTE: L'attivazione della clonazione MAC su un host virtuale senza attivare anch
 
 
 
+[[mac-cloning-use-cases]]
 === Casi di utilizzo della clonazione MAC
 
 Esistono due casi di utilizzo da considerare con la clonazione MAC:
@@ -87,6 +90,7 @@ Per attivare la clonazione MAC, consultare la link:creating-node-configuration-f
 
 
 
+[[mac-cloning-example]]
 === Esempio di clonazione MAC
 
 Esempio di clonazione MAC abilitata con un host con indirizzo MAC 11:22:33:44:55:66 per l'interfaccia ens256 e le seguenti chiavi nel file di configurazione del nodo:
@@ -100,6 +104,7 @@ Esempio di clonazione MAC abilitata con un host con indirizzo MAC 11:22:33:44:55
 
 
 
+[[example-1-1-to-1-mapping-to-physical-or-virtual-nics]]
 == Esempio 1: Mappatura 1 a 1 su NIC fisiche o virtuali
 
 L'esempio 1 descrive una semplice mappatura dell'interfaccia fisica che richiede una configurazione minima o nulla sul lato host.
@@ -114,6 +119,7 @@ Se lo switch 1 è uno switch fisico, configurare le porte collegate alle interfa
 
 
 
+[[example-2-lacp-bond-carrying-vlans]]
 == Esempio 2: Collegamento LACP con VLAN
 
 L'esempio 2 presuppone che si abbia familiarità con il bonding delle interfacce di rete e con la creazione di interfacce VLAN sulla distribuzione Linux in uso.

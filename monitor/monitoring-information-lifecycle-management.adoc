@@ -20,6 +20,7 @@ L'acquisizione di oggetti e altre attività correlate agli oggetti possono super
 
 
 
+[[use-grid-manager-dashboard-tab]]
 == USA la scheda del pannello di controllo di Grid Manager
 
 .Fasi
@@ -34,6 +35,7 @@ Sono previsti picchi temporanei nella scheda della coda ILM (oggetti) sul dashbo
 
 
 
+[[use-the-nodes-page]]
 == Utilizzare la pagina Nodi
 
 .Fasi

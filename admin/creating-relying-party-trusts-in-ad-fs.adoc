@@ -31,6 +31,7 @@ Queste istruzioni si applicano a Windows Server 2016 ad FS. Se si utilizza una v
 
 
 
+[[create-a-relying-party-trust-using-windows-powershell]]
 == Creare un trust di parte con Windows PowerShell
 
 È possibile utilizzare Windows PowerShell per creare rapidamente uno o più trust di parti.
@@ -93,6 +94,7 @@ Se i metadati non sono presenti, verificare che l'indirizzo dei metadati della f
 
 
 
+[[create-a-relying-party-trust-by-importing-federation-metadata]]
 == Creare un trust per la parte che si basa importando i metadati della federazione
 
 È possibile importare i valori per ciascun trust di parte che si basa accedendo ai metadati SAML per ciascun nodo di amministrazione.
@@ -144,6 +146,7 @@ Se i metadati non sono presenti, verificare che l'indirizzo dei metadati della f
 
 
 
+[[create-a-relying-party-trust-manually]]
 == Creare manualmente un trust per la parte che si basa
 
 Se si sceglie di non importare i dati per i trust della parte di base, è possibile inserire i valori manualmente.

@@ -25,6 +25,7 @@ NOTE: I dettagli forniti per ciascun tipo di registro sono solo a scopo di rifer
 
 
 
+[[access-the-logs]]
 == Accedere ai registri
 
 Per accedere ai registri, puoilink:collecting-log-files-and-system-data.html["raccogliere i file di log e i dati di sistema"] da uno o più nodi come un singolo archivio di file di registro.  In alternativa, è possibile accedere ai singoli file di registro per ciascun nodo della griglia come segue:
@@ -38,6 +39,7 @@ Per accedere ai registri, puoilink:collecting-log-files-and-system-data.html["ra
 
 
 
+[[export-logs-to-the-syslog-server]]
 == Esportare i log nel server syslog
 
 L'esportazione dei registri al server syslog offre le seguenti funzionalità:
@@ -52,6 +54,7 @@ Per esportare i log, fare riferimento alink:../monitor/configure-log-management.
 
 
 
+[[log-file-categories]]
 == Categorie di file di log
 
 L'archivio del file di log di StorageGRID contiene i log descritti per ciascuna categoria e i file aggiuntivi che contengono metriche e output dei comandi di debug.

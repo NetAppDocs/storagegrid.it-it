@@ -17,6 +17,7 @@ Ciascun sito del sistema StorageGRID deve avere almeno tre nodi storage.
 
 
 
+[[types-of-storage-nodes]]
 == Tipi di nodi storage
 
 Durante l'installazione, è possibile selezionare il tipo di nodo di archiviazione che si desidera installare. Questi tipi sono disponibili per i nodi storage basati su software e per i nodi storage basati su appliance che supportano la funzionalità:
@@ -34,12 +35,14 @@ Durante l'installazione, è possibile selezionare il tipo di nodo di archiviazio
 
 
 
+[[data-and-metadata-storage-node-combined]]
 === Nodo di storage dati e metadati (combinato)
 
 Per impostazione predefinita, tutti i nuovi nodi di storage memorizzeranno sia i dati degli oggetti che i metadati. Questo tipo di nodo di storage viene chiamato nodo di storage _combinato_.
 
 
 
+[[metadata-only-storage-node]]
 === Nodo storage solo metadati
 
 L'utilizzo di un nodo di storage esclusivamente per i metadati può avere senso se il grid memorizza un numero molto elevato di piccoli oggetti. L'installazione della capacità di metadati dedicata fornisce un migliore equilibrio tra lo spazio necessario per un numero molto elevato di oggetti piccoli e lo spazio necessario per i metadati per tali oggetti. Inoltre, i nodi di storage solo per i metadati ospitati su appliance dalle performance elevate possono migliorare le performance.
@@ -67,6 +70,7 @@ NOTE: Sebbene i nodi di storage solo per metadati contengano <<ldr-service,Servi
 
 
 
+[[data-only-storage-node]]
 === Nodo storage solo dati
 
 L'utilizzo di un nodo di storage esclusivamente per i dati può essere utile se i nodi di storage hanno caratteristiche di prestazioni diverse. Ad esempio, per aumentare potenzialmente le performance, potrebbero esserci nodi di storage su disco rotante a elevata capacità e solo dati accompagnati da nodi di storage dalle performance elevate e solo metadati.
@@ -77,6 +81,7 @@ Inoltre, è possibile ottenere una maggiore capacità di metadati rimuovendo i n
 
 
 
+[[required-storage-nodes-per-grid-and-per-site]]
 == Nodi di archiviazione richiesti per griglia e per sito
 
 Quando selezioni quali nodi di archiviazione utilizzare nella tua topologia, tieni presente che la griglia o ciascun sito nella griglia deve contenere quanto segue:
@@ -88,6 +93,7 @@ Quando selezioni quali nodi di archiviazione utilizzare nella tua topologia, tie
 
 
 
+[[primary-services-for-storage-nodes]]
 == Servizi primari per i nodi di storage
 
 La tabella seguente mostra i servizi primari per i nodi di storage; tuttavia, questa tabella non elenca tutti i servizi del nodo.

@@ -15,6 +15,7 @@ Prima di implementare i Cloud Storage Pool, esaminare il ciclo di vita degli ogg
 
 
 
+[[s3-lifecycle-of-a-cloud-storage-pool-object]]
 == S3: Ciclo di vita di un oggetto Cloud Storage Pool
 
 Questa procedura descrive le fasi del ciclo di vita di un oggetto memorizzato in un Cloud Storage Pool S3.
@@ -61,6 +62,7 @@ Una volta ripristinato un oggetto, l'applicazione client può emettere una richi
 
 
 
+[[azure-lifecycle-of-a-cloud-storage-pool-object]]
 == Azure: Ciclo di vita di un oggetto Cloud Storage Pool
 
 Questa procedura descrive le fasi del ciclo di vita di un oggetto memorizzato in un Cloud Storage Pool di Azure.

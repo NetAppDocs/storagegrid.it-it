@@ -18,6 +18,7 @@ CAUTION: Le seguenti regole e policy ILM sono solo esempi. Esistono diversi modi
 
 
 
+[[ilm-rule-1-for-example-2-use-ec-for-objects-greater-than-1-mb]]
 == ILM regola 1 per esempio 2: Utilizzare EC per oggetti superiori a 1 MB
 
 In questo esempio, la cancellazione della regola ILM codifica gli oggetti superiori a 1 MB.
@@ -61,6 +62,7 @@ image:policy_2_rule_1_ec_objects_adv_filtering.png["ILM regola 1 per esempio 2: 
 
 
 
+[[ilm-rule-2-for-example-2-two-replicated-copies]]
 == ILM regola 2 per esempio 2: Due copie replicate
 
 Questa regola ILM di esempio crea due copie replicate e non filtra in base alle dimensioni dell'oggetto. Questa regola è la regola predefinita per il criterio. Poiché la prima regola filtra tutti gli oggetti superiori a 1 MB, questa regola si applica solo agli oggetti di dimensioni pari o inferiori a 1 MB.
@@ -99,6 +101,7 @@ Dal giorno 0 al giorno per sempre, conservare una copia replicata nel sito 1 e u
 |===
 
 
+[[ilm-policy-for-example-2-use-ec-for-objects-greater-than-1-mb]]
 == Criterio ILM per esempio 2: Utilizzare EC per oggetti superiori a 1 MB
 
 Questo esempio di policy ILM include due regole ILM:

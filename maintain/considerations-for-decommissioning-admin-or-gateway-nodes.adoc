@@ -15,6 +15,7 @@ Esaminare le considerazioni per lo smantellamento di un nodo amministrativo o di
 
 
 
+[[considerations-for-admin-node]]
 == Considerazioni sul nodo amministrativo
 
 * Impossibile decommissionare il nodo di amministrazione primario.
@@ -27,6 +28,7 @@ Esaminare le considerazioni per lo smantellamento di un nodo amministrativo o di
 
 
 
+[[considerations-for-gateway-node]]
 == Considerazioni per il nodo gateway
 
 * Non è possibile decommissionare un nodo gateway se una delle sue interfacce di rete fa parte di un gruppo ad alta disponibilità (ha). Rimuovere prima le interfacce di rete dal gruppo ha. Vedere le istruzioni per link:../admin/managing-high-availability-groups.html["Gestione dei gruppi ha"].

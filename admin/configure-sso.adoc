@@ -60,6 +60,7 @@ La modalità sandbox semplifica l'esecuzione di questa configurazione avanti e i
 
 
 
+[[access-the-wizard]]
 == Accedere alla procedura guidata
 
 .Fasi
@@ -73,6 +74,7 @@ NOTE: Se il pulsante Configura impostazioni SSO è disabilitato, conferma di ave
 
 
 
+[[provide-identity-provider-details]]
 == Fornire i dettagli del provider di identità
 
 .Fasi
@@ -101,6 +103,7 @@ CAUTION: Se si modifica il certificato CA, eseguire immediatamente link:../maint
 
 
 
+[[enter-sandbox-modeprovide-relying-party-identifier]]
 == [[enter-sandbox-mode]]Fornire l'identificatore della parte affidabile
 
 . Compilare i campi nella pagina Fornisci identificatore della parte affidabile in base al tipo di SSO selezionato.
@@ -171,6 +174,7 @@ https://<Federation Service Name>:<port>/pf/federation_metadata.ping?PartnerSpId
 
 
 
+[[configure-relying-party-trusts-enterprise-applications-or-sp-connections]]
 == Configurare i trust, le applicazioni aziendali o le connessioni SP della parte che si basa
 
 Dopo aver salvato la configurazione ed essere entrati in modalità sandbox, è possibile completare e testare la configurazione per il tipo di SSO selezionato.
@@ -231,6 +235,7 @@ Per istruzioni, vedere link:../admin/creating-relying-party-trusts-in-ad-fs.html
 ====
 
 
+[[test-ssotest-configuration]]
 == [[test-sso]]Configurazione di prova
 
 Prima di imporre l'uso dell'accesso singolo per l'intero sistema StorageGRID , verificare che l'accesso singolo e la disconnessione singola siano configurati correttamente per ciascun nodo di amministrazione.
@@ -294,6 +299,7 @@ Se viene visualizzato un messaggio Page Expired (pagina scaduta), selezionare il
 ====
 
 
+[[enable-single-sign-on]]
 == Attiva single sign-on
 
 Una volta confermata la possibilità di utilizzare SSO per accedere a ciascun nodo amministrativo, è possibile attivare SSO per l'intero sistema StorageGRID.

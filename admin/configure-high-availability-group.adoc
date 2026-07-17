@@ -34,6 +34,7 @@ NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un el
 
 
 
+[[create-a-high-availability-group]]
 == Creare un gruppo ad alta disponibilità
 
 Quando si crea un gruppo ad alta disponibilità, selezionare una o più interfacce e organizzarle in ordine di priorità. Quindi, assegnare uno o più indirizzi VIP al gruppo.
@@ -42,6 +43,7 @@ Un'interfaccia deve essere un nodo gateway o un nodo amministratore per essere i
 
 
 
+[[access-the-wizard]]
 === Accedere alla procedura guidata
 
 .Fasi
@@ -51,6 +53,7 @@ Un'interfaccia deve essere un nodo gateway o un nodo amministratore per essere i
 
 
 
+[[enter-details-for-the-ha-group]]
 === Inserire i dettagli del gruppo ha
 
 .Fasi
@@ -61,6 +64,7 @@ Un'interfaccia deve essere un nodo gateway o un nodo amministratore per essere i
 
 
 
+[[add-interfaces-to-the-ha-group]]
 === Aggiungere interfacce al gruppo ha
 
 .Fasi
@@ -95,6 +99,7 @@ image:vlan_parent_interface_tooltip.png["Suggerimento per l'interfaccia VLAN"]
 
 
 
+[[determine-the-priority-order]]
 === Determinare l'ordine di priorità
 
 Se il gruppo ha include più di un'interfaccia, è possibile determinare quale sia l'interfaccia primaria e quali siano le interfacce di backup (failover). Se l'interfaccia principale non funziona, gli indirizzi VIP passano all'interfaccia con la priorità più alta disponibile. Se l'interfaccia non funziona, gli indirizzi VIP passano alla successiva interfaccia con la priorità più alta disponibile e così via.
@@ -116,6 +121,7 @@ TIP: Se il gruppo ha fornisce l'accesso a Grid Manager, è necessario selezionar
 
 
 
+[[enter-ip-addresses]]
 === Inserire gli indirizzi IP
 
 .Fasi
@@ -146,12 +152,14 @@ Viene creato il gruppo ha ed è ora possibile utilizzare gli indirizzi IP virtua
 
 
 
+[[next-steps]]
 === Passi successivi
 
 Se si utilizza questo gruppo ha per il bilanciamento del carico, creare un endpoint per il bilanciamento del carico per determinare il protocollo di porta e di rete e per allegare eventuali certificati richiesti. Vedere link:configuring-load-balancer-endpoints.html["Configurare gli endpoint del bilanciamento del carico"].
 
 
 
+[[edit-a-high-availability-group]]
 == Modificare un gruppo ad alta disponibilità
 
 È possibile modificare un gruppo ad alta disponibilità (ha) per modificarne nome e descrizione, aggiungere o rimuovere interfacce, modificare l'ordine di priorità o aggiungere o aggiornare indirizzi IP virtuali.
@@ -194,6 +202,7 @@ NOTE: Se il gruppo ha fornisce l'accesso a Grid Manager, è necessario seleziona
 
 
 
+[[remove-a-high-availability-group]]
 == Rimuovere un gruppo ad alta disponibilità
 
 È possibile rimuovere uno o più gruppi ad alta disponibilità (ha) alla volta.

@@ -15,6 +15,7 @@ summary: 'È possibile utilizzare l"installazione guidata S3 per configurare Sto
 
 
 
+[[when-to-use-the-s3-setup-wizard]]
 == Quando utilizzare l'installazione guidata S3
 
 L'installazione guidata S3 guida l'utente attraverso ogni fase della configurazione di StorageGRID per l'utilizzo con un'applicazione S3. Durante il completamento della procedura guidata, è possibile scaricare i file da utilizzare per immettere i valori nell'applicazione S3. Utilizzare la procedura guidata per configurare il sistema più rapidamente e per assicurarsi che le impostazioni siano conformi alle Best practice StorageGRID.
@@ -23,6 +24,7 @@ Se si dispone di link:admin-group-permissions.html["Autorizzazione di accesso ro
 
 
 
+[[before-using-the-wizard]]
 == Prima di utilizzare la procedura guidata
 
 Prima di utilizzare la procedura guidata, verificare di aver completato questi prerequisiti.

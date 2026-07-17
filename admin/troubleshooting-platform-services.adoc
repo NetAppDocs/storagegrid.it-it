@@ -15,6 +15,7 @@ Gli endpoint utilizzati nei servizi della piattaforma vengono creati e gestiti d
 
 
 
+[[issues-with-new-endpoints]]
 == Problemi con i nuovi endpoint
 
 Prima che un tenant possa utilizzare i servizi della piattaforma, deve creare uno o più endpoint utilizzando il tenant Manager. Ciascun endpoint rappresenta una destinazione esterna per un servizio di piattaforma, come un bucket StorageGRID S3, un bucket Amazon Web Services, un argomento del servizio di notifica semplice Amazon, un argomento di Kafka o un cluster Elasticsearch ospitato localmente o su AWS. Ogni endpoint include sia la posizione della risorsa esterna che le credenziali necessarie per accedere a tale risorsa.
@@ -28,6 +29,7 @@ NOTE: La creazione dell'endpoint non riesce se i servizi della piattaforma non s
 
 
 
+[[issues-with-existing-endpoints]]
 == Problemi con gli endpoint esistenti
 
 Se si verifica un errore quando StorageGRID tenta di raggiungere un endpoint esistente, viene visualizzato un messaggio sul dashboard in Gestione tenant.
@@ -43,18 +45,21 @@ NOTE: Alcuni messaggi di errore nella colonna *ultimo errore* potrebbero include
 
 
 
+[[issues-related-to-proxy-servers]]
 == Problemi relativi ai server proxy
 
 Se hai configurato unlink:configuring-storage-proxy-settings.html["proxy di storage"] tra i nodi di archiviazione e gli endpoint del servizio di piattaforma, potrebbero verificarsi errori se il servizio proxy non consente messaggi da StorageGRID.  Per risolvere questi problemi, controlla le impostazioni del tuo server proxy per assicurarti che i messaggi relativi ai servizi della piattaforma non siano bloccati.
 
 
 
+[[determine-if-an-error-has-occurred]]
 == Determinare se si è verificato un errore
 
 Se si sono verificati errori degli endpoint negli ultimi 7 giorni, il dashboard di Tenant Manager visualizza un messaggio di avviso. È possibile accedere alla pagina Endpoint per ulteriori dettagli sull'errore.
 
 
 
+[[client-operations-fail]]
 == Le operazioni del client non riescono
 
 Alcuni problemi relativi ai servizi della piattaforma potrebbero causare il malfunzionamento delle operazioni client sul bucket S3. Ad esempio, le operazioni del client S3 non vengono eseguite correttamente se il servizio RSM (Replicated state Machine) interno viene arrestato o se sono presenti troppi messaggi dei servizi della piattaforma in coda per il recapito.
@@ -68,6 +73,7 @@ Per controllare lo stato dei servizi:
 
 
 
+[[recoverable-and-unrecoverable-endpoint-errors]]
 == Errori degli endpoint ripristinabili e non ripristinabili
 
 Una volta creati gli endpoint, gli errori di richiesta del servizio della piattaforma possono verificarsi per diversi motivi. Alcuni errori possono essere ripristinati con l'intervento dell'utente. Ad esempio, potrebbero verificarsi errori ripristinabili per i seguenti motivi:
@@ -94,6 +100,7 @@ Se StorageGRID rileva un errore irreversibile dell'endpoint:
 
 
 
+[[platform-services-messages-cant-be-delivered]]
 == I messaggi dei servizi della piattaforma non possono essere inviati
 
 Se la destinazione riscontra un problema che le impedisce di accettare i messaggi dei servizi della piattaforma, l'operazione client sul bucket riesce, ma il messaggio dei servizi della piattaforma non viene recapitato.  Ad esempio, questo errore potrebbe verificarsi se le credenziali vengono aggiornate sulla destinazione in modo tale che StorageGRID non possa più autenticarsi al servizio di destinazione.
@@ -102,6 +109,7 @@ Verificare la presenza di avvisi correlati.
 
 
 
+[[slower-performance-for-platform-service-requests]]
 == Performance più lente per le richieste di servizi della piattaforma
 
 Il software StorageGRID potrebbe ridurre le richieste S3 in entrata per un bucket se la velocità con cui le richieste vengono inviate supera la velocità con cui l'endpoint di destinazione può ricevere le richieste. La limitazione si verifica solo quando è presente un backlog di richieste in attesa di essere inviate all'endpoint di destinazione.
@@ -112,6 +120,7 @@ L'unico effetto visibile è che l'esecuzione delle richieste S3 in entrata richi
 
 
 
+[[platform-service-requests-fail]]
 == Le richieste di servizio della piattaforma non vengono soddisfatte
 
 Per visualizzare il tasso di errore della richiesta per i servizi della piattaforma:
@@ -126,6 +135,7 @@ image:nodes_page_site_level_platform_services.gif["Servizi della piattaforma a l
 
 
 
+[[platform-services-unavailable-alert]]
 == Avviso di servizi della piattaforma non disponibili
 
 L'avviso *Platform Services unavailable* (servizi piattaforma non disponibili) indica che non è possibile eseguire operazioni di servizio della piattaforma in un sito perché sono in esecuzione o disponibili troppi nodi di storage con il servizio RSM.
@@ -139,6 +149,7 @@ NOTE: Se più di un nodo di storage che contiene il servizio RSM si guasta in un
 
 
 
+[[additional-troubleshooting-guidance-for-platform-services-endpoints]]
 == Ulteriori linee guida per la risoluzione dei problemi per gli endpoint dei servizi della piattaforma
 
 Per ulteriori informazioni, vedere link:../tenant/troubleshooting-platform-services-endpoint-errors.html["Utilizzare un account tenant > risolvere i problemi relativi agli endpoint dei servizi della piattaforma"].

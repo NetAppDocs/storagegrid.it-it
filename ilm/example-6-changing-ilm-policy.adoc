@@ -22,6 +22,7 @@ CAUTION: Le seguenti regole e policy ILM sono solo esempi. Esistono diversi modi
 
 
 
+[[how-changing-an-ilm-policy-affects-performance]]
 == In che modo la modifica di un criterio ILM influisce sulle performance
 
 Quando si attiva un nuovo criterio ILM, le prestazioni del sistema StorageGRID potrebbero risentirne temporaneamente, soprattutto se le istruzioni di posizionamento nel nuovo criterio richiedono lo spostamento di molti oggetti esistenti in nuove posizioni.
@@ -43,6 +44,7 @@ NOTE: StorageGRID considera ogni profilo di erasure coding come univoco e non ri
 
 
 
+[[active-ilm-policy-for-example-6-data-protection-at-two-sites]]
 == Policy ILM attiva ad esempio 6: Protezione dei dati in due siti
 
 In questo esempio, la policy ILM attiva è stata inizialmente progettata per un sistema StorageGRID a due siti e utilizza due regole ILM.
@@ -53,6 +55,7 @@ In questa policy ILM, gli oggetti appartenenti al tenant A sono protetti da una 
 
 
 
+[[rule-1-one-site-erasure-coding-for-tenant-a]]
 === Regola 1: Erasure coding per un sito per il tenant A.
 
 [cols="1a,2a"]
@@ -89,6 +92,7 @@ Posizionamenti
 |===
 
 
+[[rule-2-two-site-replication-for-other-tenants]]
 === Regola 2: Replica a due siti per altri tenant
 
 [cols="1a,2a"]
@@ -125,6 +129,7 @@ Due copie replicate dal giorno 0 a sempre: Una copia nel sito 1 e una nel sito 2
 |===
 
 
+[[ilm-policy-for-example-6-data-protection-at-three-sites]]
 == Criterio ILM per esempio 6: Protezione dei dati in tre siti
 
 In questo esempio, la policy ILM viene sostituita con una nuova policy per un sistema StorageGRID a tre siti.
@@ -135,6 +140,7 @@ Quando viene attivata questa nuova policy ILM, gli oggetti appartenenti al tenan
 
 
 
+[[rule-1-three-site-erasure-coding-for-tenant-a]]
 === Regola 1: Erasure coding a tre siti per il tenant A.
 
 [cols="1a,2a"]
@@ -171,6 +177,7 @@ Posizionamenti
 |===
 
 
+[[rule-2-three-site-replication-for-other-tenants]]
 === Regola 2: Replica a tre siti per altri tenant
 
 [cols="1a,2a"]
@@ -207,6 +214,7 @@ Tre copie replicate dal giorno 0 a sempre: Una copia presso il sito 1, una copia
 |===
 
 
+[[activating-the-ilm-policy-for-example-6]]
 == Attivazione del criterio ILM ad esempio 6
 
 Quando si attiva un nuovo criterio ILM, è possibile spostare gli oggetti esistenti in nuove posizioni o creare nuove copie degli oggetti per gli oggetti esistenti, in base alle istruzioni di posizionamento nelle regole nuove o aggiornate.
@@ -219,6 +227,7 @@ CAUTION: Quando si attiva un nuovo criterio ILM, StorageGRID lo utilizza per ges
 
 
 
+[[what-happens-when-erasure-coding-instructions-change]]
 === Cosa succede quando cambiano le istruzioni di erasure coding
 
 Nel criterio ILM attualmente attivo, per questo esempio, gli oggetti appartenenti al tenant A sono protetti utilizzando la codifica di cancellazione 2+1 nel sito 1. Nella nuova policy ILM, gli oggetti appartenenti al tenant A saranno protetti mediante erasure coding 2+1 nei siti 1, 2 e 3.
@@ -235,6 +244,7 @@ NOTE: I frammenti 2+1 esistenti nel sito 1 non vengono riutilizzati. StorageGRID
 
 
 
+[[what-happens-when-replication-instructions-change]]
 === Cosa succede quando cambiano le istruzioni di replica
 
 Nella policy ILM attualmente attiva per questo esempio, gli oggetti appartenenti ad altri tenant sono protetti utilizzando due copie replicate nei pool di storage dei siti 1 e 2. Nella nuova policy ILM, gli oggetti appartenenti ad altri tenant verranno protetti attraverso tre copie replicate nei pool di storage dei siti 1, 2 e 3.
@@ -247,6 +257,7 @@ Quando viene attivato il nuovo criterio ILM, si verificano le seguenti operazion
 
 
 
+[[performance-impact-of-activating-this-policy]]
 === Impatto delle performance dell'attivazione di questa policy
 
 Quando il criterio ILM in questo esempio è attivato, le prestazioni generali del sistema StorageGRID saranno temporaneamente influenzate. Per creare nuovi frammenti erasure-coded per gli oggetti esistenti del tenant A e nuove copie replicate nel sito 3 per gli oggetti esistenti degli altri tenant saranno necessari livelli di risorse grid superiori al normale.

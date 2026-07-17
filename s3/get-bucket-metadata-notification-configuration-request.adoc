@@ -17,6 +17,7 @@ Per completare questa operazione, è necessario disporre dell'autorizzazione s3:
 
 
 
+[[request-example]]
 == Esempio di richiesta
 
 Questa richiesta recupera la configurazione di notifica dei metadati per il bucket denominato `bucket`.
@@ -30,6 +31,7 @@ Host: _host_
 ----
 
 
+[[response]]
 == Risposta
 
 Il corpo della risposta include la configurazione della notifica dei metadati per il bucket. La configurazione della notifica dei metadati consente di determinare la configurazione del bucket per l'integrazione della ricerca. Ciò consente di determinare quali oggetti vengono indicizzati e a quali endpoint vengono inviati i metadati degli oggetti.
@@ -153,6 +155,7 @@ Sì
 |===
 
 
+[[response-example]]
 == Esempio di risposta
 
 L'XML incluso tra i  `<MetadataNotificationConfiguration></MetadataNotificationConfiguration>`tag mostra come è configurata l'integrazione con un endpoint di integrazione della ricerca per il bucket. In questo esempio, i metadati degli oggetti vengono inviati a un indice Elasticsearch denominato e a un tipo `2017` denominato ospitato in un dominio AWS `records` denominato `current` .

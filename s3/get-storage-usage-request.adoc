@@ -21,6 +21,7 @@ Per completare questa operazione, è necessario disporre dell'autorizzazione s3:
 
 
 
+[[request-example]]
 == Esempio di richiesta
 
 [listing, subs="specialcharacters,quotes"]
@@ -32,6 +33,7 @@ Host: _host_
 ----
 
 
+[[response-example]]
 == Esempio di risposta
 
 Questo esempio mostra un account con quattro oggetti e 12 byte di dati in due bucket. Ogni bucket contiene due oggetti e sei byte di dati.
@@ -67,6 +69,7 @@ Content-Type: application/xml
 ----
 
 
+[[versioning]]
 == Versione
 
 Ogni versione dell'oggetto memorizzata contribuirà ai `ObjectCount` valori e `DataBytes` nella risposta. I marcatori di eliminazione non vengono aggiunti al `ObjectCount` totale.

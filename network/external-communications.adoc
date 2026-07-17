@@ -15,6 +15,7 @@ I client devono comunicare con i nodi grid per acquisire e recuperare contenuti.
 
 
 
+[[restricted-access-to-ports]]
 == Accesso limitato alle porte
 
 Se i criteri di rete aziendali limitano l'accesso a una delle porte, è possibile effettuare una delle seguenti operazioni:
@@ -33,6 +34,7 @@ NOTE: Il supporto per la rimappatura delle porte è obsoleto e verrà rimosso in
 
 
 
+[[ports-used-for-external-communications]]
 == Porte utilizzate per le comunicazioni esterne
 
 La seguente tabella mostra le porte utilizzate per il traffico nei nodi.

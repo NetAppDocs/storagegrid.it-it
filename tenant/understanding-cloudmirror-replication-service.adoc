@@ -20,18 +20,21 @@ NOTE: La replica di CloudMirror non è supportata se il bucket di origine ha att
 
 
 
+[[cloudmirror-and-ilm]]
 == CloudMirror e ILM
 
 La replica CloudMirror funziona indipendentemente dalle policy ILM attive del grid. Il servizio CloudMirror replica gli oggetti memorizzati nel bucket di origine e li consegna al bucket di destinazione il prima possibile. La consegna degli oggetti replicati viene attivata quando l'acquisizione degli oggetti ha esito positivo.
 
 
 
+[[cloudmirror-and-cross-grid-replication]]
 == CloudMirror e replica cross-grid
 
 La replica di CloudMirror presenta importanti analogie e differenze con la funzionalità di replica cross-grid. Fare riferimento alla link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Confronta la replica cross-grid e la replica CloudMirror"].
 
 
 
+[[cloudmirror-and-s3-buckets]]
 == Bucket Cloud Mirror e S3
 
 La replica di CloudMirror è generalmente configurata per utilizzare un bucket S3 esterno come destinazione. Tuttavia, è anche possibile configurare la replica in modo che utilizzi un'altra implementazione StorageGRID o qualsiasi servizio compatibile con S3.
@@ -49,6 +52,7 @@ Benne in versione o non in versione:: È possibile configurare la replica di Clo
 
 
 
+[[deletion-replication-loops-and-events]]
 == Eliminazione, loop di replica ed eventi
 
 Comportamento di eliminazione:: È uguale al comportamento di eliminazione del servizio Amazon S3, Cross-Region Replication (CRR). L'eliminazione di un oggetto in un bucket di origine non elimina mai un oggetto replicato nella destinazione. Se sia il bucket di origine che quello di destinazione sono entrambi con versione, il marker di eliminazione viene replicato. Se il bucket di destinazione non è dotato di versione, l'eliminazione di un oggetto nel bucket di origine non replica il contrassegno di eliminazione nel bucket di destinazione o elimina l'oggetto di destinazione.

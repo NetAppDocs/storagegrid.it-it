@@ -20,6 +20,7 @@ summary: È possibile monitorare informazioni di base su tutte le connessioni di
 
 
 
+[[view-all-connections]]
 == Visualizza tutte le connessioni
 
 La pagina Grid Federation mostra informazioni di base su tutte le connessioni a federazione di griglie e su tutti gli account tenant autorizzati a utilizzare le connessioni a federazione di griglie.
@@ -59,6 +60,7 @@ image:grid-federation-permitted-tenants-tab.png["Scheda tenant consentiti per la
 
 
 
+[[view-specific-connectionview-a-specific-connection]]
 == [[view-specific-Connection]]Visualizza una connessione specifica
 
 È possibile visualizzare i dettagli di una connessione a federazione di griglie specifica.
@@ -102,6 +104,7 @@ image:grid-federation-certificates-tab.png["grid-federation-certificates-tab"]
 
 
 
+[[review-cross-grid-replication-metrics]]
 == Analisi delle metriche di replica cross-grid
 
 Puoi utilizzare la dashboard di replica cross-grid di Grafana per visualizzare le metriche Prometheus sulle operazioni di replica cross-grid sul tuo grid.

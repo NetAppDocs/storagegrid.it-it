@@ -15,6 +15,7 @@ Crea interfacce LAN virtuali (VLAN) sui nodi di amministrazione e sui nodi gatew
 
 
 
+[[considerations-for-vlan-interfaces]]
 == Considerazioni per le interfacce VLAN
 
 * Per creare un'interfaccia VLAN, immettere un ID VLAN e scegliere un'interfaccia principale su uno o più nodi.
@@ -37,6 +38,7 @@ NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un el
 
 
 
+[[create-a-vlan-interface]]
 == Creare un'interfaccia VLAN
 
 .Prima di iniziare
@@ -53,6 +55,7 @@ L'amministratore di rete potrebbe aver configurato una o più interfacce di trun
 
 
 
+[[access-the-wizard]]
 === Accedere alla procedura guidata
 
 .Fasi
@@ -62,6 +65,7 @@ L'amministratore di rete potrebbe aver configurato una o più interfacce di trun
 
 
 
+[[enter-details-for-the-vlan-interfaces]]
 === Inserire i dettagli delle interfacce VLAN
 
 .Fasi
@@ -75,6 +79,7 @@ Gli ID VLAN non devono essere univoci. Ad esempio, è possibile utilizzare l'ID 
 
 
 
+[[choose-parent-interfaces]]
 === Scegliere le interfacce padre
 
 La tabella elenca le interfacce disponibili per tutti i nodi Admin e Gateway in ogni sito della griglia. Le interfacce Admin Network (eth1) non possono essere utilizzate come interfacce padre e non vengono visualizzate.
@@ -92,6 +97,7 @@ image:vlan-create-parent-interfaces.png["Creazione guidata VLAN interfacce princ
 
 
 
+[[confirm-the-settings]]
 === Confermare le impostazioni
 
 .Fasi
@@ -108,6 +114,7 @@ image:vlan-create-parent-interfaces.png["Creazione guidata VLAN interfacce princ
 
 
 
+[[edit-a-vlan-interface]]
 == Modificare un'interfaccia VLAN
 
 Quando si modifica un'interfaccia VLAN, è possibile apportare i seguenti tipi di modifiche:
@@ -141,6 +148,7 @@ Non è possibile aggiornare un ID VLAN se la VLAN viene utilizzata in un gruppo 
 
 
 
+[[remove-a-vlan-interface]]
 == Rimuovere un'interfaccia VLAN
 
 È possibile rimuovere una o più interfacce VLAN.

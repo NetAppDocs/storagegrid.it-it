@@ -20,12 +20,14 @@ I valori di coerenza possono essere utilizzati per specificare la disponibilità
 
 
 
+[[bucket-consistency-guidelines]]
 == Linee guida per la coerenza della benna
 
 La coerenza del bucket viene utilizzata per determinare la coerenza delle applicazioni client che influiscono sugli oggetti all'interno del bucket S3. In generale, si dovrebbe usare la coerenza *Read-after-new-write* per i propri bucket.
 
 
 
+[[change-bucket-consistencychange-bucket-consistency]]
 == [[change-bucket-Consistency]]modificare la coerenza del bucket
 
 Se la coerenza *Read-after-new-write* non soddisfa i requisiti dell'applicazione client, è possibile modificare la coerenza impostando la coerenza del bucket o utilizzando l' `Consistency-Control`intestazione. La `Consistency-Control` testata esclude la coerenza della benna.
@@ -54,6 +56,7 @@ Viene visualizzata la pagina dei dettagli del bucket.
 
 
 
+[[what-happens-when-you-change-bucket-settings]]
 == Cosa accade quando si modificano le impostazioni della benna
 
 I bucket hanno impostazioni multiple che influiscono sul comportamento dei bucket e degli oggetti all'interno di tali bucket.

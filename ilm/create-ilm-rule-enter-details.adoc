@@ -52,6 +52,7 @@ Se non si configura il filtraggio avanzato, la regola si applica a tutti gli ogg
 
 
 
+[[use-advanced-filters-in-ilm-rules]]
 == Utilizzare filtri avanzati nelle regole ILM
 
 Il filtraggio avanzato consente di creare regole ILM applicabili solo a oggetti specifici in base ai metadati. Quando si imposta il filtraggio avanzato per una regola, si seleziona il tipo di metadati che si desidera associare, si seleziona un operatore e si specifica un valore di metadati. Quando si valutano gli oggetti, la regola ILM viene applicata solo agli oggetti che hanno metadati corrispondenti al filtro avanzato.
@@ -193,6 +194,7 @@ Ad esempio, per filtrare gli oggetti che hanno un tag di oggetto di `Image=True`
 |===
 
 
+[[specify-multiple-metadata-types-and-values]]
 == Specificare più tipi di metadati e valori
 
 Quando si definisce il filtraggio avanzato, è possibile specificare più tipi di metadati e più valori di metadati. Ad esempio, se si desidera che una regola corrisponda a oggetti di dimensioni comprese tra 10 MB e 100 MB, selezionare il tipo di metadati *Object size* e specificare due valori di metadati.

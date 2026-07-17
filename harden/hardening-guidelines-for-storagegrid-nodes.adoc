@@ -15,6 +15,7 @@ I nodi StorageGRID possono essere implementati su macchine virtuali VMware, all'
 
 
 
+[[block-remote-ipmicontrol-remote-ipmi-access-to-bmc]]
 == [[block-remote-ipmi]]Controlla l'accesso IPMI remoto a BMC
 
 È possibile attivare o disattivare l'accesso IPMI remoto per tutti i dispositivi che contengono un BMC. L'interfaccia IPMI remota consente l'accesso hardware di basso livello alle apparecchiature StorageGRID da parte di chiunque disponga di un account BMC e di una password. Se non è necessario l'accesso IPMI remoto al BMC, disattivare questa opzione.
@@ -31,6 +32,7 @@ Per ulteriori informazioni sull'indurimento BMC , vedere https://media.defense.g
 
 
 
+[[firewall-configuration]]
 == Configurazione del firewall
 
 Nell'ambito del processo di protezione avanzata del sistema, è necessario rivedere le configurazioni dei firewall esterni e modificarle in modo che il traffico venga accettato solo dagli indirizzi IP e dalle porte da cui è strettamente necessario.
@@ -50,24 +52,28 @@ Per un elenco di tutte le porte interne ed esterne utilizzate da StorageGRID, ve
 
 
 
+[[disable-unused-services]]
 == Disattivare i servizi inutilizzati
 
 Per tutti i nodi StorageGRID , è necessario disabilitare o bloccare l'accesso ai servizi non utilizzati.  Ad esempio, se non si prevede di utilizzare DHCP, utilizzare Grid Manager per chiudere la porta 68.  Selezionare *Configurazione* > *Controllo firewall* > *Gestisci accesso esterno*.  Quindi modifica l'interruttore di stato per la porta 68 da *Aperto* a *Chiuso*.
 
 
 
+[[virtualization-containers-and-shared-hardware]]
 == Virtualizzazione, container e hardware condiviso
 
 Per tutti i nodi StorageGRID, evitare di eseguire StorageGRID sullo stesso hardware fisico del software non attendibile. Non presupporre che le protezioni dell'hypervisor impediscano al malware di accedere ai dati protetti da StorageGRID se StorageGRID e il malware esistono sullo stesso hardware fisico. Ad esempio, gli attacchi Meltdown e Spectre sfruttano le vulnerabilità critiche dei processori moderni e consentono ai programmi di rubare dati in memoria sullo stesso computer.
 
 
 
+[[protect-nodes-during-installation]]
 == Proteggere i nodi durante l'installazione
 
 Non consentire agli utenti non attendibili di accedere ai nodi StorageGRID sulla rete durante l'installazione dei nodi. I nodi non sono completamente sicuri fino a quando non si sono Uniti alla griglia.
 
 
 
+[[limit-physical-access-to-hardware]]
 == Limitare l'accesso fisico all'hardware
 
 È necessario limitare l'accesso fisico ai nodi dell'appliance hardware StorageGRID , nonché agli host delle macchine virtuali VMware e agli host Linux che eseguono StorageGRID , solo agli amministratori autorizzati.  Alcuni esempi di controlli di accesso fisico includono serrature, guardie, barriere fisiche e videosorveglianza.
@@ -76,6 +82,7 @@ I nodi degli appliance hardware sono progettati per essere installati e utilizza
 
 
 
+[[guidelines-for-admin-nodes]]
 == Linee guida per i nodi di amministrazione
 
 I nodi di amministrazione forniscono servizi di gestione quali configurazione, monitoraggio e registrazione del sistema. Quando si accede a Grid Manager o al tenant Manager, si sta effettuando la connessione a un nodo amministratore.
@@ -95,6 +102,7 @@ Per ulteriori informazioni, vedere le istruzioni di link:../admin/index.html["Am
 
 
 
+[[guidelines-for-storage-nodes]]
 == Linee guida per i nodi di storage
 
 I nodi di storage gestiscono e memorizzano i dati e i metadati degli oggetti. Seguire queste linee guida per proteggere i nodi di storage nel sistema StorageGRID.
@@ -108,6 +116,7 @@ I nodi di storage gestiscono e memorizzano i dati e i metadati degli oggetti. Se
 
 
 
+[[guidelines-for-gateway-nodes]]
 == Linee guida per i nodi gateway
 
 I nodi gateway forniscono un'interfaccia opzionale per il bilanciamento del carico che le applicazioni client possono utilizzare per connettersi a StorageGRID. Attenersi alle seguenti linee guida per proteggere i nodi gateway nel sistema StorageGRID:
@@ -119,6 +128,7 @@ I nodi gateway forniscono un'interfaccia opzionale per il bilanciamento del cari
 
 
 
+[[guidelines-for-hardware-appliance-nodes]]
 == Linee guida per i nodi dell'appliance hardware
 
 Le appliance hardware StorageGRID sono progettate appositamente per l'utilizzo in un sistema StorageGRID. Alcune appliance possono essere utilizzate come nodi di storage. Altri appliance possono essere utilizzati come nodi di amministrazione o nodi gateway. È possibile combinare nodi appliance con nodi basati su software o implementare grid all-appliance completamente progettati.

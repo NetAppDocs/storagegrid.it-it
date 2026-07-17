@@ -15,6 +15,7 @@ La replica cross-grid è la replica automatica di oggetti tra bucket S3 selezion
 
 
 
+[[workflow-for-cross-grid-replication]]
 == Workflow per la replica cross-grid
 
 Il diagramma del flusso di lavoro riassume i passaggi per configurare la replica tra griglie tra bucket su due griglie.
@@ -23,6 +24,7 @@ image:grid-federation-cgr-workflow.png["Workflow di replica cross-grid"]
 
 
 
+[[requirements-for-cross-grid-replication]]
 == Requisiti per la replica cross-grid
 
 Se un account tenant ha l'autorizzazione *Usa connessione federazione griglia* per utilizzare una o piùlink:grid-federation-overview.html["connessioni a federazione di griglie"] , un utente tenant con autorizzazione di accesso Root può creare bucket negli account tenant corrispondenti su ciascuna griglia.  Questi secchi:
@@ -40,12 +42,14 @@ link:../tenant/grid-federation-manage-cross-grid-replication.html["Gestire la re
 
 
 
+[[how-cross-grid-replication-works]]
 == Come funziona la replica cross-grid
 
 È possibile configurare la replica tra griglie in modo che avvenga in una direzione o in entrambe le direzioni.
 
 
 
+[[replication-in-one-direction]]
 === Replica in un'unica direzione
 
 Se si abilita la replica tra griglie per un bucket su una sola griglia, gli oggetti aggiunti a quel bucket (il bucket di origine) vengono replicati nel bucket corrispondente sull'altra griglia (il bucket di destinazione).  Tuttavia, gli oggetti aggiunti al bucket di destinazione non vengono replicati nell'origine.  Nella figura, la replicazione cross-grid è abilitata per `my-bucket` dalla Griglia 1 alla Griglia 2, ma non è abilitato nella direzione opposta.
@@ -54,6 +58,7 @@ image:grid-federation-cross-grid-replication-one-direction.png["immagine che mos
 
 
 
+[[replication-in-both-directions]]
 === Replica in entrambe le direzioni
 
 Se si attiva la replica cross-grid per lo stesso bucket su entrambe le griglie, gli oggetti aggiunti a entrambi i bucket vengono replicati nell'altra griglia. Nella figura, la replica cross-grid è abilitata per `my-bucket` in entrambe le direzioni.
@@ -62,6 +67,7 @@ image:grid-federation-cross-grid-replication.png["immagine che mostra la replica
 
 
 
+[[what-happens-when-objects-are-ingested]]
 === Cosa succede quando gli oggetti vengono acquisiti?
 
 Quando un client S3 aggiunge un oggetto a un bucket con replica cross-grid attivata, si verifica quanto segue:
@@ -101,6 +107,7 @@ NOTE: StorageGRID non supporta il `x-amz-replication-status` intestazione.
 
 
 
+[[what-happens-when-objects-are-deleted]]
 === Cosa succede quando gli oggetti vengono cancellati?
 
 Come descritto in link:../primer/delete-data-flow.html["Eliminare il flusso di dati"], StorageGRID può eliminare un oggetto per uno dei seguenti motivi:
@@ -144,6 +151,7 @@ NOTE: Se si desidera mantenere sincronizzate le eliminazioni degli oggetti tra l
 
 
 
+[[how-encrypted-objects-are-replicated]]
 === Modalità di replica degli oggetti crittografati
 
 Quando si utilizza la replica cross-grid per replicare oggetti tra griglie, è possibile crittografare singoli oggetti, utilizzare la crittografia bucket predefinita o configurare la crittografia a livello di griglia. È possibile aggiungere, modificare o rimuovere le impostazioni di crittografia predefinite del bucket o dell'intera griglia prima o dopo aver attivato la replica cross-grid per un bucket.
@@ -178,6 +186,8 @@ Quando si determina come crittografare gli oggetti replicati, StorageGRID applic
 
 
 
+[[cross-grid-replication-with-s3-object-lock]]
+[[cgr-with-ol]]
 === Replicazione cross-grid con S3 Object Lock
 
 È possibile configurare la replica tra reti diverse tra bucket StorageGRID con S3 Object Lock abilitato nelle seguenti circostanze.
@@ -230,6 +240,7 @@ Quando S3 Object Lock sul bucket di origine è disabilitato:
 
 
 
+[[putobjecttagging-and-deleteobjecttagging-arent-supported]]
 === PutObjectTagging e DeleteObjectTagging non sono supportati
 
 Le richieste PutObjectTagging e DeleteObjectTagging non sono supportate per gli oggetti nei bucket in cui è abilitata la replica cross-grid.
@@ -238,6 +249,7 @@ Se un client S3 emette una richiesta PutObjectTagging o DeleteObjectTagging, `50
 
 
 
+[[putobjectretention-and-putobjectlegalhold-arent-supported]]
 === PutObjectRetention e PutObjectLegalHold non sono supportati
 
 Le richieste PutObjectRetention e PutObjectLegalHold non sono completamente supportate per gli oggetti nei bucket in cui è abilitata la replica tra griglie.
@@ -246,6 +258,7 @@ Se un client S3 invia una richiesta PutObjectRetention o PutObjectLegalHold, le 
 
 
 
+[[how-segmented-objects-are-replicated]]
 === Come vengono replicati gli oggetti segmentati
 
 La dimensione massima del segmento della griglia di origine si applica agli oggetti replicati nella griglia di destinazione.  Quando gli oggetti vengono replicati su un'altra griglia, l'impostazione *Dimensione massima del segmento* (*Configurazione* > *Sistema* > *Opzioni di archiviazione*) della griglia di origine viene utilizzata su entrambe le griglie.  Ad esempio, supponiamo che la dimensione massima del segmento per la griglia di origine sia 1 GB, mentre la dimensione massima del segmento per la griglia di destinazione sia 50 MB.  Se si acquisisce un oggetto da 2 GB nella griglia di origine, tale oggetto viene salvato come due segmenti da 1 GB.  Viene inoltre replicato nella griglia di destinazione come due segmenti da 1 GB, anche se la dimensione massima del segmento di quella griglia è di 50 MB.

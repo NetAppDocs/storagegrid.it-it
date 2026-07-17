@@ -31,6 +31,7 @@ Sullo stesso host è possibile implementare altri tipi di nodi, come ad esempio 
 ====
 
 
+[[export-node-from-source-host]]
 == Esportare il nodo dall'host di origine
 
 Come primo passo, chiudere il nodo grid ed esportarlo dall'host Linux di origine.
@@ -91,6 +92,7 @@ Questo comando verrà eseguito sull'host di destinazione nel passaggio successiv
 
 
 
+[[import-node-on-target-host]]
 == Nodo di importazione sull'host di destinazione
 
 Dopo aver esportato il nodo dall'host di origine, importare e convalidare il nodo sull'host di destinazione. La convalida conferma che il nodo ha accesso agli stessi dispositivi di storage a blocchi e di interfaccia di rete dell'host di origine.
@@ -133,6 +135,7 @@ Per informazioni sulla risoluzione dei problemi, vedere StorageGRIDlink:../swnod
 
 
 
+[[start-migrated-node]]
 == Avvia nodo migrato
 
 Dopo aver validato il nodo migrato, avviarlo eseguendo un comando sul _host di destinazione_.

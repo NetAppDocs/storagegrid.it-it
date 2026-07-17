@@ -21,12 +21,14 @@ Il sistema StorageGRID supporta due metodi di autenticazione: L'intestazione HTT
 
 
 
+[[use-the-http-authorization-header]]
 == Utilizzare l'intestazione autorizzazione HTTP
 
 L'intestazione HTTP `Authorization` viene utilizzata da tutte le operazioni API S3, ad eccezione delle richieste anonime, laddove consentito dal criterio bucket. L' `Authorization`intestazione contiene tutte le informazioni di firma necessarie per autenticare una richiesta.
 
 
 
+[[use-query-parameters]]
 == Utilizzare i parametri di query
 
 È possibile utilizzare i parametri di query per aggiungere informazioni di autenticazione a un URL. Questa operazione è nota come prefirma dell'URL, che può essere utilizzata per concedere l'accesso temporaneo a risorse specifiche. Gli utenti con l'URL con prefisso non devono conoscere la chiave di accesso segreta per accedere alla risorsa, consentendo così l'accesso limitato a una risorsa da parte di terze parti.

@@ -207,6 +207,7 @@ Dopo aver applicato o organizzato le modifiche, viene generato un nuovo pacchett
 
 
 
+[[temporarily-changing-the-lacp-pdu-rate]]
 == Modifica temporanea della velocità PDU LACP
 
 Per eseguire operazioni di manutenzione sui componenti di rete installati nel dispositivo, ad esempio l'aggiornamento del firmware della scheda di rete, è possibile verificare che l'impostazione corrente della velocità PDU LACP soddisfi i requisiti di temporizzazione della comunicazione della scheda di rete.  Se necessario, è possibile alternare in modo non persistente la velocità della PDU LACP tra veloce (attesa di 1 secondo) e lenta (attesa di 30 secondi).

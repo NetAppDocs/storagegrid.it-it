@@ -19,6 +19,7 @@ Per completare questa operazione, è necessario disporre dell'autorizzazione s3:
 
 
 
+[[request-example]]
 == Esempio di richiesta
 
 [listing, subs="specialcharacters,quotes"]
@@ -30,6 +31,7 @@ Host: _host_
 ----
 
 
+[[response]]
 == Risposta
 
 Nella risposta XML, `<Consistency>` restituirà uno dei seguenti valori:
@@ -75,6 +77,7 @@ Fornisce una coerenza finale sia per i nuovi oggetti che per gli aggiornamenti d
 |===
 
 
+[[response-example]]
 == Esempio di risposta
 
 [listing]

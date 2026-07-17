@@ -20,6 +20,7 @@ Oltre a ICMP e alle porte elencate nella tabella, StorageGRID utilizza il protoc
 
 
 
+[[guidelines-for-linux-based-nodes]]
 == Linee guida per i nodi basati su Linux
 
 Se i criteri di rete aziendale limitano l'accesso a una qualsiasi di queste porte, è possibile rimappare le porte al momento della distribuzione utilizzando un parametro di configurazione della distribuzione.  Per ulteriori informazioni sulla rimappatura delle porte e sui parametri di configurazione della distribuzione, vederelink:../swnodes/index.html["Installa StorageGRID sui nodi basati su software"] .
@@ -29,6 +30,7 @@ NOTE: Il supporto per la rimappatura delle porte è obsoleto e verrà rimosso in
 
 
 
+[[guidelines-for-vmware-based-nodes]]
 == Linee guida per i nodi basati su VMware
 
 Configurare le seguenti porte solo se è necessario definire restrizioni firewall esterne alla rete VMware.
@@ -40,6 +42,7 @@ NOTE: Il supporto per la rimappatura delle porte è obsoleto e verrà rimosso in
 
 
 
+[[guidelines-for-appliance-nodes]]
 == Linee guida per i nodi appliance
 
 Se i criteri di rete aziendali limitano l'accesso a una di queste porte, è possibile rimappare le porte utilizzando il programma di installazione dell'appliance StorageGRID. Vedere https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opzionale: Consente di rimappare le porte di rete per l'appliance"^].
@@ -49,6 +52,7 @@ NOTE: Il supporto per la rimappatura delle porte è obsoleto e verrà rimosso in
 
 
 
+[[storagegrid-internal-ports]]
 == Porte interne StorageGRID
 
 [cols="1a,1a,1a,1a,4a"]

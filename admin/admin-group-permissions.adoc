@@ -27,6 +27,7 @@ Per impostazione predefinita, qualsiasi utente appartenente a un gruppo che disp
 
 
 
+[[interaction-between-permissions-and-access-mode]]
 == Interazione tra permessi e modalità di accesso
 
 Per tutte le autorizzazioni, l'impostazione *modalità di accesso* del gruppo determina se gli utenti possono modificare le impostazioni ed eseguire operazioni o se possono visualizzare solo le relative impostazioni e funzionalità. Se un utente appartiene a più gruppi e un gruppo è impostato su *sola lettura*, l'utente avrà accesso in sola lettura a tutte le impostazioni e funzionalità selezionate.
@@ -35,12 +36,14 @@ Le sezioni seguenti descrivono le autorizzazioni che è possibile assegnare dura
 
 
 
+[[root-access]]
 == Accesso root
 
 Questa autorizzazione consente di accedere a tutte le funzioni di amministrazione della griglia.
 
 
 
+[[change-tenant-root-password]]
 == Modificare la password root del tenant
 
 Questa autorizzazione consente di accedere all'opzione *Modifica password root* nella pagina tenant, consentendo di controllare chi può modificare la password per l'utente root locale del tenant. Questa autorizzazione viene utilizzata anche per la migrazione delle chiavi S3 quando è attivata la funzione di importazione delle chiavi S3. Gli utenti che non dispongono di questa autorizzazione non possono visualizzare l'opzione *Modifica password root*.
@@ -50,6 +53,7 @@ NOTE: Per consentire l'accesso alla pagina dei tenant, che contiene l'opzione *M
 
 
 
+[[ilm]]
 == ILM
 
 Questa autorizzazione consente di accedere alle seguenti opzioni del menu *ILM*:
@@ -68,6 +72,7 @@ NOTE: Per gestire i livelli di archiviazione, gli utenti devono disporre dell'au
 
 
 
+[[maintenance]]
 == Manutenzione
 
 Gli utenti devono disporre dell'autorizzazione Maintenance per utilizzare queste opzioni:
@@ -136,12 +141,14 @@ Gli utenti che non dispongono dell'autorizzazione Maintenance possono visualizza
 
 
 
+[[manage-alerts]]
 == Gestire gli avvisi
 
 Questa autorizzazione consente di accedere alle opzioni per la gestione degli avvisi. Gli utenti devono disporre di questa autorizzazione per gestire silenzi, notifiche di avviso e regole di avviso.
 
 
 
+[[metrics-query]]
 == Query sulle metriche
 
 Questa autorizzazione consente di accedere a:
@@ -153,12 +160,14 @@ Questa autorizzazione consente di accedere a:
 
 
 
+[[object-metadata-lookup]]
 == Ricerca dei metadati degli oggetti
 
 Questa autorizzazione consente di accedere alla pagina *ILM* > *Object metadata lookup*.
 
 
 
+[[other-grid-configuration]]
 == Altra configurazione della griglia
 
 Questa autorizzazione fornisce l'accesso alle seguenti opzioni aggiuntive di configurazione della griglia:
@@ -178,6 +187,7 @@ Questa autorizzazione fornisce l'accesso alle seguenti opzioni aggiuntive di con
 
 
 
+[[storage-appliance-administrator]]
 == Amministratore dell'appliance di storage
 
 Questa autorizzazione fornisce:
@@ -188,6 +198,7 @@ Questa autorizzazione fornisce:
 
 
 
+[[tenant-accounts]]
 == Account tenant
 
 Questa autorizzazione consente di:

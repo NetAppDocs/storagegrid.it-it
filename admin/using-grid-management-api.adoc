@@ -15,6 +15,7 @@ summary: 'È possibile eseguire attività di gestione del sistema utilizzando l"
 
 
 
+[[top-level-resources]]
 == Risorse di alto livello
 
 L'API Grid Management fornisce le seguenti risorse di primo livello:
@@ -26,6 +27,7 @@ L'API Grid Management fornisce le seguenti risorse di primo livello:
 
 
 
+[[issue-api-requests]]
 == Emettere richieste API
 
 L'API Grid Management utilizza la piattaforma API open source Swagger. Swagger offre un'interfaccia utente intuitiva che consente a sviluppatori e non sviluppatori di eseguire operazioni in tempo reale in StorageGRID con l'API.

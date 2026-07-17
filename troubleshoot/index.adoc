@@ -17,6 +17,7 @@ Spesso è possibile risolvere i problemi da soli; tuttavia, potrebbe essere nece
 
 
 
+[[defineproblemdefine-the-problem]]
 == [[define_Problem]]definire il problema
 
 Il primo passo per risolvere un problema è definire il problema in modo chiaro.
@@ -78,6 +79,7 @@ Questa è la prima volta che vedo questo problema.
 |===
 
 
+[[assess-the-risk-and-impact-on-the-system]]
 == Valutare i rischi e l'impatto sul sistema
 
 Una volta definito il problema, valutarne il rischio e l'impatto sul sistema StorageGRID. Ad esempio, la presenza di avvisi critici non significa necessariamente che il sistema non stia fornendo servizi di base.
@@ -118,6 +120,7 @@ Sì, perché le applicazioni client non possono memorizzare oggetti nel sistema 
 |===
 
 
+[[collect-data]]
 == Raccogliere i dati
 
 Dopo aver definito il problema e averne valutato il rischio e l'impatto, raccogliere i dati per l'analisi. Il tipo di dati più utili da raccogliere dipende dalla natura del problema.
@@ -206,6 +209,7 @@ Il supporto tecnico potrebbe richiedere di raccogliere dati o rivedere informazi
 |===
 
 
+[[createtimelinecreate-a-timeline-of-recent-changes]]
 === [[create_timeline]]Crea una timeline di modifiche recenti
 
 Quando si verifica un problema, è necessario prendere in considerazione le modifiche apportate di recente e il momento in cui si sono verificate tali modifiche.
@@ -274,6 +278,7 @@ Ecco alcuni esempi di modifiche potenzialmente significative:
 
 
 
+[[establish-baselines]]
 === Stabilire le linee di base
 
 È possibile stabilire linee di base per il sistema registrando i livelli normali di diversi valori operativi. In futuro, è possibile confrontare i valori correnti con queste linee di base per rilevare e risolvere i valori anomali.
@@ -367,6 +372,7 @@ Selezionare *Nodi* > *Nodo di archiviazione_* > *Oggetti*.  Nella tabella Query,
 |===
 
 
+[[analyze-data]]
 == Analizzare i dati
 
 Utilizzare le informazioni raccolte per determinare la causa del problema e le potenziali soluzioni.
@@ -380,6 +386,7 @@ Utilizzare le informazioni raccolte per determinare la causa del problema e le p
 
 
 
+[[escalation-information-checklist]]
 == Lista di controllo per le informazioni di escalation
 
 Se non riesci a risolvere il problema da solo, contatta il supporto tecnico. Prima di contattare il supporto tecnico, raccogliere le informazioni elencate nella seguente tabella per facilitare la risoluzione del problema.

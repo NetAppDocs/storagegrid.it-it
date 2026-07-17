@@ -15,6 +15,7 @@ Scopri le funzionalità e le caratteristiche rimosse o deprecate in StorageGRID 
 
 
 
+[[definitions]]
 == Definizioni
 
 Obsoleto:: La funzione *non deve* essere utilizzata in nuovi ambienti di produzione. Gli ambienti di produzione esistenti possono continuare a utilizzare questa funzione.
@@ -24,6 +25,7 @@ Rimosso:: Prima versione che *non* supporta la funzione.
 
 
 
+[[storagegrid-end-of-feature-support]]
 == Fine del supporto delle funzionalità di StorageGRID
 
 Le funzioni obsolete verranno rimosse nelle versioni principali N+2. Ad esempio, se una funzione è deprecata nella versione N (ad esempio, 6,3), l'ultima versione in cui la funzione esisterà è N+1 (ad esempio, 6,4). La versione N+2 (ad esempio, 6,5) è la prima versione quando la funzione non esiste nel prodotto.

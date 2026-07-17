@@ -20,6 +20,7 @@ summary: 'È possibile utilizzare l"installazione guidata S3 per configurare Sto
 
 
 
+[[access-the-wizard]]
 == Accedere alla procedura guidata
 
 .Fasi
@@ -33,6 +34,7 @@ image:help_menu.png["menu guida"]
 
 
 
+[[step-1-of-6-configure-ha-group]]
 == Fase 1 di 6: Configurare il gruppo ha
 
 Un gruppo ha è un insieme di nodi che contengono ciascuno il servizio bilanciamento del carico StorageGRID. Un gruppo ha può contenere nodi gateway, nodi di amministrazione o entrambi.
@@ -135,6 +137,7 @@ Almeno un indirizzo deve essere IPv4. In alternativa, è possibile specificare u
 
 
 
+[[step-2-of-6-configure-load-balancer-endpoint]]
 == Fase 2 di 6: Configurare l'endpoint del bilanciamento del carico
 
 StorageGRID utilizza un bilanciamento del carico per gestire il carico di lavoro dalle applicazioni client. Il bilanciamento del carico massimizza la velocità e la capacità di connessione tra più nodi di storage.
@@ -334,6 +337,7 @@ Copiare il certificato del server per il bilanciamento del carico esterno e inco
 ====
 
 
+[[step-3-of-6-create-tenant-and-bucket]]
 == Fase 3 di 6: Creazione di tenant e bucket
 
 Un tenant è un'entità che può utilizzare le applicazioni S3 per memorizzare e recuperare oggetti in StorageGRID. Ogni tenant dispone di utenti, chiavi di accesso, bucket, oggetti e un set specifico di funzionalità.
@@ -401,6 +405,7 @@ Utilizzare l'area predefinita (`us-east-1`) a meno che non si preveda di utilizz
 
 
 
+[[download-datastep-4-of-6-download-data]]
 == [[download-data]]fase 4 di 6: Download dei dati
 
 Nella fase di download dei dati, è possibile scaricare uno o due file per salvare i dettagli di ciò che si è appena configurato.
@@ -424,6 +429,7 @@ CAUTION: Non chiudere questa pagina prima di aver copiato entrambi i tasti di ac
 
 
 
+[[step-5-of-6-review-ilm-rule-and-ilm-policy-for-s3]]
 == Fase 5 di 6: Esaminare la regola ILM e il criterio ILM per S3
 
 Le regole ILM (Information Lifecycle Management) controllano il posizionamento, la durata e il comportamento di acquisizione di tutti gli oggetti nel sistema StorageGRID. Il criterio ILM incluso in StorageGRID crea due copie replicate di tutti gli oggetti. Questo criterio è attivo fino a quando non si attiva almeno un nuovo criterio.
@@ -438,6 +444,7 @@ Le regole ILM (Information Lifecycle Management) controllano il posizionamento, 
 
 
 
+[[step-6-of-6-review-summary]]
 == Fase 6 di 6: Riepilogo
 
 .Fasi

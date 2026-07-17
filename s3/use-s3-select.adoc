@@ -22,6 +22,7 @@ Solo gli account tenant con S3 Select abilitato possono eseguire query SelectObj
 
 
 
+[[clauses]]
 == Clausole
 
 * SELEZIONARE l'elenco
@@ -32,6 +33,7 @@ Solo gli account tenant con S3 Select abilitato possono eseguire query SelectObj
 
 
 
+[[data-types]]
 == Tipi di dati
 
 * bool
@@ -44,10 +46,12 @@ Solo gli account tenant con S3 Select abilitato possono eseguire query SelectObj
 
 
 
+[[operators]]
 == Operatori
 
 
 
+[[logical-operators]]
 === Operatori logici
 
 * E.
@@ -57,6 +61,7 @@ Solo gli account tenant con S3 Select abilitato possono eseguire query SelectObj
 
 
 
+[[comparison-operators]]
 === Operatori di confronto
 
 * <
@@ -73,6 +78,7 @@ Solo gli account tenant con S3 Select abilitato possono eseguire query SelectObj
 
 
 
+[[pattern-matching-operators]]
 === Operatori di corrispondenza dei modelli
 
 * MI PIACE
@@ -82,6 +88,7 @@ Solo gli account tenant con S3 Select abilitato possono eseguire query SelectObj
 
 
 
+[[unitary-operators]]
 === Operatori unitari
 
 * È NULL
@@ -90,6 +97,7 @@ Solo gli account tenant con S3 Select abilitato possono eseguire query SelectObj
 
 
 
+[[math-operators]]
 === Operatori matematici
 
 * +
@@ -103,6 +111,7 @@ StorageGRID segue la precedenza dell'operatore Amazon S3 Select.
 
 
 
+[[aggregate-functions]]
 == Funzioni di aggregazione
 
 * MEDIA()
@@ -114,6 +123,7 @@ StorageGRID segue la precedenza dell'operatore Amazon S3 Select.
 
 
 
+[[conditional-functions]]
 == Funzioni condizionali
 
 * CASO
@@ -123,6 +133,7 @@ StorageGRID segue la precedenza dell'operatore Amazon S3 Select.
 
 
 
+[[conversion-functions]]
 == Funzioni di conversione
 
 * CAST (per il tipo di dati supportato)
@@ -130,6 +141,7 @@ StorageGRID segue la precedenza dell'operatore Amazon S3 Select.
 
 
 
+[[date-functions]]
 == Funzioni di data
 
 * DATA_ADD
@@ -142,6 +154,7 @@ StorageGRID segue la precedenza dell'operatore Amazon S3 Select.
 
 
 
+[[string-functions]]
 == Funzioni di stringa
 
 * CHAR_LENGTH, CHARACTER_LENGTH

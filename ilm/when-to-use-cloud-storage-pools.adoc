@@ -15,6 +15,7 @@ Utilizzando i Cloud Storage Pools, è possibile eseguire il backup o il tiering 
 
 
 
+[[back-up-storagegrid-data-to-external-location]]
 == Eseguire il backup dei dati StorageGRID in una posizione esterna
 
 È possibile utilizzare un pool di storage cloud per eseguire il backup degli oggetti StorageGRID in una posizione esterna.
@@ -32,6 +33,7 @@ Per implementare una soluzione di backup:
 
 
 
+[[tier-data-from-storagegrid-to-external-location]]
 == Dati di Tier da StorageGRID a posizione esterna
 
 È possibile utilizzare un pool di storage cloud per memorizzare oggetti all'esterno del sistema StorageGRID. Si supponga, ad esempio, di disporre di un elevato numero di oggetti da conservare, ma si prevede di accedervi raramente, se mai. È possibile utilizzare un pool di storage cloud per tierare gli oggetti in modo da ridurre il costo dello storage e liberare spazio in StorageGRID.
@@ -45,6 +47,7 @@ Per implementare una soluzione di tiering:
 
 
 
+[[maintain-multiple-cloud-endpoints]]
 == Mantenere più endpoint cloud
 
 È possibile configurare più endpoint del Cloud Storage Pool se si desidera eseguire il Tier o il backup dei dati degli oggetti in più cloud. I filtri nelle regole ILM consentono di specificare quali oggetti sono memorizzati in ciascun Cloud Storage Pool. Ad esempio, è possibile memorizzare oggetti di alcuni tenant o bucket in Amazon S3 Glacier e oggetti di altri tenant o bucket nello storage Azure Blob. In alternativa, puoi spostare i dati tra lo storage Amazon S3 Glacier e Azure Blob.

@@ -15,12 +15,14 @@ summary: 'È possibile utilizzare la richiesta CopyObject S3 per creare una copi
 
 
 
+[[resolve-conflicts]]
 == Risolvi i conflitti
 
 Le richieste dei client in conflitto, come due client che scrivono sulla stessa chiave, vengono risolte in base alle "ultime vincite". La tempistica per la valutazione degli "ultimi successi" si basa sul momento in cui il sistema StorageGRID completa una data richiesta e non sul momento in cui i client S3 iniziano un'operazione.
 
 
 
+[[object-size]]
 == Dimensione dell'oggetto
 
 La dimensione massima _raccomandata_ per una singola operazione PutObject è di 5 GiB (5.368.709.120 byte). Se sono presenti oggetti di dimensioni superiori a 5 GiB, utilizzare link:operations-for-multipart-uploads.html["caricamento multiparte"] invece.
@@ -32,6 +34,7 @@ NOTE: Se è stato eseguito l'aggiornamento da StorageGRID 11,6 o versioni preced
 
 
 
+[[utf-8-characters-in-user-metadata]]
 == UTF-8 caratteri nei metadati dell'utente
 
 Se una richiesta include valori UTF-8 (non escapati) nel nome della chiave o nel valore dei metadati definiti dall'utente, il comportamento di StorageGRID non è definito.
@@ -44,6 +47,7 @@ StorageGRID non analizza o interpreta i caratteri UTF-8 escapati inclusi nel nom
 
 
 
+[[supported-request-headers]]
 == Intestazioni di richiesta supportate
 
 Sono supportate le seguenti intestazioni di richiesta:
@@ -92,6 +96,7 @@ Vedere <<Intestazioni di richiesta per la crittografia lato server>>
 
 
 
+[[unsupported-request-headers]]
 == Intestazioni di richiesta non supportate
 
 Le seguenti intestazioni di richiesta non sono supportate:
@@ -118,6 +123,7 @@ Quando si copia un oggetto, se l'oggetto di origine ha un checksum, StorageGRID 
 
 
 
+[[storage-class-options]]
 == Opzioni di classe storage
 
 L' `x-amz-storage-class`intestazione della richiesta è supportata e influisce sul numero di copie degli oggetti create da StorageGRID se la regola ILM corrispondente utilizza il doppio commit o bilanciato link:../ilm/data-protection-options-for-ingest.html["opzione di acquisizione"].
@@ -138,6 +144,7 @@ NOTE: Se si sta inserendo un oggetto in un bucket con S3 Object Lock attivato, l
 
 
 
+[[using-x-amz-copy-source-in-copyobject]]
 == Utilizzo di x-amz-copy-source in CopyObject
 
 Se il bucket e la chiave di origine, specificati nell' `x-amz-copy-source`intestazione, sono diversi dal bucket e dalla chiave di destinazione, una copia dei dati dell'oggetto di origine viene scritta nella destinazione.
@@ -153,6 +160,7 @@ Ciò significa che se la regola ILM utilizza l'opzione Strict per il comportamen
 
 
 
+[[request-headers-for-server-side-encryption]]
 == Intestazioni di richiesta per la crittografia lato server
 
 Se si utilizza link:using-server-side-encryption.html["usa crittografia lato server"], le intestazioni di richiesta fornite dipendono dal fatto che l'oggetto di origine sia crittografato e dal fatto che si intenda crittografare l'oggetto di destinazione.
@@ -188,6 +196,7 @@ NOTE:  `server-side-encryption`Impossibile aggiornare il valore dell'oggetto. Es
 
 
 
+[[versioning]]
 == Versione
 
 Se il bucket di origine è in versione, è possibile utilizzare l' `x-amz-copy-source`intestazione per copiare la versione più recente di un oggetto. Per copiare una versione specifica di un oggetto, è necessario specificare esplicitamente la versione da copiare utilizzando la `versionId` sottorisorsa. Se il bucket di destinazione è in versione, la versione generata viene restituita nell' `x-amz-version-id`intestazione della risposta. Se la versione è sospesa per il bucket target, `x-amz-version-id` restituisce un valore "null".

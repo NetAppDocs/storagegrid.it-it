@@ -15,6 +15,7 @@ summary: 'È possibile utilizzare la richiesta HeadObject S3 per recuperare i me
 
 
 
+[[headobject-and-multipart-objects]]
 == Oggetti HeadObject e multiparte
 
 È possibile utilizzare il `partNumber` parametro di richiesta per recuperare i metadati per una parte specifica di un oggetto multiparte o segmentato. L' `x-amz-mp-parts-count`elemento di risposta indica il numero di parti dell'oggetto.
@@ -23,12 +24,14 @@ summary: 'È possibile utilizzare la richiesta HeadObject S3 per recuperare i me
 
 
 
+[[utf-8-characters-in-user-metadata]]
 == UTF-8 caratteri nei metadati dell'utente
 
 StorageGRID non analizza o interpreta i caratteri UTF-8 escapati nei metadati definiti dall'utente. Le richieste HEAD per un oggetto con caratteri UTF-8 di escape nei metadati definiti dall'utente non restituiscono l' `x-amz-missing-meta`intestazione se il nome o il valore della chiave include caratteri non stampabili.
 
 
 
+[[supported-request-header]]
 == Intestazione richiesta supportata
 
 È supportata la seguente intestazione della richiesta:
@@ -41,6 +44,7 @@ Il `partNumber` parametro e `Range` l'intestazione non sono supportati con `x-am
 
 
 
+[[unsupported-request-header]]
 == Intestazione della richiesta non supportata
 
 La seguente intestazione di richiesta non è supportata e restituisce `XNotImplemented`:
@@ -50,12 +54,14 @@ La seguente intestazione di richiesta non è supportata e restituisce `XNotImple
 
 
 
+[[versioning]]
 == Versione
 
 Se non viene specificata una `versionId` sottorisorsa, l'operazione recupera la versione più recente dell'oggetto in un bucket con versione. Se la versione corrente dell'oggetto è un marcatore di eliminazione, viene restituito lo stato "non trovato" con l' `x-amz-delete-marker`intestazione della risposta impostata su `true`.
 
 
 
+[[request-headers-for-server-side-encryption-with-customer-provided-encryption-keys-sse-c]]
 == Intestazioni delle richieste per la crittografia lato server con chiavi di crittografia fornite dal cliente (SSE-C)
 
 Utilizzare tutte e tre queste intestazioni se l'oggetto è crittografato con una chiave univoca fornita dall'utente.
@@ -70,6 +76,7 @@ CAUTION: Le chiavi di crittografia fornite non vengono mai memorizzate. Se si pe
 
 
 
+[[headobject-responses-for-cloud-storage-pool-objects]]
 == Risposte HeadObject per gli oggetti Cloud Storage Pool
 
 Se l'oggetto è memorizzato in link:../ilm/what-cloud-storage-pool-is.html["Pool di cloud storage"], vengono restituite le seguenti intestazioni di risposta:
@@ -154,12 +161,14 @@ Oggetto completamente ripristinato nel Cloud Storage Pool
 |===
 
 
+[[multipart-or-segmented-objects-in-cloud-storage-pool]]
 === Oggetti multiparte o segmentati nel Cloud Storage Pool
 
 Se hai caricato un oggetto multiparte o se StorageGRID divide un oggetto di grandi dimensioni in segmenti, StorageGRID determina se l'oggetto è disponibile nel pool di storage cloud campionando un sottoinsieme delle parti o dei segmenti dell'oggetto. In alcuni casi, una richiesta HeadObject potrebbe restituire erroneamente `x-amz-restore: ongoing-request="false"` quando alcune parti dell'oggetto sono già state trasferite a uno stato non recuperabile o quando alcune parti dell'oggetto non sono state ancora ripristinate.
 
 
 
+[[headobject-and-cross-grid-replication]]
 == HeadObject e replica cross-grid
 
 Se si utilizza link:../admin/grid-federation-overview.html["federazione di grid"] ed link:../tenant/grid-federation-manage-cross-grid-replication.html["replica cross-grid"] è attivato per un bucket, il client S3 può verificare lo stato di replica di un oggetto inviando una richiesta HeadObject. La risposta include l'intestazione della risposta specifica di StorageGRID `x-ntap-sg-cgr-replication-status`, che avrà uno dei seguenti valori:

@@ -22,6 +22,8 @@ Se sono stati conservati volumi di storage a blocchi dall'host precedente, potre
 
 
 
+[[restore-and-validate-grid-nodes]]
+[[restore-validate-grid-nodes]]
 == Ripristinare e validare i nodi della griglia
 
 È necessario ripristinare i file di configurazione della griglia per eventuali nodi della griglia guasti, quindi validare i file di configurazione della griglia e risolvere eventuali errori.
@@ -96,6 +98,7 @@ Prima di avviare il servizio host StorageGRID, è necessario risolvere eventuali
 
 
 
+[[fix-missing-network-interface-errors]]
 === Correggere gli errori di interfaccia di rete mancanti
 
 Se la rete host non è configurata correttamente o un nome non è scritto correttamente, si verifica un errore quando StorageGRID controlla la mappatura specificata nel `/etc/storagegrid/nodes/_node-name_.conf` file.
@@ -118,6 +121,8 @@ Assicurarsi che l'interfaccia host fornisca l'accesso alla porta di rete fisica 
 
 
 
+[[fix-missing-block-device-errors]]
+[[fix-block-errors]]
 === Correggere gli errori del dispositivo a blocchi mancanti
 
 Il sistema verifica che ciascun nodo recuperato sia mappato a un file speciale valido per il dispositivo a blocchi o a un softlink valido a un file speciale per il dispositivo a blocchi. Se StorageGRID trova una mappatura non valida nel `/etc/storagegrid/nodes/_node-name_.conf` file, viene visualizzato un errore relativo al dispositivo di blocco mancante.
@@ -152,6 +157,7 @@ Eseguire il seguente comando solo per i nuovi dispositivi di storage a blocchi. 
 ====
 
 
+[[start-storagegrid-host-service]]
 == Avviare il servizio host StorageGRID
 
 Per avviare i nodi StorageGRID e assicurarsi che vengano riavviati dopo un riavvio dell'host, è necessario attivare e avviare il servizio host StorageGRID.
@@ -186,6 +192,8 @@ sudo systemctl reload-or-restart storagegrid
 
 
 
+[[recover-nodes-that-fail-to-start-normally]]
+[[recover-nodes-fail-start]]
 == Ripristinare i nodi che non si avviano normalmente
 
 Se un nodo StorageGRID non si ricongiungerà normalmente alla griglia e non verrà visualizzato come ripristinabile, potrebbe essere danneggiato. È possibile forzare il nodo in modalità di ripristino.

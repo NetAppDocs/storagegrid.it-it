@@ -20,6 +20,7 @@ summary: È possibile visualizzare i dettagli dei tag dei criteri ILM, modificar
 
 
 
+[[view-ilm-policy-tag-details]]
 == Visualizzare i dettagli dei tag dei criteri ILM
 
 Per visualizzare i dettagli di un tag:
@@ -32,6 +33,7 @@ Per visualizzare i dettagli di un tag:
 
 
 
+[[edit-ilm-policy-tag]]
 == Modifica tag criterio ILM
 
 
@@ -50,6 +52,7 @@ In alternativa, selezionare il nome del tag. Viene visualizzata la pagina dei de
 
 
 
+[[remove-ilm-policy-tag]]
 == Rimuovere il tag criterio ILM
 
 Quando si rimuove un tag di criterio, a tutti i bucket a cui è assegnato tale tag verrà applicato il criterio predefinito.

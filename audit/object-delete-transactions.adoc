@@ -17,6 +17,7 @@ Non tutti i messaggi di audit generati durante una transazione di eliminazione s
 
 
 
+[[s3-delete-audit-messages]]
 == S3 eliminare i messaggi di audit
 
 [cols="1a,1a,2a,1a,2a"]
@@ -38,6 +39,7 @@ link:sdel-s3-delete.html["SDEL: ELIMINAZIONE S3"]
 |===
 
 
+[[example-s3-object-deletion]]
 == Esempio: Eliminazione di oggetti S3
 
 Quando un client S3 elimina un oggetto da un nodo di storage (servizio LDR), viene generato un messaggio di audit e salvato nel registro di audit.
@@ -47,6 +49,7 @@ NOTE: Non tutti i messaggi di audit generati durante una transazione di eliminaz
 
 
 
+[[sdel-s3-delete]]
 === SDEL: S3 Elimina
 
 L'eliminazione degli oggetti ha inizio quando il client invia una richiesta DeleteObject a un servizio LDR. Il messaggio contiene il bucket da cui eliminare l'oggetto e la chiave S3 dell'oggetto, utilizzata per identificare l'oggetto.

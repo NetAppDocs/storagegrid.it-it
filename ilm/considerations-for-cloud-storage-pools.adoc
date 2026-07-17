@@ -15,6 +15,7 @@ Se si prevede di utilizzare un pool di storage cloud per spostare oggetti fuori 
 
 
 
+[[general-considerations]]
 == Considerazioni generali
 
 * In generale, lo storage di archiviazione cloud, come Amazon S3 Glacier o Azure Blob, è un luogo conveniente per memorizzare i dati degli oggetti. Tuttavia, i costi per recuperare i dati dallo storage di archiviazione cloud sono relativamente elevati. Per ottenere il costo complessivo più basso, è necessario considerare quando e con quale frequenza accedere agli oggetti nel Cloud Storage Pool. L'utilizzo di un Cloud Storage Pool è consigliato solo per i contenuti ai quali si prevede di accedere con frequenza limitata.
@@ -31,6 +32,7 @@ Se si prevede di utilizzare un pool di storage cloud per spostare oggetti fuori 
 
 
 
+[[considerations-for-the-ports-used-for-cloud-storage-pools]]
 == Considerazioni sulle porte utilizzate per i pool di cloud storage
 
 Per garantire che le regole ILM possano spostare oggetti da e verso il Cloud Storage Pool specificato, è necessario configurare la rete o le reti che contengono i nodi di storage del sistema. È necessario assicurarsi che le seguenti porte possano comunicare con il Cloud Storage Pool.
@@ -47,6 +49,7 @@ Se si utilizza un server proxy non trasparente, è necessario anche link:../admi
 
 
 
+[[considerations-for-costs]]
 == Considerazioni sui costi
 
 L'accesso allo storage nel cloud utilizzando un Cloud Storage Pool richiede la connettività di rete al cloud. Devi considerare il costo dell'infrastruttura di rete che utilizzerai per accedere al cloud e fornirlo in modo appropriato, in base alla quantità di dati che prevederai di spostare tra StorageGRID e il cloud utilizzando il pool di storage cloud.
@@ -64,6 +67,7 @@ NOTE: Quando gli oggetti vengono spostati di nuovo in StorageGRID da un pool di 
 
 
 
+[[s3-permissions-required-for-the-cloud-storage-pool-bucket]]
 == S3: Autorizzazioni richieste per il bucket Cloud Storage Pool
 
 Le policy per il bucket S3 esterno utilizzato per un Cloud Storage Pool devono garantire a StorageGRID l'autorizzazione a spostare un oggetto nel bucket, ottenere lo stato di un oggetto, ripristinare un oggetto dallo storage Glacier quando necessario e altro ancora. Idealmente, StorageGRID dovrebbe avere accesso con controllo completo al bucket (`s3:*`); tuttavia, se ciò non è possibile, il criterio bucket deve concedere le seguenti autorizzazioni S3 a StorageGRID:
@@ -80,6 +84,7 @@ Le policy per il bucket S3 esterno utilizzato per un Cloud Storage Pool devono g
 
 
 
+[[s3-considerations-for-the-external-buckets-lifecycle]]
 == S3: Considerazioni sul ciclo di vita del bucket esterno
 
 Lo spostamento degli oggetti tra StorageGRID e il bucket S3 esterno specificato nel pool di storage cloud è controllato dalle regole ILM e dalle policy ILM attive in StorageGRID. Al contrario, la transizione degli oggetti dal bucket S3 esterno specificato nel Cloud Storage Pool ad Amazon S3 Glacier o S3 Glacier Deep Archive (o a una soluzione di storage che implementa la classe di storage Glacier) è controllata dalla configurazione del ciclo di vita di tale bucket.
@@ -113,12 +118,14 @@ Per trasferire oggetti in Cloud Storage Pool in S3 Glacier Deep Archive (invece 
 
 
 
+[[azure-considerations-for-access-tier]]
 == Azure: Considerazioni per il Tier di accesso
 
 Quando si configura un account di storage Azure, è possibile impostare il Tier di accesso predefinito su Hot o Cool. Quando si crea un account storage da utilizzare con un Cloud Storage Pool, è necessario utilizzare l'hot Tier come Tier predefinito. Anche se StorageGRID imposta immediatamente il Tier per l'archiviazione quando sposta gli oggetti nel pool di storage cloud, l'utilizzo dell'impostazione predefinita di Hot garantisce che non venga addebitata una tariffa per l'eliminazione anticipata degli oggetti rimossi dal Tier Cool prima del minimo di 30 giorni.
 
 
 
+[[azure-lifecycle-management-not-supported]]
 == Azure: Gestione del ciclo di vita non supportata
 
 Non utilizzare la gestione del ciclo di vita dello storage Azure Blob per il container utilizzato con un Cloud Storage Pool. Le operazioni del ciclo di vita potrebbero interferire con le operazioni del Cloud Storage Pool.

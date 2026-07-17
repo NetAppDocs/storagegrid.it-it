@@ -30,6 +30,7 @@ NOTE: Se si utilizza il protocollo client S3, è possibile utilizzare anche i bu
 
 
 
+[[create-tenant-accounts]]
 == Creare account tenant
 
 Gli account tenant vengono creati da un amministratore di grid StorageGRID utilizzando il gestore di grid. Quando si crea un account tenant, l'amministratore della griglia specifica le seguenti informazioni:
@@ -46,6 +47,7 @@ Inoltre, gli amministratori della griglia possono attivare l'impostazione blocco
 
 
 
+[[configure-s3-tenants]]
 == Configurare i tenant S3
 
 Una volta creato un account tenant S3, è possibile accedere a tenant Manager per eseguire le seguenti attività:

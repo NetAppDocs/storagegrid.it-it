@@ -17,6 +17,7 @@ Quando si crea o modifica una regola ILM, si seleziona uno schema di erasure cod
 
 
 
+[[data-protection]]
 == Protezione dei dati
 
 Il sistema StorageGRID utilizza l'algoritmo di erasure coding Reed-Solomon. L'algoritmo suddivide un oggetto in `k` frammenti di dati e calcola i `m` frammenti di parità.
@@ -31,6 +32,7 @@ La migliore data Protection è fornita dallo schema di erasure coding con la tol
 
 
 
+[[storage-overhead]]
 == Overhead dello storage
 
 L'overhead di memorizzazione di uno schema di erasure coding viene calcolato dividendo il numero di frammenti di parità (`m`) per il numero di frammenti di dati (`k`). È possibile utilizzare l'overhead dello storage per calcolare la quantità di spazio su disco richiesta da ciascun oggetto con codifica di cancellazione:
@@ -48,6 +50,7 @@ Seleziona lo schema di erasure coding con il valore totale più basso di `k+m` q
 
 
 
+[[guidelines-for-storage-pools]]
 == Linee guida per i pool di storage
 
 Quando si seleziona il pool di storage da utilizzare per una regola che crea una copia con codice di cancellazione, utilizzare le seguenti linee guida per i pool di storage:
@@ -75,6 +78,7 @@ Il numero minimo di nodi di archiviazione richiesto è `k+m`. Tuttavia, disporre
 
 
 
+[[erasure-coding-schemes-for-storage-pools-containing-three-or-more-sites]]
 == Schemi di erasure coding per pool di storage contenenti tre o più siti
 
 La seguente tabella descrive gli schemi di erasure coding attualmente supportati da StorageGRID per i pool di storage che includono tre o più siti. Tutti questi schemi offrono una protezione contro la perdita di sito. È possibile perdere un sito e l'oggetto sarà ancora accessibile.
@@ -238,6 +242,7 @@ NOTE: In caso di dubbi sul programma da utilizzare, selezionare 4+2 o 6+3 oppure
 
 
 
+[[erasure-coding-schemes-for-one-site-storage-pools]]
 == Schemi di erasure coding per pool di storage a sito singolo
 
 Un pool di storage a sito singolo supporta tutti gli schemi di erasure coding definiti per tre o più siti, a condizione che il sito disponga di un numero sufficiente di nodi di storage.

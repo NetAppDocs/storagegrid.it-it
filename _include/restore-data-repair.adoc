@@ -4,6 +4,7 @@
 
 
 
+[[find-hostname-for-storage-node]]
 == Trovare il nome host per il nodo di storage
 
 . Accedi a qualsiasi nodo di amministrazione:
@@ -22,6 +23,7 @@ Quando si è collegati come root, il prompt cambia da `$` a `#`.
 
 
 
+[[repair-data-if-all-volumes-have-failed]]
 == Riparare i dati se tutti i volumi sono guasti
 
 Se tutti i volumi di storage si sono guastati, riparare l'intero nodo. Seguire le istruzioni per *dati replicati*, *dati con codifica di cancellazione (EC)* o entrambi, a seconda che si utilizzino dati replicati, dati con codifica di cancellazione (EC) o entrambi.
@@ -61,6 +63,7 @@ Le riparazioni dei dati con codifica erasure possono iniziare mentre alcuni nodi
 ====
 
 
+[[repair-data-if-only-some-volumes-have-failed]]
 == Riparare i dati se solo alcuni volumi sono guasti
 
 Se solo alcuni volumi hanno avuto problemi, riparare i volumi interessati. Seguire le istruzioni per *dati replicati*, *dati con codifica di cancellazione (EC)* o entrambi, a seconda che si utilizzino dati replicati, dati con codifica di cancellazione (EC) o entrambi.

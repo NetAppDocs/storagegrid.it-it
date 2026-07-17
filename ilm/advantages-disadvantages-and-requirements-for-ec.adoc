@@ -15,6 +15,7 @@ Prima di decidere se utilizzare la replica o la cancellazione del codice per pro
 
 
 
+[[advantages-of-erasure-coding]]
 == Vantaggi dell'erasure coding
 
 Rispetto alla replica, l'erasure coding offre maggiore affidabilità, disponibilità ed efficienza dello storage.
@@ -35,6 +36,7 @@ NOTE: Lo spazio su disco per gli oggetti con codifica in cancellazione viene cal
 
 
 
+[[disadvantages-of-erasure-coding]]
 == Svantaggi della codifica erasure
 
 Rispetto alla replica, l'erasure coding presenta i seguenti svantaggi:
@@ -49,6 +51,7 @@ Rispetto alla replica, l'erasure coding presenta i seguenti svantaggi:
 
 
 
+[[when-to-use-erasure-coding]]
 == Quando utilizzare la codifica di cancellazione
 
 Utilizzare la codifica di cancellazione per i seguenti requisiti:

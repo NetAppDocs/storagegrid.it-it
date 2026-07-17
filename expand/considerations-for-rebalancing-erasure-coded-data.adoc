@@ -17,6 +17,7 @@ Dopo aver esaminato queste considerazioni, eseguire l'espansione, quindi passare
 
 
 
+[[what-is-ec-rebalancing]]
 == Cos'è il ribilanciamento EC?
 
 Il ribilanciamento EC è una procedura StorageGRID che potrebbe essere necessaria dopo l'espansione di un nodo di storage. La procedura viene eseguita come script della riga di comando dal nodo di amministrazione primario. Quando si esegue la procedura di ribilanciamento EC, StorageGRID ridistribuisce i frammenti con codifica erasure tra i nodi di storage esistenti e quelli appena aggiunti in un sito.
@@ -52,6 +53,7 @@ image:used_space_with_larger_node.png["Spazio utilizzato prima dell'espansione"]
 
 
 
+[[when-to-rebalance-erasure-coded-data]]
 == Quando ribilanciare i dati con codifica di cancellazione
 
 La procedura di ribilanciamento EC ridistribuisce i dati codificati in modo da garantire che i nodi non diventino o rimangano pieni.  La procedura aiuta a garantire che la codifica EC possa continuare sul sito.
@@ -70,6 +72,7 @@ image:used_space_before_expansion.png["Spazio utilizzato prima dell'espansione"]
 
 
 
+[[rebalance-is-not-required-if-you-add-enough-nodes]]
 === Il ribilanciamento non è necessario se si aggiungono nodi sufficienti
 
 Per capire quando non è richiesto il ribilanciamento EC, supponiamo di aver aggiunto tre (o più) nuovi nodi di storage. In questo caso, non è necessario eseguire il ribilanciamento EC. I nodi di storage originali rimarranno pieni, ma i nuovi oggetti ora utilizzeranno i tre nuovi nodi per la codifica di cancellazione 2+1& 8212; i due frammenti di dati e un frammento di parità possono essere memorizzati su un nodo diverso.
@@ -81,6 +84,7 @@ CAUTION: Anche se in questo caso è possibile eseguire la procedura di ribilanci
 
 
 
+[[rebalance-is-required-if-you-cant-add-enough-nodes]]
 === Il ribilanciamento è necessario se non è possibile aggiungere un numero sufficiente di nodi
 
 Per capire quando è necessario ribilanciare EC, supponiamo di poter aggiungere solo due nodi storage, invece di tre. Poiché lo schema 2+1 richiede almeno tre nodi di storage per avere spazio disponibile, i nodi vuoti non possono essere utilizzati per i nuovi dati con codifica di cancellazione.
@@ -93,6 +97,7 @@ image:used_space_after_ec_rebalance.png["Spazio utilizzato aAfter EC ribilanciam
 
 
 
+[[recommendations-for-ec-rebalancing]]
 == Raccomandazioni per il ribilanciamento CE
 
 NetApp richiede il ribilanciamento EC se _tutte_ le seguenti affermazioni sono vere:
@@ -107,6 +112,7 @@ Facoltativamente, è possibile eseguire la procedura di ribilanciamento EC se si
 
 
 
+[[how-ec-rebalance-procedure-interacts-with-other-maintenance-tasks]]
 == Come la procedura di ribilanciamento EC interagisce con altre attività di manutenzione
 
 Non è possibile eseguire alcune procedure di manutenzione contemporaneamente all'esecuzione della procedura di ribilanciamento EC.
@@ -184,6 +190,7 @@ No
 |===
 
 
+[[how-ec-rebalance-procedure-interacts-with-ilm]]
 == Come la procedura di ribilanciamento EC interagisce con ILM
 
 Durante l'esecuzione della procedura di ribilanciamento EC, evitare di apportare modifiche ILM che potrebbero modificare la posizione degli oggetti con codifica di cancellazione esistenti. Ad esempio, non iniziare a utilizzare una regola ILM con un profilo di erasure coding diverso. Se è necessario apportare tali modifiche ILM, interrompere la procedura di ribilanciamento EC.

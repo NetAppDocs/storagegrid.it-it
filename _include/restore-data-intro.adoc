@@ -4,6 +4,7 @@
 
 
 
+[[which-procedure-should-i-use]]
 == Quale procedura è necessario utilizzare?
 
 Se possibile, ripristinare i dati dell'oggetto utilizzando la pagina *Volume Restore* in Grid Manager.
@@ -20,6 +21,7 @@ NOTE: Lo script dei dati di riparazione è obsoleto e verrà rimosso in una vers
 
 
 
+[[use-the-repair-data-script-to-restore-object-data]]
 == Utilizzare `repair-data` lo script per ripristinare i dati degli oggetti
 
 .Prima di iniziare
@@ -37,6 +39,7 @@ Tenere presente quanto segue:
 
 
 
+[[about-the-repair-data-script]]
 == Informazioni sullo `repair-data` script
 
 Per ripristinare i dati dell'oggetto, eseguire `repair-data` lo script. Questo script inizia il processo di ripristino dei dati degli oggetti e lavora con la scansione ILM per garantire che le regole ILM siano soddisfatte.

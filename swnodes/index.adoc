@@ -43,6 +43,7 @@ Una volta distribuiti tutti i nodi, utilizzare Grid Manager in link:navigating-t
 
 
 
+[[automate-the-installation]]
 == Automatizzare l'installazione
 
 

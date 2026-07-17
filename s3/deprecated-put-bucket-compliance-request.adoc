@@ -28,6 +28,7 @@ Per completare questa operazione, è necessario disporre dell'autorizzazione s3:
 
 
 
+[[request-example]]
 == Esempio di richiesta
 
 Questa richiesta di esempio modifica le impostazioni di conformità per il bucket denominato `mybucket`. In questo esempio, gli oggetti in verranno conservati per due anni (1.051.200 minuti) invece di un anno, a partire dal momento in `mybucket` cui l'oggetto viene inserito nella griglia. Questo bucket non ha alcuna tenuta legale. Ogni oggetto verrà automaticamente cancellato dopo due anni.
@@ -79,6 +80,7 @@ Eliminazione automatica
 |===
 
 
+[[consistency-for-compliance-settings]]
 == Coerenza per le impostazioni di conformità
 
 Quando aggiorni le impostazioni di compliance per un bucket S3 con una richiesta DI compliance PUT bucket, StorageGRID tenta di aggiornare i metadati del bucket nella griglia. Per impostazione predefinita, StorageGRID utilizza la coerenza *strong-Global* per garantire che tutti i siti dei data center e tutti i nodi di storage che contengono i metadati del bucket abbiano coerenza di lettura dopo scrittura per le impostazioni di conformità modificate.
@@ -101,6 +103,7 @@ Consistency-Control: strong-site
 ----
 
 
+[[error-responses]]
 == Risposte agli errori
 
 * Se il bucket non è stato creato per essere conforme, il codice di stato HTTP per la risposta è `404 Not Found`.

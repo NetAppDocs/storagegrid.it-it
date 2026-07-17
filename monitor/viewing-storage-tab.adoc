@@ -17,6 +17,7 @@ Viene visualizzata la scheda Storage (archiviazione) per tutti i nodi, ciascun s
 
 
 
+[[storage-used-graphs]]
 == Grafici utilizzati per lo storage
 
 Per i nodi di storage, ciascun sito e l'intero grid, la scheda Storage include grafici che mostrano la quantità di storage utilizzata dai dati degli oggetti e dai metadati degli oggetti nel tempo.
@@ -28,6 +29,7 @@ image:nodes_storage_node_storage_tab.png["Nodi > Nodo di archiviazione > Scheda 
 
 
 
+[[disk-devices-volumes-and-object-stores-tables]]
 == Dischi, volumi e tabelle di archiviazione degli oggetti
 
 Per tutti i nodi, la scheda Storage contiene i dettagli relativi ai dischi e ai volumi sul nodo. Per i nodi di storage, la tabella degli archivi di oggetti fornisce informazioni su ciascun volume di storage.

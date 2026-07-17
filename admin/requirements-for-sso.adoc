@@ -15,6 +15,7 @@ Prima di abilitare il single sign-on (SSO) per un sistema StorageGRID, esaminare
 
 
 
+[[identity-provider-requirements]]
 == Requisiti del provider di identità
 
 StorageGRID supporta i seguenti provider di identità SSO (IdP):
@@ -49,6 +50,7 @@ Entra ID
 |===
 
 
+[[ad-fs-requirements]]
 === Requisiti AD FS
 
 È possibile utilizzare una delle seguenti versioni di ad FS:
@@ -63,6 +65,7 @@ NOTE: Windows Server 2016 deve utilizzare il https://support.microsoft.com/en-us
 
 
 
+[[additional-requirements]]
 === Requisiti aggiuntivi
 
 * Transport Layer Security (TLS) 1.2 o 1.3
@@ -71,12 +74,14 @@ NOTE: Windows Server 2016 deve utilizzare il https://support.microsoft.com/en-us
 
 
 
+[[considerations-for-entra-id]]
 === Considerazioni per Entra ID
 
 Se si utilizza Entra ID come tipo di SSO e gli utenti hanno nomi principali utente che non utilizzano sAMAccountName come prefisso, potrebbero verificarsi problemi di accesso se StorageGRID perde la connessione con il server LDAP.  Per consentire agli utenti di accedere, è necessario ripristinare la connessione al server LDAP.
 
 
 
+[[server-certificate-requirements]]
 == Requisiti dei certificati del server
 
 Per impostazione predefinita, StorageGRID utilizza un certificato di interfaccia di gestione su ciascun nodo di amministrazione per proteggere l'accesso a Grid Manager, Tenant Manager, Grid Management API e Tenant Management API.  Quando si configurano trust di relying party (AD FS), applicazioni aziendali (Entra ID) o connessioni del provider di servizi (PingFederate) per StorageGRID, si utilizza il certificato del server come certificato di firma per le richieste StorageGRID .
@@ -90,6 +95,7 @@ NOTE: Si sconsiglia di utilizzare il certificato server predefinito di un nodo d
 
 
 
+[[port-requirements]]
 == Requisiti delle porte
 
 Single Sign-on (SSO) non è disponibile sulle porte limitate di Grid Manager o Tenant Manager. Se si desidera che gli utenti eseguano l'autenticazione con Single Sign-on, è necessario utilizzare la porta HTTPS predefinita (443). Vedere link:controlling-access-through-firewalls.html["Controllare l'accesso al firewall esterno"].

@@ -15,6 +15,7 @@ Il building block di base di un sistema StorageGRID è il nodo grid. I nodi cont
 
 
 
+[[types-of-grid-nodes]]
 == Tipi di nodi della griglia
 
 Il sistema StorageGRID utilizza tre tipi di nodi di griglia:
@@ -45,12 +46,14 @@ Vedere link:what-gateway-node-is.html["Che cos'è un nodo gateway?"]
 
 
 
+[[hardware-and-software-nodes]]
 == Nodi hardware e software
 
 I nodi StorageGRID possono essere distribuiti come nodi di appliance StorageGRID o come nodi basati su software.  Il numero massimo di nodi (inclusi tutti i tipi di nodi) per sistema è 220.
 
 
 
+[[storagegrid-appliance-nodes]]
 === Nodi appliance StorageGRID
 
 Le appliance hardware StorageGRID sono progettate appositamente per l'utilizzo in un sistema StorageGRID. Alcune appliance possono essere utilizzate come nodi di storage. Altri appliance possono essere utilizzati come nodi di amministrazione o nodi gateway. È possibile combinare nodi appliance con nodi basati su software o implementare grid all-appliance completamente progettati che non hanno dipendenze da hypervisor esterni, storage o hardware di calcolo.
@@ -63,6 +66,7 @@ Per ulteriori informazioni sulle appliance disponibili, vedere quanto segue:
 
 
 
+[[software-based-nodes]]
 === Nodi basati su software
 
 I nodi di griglia basati su software possono essere distribuiti come macchine virtuali VMware o all'interno di motori di container su un host Linux. Vedere link:../swnodes/index.html["Installa StorageGRID sui nodi basati su software"] .
@@ -71,6 +75,7 @@ Utilizzare https://imt.netapp.com/matrix/#welcome["Tool di matrice di interopera
 
 
 
+[[storagegrid-services]]
 == Servizi StorageGRID
 
 Di seguito viene riportato un elenco completo dei servizi StorageGRID.

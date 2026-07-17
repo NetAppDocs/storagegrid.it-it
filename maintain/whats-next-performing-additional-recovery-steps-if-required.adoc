@@ -17,6 +17,7 @@ Il ripristino del nodo è completo se non è stato necessario intraprendere alcu
 
 
 
+[[corrective-actions-and-next-steps]]
 == Azioni correttive e passi successivi
 
 Durante la sostituzione del nodo, potrebbe essere necessario intraprendere una delle seguenti azioni correttive:

@@ -22,12 +22,14 @@ Vedi illink:../swnodes/index.html["istruzioni di installazione"] .
 
 
 
+[[host-network-configuration-for-container-engine-deployments]]
 == Configurazione della rete host per implementazioni di motori container
 
 Prima di iniziare la distribuzione di StorageGRID su una piattaforma di motore container, determinare quali reti (griglia, amministratore, client) utilizzare ciascun nodo. È necessario assicurarsi che l'interfaccia di rete di ciascun nodo sia configurata sulla corretta interfaccia host virtuale o fisica e che ciascuna rete disponga di una larghezza di banda sufficiente.
 
 
 
+[[physical-hosts]]
 === Host fisici
 
 Se si utilizzano host fisici per supportare i nodi grid:
@@ -52,6 +54,7 @@ NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un el
 
 
 
+[[minimum-bandwidth-recommendations]]
 === Consigli sulla larghezza di banda minima
 
 La seguente tabella fornisce le raccomandazioni relative alla larghezza di banda LAN minima per ciascun tipo di nodo StorageGRID e di rete. È necessario fornire a ciascun host fisico o virtuale una larghezza di banda di rete sufficiente per soddisfare i requisiti di larghezza di banda minima aggregata per il numero totale e il tipo di nodi StorageGRID che si intende eseguire su tale host.

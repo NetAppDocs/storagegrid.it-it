@@ -32,6 +32,7 @@ NOTE: Se un oggetto viene crittografato con SSE o SSE-C, tutte le impostazioni d
 
 
 
+[[use-sse]]
 == Utilizzare SSE
 
 Per crittografare un oggetto con una chiave univoca gestita da StorageGRID, utilizzare la seguente intestazione di richiesta:
@@ -47,6 +48,7 @@ L'intestazione della richiesta SSE è supportata dalle seguenti operazioni a ogg
 
 
 
+[[use-sse-c]]
 == Utilizzare SSE-C.
 
 Per crittografare un oggetto con una chiave univoca gestita, vengono utilizzate tre intestazioni di richiesta:
@@ -89,6 +91,7 @@ Le intestazioni delle richieste SSE-C sono supportate dalle seguenti operazioni 
 
 
 
+[[considerations-for-using-server-side-encryption-with-customer-provided-keys-sse-c]]
 == Considerazioni sull'utilizzo della crittografia lato server con le chiavi fornite dal cliente (SSE-C)
 
 Prima di utilizzare SSE-C, tenere presente quanto segue:

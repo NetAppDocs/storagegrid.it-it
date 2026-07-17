@@ -30,6 +30,7 @@ NOTE: Ogni griglia può avere un massimo di 100.000 bucket, inclusilink:../tenan
 
 
 
+[[access-the-wizard]]
 == Accedere alla procedura guidata
 
 .Fasi
@@ -39,6 +40,7 @@ NOTE: Ogni griglia può avere un massimo di 100.000 bucket, inclusilink:../tenan
 
 
 
+[[enter-details]]
 == Inserire i dettagli
 
 .Fasi
@@ -82,6 +84,7 @@ L'amministratore StorageGRID gestisce le regioni disponibili.  La regione di un 
 
 
 
+[[manage-settings]]
 == Gestire le impostazioni
 
 .Fasi

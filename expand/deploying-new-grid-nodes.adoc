@@ -17,6 +17,7 @@ Quando si espande una griglia, i nodi aggiunti non devono corrispondere ai tipi 
 
 
 
+[[vmware-deploy-grid-nodes]]
 == VMware: Implementazione di nodi grid
 
 È necessario implementare una macchina virtuale in VMware vSphere per ciascun nodo VMware che si desidera aggiungere all'espansione.
@@ -31,6 +32,7 @@ Quando si implementa il nodo, è possibile rimappare le porte del nodo o aumenta
 
 
 
+[[linux-deploy-grid-nodes]]
 == Linux: Implementazione di nodi grid
 
 È possibile implementare nodi grid su nuovi host Linux o su host Linux esistenti. Se sono necessari altri host Linux per supportare i requisiti di CPU, RAM e storage dei nodi StorageGRID che si desidera aggiungere al grid, è necessario prepararli nello stesso modo in cui sono stati preparati gli host al momento dell'installazione. Quindi, i nodi di espansione vengono implementati nello stesso modo in cui vengono implementati i nodi di rete durante l'installazione.
@@ -59,6 +61,7 @@ Dopo aver distribuito tutti i nuovi nodi della griglia, è possibile link:perfor
 
 
 
+[[appliances-deploying-storage-gateway-or-non-primary-admin-nodes]]
 == Appliance: Implementazione di storage, gateway o nodi di amministrazione non primari
 
 Per installare il software StorageGRID su un nodo appliance, utilizzare il programma di installazione dell'appliance StorageGRID, incluso nell'appliance. In un'espansione, ogni appliance di storage funziona come un singolo nodo di storage e ogni appliance di servizi funziona come un singolo nodo di gateway o un nodo di amministrazione non primario. Qualsiasi appliance può connettersi a Grid Network, Admin Network e Client Network.

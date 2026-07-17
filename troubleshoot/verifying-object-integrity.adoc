@@ -17,6 +17,7 @@ Esistono due processi di verifica: Verifica in background e verifica dell'esiste
 
 
 
+[[what-is-background-verification]]
 == Che cos'è la verifica in background?
 
 Il processo di verifica in background verifica automaticamente e continuamente la presenza di copie corrotte dei dati degli oggetti nei nodi di storage e tenta automaticamente di risolvere eventuali problemi rilevati.
@@ -39,6 +40,7 @@ La verifica in background viene eseguita a una velocità continua che non interf
 
 
 
+[[alerts-related-to-background-verification]]
 == Avvisi relativi alla verifica in background
 
 Se il sistema rileva un oggetto corrotto che non è in grado di correggere automaticamente (perché il danneggiamento impedisce l'identificazione dell'oggetto), viene attivato l'avviso *rilevato oggetto corrotto non identificato*.
@@ -47,6 +49,7 @@ Se la verifica in background non riesce a sostituire un oggetto danneggiato perc
 
 
 
+[[what-is-object-existence-check]]
 == Che cos'è il controllo dell'esistenza di un oggetto?
 
 Il controllo dell'esistenza degli oggetti verifica se tutte le copie replicate previste degli oggetti e i frammenti con codifica di cancellazione sono presenti in un nodo di storage. Il controllo dell'esistenza degli oggetti non verifica i dati degli oggetti stessi (la verifica in background lo fa), ma fornisce un modo per verificare l'integrità dei dispositivi di storage, soprattutto se un recente problema hardware potrebbe avere influenzato l'integrità dei dati.
@@ -61,6 +64,7 @@ Il controllo dell'esistenza degli oggetti legge i metadati di ogni oggetto memor
 
 
 
+[[run-object-existence-check]]
 == Eseguire il controllo dell'esistenza dell'oggetto
 
 Viene creato ed eseguito un job di controllo dell'esistenza di un oggetto alla volta. Quando si crea un lavoro, selezionare i nodi di storage e i volumi che si desidera verificare. È inoltre possibile selezionare la coerenza per il lavoro.

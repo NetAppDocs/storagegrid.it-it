@@ -17,6 +17,7 @@ I criteri di gruppo specificano le autorizzazioni di accesso per il gruppo a cui
 
 
 
+[[example-set-group-policy-using-tenant-manager]]
 == Esempio: Impostare i criteri di gruppo utilizzando Tenant Manager
 
 Quando si aggiunge o si modifica un gruppo in Tenant Manager, è possibile selezionare una policy di gruppo per determinare quali autorizzazioni di accesso S3 avranno i membri di questo gruppo. Vedere link:../tenant/creating-groups-for-s3-tenant.html["Creare gruppi per un tenant S3"].
@@ -33,6 +34,7 @@ Gli utenti di tenant Manager che dispongono dell'autorizzazione Gestisci tutti i
 
 
 
+[[example-allow-group-full-access-to-all-buckets]]
 == Esempio: Consentire l'accesso completo del gruppo a tutti i bucket
 
 In questo esempio, a tutti i membri del gruppo è consentito l'accesso completo a tutti i bucket di proprietà dell'account tenant, a meno che non sia esplicitamente negato dalla policy bucket.
@@ -51,6 +53,7 @@ In questo esempio, a tutti i membri del gruppo è consentito l'accesso completo 
 ----
 
 
+[[example-allow-group-read-only-access-to-all-buckets]]
 == Esempio: Consentire l'accesso di gruppo in sola lettura a tutti i bucket
 
 In questo esempio, tutti i membri del gruppo hanno accesso in sola lettura alle risorse S3, a meno che non sia esplicitamente negato dalla policy del bucket. Ad esempio, gli utenti di questo gruppo possono elencare gli oggetti e leggere i dati degli oggetti, i metadati e i tag.
@@ -78,6 +81,7 @@ In questo esempio, tutti i membri del gruppo hanno accesso in sola lettura alle 
 ----
 
 
+[[example-allow-group-members-full-access-to-only-their-folder-in-a-bucket]]
 == Esempio: Consenti ai membri del gruppo di accedere completamente solo alla loro "cartella" in un bucket
 
 In questo esempio, i membri del gruppo possono solo elencare e accedere alla propria cartella specifica (prefisso chiave) nel bucket specificato. Tenere presente che le autorizzazioni di accesso da altre policy di gruppo e la policy del bucket devono essere prese in considerazione quando si determina la privacy di queste cartelle.

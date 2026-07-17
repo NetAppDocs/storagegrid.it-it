@@ -38,6 +38,7 @@ Per ulteriori informazioni sui firewall esterni e sulla protezione della rete, v
 
 
 
+[[privileged-address-list-and-manage-external-access-tabs]]
 == Elenco degli indirizzi privilegiati e schede di gestione degli accessi esterni
 
 La scheda Privileged address list (elenco indirizzi privilegiati) consente di registrare uno o più indirizzi IP ai quali viene concesso l'accesso alle porte della griglia chiuse. La scheda Manage external access (Gestisci accesso esterno) consente di chiudere l'accesso esterno alle porte esterne selezionate o a tutte le porte esterne aperte (le porte esterne sono porte accessibili per impostazione predefinita dai nodi non grid). Queste due schede spesso possono essere utilizzate insieme per personalizzare l'esatto accesso di rete necessario per la griglia.
@@ -47,6 +48,7 @@ NOTE: Per impostazione predefinita, gli indirizzi IP privilegiati non dispongono
 
 
 
+[[example-1-use-a-jump-host-for-maintenance-tasks]]
 === Esempio 1: Utilizzare un host di collegamento per le attività di manutenzione
 
 Si supponga di voler utilizzare un host jump (un host con protezione avanzata) per l'amministrazione di rete. È possibile utilizzare questi passaggi generali:
@@ -62,6 +64,7 @@ Dopo aver salvato la configurazione, tutte le porte esterne sul nodo di amminist
 
 
 
+[[example-2-lock-down-sensitive-ports]]
 === Esempio 2: Blocco delle porte sensibili
 
 Supponiamo di voler bloccare porte sensibili e il servizio su quella porta.  È possibile seguire i seguenti passaggi generali:
@@ -77,12 +80,14 @@ Dopo aver salvato la configurazione, la porta sensibile e il servizio su quella 
 
 
 
+[[example-3-disable-access-to-unused-services]]
 === Esempio 3: Disattivazione dell'accesso ai servizi inutilizzati
 
 A livello di rete, è possibile disattivare alcuni servizi che non si intende utilizzare. Ad esempio, per bloccare il traffico client HTTP S3, utilizzare l'interruttore nella scheda Gestisci accesso esterno per bloccare la porta 18084.
 
 
 
+[[untrusted-client-networks-tab]]
 == Scheda Untrusted Client Networks
 
 Se si utilizza una rete client, è possibile proteggere StorageGRID da attacchi ostili accettando il traffico client in entrata solo su endpoint configurati esplicitamente.
@@ -93,6 +98,7 @@ Per impostazione predefinita, la rete client su ciascun nodo della griglia è _t
 
 
 
+[[example-1-gateway-node-only-accepts-https-s3-requests]]
 === Esempio 1: Il nodo gateway accetta solo richieste HTTPS S3
 
 Si supponga che un nodo gateway rifiuti tutto il traffico in entrata sulla rete client, ad eccezione delle richieste HTTPS S3. Eseguire le seguenti operazioni generali:
@@ -105,6 +111,7 @@ Dopo aver salvato la configurazione, tutto il traffico in entrata sulla rete cli
 
 
 
+[[example-2-storage-node-sends-s3-platform-services-requests]]
 === Esempio 2: Storage Node invia richieste di servizi della piattaforma S3
 
 Si supponga di voler attivare il traffico dei servizi della piattaforma S3 in uscita da un nodo di storage, ma di voler impedire qualsiasi connessione in entrata a tale nodo di storage sulla rete client. Eseguire questa fase generale:
@@ -116,6 +123,7 @@ Dopo aver salvato la configurazione, il nodo di storage non accetta più alcun t
 
 
 
+[[example-3-limiting-access-to-grid-manager-to-a-subnet]]
 === Esempio 3: Limitazione dell'accesso a Grid Manager a una subnet
 
 Si supponga di voler consentire l'accesso a Grid Manager solo su una subnet specifica. Attenersi alla seguente procedura:

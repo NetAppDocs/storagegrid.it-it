@@ -19,6 +19,7 @@ Alcuni avvisi predefiniti utilizzano link:commonly-used-prometheus-metrics.html[
 
 
 
+[[appliance-alerts]]
 == Avvisi sull'appliance
 
 [cols="1a,2a"]
@@ -370,6 +371,7 @@ Impossibile accedere a un dispositivo di storage.
 |===
 
 
+[[audit-and-syslog-alerts]]
 == Avvisi di audit e syslog
 
 [cols="1a,2a"]
@@ -406,6 +408,7 @@ Il nodo non può inoltrare i log al server syslog esterno e la coda su disco si 
 |===
 
 
+[[bucket-alerts]]
 == Avvisi bucket
 
 [cols="1a,2a"]
@@ -428,6 +431,7 @@ In un bucket FabricPool è abilitata la versione o il blocco degli oggetti S3, c
 |===
 
 
+[[cassandra-alerts]]
 == Avvisi Cassandra
 
 [cols="1a,2a"]
@@ -499,6 +503,7 @@ Cassandra ha rilevato un danneggiamento della tabella. Cassandra si riavvia auto
 |===
 
 
+[[cloud-storage-pool-alerts]]
 == Avvisi Cloud Storage Pool
 
 [cols="1a,2a"]
@@ -521,6 +526,7 @@ Il certificato IAM Roles Anywhere End-Entity sta per scadere.
 |===
 
 
+[[cross-grid-replication-alerts]]
 == Avvisi di replica cross-grid
 
 [cols="1a,2a"]
@@ -543,6 +549,7 @@ Le richieste di replica cross-grid sono in sospeso perché una risorsa non è di
 |===
 
 
+[[dhcp-alerts]]
 == Avvisi DHCP
 
 [cols="1a,2a"]
@@ -572,6 +579,7 @@ Il server DHCP non è disponibile.
 |===
 
 
+[[debug-and-trace-alerts]]
 == Avvisi di debug e traccia
 
 [cols="1a,2a"]
@@ -594,6 +602,7 @@ Quando la configurazione di trace è attivata, le prestazioni del sistema potreb
 |===
 
 
+[[email-and-autosupport-alerts]]
 == Avvisi e-mail e AutoSupport
 
 [cols="1a,2a"]
@@ -651,6 +660,7 @@ Nelle ultime 24 ore, un utente ha effettuato l'accesso con la console Web o SSH.
 |===
 
 
+[[erasure-coding-ec-alerts]]
 == Erasure coding (EC) alerts (Avvisi di codifica di cancellazione
 
 [cols="1a,2a"]
@@ -687,6 +697,7 @@ I frammenti sottoposti a erasure coding non possono più essere verificati. I fr
 |===
 
 
+[[expiration-of-certificates-alerts]]
 == Scadenza degli avvisi relativi ai certificati
 
 [cols="1a,2a"]
@@ -751,6 +762,7 @@ Il certificato del server presentato dal server syslog esterno sta per scadere.
 |===
 
 
+[[grid-network-alerts]]
 == Avvisi Grid Network
 
 [cols="1a,2a"]
@@ -766,6 +778,7 @@ L'impostazione MTU per l'interfaccia Grid Network (eth0) differisce significativ
 |===
 
 
+[[grid-federation-alerts]]
 == Avvisi di federazione delle griglie
 
 [cols="1a,2a"]
@@ -788,6 +801,7 @@ La connessione a federazione di griglie tra la rete locale e remota non funziona
 |===
 
 
+[[high-usage-or-high-latency-alerts]]
 == Avvisi di utilizzo elevato o latenza elevata
 
 [cols="1a,2a"]
@@ -810,6 +824,7 @@ Il tempo medio per le query dei metadati Cassandra è troppo lungo.
 |===
 
 
+[[identity-federation-alerts]]
 == Avvisi di Identity Federation
 
 [cols="1a,2a"]
@@ -832,6 +847,7 @@ Impossibile sincronizzare utenti e gruppi federati dall'origine dell'identità c
 |===
 
 
+[[information-lifecycle-management-ilm-alerts]]
 == Avvisi ILM (Information Lifecycle Management)
 
 [cols="1a,2a"]
@@ -854,6 +870,7 @@ La velocità di scansione ILM è impostata su un valore inferiore a 100 oggetti/
 |===
 
 
+[[key-management-server-kms-alerts]]
 == Avvisi del server di gestione delle chiavi (KMS)
 
 [cols="1a,2a"]
@@ -932,6 +949,7 @@ Un nodo appliance non è stato in grado di connettersi a uno o più server nel c
 |===
 
 
+[[load-balancer-alerts]]
 == Avvisi per il bilanciamento del carico
 
 [cols="1a,2a"]
@@ -947,6 +965,7 @@ Una percentuale elevata di connessioni agli endpoint del bilanciatore di carico 
 |===
 
 
+[[local-clock-offset-alerts]]
 == Avvisi di offset dell'orologio locale
 
 [cols="1a,2a"]
@@ -962,6 +981,7 @@ L'offset tra l'orologio locale e l'ora NTP (Network Time Protocol) è troppo ele
 |===
 
 
+[[low-memory-or-low-space-alerts]]
 == Avvisi di memoria insufficiente o spazio insufficiente
 
 [cols="1a,2a"]
@@ -1047,6 +1067,7 @@ Lo spazio disponibile nella directory /tmp è insufficiente.
 |===
 
 
+[[node-or-node-network-alerts]]
 == Avvisi di rete di nodi o nodi
 
 [cols="1a,2a"]
@@ -1251,6 +1272,7 @@ Un nodo si è riavviato inaspettatamente nelle ultime 24 ore.
 |===
 
 
+[[object-alerts]]
 == Avvisi a oggetti
 
 [cols="1a,2a"]
@@ -1301,6 +1323,7 @@ Rilevato oggetto corrotto non identificato
 |===
 
 
+[[object-corruption-alerts]]
 == Avvisi di danneggiamento degli oggetti
 
 [cols="1a,2a"]
@@ -1316,6 +1339,7 @@ Rilevata dimensione imprevista dell'oggetto durante la procedura di controllo de
 |===
 
 
+[[platform-services-alerts]]
 == Avvisi sui servizi della piattaforma
 
 [cols="1a,2a"]
@@ -1338,6 +1362,7 @@ In un sito sono in esecuzione o disponibili troppi nodi di storage con il serviz
 |===
 
 
+[[storage-volume-alerts]]
 == Avvisi sul volume di storage
 
 [cols="1a,2a"]
@@ -1381,6 +1406,7 @@ Impossibile avviare automaticamente la riparazione dei dati replicati per un vol
 |===
 
 
+[[storagegrid-services-alerts]]
 == Avvisi dei servizi StorageGRID
 
 [cols="1a,2a"]
@@ -1424,6 +1450,7 @@ La configurazione del servizio SSH non è valida. È in uso la configurazione pr
 |===
 
 
+[[tenant-alerts]]
 == Avvisi del tenant
 
 [cols="1a,2a"]

@@ -15,6 +15,7 @@ Prima del decommissioning di un nodo storage, prendi in considerazione la possib
 
 
 
+[[when-to-clone-a-node-instead-of-decommissioning-it]]
 == Quando clonare un nodo invece di decommissionarlo
 
 Se vuoi sostituire un nodo storage di un'appliance più vecchia con un'appliance più recente o più grande, prendi in considerazione la possibilità di clonare il nodo appliance invece di aggiungere una nuova appliance in un'espansione e poi dismettere la vecchia appliance.
@@ -33,6 +34,7 @@ Per ulteriori informazioni, vedere https://docs.netapp.com/us-en/storagegrid-app
 
 
 
+[[considerations-for-connected-storage-nodes]]
 == Considerazioni sui nodi di storage connessi
 
 Esaminare le considerazioni per lo smantellamento di un nodo di storage connesso.
@@ -57,6 +59,8 @@ NOTE: Il pulsante *Pause* (Pausa) viene attivato solo quando vengono raggiunte l
 
 
 
+[[considerations-for-disconnected-storage-nodes]]
+[[considerations-disconnected-storage-nodes]]
 == Considerazioni sui nodi storage disconnessi
 
 Esaminare le considerazioni per il decommissionamento di un nodo di storage disconnesso.

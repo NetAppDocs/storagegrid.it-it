@@ -15,6 +15,7 @@ Se all'account tenant è stata assegnata l'autorizzazione *Usa connessione feder
 
 
 
+[[workflow-for-cross-grid-replication]]
 == Workflow per la replica cross-grid
 
 Il diagramma del flusso di lavoro riassume i passaggi da eseguire per configurare la replica tra griglie tra bucket su due griglie.  Questi passaggi sono descritti più dettagliatamente sotto il diagramma.
@@ -23,6 +24,7 @@ image:grid-federation-cgr-workflow.png["Workflow di replica cross-grid"]
 
 
 
+[[configure-cross-grid-replication]]
 == Configurare la replica cross-grid
 
 Prima di poter utilizzare la replica tra griglie, è necessario accedere agli account tenant corrispondenti su ciascuna griglia e creare due bucket.  Quindi, è possibile abilitare la replica tra griglie su uno o entrambi i bucket.
@@ -37,6 +39,7 @@ Prima di poter utilizzare la replica tra griglie, è necessario accedere agli ac
 
 
 
+[[create-two-buckets]]
 === Crea due bucket
 
 Come primo passo, accedi agli account tenant corrispondenti su ciascuna griglia e crea un bucket su ciascuna griglia.
@@ -68,6 +71,7 @@ TIP: Secondo necessità, ogni benna può utilizzare una regione diversa.
 
 
 
+[[enable-cross-grid-replication]]
 === Abilitare la replica cross-grid
 
 È necessario eseguire questi passaggi prima di aggiungere oggetti a uno dei bucket.
@@ -115,6 +119,7 @@ Dopo qualche istante, verrà visualizzato un messaggio di conferma dell'operazio
 
 
 
+[[test-replication-between-grids]]
 == Test di replica tra griglie
 
 Se la replica cross-grid è attivata per un bucket, potrebbe essere necessario verificare che la connessione e la replica cross-grid funzionino correttamente e che i bucket di origine e di destinazione soddisfino ancora tutti i requisiti (ad esempio, il controllo delle versioni è ancora attivato).
@@ -138,6 +143,7 @@ Se la connessione è funzionante, viene visualizzato un banner di conferma.  In 
 
 
 
+[[disable-cross-grid-replication]]
 == Disattiva la replica cross-grid
 
 Se non si desidera più copiare gli oggetti nell'altra griglia, è possibile interrompere in modo permanente la replica tra griglie.

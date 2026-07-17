@@ -15,12 +15,14 @@ summary: È possibile utilizzare la federazione di grid per clonare i tenant e r
 
 
 
+[[what-is-a-grid-federation-connection]]
 == Che cos'è una connessione a federazione di griglie?
 
 Una connessione a federazione di griglie è una connessione bidirezionale, affidabile e sicura tra i nodi amministratore e gateway in due sistemi StorageGRID.
 
 
 
+[[workflow-for-grid-federation]]
 == Workflow per la federazione di grid
 
 Il diagramma del flusso di lavoro riassume i passaggi per la configurazione di una connessione di federazione di grid tra due grid.
@@ -29,6 +31,7 @@ image:grid-federation-workflow.png["Workflow di connessione a Grid Federation"]
 
 
 
+[[considerations-and-requirements-for-grid-federation-connections]]
 == Considerazioni e requisiti per le connessioni a federazione di griglie
 
 * Le griglie utilizzate per la federazione delle griglie devono eseguire versioni di StorageGRID identiche o con non più di una differenza di versione principale.
@@ -42,6 +45,7 @@ Per i dettagli sui requisiti di versione, fare riferimento a https://library.net
 
 
 
+[[networking-and-ip-address-requirements]]
 === Requisiti di rete e indirizzo IP
 
 * Le connessioni a federazione di griglie possono avvenire su Grid Network, Admin Network o Client Network.
@@ -53,6 +57,7 @@ Per i dettagli sui requisiti di versione, fare riferimento a https://library.net
 
 
 
+[[use-fqdns-to-load-balance-the-connection]]
 === Utilizzare FQDN per bilanciare il carico della connessione
 
 Per un ambiente di produzione, utilizzare FQDN (Fully Qualified Domain Name) per identificare ogni griglia della connessione. Quindi, creare le voci DNS appropriate, come indicato di seguito:
@@ -69,6 +74,7 @@ Quando si utilizzano più voci DNS, le richieste per utilizzare la connessione v
 
 
 
+[[port-requirements]]
 === Requisiti delle porte
 
 Quando si crea una connessione a federazione di griglie, è possibile specificare qualsiasi numero di porta inutilizzato compreso tra 23000 e 23999. Entrambe le griglie di questa connessione utilizzeranno la stessa porta.
@@ -77,6 +83,7 @@ Quando si crea una connessione a federazione di griglie, è possibile specificar
 
 
 
+[[certificate-requirements]]
 === Requisiti del certificato
 
 Quando si configura una connessione a federazione di griglie, StorageGRID genera automaticamente quattro certificati SSL:

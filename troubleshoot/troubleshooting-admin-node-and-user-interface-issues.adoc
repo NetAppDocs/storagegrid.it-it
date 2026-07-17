@@ -15,6 +15,7 @@ summary: 'È possibile eseguire diverse attività per determinare l"origine dei 
 
 
 
+[[admin-node-sign-in-errors]]
 == Errori di accesso al nodo amministrativo
 
 Se si verifica un errore durante l'accesso a un nodo amministrativo StorageGRID, il sistema potrebbe presentare un problema relativo a link:../troubleshoot/troubleshooting-network-hardware-and-platform-issues.html["networking"] o https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/troubleshooting-hardware-installation-sg100-and-sg1000.html["hardware"^], a link:../primer/what-admin-node-is.html["Servizi del nodo di amministrazione"]o a link:../maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html["Problema con il database Cassandra"]nodi di archiviazione connessi.
@@ -165,6 +166,7 @@ Fornire al supporto tecnico i registri raccolti. Vedere anche link:../monitor/lo
 
 
 
+[[user-interface-issues]]
 == Problemi dell'interfaccia utente
 
 L'interfaccia utente di Grid Manager o Tenant Manager potrebbe non rispondere come previsto dopo l'aggiornamento del software StorageGRID.

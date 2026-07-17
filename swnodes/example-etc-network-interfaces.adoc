@@ -15,6 +15,7 @@ Il `/etc/network/interfaces` file comprende tre sezioni che definiscono le inter
 
 
 
+[[physical-interfaces]]
 == Interfacce fisiche
 
 Si noti che gli switch alle altre estremità dei collegamenti devono anche considerare le quattro porte come un singolo trunk LACP o canale di porta e devono passare almeno le tre VLAN a cui si fa riferimento con tag.
@@ -48,6 +49,7 @@ iface ens256 inet manual
 ----
 
 
+[[bond-interface]]
 == Interfaccia bond
 
 [listing]
@@ -61,6 +63,7 @@ iface bond0 inet manual
 ----
 
 
+[[vlan-interfaces]]
 == Interfacce VLAN
 
 [listing]

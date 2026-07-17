@@ -82,6 +82,7 @@ NOTE: Il ripristino dei volumi dipende dalla disponibilità delle risorse in cui
 
 
 
+[[enable-auto-restore-modeenable-automatic-restore-mode]]
 == [[enable-auto-restore-mode]]attiva la modalità di ripristino automatico
 
 Quando si attiva la modalità di ripristino automatico, il ripristino del volume si avvia automaticamente quando i volumi sono pronti per essere ripristinati.
@@ -108,6 +109,7 @@ Quando si attiva la modalità di ripristino automatico, il ripristino del volume
 
 
 
+[[manually-restoremanually-restore-failed-volume-or-node]]
 == [[manually-restore]]Ripristino manuale di un volume o nodo non riuscito
 
 Per ripristinare un volume o un nodo guasto, procedere come segue.
@@ -137,6 +139,7 @@ Se non è possibile avviare il ripristino di un volume, il nodo torna alla sched
 
 
 
+[[view-restoration-progressview-restoration-progress]]
 == [[view-ripristino-progresso]]Visualizza l'avanzamento del ripristino
 
 La scheda *Restoration Progress* (avanzamento ripristino) mostra lo stato del processo di ripristino del volume e le informazioni sui volumi di un nodo da ripristinare.
@@ -166,6 +169,7 @@ La sezione lavori di ripristino visualizza informazioni sui ripristini dei volum
 
 
 
+[[view-restoration-historyview-restoration-history]]
 == [[view-restaurazione-storia]]Visualizza la cronologia del ripristino
 
 La scheda *Restoration history* (Cronologia ripristino) mostra informazioni su tutti i ripristini dei volumi completati correttamente.

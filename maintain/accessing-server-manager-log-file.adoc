@@ -19,6 +19,7 @@ Controllare questo file per i messaggi di errore relativi agli errori. Se necess
 
 
 
+[[service-with-an-error-state]]
 == Servizio con stato di errore
 
 Se si rileva che un servizio è entrato in uno stato di errore, tentare di riavviare il servizio.

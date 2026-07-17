@@ -9,12 +9,14 @@ CAUTION: Per le origini identità che non sono Active Directory o Microsoft Entr
 
 
 
+[[memberof-and-refint-overlays]]
 === MemberOf e refint overlay
 
 Gli overlay memberof e refint devono essere attivati. Per ulteriori informazioni, vedere le istruzioni per la manutenzione dell'appartenenza al gruppo inverso nella http://www.openldap.org/doc/admin24/index.html["Documentazione di OpenLDAP: Guida per l'amministratore della versione 2.4"^].
 
 
 
+[[indexing]]
 === Indicizzazione
 
 È necessario configurare i seguenti attributi OpenLDAP con le parole chiave di indice specificate:

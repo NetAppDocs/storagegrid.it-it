@@ -22,6 +22,7 @@ Quando si accede a Grid Manager, si sta effettuando la connessione a un nodo amm
 
 
 
+[[grid-manager-dashboard]]
 == Dashboard di Grid Manager
 
 Quando accedi per la prima volta al Grid Manager, puoi usare il dashboard per link:../monitor/viewing-dashboard.html["monitorare le attività del sistema"]dare un'occhiata.
@@ -34,6 +35,7 @@ Per una spiegazione delle informazioni visualizzate su ciascuna scheda, selezion
 
 
 
+[[search-field]]
 == Campo di ricerca
 
 Il campo *Search* nella barra di intestazione consente di accedere rapidamente a una pagina specifica all'interno di Grid Manager. Ad esempio, è possibile immettere *km* per accedere alla pagina del server di gestione delle chiavi (KMS).
@@ -42,6 +44,7 @@ Il campo *Search* nella barra di intestazione consente di accedere rapidamente a
 
 
 
+[[help-menu]]
 == Menu Guida
 
 Il menu di aiuto image:icon-help-menu-bar.png["icona della guida sulla barra dei menu"] offre accesso a:
@@ -54,6 +57,7 @@ Il menu di aiuto image:icon-help-menu-bar.png["icona della guida sulla barra dei
 
 
 
+[[alerts-menu]]
 == Menu Avvisi
 
 Il menu Avvisi fornisce un'interfaccia di facile utilizzo per rilevare, valutare e risolvere i problemi che potrebbero verificarsi durante il funzionamento di StorageGRID.
@@ -69,12 +73,14 @@ Dal menu Avvisi, è possibile effettuare le seguenti operazionilink:../monitor/m
 
 
 
+[[nodes-page]]
 == Pagina nodi
 
 ILlink:../monitor/viewing-nodes-page.html["Pagina nodi"] visualizza informazioni sull'intera griglia, su ciascun sito nella griglia e su ciascun nodo in un sito.  Per visualizzare le informazioni relative a un sito o a un nodo specifico, seleziona il sito o il nodo.
 
 
 
+[[tenants-page]]
 == Pagina tenant
 
 La link:../admin/managing-tenants.html["Pagina tenant"] consente di link:../tenant/index.html["creare e monitorare gli account tenant di storage"]utilizzare il sistema StorageGRID. È necessario creare almeno un account tenant per specificare chi può memorizzare e recuperare gli oggetti e quali funzionalità sono disponibili.
@@ -83,6 +89,7 @@ La pagina tenant fornisce inoltre dettagli sull'utilizzo di ciascun tenant, tra 
 
 
 
+[[ilm-menu]]
 == Menu ILM
 
 Il link:using-information-lifecycle-management.html["Menu ILM"] consente di link:../ilm/index.html["Configurare le regole e i criteri di gestione del ciclo di vita delle informazioni (ILM)"]gestire la durata e la disponibilità dei dati. È inoltre possibile inserire un identificatore di oggetto per visualizzare i metadati relativi a tale oggetto.
@@ -100,12 +107,14 @@ Dal menu ILM è possibile visualizzare e gestire ILM:
 
 
 
+[[configuration-menu]]
 == Menu di configurazione
 
 Il menu Configurazione consente di specificare le impostazioni di rete, di sicurezza, di sistema, di monitoraggio e di controllo degli accessi.
 
 
 
+[[network-tasks]]
 === Attività di rete
 
 Le attività di rete includono:
@@ -120,6 +129,7 @@ Le attività di rete includono:
 
 
 
+[[security-tasks]]
 === Attività di sicurezza
 
 Le attività di sicurezza includono:
@@ -133,6 +143,7 @@ Le attività di sicurezza includono:
 
 
 
+[[system-tasks]]
 === Attività di sistema
 
 Le attività di sistema includono:
@@ -147,6 +158,7 @@ Le attività di sistema includono:
 
 
 
+[[monitoring-tasks]]
 === Attività di monitoraggio
 
 Le attività di monitoraggio includono:
@@ -157,6 +169,7 @@ Le attività di monitoraggio includono:
 
 
 
+[[access-control-tasks]]
 === Attività di controllo degli accessi
 
 Le attività di controllo degli accessi includono:
@@ -170,12 +183,14 @@ Le attività di controllo degli accessi includono:
 
 
 
+[[maintenance-menu]]
 == Menu di manutenzione
 
 Il menu Maintenance (manutenzione) consente di eseguire attività di manutenzione, manutenzione del sistema e manutenzione della rete.
 
 
 
+[[tasks]]
 === Attività
 
 Le attività di manutenzione includono:
@@ -191,6 +206,7 @@ Le attività di manutenzione includono:
 
 
 
+[[system]]
 === Sistema
 
 Le attività di manutenzione del sistema che è possibile eseguire includono:
@@ -209,6 +225,7 @@ Le attività di manutenzione del sistema che è possibile eseguire includono:
 
 
 
+[[network]]
 === Rete
 
 Le attività di manutenzione della rete che è possibile eseguire includono:
@@ -220,12 +237,14 @@ Le attività di manutenzione della rete che è possibile eseguire includono:
 
 
 
+[[support-menu]]
 == Menu Support (supporto)
 
 Il menu Support (supporto) fornisce opzioni che consentono al supporto tecnico di analizzare e risolvere i problemi del sistema.
 
 
 
+[[tools]]
 === Strumenti
 
 Dalla sezione Tools (Strumenti) del menu Support (supporto), è possibile:
@@ -242,6 +261,7 @@ NOTE: I tool disponibili nell'opzione *metriche* sono destinati all'utilizzo da 
 
 
 
+[[other]]
 === Altro
 
 Dalla sezione Altro del menu supporto è possibile:

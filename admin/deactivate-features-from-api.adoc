@@ -36,6 +36,7 @@ Al termine della richiesta, la funzione Modifica password root tenant viene disa
 
 
 
+[[reactivate-deactivated-features]]
 == Riattivare le funzioni disattivate
 
 Per impostazione predefinita, è possibile utilizzare l'API Grid Management per riattivare una funzione disattivata. Tuttavia, se si desidera evitare che le funzioni disattivate vengano riattivate, è possibile disattivare la funzione *ActivateFeatures*.

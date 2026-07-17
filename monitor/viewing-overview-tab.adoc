@@ -17,6 +17,7 @@ Viene visualizzata la scheda Overview (Panoramica) per tutti i nodi.
 
 
 
+[[node-information]]
 == Informazioni sul nodo
 
 La sezione Node Information (informazioni nodo) della scheda Overview (Panoramica) elenca le informazioni di base sul nodo.
@@ -53,6 +54,7 @@ NOTE: Un nodo potrebbe apparire come sconosciuto durante le operazioni di shutdo
 
 
 
+[[alerts]]
 == Avvisi
 
 La sezione Avvisi della scheda Panoramica elenca qualsiasi link:monitoring-system-health.html#view-current-and-resolved-alerts["avvisi che attualmente interessano questo nodo e che non sono stati tacitati"]. Selezionare il nome dell'avviso per visualizzare ulteriori dettagli e le azioni consigliate.

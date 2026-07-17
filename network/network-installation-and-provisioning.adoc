@@ -15,6 +15,7 @@ summary: 'È necessario comprendere in che modo la rete grid e le reti amministr
 
 
 
+[[initial-deployment-of-a-node]]
 == Implementazione iniziale di un nodo
 
 Quando si implementa per la prima volta un nodo, è necessario collegarlo alla rete Grid e assicurarsi che disponga dell'accesso al nodo Admin primario. Se la rete Grid è isolata, è possibile configurare la rete Admin sul nodo Admin primario per l'accesso alla configurazione e all'installazione dall'esterno della rete Grid.
@@ -25,12 +26,14 @@ Se necessario, le subnet contenenti server NTP o che richiedono l'accesso a Grid
 
 
 
+[[automatic-node-registration-with-primary-admin-node]]
 == Registrazione automatica del nodo con nodo di amministrazione primario
 
 Una volta implementati, i nodi si registrano con il nodo di amministrazione primario utilizzando la rete di griglia. È quindi possibile utilizzare il Grid Manager, `configure-storagegrid.py` lo script Python o l'API di installazione per configurare la griglia e approvare i nodi registrati. Durante la configurazione della griglia, è possibile configurare più subnet della griglia. I percorsi statici a queste subnet attraverso il gateway Grid Network verranno creati su ciascun nodo al termine della configurazione della griglia.
 
 
 
+[[disabling-the-admin-network-or-client-network]]
 == Disattivazione della rete amministrativa o della rete client
 
 Se si desidera disattivare la rete amministrativa o la rete client, è possibile rimuovere la configurazione durante il processo di approvazione del nodo oppure utilizzare lo strumento Modifica IP al termine dell'installazione (vedere link:../maintain/configuring-ip-addresses.html["Configurare gli indirizzi IP"]).

@@ -69,6 +69,7 @@ Received call to deprecated v2 API at POST "/api/v2/authorize"
 
 
 
+[[determine-which-api-versions-are-supported-in-the-current-release]]
 == Determinare quali versioni API sono supportate nella release corrente
 
 Utilizzare la `GET /versions` richiesta API per restituire un elenco delle versioni principali dell'API supportate. Questa richiesta si trova nella sezione *config* della documentazione dell'API Swagger.
@@ -89,6 +90,7 @@ GET https://{{IP-Address}}/api/versions
 ----
 
 
+[[specify-an-api-version-for-a-request]]
 == Specificare una versione API per una richiesta
 
 È possibile specificare la versione API utilizzando un parametro di percorso (`/api/v4`) o un'intestazione )(`Api-Version: 4`. Se si forniscono entrambi i valori, il valore dell'intestazione sovrascrive il valore del percorso.

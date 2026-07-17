@@ -20,6 +20,7 @@ Per ulteriori informazioni, visitare il sito Web all'indirizzo link:../admin/usi
 
 
 
+[[new-endpoints-for-branch-buckets]]
 == Nuovi endpoint per i bucket di filiale
 
 Sono stati aggiunti i seguenti endpoint per consentirti dilink:../tenant/what-is-branch-bucket.html["gestire i bucket delle filiali"] :
@@ -30,6 +31,7 @@ Sono stati aggiunti i seguenti endpoint per consentirti dilink:../tenant/what-is
 
 
 
+[[new-private-endpoints-for-move-adc]]
 == Nuovi endpoint privati per Move ADC
 
 Sono stati aggiunti i seguenti endpoint privati per consentirti dilink:../maintain/move-adc-service.html["spostare il servizio ADC"] da un nodo di archiviazione a un altro nello stesso sito:
@@ -42,6 +44,7 @@ Sono stati aggiunti i seguenti endpoint privati per consentirti dilink:../mainta
 
 
 
+[[new-private-endpoints-for-convert-to-data-only-node]]
 == Nuovi endpoint privati per la conversione in nodo solo dati
 
 Sono stati aggiunti i seguenti endpoint privati per consentirti dilink:../maintain/convert-to-data-only-node.html["convertire uno o più nodi di archiviazione combinati"] che non contengono il servizio ADC in nodi solo dati.

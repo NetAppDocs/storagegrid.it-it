@@ -20,6 +20,7 @@ La gestione delle connessioni a federazione di griglie tra sistemi StorageGRID i
 
 
 
+[[editgridfedconnectionedit-a-grid-federation-connection]]
 == [[EDIT_Grid_FED_Connection]]Modifica una connessione a federazione di griglie
 
 È possibile modificare una connessione a federazione di griglie effettuando l'accesso al nodo di amministrazione primario su una delle griglie della connessione. Una volta apportate le modifiche alla prima griglia, è necessario scaricare un nuovo file di verifica e caricarlo nell'altra griglia.
@@ -29,6 +30,7 @@ NOTE: Durante la modifica della connessione, le richieste di replica cross-grid 
 
 
 
+[[start-editing-the-connection]]
 === Avviare la modifica della connessione
 
 .Fasi
@@ -85,6 +87,7 @@ NOTE: Se lo stato della connessione era diverso da *connesso* quando si inizia a
 
 
 
+[[finish-editing-the-connection]]
 === Terminare la modifica della connessione
 
 Terminare la modifica della connessione caricando il file di verifica sull'altra griglia.
@@ -107,6 +110,7 @@ Se è possibile stabilire la connessione utilizzando i valori modificati, viene 
 
 
 
+[[testgridfedconnectiontest-a-grid-federation-connection]]
 == [[test_grid_fed_Connection]]Test di una connessione a federazione di griglie
 
 .Fasi
@@ -177,6 +181,7 @@ La connessione si trova in uno stato sconosciuto, probabilmente a causa di un pr
 
 
 
+[[rotategridfedcertificatesrotate-connection-certificates]]
 == [[Rotate_grid_fed_certificates]]rotazione dei certificati di connessione
 
 Ogni connessione a federazione di griglie utilizza quattro certificati SSL generati automaticamente per proteggere la connessione. Quando i due certificati per ogni griglia si avvicinano alla data di scadenza, l'avviso *scadenza del certificato federazione griglia* ricorda di ruotare i certificati.
@@ -201,6 +206,7 @@ In generale, utilizzare lo stesso numero di giorni per i certificati su entrambi
 
 
 
+[[removegridfedconnectionremove-a-grid-federation-connection]]
 == [[remove_grid_fed_Connection]]Rimuovi una connessione a federazione di griglie
 
 È possibile rimuovere una connessione a federazione di griglia da una delle griglie della connessione. Come illustrato nella figura, è necessario eseguire i passaggi necessari su entrambe le griglie per confermare che la connessione non viene utilizzata da alcun tenant su nessuna griglia.
@@ -215,6 +221,7 @@ Prima di rimuovere una connessione, tenere presente quanto segue:
 
 
 
+[[disable-replication-for-all-tenant-buckets]]
 === Disattiva la replica per tutti i bucket del tenant
 
 .Fasi
@@ -231,6 +238,7 @@ TIP: Non è possibile rimuovere l'autorizzazione *use grid Federation Connection
 
 
 
+[[remove-permission-for-each-tenant]]
 === Rimuovere i permessi per ciascun tenant
 
 Una volta disattivata la replica cross-grid per tutti i bucket del tenant, rimuovere l'autorizzazione *Usa federazione grid* da tutti i tenant su entrambe le grid.
@@ -244,6 +252,7 @@ Una volta disattivata la replica cross-grid per tutti i bucket del tenant, rimuo
 
 
 
+[[remove-connection]]
 === Rimuovere la connessione
 
 .Fasi
@@ -263,6 +272,7 @@ Una volta disattivata la replica cross-grid per tutti i bucket del tenant, rimuo
 
 
 
+[[force-removegridfedconnectionremove-a-grid-federation-connection-by-force]]
 == [[force-remove_grid_fed_Connection]]Rimuovi una connessione a federazione di griglie con la forza
 
 Se necessario, è possibile forzare la rimozione di una connessione che non ha lo stato *Connected*.

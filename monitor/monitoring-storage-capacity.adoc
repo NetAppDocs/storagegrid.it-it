@@ -19,6 +19,7 @@ StorageGRID memorizza i dati degli oggetti e i metadati degli oggetti separatame
 
 
 
+[[monitor-storage-capacity-for-the-entire-grid]]
 == Monitorare la capacità di storage per l'intero grid
 
 Monitorare la capacità di storage complessiva del grid per garantire che rimanga spazio libero adeguato per i dati degli oggetti e i metadati degli oggetti. Comprendere come la capacità dello storage cambia nel tempo può aiutarti a pianificare l'aggiunta di nodi o volumi di storage prima che la capacità dello storage utilizzabile del grid venga consumata.
@@ -72,6 +73,7 @@ Per ulteriori informazioni sulla pianificazione di un'espansione di archiviazion
 
 
 
+[[monitor-storage-capacity-for-each-storage-node]]
 == Monitorare la capacità di storage per ciascun nodo di storage
 
 Monitorare lo spazio totale utilizzabile per ciascun nodo di storage per garantire che il nodo disponga di spazio sufficiente per i nuovi dati dell'oggetto.
@@ -128,6 +130,7 @@ L'link:../troubleshoot/troubleshooting-low-object-data-storage-alert.html["Stora
 
 
 
+[[monitor-object-metadata-capacity-for-each-storage-node]]
 == Monitorare la capacità dei metadati degli oggetti per ciascun nodo di storage
 
 Monitorare l'utilizzo dei metadati per ciascun nodo di storage per garantire che rimanga spazio sufficiente per le operazioni essenziali del database. È necessario aggiungere nuovi nodi di storage in ogni sito prima che i metadati dell'oggetto superino il 100% dello spazio consentito per i metadati.
@@ -188,6 +191,7 @@ Quando si aggiungono nuovi nodi, il sistema ribilancia automaticamente i metadat
 
 
 
+[[monitor-space-usage-forecasts]]
 == Monitorare le previsioni di utilizzo dello spazio
 
 Monitorare le previsioni di utilizzo dello spazio per i dati utente e i metadati per stimare quando sarà necessario link:../expand/index.html["espandere una griglia"].

@@ -15,6 +15,7 @@ Prima di associare StorageGRID come livello cloud FabricPool, scopri i gruppi ad
 
 
 
+[[what-is-an-ha-group]]
 == Che cos'è un gruppo ha?
 
 Un gruppo ad alta disponibilità (ha) è un insieme di interfacce da più nodi gateway StorageGRID, nodi amministrativi o entrambi. Un gruppo ha aiuta a mantenere disponibili le connessioni dati dei client. Se l'interfaccia attiva nel gruppo ha si guasta, un'interfaccia di backup può gestire il carico di lavoro con un impatto minimo sulle operazioni FabricPool.
@@ -25,6 +26,7 @@ Per ulteriori informazioni sui gruppi ad alta disponibilità, vedere link:../adm
 
 
 
+[[using-ha-groups]]
 == Utilizzo di gruppi ha
 
 Le Best practice per la creazione di un gruppo StorageGRID ha per FabricPool dipendono dal carico di lavoro.

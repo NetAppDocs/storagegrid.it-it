@@ -17,6 +17,7 @@ Per una panoramica delle opzioni di acquisizione, vedere link:data-protection-op
 
 
 
+[[advantages-of-the-balanced-and-strict-options]]
 == Vantaggi delle opzioni bilanciate e rigorose
 
 Rispetto al doppio commit, che crea copie intermedie durante l'acquisizione, le due opzioni di posizionamento sincrono possono offrire i seguenti vantaggi:
@@ -29,6 +30,7 @@ Rispetto al doppio commit, che crea copie intermedie durante l'acquisizione, le 
 
 
 
+[[disadvantages-of-the-balanced-and-strict-options]]
 == Svantaggi delle opzioni bilanciate e rigide
 
 Rispetto al doppio commit, le opzioni bilanciate e rigide presentano alcuni svantaggi:
@@ -46,6 +48,7 @@ Rispetto al doppio commit, le opzioni bilanciate e rigide presentano alcuni svan
 
 
 
+[[limitations-on-object-placements-with-the-balanced-and-strict-options]]
 == Limitazioni al posizionamento degli oggetti con opzioni bilanciate e rigide
 
 Le opzioni bilanciate o rigide non possono essere utilizzate per le regole ILM che hanno una delle seguenti istruzioni di posizionamento:
@@ -58,6 +61,7 @@ Queste restrizioni esistono perché StorageGRID non è in grado di eseguire copi
 
 
 
+[[how-ilm-rules-and-consistency-interact-to-affect-data-protection]]
 == L'interazione tra regole ILM e coerenza per influire sulla protezione dei dati
 
 Sia la regola ILM che la scelta della coerenza influiscono sulla protezione degli oggetti. Queste impostazioni possono interagire.
@@ -96,6 +100,7 @@ NOTE: Prima di selezionare un valore di coerenza,link:../s3/consistency.html["le
 
 
 
+[[example-of-how-consistency-and-ilm-rules-can-interact]]
 == Esempio di interazione tra le regole di coerenza e ILM
 
 Supponiamo di avere una griglia a tre siti con la seguente regola ILM e la seguente coerenza:

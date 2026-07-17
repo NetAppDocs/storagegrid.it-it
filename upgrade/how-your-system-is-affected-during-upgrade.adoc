@@ -15,12 +15,14 @@ Scopri in che modo il tuo sistema StorageGRID sarà influenzato durante l'aggior
 
 
 
+[[external-ssh-access-is-allowed-until-upgrade-completes]]
 == L'accesso SSH esterno è consentito fino al completamento dell'aggiornamento
 
 Durante l'aggiornamento è consentito l'accesso SSH esterno.  Al termine dell'aggiornamento, l'accesso SSH esterno viene bloccato per impostazione predefinita.  Dopo l'aggiornamento, puoi utilizzare la scheda *Blocca SSH* disponibile nella pagina *Gestione griglia* > *Impostazioni di sicurezza* perlink:../admin/manage-external-ssh-access.html["gestire l'accesso SSH esterno"] .  L'accesso SSH tra i nodi della griglia non è interessato.
 
 
 
+[[storagegrid-upgrades-are-non-disruptive]]
 == Gli aggiornamenti di StorageGRID sono senza interruzioni
 
 Il sistema StorageGRID è in grado di acquisire e recuperare i dati dalle applicazioni client durante l'intero processo di aggiornamento. Se si approvano tutti i nodi dello stesso tipo per l'aggiornamento (ad esempio, i nodi di storage), i nodi vengono disattivati uno alla volta, in modo che non vi sia tempo in cui tutti i nodi di griglia o tutti i nodi di griglia di un determinato tipo non siano disponibili.
@@ -35,6 +37,7 @@ Per consentire la disponibilità continua, assicurarsi che il criterio ILM conte
 
 
 
+[[client-applications-might-experience-short-term-disruptions]]
 == Le applicazioni client potrebbero riscontrare interruzioni a breve termine
 
 Il sistema StorageGRID può acquisire e recuperare i dati dalle applicazioni client durante tutto il processo di upgrade, tuttavia le connessioni client a singoli nodi di gateway o nodi storage potrebbero essere temporaneamente interrotte se l'upgrade deve riavviare i servizi su tali nodi. La connettività viene ripristinata al termine del processo di upgrade e i servizi vengono ripristinati nei singoli nodi.
@@ -46,12 +49,14 @@ NOTE: È possibile utilizzare più gateway e gruppi di alta disponibilità (ha) 
 
 
 
+[[background-repairs-wont-run-on-grids-with-mixed-version-nodes]]
 == Le riparazioni in background non verranno eseguite su griglie con nodi di versione mista
 
 Le riparazioni in background non vengono eseguite durante l'aggiornamento quando la griglia contiene nodi con versioni miste.  Eventuali incongruenze che si verificano durante un'interruzione del sito non verranno riparate fino al completamento dell'aggiornamento.
 
 
 
+[[appliance-firmware-is-upgraded]]
 == Il firmware dell'appliance viene aggiornato
 
 Durante l'aggiornamento StorageGRID 12.0:
@@ -64,6 +69,7 @@ Durante l'aggiornamento StorageGRID 12.0:
 
 
 
+[[ilm-policies-are-handled-differently-according-to-their-status]]
 == Le policy ILM vengono gestite in modo diverso in base al loro stato
 
 * Il criterio attivo rimane lo stesso dopo l'aggiornamento.
@@ -73,6 +79,7 @@ Durante l'aggiornamento StorageGRID 12.0:
 
 
 
+[[alerts-might-be-triggered]]
 == Potrebbero essere attivati degli avvisi
 
 Gli avvisi potrebbero essere attivati all'avvio e all'arresto dei servizi e quando il sistema StorageGRID funziona come ambiente a versione mista (alcuni nodi di griglia che eseguono una versione precedente, mentre altri sono stati aggiornati a una versione successiva). Al termine dell'aggiornamento potrebbero essere attivati altri avvisi.
@@ -85,6 +92,7 @@ Una volta completato l'aggiornamento, è possibile rivedere gli avvisi relativi 
 
 
 
+[[configuration-changes-are-restricted]]
 == Le modifiche alla configurazione sono limitate
 
 

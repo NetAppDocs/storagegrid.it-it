@@ -15,6 +15,7 @@ Potrebbe essere necessario utilizzare l'API REST di StorageGRID S3 per gestire i
 
 
 
+[[compliance-feature-deprecated]]
 == Funzionalità di compliance obsoleta
 
 La funzionalità di conformità StorageGRID, disponibile nelle versioni precedenti di StorageGRID, è obsoleta ed è stata sostituita da blocco oggetti S3.

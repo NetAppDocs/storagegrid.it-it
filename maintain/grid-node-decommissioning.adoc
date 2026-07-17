@@ -15,6 +15,7 @@ summary: È possibile utilizzare la procedura di decommissionamento dei nodi per
 
 
 
+[[when-to-decommission-a-node]]
 == Quando decommissionare un nodo
 
 Utilizzare la procedura di decommissionamento del nodo quando si verifica una delle seguenti condizioni:
@@ -33,6 +34,7 @@ TIP: Se si desidera sostituire un vecchio apparecchio con un nuovo apparecchio, 
 
 
 
+[[how-to-decommission-a-node]]
 == Come decommissionare un nodo
 
 È possibile dismettere nodi di rete connessi o nodi di rete disconnessi.
@@ -53,6 +55,7 @@ Per istruzioni, vedere link:decommissioning-disconnected-grid-nodes.html["Decomm
 
 
 
+[[what-to-consider-before-decommissioning-a-node]]
 == Cosa considerare prima del decommissionamento di un nodo
 
 Prima di eseguire una delle due procedure, esaminare le considerazioni relative a ciascun tipo di nodo:

@@ -15,6 +15,7 @@ Se hailink:../admin/how-sso-works.html["SSO (Single Sign-on) configurato e abili
 
 
 
+[[sign-in-to-the-api-if-entra-id-single-sign-on-is-enabled]]
 == Sign in all'API se è abilitato l'accesso singolo dell'ID Entra
 
 Queste istruzioni si applicano se si utilizza Entra ID come provider di identità SSO

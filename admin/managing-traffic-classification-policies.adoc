@@ -17,6 +17,7 @@ I criteri di classificazione del traffico vengono applicati agli endpoint del se
 
 
 
+[[matching-rules]]
 == Regole corrispondenti
 
 Ogni policy di classificazione del traffico contiene una o più regole corrispondenti per identificare il traffico di rete correlato a una o più delle seguenti entità:
@@ -31,6 +32,7 @@ StorageGRID monitora il traffico che corrisponde a qualsiasi regola all'interno 
 
 
 
+[[traffic-limiting]]
 == Limitazione del traffico
 
 In alternativa, è possibile aggiungere i seguenti tipi di limite a un criterio:
@@ -52,6 +54,7 @@ In Grid Manager, è possibile visualizzare i diagrammi di traffico e verificare 
 
 
 
+[[use-traffic-classification-policies-with-slas]]
 == Utilizzare i criteri di classificazione del traffico con gli SLA
 
 È possibile utilizzare le policy di classificazione del traffico insieme ai limiti di capacità e alla protezione dei dati per applicare gli SLA (Service-Level Agreement) che forniscono specifiche per capacità, protezione dei dati e performance.

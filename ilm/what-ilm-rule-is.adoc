@@ -20,6 +20,7 @@ NOTE: I metadati degli oggetti non sono gestiti dalle regole ILM. I metadati deg
 
 
 
+[[elements-of-an-ilm-rule]]
 == Elementi di una regola ILM
 
 Una regola ILM ha tre elementi:
@@ -31,6 +32,7 @@ Una regola ILM ha tre elementi:
 
 
 
+[[ilm-rule-filtering]]
 == Filtraggio delle regole ILM
 
 Quando si crea una regola ILM, si specificano i filtri per identificare gli oggetti a cui si applica la regola.
@@ -60,6 +62,7 @@ I filtri di base offrono un metodo semplice per applicare regole diverse a un nu
 
 
 
+[[ilm-rule-placement-instructions]]
 == Istruzioni per il posizionamento delle regole ILM
 
 Le istruzioni di posizionamento determinano dove, quando e come vengono memorizzati i dati degli oggetti. Una regola ILM può includere una o più istruzioni di posizionamento. Ogni istruzione di posizionamento si applica a un singolo periodo di tempo.
@@ -95,6 +98,7 @@ Alla scadenza di ogni periodo di tempo previsto dalla regola, vengono applicate 
 
 
 
+[[ilm-rule-ingest-behavior]]
 == Comportamento di acquisizione delle regole ILM
 
 Il comportamento di acquisizione controlla se le copie degli oggetti vengono posizionate immediatamente in base alle istruzioni della regola o se vengono eseguite copie temporanee e le istruzioni di posizionamento vengono applicate in un secondo momento. Per le regole ILM sono disponibili i seguenti comportamenti di acquisizione:
@@ -112,6 +116,7 @@ Il comportamento di acquisizione controlla se le copie degli oggetti vengono pos
 
 
 
+[[example-ilm-rule]]
 == Esempio di regola ILM
 
 Ad esempio, una regola ILM potrebbe specificare quanto segue:

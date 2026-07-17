@@ -15,6 +15,7 @@ Tutte le copie degli oggetti vengono rimosse dal sistema StorageGRID quando un c
 
 
 
+[[deletion-hierarchy]]
 == Gerarchia di eliminazione
 
 StorageGRID offre diversi metodi per controllare quando gli oggetti vengono conservati o cancellati. Gli oggetti possono essere cancellati automaticamente o su richiesta del client. StorageGRID assegna sempre la priorità a qualsiasi impostazione di blocco oggetti S3 rispetto alle richieste di eliminazione del client, che hanno la priorità sul ciclo di vita del bucket S3 e sulle istruzioni di posizionamento ILM.
@@ -41,6 +42,7 @@ Per ulteriori informazioni, vedere link:../ilm/how-objects-are-deleted.html["Mod
 
 
 
+[[data-flow-for-client-deletes]]
 == Eliminazione del flusso di dati per il client
 
 image:delete_data_flow.png["Flusso di dati di eliminazione del client"]
@@ -52,6 +54,7 @@ image:delete_data_flow.png["Flusso di dati di eliminazione del client"]
 
 
 
+[[data-flow-for-ilm-deletes]]
 == Flusso di dati per l'eliminazione di ILM
 
 image:automatic_deletion_data_flow.png["Flusso di dati per l'eliminazione automatica"]

@@ -24,6 +24,7 @@ NOTE: Se si desidera configurare StorageGRID per l'utilizzo con qualsiasi altra 
 
 
 
+[[access-the-wizard]]
 == Accedere alla procedura guidata
 
 È possibile completare l'installazione guidata di FabricPool quando si inizia a utilizzare Gestione griglia di StorageGRID oppure accedere e completare l'installazione guidata in qualsiasi momento.
@@ -42,6 +43,7 @@ image:help_menu.png["menu guida"]
 
 
 
+[[step-1-of-9-configure-ha-group]]
 == Fase 1 di 9: Configurare il gruppo ha
 
 Un gruppo ad alta disponibilità (ha) è un insieme di nodi che contengono ciascuno il servizio bilanciamento del carico StorageGRID. Un gruppo ha può contenere nodi gateway, nodi di amministrazione o entrambi.
@@ -144,6 +146,7 @@ Almeno un indirizzo deve essere IPv4. In alternativa, è possibile specificare u
 
 
 
+[[step-2-of-9-configure-load-balancer-endpoint]]
 == Fase 2 di 9: Configurare l'endpoint del bilanciamento del carico
 
 StorageGRID utilizza un bilanciamento del carico per gestire il carico di lavoro dalle applicazioni client, come FabricPool. Il bilanciamento del carico massimizza la velocità e la capacità di connessione tra più nodi di storage.
@@ -347,6 +350,7 @@ Copiare il certificato del server per il bilanciamento del carico esterno e inco
 
 
 
+[[step-3-of-9-tenant-and-bucket]]
 == Fase 3 di 9: Tenant e bucket
 
 Un tenant è un'entità che può utilizzare le applicazioni S3 per memorizzare e recuperare oggetti in StorageGRID. Ogni tenant dispone di utenti, chiavi di accesso, bucket, oggetti e un set specifico di funzionalità. È necessario creare un tenant StorageGRID prima di poter creare il bucket che FabricPool utilizzerà.
@@ -427,6 +431,7 @@ NOTE: Non selezionare un bucket con blocco oggetti S3 abilitato per l'utilizzo c
 ====
 
 
+[[step-4-of-9-download-ontap-settings]]
 == Fase 4 di 9: Download delle impostazioni ONTAP
 
 Durante questa fase, è possibile scaricare un file da utilizzare per immettere i valori in Gestione di sistema di ONTAP.
@@ -457,6 +462,7 @@ CAUTION: Non chiudere questa pagina fino a quando non sono stati copiati entramb
 
 
 
+[[step-5-of-9-select-a-storage-pool]]
 == Fase 5 di 9: Selezionare un pool di storage
 
 Un pool di storage è un gruppo di nodi di storage. Quando si seleziona un pool di storage, si determinano i nodi che StorageGRID utilizzerà per memorizzare i dati a più livelli da ONTAP.
@@ -474,6 +480,7 @@ Il pool di storage di un sito include tutti i nodi di storage di quel sito.
 
 
 
+[[step-6-of-9-review-ilm-rule-for-fabricpool]]
 == Fase 6 di 9: Esaminare la regola ILM per FabricPool
 
 Le regole ILM (Information Lifecycle Management) controllano il posizionamento, la durata e il comportamento di acquisizione di tutti gli oggetti nel sistema StorageGRID.
@@ -539,6 +546,7 @@ USA erasure coding 2+1
 
 
 
+[[step-7-of-9-review-and-activate-ilm-policy]]
 == Fase 7 di 9: Esaminare e attivare il criterio ILM
 
 Una volta creata la regola ILM per l'utilizzo di FabricPool, la procedura guidata di installazione di FabricPool crea un criterio ILM. È necessario simulare e rivedere attentamente questo criterio prima di attivarlo.
@@ -578,6 +586,8 @@ CAUTION: Gli errori in una policy ILM possono causare una perdita di dati irrepa
 
 
 
+[[step-8-of-9-create-traffic-classification-policy]]
+[[traffic-classification]]
 == Fase 8 di 9: Creazione di criteri di classificazione del traffico
 
 Come opzione, la configurazione guidata di FabricPool può creare una policy di classificazione del traffico che è possibile utilizzare per monitorare il carico di lavoro di FabricPool. La policy creata dal sistema utilizza una regola di corrispondenza per identificare tutto il traffico di rete correlato al bucket creato. Questo criterio monitora solo il traffico e non limita il traffico per FabricPool o altri client.
@@ -595,6 +605,7 @@ Non appena FabricPool inizia a tiering dei dati su StorageGRID, puoi accedere al
 
 
 
+[[step-9-of-9-review-summary]]
 == Fase 9 di 9: Riepilogo
 
 Il riepilogo fornisce dettagli sugli elementi configurati, tra cui il nome del bilanciamento del carico, del tenant e del bucket, la policy di classificazione del traffico e la policy ILM attiva,
@@ -606,6 +617,7 @@ Il riepilogo fornisce dettagli sugli elementi configurati, tra cui il nome del b
 
 
 
+[[next-steps]]
 == Passi successivi
 
 Dopo aver completato la procedura guidata FabricPool, eseguire questi passaggi aggiuntivi.

@@ -20,6 +20,7 @@ Gestire i gruppi di tenant in base alle esigenze per visualizzare, modificare o 
 
 
 
+[[view-or-edit-group]]
 == Visualizzare o modificare il gruppo
 
 È possibile visualizzare e modificare le informazioni di base e i dettagli di ciascun gruppo.
@@ -104,6 +105,7 @@ In alto a destra viene visualizzato il messaggio Success (operazione riuscita).
 
 
 
+[[duplicate-group]]
 == Gruppo duplicato
 
 È possibile duplicare un gruppo esistente per creare nuovi gruppi più rapidamente.
@@ -121,6 +123,7 @@ NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazio
 
 
 
+[[clone-groupsretry-group-clone]]
 == [[clone-groups]]Riprova clone di gruppo
 
 Per riprovare un clone non riuscito:
@@ -134,6 +137,7 @@ Per ulteriori informazioni, vedere link:grid-federation-account-clone.html["Clon
 
 
 
+[[delete-one-or-more-groups]]
 == Eliminare uno o più gruppi
 
 È possibile eliminare uno o più gruppi. Gli utenti che appartengono solo a un gruppo cancellato non potranno più accedere al tenant manager o utilizzare l'account tenant.
@@ -153,6 +157,7 @@ Viene visualizzata una finestra di dialogo di conferma.
 
 
 
+[[set-up-assumerole]]
 == Imposta AssumeRole
 
 .Prima di iniziare
@@ -176,6 +181,7 @@ Credenziali di sicurezza temporanee create presupponendo che questo gruppo sia v
 
 
 
+[[example-of-an-assumerole-s3-trust-policy]]
 === Esempio di una policy di trust AssumeRole S3
 
 [listing]

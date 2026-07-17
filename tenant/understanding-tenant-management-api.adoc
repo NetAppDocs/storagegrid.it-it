@@ -27,6 +27,7 @@ Per accedere alla documentazione Swagger per l'API di gestione tenant:
 
 
 
+[[api-operations]]
 == Operazioni API
 
 L'API di gestione tenant organizza le operazioni API disponibili nelle seguenti sezioni:
@@ -59,6 +60,7 @@ NOTE: Se per il sistema StorageGRID è attivato il Single Sign-on (SSO), è nece
 
 
 
+[[operation-details]]
 == Dettagli dell'operazione
 
 Quando si espandono le operazioni API, è possibile visualizzare l'azione HTTP, l'URL dell'endpoint, un elenco di eventuali parametri obbligatori o facoltativi, un esempio del corpo della richiesta (se necessario) e le possibili risposte.
@@ -67,6 +69,7 @@ image:tenant_api_swagger_example.gif["Esempio che mostra l'operazione GET groups
 
 
 
+[[issue-api-requests]]
 == Emettere richieste API
 
 

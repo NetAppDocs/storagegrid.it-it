@@ -17,6 +17,7 @@ Per completare questa operazione, è necessario disporre dell'autorizzazione s3:
 
 
 
+[[request-example]]
 == Esempio di richiesta
 
 [listing, subs="specialcharacters,quotes"]
@@ -28,6 +29,7 @@ Host: _host_
 ----
 
 
+[[response-example]]
 == Esempio di risposta
 
 Questo esempio mostra che gli ultimi aggiornamenti dell'ora di accesso sono attivati per il bucket.

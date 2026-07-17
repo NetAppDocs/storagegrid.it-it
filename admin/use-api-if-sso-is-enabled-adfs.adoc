@@ -15,6 +15,7 @@ Se hailink:../admin/how-sso-works.html["SSO (Single Sign-on) configurato e abili
 
 
 
+[[sign-in-to-the-api-if-single-sign-on-is-enabled]]
 == Accedere all'API se è attivato il Single Sign-on
 
 Queste istruzioni sono valide se si utilizza Active Directory come provider di identità SSO.
@@ -242,6 +243,7 @@ export MYTOKEN="56eb07bf-21f6-40b7-af0b-5c6cacfb25e7"
 
 
 
+[[sign-out-of-the-api-if-single-sign-on-is-enabled]]
 == Disconnettersi dall'API se è attivato il Single Sign-on
 
 Se è stato attivato il Single Sign-on (SSO), è necessario emettere una serie di richieste API per disconnettersi dall'API Grid Management o dall'API Tenant Management. Queste istruzioni sono valide se si utilizza Active Directory come provider di identità SSO

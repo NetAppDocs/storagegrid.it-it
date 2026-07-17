@@ -17,18 +17,21 @@ Ogni sistema StorageGRID include un nodo di amministrazione primario e un numero
 
 
 
+[[connect-to-ha-group]]
 === Connettersi al gruppo ha
 
 Se i nodi di amministrazione sono inclusi in un gruppo ad alta disponibilità (ha), la connessione viene eseguita utilizzando l'indirizzo IP virtuale del gruppo ha o un nome di dominio completo che viene mappato all'indirizzo IP virtuale. Il nodo di amministrazione primario deve essere selezionato come interfaccia principale del gruppo, in modo che quando si accede a Grid Manager, si accede al nodo di amministrazione primario, a meno che il nodo di amministrazione primario non sia disponibile. Vedere link:managing-high-availability-groups.html["Gestire i gruppi ad alta disponibilità"].
 
 
 
+[[use-sso]]
 === Utilizzare SSO
 
 I passaggi di accesso sono leggermente diversi selink:how-sso-works.html["È stato configurato Single Sign-on (SSO)"] .
 
 
 
+[[sign-in-to-grid-manager-on-first-admin-node]]
 == Accedi a Grid Manager sul primo nodo di amministrazione
 
 .Prima di iniziare
@@ -100,6 +103,7 @@ Una volta effettuato l'accesso, viene visualizzata la home page di Grid Manager,
 
 
 
+[[sign-into-another-admin-node]]
 == Accedere a un altro nodo amministratore
 
 Per accedere a un altro nodo amministratore, procedere come segue.

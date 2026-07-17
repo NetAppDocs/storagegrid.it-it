@@ -17,6 +17,7 @@ A seconda della scelta, StorageGRID esegue copie temporanee e mette in coda gli 
 
 
 
+[[flowchart-of-ingest-options]]
 == Diagramma di flusso delle opzioni di acquisizione
 
 Il diagramma di flusso mostra cosa accade quando gli oggetti vengono associati da una regola ILM che utilizza ciascuna delle tre opzioni di acquisizione.
@@ -25,6 +26,7 @@ image:ingest_object_lifecycle.png["Diagramma che mostra come avviene l'acquisizi
 
 
 
+[[dual-commit]]
 == Commit doppio
 
 Quando si seleziona l'opzione Dual Commit, StorageGRID crea immediatamente copie temporanee degli oggetti su due diversi nodi storage e restituisce un messaggio "acquisizione riuscita" al client. L'oggetto viene messo in coda per la valutazione ILM e le copie che soddisfano le istruzioni di posizionamento della regola vengono eseguite in un secondo momento. Se il criterio ILM non può essere elaborato immediatamente dopo il dual commit, la protezione in caso di perdita del sito potrebbe richiedere del tempo.
@@ -42,6 +44,7 @@ Utilizzare l'opzione Dual Commit in uno dei seguenti casi:
 
 
 
+[[balanced-default]]
 == Bilanciato (impostazione predefinita)
 
 Quando si seleziona l'opzione Balanced (bilanciamento), StorageGRID utilizza anche il posizionamento sincrono all'acquisizione e crea immediatamente tutte le copie specificate nelle istruzioni di posizionamento della regola. In contrasto con l'opzione rigorosa, se StorageGRID non riesce immediatamente a fare tutte le copie, utilizza invece il doppio commit. Se la policy ILM utilizza posizionamenti su più siti e non è possibile ottenere una protezione immediata in caso di perdita del sito, viene attivato l'avviso *posizionamento ILM non raggiungibile*.
@@ -50,6 +53,7 @@ Utilizza l'opzione Balanced per ottenere la migliore combinazione di protezione 
 
 
 
+[[strict]]
 == Rigoroso
 
 Quando si seleziona l'opzione Strict, StorageGRID utilizza il posizionamento sincrono all'acquisizione e crea immediatamente tutte le copie degli oggetti specificate nelle istruzioni di posizionamento della regola. L'acquisizione non riesce se StorageGRID non riesce a creare tutte le copie, ad esempio perché una posizione di storage richiesta è temporaneamente non disponibile. Il client deve riprovare l'operazione.

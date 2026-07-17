@@ -32,6 +32,7 @@ CAUTION: Dopo aver configurato e creato un bucket di diramazione, non è possibi
 
 
 
+[[create-branch-bucket]]
 == Crea bucket di diramazione
 
 .Fasi
@@ -45,6 +46,7 @@ Il pulsante *Crea bucket di diramazione* è disabilitato se il bucket di base no
 
 
 
+[[enter-details]]
 == Inserire i dettagli
 
 .Fasi
@@ -106,6 +108,7 @@ Tipo di secchio per rami
 
 
 
+[[manage-object-settings-optional]]
 == Gestisci le impostazioni dell'oggetto (facoltativo)
 
 Le impostazioni degli oggetti per un bucket di diramazione non influiscono sulle versioni degli oggetti nel bucket di base.

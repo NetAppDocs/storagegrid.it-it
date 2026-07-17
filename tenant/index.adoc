@@ -15,6 +15,7 @@ Un account tenant consente di utilizzare l'API REST S3 (Simple Storage Service) 
 
 
 
+[[what-is-a-tenant-account]]
 == Che cos'è un account tenant?
 
 Ogni account tenant ha i propri gruppi, utenti, bucket S3 e oggetti federati o locali.
@@ -31,6 +32,7 @@ NOTE: Se si utilizza il protocollo client S3, è possibile utilizzare anche i bu
 
 
 
+[[how-to-create-a-tenant-account]]
 == Come creare un account tenant
 
 Gli account tenant vengono creati da un link:../admin/managing-tenants.html["Amministratore della griglia di StorageGRID che utilizza il gestore della griglia"]. Quando si crea un account tenant, l'amministratore della griglia specifica quanto segue:
@@ -44,6 +46,7 @@ Inoltre, gli amministratori della griglia possono attivare l'impostazione blocco
 
 
 
+[[configure-s3-tenants]]
 === Configurare i tenant S3
 
 Dopo un link:../admin/creating-tenant-account.html["Viene creato l'account tenant S3"], è possibile accedere a Tenant Manager per eseguire attività quali:

@@ -15,6 +15,7 @@ Un'operazione di acquisizione, o salvataggio, consiste in un flusso di dati defi
 
 
 
+[[data-flow]]
 == Flusso di dati
 
 Quando un client acquisisce un oggetto nel sistema StorageGRID, il servizio LDR sui nodi di storage elabora la richiesta e memorizza i metadati e i dati su disco.

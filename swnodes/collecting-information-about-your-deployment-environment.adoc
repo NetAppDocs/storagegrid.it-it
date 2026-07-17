@@ -18,6 +18,7 @@ NOTE: È più efficiente eseguire una singola installazione di tutti i nodi, piu
 
 
 
+[[vmware-information]]
 == Informazioni VMware
 
 È necessario accedere all'ambiente di implementazione e raccogliere informazioni sull'ambiente VMware, sulle reti create per Grid, Admin e Client Network e sui tipi di volumi di storage che si intende utilizzare per i nodi di storage.
@@ -33,6 +34,7 @@ NOTE: VMware Live vMotion fa saltare il tempo di clock della macchina virtuale e
 
 
 
+[[grid-network-information]]
 == Informazioni Grid Network
 
 È necessario raccogliere informazioni sulla rete VMware creata per la rete grid StorageGRID (richiesta), tra cui:
@@ -48,6 +50,7 @@ NOTE: VMware Live vMotion fa saltare il tempo di clock della macchina virtuale e
 
 
 
+[[admin-network-information]]
 == Admin Network Information (informazioni di rete amministratore
 
 Per i nodi che saranno connessi alla rete amministrativa StorageGRID opzionale, è necessario raccogliere informazioni sulla rete VMware creata per questa rete, tra cui:
@@ -64,6 +67,7 @@ Per i nodi che saranno connessi alla rete amministrativa StorageGRID opzionale, 
 
 
 
+[[client-network-information]]
 == Informazioni di rete del client
 
 Per i nodi che saranno connessi alla rete client StorageGRID opzionale, è necessario raccogliere informazioni sulla rete VMware creata per questa rete, tra cui:
@@ -75,6 +79,7 @@ Per i nodi che saranno connessi alla rete client StorageGRID opzionale, è neces
 
 
 
+[[information-about-additional-interfaces]]
 == Informazioni su interfacce aggiuntive
 
 È possibile aggiungere interfacce di accesso o trunk alla macchina virtuale in vCenter dopo aver installato il nodo. Ad esempio, è possibile aggiungere un'interfaccia di linea a un nodo Admin o Gateway, in modo da poter utilizzare le interfacce VLAN per separare il traffico che appartiene a diverse applicazioni o tenant. In alternativa, è possibile aggiungere un'interfaccia di accesso da utilizzare in un gruppo ad alta disponibilità (ha).
@@ -87,6 +92,7 @@ Le interfacce aggiunte vengono visualizzate nella pagina delle interfacce VLAN e
 
 
 
+[[storage-volumes-for-virtual-storage-nodes]]
 == Volumi di storage per nodi di storage virtuali
 
 Per i nodi di storage basati su macchine virtuali, è necessario raccogliere le seguenti informazioni:
@@ -96,6 +102,7 @@ Per i nodi di storage basati su macchine virtuali, è necessario raccogliere le 
 
 
 
+[[grid-configuration-information]]
 == Informazioni sulla configurazione della griglia
 
 È necessario raccogliere informazioni per configurare la griglia:

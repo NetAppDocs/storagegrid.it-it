@@ -39,6 +39,7 @@ TIP: Se questo gruppo di amministratori non esiste su entrambe le griglie prima 
 
 
 
+[[access-the-wizard]]
 == Accedere alla procedura guidata
 
 .Fasi
@@ -48,6 +49,7 @@ TIP: Se questo gruppo di amministratori non esiste su entrambe le griglie prima 
 
 
 
+[[enter-details]]
 == Inserire i dettagli
 
 .Fasi
@@ -92,6 +94,7 @@ Se si desidera che il tenant disponga di una quota di storage, un valore numeric
 
 
 
+[[admin-tenant-select-permissionsselect-permissions]]
 == [[admin-tenant-Select-permissions]]selezionare le autorizzazioni
 
 .Fasi
@@ -163,6 +166,7 @@ Consentire al tenant di utilizzare funzioni specifiche di blocco oggetti S3:
 
 
 
+[[define-root-access-and-create-tenant]]
 == Definire l'accesso root e creare il tenant
 
 .Fasi
@@ -221,12 +225,14 @@ TIP: Un utente root locale non può accedere a Tenant Manager nella griglia di d
 
 
 
+[[sign-in-to-tenant-optional]]
 == Accesso al tenant (facoltativo)
 
 Se necessario, è possibile accedere al nuovo tenant ora per completare la configurazione oppure accedere al tenant in un secondo momento. La procedura di accesso dipende dal fatto che si sia effettuato l'accesso a Grid Manager utilizzando la porta predefinita (443) o una porta con restrizioni. Vedere link:controlling-access-through-firewalls.html["Controllare l'accesso al firewall esterno"].
 
 
 
+[[sign-in-now]]
 === Accedi subito
 
 [cols="1a,3a"]
@@ -278,6 +284,7 @@ L'URL del tenant manager ha il seguente formato:
 |===
 
 
+[[sign-in-later]]
 === Accedi più tardi
 
 [cols="1a,3a"]
@@ -321,6 +328,7 @@ Una porta con restrizioni
 |===
 
 
+[[configure-the-tenant]]
 == Configurare il tenant
 
 Segui le istruzioni in link:../tenant/index.html["Utilizzare un account tenant"] per gestire utenti e gruppi di tenant, chiavi di accesso S3, bucket, servizi della piattaforma e replica tra account clone e grid.

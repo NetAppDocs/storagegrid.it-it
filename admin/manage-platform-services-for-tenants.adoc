@@ -19,6 +19,7 @@ I servizi della piattaforma non sono supportati perlink:../tenant/what-is-branch
 
 
 
+[[cloudmirror-replication]]
 == Replica di CloudMirror
 
 Il servizio di replica di StorageGRID CloudMirror viene utilizzato per eseguire il mirroring di oggetti specifici da un bucket StorageGRID a una destinazione esterna specificata.
@@ -32,6 +33,7 @@ NOTE: La replica CloudMirror non è supportata se nel bucket di origine è abili
 
 
 
+[[notifications]]
 == Notifiche
 
 Le notifiche degli eventi per bucket vengono utilizzate per inviare notifiche su azioni specifiche eseguite sugli oggetti a un cluster Kafka esterno specificato, a un endpoint webhook o ad Amazon Simple Notification Service.
@@ -43,6 +45,7 @@ NOTE: Sebbene la notifica degli eventi possa essere configurata su un bucket con
 
 
 
+[[search-integration-service]]
 == Servizio di integrazione della ricerca
 
 Il servizio di integrazione della ricerca viene utilizzato per inviare i metadati degli oggetti S3 a un indice Elasticsearch specificato, in cui è possibile cercare o analizzare i metadati utilizzando il servizio esterno.
@@ -56,6 +59,7 @@ I servizi della piattaforma offrono ai tenant la possibilità di utilizzare riso
 
 
 
+[[recommendations-for-using-platform-services]]
 == Consigli per l'utilizzo dei servizi della piattaforma
 
 Prima di utilizzare i servizi della piattaforma, tenere presenti i seguenti consigli:

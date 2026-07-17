@@ -27,6 +27,7 @@ Sono supportate le seguenti intestazioni di richiesta:
 
 
 
+[[request-headers-for-server-side-encryption]]
 == Intestazioni di richiesta per la crittografia lato server
 
 Se è stata specificata la crittografia SSE-C per la richiesta CreateMultipartUpload, è necessario includere anche le seguenti intestazioni di richiesta in ogni richiesta UploadPartCopy:
@@ -48,6 +49,7 @@ CAUTION: Le chiavi di crittografia fornite non vengono mai memorizzate. Se si pe
 
 
 
+[[versioning]]
 == Versione
 
 Il caricamento multiparte consiste in operazioni separate per l'avvio del caricamento, l'elenco dei caricamenti, il caricamento delle parti, l'assemblaggio delle parti caricate e il completamento del caricamento. Quando si esegue l'operazione CompleteMultipartUpload, gli oggetti vengono creati (e, se applicabile, vengono aggiornati).

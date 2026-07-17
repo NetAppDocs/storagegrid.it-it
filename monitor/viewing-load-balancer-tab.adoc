@@ -21,6 +21,7 @@ image:nodes_page_load_balancer_tab.png["Scheda bilanciamento carico pagina nodi"
 
 
 
+[[request-traffic]]
 == Richiesta di traffico
 
 Questo grafico fornisce una media mobile di 3 minuti del throughput dei dati trasmessi tra gli endpoint del bilanciamento del carico e i client che eseguono le richieste, in bit al secondo.
@@ -30,18 +31,21 @@ NOTE: Questo valore viene aggiornato al completamento di ogni richiesta. Di cons
 
 
 
+[[incoming-request-rate]]
 == Tasso di richiesta in entrata
 
 Questo grafico fornisce una media mobile di 3 minuti del numero di nuove richieste al secondo, ripartita per tipo di richiesta (GET, PUT, HEAD e DELETE). Questo valore viene aggiornato quando le intestazioni di una nuova richiesta sono state convalidate.
 
 
 
+[[average-request-duration-non-error]]
 == Durata media della richiesta (non errore)
 
 Questo grafico fornisce una media mobile di 3 minuti delle durate delle richieste, suddivisa per tipo di richiesta (GET, PUT, HEAD ed DELETE). Ogni durata della richiesta inizia quando un'intestazione di richiesta viene analizzata dal servizio Load Balancer e termina quando il corpo di risposta completo viene restituito al client.
 
 
 
+[[error-response-rate]]
 == Tasso di risposta agli errori
 
 Questo grafico fornisce una media mobile di 3 minuti del numero di risposte agli errori restituite ai client al secondo, ripartito per codice di risposta agli errori.

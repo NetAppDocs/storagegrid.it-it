@@ -100,6 +100,7 @@ Questo passaggio garantisce che il volume di storage venga rimontato automaticam
 
 
 
+[[install-docker]]
 == Installare Docker
 
 Il sistema StorageGRID può essere eseguito su Linux come una raccolta di contenitori.
@@ -141,6 +142,8 @@ Le versioni Client e Server devono essere 1.11.0 o successive.
 
 
 
+[[install-podman]]
+[[install-podman-rhel]]
 == Installare Podman
 
 Il sistema StorageGRID funziona come una raccolta di contenitori.  Se hai scelto di utilizzare il motore contenitore Podman, segui questi passaggi per installare Podman.  Altrimenti,<<Installare Docker,Installare Docker>> .

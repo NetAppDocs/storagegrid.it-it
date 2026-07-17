@@ -17,6 +17,7 @@ Non tutti i messaggi di controllo generati durante una transazione di acquisizio
 
 
 
+[[s3-ingest-audit-messages]]
 == S3: Acquisizione di messaggi di audit
 
 [cols="1a,1a,2a,1a,2a"]
@@ -51,6 +52,7 @@ link:orlm-object-rules-met.html["ORLM: Regole oggetto soddisfatte"]
 |===
 
 
+[[example-s3-object-ingest]]
 == Esempio: Acquisizione di oggetti S3
 
 La serie di messaggi di controllo riportata di seguito è un esempio dei messaggi di controllo generati e salvati nel registro di controllo quando un client S3 acquisisce un oggetto in un nodo di storage (servizio LDR).
@@ -64,6 +66,7 @@ Questo esempio presuppone che sia stato precedentemente creato un bucket S3.
 
 
 
+[[sput-s3-put]]
 === SPUT: S3 PUT
 
 Il messaggio SPUT viene generato per indicare che è stata emessa una transazione S3 PUT per creare un oggetto in un bucket specifico.
@@ -74,6 +77,7 @@ Il messaggio SPUT viene generato per indicare che è stata emessa una transazion
 ----
 
 
+[[orlm-object-rules-met]]
 === ORLM: Regole oggetto soddisfatte
 
 Il messaggio ORLM indica che il criterio ILM è stato soddisfatto per questo oggetto. Il messaggio include il CBID dell'oggetto e il nome della regola ILM applicata.

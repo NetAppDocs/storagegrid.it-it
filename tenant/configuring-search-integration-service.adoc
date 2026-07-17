@@ -184,6 +184,7 @@ Se necessario, è possibile disattivare l'integrazione della ricerca per un buck
 
 
 
+[[example-notification-configexample-metadata-notification-configuration-that-applies-to-all-objects]]
 == [[example-notification-config]]esempio: Configurazione di notifica dei metadati che si applica a tutti gli oggetti
 
 In questo esempio, i metadati degli oggetti per tutti gli oggetti vengono inviati alla stessa destinazione.
@@ -203,6 +204,7 @@ In questo esempio, i metadati degli oggetti per tutti gli oggetti vengono inviat
 ----
 
 
+[[example-metadata-notification-configuration-with-two-rules]]
 == Esempio: Configurazione della notifica di metadati con due regole
 
 In questo esempio, i metadati degli oggetti corrispondenti al prefisso `/images` vengono inviati a una destinazione, mentre i metadati degli oggetti corrispondenti al prefisso `/videos` vengono inviati a una seconda destinazione.
@@ -231,6 +233,7 @@ In questo esempio, i metadati degli oggetti corrispondenti al prefisso `/images`
 ----
 
 
+[[metadata-notification-format]]
 == Formato di notifica dei metadati
 
 Quando si attiva il servizio di integrazione della ricerca per un bucket, viene generato un documento JSON e inviato all'endpoint di destinazione ogni volta che vengono aggiunti, aggiornati o cancellati metadati o tag dell'oggetto.
@@ -257,6 +260,7 @@ Questo esempio mostra un esempio di JSON che potrebbe essere generato quando un 
 ----
 
 
+[[fields-included-in-the-json-document]]
 === Campi inclusi nel documento JSON
 
 Il nome del documento include il nome del bucket, il nome dell'oggetto e l'ID della versione, se presente.
@@ -301,6 +305,7 @@ Tag::
 
 
 
+[[how-to-view-results-in-elasticsearch]]
 === Come visualizzare i risultati in Elasticsearch
 
 Per tag e metadati dell'utente, StorageGRID passa date e numeri a Elasticsearch come stringhe o come notifiche di eventi S3. Per configurare Elasticsearch in modo da interpretare queste stringhe come date o numeri, seguire le istruzioni di Elasticsearch per la mappatura dinamica dei campi e per i formati di mappatura dei dati. Attivare le mappature dinamiche dei campi nell'indice prima di configurare il servizio di integrazione della ricerca. Una volta indicizzato un documento, non è possibile modificare i tipi di campo del documento nell'indice.

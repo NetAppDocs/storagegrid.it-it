@@ -18,6 +18,7 @@ CAUTION: FabricPool non conosce le regole o le policy ILM di StorageGRID. La per
 
 
 
+[[guidelines-for-using-ilm-with-fabricpool]]
 == Linee guida per l'utilizzo di ILM con FabricPool
 
 Quando si utilizza l'installazione guidata di FabricPool, la procedura guidata crea automaticamente una nuova regola ILM per ogni bucket S3 creato e aggiunge tale regola a un criterio inattivo. Viene richiesto di attivare il criterio. La regola creata automaticamente segue le Best practice consigliate: Utilizza la codifica di cancellazione 2+1 in un singolo sito.

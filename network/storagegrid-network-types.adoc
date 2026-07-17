@@ -15,6 +15,7 @@ I nodi della griglia in un sistema StorageGRID elaborano _grid traffic_, _admin 
 
 
 
+[[traffic-types]]
 == Tipi di traffico
 
 [cols="1a,4a,2a"]
@@ -62,6 +63,7 @@ Le porte interne sono accessibili solo tramite la rete Grid. Le porte esterne so
 
 
 
+[[network-interfaces]]
 == Interfacce di rete
 
 I nodi StorageGRID sono connessi a ciascuna rete utilizzando le seguenti interfacce specifiche:
@@ -105,6 +107,7 @@ Per i dettagli sulla mappatura delle porte virtuali o fisiche alle interfacce di
 
 
 
+[[network-information-for-each-node]]
 === Informazioni di rete per ciascun nodo
 
 È necessario configurare quanto segue per ogni rete abilitata su un nodo:
@@ -118,12 +121,14 @@ Per i dettagli sulla mappatura delle porte virtuali o fisiche alle interfacce di
 
 
 
+[[high-availability-groups]]
 === Gruppi ad alta disponibilità
 
 I gruppi ad alta disponibilità (ha) consentono di aggiungere indirizzi IP virtuali (VIP) all'interfaccia Grid o Client Network. Per ulteriori informazioni, vedere link:../admin/managing-high-availability-groups.html["Gestire i gruppi ad alta disponibilità"].
 
 
 
+[[grid-network]]
 == Grid Network
 
 La rete grid è obbligatoria. Viene utilizzato per tutto il traffico StorageGRID interno. Grid Network offre connettività tra tutti i nodi della rete, in tutti i siti e le subnet. Tutti i nodi della rete Grid devono essere in grado di comunicare con tutti gli altri nodi. La rete Grid può essere costituita da più sottoreti. Le reti contenenti servizi grid critici, come NTP, possono essere aggiunte anche come subnet grid.
@@ -146,6 +151,7 @@ Tenere presente i seguenti requisiti e dettagli per il gateway Grid Network:
 
 
 
+[[admin-network]]
 == Admin Network (rete amministrativa)
 
 La rete di amministrazione è opzionale. Una volta configurato, può essere utilizzato per l'amministrazione del sistema e il traffico di manutenzione. La rete amministrativa è in genere una rete privata e non deve essere instradabile tra i nodi.
@@ -170,6 +176,7 @@ Tenere presente i seguenti requisiti e dettagli per il gateway Admin Network:
 
 
 
+[[client-network]]
 == Rete client
 
 La rete client è opzionale. Quando è configurato, viene utilizzato per fornire l'accesso ai servizi grid per applicazioni client come S3. Se si prevede di rendere i dati StorageGRID accessibili a una risorsa esterna (ad esempio, un pool di storage cloud o il servizio di replica di StorageGRID), la risorsa esterna può utilizzare anche la rete client. I nodi Grid possono comunicare con qualsiasi subnet raggiungibile tramite il gateway di rete client.
@@ -193,6 +200,7 @@ Tenere presente quanto segue per il gateway di rete client:
 
 
 
+[[optional-vlan-networks]]
 == Reti VLAN opzionali
 
 Se necessario, è possibile utilizzare reti LAN virtuali (VLAN) per il traffico client e per alcuni tipi di traffico amministrativo. Il traffico Grid, tuttavia, non può utilizzare un'interfaccia VLAN. Il traffico StorageGRID interno tra i nodi deve sempre utilizzare la rete griglia su eth0.

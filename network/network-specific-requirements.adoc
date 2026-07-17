@@ -15,6 +15,7 @@ Attenersi ai requisiti per ciascun tipo di rete StorageGRID.
 
 
 
+[[network-gateways-and-routers]]
 == Gateway e router di rete
 
 * Se impostato, il gateway per una determinata rete deve trovarsi all'interno della subnet della rete specifica.
@@ -24,6 +25,7 @@ Attenersi ai requisiti per ciascun tipo di rete StorageGRID.
 
 
 
+[[subnets]]
 == Subnet
 
 
@@ -64,6 +66,7 @@ Ad esempio, non utilizzare i seguenti intervalli di subnet per la rete Grid, la 
 
 
 
+[[grid-network]]
 == Grid Network
 
 * Al momento dell'implementazione, ciascun nodo della griglia deve essere collegato alla rete griglia e deve essere in grado di comunicare con l'Admin Node primario utilizzando la configurazione di rete specificata durante l'implementazione del nodo.
@@ -78,6 +81,7 @@ NOTE: La Grid Network deve essere instradabile direttamente tra ciascun nodo. NA
 
 
 
+[[admin-network]]
 == Admin Network (rete amministrativa)
 
 La rete di amministrazione è opzionale. Se si intende configurare una rete amministrativa, attenersi ai seguenti requisiti e linee guida.
@@ -92,6 +96,7 @@ NOTE: Per abilitare le connessioni in entrata da sottoreti esterne, è necessari
 
 
 
+[[client-network]]
 == Rete client
 
 La rete client è opzionale. Se si intende configurare una rete client, tenere presente quanto segue.

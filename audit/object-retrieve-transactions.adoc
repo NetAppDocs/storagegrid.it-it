@@ -17,6 +17,7 @@ Non tutti i messaggi di controllo generati durante una transazione di recupero s
 
 
 
+[[s3-retrieval-audit-messages]]
 == Messaggi di controllo per il recupero S3
 
 [cols="1a,1a,2a,1a,1a"]
@@ -38,6 +39,7 @@ link:sget-s3-get.html["SGET: S3 GET"]
 |===
 
 
+[[example-s3-object-retrieval]]
 == Esempio: Recupero di oggetti S3
 
 Quando un client S3 recupera un oggetto da un nodo di storage (servizio LDR), viene generato un messaggio di audit e salvato nel registro di audit.
@@ -46,6 +48,7 @@ Si noti che non tutti i messaggi di audit generati durante una transazione sono 
 
 
 
+[[sget-s3-get]]
 === SGET: S3 GET
 
 Il recupero degli oggetti ha inizio quando il client invia una richiesta GetObject a un servizio LDR. Il messaggio contiene il bucket da cui recuperare l'oggetto e la chiave S3 dell'oggetto, utilizzata per identificare l'oggetto.
@@ -64,6 +67,7 @@ Nel seguente messaggio di esempio, il client invia una richiesta GetObject per u
 ----
 
 
+[[example-s3-select-on-an-object]]
 == Esempio: S3 selezionare su un oggetto
 
 Quando un client S3 esegue una query S3 Select su un oggetto, i messaggi di audit vengono generati e salvati nel registro di audit.

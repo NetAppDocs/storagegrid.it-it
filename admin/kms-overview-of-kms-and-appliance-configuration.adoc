@@ -21,6 +21,7 @@ Il diagramma di flusso mostra la configurazione di KMS e dell'appliance in paral
 
 
 
+[[set-up-the-key-management-server-kms]]
 == Configurare il server di gestione delle chiavi (KMS)
 
 La configurazione di un server di gestione delle chiavi include i seguenti passaggi di alto livello.
@@ -52,6 +53,7 @@ link:kms-adding.html["Aggiunta di un server di gestione delle chiavi (KMS)"]
 |===
 
 
+[[set-up-the-appliance]]
 == Configurare l'apparecchio
 
 La configurazione di un nodo appliance per l'utilizzo di KMS include i seguenti passaggi di alto livello.
@@ -74,6 +76,7 @@ Per ulteriori informazioni, vedere https://docs.netapp.com/us-en/storagegrid-app
 
 
 
+[[key-management-encryption-process-occurs-automatically]]
 == Processo di crittografia per la gestione delle chiavi (si verifica automaticamente)
 
 La crittografia per la gestione delle chiavi include i seguenti passaggi di alto livello che vengono eseguiti automaticamente.

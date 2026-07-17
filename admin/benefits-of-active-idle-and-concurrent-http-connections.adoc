@@ -22,6 +22,7 @@ La modalità di configurazione delle connessioni HTTP può influire sulle presta
 
 
 
+[[benefits-of-keeping-idle-http-connections-open]]
 == I vantaggi di mantenere aperte le connessioni HTTP inattive
 
 Mantenere aperte le connessioni HTTP quando le applicazioni client sono inattive per consentire transazioni successive.  Mantenere aperta una connessione HTTP inattiva per un massimo di 10 minuti.  StorageGRID potrebbe chiudere automaticamente una connessione HTTP aperta e inattiva per più di 10 minuti.
@@ -40,6 +41,7 @@ Decidi per quanto tempo mantenere aperta una connessione inattiva bilanciando i 
 
 
 
+[[benefits-of-active-http-connections]]
 == Vantaggi delle connessioni HTTP attive
 
 Per le connessioni dirette ai nodi di storage, è necessario limitare la durata di una connessione HTTP attiva a un massimo di 10 minuti, anche se la connessione HTTP esegue continuamente transazioni.
@@ -63,6 +65,7 @@ Per le connessioni client al servizio Load Balancer, la limitazione della durata
 
 
 
+[[benefits-of-concurrent-http-connections]]
 == Vantaggi delle connessioni HTTP simultanee
 
 Tenere aperte più connessioni TCP/IP al sistema StorageGRID per consentire il parallelismo, aumentando così le performance. Il numero ottimale di connessioni parallele dipende da diversi fattori.
@@ -92,6 +95,7 @@ I sistemi StorageGRID spesso supportano più applicazioni client.  Tenetelo pres
 
 
 
+[[separation-of-http-connection-pools-for-read-and-write-operations]]
 == Separazione dei pool di connessione HTTP per le operazioni di lettura e scrittura
 
 È possibile utilizzare pool separati di connessioni HTTP per le operazioni di lettura e scrittura e controllare la quantità di un pool da utilizzare per ciascuno di essi. I pool separati di connessioni HTTP consentono di controllare meglio le transazioni e bilanciare i carichi.

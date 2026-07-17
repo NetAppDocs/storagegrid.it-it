@@ -20,6 +20,7 @@ CAUTION: Non avviare l'aggiornamento se hai urgente bisogno di espandere lo spaz
 
 
 
+[[before-you-upgrade]]
 == Prima di effettuare l'aggiornamento
 
 Esamina questi argomenti per scoprire le nuove funzionalità e i miglioramenti di StorageGRID 12.0, determinare se alcune funzionalità sono state deprecate o rimosse e scoprire le modifiche apportate alle API StorageGRID .

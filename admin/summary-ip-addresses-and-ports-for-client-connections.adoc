@@ -71,6 +71,7 @@ Porte S3 predefinite:
 |===
 
 
+[[example-urls]]
 == URL di esempio
 
 Per connettere un'applicazione client all'endpoint Load Balancer di un gruppo ha di nodi gateway, utilizzare un URL strutturato come mostrato di seguito:
@@ -83,6 +84,7 @@ Ad esempio, se l'indirizzo IP virtuale del gruppo ha è 192.0.2.5 e il numero di
 
 
 
+[[where-to-find-ip-addresses]]
 == Dove trovare gli indirizzi IP
 
 . Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].

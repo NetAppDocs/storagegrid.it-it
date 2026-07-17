@@ -15,6 +15,7 @@ Attraverso il bilanciamento del carico è possibile gestire i carichi di lavoro 
 
 
 
+[[what-is-load-balancing]]
 == Cos'è il bilanciamento del carico?
 
 Quando un'applicazione client salva o recupera i dati da un sistema StorageGRID, StorageGRID utilizza un sistema di bilanciamento del carico per gestire il carico di lavoro di acquisizione e recupero. Il bilanciamento del carico massimizza la velocità e la capacità di connessione distribuendo il carico di lavoro tra più nodi di storage.
@@ -28,12 +29,14 @@ NOTE: Sebbene il servizio StorageGRID Load Balancer sia il meccanismo di bilanci
 
 
 
+[[how-many-load-balancing-nodes-do-i-need]]
 == Quanti nodi per il bilanciamento del carico sono necessari?
 
 Come Best practice generale, ogni sito del sistema StorageGRID deve includere due o più nodi nel servizio bilanciamento del carico. Ad esempio, un sito potrebbe includere due nodi gateway o sia un nodo amministratore che un nodo gateway. Assicurati che sia disponibile un'infrastruttura di rete, hardware o virtualizzazione adeguata per ogni nodo di bilanciamento del carico, sia che si utilizzino appliance per i servizi, nodi bare metal o nodi basati su macchine virtuali (VM).
 
 
 
+[[what-is-a-load-balancer-endpoint]]
 == Che cos'è un endpoint di bilanciamento del carico?
 
 Un endpoint di bilanciamento del carico definisce la porta e il protocollo di rete (HTTPS o HTTP) che le richieste dell'applicazione client in entrata e in uscita utilizzeranno per accedere ai nodi che contengono il servizio Load Balancer. L'endpoint definisce anche il tipo di client (S3), la modalità di associazione e, facoltativamente, un elenco di tenant consentiti o bloccati.
@@ -47,6 +50,7 @@ Per creare un endpoint del bilanciatore del carico, utilizzare Grid Manager oppu
 
 
 
+[[considerations-for-load-balancer-caching]]
 === Considerazioni sulla memorizzazione nella cache del bilanciatore del carico
 
 La memorizzazione nella cache migliora significativamente le prestazioni quando un carico di lavoro opera su un sottoinsieme di dati e accede agli oggetti più volte.  Inoltre, la memorizzazione nella cache fornisce l'accesso remoto all'archiviazione degli oggetti senza una distribuzione completa della griglia.  La memorizzazione nella cache del bilanciatore del carico è disponibile solo per i nodi gateway.
@@ -123,6 +127,7 @@ Tutte le richieste non memorizzate nella cache vengono inoltrate a un LDR upstre
 
 
 
+[[considerations-for-the-port]]
 === Considerazioni per la porta
 
 Per impostazione predefinita, la porta di un endpoint di bilanciamento del carico è 10433 per il primo endpoint creato, ma è possibile specificare qualsiasi porta esterna inutilizzata compresa tra 1 e 65535. Se si utilizza la porta 80 o 443, l'endpoint utilizzerà il servizio Load Balancer solo sui nodi gateway. Queste porte sono riservate sui nodi di amministrazione. Se si utilizza la stessa porta per più di un endpoint, è necessario specificare una modalità di binding diversa per ciascun endpoint.
@@ -131,12 +136,14 @@ Non sono consentite le porte utilizzate da altri servizi di rete. Vedere link:..
 
 
 
+[[considerations-for-the-network-protocol]]
 === Considerazioni sul protocollo di rete
 
 Nella maggior parte dei casi, le connessioni tra le applicazioni client e StorageGRID devono utilizzare la crittografia TLS (Transport Layer Security). La connessione a StorageGRID senza crittografia TLS è supportata ma non consigliata, soprattutto negli ambienti di produzione. Quando si seleziona il protocollo di rete per l'endpoint del bilanciamento del carico StorageGRID, selezionare *HTTPS*.
 
 
 
+[[considerations-for-load-balancer-endpoint-certificates]]
 === Considerazioni per i certificati endpoint del bilanciamento del carico
 
 Se si seleziona *HTTPS* come protocollo di rete per l'endpoint del bilanciamento del carico, è necessario fornire un certificato di sicurezza. È possibile utilizzare una di queste tre opzioni quando si crea l'endpoint del bilanciamento del carico:
@@ -197,6 +204,7 @@ Per evitare problemi di scadenza del certificato, attenersi alle seguenti Best p
 
 
 
+[[considerations-for-the-binding-mode]]
 === Considerazioni per la modalità di binding
 
 La modalità di binding consente di controllare quali indirizzi IP possono essere utilizzati per accedere a un endpoint del bilanciamento del carico. Se un endpoint utilizza una modalità di binding, le applicazioni client possono accedere all'endpoint solo se utilizzano un indirizzo IP consentito o il corrispondente FQDN (Fully Qualified Domain Name). Le applicazioni client che utilizzano qualsiasi altro indirizzo IP o FQDN non possono accedere all'endpoint.
@@ -211,6 +219,7 @@ La modalità di binding consente di controllare quali indirizzi IP possono esser
 
 
 
+[[considerations-for-tenant-access]]
 === Considerazioni sull'accesso al tenant
 
 L'accesso tenant è una funzionalità di sicurezza opzionale che consente di controllare quali account tenant StorageGRID possono utilizzare un endpoint di bilanciamento del carico per accedere ai bucket. È possibile consentire a tutti i tenant di accedere a un endpoint (impostazione predefinita) oppure specificare un elenco dei tenant consentiti o bloccati per ciascun endpoint.
@@ -239,6 +248,7 @@ Per accedere a `top-secret.pdf` , un utente del locatario *Top Secret* può invi
 
 
 
+[[cpu-availability]]
 == Disponibilità della CPU
 
 Il servizio di bilanciamento del carico su ogni nodo amministrativo e nodo gateway funziona in modo indipendente quando inoltra traffico S3 ai nodi storage. Attraverso un processo di ponderazione, il servizio Load Balancer indirizza più richieste ai nodi di storage con una maggiore disponibilità della CPU. Le informazioni sul carico della CPU del nodo vengono aggiornate ogni pochi minuti, ma la ponderazione potrebbe essere aggiornata più frequentemente. A tutti i nodi di storage viene assegnato un valore minimo di peso di base, anche se un nodo riporta un utilizzo pari al 100% o non ne riporta l'utilizzo.

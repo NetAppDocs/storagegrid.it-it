@@ -33,6 +33,7 @@ Si noti le seguenti caratteristiche dei bucket di diramazione:
 
 
 
+[[examples-for-branch-bucket-usage]]
 == Esempi di utilizzo del bucket di diramazione
 
 * È possibile utilizzare un branch bucket per rimuovere oggetti danneggiati creando un branch bucket da un punto nel tempo precedente al verificarsi del danneggiamento e quindi indirizzando le applicazioni al branch bucket anziché al bucket di base che contiene oggetti danneggiati.
@@ -41,6 +42,7 @@ Si noti le seguenti caratteristiche dei bucket di diramazione:
 
 
 
+[[operations-on-objects-in-branch-buckets]]
 == Operazioni sugli oggetti nei bucket di diramazione
 
 * Un'operazione PUT su un bucket di ramo crea un oggetto nel ramo.

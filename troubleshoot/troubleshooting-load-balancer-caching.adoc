@@ -15,6 +15,7 @@ Scopri i possibili problemi con la memorizzazione nella cache del bilanciatore d
 
 
 
+[[determine-if-a-request-was-a-cache-hit]]
 == Determina se una richiesta è stata un hit della cache
 
 * L'intestazione X-Cache viene impostata nella risposta alle richieste gestite dal servizio cache.  Codici possibili:
@@ -31,6 +32,7 @@ Scopri i possibili problemi con la memorizzazione nella cache del bilanciatore d
 
 
 
+[[low-cache-hit-rate]]
 == Basso tasso di hit della cache
 
 * Potrebbero verificarsi bassi tassi di hit della cache quando viene aggiunto un nuovo carico di lavoro o quando cambia il set di lavoro a cui accede un carico di lavoro.  In queste situazioni, si prevede che il tasso di successo aumenterà nel tempo.
@@ -41,6 +43,7 @@ Scopri i possibili problemi con la memorizzazione nella cache del bilanciatore d
 
 
 
+[[low-performance]]
 == Bassa prestazione
 
 * Valutare il tasso di successo della cache.  Bassi tassi di hit della cache possono comportare scarse prestazioni complessive.

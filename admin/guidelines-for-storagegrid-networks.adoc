@@ -17,6 +17,7 @@ Vedere link:configuring-client-connections.html["Configurare connessioni client 
 
 
 
+[[default-storagegrid-networks]]
 == Reti StorageGRID predefinite
 
 Per impostazione predefinita, StorageGRID supporta tre interfacce di rete per nodo di rete, consentendo di configurare la rete per ogni singolo nodo di rete in modo che corrisponda ai requisiti di sicurezza e accesso.
@@ -25,24 +26,28 @@ Per ulteriori informazioni sulla topologia di rete, vedere link:../network/index
 
 
 
+[[grid-network]]
 === Grid Network
 
 Obbligatorio. La rete griglia viene utilizzata per tutto il traffico StorageGRID interno. Fornisce connettività tra tutti i nodi della rete, in tutti i siti e le subnet.
 
 
 
+[[admin-network]]
 === Admin Network (rete amministrativa)
 
 Opzionale. La rete di amministrazione viene generalmente utilizzata per l'amministrazione e la manutenzione del sistema. Può essere utilizzato anche per l'accesso al protocollo client. La rete di amministrazione è in genere una rete privata e non deve essere instradabile tra i siti.
 
 
 
+[[client-network]]
 === Rete client
 
 Opzionale. La rete client è una rete aperta generalmente utilizzata per fornire l'accesso alle applicazioni client S3, in modo che la rete grid possa essere isolata e protetta. La rete client può comunicare con qualsiasi subnet raggiungibile tramite il gateway locale.
 
 
 
+[[guidelines]]
 == Linee guida
 
 * Ogni nodo StorageGRID richiede un'interfaccia di rete dedicata, un indirizzo IP, una subnet mask e un gateway per ogni rete a cui è assegnato.
@@ -83,6 +88,7 @@ eth2
 
 
 
+[[optional-interfaces]]
 == Interfacce opzionali
 
 In alternativa, è possibile aggiungere interfacce aggiuntive a un nodo. Ad esempio, è possibile aggiungere un'interfaccia trunk a un nodo Admin o Gateway, in modo da link:../admin/configure-vlan-interfaces.html["Interfacce VLAN"]separare il traffico che appartiene a diverse applicazioni o tenant. In alternativa, è possibile aggiungere un'interfaccia di accesso da utilizzare in un link:../admin/configure-high-availability-group.html["Gruppo ad alta disponibilità (ha)"].

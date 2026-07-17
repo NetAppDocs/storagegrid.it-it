@@ -25,6 +25,7 @@ NOTE: Alcuni servizi StorageGRID non sono stati aggiornati per utilizzare le cri
 
 
 
+[[select-a-security-policy]]
 == Selezionare una policy di sicurezza
 
 .Fasi
@@ -111,6 +112,7 @@ Un segno di spunta verde viene visualizzato accanto a *policy corrente* nel riqu
 
 
 
+[[create-a-custom-security-policy]]
 == Creare una policy di sicurezza personalizzata
 
 È possibile creare una policy personalizzata se è necessario applicare le proprie crittografia.
@@ -132,6 +134,8 @@ Un segno di spunta verde viene visualizzato accanto a *Current policy* (policy c
 
 
 
+[[temporarily-revert-to-the-default-security-policy]]
+[[temporarily-revert-to-default-security-policy]]
 == Ripristinare temporaneamente il criterio di protezione predefinito
 
 Se è stato configurato un criterio di protezione personalizzato, potrebbe non essere possibile accedere a Grid Manager se il criterio TLS configurato non è compatibile con link:global-certificate-types.html["certificato server configurato"].

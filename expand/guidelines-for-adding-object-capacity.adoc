@@ -15,6 +15,7 @@ summary: 'È possibile espandere la capacità dello storage a oggetti del sistem
 
 
 
+[[guidelines-for-adding-storage-volumes]]
 == Linee guida per l'aggiunta di volumi di storage
 
 Prima di aggiungere volumi di storage ai nodi di storage esistenti, consultare le seguenti linee guida e limitazioni:
@@ -38,6 +39,7 @@ Dopo aver deciso di aggiungere volumi di storage e aver determinato i nodi di st
 
 
 
+[[guidelines-for-adding-storage-nodes]]
 == Linee guida per l'aggiunta di nodi di storage
 
 Prima di aggiungere nodi di storage ai siti esistenti, consultare le seguenti linee guida e limitazioni:
@@ -53,6 +55,7 @@ Prima di aggiungere nodi di storage ai siti esistenti, consultare le seguenti li
 
 
 
+[[guidelines-for-adc-service-on-storage-nodes]]
 == Linee guida per il servizio ADC sui nodi di storage
 
 Quando si configura l'espansione, è necessario scegliere se includere il servizio ADC (Administrative Domain Controller) in ogni nuovo nodo di storage. Il servizio ADC tiene traccia della posizione e della disponibilità dei servizi grid.

@@ -34,6 +34,7 @@ image:kms_copied_key.png["Chiave copiata KMS"]
 
 
 
+[[use-cases-for-changing-which-kms-is-used-for-a-site]]
 == Casi di utilizzo per la modifica del KMS utilizzato per un sito
 
 La tabella riassume i passaggi necessari per i casi più comuni di modifica del KMS per un sito.

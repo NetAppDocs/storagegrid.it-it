@@ -15,6 +15,7 @@ Prima di installare StorageGRID, raccogliere e preparare le informazioni e il ma
 
 
 
+[[required-information]]
 == Informazioni richieste
 
 Piano di rete:: Quali reti intendi collegare a ogni nodo StorageGRID? StorageGRID supporta più reti per la separazione del traffico, la sicurezza e la convenienza amministrativa.
@@ -37,6 +38,7 @@ Informazioni correlate:: https://imt.netapp.com/matrix/#welcome["Tool di matrice
 
 
 
+[[required-materials]]
 == Materiali richiesti
 
 Licenza NetApp StorageGRID:: È necessario disporre di una licenza NetApp valida con firma digitale.

@@ -24,6 +24,7 @@ CAUTION: Quando si configura la distribuzione StorageGRID per la protezione dall
 
 
 
+[[replication-example]]
 == Esempio di replica
 
 Per impostazione predefinita, viene creato un pool di storage per ciascun sito durante l'installazione di StorageGRID. La disponibilità di pool di storage costituiti da un solo sito consente di configurare le regole ILM che utilizzano la replica per la protezione dalla perdita di sito. In questo esempio:
@@ -48,6 +49,7 @@ In caso di perdita di un sito, le copie degli oggetti sono disponibili nell'altr
 
 
 
+[[erasure-coding-example]]
 == Esempio di erasure coding
 
 La disponibilità di pool di storage costituiti da più di un sito per pool di storage consente di configurare le regole ILM che utilizzano la codifica di cancellazione per la protezione dalla perdita di sito. In questo esempio:

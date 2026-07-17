@@ -17,6 +17,7 @@ I seguenti flussi di lavoro per i messaggi di controllo e la conservazione dei m
 
 
 
+[[audit-message-flow]]
 == Controllare il flusso dei messaggi
 
 I messaggi di controllo vengono elaborati dai nodi amministrativi quando StorageGRID è configurato per *nodi amministrativi/nodi locali* o *nodo amministrativo e server syslog esterno* e dai nodi di archiviazione che dispongono di un servizio di controller di dominio amministrativo (ADC).
@@ -31,6 +32,7 @@ image:audit_message_flow.gif["Diagramma che riepiloga il flusso dei messaggi di 
 
 
 
+[[audit-message-retention]]
 === Controllare la conservazione dei messaggi
 
 StorageGRID utilizza un processo di copia e cancellazione per garantire che non vengano persi messaggi di controllo prima di poter essere scritti nel registro di controllo.
@@ -61,6 +63,7 @@ I seguenti tipi di problemi possono causare un aumento delle code dei messaggi d
 
 
 
+[[large-audit-queue-alert-and-audit-messages-queued-amqs-alarm]]
 === Avviso di coda di audit estesa e allarme di messaggi di audit in coda (AMQS)
 
 Per facilitare il monitoraggio delle dimensioni delle code dei messaggi di controllo nel tempo, l'avviso *Large audit queue* e l'allarme AMQS legacy vengono attivati quando il numero di messaggi in una coda Storage Node o Admin Node raggiunge determinate soglie.
@@ -71,6 +74,7 @@ Se l'avviso o l'allarme persiste e aumenta di gravità, visualizza un grafico de
 
 
 
+[[duplicate-messages]]
 === Messaggi duplicati
 
 Il sistema StorageGRID adotta un approccio conservativo in caso di guasto di rete o nodo. Per questo motivo, nel registro di controllo potrebbero essere presenti messaggi duplicati.

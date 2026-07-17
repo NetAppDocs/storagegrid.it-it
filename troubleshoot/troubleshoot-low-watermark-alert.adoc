@@ -23,6 +23,7 @@ Quando si esegue l'aggiornamento a StorageGRID 11.6 o versioni successive, le fi
 
 
 
+[[understand-the-alert]]
 == Comprendere l'avviso
 
 Se si utilizzano valori personalizzati per le filigrane dei volumi di storage, l'avviso *Low Read-only watermark override* potrebbe essere attivato per uno o più nodi di storage.
@@ -66,6 +67,7 @@ L'avviso *Low Read-only watermark override* viene attivato per il nodo di storag
 
 
 
+[[resolve-the-alert]]
 == Risolvere l'avviso
 
 Seguire questa procedura se sono stati attivati uno o più avvisi *Low Read-only watermark override*. È inoltre possibile utilizzare queste istruzioni se si utilizzano impostazioni personalizzate per la filigrana e si desidera iniziare a utilizzare impostazioni ottimizzate anche se non sono stati attivati avvisi.
@@ -81,6 +83,7 @@ Seguire questa procedura se sono stati attivati uno o più avvisi *Low Read-only
 
 
 
+[[assess-object-data-usage-for-entire-grid]]
 === Valutare l'utilizzo dei dati a oggetti per l'intero grid
 
 .Fasi
@@ -100,6 +103,7 @@ image:nodes_page_object_data_used_with_alert.png["Pagina Nodes (nodi) che mostra
 
 
 
+[[view-optimized-watermarksview-optimized-storage-watermarks]]
 === [[filigrane-ottimizzate-per-vista]]Visualizza filigrane di memorizzazione ottimizzate
 
 StorageGRID utilizza due metriche Prometheus per mostrare i valori ottimizzati calcolati per il watermark soft di sola lettura del volume di archiviazione. È possibile visualizzare i valori minimi e massimi ottimizzati per ciascun nodo di storage nella griglia.
@@ -126,6 +130,7 @@ L'ultima colonna mostra il valore massimo ottimizzato del watermark di sola lett
 
 
 
+[[determine-optimized-watermarksdetermine-if-you-can-use-optimized-watermarks]]
 === [[determina-filigrane ottimizzate]]determinare se è possibile utilizzare filigrane ottimizzate
 
 .Fasi
@@ -150,6 +155,7 @@ NOTE: Gli stessi valori di watermark personalizzati vengono applicati a ogni vol
 
 
 
+[[use-optimized-watermarksuse-optimized-watermarks]]
 === [[use-Optimized-watermark]]utilizza filigrane ottimizzate
 
 .Fasi

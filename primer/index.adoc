@@ -24,6 +24,7 @@ NOTE: Il supporto per i nodi archivio è stato rimosso. Lo spostamento di oggett
 
 
 
+[[storagegrid-benefits]]
 == Vantaggi di StorageGRID
 
 I vantaggi del sistema StorageGRID includono:

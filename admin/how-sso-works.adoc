@@ -19,6 +19,7 @@ Prima di attivare SSO (Single Sign-on), esaminare in che modo i processi di acce
 
 
 
+[[sign-in-when-sso-is-enabled]]
 == Effettuare l'accesso quando SSO è attivato
 
 Quando SSO è attivato e si accede a StorageGRID, si viene reindirizzati alla pagina SSO dell'organizzazione per convalidare le credenziali.
@@ -69,6 +70,7 @@ Non è necessario immettere nuovamente le credenziali SSO.
 
 
 
+[[sign-out-when-sso-is-enabled]]
 == Disconnettersi quando SSO è attivato
 
 Quando SSO è abilitato per StorageGRID, ciò che accade quando si effettua la disconnessione dipende da ciò che si effettua l'accesso e da dove si effettua la disconnessione.

@@ -99,6 +99,7 @@ Se si seleziona questa impostazione, copiare e incollare il certificato di prote
 
 
 
+[[test-the-connection-and-save-the-configuration]]
 === Verificare la connessione e salvare la configurazione
 
 Dopo aver inserito tutti i valori, è necessario verificare la connessione prima di salvare la configurazione. StorageGRID verifica le impostazioni di connessione per il server LDAP e il formato del nome utente BIND, se fornito.

@@ -17,6 +17,7 @@ Il sistema StorageGRID supporta sia richieste virtuali in stile host che richies
 
 
 
+[[date-handling]]
 == Gestione della data
 
 L'implementazione StorageGRID dell'API REST S3 supporta solo formati di data HTTP validi.
@@ -25,6 +26,7 @@ Il sistema StorageGRID supporta solo i formati di data HTTP validi per tutte le 
 
 
 
+[[common-request-headers]]
 == Intestazioni di richiesta comuni
 
 Il sistema StorageGRID supporta le intestazioni delle richieste comuni definite da https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html["Amazon Simple Storage Service API Reference: Intestazioni di richiesta comuni"^], con un'eccezione.
@@ -47,6 +49,7 @@ Supporto per firma AWS versione 4, con le seguenti eccezioni:
 |===
 
 
+[[common-response-headers]]
 == Intestazioni di risposta comuni
 
 Il sistema StorageGRID supporta tutte le intestazioni di risposta comuni definite dal _riferimento API del servizio di storage semplice_, con un'eccezione.

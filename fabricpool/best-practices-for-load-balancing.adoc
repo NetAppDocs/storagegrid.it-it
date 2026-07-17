@@ -17,12 +17,14 @@ Per informazioni generali sul bilanciamento del carico StorageGRID e sul certifi
 
 
 
+[[best-practices-for-tenant-access-to-the-load-balancer-endpoint-used-for-fabricpool]]
 == Best practice per l'accesso del tenant all'endpoint del bilanciamento del carico utilizzato per FabricPool
 
 È possibile controllare quali tenant possono utilizzare un endpoint specifico di bilanciamento del carico per accedere ai bucket. È possibile consentire tutti i tenant, consentire alcuni tenant o bloccare alcuni tenant. Quando si crea un endpoint di bilanciamento del carico per l'utilizzo di FabricPool, selezionare *Allow all tenant* (Consenti tutti i tenant). ONTAP crittografa i dati inseriti nei bucket StorageGRID, pertanto questo livello di sicurezza aggiuntivo non offre una sicurezza aggiuntiva minima.
 
 
 
+[[best-practices-for-the-security-certificate]]
 == Best practice per il certificato di sicurezza
 
 Quando si crea un endpoint di bilanciamento del carico StorageGRID per l'utilizzo di FabricPool, si fornisce il certificato di sicurezza che consentirà a ONTAP di autenticarsi con StorageGRID.
@@ -38,12 +40,14 @@ Per ulteriori informazioni sul certificato server per un endpoint di bilanciamen
 
 
 
+[[add-certificate-to-ontap]]
 === Aggiungi certificato a ONTAP
 
 Quando si aggiunge StorageGRID come livello cloud FabricPool, è necessario installare lo stesso certificato nel cluster ONTAP, inclusi i certificati root e gli eventuali certificati CA subordinati.
 
 
 
+[[manage-certificate-expiration]]
 === Gestire la scadenza del certificato
 
 
