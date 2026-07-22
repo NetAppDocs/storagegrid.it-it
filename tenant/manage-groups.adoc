@@ -32,8 +32,7 @@ Gestire i gruppi di tenant in base alle esigenze per visualizzare, modificare o 
 Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si stanno visualizzando i gruppi nella griglia di origine del tenant:
 
 +
-** Un messaggio banner indica che se si modifica o si rimuove un gruppo, le modifiche non verranno sincronizzate con l'altra griglia.
-** Se necessario, un messaggio di intestazione indica se i gruppi non sono stati clonati nel tenant sulla griglia di destinazione. È possibile <<clone-groups,riprovare a creare un clone di gruppo>> che non sia riuscito.
+** Se alcuni gruppi non sono stati sincronizzati con il tenant sulla grid di destinazione, segui i passaggi per <<sync-groups,riprova la sincronizzazione di gruppo>>.
 
 
 . Se si desidera modificare il nome del gruppo:
@@ -61,8 +60,8 @@ Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione gri
 ** Numero di utenti in questo gruppo
 ** Ulteriori campi se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si sta visualizzando il gruppo nella griglia di origine del tenant:
 +
-*** Stato di cloning, *Success* o *Failure*
-*** Un banner blu che indica che se modifichi o elimini questo gruppo, le modifiche non verranno sincronizzate con l'altra griglia.
+*** Stato della sincronizzazione, *Riuscita* o *Non riuscita*
+*** Per i gruppi federati, un banner blu indica che se modifichi o elimini questo gruppo, le modifiche non verranno sincronizzate con l'altra griglia.
 
 
 
@@ -111,7 +110,7 @@ In alto a destra viene visualizzato il messaggio Success (operazione riuscita).
 È possibile duplicare un gruppo esistente per creare nuovi gruppi più rapidamente.
 
 
-NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si duplica un gruppo dalla griglia di origine del tenant, il gruppo duplicato verrà clonato nella griglia di destinazione del tenant.
+NOTE: Se il tuo tenant account dispone dell'autorizzazione *Usa connessione di federazione griglia* e duplichi un gruppo dalla griglia di origine del tenant, il gruppo duplicato verrà sincronizzato con la griglia di destinazione del tenant.
 
 .Fasi
 . Selezionare *Gestione accessi* > *Gruppi*.
@@ -123,17 +122,22 @@ NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazio
 
 
 
-[[clone-groupsretry-group-clone]]
-== [[clone-groups]]Riprova clone di gruppo
+[[sync-groupsretry-group-sync]]
+== [[sync-groups]]Riprova la sincronizzazione del gruppo
 
-Per riprovare un clone non riuscito:
+Se la sincronizzazione di un gruppo non riesce, nella colonna Stato di sincronizzazione del gruppo viene visualizzato "Non riuscito". Sopra la tabella viene visualizzato un banner per indicare che uno o più gruppi non sono riusciti a sincronizzarsi.
 
-. Selezionare ciascun gruppo che indica _(clonazione non riuscita)_ sotto il nome del gruppo.
-. Selezionare *azioni* > *Clona gruppi*.
-. Visualizzare lo stato dell'operazione di clonazione dalla pagina dei dettagli di ciascun gruppo da clonare.
+.Fasi
+Per riprovare la sincronizzazione:
+
+. Nel banner, seleziona *Riprova sync*. Questa operazione riprova la sincronizzazione per tutti i gruppi che non sono riusciti a sincronizzarsi.
+. Per riprovare a sincronizzare un singolo gruppo, seleziona il nome del gruppo. Nella pagina dei dettagli del gruppo, seleziona *Riprova sync*.
+. Visualizza lo stato dell'operazione di sincronizzazione dalla pagina dei dettagli di ogni gruppo che stai sincronizzando.
 
 
-Per ulteriori informazioni, vedere link:grid-federation-account-clone.html["Clonare utenti e gruppi tenant"].
+Se il nuovo tentativo ha esito positivo, nella colonna Stato di sincronizzazione per ciascun gruppo sincronizzato correttamente compare la dicitura "Riuscito" e il banner scompare.
+
+Per ulteriori informazioni, vedi link:grid-federation-account-sync.html["Sincronizza gruppi di tenant e utenti"].
 
 
 
@@ -141,9 +145,6 @@ Per ulteriori informazioni, vedere link:grid-federation-account-clone.html["Clon
 == Eliminare uno o più gruppi
 
 È possibile eliminare uno o più gruppi. Gli utenti che appartengono solo a un gruppo cancellato non potranno più accedere al tenant manager o utilizzare l'account tenant.
-
-
-NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si elimina un gruppo, StorageGRID non eliminerà il gruppo corrispondente sull'altra griglia. Se è necessario mantenere queste informazioni sincronizzate, è necessario eliminare lo stesso gruppo da entrambe le griglie.
 
 .Fasi
 . Selezionare *Gestione accessi* > *Gruppi*.
@@ -170,7 +171,7 @@ Credenziali di sicurezza temporanee create presupponendo che questo gruppo sia v
 
 .Fasi
 . Selezionare *Gestione accessi* > *Gruppi*.
-. Fare clic sul nome del gruppo.
+. Selezionare il nome del gruppo.
 . Selezionare la scheda *Criterio di attendibilità S3*.
 . Aggiungi i tuoi criteri di attendibilità S3, incluso un elenco di utenti che possono eseguire AssumeRole.
 . Selezionare *Save Changes* (Salva modifiche).
@@ -201,4 +202,12 @@ Credenziali di sicurezza temporanee create presupponendo che questo gruppo sia v
     ]
 }
 ----
+Il Principal:
+
+* `"Principal": "*"`corrisponde a tutti, comprese le richieste anonime (non firmate)
+* `"Principal": { "AWS": "*" }`corrisponde a qualsiasi identità o utente autenticato (non corrisponde alle richieste anonime)
+* Si applica solo alle bucket policy
+* Il principal è l'account/gli account/gli utenti a cui vengono concesse o negate le autorizzazioni
+
+
 Una volta completata la configurazione, gli utenti elencati nei criteri di attendibilità S3 possono eseguire AssumeRole e ricevere le credenziali.  Le autorizzazioni finali sono determinate dai criteri di gruppo, dai criteri del bucket e dai criteri di sessione. Per ulteriori informazioni, consultare link:../s3/use-access-policies.html["Utilizzare le policy di accesso"] .

@@ -29,7 +29,7 @@ NOTE: Se manca un nodo griglia, verificare che sia stato distribuito correttamen
 +
 image:5_gmi_installer_grid_nodes_pending.gif["Questa immagine viene spiegata dal testo circostante."]
 
-. Fare clic su *approva*.
+. Selezionare *approva*.
 . In General Settings (Impostazioni generali), modificare le impostazioni per le seguenti proprietà, in base alle necessità:
 +
 ** *Sito*: Il nome di sistema del sito per questo nodo della griglia.
@@ -85,7 +85,7 @@ Il riavvio può richiedere alcuni minuti.
 
 .. Selezionare *Configure Networking* > *link Configuration* (Configura rete) e abilitare le reti appropriate.
 .. Selezionare *Configura rete* > *Configurazione IP* e configurare le reti abilitate.
-.. Tornare alla Home page e fare clic su *Avvia installazione*.
+.. Torna alla pagina iniziale e seleziona *Avvia installazione*.
 .. In Grid Manager: Se il nodo è elencato nella tabella Approved Nodes (nodi approvati), rimuoverlo.
 .. Rimuovere il nodo dalla tabella Pending Nodes (nodi in sospeso).
 .. Attendere che il nodo riappaia nell'elenco Pending Nodes (nodi in sospeso).
@@ -110,7 +110,7 @@ Il riavvio può richiedere alcuni minuti.
 
 .. Selezionare *Configure Networking* > *link Configuration* (Configura rete) e abilitare le reti appropriate.
 .. Selezionare *Configura rete* > *Configurazione IP* e configurare le reti abilitate.
-.. Tornare alla Home page e fare clic su *Avvia installazione*.
+.. Torna alla pagina iniziale e seleziona *Avvia installazione*.
 .. In Grid Manager: Se il nodo è elencato nella tabella Approved Nodes (nodi approvati), rimuoverlo.
 .. Rimuovere il nodo dalla tabella Pending Nodes (nodi in sospeso).
 .. Attendere che il nodo riappaia nell'elenco Pending Nodes (nodi in sospeso).
@@ -120,7 +120,7 @@ Per ulteriori informazioni, consultare https://docs.netapp.com/us-en/storagegrid
 
 
 
-. Fare clic su *Save* (Salva).
+. Selezionare *Salva*.
 +
 La voce del nodo della griglia viene spostata nell'elenco dei nodi approvati.
 
@@ -129,7 +129,7 @@ image:7_gmi_installer_grid_nodes_approved.gif["Questa immagine viene spiegata da
 
 . Ripetere questi passaggi per ogni nodo griglia in sospeso che si desidera approvare.
 +
-È necessario approvare tutti i nodi desiderati nella griglia. Tuttavia, è possibile tornare a questa pagina in qualsiasi momento prima di fare clic su *Installa* nella pagina Riepilogo. È possibile modificare le proprietà di un nodo della griglia approvato selezionando il relativo pulsante di opzione e facendo clic su *Modifica*.
+Devi approvare tutti i nodi che vuoi nella grid. Tuttavia, puoi tornare su questa pagina in qualsiasi momento prima di selezionare *Install* nella pagina Summary. Puoi modificare le proprietà di un nodo della grid approvato selezionando il suo pulsante di opzione e selezionando *Edit*.
 
-. Una volta completata l'approvazione dei nodi griglia, fare clic su *Avanti*.
+. Quando hai finito di approvare i nodi della griglia, seleziona *Avanti*.
 

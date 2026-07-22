@@ -36,7 +36,7 @@ NOTE: Se i server DNS esistenti non sono accessibili alla griglia dei nuovi indi
 
 +
 
-NOTE: Se SSO è abilitato per il sistema StorageGRID e tutti i trust delle parti affidabili sono stati configurati utilizzando indirizzi IP del nodo di amministrazione (anziché nomi di dominio completi, come consigliato), prepararsi ad aggiornare o riconfigurare tali trust delle parti affidabili in Active Directory Federation Services (AD FS) subito dopo aver modificato gli indirizzi IP. Vedere link:../admin/configure-sso.html["Configurare il single sign-on"] .
+NOTE: Se il single sign-on (SSO) è abilitato per il tuo sistema StorageGRID e qualsiasi relying party trust è stato configurato utilizzando gli indirizzi IP del nodo Admin (anziché i fully qualified domain name, come raccomandato), preparati ad aggiornare o riconfigurare questi relying party trust in Active Directory Federation Services (AD FS) immediatamente dopo aver cambiato gli indirizzi IP. Consulta la guida per configurare l'SSO usando link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] o link:../admin/learn-about-setting-up-sso-saml.html["SAML"].
 
 +
 

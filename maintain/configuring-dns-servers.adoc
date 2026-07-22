@@ -61,6 +61,6 @@ Per eliminare un indirizzo IP di un server DNS, procedere come segue.
 
 .Fasi
 . Selezionare *Manutenzione* > *Rete* > *Server DNS*.
-. Seleziona l'icona di eliminazione image:icon-x-to-remove.png["icona elimina"] accanto all'indirizzo IP.
+. Seleziona l'icona di eliminazione image:icon_x_to_remove.png["icona elimina"] accanto all'indirizzo IP.
 . Selezionare *Salva*.
 

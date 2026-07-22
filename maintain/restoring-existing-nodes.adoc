@@ -26,6 +26,8 @@ Se sono stati conservati volumi di storage a blocchi dall'host precedente, potre
 [[restore-validate-grid-nodes]]
 == Ripristinare e validare i nodi della griglia
 
+Se recuperi un nodo da un nodo Admin non primario, imposta ADMIN_IP sull'indirizzo IP della Grid Network del nodo Admin non primario, così il nodo recuperato si registra con il nodo Admin non primario invece che con il nodo Admin primario. Per visualizzare le regole per le chiavi della Admin Network, consulta link:../swnodes/creating-node-configuration-files.html["Creare file di configurazione del nodo StorageGRID per le distribuzioni Linux"].
+
 È necessario ripristinare i file di configurazione della griglia per eventuali nodi della griglia guasti, quindi validare i file di configurazione della griglia e risolvere eventuali errori.
 
 .A proposito di questa attività

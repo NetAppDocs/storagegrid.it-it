@@ -42,8 +42,6 @@ StorageGRID supporta endpoint di replica che rappresentano i bucket S3. Questi b
 
 StorageGRID supporta endpoint Amazon SNS, Kafka e webhook.  Gli endpoint Simple Queue Service (SQS) e AWS Lambda non sono supportati.
 
-Per gli endpoint Kafka, Mutual TLS non è supportato.  Di conseguenza, se hai `ssl.client.auth` impostato su `required` nella configurazione del broker Kafka, potrebbe causare problemi di configurazione dell'endpoint Kafka.
-
 
 
 [[endpoints-for-the-search-integration-service]]

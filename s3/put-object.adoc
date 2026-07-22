@@ -77,11 +77,11 @@ Sono supportate le seguenti intestazioni di richiesta:
 * `Content-Disposition`
 * `Content-Encoding`
 +
-Quando si specifica `aws-chunked` per ``Content-Encoding``StorageGRID non verifica i seguenti elementi:
+Quando specifichi  `aws-chunked` per  `Content-Encoding`, StorageGRID non verifica i seguenti elementi:
 
 +
-** StorageGRID non verifica il `chunk-signature` rispetto ai dati del blocco.
-** StorageGRID non verifica il valore fornito per `x-amz-decoded-content-length` rispetto all'oggetto.
+** StorageGRID non verifica il  `chunk-signature` rispetto ai dati dei chunk.
+** StorageGRID non verifica il valore che fornisci per  `x-amz-decoded-content-length` rispetto all'oggetto.
 
 
 * `Content-Language`
@@ -93,7 +93,20 @@ Quando si specifica `aws-chunked` per ``Content-Encoding``StorageGRID non verifi
 +
 La codifica di trasferimento a blocchi è supportata se `aws-chunked` si utilizza anche la firma del payload.
 
-* `x-amz-checksum-sha256`
+* Intestazioni della richiesta di checksum:
++
+--
+** `x-amz-checksum-crc32`
+** `x-amz-checksum-crc32c`
+** `x-amz-checksum-crc64nvme`
+** `x-amz-checksum-sha256`
+
+
+--
++
+
+NOTE: Se una richiesta PutObject non specifica un checksum, StorageGRID non calcola un checksum CRC-64/NVME predefinito per un oggetto.
+
 * `x-amz-meta-`, seguito da una coppia nome-valore contenente metadati definiti dall'utente.
 +
 Quando si specifica la coppia nome-valore per i metadati definiti dall'utente, utilizzare questo formato generale:
@@ -151,13 +164,19 @@ Le seguenti intestazioni di richiesta non sono supportate:
 
 * `If-Match`
 +
-Il `If-Match header` è accettato ma non funzionale.
+L' `If-Match`intestazione si comporta in modo diverso a seconda della configurazione di StorageGRID. Fornire questa intestazione potrebbe restituire un messaggio di errore (501 Not Implemented). Se l' `If-Match`intestazione viene accettata ma non è funzionale, potrebbe essere visualizzato un avviso con istruzioni su come abilitare il comportamento di errore più restrittivo 501 Not Implemented.
 
 * `If-None-Match`
 +
-The `If-None-Match header` è accettato ma non funzionale.
+L' `If-None-Match`intestazione si comporta in modo diverso a seconda della configurazione di StorageGRID. Fornire questa intestazione potrebbe restituire un messaggio di errore (501 Not Implemented). Se l' `If-None-Match`intestazione viene accettata ma non è funzionale, potrebbe essere visualizzato un avviso con istruzioni su come abilitare il comportamento di errore più restrittivo 501 Not Implemented.
 
 * `x-amz-acl`
+* `x-amz-checksum-md5`
+* `x-amz-checksum-sha1`
+* `x-amz-checksum-sha512`
+* `x-amz-checksum-xxhash3`
+* `x-amz-checksum-xxhash64`
+* `x-amz-checksum-xxhash128`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`
 * `x-amz-website-redirect-location`

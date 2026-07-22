@@ -43,4 +43,4 @@ CAUTION: L'aggiunta o la rimozione di siti da un pool di storage non sposterà i
 
 
 .Al termine
-Se è stato aggiunto un nuovo livello di sito o storage a un pool di storage utilizzato nel criterio ILM attivo, attivare un nuovo criterio ILM per forzare StorageGRID a utilizzare il nuovo livello di storage o di sito. Ad esempio, clonare il criterio ILM esistente e attivare il clone. Vedere link:working-with-ilm-rules-and-ilm-policies.html["Utilizzare le regole ILM e i criteri ILM"].
+Se hai aggiunto un nuovo sito o un nuovo livello di storage a un pool di storage utilizzato nella policy ILM attiva, attiva una nuova policy ILM per forzare StorageGRID a utilizzare il nuovo sito o il nuovo livello di storage. Ad esempio, clona la tua policy ILM esistente e poi attiva il clone. Fai riferimento a link:working-with-ilm-rules-and-ilm-policies.html["Utilizzare le regole ILM e i criteri ILM"].

@@ -15,9 +15,6 @@ Una volta terminato l'utilizzo di Grid Manager, è necessario disconnettersi per
 
 .Fasi
 . Selezionare il nome utente nell'angolo in alto a destra.
-+
-image:sign_out.png["Link di disconnessione"]
-
 . Selezionare *Disconnetti*.
 +
 [cols="1a,2a"]

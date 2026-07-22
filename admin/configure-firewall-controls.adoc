@@ -29,9 +29,9 @@ StorageGRID include un firewall interno su ciascun nodo che consente di aprire o
 
 Limitare il numero di porte aperte agli indirizzi IP esterni alla griglia solo a quelle assolutamente necessarie migliora la sicurezza della griglia. Utilizzare le impostazioni di ciascuna delle tre schede di controllo del firewall per assicurarsi che siano aperte solo le porte necessarie.
 
-Per ulteriori informazioni sull'utilizzo dei controlli firewall, inclusi esempi, vedere link:../admin/manage-firewall-controls.html["Gestire i controlli firewall"].
+Per ulteriori informazioni sull'utilizzo dei controlli del firewall, inclusi esempi, fai riferimento a link:../admin/manage-firewall-controls.html["Gestire i controlli firewall"].
 
-Per ulteriori informazioni sui firewall esterni e sulla protezione della rete, vedere link:../admin/controlling-access-through-firewalls.html["Controllare l'accesso al firewall esterno"].
+Per ulteriori informazioni sui firewall esterni e sulla sicurezza di rete, consulta link:../admin/controlling-access-through-firewalls.html["Controllare l'accesso al firewall esterno"].
 
 
 
@@ -60,16 +60,16 @@ La scheda elenco indirizzi privilegiati consente agli host di accedere alle port
 Per impostazione predefinita, gli indirizzi IP e le subnet privilegiati non dispongono di accesso alla rete interna. Inoltre, gli endpoint del bilanciamento del carico e le porte aggiuntive aperte nella scheda Privileged address list (elenco indirizzi con privilegi) sono accessibili anche se bloccati nella scheda Manage external access (Gestisci accesso esterno).
 
 
-NOTE: Le impostazioni della scheda elenco indirizzi privilegiati non possono sostituire quelle della scheda rete client non attendibile.
+NOTE: Le impostazioni nella scheda Elenco indirizzi privilegiati possono sovrascrivere le impostazioni nella scheda Rete client non attendibile.
 
 .Fasi
 . Nella scheda Privileged address list (elenco indirizzi privilegiati), inserire l'indirizzo o la subnet IP che si desidera concedere l'accesso alle porte chiuse.
-. Facoltativamente, selezionare *Aggiungi un altro indirizzo IP o subnet nella notazione CIDR* per aggiungere altri client con privilegi.
+. Facoltativamente, seleziona *Aggiungi un altro IP o una sottorete in notazione CIDR* per aggiungere altri client privilegiati.
 +
 
 TIP: Aggiungere il minor numero possibile di indirizzi all'elenco dei privilegi.
 
-. Facoltativamente, selezionare *Allow Privileged IP address to access StorageGRID internal ports* (Consenti indirizzi IP privilegiati per l'accesso alle porte interne di Vedere link:../network/internal-grid-node-communications.html["Porte interne StorageGRID"].
+. Facoltativamente, seleziona *Consenti agli indirizzi IP privilegiati di accedere alle porte interne di StorageGRID*. Fai riferimento a link:../network/internal-grid-node-communications.html["Porte interne StorageGRID"].
 +
 
 TIP: Questa opzione rimuove alcune protezioni per i servizi interni. Se possibile, lasciarlo disattivato.
@@ -96,7 +96,7 @@ NOTE: Le impostazioni della scheda Manage external access (Gestisci accesso este
 ** Selezionare *Chiudi tutte le porte visualizzate* per chiudere tutte le porte elencate nella tabella.
 +
 
-CAUTION: Se si chiudono le porte 443 o 8443 di Grid Manager, tutti gli utenti attualmente connessi a una porta bloccata, incluso l'utente, perderanno l'accesso a Grid Manager, a meno che il loro indirizzo IP non sia stato aggiunto all'elenco degli indirizzi privilegiati.
+CAUTION: Se chiudi le porte 443 o 8443 di Grid Manager, tutti gli utenti attualmente connessi su una porta bloccata, incluso te, perderanno l'accesso a Grid Manager a meno che il loro indirizzo IP sia stato aggiunto all'elenco degli indirizzi privilegiati.
 
 +
 
@@ -150,6 +150,6 @@ NOTE: Utilizzare la barra di scorrimento sul lato destro della tabella per verif
 
 . Selezionare *Salva*.
 +
-Le nuove impostazioni del firewall vengono applicate e applicate immediatamente. Le connessioni client esistenti potrebbero non riuscire se gli endpoint del bilanciamento del carico non sono stati configurati.
+Le nuove impostazioni del firewall vengono applicate e rese effettive immediatamente. Le connessioni client esistenti potrebbero non funzionare se gli endpoint del load balancer non sono stati configurati.
 
 

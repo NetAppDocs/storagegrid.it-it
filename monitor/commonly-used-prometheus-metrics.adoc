@@ -15,7 +15,7 @@ Fare riferimento a questo elenco di metriche Prometheus comunemente utilizzate p
 
 È anche possibile <<obtain-all-metrics,ottenere un elenco completo di tutte le metriche>>.
 
-Per informazioni dettagliate sulla sintassi delle query Prometheus, vedere https://prometheus.io/docs/prometheus/latest/querying/basics/["Interrogazione di Prometheus"^].
+Per i dettagli sulla sintassi delle query di Prometheus, vedi  https://prometheus.io/docs/prometheus/latest/querying/basics/["Nozioni di base sulle interrogazioni"^].
 
 
 

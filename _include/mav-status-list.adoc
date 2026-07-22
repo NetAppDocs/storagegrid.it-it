@@ -1,0 +1,10 @@
+= 
+:allow-uri-read: 
+
+
+* *In sospeso*. Richiesta avviata.
+* *Scaduta*. La richiesta non è stata evasa entro 30 giorni. Oppure un utente con permessi di accesso Root ha disabilitato MAV, il che significa che tutte le richieste in sospeso sono scadute.
+* *Ritirata*. Un utente ha ritirato la propria richiesta.
+* *Approvato*. Un amministratore MAV ha approvato la richiesta in sospeso.
+* *Rifiutata*. Un amministratore MAV ha respinto la richiesta in sospeso.
+

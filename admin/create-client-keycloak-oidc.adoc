@@ -1,0 +1,224 @@
+---
+permalink: admin/create-client-keycloak-oidc.html 
+sidebar: sidebar 
+keywords: keycloak, client, single sign on, sso 
+summary: Usi Keycloak per creare una connessione client per ogni Admin Node nel tuo sistema. 
+---
+= Crea client in Keycloak per OIDC in StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizza Keycloak per creare una connessione client per ogni Admin Node per OpenID Connect (OIDC) nel tuo sistema StorageGRID.
+
+.Prima di iniziare
+* Hai esperienza nella creazione di client in Keycloak o hai accesso alla documentazione di Keycloak.
+* Hai un account dedicato (Bind DN) per la consultazione della directory e le credenziali di accesso.
+* Hai accesso come amministratore di Keycloak.
+
+
+.A proposito di questa attività
+Ogni Admin Node nel tuo sistema StorageGRID deve avere una connessione client. Questo garantisce che gli utenti possano accedere e disconnettersi in modo sicuro da qualsiasi Admin Node. Puoi creare un'unica connessione client per tutti gli Admin Node (consigliato) oppure una connessione client diversa per ciascun Admin Node.
+
+Utilizza le impostazioni predefinite, salvo diversa indicazione. In alcuni casi puoi utilizzare le impostazioni richieste dalla tua organizzazione.
+
+
+
+[[step-1-optionally-create-a-realm]]
+== Passaggio 1: Facoltativamente, crea un realm
+
+Crea un realm Keycloak per configurare il provider LDAP e il client OIDC, oppure usa il realm predefinito di Keycloak.
+
+.Fasi
+. Seleziona *Create Realm*.
+. Inserisci un nome per il realm.
+. Seleziona *Enabled*.
+. Selezionare *Crea*.
+
+
+
+
+[[create-ldap-oidcstep-2-configure-ldap-provider]]
+== [[create-ldap-oidc]]Passaggio 2: Configura il provider LDAP
+
+Configura il provider LDAP in modo che Keycloak si connetta al server LDAP Active Directory Federation Service (AD FS).
+
+.Fasi
+. Seleziona *Federazione utenti* > *Aggiungi provider LDAP*.
+. Nella scheda Impostazioni:
++
+.. Inserisci i seguenti valori consigliati:
++
+*** Nome visualizzato nell'interfaccia utente: Inserisci un valore univoco.
+*** Fornitore: *Active Directory*
+*** URL di connessione: `ldap://<ldap_IP_address>` o `ldaps://<ldap_IP_address>`
+*** Pool di connessioni: *ON*
+*** Bind DN: Inserisci il tuo Bind DN
+*** Credenziali di associazione: Inserisci la password
+*** Modalità di modifica: *READ_ONLY*
+*** DN utente: Ad esempio, `CN=Users`, `DC=saml`, `DC=sgws`
+*** Attributo LDAP username: *sAMAccountName*
+*** Attributo LDAP RDN: *cn*
+*** Attributo LDAP UUID: *objectGUID*
+*** Classi di oggetti utente:	`person`, `organizationalPerson`, `user`
+*** Filtro LDAP utente: `(sAMAccountName=*)`
+*** Ambito di ricerca: *Sottostruttura*
+*** Paginazione: *ON*
+*** Importa utenti: *ON*
+*** Sincronizzazione registrazioni: *ON*
+*** Rimuovi utenti non validi durante le ricerche: *ON*
+
+
+.. Seleziona *Test connessione* e *Test autenticazione*.
++
+Risolvi eventuali problemi che potrebbero presentarsi prima di continuare.
+
+
+
+. Selezionare *Salva*.
+
+
+
+
+[[step-3-configure-ldap-mapping]]
+== Passaggio 3: Configura la mappatura LDAP
+
+Configura la mappatura LDAP per mappare AD come attributo in Keycloak.
+
+.Fasi
+. Vai a *User federation* > *LDAP*
+. Seleziona <<create-ldap-oidc,Provider LDAP>> che hai creato.
+. Nella scheda Mapper, seleziona *Aggiungi mapper* > *Crea nuovo mapper*.
+. Per Tipo di mapper, seleziona *user-attribute-ldap-mapper*.
+. Seleziona *Salva*, quindi inserisci le seguenti informazioni:
++
+** Attributo del modello utente: *userPrincipalName*
+** Attributo LDAP: *userPrincipalName*
+** Sola lettura: *ON*
+** Leggi sempre il valore da LDAP: *ON*
+** Obbligatorio in LDAP: *OFF*
+** Forza un valore predefinito: *ON*
+** Attributo binario: *OFF*
+
+
+. Selezionare *Salva*.
+
+
+
+
+[[create-client-oidcstep-4-create-oidc-client]]
+== [[create-client-oidc]]Passaggio 4: Crea il client OIDC
+
+Crea il client OIDC per il tuo sistema.
+
+.Fasi
+. Vai su *Clienti* > *Crea client*.
+. Per le impostazioni generali, inserisci le seguenti informazioni:
++
+** Nome: Inserisci un nome visualizzato per il client.
+** Tipo di client: *OIDC Connect*
+** ID cliente: Inserisci un valore univoco. Salva questo valore per utilizzarlo in seguito.
+
+
+. Selezionare *Avanti*.
+. Per la configurazione delle funzionalità, inserisci le seguenti informazioni:
++
+** Autenticazione client: *ATTIVA*
+** Flusso standard: *Abilita*
+** Concessioni di accesso diretto: *Enable*
+** Ruoli account di servizio: *Enable*
+
+
+. Selezionare *Avanti*.
+. Per le impostazioni di accesso, inserisci gli URI di reindirizzamento:
++
+
+NOTE: Se per l'interfaccia di gestione sono configurati uno o più endpoint del bilanciatore di carico, aggiungi gli URI di reindirizzamento per ciascuna porta. Per esempio:  `\https://<Admin_IP_address_or_FQDN>:<port>/api/v4/oidc-callback` e  `\https://<Admin_IP_address_or_FQDN>:<port>/api/v4/oidc-logged-out`
+
++
+** URI di reindirizzamento validi: `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-callback` e `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-logged-out`
+** URI di reindirizzamento post-logout validi: `\https://<Admin_IP_address_or_FQDN>/api/v4/oidc-logged-out`
+** Origini del web: `\https://<Admin_IP_address_or_FQDN>`
+
+
+. Selezionare *Salva*.
+
+
+
+
+[[client-secret-oidcstep-5-generate-client-secret]]
+== [[client-secret-oidc]]Passaggio 5: Genera il client secret
+
+Genera un segreto client per il client OIDC che hai creato.
+
+.Fasi
+. Vai su *Clienti*, poi seleziona il <<create-client-oidc,client OIDC>> che hai creato.
+. Nella scheda Credenziali, inserisci le seguenti informazioni:
++
+** authenticator client: *Client Id e Secret*
+** Segreto del client: *Genera o imposta un segreto del client*. Salva questo valore per utilizzarlo in seguito.
+
+
+
+
+
+
+[[step-6-define-scopes]]
+== Passaggio 6: Definisci gli ambiti
+
+Definisci gli ambiti in Keycloak.
+
+.Fasi
+. Vai su *Ambiti client* > *Crea ambito client*, quindi inserisci le seguenti informazioni:
++
+** Tipo: *Nessuno*
+** Protocollo: *OpenID Connect*
+** Visualizzazione nella schermata di consenso: *Abilitato*
+** Includi nei metadati del provider OpenID: *Abilitato*
+
+
+. Selezionare *Salva*.
+. Nella scheda Mapper, seleziona *Configura un nuovo mapper* > *Attributo utente*, quindi inserisci le seguenti informazioni:
++
+** Nome: Inserisci un valore univoco.
+** Attributo utente: *userPrincipalName*
+** Nome richiesta token: *upn*
+** Tipo JSON della claim: *String*
+** Aggiungi al token ID: *ON*
+** Aggiungi al token di accesso: *ON*
+** Aggiungi alle informazioni utente: *ON*
+** Aggiungi all'introspezione del token: *ON*
+
+
+. Selezionare *Salva*.
+. Vai su *Clienti* e seleziona il <<create-client-oidc,client OIDC>> che hai creato.
+. Seleziona *Ambiti client* > *Aggiungi ambito client*.
+. Seleziona l'ambito client che hai creato.
+. Selezionare *Aggiungi*.
+
+
+
+
+[[step-7-prepare-to-configure-sso-using-oidc]]
+== Passaggio 7: Preparati a configurare SSO tramite OIDC
+
+Salva le informazioni necessarie per configurare l'SSO con OIDC utilizzando Keycloak nel tuo sistema StorageGRID.
+
+.Fasi
+. Verifica di aver salvato il <<create-client-oidc,ID client>> e il <<client-secret-oidc,segreto client>> dal client OIDC che hai creato.
+. Salva l'endpoint di rilevamento OpenID Connect per il realm. Questo è disponibile nell'endpoint di configurazione  `well-known`:
++
+`\https://<keycloak_host_ip/keycloak_host_name>/realms/<realm_name>/.well-known/openid-configuration`
+
++
+Facoltativamente, puoi includere la porta di rete:
+
++
+`\https://<keycloak_host_ip/keycloak_host_name>:<https_port>/realms/<realm_name>/.well-known/openid-configuration`
+
+
+
+.Cosa c'è dopo
+Dopo aver creato i client OIDC, link:configure-sso-oidc.html["Configura SSO tramite OIDC"].

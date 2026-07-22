@@ -47,7 +47,9 @@ L'esempio mostra una transazione riuscita per aggiornare i metadati di un oggett
 [[supd-s3-metadata-update]]
 === SUPD: Aggiornamento dei metadati S3
 
-Il client S3 effettua una richiesta (SUPD) per aggiornare i metadati specificati(`x-amz-meta-\*` ) per l'oggetto S3 (S3KY).  In questo esempio, le intestazioni delle richieste sono incluse nel campo HTRH perché è stato configurato come intestazione del protocollo di controllo (*Configurazione* > *Monitoraggio* > *Server di controllo e syslog*). Vedere link:../monitor/configure-log-management.html["Configurare la gestione dei log e il server syslog esterno"] .
+Il client S3 effettua una richiesta (SUPD) per aggiornare i metadati specificati (`x-amz-meta-*`) per l'oggetto S3 (S3KY).
+
+In questo esempio, le intestazioni della richiesta sono incluse nel campo HTRH perché è stato configurato come intestazione del protocollo di audit (*Configuration* > *Monitoring* > *Audit and syslog server*). Vedi link:../monitor/configure-log-management.html["Configurare la gestione dei log e il server syslog esterno"].
 
 [listing]
 ----

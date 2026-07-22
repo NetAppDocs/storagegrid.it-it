@@ -23,16 +23,17 @@ summary: È possibile spostare il servizio ADC su un altro nodo di archiviazione
 
 
 .A proposito di questa attività
-Utilizzare la procedura Sposta ADC quando si desidera:
-
-* Disattivare un nodo di archiviazione che ospita il servizio ADC
-* Convertire un nodo di archiviazione che ospita il servizio ADC in un nodo di archiviazione solo dati
-
-
-Quando si desidera dismettere un nodo di archiviazione olink:../maintain/convert-to-data-only-node.html["convertire un nodo di archiviazione in un nodo solo dati"] , potrebbe essere necessario prima utilizzare la procedura Sposta ADC.  Dovrai assicurarti che illink:../maintain/understanding-adc-service-quorum.html["Il quorum dell'ADC è mantenuto"] .
+Usa la procedura Sposta ADC per spostare manualmente il servizio ADC tra i nodi di storage. Ad esempio, potresti voler ridistribuire i servizi ADC tra i nodi o spostare il servizio ADC su un nodo con prestazioni superiori.
 
 Questa procedura sposta i servizi ADC, IDNT, ACCT e RSM da un nodo di archiviazione a un altro nello stesso sito.  I servizi RSM, IDNT e ACCT dipendono dal servizio ADC, pertanto vengono spostati automaticamente quando si sposta il servizio ADC.
 
+[NOTE]
+====
+* Non devi spostare manualmente il servizio ADC prima di link:../maintain/convert-to-data-only-node.html["conversione di un nodo di archiviazione in un nodo solo dati"] o decommissionare un Storage Node. Queste procedure spostano automaticamente il servizio ADC quando richiesto. Consulta link:../maintain/understanding-adc-service-quorum.html["Che cos'è il quorum dell'ADC?"] per i dettagli sui requisiti.
+* StorageGRID sposta il servizio ADC sui nodi di storage più recenti che soddisfano i requisiti per l'hosting del servizio.
+
+
+====
 .Fasi
 . Registrare gli ID dei nodi di origine e di destinazione.
 +

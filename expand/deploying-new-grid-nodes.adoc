@@ -116,7 +116,7 @@ Immissione manuale dell'IP
  a| 
 .. Deselezionare la casella di controllo *Enable Admin Node Discovery* (attiva rilevamento nodo amministratore).
 .. Inserire l'indirizzo IP manualmente.
-.. Fare clic su *Save* (Salva).
+.. Selezionare *Salva*.
 .. Attendere che lo stato di connessione del nuovo indirizzo IP diventi pronto.
 
 
@@ -128,7 +128,7 @@ Rilevamento automatico di tutti i nodi amministrativi primari connessi
 .. Selezionare la casella di controllo *Enable Admin Node Discovery* (attiva rilevamento nodo amministratore).
 .. Attendere che venga visualizzato l'elenco degli indirizzi IP rilevati.
 .. Selezionare il nodo di amministrazione principale per la griglia in cui verrà implementato il nodo di storage dell'appliance.
-.. Fare clic su *Save* (Salva).
+.. Selezionare *Salva*.
 .. Attendere che lo stato di connessione del nuovo indirizzo IP diventi pronto.
 
 
@@ -143,16 +143,16 @@ Se il pulsante *Avvia installazione* non è attivato, potrebbe essere necessario
 
 . Dalla home page del programma di installazione dell'appliance StorageGRID, selezionare *Avvia installazione*.
 +
-Lo stato corrente cambia in "Installazione in corso" e viene visualizzata la pagina Installazione monitor.
+Lo stato attuale cambia in "Installazione in corso" e viene visualizzata la pagina di installazione del monitor.
 
 . Se l'espansione include più nodi appliance, ripetere i passaggi precedenti per ogni appliance.
 +
 
 NOTE: Se è necessario implementare più nodi storage dell'appliance contemporaneamente, è possibile automatizzare il processo di installazione utilizzando lo script di installazione dell'appliance configure-sga.py.
 
-. Per accedere manualmente alla pagina Installazione monitor, selezionare *Installazione monitor* dalla barra dei menu.
+. Se devi accedere manualmente alla pagina di installazione del monitor, seleziona *Installazione monitor* dalla barra dei menu.
 +
-La pagina Monitor Installation (Installazione monitor) mostra lo stato di avanzamento dell'installazione.
+La pagina di installazione di Monitor mostra lo stato di avanzamento dell'installazione.
 
 +
 La barra di stato blu indica l'attività attualmente in corso. Le barre di stato verdi indicano le attività completate correttamente.

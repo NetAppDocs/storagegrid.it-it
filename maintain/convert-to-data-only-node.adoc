@@ -22,9 +22,8 @@ Quando si convertono nodi solo dati, la griglia deve contenere almeno tre nodi d
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di manutenzione o di accesso root"].
-* Il nodo di archiviazione che si desidera convertire non contiene il servizio ADC oppure è presentelink:../maintain/move-adc-service.html["spostato il servizio ADC"] a un altro nodo.
 * Il nodo di archiviazione non è un nodo solo metadati o solo dati.
-* Il nodo di archiviazione che si desidera convertire non contiene il servizio ADC oppure è presentelink:../maintain/move-adc-service.html["spostato il servizio ADC"] a un altro nodo.
+* Se il nodo di archiviazione contiene il servizio ADC, più di due nodi di archiviazione ADC sono online nella griglia e nodi di archiviazione non ADC sono disponibili nello stesso sito per ospitare il servizio ADC.
 * C'è abbastanza spazio per i metadati su altri nodi del sito (o hailink:../expand/index.html["ha ampliato la tua griglia"] ) per ospitare i metadati che verranno migrati dal nodo di archiviazione che si sta convertendo.
 +
 [CAUTION]
@@ -37,12 +36,15 @@ Quando si convertono nodi solo dati, la griglia deve contenere almeno tre nodi d
 
 
 .A proposito di questa attività
-Utilizzare questa procedura per convertire uno o più nodi di archiviazione combinati che non contengono il servizio ADC in nodi solo dati.
+Usa questa procedura per convertire uno o più nodi di archiviazione combinati in nodi solo dati. Se un nodo di archiviazione contiene il servizio ADC, il servizio viene automaticamente spostato su un altro nodo di archiviazione nello stesso sito durante la conversione.
 
 Oltre a convertire il nodo di archiviazione, questa procedura dismette Cassandra dal nodo.  Tutti i metadati verranno migrati verso nodi di archiviazione combinati o contenenti solo metadati.  A seconda della quantità di metadati da migrare, il completamento di questa procedura potrebbe richiedere fino a diversi giorni per nodo.
 
 
 TIP: In genere, è possibile convertire fino a 10 nodi alla volta se l'utilizzo dei metadati per nodo è inferiore a 1 TB.  Se l'utilizzo dei metadati per nodo è superiore a 1 TB, convertire fino a 5 nodi per procedura.
+
+
+NOTE: StorageGRID sposta il servizio ADC sui nodi di storage più recenti che soddisfano i requisiti per l'hosting del servizio.
 
 .Fasi
 . Registrare gli ID dei nodi di archiviazione non ADC che si desidera convertire.

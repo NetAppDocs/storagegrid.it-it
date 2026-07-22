@@ -59,5 +59,4 @@ CAUTION: Non chiudere questa finestra di dialogo prima di aver copiato o scarica
 +
 La nuova chiave è elencata nella pagina i miei tasti di accesso.
 
-. Se l'account tenant dispone dell'autorizzazione *use grid Federation Connection*, utilizzare facoltativamente l'API di gestione tenant per clonare manualmente le chiavi di accesso S3 dal tenant sulla griglia di origine al tenant sulla griglia di destinazione. Vedere link:grid-federation-clone-keys-with-api.html["Clonare le chiavi di accesso S3 utilizzando l'API"].
 

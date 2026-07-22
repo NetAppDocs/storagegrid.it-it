@@ -38,6 +38,7 @@ Si noti le seguenti caratteristiche dei bucket di diramazione:
 
 * È possibile utilizzare un branch bucket per rimuovere oggetti danneggiati creando un branch bucket da un punto nel tempo precedente al verificarsi del danneggiamento e quindi indirizzando le applicazioni al branch bucket anziché al bucket di base che contiene oggetti danneggiati.
 * Stai salvando i dati in un bucket con versione.  Si è verificata una vulnerabilità accidentale che ha causato l'ingestione di molti oggetti indesiderati dopo il tempo _T_.  È possibile creare un bucket di diramazione per il valore temporale Prima, _T_, e reindirizzare le operazioni client a tale bucket di diramazione.  Quindi, solo gli oggetti ingeriti prima del tempo precedente _T_ vengono esposti ai client.
+* Stai salvando dati in un bucket versionato. C'è stata una vulnerabilità accidentale che ha causato l'ingestione di molti oggetti indesiderati tra il tempo _T1_ e _T2_. Puoi creare un bucket di diramazione per i valori di tempo _Exclude_, _T1_ e _T2_, e reindirizzare le operazioni dei client a quel bucket di diramazione. Così, solo gli oggetti ingeriti prima di _T1_ e dopo _T2_ saranno esposti ai client.
 
 
 

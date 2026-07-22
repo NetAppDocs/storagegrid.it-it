@@ -50,7 +50,7 @@ Per implementare una soluzione di tiering:
 [[maintain-multiple-cloud-endpoints]]
 == Mantenere più endpoint cloud
 
-È possibile configurare più endpoint del Cloud Storage Pool se si desidera eseguire il Tier o il backup dei dati degli oggetti in più cloud. I filtri nelle regole ILM consentono di specificare quali oggetti sono memorizzati in ciascun Cloud Storage Pool. Ad esempio, è possibile memorizzare oggetti di alcuni tenant o bucket in Amazon S3 Glacier e oggetti di altri tenant o bucket nello storage Azure Blob. In alternativa, puoi spostare i dati tra lo storage Amazon S3 Glacier e Azure Blob.
+Puoi configurare più endpoint di Cloud Storage Pool se vuoi eseguire il tiering o il backup dei dati degli oggetti su più cloud. I filtri nelle tue regole ILM ti permettono di specificare quali oggetti vengono archiviati in ciascun Cloud Storage Pool. Ad esempio, potresti voler archiviare gli oggetti di alcuni tenant o bucket in Amazon S3 Glacier e gli oggetti di altri tenant o bucket in Azure Blob Storage. Oppure, potresti voler spostare i dati tra Amazon S3 Glacier e Azure Blob Storage.
 
 
 NOTE: Quando si utilizzano endpoint multipli del Cloud Storage Pool, tenere presente che un oggetto può essere memorizzato in un solo Cloud Storage Pool alla volta.

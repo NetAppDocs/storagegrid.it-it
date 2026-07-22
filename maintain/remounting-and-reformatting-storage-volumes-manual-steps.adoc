@@ -2,7 +2,7 @@
 permalink: maintain/remounting-and-reformatting-storage-volumes-manual-steps.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, appliance storage volume, appliance volume, remount manually, reformat manually 
-summary: È necessario eseguire manualmente due script per rimontare volumi di storage conservati e riformattare eventuali volumi di storage guasti. Il primo script consente di eseguire il remontaggio dei volumi correttamente formattati come volumi di storage StorageGRID. Il secondo script riformatta tutti i volumi non montati, ricostruisce Cassandra, se necessario, e avvia i servizi. 
+summary: Se la procedura automatica non riesce a rimontare i volumi di storage conservati e a riformattare i volumi di storage danneggiati, devi eseguire manualmente due script per completare queste operazioni. Il primo script rimonta i volumi correttamente formattati come volumi di storage StorageGRID. Il secondo script riformatta eventuali volumi non montati, ricostruisce il database Cassandra, se necessario, e avvia i servizi. 
 ---
 = Rimontare e riformattare i volumi di storage StorageGRID (procedura manuale)
 :allow-uri-read: 
@@ -11,7 +11,9 @@ summary: È necessario eseguire manualmente due script per rimontare volumi di s
 
 
 [role="lead"]
-È necessario eseguire manualmente due script per rimontare volumi di storage conservati e riformattare eventuali volumi di storage guasti. Il primo script consente di eseguire il remontaggio dei volumi correttamente formattati come volumi di storage StorageGRID. Il secondo script riformatta tutti i volumi non montati, ricostruisce Cassandra, se necessario, e avvia i servizi.
+Se la procedura automatica non riesce a rimontare i volumi di storage conservati e a riformattare i volumi di storage danneggiati, devi eseguire manualmente due script per completare queste operazioni. Il primo script rimonta i volumi correttamente formattati come volumi di storage StorageGRID. Il secondo script riformatta eventuali volumi non montati, ricostruisce il database Cassandra, se necessario, e avvia i servizi.
+
+Durante il ripristino di un nodo di archiviazione, se nel Grid Manager viene visualizzato il messaggio "In attesa di passaggi manuali", segui questi passaggi per rimontare e riformattare i volumi di archiviazione. Se non vedi questo messaggio, le operazioni di rimontaggio e riformattazione sono state completate automaticamente e puoi saltare _questa_ procedura e link:../maintain/restoring-object-data-to-storage-volume.html["ripristina i dati dell'oggetto"].
 
 .Prima di iniziare
 * L'hardware è già stato sostituito per tutti i volumi di storage guasti che è necessario sostituire.
@@ -191,9 +193,6 @@ CAUTION: Se un volume di storage viene segnalato come appartenente a un altro no
 
 NOTE: È necessario riparare o sostituire i dispositivi di storage che non possono essere montati.
 
-+
-Verrà utilizzato il nome del dispositivo per cercare l'ID del volume, che è necessario immettere quando si esegue `repair-data` lo script per ripristinare i dati dell'oggetto sul volume (la procedura successiva).
-
 .. Dopo aver riparato o sostituito tutti i dispositivi non montabili, eseguire `sn-remount-volumes` nuovamente lo script per confermare che tutti i volumi di storage che è possibile rimontare siano stati rimontati.
 +
 
@@ -240,21 +239,8 @@ image:recovering_cassandra.png["Schermata che mostra l'avanzamento del ripristin
 Lo script chiede se si desidera utilizzare il processo di ripristino del volume di Grid Manager.
 
 +
-** Nella maggior parte dei casi, è necessario link:../maintain/restoring-volume.html["Ripristinare i dati degli oggetti utilizzando Grid Manager"]. Rispondere `y` per utilizzare il Grid Manager.
-** In rari casi, ad esempio quando richiesto dal supporto tecnico o quando si sa che il nodo sostitutivo ha meno volumi disponibili per lo storage a oggetti rispetto al nodo originale, occorre link:restoring-object-data-to-storage-volume.html["ripristinare manualmente i dati dell'oggetto"] utilizzare `repair-data` lo script. Se si verifica uno di questi casi, rispondere `n`.
-+
-[NOTE]
-====
-Se si risponde `n` utilizzando il processo di ripristino del volume di Grid Manager (ripristinare manualmente i dati degli oggetti):
-
-*** Non è possibile ripristinare i dati degli oggetti utilizzando Grid Manager.
-*** È possibile monitorare l'avanzamento dei lavori di ripristino manuale utilizzando Grid Manager.
-
-
-====
-+
-Dopo aver effettuato la selezione, lo script viene completato e vengono visualizzati i passaggi successivi per recuperare i dati dell'oggetto. Dopo aver esaminato questi passaggi, premere un tasto qualsiasi per tornare alla riga di comando.
-
+** Nella maggior parte dei casi, dovresti link:../maintain/restoring-object-data-to-storage-volume.html["Ripristinare i dati degli oggetti utilizzando Grid Manager"]. Rispondi  `y` per utilizzare Grid Manager.
+** In rari casi, ad esempio quando sai che il nodo sostitutivo ha meno volumi disponibili per lo storage a oggetti rispetto al nodo originale, contatta il supporto tecnico per ripristinare manualmente i dati degli oggetti. Se si verifica uno di questi casi, rispondi  `n` e premi un tasto qualsiasi per tornare alla riga di comando.
 
 
 

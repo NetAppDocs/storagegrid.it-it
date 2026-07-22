@@ -60,3 +60,5 @@ La presente documentazione non concede alcuna licenza o altri diritti alla Stora
 I file di avviso forniscono informazioni sul copyright e sulle licenze di terze parti utilizzate nel software NetApp.
 
 https://library.netapp.com/ecm/ecm_download_file/ECMLP3351268[]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMLP3373066[]

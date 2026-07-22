@@ -43,7 +43,7 @@ Se la policy predefinita non soddisfa i tuoi requisiti di archiviazione, puoi cr
 
 Se il grid usa un semplice schema di data Protection con poche regole specifiche del tenant e del bucket, utilizza una singola policy ILM attiva. Le regole ILM possono contenere filtri per gestire bucket o tenant diversi.
 
-image:ilm-policies-single.png["Singolo diagramma delle policy ILM"]
+image:ilm_policies_single.png["Singolo diagramma delle policy ILM"]
 
 Quando si dispone di un solo criterio e i requisiti di un tenant cambiano, è necessario creare un nuovo criterio ILM o clonare il criterio esistente per applicare le modifiche, simulare e attivare quindi il nuovo criterio ILM. Le modifiche alla policy ILM possono comportare spostamenti degli oggetti che possono richiedere molti giorni e causare la latenza del sistema.
 
@@ -68,7 +68,7 @@ NOTE: Puoilink:../ilm/creating-ilm-policy.html#activate-ilm-policy["creare un ma
 Tag criterio ILM predefinito:: Quando si installa StorageGRID, viene creato automaticamente un tag di criterio ILM predefinito. Ogni griglia deve avere un criterio attivo assegnato al tag predefinito. Il criterio predefinito si applica a tutti i bucket S3 non contrassegnati.
 
 
-image:ilm-policies-tags-conceptual.png["Diagramma di policy ILM multiple"]
+image:ilm_policies_tags_conceptual.png["Diagramma di policy ILM multiple"]
 
 
 

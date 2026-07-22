@@ -78,7 +78,7 @@ image:decommission_site_step_5_ha_groups.png["Decommissionare i gruppi ha fase 5
 
 
 +
-Se tutti i nodi sono connessi e nessun nodo nel sito selezionato viene utilizzato in un gruppo ha, viene attivato il campo *Provisioning Passphrase*.
+Se tutti i nodi sono connessi e nessun nodo del sito selezionato viene utilizzato in un gruppo HA, il campo *Provisioning passphrase* è abilitato.
 
 . Inserire la passphrase di provisioning.
 +

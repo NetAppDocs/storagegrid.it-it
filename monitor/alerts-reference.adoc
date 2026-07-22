@@ -114,7 +114,7 @@ I due controller dell'appliance hanno dimensioni della cache diverse.
  a| 
 Guasto della batteria CMOS dell'apparecchio
  a| 
-È stato rilevato un problema con la batteria CMOS dell'apparecchio.
+È stato rilevato un problema con la batteria CMOS nell'apparecchio.
 
 
 
@@ -255,6 +255,13 @@ La potenza di un'appliance StorageGRID è diversa dalla tensione di esercizio co
 Aggiornamento software del sistema operativo SANtricity dell'appliance richiesto
  a| 
 La versione del software SANtricity è inferiore al minimo consigliato per questa versione di StorageGRID.
+
+
+
+ a| 
+Rilevato guasto SFP dell'appliance
+ a| 
+È stato rilevato un guasto SFP nel controller di calcolo di un'appliance StorageGRID.
 
 
 
@@ -427,6 +434,13 @@ Un bucket FabricPool utilizza il livello di coerenza disponibile o di sito sicur
 Il bucket FabricPool ha un'impostazione di versione non supportata
  a| 
 In un bucket FabricPool è abilitata la versione o il blocco degli oggetti S3, che non sono supportati.
+
+
+
+ a| 
+ListBucket controllo delle autorizzazioni per Get/Head object disabilitato
+ a| 
+Il controllo dei permessi ListBucket per GetObject/HeadObject su chiavi inesistenti è disabilitato.
 
 |===
 
@@ -669,6 +683,13 @@ Nelle ultime 24 ore, un utente ha effettuato l'accesso con la console Web o SSH.
 
 
  a| 
+Servizio chunk con elevato numero di goroutine
+ a| 
+Il servizio di suddivisione in blocchi presenta un numero insolitamente elevato di goroutine, il che potrebbe indicare un deadlock o una perdita di risorse.
+
+
+
+ a| 
 Errore di ribilanciamento EC
  a| 
 La procedura di ribilanciamento EC non è riuscita o è stata interrotta.
@@ -693,6 +714,13 @@ Un intervento di riparazione per i dati EC si è bloccato.
 Errore di verifica dei frammenti sottoposti a erasure coding
  a| 
 I frammenti sottoposti a erasure coding non possono più essere verificati. I frammenti corrotti potrebbero non essere riparati.
+
+
+
+ a| 
+Gruppi con codifica di cancellazione nello stato Needs Repair
+ a| 
+Uno o più gruppi con codifica di cancellazione si trovano nello stato "Necessita di riparazione" quando non è in corso alcuna riparazione di dati con codifica di cancellazione.
 
 |===
 
@@ -807,13 +835,6 @@ La connessione a federazione di griglie tra la rete locale e remota non funziona
 [cols="1a,2a"]
 |===
 | Nome dell'avviso | Descrizione 
-
-
- a| 
-Elevato utilizzo di heap Java
- a| 
-Viene utilizzata una percentuale elevata di spazio heap Java.
-
 
 
  a| 
@@ -1309,9 +1330,30 @@ Sono stati rilevati oggetti orfani.
 
 
  a| 
+Dimensione della parte di upload multipart S3 troppo grande
+ a| 
+Un client sta tentando un'operazione di caricamento in più parti che supera il limite di dimensione delle parti.
+
+
+
+ a| 
 S3 HA POSTO la dimensione dell'oggetto troppo grande
  a| 
 Un client sta tentando di eseguire un'operazione PUT Object che supera i limiti di dimensione S3.
+
+
+
+ a| 
+Richieste S3 che utilizzano intestazioni condizionali non supportate
+ a| 
+Un client S3 sta utilizzando intestazioni condizionali non supportate (If-Match o If-None-Match) per determinate operazioni.
+
+
+
+ a| 
+Richieste S3 che utilizzano la regione errata con namespace globale abilitato
+ a| 
+Un client S3 sta utilizzando la regione di firma errata per accedere ai bucket di questa grid.
 
 
 

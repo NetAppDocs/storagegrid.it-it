@@ -1,0 +1,40 @@
+---
+permalink: admin/request-mav-approval-for-protected-ops.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav 
+summary: 'Come amministratore o utente di StorageGRID, quando avvii un"operazione protetta da MAV in StorageGRID, viene generata automaticamente una richiesta. Appare un messaggio che ti informa che l"operazione richiede l"approvazione.' 
+---
+= Richiedi l'approvazione per le operazioni protette da MAV in StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Come amministratore o utente di StorageGRID, quando avvii un'operazione protetta da MAV in StorageGRID, viene generata automaticamente una richiesta. Appare un messaggio che ti informa che l'operazione richiede l'approvazione.
+
+Il sistema StorageGRID definisce quali operazioni sono protette da MAV. Quando avvii un'operazione protetta da MAV, la richiesta viene inviata agli amministratori MAV per l'approvazione.
+
+.Fasi
+Il sistema StorageGRID ti informa che hai avviato un'operazione protetta da MAV.
+
+. Se necessario, esegui una delle seguenti attività:
++
+.. Verifica lo stato della tua richiesta selezionando *Configurazione* > *Controllo accessi* > *Verifica multi-amministratore* > *Le mie richieste*.
++
+*** *In sospeso*. Richiesta avviata.
+*** *Scaduta*. La richiesta non è stata evasa entro 30 giorni. Oppure un utente con permessi di accesso Root ha disabilitato MAV, il che significa che tutte le richieste in sospeso sono scadute.
+*** *Ritirata*. Un utente ha ritirato la propria richiesta.
+*** *Approvato*. Un amministratore MAV ha approvato la richiesta in sospeso.
+*** *Rifiutata*. Un amministratore MAV ha respinto la richiesta in sospeso.
+
+
+.. Verifica le richieste in sospeso di altri utenti selezionando *Configurazione* > *Controllo accessi* > *Verifica multi-amministratore* > *Altre richieste*.
+.. Per annullare un'operazione, seleziona *Le mie richieste* > *_la richiesta che desideri annullare_* > *Ritira*.
+
+
+
+
+Dopo che un amministratore MAV approva la richiesta, l'operazione viene eseguita automaticamente.
+
+Se la tua richiesta viene rifiutata, l'operazione non viene eseguita e puoi inviare una nuova richiesta se necessario.

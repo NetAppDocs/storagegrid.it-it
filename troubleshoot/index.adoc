@@ -202,7 +202,7 @@ Raccogliere i dati per il supporto tecnico
 Il supporto tecnico potrebbe richiedere di raccogliere dati o rivedere informazioni specifiche per risolvere i problemi.
  a| 
 * link:../monitor/collecting-log-files-and-system-data.html["Raccogliere i file di log e i dati di sistema"]
-* link:../monitor/manually-triggering-autosupport-message.html["Attivare manualmente un pacchetto AutoSupport"]
+* link:../monitor/manually-triggering-autosupport-package.html["Attivare manualmente un pacchetto AutoSupport"]
 * link:../monitor/reviewing-support-metrics.html["Rivedere le metriche di supporto"]
 
 

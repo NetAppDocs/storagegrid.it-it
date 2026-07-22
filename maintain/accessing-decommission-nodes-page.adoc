@@ -33,10 +33,10 @@ Viene visualizzata la pagina nodi di decommissionazione. Da questa pagina è pos
 ** Ordinare l'elenco in ordine crescente o decrescente per *Nome*, *Sito*, *tipo* o *con ADC*.
 ** Inserisci i termini di ricerca per trovare rapidamente nodi specifici.
 +
-In questo esempio, la colonna Decommission possible (Decommission possibile) indica che è possibile decommissionare il nodo gateway e uno dei quattro nodi di archiviazione.
+In questo esempio, un segno di spunta verde nella colonna Dismissione possibile indica che puoi decommissionare il nodo API Gateway e il nodo di Storage solo dati. Gli altri nodi non possono essere decommissionati per vari motivi. Ad esempio, il nodo Admin primario non può essere decommissionato perché la decommissione di questo tipo di nodo non è supportata. Il nodo di Storage solo metadati non può essere decommissionato perché il sito non soddisferebbe più i link:../maintain/understanding-adc-service-quorum.html["Quorum ADC"].
 
 +
-image:decommission_nodes_page_all_connected.png["Pagina Decommissionate Nodes"]
+image:decommission_nodes_page.png["Pagina Decommissionate Nodes"]
 
 
 
@@ -106,11 +106,11 @@ Modificare il gruppo ha per rimuovere l'interfaccia del nodo o rimuovere l'inter
 
 
  a| 
-No, il sito _x_ richiede un minimo di _n_ nodi di storage con servizi ADC.
+No, il sito _x_ necessita di almeno 3 Storage Node con servizi ADC o di nodi non-ADC disponibili su cui spostare i servizi ADC. Il decommissionare del nodo ADC non è disponibile se uno qualsiasi dei nodi è offline.
  a| 
-*Solo nodi di archiviazione* (nodi di archiviazione combinati o solo metadati).  Non è possibile dismettere un nodo di archiviazione se nel sito non rimarrebbero nodi sufficienti a supportare i requisiti di quorum ADC.  Tuttavia, è possibile spostare il servizio ADC su un altro nodo di archiviazione.
+*Solo nodi di archiviazione* (nodi di archiviazione combinati o solo metadati). Non puoi decommissionare un nodo di archiviazione se nel sito rimangono nodi insufficienti a supportare i requisiti di quorum ADC e il servizio ADC non può essere spostato automaticamente. Lo spostamento automatico richiede che siano online più di due nodi di archiviazione ADC nella grid e che siano disponibili nodi di archiviazione non ADC nello stesso sito.
  a| 
-link:../maintain/move-adc-service.html["Spostare il servizio ADC su un altro nodo di archiviazione nello stesso sito"]oppure eseguire un'espansione aggiungendo un nuovo nodo di archiviazione al sito e specificando che deve disporre di un servizio ADC. Fare riferimento a link:understanding-adc-service-quorum.html["Quorum ADC"] .
+Assicurati che siano soddisfatte le condizioni per lo spostamento automatico del servizio ADC (consulta link:../maintain/understanding-adc-service-quorum.html["Quorum ADC"]), oppure link:../maintain/move-adc-service.html["spostare manualmente il servizio ADC"] verso un altro Storage Node nello stesso sito. Puoi anche eseguire un'espansione aggiungendo un nuovo Storage Node al sito e specificando che deve avere un servizio ADC. Consulta link:../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html["Riepilogo del flusso di lavoro per l'aggiunta di nodi griglia a StorageGRID"].
 
 
 

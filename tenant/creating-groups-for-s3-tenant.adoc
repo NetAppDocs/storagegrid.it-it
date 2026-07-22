@@ -17,7 +17,7 @@ summary: È possibile gestire le autorizzazioni per i gruppi di utenti S3 import
 * L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * L'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Autorizzazione di accesso root"].
 * Se si prevede di importare un gruppo federated, si dispone di link:using-identity-federation.html["federazione di identità configurata"], e il gruppo Federated esiste già nell'origine identità configurata.
-* Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, è stato esaminato il flusso di lavoro e le considerazioni relative a link:grid-federation-account-clone.html["clonazione di utenti e gruppi tenant"]e si è effettuato l'accesso alla griglia di origine del tenant.
+* Se il tuo tenant account dispone dell'autorizzazione *Usa connessione di federazione griglia*, hai esaminato il flusso di lavoro e le considerazioni relative a link:grid-federation-account-sync.html["sincronizzazione di gruppi di tenant e utenti"] e hai effettuato l'accesso alla grid di origine del tenant.
 
 
 
@@ -29,10 +29,6 @@ Come prima fase, accedere alla procedura guidata Crea gruppo.
 
 .Fasi
 . Selezionare *Gestione accessi* > *Gruppi*.
-. Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, verificare che venga visualizzato un banner blu che indica che i nuovi gruppi creati in questa griglia verranno clonati nello stesso tenant nell'altra griglia della connessione. Se questo banner non viene visualizzato, potresti aver effettuato l'accesso alla griglia di destinazione del tenant.
-+
-image:grid-federation-tenant-group-banner.png["Immagine del banner blu nella pagina gruppi della griglia di origine del tenant"]
-
 . Selezionare *Crea gruppo*.
 
 
@@ -151,9 +147,6 @@ Per informazioni dettagliate sui criteri di gruppo, incluse la sintassi del ling
 
 È possibile salvare il gruppo senza aggiungere utenti oppure aggiungere utenti locali già esistenti.
 
-
-NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, gli utenti selezionati quando si crea un gruppo locale nella griglia di origine non vengono inclusi quando il gruppo viene clonato nella griglia di destinazione. Per questo motivo, non selezionare gli utenti quando si crea il gruppo. Al momento della creazione degli utenti, selezionare il gruppo.
-
 .Fasi
 . Facoltativamente, selezionare uno o più utenti locali per questo gruppo.
 . Selezionare *Crea gruppo* e *fine*.
@@ -161,6 +154,6 @@ NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazio
 Il gruppo creato viene visualizzato nell'elenco dei gruppi.
 
 +
-Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e ci si trova nella griglia di origine del tenant, il nuovo gruppo viene clonato nella griglia di destinazione del tenant. *Success* viene visualizzato come *Cloning status* nella sezione Overview della pagina dei dettagli del gruppo.
+Se il tuo tenant account dispone dell'autorizzazione *Usa connessione di federazione griglia* e ti trovi sulla griglia di origine del tenant, il nuovo gruppo viene sincronizzato con la griglia di destinazione del tenant. *Riuscito* appare come stato di sincronizzazione nella sezione Panoramica della pagina dei dettagli del gruppo.
 
 

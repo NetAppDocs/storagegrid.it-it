@@ -1,0 +1,24 @@
+---
+permalink: maintain/recovering-from-primary-admin-node-failures-using-npan.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, primary admin node, non-primary admin node 
+summary: Completa una serie specifica di attività per ripristinare il sistema in caso di errore del nodo Admin primario, utilizzando un nodo Admin non primario. 
+---
+= Ripristina dai guasti del nodo di amministrazione primario di StorageGRID utilizzando un nodo di amministrazione non primario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Devi completare una serie specifica di attività per ripristinare il sistema dopo un errore del nodo di amministrazione primario utilizzando un nodo di amministrazione non primario. Il nodo di amministrazione primario ospita il servizio Configuration Management Node (CMN) per la grid.
+
+Segui questi high-level passaggi per ripristinare un nodo Admin primario usando un nodo Admin non primario:
+
+. link:copying-audit-logs-from-failed-primary-admin-node-using-npan.html["Copia i registri di controllo dal nodo di amministrazione primario non riuscito"]
+. link:replacing-primary-admin-node-using-npan.html["Sostituire nodo amministratore primario"]
+. link:selecting-start-recovery-to-configure-primary-admin-node.html["Seleziona Avvia ripristino per configurare il nodo Admin primario"]
+. link:assess-hotfix-requirement-during-primary-admin-node-recovery-using-npan.html["Determinare il requisito di hotfix per il nodo amministrativo primario"]
+. link:restoring-audit-log-on-recovered-primary-admin-node-using-npan.html["Ripristinare il log di audit sul nodo di amministrazione primario recuperato"]
+. link:restoring-prometheus-metrics-primary-admin-node-using-npan.html["Ripristinare le metriche Prometheus durante il ripristino del nodo di amministrazione primario"]
+

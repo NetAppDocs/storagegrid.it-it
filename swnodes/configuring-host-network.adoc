@@ -17,7 +17,7 @@ Dopo aver completato l'installazione di Linux sugli host, potrebbe essere necess
 NOTE: "Linux" si riferisce a una distribuzione RHEL, Ubuntu o Debian.  Per un elenco delle versioni supportate, vedere https://imt.netapp.com/matrix/#welcome["Tool di matrice di interoperabilità NetApp (IMT)"^] .
 
 .Prima di iniziare
-* È stata esaminata la link:../network/index.html["Linee guida per il networking StorageGRID"].
+* Hai esaminato le informazioni in link:../network/index.html["Linee guida per il networking"].
 * Sono state esaminate le informazioni su link:node-container-migration-requirements.html["requisiti per la migrazione dei container di nodi"].
 * Se si utilizzano host virtuali, è necessario leggere<<mac_address_cloning,Considerazioni e consigli per la clonazione degli indirizzi MAC>> prima di configurare la rete host.
 
@@ -43,14 +43,14 @@ NOTE: Non utilizzare dispositivi bond o bridge direttamente come interfaccia di 
 == Considerazioni e consigli per la clonazione degli indirizzi MAC
 
 .[[clonazione_indirizzo_mac]]
-La clonazione dell'indirizzo MAC fa in modo che il container utilizzi l'indirizzo MAC dell'host e l'host utilizzi l'indirizzo MAC di un indirizzo specificato o generato in modo casuale. È necessario utilizzare la clonazione dell'indirizzo MAC per evitare l'utilizzo di configurazioni di rete in modalità promiscua.
+La clonazione dell'indirizzo MAC fa sì che il container utilizzi l'indirizzo MAC dell'host e che l'host utilizzi l'indirizzo MAC di un indirizzo che specifichi tu o di uno generato casualmente.
 
 
 
 [[enabling-mac-cloning]]
 === Abilitazione della clonazione MAC
 
-In alcuni ambienti, la sicurezza può essere migliorata mediante la clonazione dell'indirizzo MAC, in quanto consente di utilizzare una NIC virtuale dedicata per Admin Network, Grid Network e Client Network. Il fatto che il container utilizzi l'indirizzo MAC della scheda NIC dedicata sull'host consente di evitare l'utilizzo di configurazioni di rete promiscue mode.
+In determinati ambienti, la sicurezza può essere migliorata tramite la clonazione dell'indirizzo MAC perché ti permette di usare una scheda di rete virtuale dedicata per l'Admin Network, la Grid Network e la Client Network.
 
 
 NOTE: La clonazione dell'indirizzo MAC è destinata all'utilizzo con le installazioni di server virtuali e potrebbe non funzionare correttamente con tutte le configurazioni fisiche delle appliance.
@@ -70,21 +70,18 @@ Per ogni rete è disponibile una chiave:
 Impostando la chiave su "true", il container utilizza l'indirizzo MAC della NIC dell'host. Inoltre, l'host utilizzerà l'indirizzo MAC della rete container specificata. Per impostazione predefinita, l'indirizzo del contenitore è un indirizzo generato casualmente, ma se è stato impostato un indirizzo utilizzando la `_NETWORK_MAC` chiave di configurazione del nodo, viene utilizzato tale indirizzo. L'host e il container avranno sempre indirizzi MAC diversi.
 
 
-NOTE: L'attivazione della clonazione MAC su un host virtuale senza attivare anche la modalità promiscua sull'hypervisor potrebbe causare l'interruzione del funzionamento della rete host Linux che utilizza l'interfaccia dell'host.
-
-
 
 [[mac-cloning-use-cases]]
 === Casi di utilizzo della clonazione MAC
 
 Esistono due casi di utilizzo da considerare con la clonazione MAC:
 
-* Clonazione MAC non abilitata: Quando la `_CLONE_MAC` chiave nel file di configurazione del nodo non è impostata o impostata su "false", l'host utilizzerà il MAC della NIC host e il contenitore avrà un MAC generato da StorageGRID a meno che non venga specificato un MAC nella `_NETWORK_MAC` chiave. Se un indirizzo viene impostato nella `_NETWORK_MAC` chiave, il contenitore avrà l'indirizzo specificato nella `_NETWORK_MAC` chiave. Questa configurazione delle chiavi richiede l'utilizzo della modalità promiscua.
-* Clonazione MAC attivata: Quando la `_CLONE_MAC` chiave nel file di configurazione del nodo è impostata su "true", il contenitore utilizza il MAC della scheda NIC host e l'host utilizza un MAC generato da StorageGRID, a meno che non venga specificato un MAC nella `_NETWORK_MAC` chiave. Se nella chiave viene impostato un `_NETWORK_MAC` indirizzo, l'host utilizza l'indirizzo specificato anziché quello generato. In questa configurazione di chiavi, non si dovrebbe utilizzare la modalità promiscua.
+* Clonazione MAC non abilitata: quando la  `_CLONE_MAC`chiave nel file di configurazione del nodo non è impostata o è impostata su "false", l'host utilizzerà il MAC della NIC dell'host e il container avrà un MAC generato da StorageGRID, a meno che non venga specificato un MAC nella  `_NETWORK_MAC`chiave. Se un indirizzo è impostato nella  `_NETWORK_MAC`chiave, il container avrà l'indirizzo specificato nella  `_NETWORK_MAC`chiave.
+* Clonazione MAC abilitata: quando la  `_CLONE_MAC` chiave nel file di configurazione del nodo è impostata su "true", il container utilizza il MAC della NIC dell'host e l'host utilizza un MAC generato da StorageGRID, a meno che non sia specificato un MAC nella  `_NETWORK_MAC` chiave. Se un indirizzo è impostato nella  `_NETWORK_MAC` chiave, l'host utilizza l'indirizzo specificato invece di uno generato.
 
 
 
-NOTE: Se non si desidera utilizzare la clonazione dell'indirizzo MAC e si desidera consentire a tutte le interfacce di ricevere e trasmettere dati per indirizzi MAC diversi da quelli assegnati dall'hypervisor, Assicurarsi che le proprietà di sicurezza a livello di switch virtuale e gruppo di porte siano impostate su *Accept* per modalità promiscuous, modifiche indirizzo MAC e trasmissione forgiata. I valori impostati sullo switch virtuale possono essere sovrascritti dai valori a livello di gruppo di porte, quindi assicurarsi che le impostazioni siano le stesse in entrambe le posizioni.
+NOTE: Se non vuoi usare la clonazione degli indirizzi MAC e preferisci permettere a tutte le interfacce di ricevere e trasmettere dati per indirizzi MAC diversi da quelli assegnati dall'hypervisor, assicurati che le proprietà di sicurezza a livello di switch virtuale e di port group siano impostate su *Accetta* per le modifiche degli indirizzi MAC e le trasmissioni falsificate. I valori impostati sullo switch virtuale possono essere sovrascritti dai valori a livello di port group, quindi assicurati che le impostazioni siano le stesse in entrambi i punti.
 
 Per attivare la clonazione MAC, consultare la link:creating-node-configuration-files.html["istruzioni per la creazione dei file di configurazione del nodo"].
 

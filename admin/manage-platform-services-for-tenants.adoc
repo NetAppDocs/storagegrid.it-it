@@ -29,9 +29,6 @@ Ad esempio, è possibile utilizzare la replica di CloudMirror per eseguire il mi
 La replica di CloudMirror presenta alcune importanti analogie differenze con la funzionalità di replica cross-grid. Per ulteriori informazioni, vedere link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Confronta la replica cross-grid e la replica CloudMirror"].
 
 
-NOTE: La replica CloudMirror non è supportata se nel bucket di origine è abilitato S3 Object Lock.
-
-
 
 [[notifications]]
 == Notifiche

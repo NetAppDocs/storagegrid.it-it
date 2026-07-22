@@ -14,13 +14,13 @@ summary: 'Quando si installa StorageGRID, è necessario creare almeno un sito. �
 Quando si installa StorageGRID, è necessario creare almeno un sito. È possibile creare siti aggiuntivi per aumentare l'affidabilità e la capacità di storage del sistema StorageGRID.
 
 .Fasi
-. Nella pagina Siti, immettere il nome del sito *.
-. Per aggiungere altri siti, fare clic sul segno più accanto all'ultima voce del sito e inserire il nome nella nuova casella di testo *Nome sito*.
+. Nella pagina Siti, inserisci il *nome del sito*.
+. Per aggiungere altri siti, seleziona il segno più accanto all'ultima voce sito e inserisci il nome nella nuova casella di testo *Site name*.
 +
 Aggiungi tutti i siti aggiuntivi necessari per la topologia della griglia. È possibile aggiungere fino a 16 siti.
 
 +
 image:3_gmi_installer_sites_page.gif["Questa immagine viene spiegata dal testo circostante."]
 
-. Fare clic su *Avanti*.
+. Selezionare *Avanti*.
 

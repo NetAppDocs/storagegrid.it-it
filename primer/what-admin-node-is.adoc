@@ -149,7 +149,7 @@ Può recuperare il nodo di amministrazione primario
  a| 
 Sì
  a| 
-No
+Sì
 
 
 

@@ -27,6 +27,17 @@ summary: 'È necessario esaminare i requisiti per l"attivazione dell"impostazion
 
 
 
+[[requirements-for-allowing-s3-object-lock-to-be-enabled-on-existing-buckets]]
+[[s3-object-lock-existing-buckets]]
+== Requisiti per abilitare S3 Object Lock sui bucket esistenti
+
+Quando l'impostazione globale S3 Object Lock è abilitata, puoi facoltativamente consentire a tutti gli account tenant S3 o agli utenti S3 con le autorizzazioni di abilitare S3 Object Lock sui bucket esistenti. Quando un account tenant S3 o un utente S3 abilita S3 Object Lock su un bucket esistente, potrebbe causare una migrazione dei dati da un Cloud Storage Pool a StorageGRID, a seconda delle tue regole ILM.
+
+
+CAUTION: Non puoi interrompere la migrazione dei dati non intenzionale dopo che è iniziata.
+
+
+
 [[requirements-for-compliant-ilm-rules]]
 == Requisiti per le regole ILM conformi
 
@@ -59,11 +70,9 @@ link:example-7-compliant-ilm-policy-for-s3-object-lock.html["Esempio di un crite
 == Requisiti per i bucket con S3 Object Lock attivato
 
 * Se l'impostazione blocco oggetto S3 globale è attivata per il sistema StorageGRID, è possibile utilizzare Gestione tenant, API di gestione tenant o API REST S3 per creare bucket con blocco oggetto S3 attivato.
-* Se si intende utilizzare il blocco oggetti S3, è necessario attivare il blocco oggetti S3 quando si crea il bucket. Impossibile attivare il blocco oggetti S3 per un bucket esistente.
 * Quando il blocco oggetti S3 è attivato per un bucket, StorageGRID attiva automaticamente il controllo delle versioni per quel bucket. Non puoi disattivare il blocco oggetti S3 o sospendere il controllo delle versioni per il bucket.
 * Facoltativamente, è possibile specificare una modalità di conservazione e un periodo di conservazione predefiniti per ciascun bucket utilizzando Tenant Manager, l'API di gestione tenant o l'API REST S3. Le impostazioni di conservazione predefinite del bucket si applicano solo ai nuovi oggetti aggiunti al bucket che non dispongono di proprie impostazioni di conservazione. È possibile eseguire l'override di queste impostazioni predefinite specificando una modalità di conservazione e conservarla fino alla data per ogni versione dell'oggetto al momento del caricamento.
 * La configurazione del ciclo di vita del bucket è supportata per i bucket con blocco oggetti S3 attivato.
-* La replica di CloudMirror non è supportata per i bucket con blocco oggetti S3 attivato.
 
 
 

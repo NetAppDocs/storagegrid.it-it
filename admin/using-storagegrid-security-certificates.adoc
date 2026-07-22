@@ -186,7 +186,7 @@ NOTE: È possibile visualizzare e accedere alle informazioni relative ad altri c
 *** link:grid-federation-manage-connection.html#rotate-connection-certificates["Ruotare i certificati di connessione Grid Federation"]
 *** link:using-identity-federation.html["Visualizzare e modificare un certificato di federazione delle identità"]
 *** link:kms-adding.html["Caricare i certificati del server e del client del server di gestione delle chiavi (KMS)"]
-*** link:creating-relying-party-trusts-in-ad-fs.html#create-a-relying-party-trust-manually["Specificare manualmente un certificato SSO per un trust della parte che si basa"]
+*** link:creating-relying-party-trusts-in-ad-fs-saml.html#create-a-relying-party-trust-manually["Specificare manualmente un certificato SSO per un trust della parte che si basa"]
 
 
 --
@@ -317,7 +317,7 @@ Autentica la connessione tra i client S3 e il servizio di bilanciamento del cari
  a| 
 Server
  a| 
-Autentica la connessione da un pool di storage cloud StorageGRID a una posizione di storage esterna, ad esempio lo storage S3 Glacier o Microsoft Azure Blob. Per ogni tipo di cloud provider è necessario un certificato diverso.
+Autentica la connessione da un StorageGRID Cloud Storage Pool a una posizione di archiviazione esterna, come S3 Glacier o Microsoft Azure Blob Storage. È necessario un certificato diverso per ogni tipo di cloud provider.
  a| 
 *ILM* > *Storage Pools*
  a| 

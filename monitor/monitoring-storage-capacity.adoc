@@ -106,10 +106,7 @@ image:nodes_page_storage_used_object_data.png["Nodes Page Storage Uused Object D
 . Esaminare i valori disponibili nelle tabelle volumi e archivi di oggetti, sotto i grafici.
 +
 
-NOTE: Per visualizzare i grafici di questi valori, clicca sulle icone dei grafici image:icon_chart_new_for_11_5.png["Icona del grafico"] nelle colonne Disponibili.
-
-+
-image:nodes_page_storage_tables.png["L'oggetto memorizza le tabelle"]
+NOTE: Per visualizzare i grafici di questi valori, seleziona le icone dei grafici nelle colonne disponibili.
 
 . Monitorare i valori nel tempo per stimare il tasso di consumo dello spazio di storage utilizzabile.
 . Per mantenere le normali operazioni di sistema, aggiungere nodi di storage, aggiungere volumi di storage o archiviare i dati degli oggetti prima di consumare lo spazio utilizzabile.
@@ -206,4 +203,4 @@ Se si dispone di una nuova installazione StorageGRID, consentire l'accumulo di d
 . Utilizza questi valori per valutare quando sarà necessario aggiungere nuovi nodi di storage per lo storage di dati e metadati.
 
 
-image:forecast-metadata-usage.png["Previsione dell'utilizzo dei metadati per sito"]
+image:forecast_metadata_usage.png["Previsione dell'utilizzo dei metadati per sito"]

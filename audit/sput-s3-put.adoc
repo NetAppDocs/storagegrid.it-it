@@ -19,6 +19,28 @@ Quando un client S3 esegue una transazione PUT, viene effettuata una richiesta p
 
 
  a| 
+ASRS
+ a| 
+URN della sessione di ruolo assunto
+ a| 
+L'identificativo univoco della sessione del ruolo assunto.
+
+Presente solo quando la richiesta S3 utilizza credenziali di sicurezza temporanee provenienti da una richiesta AssumeRole.
+
+
+
+ a| 
+ASRU
+ a| 
+URN del ruolo assunto
+ a| 
+L'identificativo univoco del ruolo assunto.
+
+Presente solo quando la richiesta S3 utilizza credenziali di sicurezza temporanee provenienti da una richiesta AssumeRole.
+
+
+
+ a| 
 CBID
  a| 
 Identificatore del blocco di contenuto

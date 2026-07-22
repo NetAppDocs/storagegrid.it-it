@@ -24,7 +24,7 @@ Se si desidera conservare le informazioni cronologiche sugli attributi e gli avv
 In caso di errore di un nodo amministratore, le informazioni storiche memorizzate nel database del nodo amministratore andranno perse. Questo database include le seguenti informazioni:
 
 * Cronologia degli avvisi
-* Dati degli attributi storici, utilizzati nei grafici di stile legacy nella pagina nodi
+* Dati storici sugli attributi, utilizzati nei grafici della pagina Nodes
 
 
 Quando si ripristina un nodo amministratore, il processo di installazione del software crea un database Admin Node vuoto sul nodo recuperato. Tuttavia, il nuovo database include solo le informazioni relative ai server e ai servizi attualmente presenti nel sistema o aggiunti successivamente.
@@ -60,11 +60,6 @@ NOTE: La copia del database Admin Node potrebbe richiedere diverse ore. Alcune f
 .. Arrestare il servizio api di gestione: `service mgmt-api stop`
 .. Aggiungere la chiave privata SSH all'agente SSH. Immettere:``ssh-add``
 .. Immettere la password di accesso SSH elencata nel `Passwords.txt` file.
-.. Copiare il database dal nodo amministrativo di origine al nodo amministrativo recuperato: `/usr/local/mi/bin/mi-clone-db.sh Source_Admin_Node_IP`
-.. Quando richiesto, confermare che si desidera sovrascrivere il database MI nel nodo Admin recuperato.
-+
-Il database e i relativi dati storici vengono copiati nel nodo di amministrazione recuperato. Al termine dell'operazione di copia, lo script avvia il nodo Admin recuperato.
-
 .. Se non si richiede più l'accesso senza password ad altri server, rimuovere la chiave privata dall'agente SSH. Immettere:``ssh-add -D``
 
 

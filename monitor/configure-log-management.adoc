@@ -11,11 +11,11 @@ summary: Se necessario, configurare i livelli di controllo, le intestazioni del 
 
 
 [role="lead"]
-Se necessario, configurare i livelli di controllo, le intestazioni del protocollo e la posizione dei messaggi e dei registri di controllo.
+Se necessario, configura i livelli di audit, le intestazioni del protocollo, la posizione dei messaggi e dei log di audit e la conservazione dei log.
 
 Tutti i nodi StorageGRID generano messaggi di controllo e registri per monitorare l'attività e gli eventi del sistema.  I messaggi e i registri di controllo sono strumenti essenziali per il monitoraggio e la risoluzione dei problemi.
 
-Facoltativamente, puoilink:../monitor/considerations-for-external-syslog-server.html["configurare un server syslog esterno"] per salvare le informazioni di audit in remoto.  L'utilizzo di un server esterno riduce al minimo l'impatto sulle prestazioni della registrazione dei messaggi di controllo senza ridurre la completezza dei dati di controllo.  Un server syslog esterno è particolarmente utile se si dispone di una griglia di grandi dimensioni, si utilizzano più tipi di applicazioni S3 o si desidera conservare tutti i dati di audit.
+Facoltativamente, puoi link:../monitor/considerations-for-external-syslog-server.html["configurare un server syslog esterno"] per salvare le informazioni di audit in remoto. Puoi ridurre al minimo l'impatto sulle prestazioni della registrazione dei messaggi di audit senza ridurre la completezza dei dati di audit utilizzando un server esterno. Un syslog server esterno è particolarmente utile se hai una griglia di grandi dimensioni, usi diversi tipi di applicazioni S3 o vuoi conservare tutti i dati di audit.
 
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
@@ -161,7 +161,7 @@ Utilizzare un asterisco (*) come carattere jolly per far corrispondere zero o pi
 
 . Selezionare *Add another header* (Aggiungi un'altra intestazione) per creare altre intestazioni, se necessario.
 +
-Quando le intestazioni HTTP vengono trovate in una richiesta, vengono incluse nel messaggio di audit nel campo HTRH.
+Quando StorageGRID rileva intestazioni HTTP in una richiesta, le include nel messaggio di audit nel campo HTRH.
 
 +
 
@@ -175,7 +175,7 @@ NOTE: Le intestazioni delle richieste del protocollo di controllo vengono regist
 [[configure-log-location]]
 == Configura la posizione del registro
 
-Per impostazione predefinita, i messaggi di controllo e i registri vengono salvati sui nodi in cui vengono generati.  Vengono ruotati periodicamente e alla fine eliminati per evitare che occupino troppo spazio sul disco.  Se si desidera salvare esternamente i messaggi di controllo e un sottoinsieme di registri,<<use-external-syslog-server,utilizzare un server syslog esterno>> .
+Per impostazione predefinita, i messaggi di audit e i log vengono salvati sui nodi in cui vengono generati. StorageGRID ruota regolarmente e infine elimina i messaggi di audit e i log per evitare che consumino troppo spazio su disco. Per salvare i messaggi di audit e un sottoinsieme di log esternamente, <<use-external-syslog-server,utilizzare un server syslog esterno>>.
 
 Se si desidera salvare i file di registro internamente, scegliere un tenant e un bucket per l'archiviazione dei registri e abilitare l'archiviazione dei registri.
 
@@ -262,7 +262,7 @@ L'impostazione dei valori di gravità e struttura consente di aggregare i regist
 +
 .. Per *gravità*, selezionare *Passthrough* oppure selezionare un valore di gravità compreso tra 0 e 7.
 +
-Se si seleziona un valore, il valore selezionato verrà applicato a tutti i messaggi di questo tipo. Le informazioni sui diversi livelli di gravità andranno perse se si sovrascrive la gravità con un valore fisso.
+Se selezioni un valore, StorageGRID applica il valore selezionato a tutti i messaggi di questo tipo. Perdi i dettagli sui diversi livelli di gravità se sovrascrivi la gravità con un valore fisso.
 
 +
 [cols="1a,3a"]
@@ -547,7 +547,7 @@ local7
 
 ==== Inviare messaggi di test
 
-Prima di iniziare a utilizzare un server syslog esterno, è necessario richiedere a tutti i nodi della griglia di inviare messaggi di test al server syslog esterno. È necessario utilizzare questi messaggi di test per convalidare l'intera infrastruttura di raccolta dei log prima di inviare i dati al server syslog esterno.
+Prima di utilizzare un syslog server esterno, chiedi a tutti i nodi della tua grid di inviare messaggi di prova al syslog server esterno. Questi messaggi di prova ti aiutano a convalidare l'intera infrastruttura di raccolta dei log prima di iniziare a inviare dati al syslog server esterno.
 
 
 CAUTION: Non utilizzare la configurazione del server syslog esterno fino a quando non si conferma che il server syslog esterno ha ricevuto un messaggio di test da ciascun nodo della griglia e che il messaggio è stato elaborato come previsto.
@@ -704,3 +704,52 @@ Ad esempio:
 system-logs/DC1-SN1/var/local/log/localaudit.log--2025-05-12_13:41:44.gz
 ----
 
+
+
+
+[[manage-log-retention]]
+== Gestisci la conservazione dei log
+
+Puoi gestire per quanto tempo StorageGRID conserva i log creando una regola ILM o configurando una policy di ciclo di vita del bucket S3.
+
+[role="tabbed-block"]
+====
+.Regola ILM
+--
+Crea una regola ILM per il bucket e aggiungi questa regola alla policy ILM attiva.
+
+.Fasi
+. Selezionare *ILM* > *regole*.
+. Seleziona *Crea*. link:../ilm/create-ilm-rule-enter-details.html["Fase 1 (inserire i dettagli)"] Viene visualizzata la finestra della procedura guidata "Crea una regola ILM":
++
+.. Inserisci un nome univoco per la regola. Ad esempio: Regola ILM per i log archiviati.
+.. Seleziona l'account tenant S3 per l'archiviazione dei log.
+.. Specifica il bucket S3 per l'archiviazione dei log.
+
+
+. Continua su link:../ilm/create-ilm-rule-define-placements.html["Fase 2 (definizione delle posizioni)"] e definisci il posizionamento per la regola dei log archiviati. Ad esempio, la regola ILM memorizza una copia replicata nel Sito 1 e una copia replicata nel Sito 2 per il primo anno. Dopo un anno, viene creata una copia con codifica di cancellazione 2+1 e salvata in un solo sito.
+. Dopo aver creato la regola, aggiungila a una policy ILM attiva.
+
+
+--
+.ciclo di vita del bucket S3
+--
+Configura una policy del ciclo di vita su un bucket S3 per l'archiviazione dei log:
+
+[listing]
+----
+{
+      "Rules": [
+        {
+            "ID": "Retain logs forever",
+            "Filter": {},
+            "Status": "Enabled"，
+            "Expiration": {}
+        }
+      ]
+}
+----
+Quando configuri una policy di ciclo di vita S3 sul bucket S3 di archiviazione dei log, le azioni di scadenza del ciclo di vita sovrascrivono la policy ILM per gli oggetti che corrispondono al filtro di ciclo di vita del bucket. Gli oggetti che non corrispondono al filtro di ciclo di vita del bucket utilizzano le impostazioni di conservazione della policy ILM. Se un oggetto corrisponde a un filtro di ciclo di vita del bucket e non vengono specificate esplicitamente azioni di scadenza, le impostazioni di conservazione della policy ILM non vengono utilizzate e si intende che le versioni degli oggetti vengano conservate per sempre.
+
+--
+====

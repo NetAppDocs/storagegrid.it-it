@@ -24,9 +24,6 @@ CAUTION: Le seguenti regole e policy ILM sono solo esempi. Esistono diversi modi
 
 NOTE: Per eseguire la simulazione dei criteri ILM su una versione non corrente di un oggetto, è necessario conoscere l'UUID o il CBID della versione dell'oggetto. Per trovare UUID e CBID, utilizzare link:verifying-ilm-policy-with-object-metadata-lookup.html["ricerca dei metadati degli oggetti"] mentre l'oggetto è ancora corrente.
 
-.Informazioni correlate
-link:how-objects-are-deleted.html["Modalità di eliminazione degli oggetti"]
-
 
 
 [[ilm-rule-1-for-example-4-save-three-copies-for-10-years]]
@@ -79,7 +76,7 @@ Poiché la regola ILM 1 si applica a tutte le versioni dell'oggetto, è necessar
 
 Per creare una regola che utilizza "ora non corrente" come ora di riferimento, selezionare *Sì* per la domanda "Applica questa regola solo alle versioni di oggetti precedenti (nei bucket S3 con versione abilitata)?" Nel passaggio 1 (immettere i dettagli) della procedura guidata Crea una regola ILM. Quando si seleziona *Sì*, viene automaticamente selezionata l'opzione _ora non corrente_ per l'ora di riferimento e non è possibile selezionare un'ora di riferimento diversa.
 
-image:ilm-rule-apply-only-to-older-object-verions.png["Applica la regola ILM solo alle versioni di oggetti precedenti (ora non corrente)"]
+image:ilm_rule_apply_only_to_older_object_verions.png["Applica la regola ILM solo alle versioni di oggetti precedenti (ora non corrente)"]
 
 In questo esempio, vengono memorizzate solo due copie delle versioni non correnti, che verranno memorizzate per due anni.
 
@@ -139,3 +136,6 @@ Quando si simula il criterio di esempio, si prevede che gli oggetti di test veng
 * Qualsiasi versione dell'oggetto non corrente verrebbe associata dalla prima regola. Se una versione dell'oggetto non corrente ha più di 2 anni, viene eliminata in modo permanente da ILM (tutte le copie della versione non corrente vengono rimosse dalla griglia).
 * La seconda regola corrisponde alla versione corrente dell'oggetto. Quando la versione corrente dell'oggetto è stata archiviata per 10 anni, il processo ILM aggiunge un marcatore di eliminazione come versione corrente dell'oggetto e rende la versione precedente "non corrente". La prossima volta che si verifica la valutazione ILM, questa versione non corrente corrisponde alla prima regola. Di conseguenza, la copia del sito 3 viene eliminata e le due copie del sito 1 e del sito 2 vengono memorizzate per altri 2 anni.
 
+
+.Informazioni correlate
+link:how-objects-are-deleted.html["Modalità di eliminazione degli oggetti"]

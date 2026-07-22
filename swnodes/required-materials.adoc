@@ -21,7 +21,7 @@ Prima di installare StorageGRID, raccogliere e preparare le informazioni e il ma
 Piano di rete:: Quali reti intendi collegare a ogni nodo StorageGRID? StorageGRID supporta più reti per la separazione del traffico, la sicurezza e la convenienza amministrativa.
 +
 --
-Vedere StorageGRID link:../network/index.html["Linee guida per il networking"].
+Consulta link:../network/index.html["Linee guida per il networking"].
 
 --
 Informazioni di rete:: Indirizzi IP da assegnare a ciascun nodo di rete e indirizzi IP dei server DNS e NTP.
@@ -62,7 +62,7 @@ Il laptop di assistenza deve disporre di:
 Documentazione StorageGRID::
 +
 --
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Note di rilascio"^]. È necessario accedere con il proprio account NetApp o crearne uno per accedere alle note di rilascio.
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3373065["Note di rilascio"^]. È necessario accedere con il proprio account NetApp o crearne uno per accedere alle note di rilascio.
 * link:../admin/index.html["Istruzioni per l'amministrazione di StorageGRID"]
 
 

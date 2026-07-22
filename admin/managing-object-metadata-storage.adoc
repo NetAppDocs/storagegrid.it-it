@@ -72,6 +72,23 @@ Lo _spazio riservato metadati_ è un'impostazione a livello di sistema che rappr
 
 
  a| 
+12,1
+ a| 
+128 GB o più su ciascun nodo di storage nella griglia
+ a| 
+20 TB (20.000 GB)
+
+
+
+ a| 
+ a| 
+Meno di 128 GB su qualsiasi nodo di storage nel grid
+ a| 
+3 TB (3.000 GB)
+
+
+
+ a| 
 da 11,5 a 12,0
  a| 
 128 GB o più su ciascun nodo di storage nella griglia
@@ -127,7 +144,7 @@ Per visualizzare l'impostazione dello spazio riservato ai metadati per il sistem
 
 Per StorageGRID 11,8 o versione successiva, il valore dello spazio riservato dei metadati deve essere almeno 100 GB e non più di 1 PB.
 
-L'impostazione predefinita per una nuova installazione di StorageGRID 11,6 o superiore in cui ogni nodo di archiviazione ha 128 GB o più di RAM è 8.000 GB (8 TB).
+L'impostazione predefinita per una nuova installazione di StorageGRID 12.1 o superiore in cui ogni Storage Node ha 128 GB o più di RAM è 20.000 GB (20 TB).
 
 
 
@@ -176,17 +193,17 @@ image:storage_used_object_metadata_actual_reserved.png["Storage utilizzato - met
 
 
 
-Nella schermata, il valore *effettivo riservato* è 8 TB. Questa schermata riguarda un nodo di storage di grandi dimensioni in una nuova installazione di StorageGRID 11.6. Poiché l'impostazione dello spazio riservato ai metadati a livello di sistema è inferiore al volume 0 per questo nodo di archiviazione, lo spazio riservato effettivo per questo nodo è uguale all'impostazione dello spazio riservato ai metadati.
+Nello screenshot, il valore effettivo riservato è 20 TB. Questo screenshot si riferisce a un grande Storage Node in una nuova installazione di StorageGRID 12.1. Il volume 0 è di almeno 20 TB, quindi utilizza l'impostazione predefinita dello spazio riservato per i metadati a livello di sistema.
 
 
 
 [[example-for-actual-reserved-metadata-space]]
-=== Esempio di spazio riservato effettivo dei metadati
+=== Esempio di spazio riservato effettivo per i metadati
 
-Si supponga di installare un nuovo sistema StorageGRID utilizzando la versione 11,7 o successiva. In questo esempio, si supponga che ogni nodo di storage abbia più di 128 GB di RAM e che il volume 0 del nodo di storage 1 (SN1) sia di 6 TB. In base a questi valori:
+Supponiamo che tu installi un nuovo sistema StorageGRID utilizzando la versione 12.1 o successiva. Per questo esempio, supponi che ogni Storage Node abbia più di 128 GB di RAM e che il volume 0 dello Storage Node 1 (SN1) sia di 6 TB. In base a questi valori:
 
-* Lo spazio riservato * dei metadati a livello di sistema è impostato su 8 TB. (Questo è il valore predefinito per una nuova installazione di StorageGRID 11.6 o superiore se ogni nodo di storage ha più di 128 GB di RAM).
-* Lo spazio riservato effettivo per i metadati per SN1 è di 6 TB. (L'intero volume è riservato perché il volume 0 è più piccolo dell'impostazione *spazio riservato metadati*).
+* Lo *spazio riservato ai metadati* a livello di sistema è impostato su 20 TB. (Questo è il valore predefinito per una nuova installazione di StorageGRID 12.1 o superiore se ogni Storage Node ha più di 128 GB di RAM.)
+* Lo spazio *effettivamente riservato* per metadati per SN1 è 6 TB. (L'intero volume è riservato perché il volume 0 è più piccolo dell'impostazione di *spazio riservato per metadati*.)
 
 
 
@@ -226,18 +243,18 @@ La seguente tabella mostra come StorageGRID calcola lo spazio di metadati consen
  a| 
 &Lt;= 4 TB
  a| 
-60% dello spazio riservato effettivo per i metadati, fino a un massimo di 1,32 TB
+75% dello spazio riservato ai metadati, fino a un massimo di 1,32 TB
  a| 
-60% dello spazio riservato effettivo per i metadati, fino a un massimo di 1,98 TB
+75% dello spazio riservato effettivo per i metadati, fino a un massimo di 1,98 TB
 
 
 
  a| 
 > 4 TB
  a| 
-(Spazio riservato effettivo per i metadati − 1 TB) x 60%, fino a un massimo di 1,32 TB
+(Spazio riservato effettivo per metadati − 1 TB) × 75%, fino a un massimo di 1,32 TB
  a| 
-(Spazio riservato effettivo per i metadati − 1 TB) x 60%, fino a un massimo di 3,96 TB
+(Spazio riservato per metadati − 1 TB) × 75%, fino a un massimo di 7,92 TB
 
 |===
 
@@ -257,7 +274,7 @@ image:storage_used_object_metadata_allowed.png["Storage utilizzato - metadati og
 
 
 
-Nella schermata, il valore *Allowed* è 3,96 TB, che è il valore massimo per un nodo di archiviazione il cui spazio riservato effettivo per i metadati è superiore a 4 TB.
+Nello screenshot, il valore *Allowed* è 7,92 TB, che è il valore massimo per un Storage Node il cui spazio riservato per i metadati è superiore a 4 TB.
 
 Il valore *Allowed* corrisponde a questa metrica Prometheus:
 
@@ -266,13 +283,13 @@ Il valore *Allowed* corrisponde a questa metrica Prometheus:
 
 
 [[example-for-allowed-metadata-space]]
-== Esempio di spazio consentito per i metadati
+=== Esempio di spazio consentito per i metadati
 
-Si supponga di installare un sistema StorageGRID utilizzando la versione 11.6. In questo esempio, si supponga che ogni nodo di storage abbia più di 128 GB di RAM e che il volume 0 del nodo di storage 1 (SN1) sia di 6 TB. In base a questi valori:
+Supponiamo che tu installi un nuovo sistema StorageGRID utilizzando la versione 12.1 o successiva. Per questo esempio, supponi che ogni Storage Node abbia più di 128 GB di RAM e che il volume 0 dello Storage Node 1 (SN1) sia di 6 TB. In base a questi valori:
 
-* Lo spazio riservato * dei metadati a livello di sistema è impostato su 8 TB. (Questo è il valore predefinito per StorageGRID 11.6 o superiore quando ogni nodo di storage ha più di 128 GB di RAM).
-* Lo spazio riservato effettivo per i metadati per SN1 è di 6 TB. (L'intero volume è riservato perché il volume 0 è più piccolo dell'impostazione *spazio riservato metadati*).
-* Lo spazio consentito per i metadati su SN1 è di 3 TB, in base al calcolo mostrato nella <<table-allowed-space-for-metadata,tabella per lo spazio consentito per i metadati>>: (spazio riservato effettivo per i metadati − 1 TB) x 60%, fino a un massimo di 3,96 TB.
+* Lo *spazio riservato ai metadati* a livello di sistema è impostato su 20 TB. (Questo è il valore predefinito per una nuova installazione di StorageGRID 12.1 o superiore se ogni Storage Node ha più di 128 GB di RAM.)
+* Lo spazio *effettivamente riservato* per metadati per SN1 è 6 TB. (L'intero volume è riservato perché il volume 0 è più piccolo dell'impostazione di *spazio riservato per metadati*.)
+* Lo spazio *consentito* per i metadati su SN1 è di 3,75 TB, in base al calcolo mostrato in <<table-allowed-space-for-metadata,tabella per lo spazio consentito per i metadati>>: (spazio riservato per i metadati − 1 TB) × 75%, fino a un massimo di 7,92 TB.
 
 
 

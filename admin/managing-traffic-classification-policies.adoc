@@ -48,9 +48,9 @@ I valori limite vengono applicati in base al bilanciamento del carico. Se il tra
 
 NOTE: È possibile creare policy per limitare la larghezza di banda aggregata o per limitare la larghezza di banda per richiesta. Tuttavia, StorageGRID non può limitare entrambi i tipi di larghezza di banda contemporaneamente. I limiti di larghezza di banda aggregati potrebbero imporre un ulteriore impatto minore sulle performance sul traffico non limitato.
 
-Per i limiti di larghezza di banda aggregati o per richiesta, le richieste vengono trasmesse in streaming alla velocità impostata. StorageGRID può applicare una sola velocità, quindi la corrispondenza di policy più specifica, in base al tipo di matcher, è quella applicata. La larghezza di banda consumata dalla richiesta non viene contata rispetto ad altre policy di corrispondenza meno specifiche contenenti policy di limite della larghezza di banda aggregate. Per tutti gli altri tipi di limite, le richieste client vengono ritardate di 250 millisecondi e ricevono una risposta lenta di 503 per le richieste che superano qualsiasi limite di policy corrispondente.
+Per i limiti di larghezza di banda aggregata o per singola richiesta, le richieste vengono elaborate in entrata o in uscita alla velocità che imposti. StorageGRID può imporre una sola velocità, quindi viene applicata la corrispondenza più specifica, in base al tipo di matcher. La larghezza di banda consumata dalla richiesta non viene conteggiata rispetto ad altre policy di corrispondenza meno specifiche che contengono policy di limite di larghezza di banda aggregata. Per tutti gli altri tipi di limite, le richieste dei client vengono ritardate di 250 millisecondi e ricevono una risposta 503 Slow Down per le richieste che superano qualsiasi limite di policy corrispondente.
 
-In Grid Manager, è possibile visualizzare i diagrammi di traffico e verificare che i criteri stiano applicando i limiti di traffico previsti.
+Nel Grid Manager, puoi visualizzare i grafici del traffico e verificare che le policy stiano applicando i limiti di traffico che ti aspetti.
 
 
 

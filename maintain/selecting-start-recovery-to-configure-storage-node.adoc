@@ -29,34 +29,30 @@ Se Storage Node è installato come container su un host Linux, eseguire questa o
 
 
 .Fasi
-. Da Grid Manager, seleziona *Manutenzione* > *Attività* > *Ripristino*.
+. Accedi al nodo amministratore principale. Se il nodo amministratore principale non è disponibile, usa un nodo amministratore non primario, se presente.
+. Dal Grid Manager, seleziona *Manutenzione* > *Attività* > *Ripristino nodo*.
 . Selezionare il nodo della griglia che si desidera ripristinare nell'elenco Pending Nodes (nodi in sospeso).
 +
 I nodi vengono visualizzati nell'elenco dopo un errore, ma non è possibile selezionare un nodo fino a quando non è stato reinstallato e pronto per il ripristino.
 
-. Immettere la *Provisioning Passphrase*.
-. Fare clic su *Start Recovery* (Avvia ripristino).
+. Inserisci la *passphrase di provisioning*.
+. Fai clic su *Avvia ripristino*.
+. Monitora l'avanzamento del ripristino selezionando *Manutenzione* > *Attività* > *Ripristino nodo* e visualizzando l'avanzamento del ripristino.
 +
-image:4b_select_recovery_node.png["screenshot che mostra la pagina Maintenance > Recovery"]
-
-. Monitorare l'avanzamento del ripristino nella tabella Recovery Grid Node (nodo griglia di ripristino).
+** Se il nodo della griglia raggiunge la fase "In attesa di passaggi manuali", devi link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["rimontare e riformattare manualmente i volumi di archiviazione"]. Al termine dei passaggi manuali, procedi a link:../maintain/restoring-object-data-to-storage-volume.html["ripristinare i dati degli oggetti nei volumi"].
+** Se il ripristino del nodo della griglia è passato dallo stato *In corso* allo stato *Ripristinato* senza passare attraverso la fase "In attesa di interventi manuali", non è richiesta alcuna ulteriore azione.
 +
+[NOTE]
+====
+In qualsiasi momento durante il ripristino, puoi selezionare *Reset* per avviare un nuovo ripristino. Viene visualizzata una finestra di dialogo che indica che il nodo rimarrà in uno stato indeterminato se resetti la procedura.
 
-NOTE: Durante l'esecuzione della procedura di ripristino, fare clic su *Reset* (Ripristina) per avviare un nuovo ripristino. Viene visualizzata una finestra di dialogo che indica che il nodo viene lasciato in uno stato indeterminato se si ripristina la procedura.
+Se vuoi riprovare il ripristino dopo aver reimpostato la procedura, devi riportare il nodo dell'appliance a uno stato pre-installazione, come segue:
 
-+
-image:recovery_reset_warning.gif["schermata che mostra la finestra di dialogo di avviso di ripristino"]
-
-+
-Se si desidera riprovare il ripristino dopo aver reimpostato la procedura, è necessario ripristinare il nodo a uno stato preinstallato, come segue:
-
-+
-** *VMware*: Eliminare il nodo virtual grid implementato. Quindi, quando si è pronti per riavviare il ripristino, ridistribuire il nodo.
-** *Linux*: Riavviare il nodo eseguendo questo comando sull'host Linux: `storagegrid node force-recovery _node-name_`
+*** *VMware*: Eliminare il nodo virtual grid implementato. Quindi, quando si è pronti per riavviare il ripristino, ridistribuire il nodo.
+*** *Linux*: Riavviare il nodo eseguendo questo comando sull'host Linux: `storagegrid node force-recovery _node-name_`
 
 
-. Quando il nodo di archiviazione raggiunge la fase "in attesa delle fasi manuali", passare a link:remounting-and-reformatting-storage-volumes-manual-steps.html["Rimontare e riformattare i volumi di storage (procedura manuale)"].
-+
-image:recovery_reset_button.gif["schermata che mostra la fase \"in attesa di passaggi manuali\""]
+====
+
 
 

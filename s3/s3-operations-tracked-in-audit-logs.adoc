@@ -20,13 +20,18 @@ I messaggi di audit vengono generati dai servizi StorageGRID e memorizzati in fi
 
 * CreateBucket
 * DeleteBucket
+* DeleteBucketPolicy
 * DeleteBucketTagging
 * DeleteObjects
+* GetBucketLifecycleConfiguration
+* GetBucketPolicy
 * GetBucketTagging
 * HeadBucket
 * ListObjects (oggetti elenco)
 * ListObjectVersions
 * METTI la compliance del bucket
+* PutBucketLifecycleConfiguration
+* PutBucketPolicy
 * PutBucketTagging
 * PutBucketVersioning
 

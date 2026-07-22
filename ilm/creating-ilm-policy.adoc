@@ -29,7 +29,7 @@ Prima di creare un criterio personalizzato, verificare che link:ilm-policy-overv
 NOTE: Utilizzare solo i criteri forniti dal sistema, 2 Copies Policy (per le griglie a un sito) o 1 Copy per Site (per le griglie a più siti), nei sistemi di test. Per StorageGRID 11.6 e versioni precedenti, la regola predefinita in questo criterio utilizza il pool di storage All Storage Node, che contiene tutti i siti. Se il sistema StorageGRID dispone di più siti, è possibile che due copie di un oggetto vengano posizionate sullo stesso sito.
 
 
-NOTE: Se la link:enabling-s3-object-lock-globally.html["L'impostazione Global S3 Object Lock (blocco oggetti S3 globale) è stata attivata"], è necessario assicurarsi che il criterio ILM sia conforme ai requisiti dei bucket che hanno attivato blocco oggetti S3. In questa sezione, seguire le istruzioni relative all'attivazione del blocco oggetti S3.
+NOTE: Se link:enabling-s3-object-lock.html["L'impostazione Global S3 Object Lock (blocco oggetti S3 globale) è stata attivata"] devi assicurarti che la policy ILM sia conforme ai requisiti dei bucket che hanno S3 Object Lock abilitato. In questa sezione, segui le istruzioni che menzionano S3 Object Lock abilitato.
 
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
@@ -47,7 +47,7 @@ NOTE: Se la link:enabling-s3-object-lock-globally.html["L'impostazione Global S3
 --
 .Blocco oggetti S3 attivato
 --
-** link:enabling-s3-object-lock-globally.html["L'impostazione Global S3 Object Lock (blocco oggetti S3 globale) è già attivata"]Per il sistema StorageGRID.
+** Il link:enabling-s3-object-lock.html["L'impostazione Global S3 Object Lock (blocco oggetti S3 globale) è già attivata"] per il sistema StorageGRID.
 ** Da link:what-ilm-rule-is.html["Creazione delle regole ILM conformi e non conformi"]aggiungere al criterio. Se necessario, è possibile salvare un criterio, creare regole aggiuntive e quindi modificarlo per aggiungerne di nuove.
 ** Si dispone di link:creating-default-ilm-rule.html["Creazione di una regola ILM predefinita"] per il criterio che è conforme.
 
@@ -180,8 +180,7 @@ NOTE: Verificare che le regole ILM siano nell'ordine corretto. Una volta attivat
 Simula una policy sugli oggetti di test prima di attivarla e applicarla ai dati di produzione.
 
 .Prima di iniziare
-* Si conosce il bucket S3/oggetto-chiave per ogni oggetto che si desidera testare.
-
+Si conosce il bucket S3/oggetto-chiave per ogni oggetto che si desidera testare.
 
 .Fasi
 . Utilizzando un client S3 o link:../tenant/use-s3-console.html["S3 Console"], acquisire gli oggetti necessari per testare ciascuna regola.
@@ -197,7 +196,7 @@ Simula una policy sugli oggetti di test prima di attivarla e applicarla ai dati 
 CAUTION: Esaminare eventuali modifiche al posizionamento degli oggetti replicati e con erasure coding esistenti. La modifica della posizione di un oggetto esistente potrebbe causare problemi di risorse temporanee quando i nuovi posizionamenti vengono valutati e implementati.
 
 .Risultati
-Qualsiasi modifica alle regole della policy si rifletterà nei risultati della simulazione e mostrerà la nuova corrispondenza e la corrispondenza precedente. La finestra Simula policy conserva gli oggetti che hai testato finché non selezioni *Cancella tutto* o l'icona di rimozione image:icon-x-to-remove.png["Icona Remove (Rimuovi)"] per ciascun oggetto nell'elenco dei risultati della simulazione.
+Qualsiasi modifica alle regole della policy si rifletterà nei risultati della simulazione e mostrerà la nuova corrispondenza e la corrispondenza precedente. La finestra Simula policy conserva gli oggetti che hai testato finché non selezioni *Cancella tutto* o l'icona di rimozione image:icon_x_to_remove.png["Icona Remove (Rimuovi)"] per ciascun oggetto nell'elenco dei risultati della simulazione.
 
 .Informazioni correlate
 link:simulating-ilm-policy-examples.html["Esempi di simulazioni dei criteri ILM"]

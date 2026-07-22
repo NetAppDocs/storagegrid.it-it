@@ -1,0 +1,73 @@
+---
+permalink: monitor/configure-email-server.html 
+sidebar: sidebar 
+keywords: notifications, email, system events, technical support 
+summary: Come amministratore di StorageGRID, devi configurare un server di posta elettronica per inviare notifiche dai sistemi di allerta e monitoraggio di StorageGRID che informano te, gli altri amministratori e il supporto tecnico sugli eventi e i problemi di sistema. 
+---
+= Configura il server di posta elettronica
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Come amministratore di StorageGRID, devi configurare un server di posta elettronica per inviare notifiche dai sistemi di allerta e monitoraggio di StorageGRID che informano te, gli altri amministratori e il supporto tecnico sugli eventi e i problemi di sistema.
+
+Le funzionalità di StorageGRID che utilizzano il server di posta elettronica per le notifiche includono avvisi, AutoSupport e la verifica multi-amministratore (MAV). Puoi usare lo stesso server di posta elettronica per tutte le notifiche.
+
+.Prima di iniziare
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di accesso root"].
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+
+
+.Fasi
+. Seleziona *Configuration* > *Monitoring* > *Email server*.
++
+Viene visualizzata la pagina del server di posta elettronica.
+
+. Seleziona il menu a tendina, *Visualizza le funzionalità che potrebbero richiedere un server di posta elettronica*. Se vuoi vedere i dettagli e le informazioni necessarie per configurare le notifiche email per una funzionalità, seleziona *Visualizza*.
++
+Verrai reindirizzato alla pagina di configurazione della funzionalità in Grid Manager. La pagina di configurazione di ciascuna funzionalità contiene una notifica che indica che hai bisogno di un server email per inviare notifiche email.
+
+. Per configurare un server di posta elettronica dalla pagina Server di posta elettronica:
++
+.. Inserisci l'indirizzo IP o il FQDN del server email.
+.. Seleziona il numero di porta utilizzato dal server di posta elettronica. Il valore predefinito è 25.
+.. Per richiedere l'autenticazione, seleziona *Usa autenticazione* e inserisci nome utente e password.
+.. Per richiedere la verifica dell'identità del server SMTP, seleziona *Usa Transport Layer Security (TLS)*. Poi:
++
+... Fornisci un pacchetto CA.
+... Se il server di posta SMTP richiede ai mittenti di fornire certificati client per l'autenticazione, seleziona *Invia certificato client*. Poi fornisci il certificato client e la chiave privata.
+
+
+.. Per verificare che le impostazioni della tua email siano corrette, invia un'email di prova inserendo mittente e destinatario. Seleziona *Invia*.
++
+Viene visualizzato un messaggio di conferma che indica l'invio di un'e-mail di prova.
+
+.. Selezionare le caselle di posta in arrivo di tutti i destinatari e confermare che è stata ricevuta un'e-mail di prova.
++
+
+NOTE: Se l'e-mail non viene ricevuta entro pochi minuti o se viene attivato l'avviso *errore notifica e-mail*, controllare le impostazioni e riprovare.
+
+.. Accedi a qualsiasi altro nodo Admin e invia un'e-mail di prova per verificare la connettività da tutti i siti.
++
+
+NOTE: Quando si verificano le notifiche di avviso, è necessario accedere a ogni nodo amministratore per verificare la connettività. Ciò è in contrasto con il test dei pacchetti AutoSupport, in cui tutti i nodi amministrativi inviano l'e-mail di prova.
+
+
+
+. Selezionare *Salva*.
++
+L'invio di un'email di prova non salva le impostazioni. Devi selezionare *Salva*.
+
++
+Le impostazioni e-mail vengono salvate.
+
+. Vai alle pagine di configurazione delle funzionalità che utilizzano il server di posta elettronica e completa le impostazioni di notifica email.
++
+** link:../monitor/email-alert-notifications.html["Avvisi"]. Per gli avvisi, puoi anche link:../monitor/snmp-alert-notifications.html["configurare le notifiche SNMP"].
+** link:../monitor/configure-autosupport-grid-manager.html["AutoSupport"]. Puoi inviare i pacchetti AutoSupport tramite email, HTTPS o HTTP (HTTP non è consigliato).
+** link:../admin/configure-multi-admin-verify.html["Verifica multi-amministratore (MAV)"].
+
+
+

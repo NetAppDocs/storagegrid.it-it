@@ -27,7 +27,7 @@ Se uno dei nuovi nodi ha un indirizzo IP Grid Network su una subnet non utilizza
 
 [NOTE]
 ====
-Non utilizzare subnet che contengono i seguenti indirizzi IPv4 per la rete Grid, la rete di amministrazione o la rete client di alcun nodo:
+Non utilizzare sottoreti che contengono i seguenti indirizzi IPv4 per la Grid Network, l'Admin Network o la Client Network di alcun nodo:
 
 * 192.168.130.101
 * 192.168.130.121
@@ -41,7 +41,7 @@ Non utilizzare subnet che contengono i seguenti indirizzi IPv4 per la rete Grid,
 * 198.51.100.4
 
 
-Ad esempio, non utilizzare i seguenti intervalli di subnet per la rete Grid, la rete amministrativa o la rete client di alcun nodo:
+Ad esempio, non usare i seguenti intervalli di sottorete per la Grid Network, l'Admin Network o la Client Network di alcun nodo:
 
 * 192.168.130.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 192.168.130.101 e 192.168.130.102
 * 192.168.131.0/24 perché questo intervallo di subnet contiene gli indirizzi IP 192.168.131.101 e 192.168.131.102
@@ -59,7 +59,7 @@ Ad esempio, immettere `10.96.104.0/22`.
 . Attendi che le modifiche vengano applicate, quindi scarica un nuovo pacchetto di ripristino.
 +
 .. Selezionare *Manutenzione* > *Sistema* > *Pacchetto di ripristino*.
-.. Immettere la *Provisioning Passphrase*.
+.. Inserisci la *passphrase di provisioning*.
 +
 
 CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID .  Viene utilizzato anche per recuperare il nodo di amministrazione primario.

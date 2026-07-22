@@ -39,7 +39,7 @@ Configurare la federazione di identità e SSO:: Se intendi utilizzare la federaz
 Ottenere e configurare i nomi di dominio:: Si conosce il nome di dominio completo (FQDN) da utilizzare per StorageGRID. Le voci DNS (Domain Name Server) associano questo FQDN agli indirizzi IP virtuali (VIP) del gruppo ha creato utilizzando la procedura guidata.
 +
 --
-Se si prevede di utilizzare S3 richieste in stile host virtuale, è necessario disporre di link:../admin/configuring-s3-api-endpoint-domain-names.html["Nomi di dominio degli endpoint S3 configurati"]. Si consiglia di utilizzare richieste virtuali in stile host.
+Se intendi utilizzare richieste in stile virtual-hosted di S3, dovresti avere link:../admin/configuring-s3-api-endpoint-domain-names.html["Nomi di dominio degli endpoint S3 configurati"]. Si consiglia di utilizzare richieste in stile virtual-hosted.
 
 --
 Esaminare i requisiti del bilanciamento del carico e del certificato di sicurezza:: Se si intende utilizzare il bilanciamento del carico StorageGRID, sono state esaminate le considerazioni generali sul bilanciamento del carico. Si dispone dei certificati da caricare o dei valori necessari per generare un certificato.
@@ -48,7 +48,7 @@ Esaminare i requisiti del bilanciamento del carico e del certificato di sicurezz
 Se si intende utilizzare un endpoint esterno (di terze parti) per il bilanciamento del carico, si dispone del nome di dominio completo (FQDN), della porta e del certificato per il bilanciamento del carico.
 
 --
-Configurare le connessioni di federazione di griglie:: Se si desidera consentire al tenant S3 di clonare i dati dell'account e replicare gli oggetti bucket in un'altra griglia utilizzando una connessione a federazione di griglie, prima di avviare la procedura guidata, confermare quanto segue:
+Configurare le connessioni di federazione di griglie:: Se vuoi consentire al tenant S3 di sincronizzare i dati dell'account e replicare gli oggetti del bucket in un'altra griglia utilizzando una connessione di federazione di griglia, conferma quanto segue prima di avviare il setup wizard:
 +
 --
 * Si dispone di link:grid-federation-manage-connection.html["configurazione della connessione a federazione di griglie"].

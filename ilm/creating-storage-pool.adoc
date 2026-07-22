@@ -14,7 +14,7 @@ summary: Si creano pool di storage per determinare dove il sistema StorageGRID m
 Si creano pool di storage per determinare dove il sistema StorageGRID memorizza i dati a oggetti e il tipo di storage utilizzato. Ogni pool di storage include uno o più siti e uno o più tipi di storage.
 
 
-NOTE: Quando si installa StorageGRID 12.0 su una nuova griglia, vengono creati automaticamente pool di archiviazione per ciascun sito.  Tuttavia, se inizialmente hai installato StorageGRID 11.6 o una versione precedente, i pool di archiviazione non vengono creati automaticamente per ogni sito.
+NOTE: Quando installi StorageGRID 12.0 o versioni successive su una nuova griglia, i pool di storage vengono creati automaticamente per ogni sito. Tuttavia, se inizialmente hai installato StorageGRID 11.6 o versioni precedenti, i pool di storage non vengono creati automaticamente per ogni sito.
 
 Se si desidera creare pool di cloud storage per archiviare i dati degli oggetti al di fuori del sistema StorageGRID, vedere la link:what-cloud-storage-pool-is.html["Informazioni sull'utilizzo dei Cloud Storage Pools"].
 
@@ -64,7 +64,7 @@ Il grado dello storage, _include tutti i gradi dello storage_, include tutti i n
 NOTE: Viene visualizzato un avviso se si aggiungono più voci con diversi gradi di storage per un sito.
 
 +
-Per rimuovere una voce, seleziona l'icona di eliminazione image:icon-x-to-remove.png["icona elimina"].
+Per rimuovere una voce, seleziona l'icona di eliminazione image:icon_x_to_remove.png["icona elimina"].
 
 . Quando si è soddisfatti delle selezioni effettuate, selezionare *Save* (Salva).
 +

@@ -20,7 +20,7 @@ Il building block di base di un sistema StorageGRID è il nodo grid. I nodi cont
 
 Il sistema StorageGRID utilizza tre tipi di nodi di griglia:
 
-Nodi di amministrazione:: Fornire servizi di gestione quali configurazione, monitoraggio e logging del sistema. Quando si accede a Grid Manager, si sta effettuando la connessione a un nodo amministratore. Ogni grid deve avere un nodo di amministrazione primario e potrebbe avere ulteriori nodi di amministrazione non primari per la ridondanza. È possibile connettersi a qualsiasi nodo amministratore e ciascun nodo amministratore visualizza una vista simile del sistema StorageGRID. Tuttavia, le procedure di manutenzione devono essere eseguite utilizzando il nodo di amministrazione primario.
+Nodi di amministrazione:: Fornisci servizi di gestione come la configurazione del sistema, il monitoraggio e la registrazione. Quando accedi al Grid Manager, ti connetti a un Admin Node. Ogni grid deve avere un Admin Node primario e può avere Admin Node non primari aggiuntivi per la ridondanza. Puoi connetterti a qualsiasi Admin Node e ogni Admin Node mostra una vista simile del sistema StorageGRID. Tuttavia, devi eseguire la maggior parte delle procedure di manutenzione utilizzando l'Admin Node primario.
 +
 --
 È possibile utilizzare i nodi amministrativi anche per bilanciare il carico del traffico client S3.
@@ -31,7 +31,7 @@ Vedere link:what-admin-node-is.html["Che cos'è un nodo amministratore?"]
 Nodi di storage:: Gestisci e archivia dati e metadati degli oggetti. Ciascun sito del sistema StorageGRID deve avere almeno tre nodi storage.
 +
 --
-Durante l'installazione iniziale di un nuovo nodo di archiviazione, è possibile specificare che venga utilizzato solo perlink:../primer/what-storage-node-is.html#types-of-storage-nodes["memorizzazione dei metadati"] .
+Durante l'installazione iniziale di un nuovo nodo di archiviazione, puoi specificare che venga utilizzato solo per link:../primer/what-storage-node-is.html#types-of-storage-nodes["memorizzare sia metadati che dati"].
 
 Vedere link:what-storage-node-is.html["Che cos'è un nodo di storage?"]
 
@@ -60,7 +60,7 @@ Le appliance hardware StorageGRID sono progettate appositamente per l'utilizzo i
 
 Per ulteriori informazioni sulle appliance disponibili, vedere quanto segue:
 
-* https://docs.netapp.com/us-en/storagegrid-appliances/["Documentazione sull'appliance StorageGRID"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/["Documentazione dell'appliance StorageGRID"^]
 * https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 
@@ -107,15 +107,6 @@ Almeno tre nodi di archiviazione contenenti il servizio ADC in ciascun sito
 AMS (Audit Management System)
  a| 
 Monitora e registra tutti gli eventi e le transazioni di sistema verificati in un file di log di testo.
- a| 
-Nodi di amministrazione
-
-
-
- a| 
-Apache Tomcat
- a| 
-Server web per applicazioni basate su Java.
  a| 
 Nodi di amministrazione
 
@@ -203,6 +194,15 @@ Tutti i nodi
 
 
  a| 
+gdu-server
+ a| 
+Il task runner di backend per le operazioni di manutenzione e provisioning della griglia. Accetta richieste da  `mgmt-api` e da altri script di utilità, le convalida e inoltra ogni azione al gestore di attività GDU appropriato, come provisioning, espansione, decommission, e aggiornamenti.
+ a| 
+Nodi di amministrazione
+
+
+
+ a| 
 Grafana
  a| 
 Utilizzato per la visualizzazione delle metriche in Grid Manager.
@@ -214,7 +214,7 @@ Nodi di amministrazione
  a| 
 Alta disponibilità
  a| 
-Gestisce gli IP virtuali ad alta disponibilità sui nodi configurati nella pagina gruppi ad alta disponibilità. Questo servizio è anche noto come servizio keepalived.
+Gestisce gli indirizzi IP virtuali ad alta disponibilità sui nodi configurati nella pagina Gruppi ad alta disponibilità. Questo servizio è anche noto come servizio _keepalived_.
  a| 
 Nodi Admin e Gateway
 
@@ -241,7 +241,7 @@ Tutti i nodi
  a| 
 Bilanciamento del carico (nginx-gw)
  a| 
-Bilanciamento del carico del traffico S3 fra i client e i nodi storage. Il servizio Load Balancer può essere configurato tramite la pagina di configurazione degli endpoint del bilanciamento del carico. Questo servizio è noto anche come servizio nginx-gw.
+Bilanciamento del carico del traffico S3 fra i client e i nodi storage.
  a| 
 Nodi Admin e Gateway
 
@@ -253,6 +253,15 @@ LDR (router di distribuzione locale)
 Gestisce lo storage e il trasferimento dei contenuti all'interno della griglia.
  a| 
 Nodi di storage
+
+
+
+ a| 
+mgmt-api
+ a| 
+L'API di backend di Grid Manager. Espone endpoint REST autenticati per l'amministrazione della grid (configurazione, monitoraggio e workflow di manutenzione), applica convalide e autorizzazioni e orchestra operazioni di lunga durata. L'API principale del control-plane utilizzata dall'interfaccia di Grid Manager e dai client di automazione.
+ a| 
+Nodi di amministrazione
 
 
 
@@ -277,7 +286,7 @@ Tutti i nodi
  a| 
 Bilanciatore del carico nginx-gw
  a| 
-Bilanciamento del carico del traffico S3 fra i client e i nodi storage. Il servizio Load Balancer può essere configurato tramite la pagina di configurazione degli endpoint del bilanciamento del carico. Questo servizio è noto anche come servizio nginx-gw.
+Bilanciamento del carico del traffico S3 fra i client e i nodi storage.
  a| 
 Nodi Admin e Gateway
 
@@ -302,7 +311,7 @@ Tutti i nodi
 
 
  a| 
-ntp
+NTP
  a| 
 Servizio NTP (Network Time Protocol).
  a| 

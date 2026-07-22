@@ -17,7 +17,7 @@ summary: 'È possibile eliminare un account tenant se si desidera rimuovere in m
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * Si dispone di link:admin-group-permissions.html["autorizzazioni di accesso specifiche"].
 * Sono stati rimossi tutti i bucket S3 e gli oggetti associati all'account tenant.
-* Se al tenant è consentito utilizzare una connessione di federazione di griglia, è stata esaminata la considerazione relativa a link:grid-federation-manage-tenants.html["Eliminazione di un tenant con l'autorizzazione di connessione Usa federazione griglia"].
+* Se al tenant è consentito utilizzare le connessioni di grid federation, hai esaminato le considerazioni per link:../admin/grid-federation-manage-tenants.html["Eliminazione di un tenant con l'autorizzazione di connessione Usa federazione griglia"]. Le eliminazioni vengono sincronizzate, quindi se un tenant viene eliminato su una grid, verrà eliminato su tutte le grid selezionate.
 
 
 .Fasi

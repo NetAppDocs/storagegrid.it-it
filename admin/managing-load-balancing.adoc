@@ -176,7 +176,7 @@ Subject DN: /C=Country/ST=State/O=Company,Inc./CN=s3.storagegrid.example.com
 ----
 Se necessario, il certificato può utilizzare i caratteri jolly per rappresentare i nomi di dominio completi di tutti i nodi Admin e Gateway che eseguono il servizio Load Balancer. Ad esempio, `*.storagegrid._example_.com` utilizza il carattere jolly * per rappresentare `adm1.storagegrid._example_.com` e `gn1.storagegrid._example_.com`.
 
-Se si prevede di utilizzare S3 richieste in stile host virtuale, il certificato deve includere anche una voce *Nome alternativo* per ogni link:../admin/configuring-s3-api-endpoint-domain-names.html["Nome di dominio dell'endpoint S3"]configurazione, inclusi i nomi dei caratteri jolly. Ad esempio:
+Se vuoi utilizzare richieste in stile virtual-hosted di S3, il certificato deve includere anche una voce *Nome alternativo* per ciascuna link:../admin/configuring-s3-api-endpoint-domain-names.html["Nome di dominio dell'endpoint S3"] che hai configurato, compresi eventuali nomi jolly. Ad esempio:
 
 [listing]
 ----

@@ -20,7 +20,23 @@ L'operazione UploadPart carica una parte in un upload multiparte per un oggetto.
 
 Sono supportate le seguenti intestazioni di richiesta:
 
-* `x-amz-checksum-sha256`
+* Intestazioni della richiesta di checksum:
++
+--
+** `x-amz-checksum-crc32`
+** `x-amz-checksum-crc32c`
+** `x-amz-checksum-crc64nvme`
+** `x-amz-checksum-sha256`
+
+
+--
++
+Se hai specificato un checksum CRC-32, CRC-32C, CRC-64/NVME o SHA-256 durante la richiesta CreateMultipartUpload, devi anche includere l'intestazione della richiesta di checksum in ogni richiesta UploadPart.
+
++
+
+NOTE: Se una richiesta CreateMultipartUpload non specifica un checksum, StorageGRID non calcola un checksum CRC-64/NVME predefinito per un oggetto.
+
 * `Content-Length`
 * `Content-MD5`
 
@@ -40,11 +56,6 @@ Se è stata specificata la crittografia SSE-C per la richiesta CreateMultipartUp
 
 CAUTION: Le chiavi di crittografia fornite non vengono mai memorizzate. Se si perde una chiave di crittografia, si perde l'oggetto corrispondente. Prima di utilizzare le chiavi fornite dal cliente per proteggere i dati degli oggetti, esaminare le considerazioni riportate in link:using-server-side-encryption.html["Utilizzare la crittografia lato server"].
 
-Se è stato specificato un checksum SHA-256 durante la richiesta CreateMultipartUpload, è necessario includere anche l'intestazione della richiesta seguente in ogni richiesta UploadPart:
-
-* `x-amz-checksum-sha256`: Specificare il checksum SHA-256 per questa parte.
-
-
 
 
 [[unsupported-request-headers]]
@@ -54,6 +65,12 @@ Le seguenti intestazioni di richiesta non sono supportate:
 
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`
+* `x-amz-checksum-md5`
+* `x-amz-checksum-sha1`
+* `x-amz-checksum-sha512`
+* `x-amz-checksum-xxhash3`
+* `x-amz-checksum-xxhash64`
+* `x-amz-checksum-xxhash128`
 
 
 

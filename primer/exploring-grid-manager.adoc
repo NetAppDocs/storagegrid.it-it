@@ -47,7 +47,7 @@ Il campo *Search* nella barra di intestazione consente di accedere rapidamente a
 [[help-menu]]
 == Menu Guida
 
-Il menu di aiuto image:icon-help-menu-bar.png["icona della guida sulla barra dei menu"] offre accesso a:
+Il menu di aiuto image:icon_help_menu_bar.png["icona della guida sulla barra dei menu"] offre accesso a:
 
 * ILlink:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"] Elink:../admin/use-s3-setup-wizard.html["Impostazione S3"] maghi
 * Il sito della documentazione di StorageGRID per la versione corrente
@@ -68,7 +68,7 @@ Dal menu Avvisi, è possibile effettuare le seguenti operazionilink:../monitor/m
 * Esaminare gli avvisi risolti
 * Configurare i silenzi per eliminare le notifiche di avviso
 * Definire le regole di avviso per le condizioni che attivano gli avvisi
-* Configurare il server di posta elettronica per le notifiche degli avvisi
+* Configura le notifiche e-mail per gli avvisi di StorageGRID
 
 
 
@@ -148,7 +148,7 @@ Le attività di sicurezza includono:
 
 Le attività di sistema includono:
 
-* Utilizzolink:../admin/grid-federation-overview.html["federazione di grid"] per clonare le informazioni dell'account tenant e replicare i dati degli oggetti tra due sistemi StorageGRID
+* Usa link:../admin/grid-federation-overview.html["federazione di grid"] per sincronizzare le informazioni dell'account del tenant e replicare i dati degli oggetti tra due sistemi StorageGRID
 * Facoltativamente, abilitare l'opzionelink:../admin/configuring-stored-object-compression.html["Compressione degli oggetti memorizzati"] opzione
 * Facoltativamente, configurare illink:../s3/consistency.html["impostazione predefinita della coerenza del bucket"]
 * link:../ilm/managing-objects-with-s3-object-lock.html["Gestisci il blocco degli oggetti S3"]
@@ -163,6 +163,7 @@ Le attività di sistema includono:
 
 Le attività di monitoraggio includono:
 
+* link:../monitor/configure-email-server.html["Configura il server di posta elettronica"]
 * link:../monitor/configure-log-management.html["Configurare la gestione dei log"]
 * link:../monitor/using-snmp-monitoring.html["Utilizzare il monitoraggio SNMP"]
 
@@ -179,6 +180,7 @@ Le attività di controllo degli accessi includono:
 * Cambia illink:../admin/changing-provisioning-passphrase.html["passphrase di provisioning"] Olink:../admin/change-node-console-password.html["password della console dei nodi"]
 * link:../admin/using-identity-federation.html["USA la federazione delle identità"]
 * link:../admin/how-sso-works.html["Configurare SSO"]
+* link:../admin/about-multi-admin-verify.html["Configura la verifica multi-amministratore"]
 
 
 
@@ -201,7 +203,13 @@ Le attività di manutenzione includono:
 * link:../maintain/rename-grid-site-node-overview.html["Rinominare le procedure"] per modificare i nomi visualizzati della griglia, dei siti e dei nodi
 * link:../troubleshoot/verifying-object-integrity.html["Operazioni di controllo dell'esistenza degli oggetti"] per verificare l'esistenza (anche se non la correttezza) dei dati dell'oggetto
 * Eseguire unlink:../maintain/rolling-reboot-procedure.html["riavvio in sequenza"] per riavviare più nodi della griglia
-* link:../maintain/restoring-volume.html["Operazioni di ripristino dei volumi"]
+* Ripristino dei dati dell'oggetto
++
+** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["Ripristinare i dati dell'oggetto nel volume di storage per l'appliance"]
+** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Ripristinare i dati degli oggetti nel volume di storage in cui il disco di sistema è intatto"]
+** link:../maintain/restoring-object-data-to-storage-volume.html["Ripristinare i dati dell'oggetto nel volume di storage (errore del disco di sistema)"]
+
+
 
 
 
@@ -249,7 +257,7 @@ Il menu Support (supporto) fornisce opzioni che consentono al supporto tecnico d
 
 Dalla sezione Tools (Strumenti) del menu Support (supporto), è possibile:
 
-* link:../admin/configure-autosupport-grid-manager.html["Configurare AutoSupport"]
+* link:../monitor/configure-autosupport-grid-manager.html["Configurare AutoSupport"]
 * link:../monitor/running-diagnostics.html["Eseguire la diagnostica"] sullo stato corrente della griglia
 * link:../monitor/collecting-log-files-and-system-data.html["Raccogliere i file di log e i dati di sistema"]
 * link:../monitor/reviewing-support-metrics.html["Rivedere le metriche di supporto"]
@@ -267,7 +275,6 @@ NOTE: I tool disponibili nell'opzione *metriche* sono destinati all'utilizzo da 
 Dalla sezione Altro del menu supporto è possibile:
 
 * Configurarelink:../monitor/manage-io-prioritization.html["Priorità I/O"]
-* Configurarelink:../admin/configure-autosupport-grid-manager.html["Configurazione e-mail AutoSupport (legacy)"]
 * Gestione link:../admin/manage-link-costs.html["costo di collegamento"]
 * Visualizza gli ID dei servizi dei nodi
 * Gestione link:../admin/what-storage-volume-watermarks-are.html["filigrane di archiviazione"]

@@ -74,8 +74,6 @@ La tabella seguente definisce i valori per tutte le chiavi supportate. Ogni chia
 Indirizzo IPv4 della rete Grid del nodo di amministrazione che si desidera utilizzare per installare il nodo basato su Linux.  Per il ripristino, utilizzare l'IP del nodo di amministrazione primario, se disponibile; in caso contrario, utilizzare l'IP di un nodo di amministrazione non primario.  Se si omette questo parametro, il nodo tenta di individuare un nodo amministrativo primario tramite mDNS.
 
 link:how-grid-nodes-discover-primary-admin-node.html["In che modo i nodi della griglia rilevano il nodo di amministrazione primario"]
-
-*Nota*: Questo valore viene ignorato e potrebbe essere proibito sul nodo di amministrazione primario.
  a| 
 Best practice
 
@@ -260,7 +258,7 @@ Best practice
 
 
  a| 
-Interfaccia (questo è l'unico valore supportato).
+DedicatedInterface (Questo è l'unico valore supportato.)
  a| 
 Opzionale
 
@@ -278,8 +276,6 @@ Opzionale
 Vero o Falso
 
 Impostare la chiave su "true" per fare in modo che il container StorageGRID utilizzi l'indirizzo MAC dell'interfaccia host di destinazione sulla rete di amministrazione.
-
-*Best practice:* nelle reti in cui sarebbe richiesta la modalità promiscua, utilizzare la chiave ADMIN_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC.
 
 Per maggiori dettagli sulla clonazione MAC per Linux, vederelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e consigli per la clonazione degli indirizzi MAC"]
  a| 
@@ -620,7 +616,7 @@ Best practice
 
 
  a| 
-Interfaccia (solo valore supportato).
+DedicatedInterface (Questo è solo un valore supportato.)
  a| 
 Opzionale
 
@@ -638,8 +634,6 @@ Opzionale
 Vero o Falso
 
 Impostare la chiave su "true" per fare in modo che il container StorageGRID utilizzi l'indirizzo MAC dell'interfaccia di destinazione host sulla rete client.
-
-*Best practice:* nelle reti in cui sarebbe richiesta la modalità promiscua, utilizzare invece la chiave CLIENT_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC.
 
 Per maggiori dettagli sulla clonazione MAC per Linux, vederelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e consigli per la clonazione degli indirizzi MAC"]
  a| 
@@ -812,7 +806,7 @@ Obbligatorio
 
 
  a| 
-Interfaccia (questo è l'unico valore supportato).
+DedicatedInterface (Questo è l'unico valore supportato.)
  a| 
 Opzionale
 
@@ -830,8 +824,6 @@ Opzionale
 Vero o Falso
 
 Impostare il valore della chiave su "true" per fare in modo che il contenitore StorageGRID utilizzi l'indirizzo MAC dell'interfaccia di destinazione host sulla rete di rete.
-
-*Best practice:* nelle reti in cui sarebbe richiesta la modalità promiscua, utilizzare invece la chiave GRID_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC.
 
 Per maggiori dettagli sulla clonazione MAC per Linux, vederelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Considerazioni e consigli per la clonazione degli indirizzi MAC"]
  a| 

@@ -44,3 +44,6 @@ NOTE: Le modifiche del proxy possono richiedere fino a 10 minuti.
 . Controllare le impostazioni del server proxy per assicurarsi che i messaggi relativi al servizio della piattaforma da StorageGRID non vengano bloccati.
 . Se è necessario disattivare un proxy di archiviazione, deselezionare la casella di controllo e selezionare *Salva*.
 
+
+.Informazioni correlate
+link:../network/external-communications.html["Porte utilizzate per le comunicazioni esterne"]

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, non-primary admin node 
 summary: Dopo aver sostituito un nodo Admin non primario, selezionare Avvia ripristino in Grid Manager per configurare il nuovo nodo come sostituzione del nodo guasto. 
 ---
-= Seleziona Avvia ripristino per configurare il nodo di amministrazione StorageGRID non primario
+= Seleziona Avvia ripristino per configurare il nodo Admin non primario di StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -21,23 +21,20 @@ Dopo aver sostituito un nodo Admin non primario, selezionare Avvia ripristino in
 
 
 .Fasi
-. Da Grid Manager, seleziona *Manutenzione* > *Attività* > *Ripristino*.
+. Dal Grid Manager, seleziona *Manutenzione* > *Attività* > *Ripristino nodo*.
 . Selezionare il nodo della griglia che si desidera ripristinare nell'elenco Pending Nodes (nodi in sospeso).
 +
 I nodi vengono visualizzati nell'elenco dopo un errore, ma non è possibile selezionare un nodo fino a quando non è stato reinstallato e pronto per il ripristino.
 
-. Immettere la *Provisioning Passphrase*.
-. Fare clic su *Start Recovery* (Avvia ripristino).
+. Inserisci la *passphrase di provisioning*.
+. Seleziona *Avvia ripristino*.
 +
 image:4b_select_recovery_node.png["screenshot che mostra la pagina Maintenance > Recovery"]
 
 . Monitorare l'avanzamento del ripristino nella tabella Recovery Grid Node (nodo griglia di ripristino).
 +
 
-NOTE: Durante l'esecuzione della procedura di ripristino, fare clic su *Reset* (Ripristina) per avviare un nuovo ripristino. Viene visualizzata una finestra di dialogo che indica che il nodo viene lasciato in uno stato indeterminato se si ripristina la procedura.
-
-+
-image:recovery_reset_warning.gif["schermata che mostra la finestra di dialogo di avviso di ripristino"]
+NOTE: Durante l'esecuzione della procedura di ripristino, puoi selezionare *Reset* per avviare un nuovo ripristino. Viene visualizzata una finestra di dialogo che indica che il nodo rimarrà in uno stato indeterminato se resetti la procedura.
 
 +
 Se si desidera riprovare il ripristino dopo aver reimpostato la procedura, è necessario ripristinare il nodo a uno stato preinstallato, come segue:

@@ -13,7 +13,7 @@ summary: Configurare e utilizzare i pool di storage per proteggersi dalla perdit
 [role="lead"]
 Configurare e utilizzare i pool di storage per proteggersi dalla perdita di dati distribuendo i dati su più siti. Le copie replicate e le copie con codice di cancellazione richiedono diverse configurazioni del pool di storage.
 
-Vedere link:using-multiple-storage-pools-for-cross-site-replication.html["Esempi di attivazione della protezione dalle perdite di sito mediante la replica e la cancellazione del codice"].
+Consulta link:using-multiple-storage-pools-for-cross-site-replication.html["Esempi di attivazione della protezione dalle perdite di sito mediante la replica e la cancellazione del codice"].
 
 
 
@@ -54,7 +54,7 @@ L'utilizzo di un pool di storage per ciascun sito garantisce che le copie degli 
 * Distribuire i nodi di storage tra i siti nel modo più uniforme possibile. Ad esempio, per supportare uno schema di erasure coding 6+3, configurare un pool di storage che includa almeno tre nodi di storage in tre siti.
 * Se si hanno requisiti di throughput elevati, si sconsiglia di utilizzare un pool di storage che include più siti se la latenza di rete tra siti è superiore a 100 ms. Con l'aumentare della latenza, la velocità con cui StorageGRID può creare, posizionare e recuperare frammenti di oggetti diminuisce drasticamente a causa della diminuzione del throughput di rete TCP.
 +
-La diminuzione del throughput influisce sui tassi massimi raggiungibili di acquisizione e recupero degli oggetti (quando vengono selezionati come comportamento di acquisizione bilanciati o rigorosi) o può portare a backlog di coda ILM (quando viene selezionato il doppio commit come comportamento di acquisizione). Vedere link:what-ilm-rule-is.html#ilm-rule-ingest-behavior["Comportamento di acquisizione delle regole ILM"].
+La diminuzione del throughput influisce sulle velocità massime raggiungibili di acquisizione e recupero degli oggetti (quando si seleziona Balanced o Strict come comportamento di acquisizione) o potrebbe causare ritardi nella coda ILM (quando si seleziona Dual commit come comportamento di acquisizione). Fai riferimento a link:what-ilm-rule-is.html#ilm-rule-ingest-behavior["Comportamento di acquisizione delle regole ILM"].
 
 +
 

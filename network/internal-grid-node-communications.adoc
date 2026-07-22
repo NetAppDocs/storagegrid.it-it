@@ -80,7 +80,7 @@ TCP
  a| 
 Appliance
  a| 
-Nodo amministratore primario
+Nodo Admin primario e nodo Admin non primario
  a| 
 Utilizzato dalle appliance StorageGRID per comunicare con il nodo di amministrazione principale per avviare l'installazione.
 
@@ -106,7 +106,7 @@ TCP
  a| 
 Tutti i nodi
  a| 
-Nodo amministratore primario
+Nodo Admin primario e nodo Admin non primario
  a| 
 Utilizzato per comunicare lo stato al nodo di amministrazione primario durante l'installazione e altre procedure di manutenzione.
 
@@ -119,7 +119,7 @@ TCP
  a| 
 Tutti i nodi
  a| 
-Nodo amministratore primario
+Nodo Admin primario e nodo Admin non primario
  a| 
 Traffico interno per l'installazione, l'espansione, il ripristino e altre procedure di manutenzione.
 
@@ -277,7 +277,7 @@ TCP
  a| 
 Tutti i nodi
  a| 
-Nodo amministratore primario
+Nodo Admin primario e nodo Admin non primario
  a| 
 Traffico interno per installazione, espansione, ripristino, altre procedure di manutenzione e segnalazione degli errori.
 
@@ -290,7 +290,7 @@ TCP
  a| 
 Tutti i nodi
  a| 
-Nodo amministratore primario
+Nodo Admin primario e nodo Admin non primario
  a| 
 Traffico interno per l'installazione, l'espansione, il ripristino e altre procedure di manutenzione.
 
@@ -355,7 +355,7 @@ TCP
  a| 
 Tutti i nodi
  a| 
-Nodo amministratore primario
+Nodo Admin primario e nodo Admin non primario
  a| 
 Traffico interno per l'installazione, l'espansione, il ripristino e altre procedure di manutenzione.
 
@@ -366,7 +366,7 @@ Traffico interno per l'installazione, l'espansione, il ripristino e altre proced
  a| 
 TCP
  a| 
-Nodi Admin/Storage
+Tutti i nodi
  a| 
 Nodi di storage con ADC
  a| 
@@ -379,7 +379,7 @@ Traffico interno del servizio account.
  a| 
 TCP
  a| 
-Nodi Admin/Storage
+Tutti i nodi
  a| 
 Nodi di storage con ADC
  a| 
@@ -392,7 +392,7 @@ Traffico interno di Identity Federation.
  a| 
 TCP
  a| 
-Nodi Admin/Storage
+Tutti i nodi
  a| 
 Nodi di storage
  a| 
@@ -405,7 +405,7 @@ Traffico API interno correlato ai protocolli a oggetti.
  a| 
 TCP
  a| 
-Nodi Admin/Storage
+Tutti i nodi
  a| 
 Nodi di storage con ADC
  a| 

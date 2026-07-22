@@ -49,7 +49,7 @@ NOTE: Un nodo potrebbe apparire come sconosciuto durante le operazioni di shutdo
 
 * *Versione software*: La versione di StorageGRID installata sul nodo.
 * *Gruppi ha*: Solo per nodi Admin Node e Gateway. Viene visualizzato se un'interfaccia di rete sul nodo è inclusa in un gruppo ad alta disponibilità e se tale interfaccia è l'interfaccia primaria.
-* *Indirizzi IP*: Gli indirizzi IP del nodo. Fare clic su *Show additional IP addresses* (Mostra indirizzi IP aggiuntivi) per visualizzare gli indirizzi IPv4 e IPv6 e le mappature dell'interfaccia del nodo.
+* *Indirizzi IP*: Gli indirizzi IP del nodo. Seleziona *Mostra indirizzi IP aggiuntivi* per visualizzare gli indirizzi IPv4 e IPv6 del nodo e le mappature delle interfacce.
 
 
 

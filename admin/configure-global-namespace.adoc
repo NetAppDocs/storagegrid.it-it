@@ -1,0 +1,212 @@
+---
+permalink: admin/configure-global-namespace.html 
+sidebar: sidebar 
+keywords: global namespace, grid federation, S3 endpoint domain names, default region, grid federation connection, multi-grid 
+summary: Configura uno spazio dei nomi globale per consentire ai tenant di accedere ai bucket su più sistemi StorageGRID. 
+---
+= Configura uno spazio dei nomi globale per la federazione della griglia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configura uno spazio dei nomi globale per consentire ai tenant di accedere ai bucket su più sistemi StorageGRID.
+
+Per ulteriori informazioni sullo spazio dei nomi globale, consulta link:learn-about-global-namespace.html["Scopri lo spazio dei nomi globale per la grid federation"].
+
+.Prima di iniziare
+* Hai effettuato l'accesso al Grid Manager su ciascuna griglia utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Hai il link:../admin/admin-group-permissions.html["Autorizzazione di accesso root"] per ogni griglia.
+* Hai esaminato le link:../admin/grid-federation-overview.html["considerazioni e requisiti"] per le connessioni di federazione della griglia.
+
+
+
+
+[[requirements-for-configuring-global-namespace]]
+== Requisiti per la configurazione dello spazio dei nomi globale
+
+* Tutte le griglie nello spazio dei nomi globale devono avere connessioni di federazione di griglia con lo spazio dei nomi globale abilitate tra ogni coppia di griglie.
+* Il numero massimo di griglie che possono partecipare a un singolo namespace globale è 11 (la griglia locale e 10 griglie remote).
++
+
+CAUTION: Il limite di 10 griglie è vincolato dal numero massimo totale di connessioni di federazione di griglia supportate da una distribuzione StorageGRID. Il limite totale di connessioni si applica a *tutte* le connessioni di federazione di griglia nella distribuzione, incluse quelle senza global namespace abilitato, quindi devi assicurarti che il global namespace completamente connesso e tutte le eventuali connessioni di federazione di griglia aggiuntive insieme non superino questo limite complessivo.
+
+* I client S3 devono utilizzare l'autenticazione con firma versione 4 (SigV4). Le richieste anonime e con firma versione 2 non sono supportate per le operazioni di routing dello spazio dei nomi globale.
++
+** Le richieste firmate normali sono specificate come descritto a  https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html["Autenticazione delle richieste: utilizzo dell'intestazione Authorization (AWS Signature Version 4)"].
+** Le richieste pre-firmate sono specificate come descritto in  https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html["Autenticazione delle richieste: utilizzo dei parametri di query (AWS Signature Version 4)"].
+
+
+
+
+
+
+[[number-of-required-connectionsnumber-of-required-connections]]
+== [[numero-di-connessioni-richieste]]Numero di connessioni richieste
+
+In uno spazio dei nomi globale, ogni coppia di griglie deve essere connessa. Il numero di connessioni richieste dipende dal numero di griglie:
+
+[cols="1a,1a"]
+|===
+| Numero di griglie | Numero di connessioni richieste 
+
+
+ a| 
+2
+ a| 
+1
+
+
+
+ a| 
+3
+ a| 
+3
+
+
+
+ a| 
+4
+ a| 
+6
+
+
+
+ a| 
+5
+ a| 
+10
+
+
+
+ a| 
+_n_
+ a| 
+_n_ × (_n_ − 1) / 2
+
+|===
+
+
+[[step-1-set-a-unique-default-region-for-each-grid]]
+[[configure-default-region]]
+== Passaggio 1: Imposta una regione predefinita univoca per ogni griglia
+
+Ogni griglia nello spazio dei nomi globale deve avere una regione predefinita univoca. La regione predefinita identifica la griglia che possiede un bucket.
+
+CreateBucket e ListBuckets le richieste vengono instradate in base a questa regione e tutte le altre richieste devono corrispondere alla regione predefinita a cui vengono inviate.
+
+Per ulteriori informazioni, consulta link:../ilm/configuring-regions-optional-and-s3-only.html["Configurare le regioni S3"].
+
+.Fasi
+. Su ciascuna griglia, link:../ilm/configuring-regions-optional-and-s3-only.html["imposta la regione predefinita su un valore univoco"]. Ad esempio, imposta la Griglia A su  `us-east-1` e la Griglia B su  `us-west-1`.
++
+
+NOTE: Puoi comunque usare regioni non predefinite, impostate tramite l’elemento  `LocationConstraint` in link:../s3/operations-on-buckets.html["richieste CreateBucket"], per le policy ILM. Le regioni non predefinite non vengono validate per l’unicità tra le grid nello spazio dei nomi globale.
+
+. Ripeti l'operazione per ogni grid nello spazio dei nomi globale. Ogni grid deve avere una regione predefinita diversa.
+. Configura regioni aggiuntive secondo necessità.
+
+
+
+
+[[step-2-configure-s3-global-namespace-settings]]
+== Passaggio 2: Configura le impostazioni dello spazio dei nomi globale S3
+
+Su ogni griglia nello spazio dei nomi globale, aggiungi due nomi di dominio degli endpoint S3:
+
+* Un endpoint di namespace globale identico su tutte le griglie
+* Un CNAME univoco per la grid
+
+
+Configurerai il tuo DNS in modo che l'endpoint dello spazio dei nomi globale si risolva in una o più griglie e che gli endpoint CNAME univoci si risolvano nella griglia specifica.
+
+
+CAUTION: Devi <<configure-default-region,configura la regione predefinita>> prima di configurare le impostazioni dello spazio dei nomi globale S3. Quando abiliti le impostazioni dello spazio dei nomi globale, le richieste S3 falliranno se non specificano la regione corretta. Tutte le richieste S3 devono essere firmate con la regione predefinita della grid.
+
+.Fasi
+. In ogni griglia, seleziona *Configurazione* > *Rete* > *Nomi di dominio degli endpoint S3* > *Nomi di dominio*.
+. Aggiungi un domain name endpoint dello spazio dei nomi globale che sia lo stesso su tutte le griglie. Ad esempio: `s3.example.com`.
+. Aggiungi un CNAME univoco per la griglia. Ad esempio,  `s3.company.com`.
+. Selezionare *Salva*.
+. Seleziona *Impostazioni dello spazio dei nomi globale*.
++
+.. Seleziona l'endpoint dello spazio dei nomi globale.
+.. Seleziona il domain name univoco CNAME della grid.
+
+
+. Selezionare *Salva*.
+. Assicurati che i certificati server utilizzati dai client includano i nuovi nomi di dominio degli endpoint S3.
++
+** Se i client si connettono a un endpoint di bilanciamento del carico che utilizza un proprio certificato, link:../admin/configuring-load-balancer-endpoints.html["aggiornare il certificato associato all'endpoint"].
+** Se i client si connettono a un endpoint di bilanciamento del carico che utilizza il certificato API S3 globale o direttamente ai nodi di archiviazione, link:../admin/use-s3-setup-wizard-steps.html["Aggiornare il certificato API S3 globale"].
+
+
+. Ripeti questi passaggi su ogni grid nello spazio dei nomi globale.
+
+
+Per dettagli, consultare link:../admin/configuring-s3-api-endpoint-domain-names.html["Configurare i nomi di dominio degli endpoint S3"].
+
+
+
+[[step-3-create-grid-federation-connections-with-global-namespace-enabled]]
+== Passaggio 3: Crea connessioni di federazione della griglia con spazio dei nomi globale abilitato
+
+Dopo aver configurato i nomi di dominio degli endpoint S3 e le regioni predefinite su tutte le griglie, puoi creare connessioni di federazione di griglia con lo spazio dei nomi globale abilitato.
+
+.A proposito di questa attività
+Quando crei una connessione di federazione grid e abiliti il global namespace, i campi global namespace endpoint, CNAME e default region vengono popolati automaticamente usando i valori che hai configurato nei passaggi precedenti. Il Grid Manager impedisce di abilitare il global namespace se questi campi non sono impostati correttamente.
+
+
+CAUTION: Dopo che è stata creata una connessione di federazione di griglie con spazio dei nomi globale, l'endpoint dello spazio dei nomi globale, il CNAME e la regione predefinita per le griglie in quella connessione non possono essere modificati.
+
+.Fasi
+. Nella prima griglia, segui i passaggi descritti in link:../admin/grid-federation-create-connection.html["Creare connessioni di federazione di griglie"].
+. Quando inserisci i dettagli di connessione, seleziona *Abilita spazio dei nomi globale*.
++
+I campi per l'endpoint dello spazio dei nomi globale, il record CNAME e la regione predefinita vengono popolati automaticamente con i valori che hai configurato nei passaggi precedenti. Se uno qualsiasi dei valori è mancante o non valido, non puoi abilitare lo spazio dei nomi globale finché non risolvi i problemi.
+
+. Completa la connessione scaricando il file di verifica e caricandolo sull'altra griglia.
+. Ripeti i passaggi precedenti per ogni coppia di griglie nello spazio dei nomi globale.
++
+Ad esempio, con 3 griglie, ti servono 3 connessioni (Grid A–Grid B, Grid A–Grid C, Grid B–Grid C). Con 4 griglie, ti servono 6 connessioni. Puoi avere un massimo di 10 griglie in un global namespace. Consulta <<number-of-required-connections,Numero di connessioni richieste>>.
+
+
+
+
+
+[[step-4-configure-load-balancer-endpoints]]
+== Passaggio 4: Configura gli endpoint del bilanciatore di carico
+
+link:../admin/configuring-load-balancer-endpoints.html["Configura un endpoint del bilanciatore di carico"]per ogni griglia nello spazio dei nomi globale. Usa la stessa porta per ciascuno di questi endpoint.
+
+
+NOTE: Assicurati di configurare gli endpoint del bilanciatore di carico prima di configurare la risoluzione DNS.
+
+
+
+[[config-dns-resolutionstep-5-configure-dns-resolution]]
+== [[config-dns-resolution]]Passaggio 5: Configura la risoluzione DNS
+
+StorageGRID non offre un DNS integrato per lo spazio dei nomi globale. Devi configurare la tua infrastruttura DNS esterna per instradare le richieste S3 al grid corretto.
+
+Il tuo DNS resolver dovrebbe:
+
+. Risolvere l'endpoint dello spazio dei nomi globale (ad esempio,  `s3.example.com`) sugli endpoint del bilanciatore di carico di una o più griglie, di solito utilizzando il DNS round-robin.
+. Risolvi il CNAME univoco di ogni griglia (ad esempio,  `s3.grid-a.example.com`) negli endpoint del bilanciatore di carico per quella specifica griglia.
+. Per le richieste di bucket in stile virtual-hosted (ad esempio,  `_bucket_.s3.example.com`), usa la policy di routing della tua organizzazione per mappare i nomi dei bucket al CNAME della griglia appropriata.
++
+StorageGRID non fornisce un meccanismo basato su DNS per scoprire quale grid possiede un bucket. Se hai bisogno di un routing automatico basato sulla proprietà del bucket, usa il link:../tenant/understanding-tenant-management-api.html["API di gestione del tenant"] per inviare richieste ListBucket che restituiscano gli UUID dei bucket. Mantieni una mappatura interna dagli UUID dei bucket alle grid. Il tuo DNS esterno dovrebbe usare quella mappatura invece di interrogare direttamente StorageGRID.
+
+
+
+
+
+[[related-information]]
+== Informazioni correlate
+
+* link:grid-federation-overview.html["Che cos'è la federazione di griglie?"]
+* link:grid-federation-create-connection.html["Creare connessioni di federazione di griglie"]
+* link:configuring-s3-api-endpoint-domain-names.html["Configurare i nomi di dominio degli endpoint S3"]
+* link:grid-federation-manage-connection.html["Gestire le connessioni a federazione di griglie"]
+

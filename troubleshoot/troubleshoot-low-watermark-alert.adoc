@@ -138,7 +138,7 @@ L'ultima colonna mostra il valore massimo ottimizzato del watermark di sola lett
 . Ripetere questi passaggi per ogni nodo di storage online:
 +
 .. Selezionare *_Storage Node_* > *Storage*.
-.. Scorrere verso il basso fino alla tabella degli archivi di oggetti.
+.. Scorri verso il basso fino alla tabella degli archivi degli oggetti.
 .. Confrontare il valore *Available* per ciascun archivio di oggetti (volume) con il watermark ottimizzato massimo annotato per quel nodo di storage.
 
 

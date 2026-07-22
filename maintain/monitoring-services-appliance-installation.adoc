@@ -14,9 +14,9 @@ summary: 'Il programma di installazione dell"appliance StorageGRID indica lo sta
 Il programma di installazione dell'appliance StorageGRID indica lo stato fino al completamento dell'installazione. Una volta completata l'installazione del software, l'appliance viene riavviata.
 
 .Fasi
-. Per monitorare l'avanzamento dell'installazione, fare clic su *Monitor Installation* (Installazione monitor) nella barra dei menu.
+. Per monitorare l'avanzamento dell'installazione, seleziona *Monitora installazione* dalla barra dei menu.
 +
-La pagina Monitor Installation (Installazione monitor) mostra lo stato di avanzamento dell'installazione.
+La pagina di installazione di Monitor mostra lo stato di avanzamento dell'installazione.
 
 +
 La barra di stato blu indica l'attività attualmente in corso. Le barre di stato verdi indicano le attività completate correttamente.

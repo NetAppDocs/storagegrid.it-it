@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace primary admin node, replacing primary admin node, primary admin node 
 summary: 'Per ripristinare un nodo di amministrazione primario, è necessario prima sostituire l"hardware fisico o virtuale.' 
 ---
-= Sostituire il nodo di amministrazione primario di StorageGRID
+= Sostituisci il nodo di amministrazione primario di StorageGRID utilizzando lo stesso nodo di amministrazione primario
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,12 @@ summary: 'Per ripristinare un nodo di amministrazione primario, è necessario pr
 [role="lead"]
 Per ripristinare un nodo di amministrazione primario, è necessario prima sostituire l'hardware fisico o virtuale.
 
-È possibile sostituire un nodo di amministrazione primario guasto con un nodo di amministrazione primario in esecuzione sulla stessa piattaforma oppure sostituire un nodo di amministrazione primario in esecuzione su VMware o su un host Linux con un nodo di amministrazione primario in hosting su un'appliance di servizi.
+Per ripristinare un nodo di amministrazione primario, è necessario prima sostituire l'hardware fisico o virtuale.
+
+* Puoi sostituire un nodo Admin primario guasto con un nodo Admin primario in esecuzione sulla stessa piattaforma.
+* Puoi sostituire un nodo amministrativo primario in esecuzione su VMware o su un host Linux con un nodo amministrativo primario ospitato su un'appliance di servizi StorageGRID.
+* Puoi sostituire un nodo Admin primario in esecuzione su un host VMware con un'appliance di servizi SG1000 o SG100.
+
 
 Utilizzare la procedura corrispondente alla piattaforma sostitutiva selezionata per il nodo. Una volta completata la procedura di sostituzione del nodo (adatta a tutti i tipi di nodo), questa procedura indirizzerà l'utente al passaggio successivo per il ripristino primario del nodo di amministrazione.
 
@@ -25,7 +30,9 @@ Utilizzare la procedura corrispondente alla piattaforma sostitutiva selezionata 
  a| 
 VMware
  a| 
-link:all-node-types-replacing-vmware-node.html["Sostituire un nodo VMware"]
+link:all-node-types-replacing-vmware-node.html["Sostituisci un nodo VMware con un nodo di ripristino"]
+
+link:replace-vmware-node-with-sg1000-sg100.html["Sostituisci un nodo VMware con SG1000 o SG100"]
 
 
 

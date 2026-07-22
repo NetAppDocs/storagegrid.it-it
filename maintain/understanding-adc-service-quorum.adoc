@@ -2,7 +2,7 @@
 permalink: maintain/understanding-adc-service-quorum.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, adc, adc quorum 
-summary: 'Potrebbe non essere possibile smantellare alcuni nodi di archiviazione in un sito se dopo lo smantellamento rimanessero pochi servizi ADC (Administrative Domain Controller).' 
+summary: 'Il quorum ADC garantisce che un numero minimo di servizi Administrative Domain Controller (ADC) rimanga disponibile in ogni sito. StorageGRID sposta automaticamente il servizio ADC durante il decommission quando necessario.' 
 ---
 = Cos'è il quorum ADC di StorageGRID?
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Potrebbe non essere possibile smantellare alcuni nodi di archiviazione
 
 
 [role="lead"]
-Potrebbe non essere possibile smantellare alcuni nodi di archiviazione in un sito se dopo lo smantellamento rimanessero pochi servizi ADC (Administrative Domain Controller).
+Il quorum ADC garantisce che un numero minimo di servizi Administrative Domain Controller (ADC) rimanga disponibile in ogni sito. StorageGRID sposta automaticamente il servizio ADC durante il decommission quando necessario.
 
 Il servizio ADC, presente in alcuni nodi di archiviazione, mantiene le informazioni sulla topologia della griglia e fornisce servizi di configurazione alla griglia. Il sistema StorageGRID richiede un quorum di servizi ADC per essere sempre disponibile in ogni sito.
 
@@ -26,4 +26,6 @@ Ad esempio, si supponga che un sito attualmente includa sei nodi di storage con 
 * Nella seconda procedura di dismissione, è possibile rimuovere il terzo nodo di archiviazione perché il quorum ADC richiede ora che rimangano disponibili solo tre servizi ADC: `((0.5 * 4) + 1)` .
 
 
-Se è necessario decommissionare un nodo di archiviazione, è possibile continuare a soddisfare il requisito di quorum ADC link:../release-notes/changes-to-grid-management-api.html#new-private-endpoints-for-move-adc["Spostamento del servizio ADC su un altro nodo di archiviazione nello stesso sito"] o aggiungendo un nuovo nodo di archiviazione in un link:../expand/index.html["espansione"] e specificando che deve disporre di un servizio ADC. Successivamente, è possibile decommissionare il nodo di archiviazione esistente senza influire sul quorum.
+Quando decommissioni un nodo di archiviazione che ospita il servizio ADC, StorageGRID sposta automaticamente il servizio ADC su un altro nodo di archiviazione nello stesso sito se la decommission portasse il numero di nodi ADC del sito al di sotto del quorum. Lo spostamento automatico richiede che tutti i nodi della grid siano connessi e che siano disponibili nodi di archiviazione non ADC nello stesso sito per ricevere il servizio. La procedura di decommission mantiene un minimo di tre nodi di archiviazione ADC per sito. Ad esempio, se decommissioni quattro o sei nodi ADC in un sito, dopo la procedura rimarranno tre nodi di archiviazione ADC, a condizione che siano presenti nodi non ADC disponibili nello stesso sito.
+
+Se il servizio ADC non può essere spostato automaticamente, puoi link:move-adc-service.html["spostare manualmente il servizio ADC"] su un altro Storage Node nello stesso sito oppure link:../expand/index.html["aggiungi un nuovo Storage Node in un'espansione"] e specificare che debba avere un servizio ADC. Poi puoi decommissionare lo Storage Node esistente senza influire sul quorum.

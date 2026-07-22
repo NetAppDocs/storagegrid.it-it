@@ -21,16 +21,15 @@ Utilizzare questa tabella per selezionare la procedura di ripristino per un nodo
 
 
  a| 
-* Si è verificato un errore in più di un nodo di storage.
-
+Si è verificato un errore in più di un nodo di storage.
  a| 
 Contattare il supporto tecnico.
  a| 
-Il ripristino di più di un nodo di archiviazione potrebbe compromettere l'integrità del database Cassandra, causando la perdita di dati.
+Se si verifica un guasto a più di un nodo di archiviazione, il supporto tecnico deve intervenire per il ripristino al fine di prevenire incoerenze nel database Cassandra che potrebbero causare la perdita di dati. Potrebbe essere necessaria una procedura di ripristino del sito.
 
-Il supporto tecnico può determinare quando è sicuro iniziare il ripristino di un secondo nodo di storage.
+Il supporto tecnico può stabilire quando è sicuro avviare il ripristino di un secondo Storage Node.
 
-*Nota*: Se più di un nodo di storage che contiene il servizio ADC si guasta in un sito, si perdono le richieste di servizio della piattaforma in sospeso per quel sito.
+*Nota*: Se più di un nodo di archiviazione che contiene il servizio ADC si guasta in un sito, tutte le richieste di servizio della piattaforma in sospeso per quel sito andranno perse.
 
 
 
@@ -55,7 +54,7 @@ La procedura di ripristino per i nodi di storage dell'appliance è la stessa per
  a| 
 Uno o più volumi di storage sono guasti, ma il disco di sistema è intatto
  a| 
-link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["Ripristino in seguito a un errore del volume di storage in cui il disco di sistema è intatto"]
+link:reviewing-warnings-about-storage-volume-recovery.html["Ripristino in seguito a un errore del volume di storage in cui il disco di sistema è intatto"]
  a| 
 Questa procedura viene utilizzata per i nodi di storage basati su software.
 

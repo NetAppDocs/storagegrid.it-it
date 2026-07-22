@@ -11,7 +11,7 @@ summary: 'È possibile controllare chi può accedere a StorageGRID e quali attiv
 
 
 [role="lead"]
-È possibile controllare chi può accedere a StorageGRID e quali attività possono essere eseguite dagli utenti creando o importando gruppi e utenti e assegnando autorizzazioni a ciascun gruppo. Facoltativamente, è possibile attivare SSO (Single Sign-on), creare certificati client e modificare le password della griglia.
+Puoi controllare chi può accedere a StorageGRID e quali attività gli utenti possono svolgere creando o importando gruppi e utenti e assegnando le autorizzazioni a ciascun gruppo. Inoltre, puoi abilitare il single sign-on (SSO), creare certificati client, cambiare le password della grid e usare la verifica multi-admin.
 
 
 
@@ -34,7 +34,7 @@ Facoltativamente, è possibile configurare un gruppo in modo che sia di sola let
 [[enable-single-sign-on]]
 == Attiva single sign-on
 
-Il sistema StorageGRID supporta l'accesso Single Sign-On (SSO) utilizzando lo standard Security Assertion Markup Language 2.0 (SAML 2.0).  Dopo di telink:how-sso-works.html["Configurare e abilitare SSO"] , tutti gli utenti devono essere autenticati da un provider di identità esterno prima di poter accedere a Grid Manager, Tenant Manager, Grid Management API o Tenant Management API.  Gli utenti locali non possono accedere a StorageGRID.
+Il sistema StorageGRID supporta il single sign-on (SSO) utilizzando lo standard Security Assertion Markup Language 2.0 (SAML 2.0) o OpenID Connect (OIDC). Dopo che link:how-sso-works.html["Configurare e abilitare SSO"], tutti gli utenti devono essere autenticati da un identity provider esterno prima di poter accedere a Grid Manager, Tenant Manager, Grid Management API o Tenant Management API. Gli utenti locali non possono accedere a StorageGRID.
 
 
 
@@ -49,3 +49,10 @@ La passphrase di provisioning è necessaria per numerose procedure di installazi
 == Modificare le password della console dei nodi
 
 Ogni nodo nella griglia ha una password per la console del nodo, necessaria per accedere al nodo come "admin" tramite SSH oppure come utente root su una connessione alla console fisica/VM.  Se necessario, puoilink:change-node-console-password.html["modificare la password della console del nodo"] per ogni nodo.
+
+
+
+[[use-multi-admin-verification]]
+== Usa la verifica multi-amministratore
+
+Puoi usare la verifica multi-amministratore (MAV) per assicurarti che alcune operazioni di StorageGRID possano essere eseguite solo dopo l'approvazione degli amministratori designati. MAV impedisce ad amministratori compromessi, malintenzionati o inesperti di apportare modifiche indesiderate o eliminare dati.

@@ -23,5 +23,5 @@ image:retrieve_data_flow.png["Recuperare"]
 . Il servizio LDR riceve una richiesta di recupero dall'applicazione client.
 . Il servizio LDR interroga l'archivio di metadati per la posizione dei dati dell'oggetto e i metadati.
 . Il servizio LDR inoltra la richiesta di recupero al servizio LDR di origine.
-. Il servizio LDR di origine restituisce i dati dell'oggetto dal servizio LDR interrogato e il sistema restituisce l'oggetto all'applicazione client.
+. Il servizio LDR di origine restituisce i dati dell'oggetto recuperato al servizio LDR interrogato e il sistema restituisce l'oggetto all'applicazione client.
 

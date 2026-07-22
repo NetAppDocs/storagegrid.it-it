@@ -62,7 +62,7 @@ Ad esempio, immettere `10.96.104.0/22`.
 . Attendi che le modifiche vengano applicate, quindi scarica un nuovo pacchetto di ripristino.
 +
 .. Selezionare *Manutenzione* > *Sistema* > *Pacchetto di ripristino*.
-.. Immettere la *Provisioning Passphrase*.
+.. Inserisci la *passphrase di provisioning*.
 +
 
 CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID .  Viene utilizzato anche per recuperare il nodo di amministrazione primario.
@@ -86,7 +86,7 @@ Le subnet specificate vengono configurate automaticamente per il sistema Storage
 . Attendi che le modifiche vengano applicate, quindi scarica un nuovo pacchetto di ripristino.
 +
 .. Selezionare *Manutenzione* > *Sistema* > *Pacchetto di ripristino*.
-.. Immettere la *Provisioning Passphrase*.
+.. Inserisci la *passphrase di provisioning*.
 
 
 
@@ -98,13 +98,13 @@ Le subnet specificate vengono configurate automaticamente per il sistema Storage
 
 .Fasi
 . Selezionare *Manutenzione* > *Rete* > *Rete di rete*.
-. Seleziona l'icona di eliminazione image:icon-x-to-remove.png["icona elimina"] accanto alla sottorete.
+. Seleziona l'icona di eliminazione image:icon_x_to_remove.png["icona elimina"] accanto alla sottorete.
 . Inserire la passphrase di provisioning e selezionare *Save* (Salva).
 . Selezionare *Sì* nella finestra di dialogo di conferma.
 . Attendi che le modifiche vengano applicate, quindi scarica un nuovo pacchetto di ripristino.
 +
 .. Selezionare *Manutenzione* > *Sistema* > *Pacchetto di ripristino*.
-.. Immettere la *Provisioning Passphrase*.
+.. Inserisci la *passphrase di provisioning*.
 
 
 

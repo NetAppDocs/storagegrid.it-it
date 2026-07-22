@@ -21,7 +21,7 @@ NOTE: Durante l'installazione, è possibile configurare i nodi di archiviazione 
 I pool di storage hanno due attributi:
 
 * *Storage grade*: Per i nodi di storage, le performance relative dello storage di backup.
-* *Sito*: Il data center in cui verranno memorizzati gli oggetti.
+* *Sito*: Il data center in cui vengono archiviati gli oggetti.
 
 
 I pool di storage vengono utilizzati nelle regole ILM per determinare dove sono memorizzati i dati degli oggetti e il tipo di storage utilizzato. Quando si configurano le regole ILM per la replica, si selezionano uno o più pool di storage.

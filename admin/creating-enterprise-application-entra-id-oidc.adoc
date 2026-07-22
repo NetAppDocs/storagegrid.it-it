@@ -1,0 +1,109 @@
+---
+permalink: admin/creating-enterprise-application-entra-id-oidc.html 
+sidebar: sidebar 
+keywords: enterprise application, entra id, single sign on, sso 
+summary: 'Utilizza Entra ID per creare un"applicazione per ogni Admin Node nel tuo sistema.' 
+---
+= Crea applicazioni aziendali in Entra ID per OIDC in StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizza Entra ID per creare un'applicazione aziendale per ogni Admin Node per OpenID Connect (OIDC) nel tuo sistema.
+
+.Prima di iniziare
+* Hai l'identificativo della relying party e il fully qualified domain name (FQDN) o l'indirizzo IP per ogni Admin Node nel tuo sistema.
++
+
+NOTE: Ogni nodo di amministrazione nel tuo sistema StorageGRID deve disporre di un'applicazione aziendale. Questo garantisce che gli utenti possano accedere e disconnettersi in modo sicuro da qualsiasi nodo di amministrazione. Puoi creare un'unica applicazione aziendale per tutti i nodi di amministrazione (consigliato) oppure un'applicazione aziendale diversa per ciascun nodo di amministrazione.
+
+* Hai esperienza nella creazione di applicazioni in Entra ID.
+* Hai un account Entra ID con un abbonamento attivo.
+* Nell'account Entra ID ricopri uno dei seguenti ruoli: Amministratore globale, Amministratore dell'applicazione cloud, Amministratore dell'applicazione o proprietario del servizio principale.
+
+
+
+
+[[step-1-access-entra-id]]
+== Passaggio 1: Accedi a Entra ID
+
+.Fasi
+. Accedere a https://portal.azure.com["Portale Azure"^].
+. Seleziona link:https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview["ID di accesso Microsoft"^].
+. Seleziona link:https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps["Registrazioni delle app"^].
+
+
+
+
+[[step-2-register-a-new-application]]
+== Passaggio 2: Registra una nuova applicazione
+
+Registra una nuova applicazione aziendale per ogni Admin Node nel tuo sistema.
+
+.Fasi
+. Nel riquadro Applicazioni Entra ID Enterprise, seleziona *Registrazioni applicazioni* > *Nuova registrazione*.
+. Per *Nome*, inserisci l'identificativo della relying party.
+. In *Tipi di account supportati*, seleziona i tipi di account che possono usare l'applicazione o accedere all'API, ad esempio, *Solo tenant singolo - <tenant_name>*.
+. In *URI di reindirizzamento*, seleziona *Seleziona una piattaforma* > *Web*.
+. Inserisci l'URI di reindirizzamento fully qualified domain (o indirizzo IP) per il nodo Admin:  `https://<FQDN>/api/v4/oidc-callback` o  `https://<IP_address>/api/v4/oidc-callback`
++
+Se usi un'unica applicazione aziendale per tutti i nodi di amministrazione, inserisci l'URI di ciascun nodo di amministrazione. Se usi un'applicazione aziendale diversa per ogni nodo di amministrazione, inserisci solo l'URI del nodo di amministrazione corrispondente.
+
+. Seleziona *Register*.
+. Nella pagina Panoramica della nuova registrazione dell'applicazione, annota l'*Application (client) ID* e il *Directory (tenant) ID*.
+
+
+
+
+[[step-3-configure-a-client-secret]]
+== Passaggio 3: Configura un segreto client
+
+Registra un client secret per ogni nuova applicazione.
+
+.Fasi
+. Nella pagina Panoramica della nuova registrazione dell'applicazione, seleziona *Gestisci* > *Certificati e segreti* > *Nuovo segreto client*.
+. Inserisci il client secret e imposta la data di scadenza desiderata.
+. Seleziona *Aggiungi* per creare il client secret.
+. Copia il *Value* segreto.
++
+
+NOTE: Il valore segreto non è visibile dopo che aggiorni o navighi dalla pagina del segreto del client.
+
+
+
+
+
+[[step-4-set-up-the-api-permissions]]
+== Passaggio 4: Configura le autorizzazioni API
+
+Configura le autorizzazioni API per ogni nuova applicazione.
+
+.Fasi
+. Nella pagina Panoramica della nuova registrazione dell'applicazione, seleziona *Gestisci* > *Autorizzazioni API* > *Aggiungi un'autorizzazione*.
+. Seleziona *Microsoft APIs* > *Microsoft Graph* > *Autorizzazioni delegate*.
+. Espandi *OpenId permissions*, poi seleziona *email*, *offline_access*, *openid* e *profile*.
+. Seleziona *Aggiungi autorizzazioni*.
+. Seleziona *Concedi il consenso amministrativo per <tenant>*, poi seleziona *Sì*.
+
+
+
+
+[[step-5-add-the-logged-out-redirect-uri]]
+== Passaggio 5: Aggiungi l'URI di reindirizzamento per il logout
+
+Aggiungi l'URI di reindirizzamento per il logout per ogni nuova applicazione.
+
+.Fasi
+. Nella pagina Panoramica della nuova registrazione dell'applicazione, seleziona *Gestisci* > *Autenticazione*.
+. Seleziona *Aggiungi URI di reindirizzamento* > *Web*.
+. Inserisci l'URI di reindirizzamento FQDN (o indirizzo IP) per l'Admin Node: `https://<FQDN>/api/v4/oidc-logged-out` o `https://<IP_address>/api/v4/oidc-logged-out`
++
+Se usi un unico gruppo di applicazioni per tutti gli Admin Node, inserisci l'URI per ciascun Admin Node. Se usi un gruppo di applicazioni diverso per ciascun Admin Node, inserisci solo l'URI per l'Admin Node corrispondente.
+
+. Seleziona *Configura*.
+
+
+.Cosa c'è dopo
+Dopo aver creato le applicazioni aziendali, link:configure-sso-oidc.html["Configura SSO tramite OIDC"].

@@ -30,6 +30,6 @@ Aggiungere voci DNS per associare il nome del server StorageGRID (nome di domini
 
 
 [[dns-entries-for-virtual-hosted-style-requests]]
-== Voci DNS per richieste virtuali in stile host
+== Voci DNS per richieste in stile virtual-hosted
 
-Se è stato definito link:../admin/configuring-s3-api-endpoint-domain-names.html["Nomi di dominio degli endpoint S3"] e si utilizzeranno richieste di stile host virtuali, aggiungere voci DNS per tutti i nomi di dominio degli endpoint S3 richiesti, inclusi i nomi dei caratteri jolly.
+Se hai definito link:../admin/configuring-s3-api-endpoint-domain-names.html["Nomi di dominio degli endpoint S3"] e intendi utilizzare richieste in stile virtual-hosted, aggiungi le voci DNS per tutti i domain name degli endpoint S3 richiesti, inclusi eventuali nomi wildcard.

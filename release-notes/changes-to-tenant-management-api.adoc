@@ -2,7 +2,7 @@
 permalink: release-notes/changes-to-tenant-management-api.html 
 sidebar: sidebar 
 keywords: tenant management api, api, api version, swagger, rest api 
-summary: StorageGRID 12.0 utilizza la versione 4 della Tenant Management API. La versione 4 depreca la versione 3. Tuttavia, le versioni 1, 2 e 3 sono ancora supportate. 
+summary: StorageGRID 12.1 utilizza la versione 4 della Tenant Management API. La versione 4 depreca la versione 3. Tuttavia, le versioni 1, 2 e 3 sono ancora supportate. 
 ---
 = Modifiche all'API di gestione dei tenant in StorageGRID
 :allow-uri-read: 
@@ -11,10 +11,10 @@ summary: StorageGRID 12.0 utilizza la versione 4 della Tenant Management API. La
 
 
 [role="lead"]
-StorageGRID 12.0 utilizza la versione 4 dell'API Tenant Management.  La versione 4 depreca la versione 3; tuttavia, le versioni 1, 2 e 3 sono ancora supportate.
+StorageGRID 12.1 utilizza la versione 4 dell'API di gestione dei tenant. La versione 4 sostituisce la versione 3; tuttavia, le versioni 1, 2 e 3 sono ancora supportate.
 
 
-NOTE: È possibile continuare a utilizzare le versioni obsolete dell'API Tenant Management con StorageGRID 12.0; tuttavia, il supporto per queste versioni dell'API verrà rimosso in una futura versione di StorageGRID.  Dopo l'aggiornamento a StorageGRID 12.0, è possibile disattivare le API deprecate utilizzando `PUT /grid/config/management` API.
+NOTE: Puoi continuare a usare le versioni obsolete della Tenant Management API con StorageGRID; tuttavia, il supporto per queste versioni dell'API verrà rimosso in una versione futura di StorageGRID. Dopo l'aggiornamento a StorageGRID 12.0 o versioni successive, puoi disattivare le API obsolete usando l' `PUT /grid/config/management`API.
 
 Per ulteriori informazioni, visitare il sito Web all'indirizzo link:../tenant/understanding-tenant-management-api.html["Comprendere l'API di gestione dei tenant"].
 

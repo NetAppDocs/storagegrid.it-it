@@ -15,7 +15,7 @@ Un sistema StorageGRID è costituito da più tipi di nodi grid in uno o più sit
 
 Scopri di più sulink:nodes-and-services.html["tipi di nodi della griglia"] .
 
-Per ulteriori informazioni sulla topologia di rete StorageGRID , sui requisiti e sulle comunicazioni di rete, fare riferimento alink:../network/index.html["Linee guida per il networking"] .
+Per ulteriori informazioni sulla topologia di rete di StorageGRID, sui requisiti e sulle comunicazioni della griglia, consulta link:../network/index.html["Linee guida per il networking"].
 
 
 
@@ -62,8 +62,8 @@ Questo diagramma mostra come i nodi della griglia sono disposti all'interno di u
 
 image:grid_nodes_and_components.png["diagramma descritto dal testo circostante"]
 
-I client S3 memorizzano e recuperano oggetti in StorageGRID. Altri client vengono utilizzati per inviare notifiche e-mail, per accedere all'interfaccia di gestione di StorageGRID e, facoltativamente, per accedere alla condivisione dell'audit.
+I client S3 archiviano e recuperano oggetti in StorageGRID. Altri client vengono utilizzati per accedere all'interfaccia di gestione di StorageGRID e, facoltativamente, alla condivisione di audit. Inoltre, StorageGRID può facoltativamente inviare avvisi via email tramite un server SMTP esterno.
 
 I client S3 possono connettersi a un nodo gateway o a un nodo amministrativo per utilizzare l'interfaccia di bilanciamento del carico per i nodi di storage. In alternativa, i client S3 possono connettersi direttamente ai nodi storage utilizzando HTTPS.
 
-Gli oggetti possono essere archiviati in StorageGRID su nodi di archiviazione basati su software o hardware oppure in pool di archiviazione cloud, costituiti da bucket S3 esterni o contenitori di archiviazione BLOB di Azure.
+Gli oggetti possono essere archiviati all'interno di StorageGRID su nodi di archiviazione basati su software o hardware, oppure in Cloud Storage Pools, che consistono in bucket S3 esterni o container Azure Blob Storage.

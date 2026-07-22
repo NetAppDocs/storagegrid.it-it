@@ -129,7 +129,12 @@ Posizioni = 0
  a| 
 Se nell'output non sono elencate posizioni, l'oggetto potrebbe essere mancante.  Contattare l'assistenza tecnica.
 
-Il supporto tecnico potrebbe richiedere di determinare se è in corso una procedura di ripristino dello storage. Vedere le informazioni su link:../maintain/restoring-volume.html["Ripristino dei dati degli oggetti mediante Grid Manager"] e link:../maintain/restoring-object-data-to-storage-volume.html["ripristino dei dati degli oggetti in un volume di storage"].
+Il supporto tecnico potrebbe chiederti di verificare se è in corso una procedura di ripristino dello storage. Consulta:
+
+*** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["Ripristinare i dati dell'oggetto nel volume di storage per l'appliance"]
+*** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Ripristinare i dati degli oggetti nel volume di storage in cui il disco di sistema è intatto"]
+*** link:../maintain/restoring-object-data-to-storage-volume.html["Ripristinare i dati dell'oggetto nel volume di storage (errore del disco di sistema)"]
+
 
 |===
 

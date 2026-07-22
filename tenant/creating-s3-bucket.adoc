@@ -21,10 +21,10 @@ summary: 'È possibile utilizzare Tenant Manager per creare bucket S3 per i dati
 NOTE: Le autorizzazioni per impostare o modificare le proprietà di blocco degli oggetti S3 di bucket o oggetti possono essere concesse dalink:../s3/use-access-policies.html["policy bucket o policy di gruppo"] .
 
 * Se si prevede di attivare il blocco oggetti S3 per un bucket, un amministratore della griglia ha attivato l'impostazione globale di blocco oggetti S3 per il sistema StorageGRID e sono stati esaminati i requisiti per i bucket e gli oggetti blocco oggetti S3.
-* Se ogni tenant avrà 5.000 bucket, ogni nodo storage nella griglia ha un minimo di 64 GB di RAM.
+* Se più tenant avranno ciascuno fino a 5.000 bucket, ogni Storage Node nella griglia avrà un minimo di 64 GB di RAM.
 +
 
-NOTE: Ogni griglia può avere un massimo di 100.000 bucket, inclusilink:../tenant/what-is-branch-bucket.html["secchi di rami"] .
+NOTE: Il sistema StorageGRID supporta un massimo di 20.000 bucket per ogni account tenant S3. Ogni grid può avere un massimo di 100.000 bucket, inclusi link:../tenant/what-is-branch-bucket.html["secchi di rami"]. C'è anche un limite a link:../tenant/manage-branch-buckets.html["profondità del bucket del branch"].
 
 
 
@@ -63,7 +63,7 @@ Un nome per il bucket conforme alle seguenti regole:
 ** Non deve contenere periodi nelle richieste di stile ospitate virtuali. I punti causano problemi con la verifica del certificato con caratteri jolly del server.
 
 
-Per ulteriori informazioni, vedere https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["Documentazione di Amazon Web Services (AWS) sulle regole di denominazione del bucket"^].
+Per ulteriori informazioni, consulta il  https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["Documentazione di Amazon Web Services (AWS) sulle regole di denominazione del bucket"^].
 
 *Nota*: Non è possibile modificare il nome del bucket dopo averlo creato.
 

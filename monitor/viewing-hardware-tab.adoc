@@ -55,7 +55,7 @@ La sezione Avvisi della scheda Panoramica visualizza gli avvisi attivi per il no
 
 . Selezionare *hardware* per visualizzare ulteriori informazioni sull'appliance.
 +
-.. Visualizzare i grafici relativi all'utilizzo della CPU e della memoria per determinare le percentuali di utilizzo della CPU e della memoria nel tempo. Per visualizzare un intervallo di tempo diverso, selezionare uno dei comandi sopra il grafico o il grafico. È possibile visualizzare le informazioni disponibili per intervalli di 1 ora, 1 giorno, 1 settimana o 1 mese. È inoltre possibile impostare un intervallo personalizzato, che consente di specificare intervalli di data e ora.
+.. Visualizza i grafici di utilizzo della CPU e della memoria per determinare le percentuali di utilizzo di CPU e memoria nel tempo. Per visualizzare un intervallo di tempo diverso, seleziona uno dei controlli sopra il grafico. Puoi visualizzare le informazioni disponibili per intervalli di 1 ora, 1 giorno, 1 settimana o 1 mese. Puoi anche impostare un intervallo personalizzato, che ti permette di specificare intervalli di date e orari.
 +
 image:nodes_page_hardware_tab_graphs.png["Grafici hardware"]
 
@@ -66,9 +66,6 @@ NOTE: Alcuni campi, ad esempio Compute controller BMC IP e Compute hardware, ven
 
 +
 I componenti per gli shelf di storage e gli shelf di espansione, se sono parte dell'installazione, vengono visualizzati in una tabella separata sotto la tabella dell'appliance.
-
-+
-image:nodes_page_hardware_tab_for_appliance.png["Scheda Nodes Page hardware (hardware pagina nodi) per Appliance"]
 
 +
 [cols="1a,2a"]
@@ -261,6 +258,20 @@ Temperatura dello chassis del controller di calcolo
  a| 
 Lo stato della temperatura del controller di calcolo.
 
+
+
+ a| 
+Alimentatore del controller di calcolo A
+ a| 
+Stato dell'alimentatore A per il controller di calcolo.
+
+
+
+ a| 
+Alimentatore del controller di calcolo B
+ a| 
+Lo stato dell'alimentatore B per il controller di calcolo.
+
 |===
 +
 [cols="1a,2a"]
@@ -379,12 +390,12 @@ Il grafico del traffico di rete fornisce un riepilogo del traffico di rete compl
 image:nodes_page_network_traffic_graph.png["Pagina nodi grafico traffico di rete"]
 
 +
-.. Consultare la sezione interfacce di rete.
+.. Controlla la sezione Interfacce di rete.
 +
 image:nodes_page_network_interfaces.png["Interfacce di rete della pagina Nodes (nodi)"]
 
 +
-Utilizzare la seguente tabella con i valori nella colonna *Speed* della tabella Network Interfaces (interfacce di rete) per determinare se le porte di rete 10/25-GbE dell'appliance sono state configurate per l'utilizzo della modalità Active/backup o LACP.
+Usa la seguente tabella con i valori nella colonna *Velocità* della tabella Interfacce di rete per determinare se le porte di rete 10/25-GbE sull'appliance sono state configurate per utilizzare la modalità attivo/backup o la modalità LACP.
 
 +
 
@@ -464,12 +475,9 @@ Attivo/Backup
 +
 Consultare https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["Configurare i collegamenti di rete"^] per ulteriori informazioni sulla configurazione delle porte 10/25-GbE.
 
-.. Consultare la sezione comunicazione di rete.
+.. Controlla la sezione Comunicazione di rete.
 +
 Le tabelle di ricezione e trasmissione mostrano quanti byte e pacchetti sono stati ricevuti e inviati attraverso ciascuna rete, nonché altre metriche di ricezione e trasmissione.
-
-+
-image:nodes_page_network_communication.png["COM. Rete pagina nodi"]
 
 
 
@@ -488,9 +496,6 @@ Il nome internazionale di ciascun disco corrisponde all'identificativo mondiale 
 +
 Per semplificare l'interpretazione delle statistiche di lettura e scrittura dei dischi relative ai punti di montaggio del volume, la prima parte del nome visualizzato nella colonna *Name* della tabella Disk Devices (periferiche disco) (ovvero _sdc_, _sdd_, _sde_ e così via) corrisponde al valore visualizzato nella colonna *Device* della tabella Volumes (volumi).
 
-+
-image:nodes_page_storage_tables.png["Tabelle di archiviazione delle pagine dei nodi"]
-
 
 
 
@@ -504,7 +509,7 @@ La pagina Nodes (nodi) elenca le informazioni sullo stato del servizio e tutte l
 
 .Fasi
 . Dalla pagina Nodes (nodi), selezionare un nodo Admin dell'appliance o un nodo Gateway dell'appliance.
-. Selezionare *Panoramica*.
+. Selezionare la scheda *Panoramica*.
 +
 La sezione Node information (informazioni nodo) della scheda Overview (Panoramica) visualizza informazioni riepilogative per il nodo, ad esempio il nome, il tipo, l'ID e lo stato di connessione del nodo. L'elenco degli indirizzi IP include il nome dell'interfaccia per ciascun indirizzo, come segue:
 
@@ -521,16 +526,13 @@ image:nodes_page_overview_tab_services_appliance.png["Scheda Panoramica della pa
 +
 La sezione Avvisi della scheda Panoramica visualizza gli avvisi attivi per il nodo.
 
-. Selezionare *hardware* per visualizzare ulteriori informazioni sull'appliance.
+. Seleziona la scheda *Hardware* per visualizzare ulteriori informazioni sull'appliance.
 +
 .. Visualizzare i grafici relativi all'utilizzo della CPU e della memoria per determinare le percentuali di utilizzo della CPU e della memoria nel tempo. Per visualizzare un intervallo di tempo diverso, selezionare uno dei comandi sopra il grafico o il grafico. È possibile visualizzare le informazioni disponibili per intervalli di 1 ora, 1 giorno, 1 settimana o 1 mese. È inoltre possibile impostare un intervallo personalizzato, che consente di specificare intervalli di data e ora.
 +
 image:nodes_page_hardware_tab_graphs_services_appliance.png["Pagina nodi grafici della scheda hardware per l'appliance di servizi"]
 
-.. Scorrere verso il basso per visualizzare la tabella dei componenti dell'appliance. Questa tabella contiene informazioni come il nome del modello, il numero di serie, la versione del firmware del controller e lo stato di ciascun componente.
-+
-image:nodes_page_hardware_tab_services_appliance.png["Scheda hardware della pagina nodi per l'appliance di servizi"]
-
+.. Scorri verso il basso per visualizzare la tabella dei componenti dell'appliance. La tabella contiene informazioni quali il nome del modello, il numero di serie, la versione del firmware del controller e lo stato di ciascun componente.
 +
 [cols="1a,2a"]
 |===
@@ -621,7 +623,7 @@ Se uno stato non è "nominale", esaminare eventuali avvisi correnti.
 
 
 
-. Selezionare *Network* per visualizzare le informazioni relative a ciascuna rete.
+. Seleziona la scheda *Rete* per visualizzare le informazioni per ciascuna rete.
 +
 Il grafico del traffico di rete fornisce un riepilogo del traffico di rete complessivo.
 
@@ -629,12 +631,9 @@ Il grafico del traffico di rete fornisce un riepilogo del traffico di rete compl
 image:nodes_page_network_traffic_graph.png["Pagina nodi grafico traffico di rete"]
 
 +
-.. Consultare la sezione interfacce di rete.
+.. Controlla la sezione Interfacce di rete.
 +
-image:nodes_page_hardware_tab_network_services_appliance.png["Pagina nodi scheda hardware Network Services Appliance"]
-
-+
-Utilizzare la seguente tabella con i valori nella colonna *Speed* della tabella Network Interfaces (interfacce di rete) per determinare se le quattro porte di rete 40/100-GbE dell'appliance sono state configurate per l'utilizzo della modalità Active/backup o LACP.
+Usa la seguente tabella con i valori nella colonna *Velocità* della tabella Interfacce di rete per determinare se le quattro porte di rete 40/100-GbE sull'appliance sono state configurate per utilizzare la modalità attivo/backup o la modalità LACP.
 
 +
 
@@ -711,17 +710,11 @@ Attivo/Backup
 40
 
 |===
-.. Consultare la sezione comunicazione di rete.
+.. Controlla la sezione Comunicazione di rete.
 +
 Le tabelle di ricezione e trasmissione mostrano quanti byte e pacchetti sono stati ricevuti e inviati attraverso ciascuna rete, nonché altre metriche di ricezione e trasmissione.
 
-+
-image:nodes_page_network_communication.png["COM. Rete pagina nodi"]
 
 
-
-. Selezionare *Storage* per visualizzare le informazioni relative ai dischi e ai volumi sull'appliance di servizi.
-+
-image:nodes_page_storage_tab_services_appliance.png["Scheda Nodes Page Storage Services Appliance"]
-
+. Seleziona la scheda *Archiviazione* per visualizzare le informazioni sui dispositivi disco e sui volumi sull'appliance di servizio.
 

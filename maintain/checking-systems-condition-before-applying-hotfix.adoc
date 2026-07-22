@@ -13,6 +13,7 @@ summary: Verificare che il sistema sia pronto per la correzione rapida.
 [role="lead"]
 Verificare che il sistema sia pronto per la correzione rapida.
 
+.Fasi
 . Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 . Se possibile, assicurarsi che il sistema funzioni correttamente e che tutti i nodi della rete siano collegati alla rete.
 +

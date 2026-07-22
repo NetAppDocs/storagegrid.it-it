@@ -2,6 +2,19 @@
 section: monitor
 title: Monitorare il sistema StorageGRID
 entries:
+- title: USA AutoSupport
+  entries:
+  - title: Cos'è AutoSupport
+    pdf-filename: USA AutoSupport
+    url: "/monitor/what-is-autosupport.html"
+  - title: Configurare AutoSupport
+    url: "/monitor/configure-autosupport-grid-manager.html"
+  - title: Attivare manualmente un pacchetto AutoSupport
+    url: "/monitor/manually-triggering-autosupport-package.html"
+  - title: Come StorageGRID gestisce gli errori dei pacchetti AutoSupport
+    url: "/monitor/autosupport-package-failure-handling.html"
+  - title: Invio dei pacchetti e-Series AutoSupport tramite StorageGRID
+    url: "/monitor/sending-eseries-autosupport-messages-through-storagegrid.html"
 - title: Attività di monitoraggio
   pdf-filename: Monitorare il sistema StorageGRID
   url: "/monitor/index.html"
@@ -25,7 +38,7 @@ entries:
   - title: Visualizzare la scheda ILM
     url: "/monitor/viewing-ilm-tab.html"
   - title: Utilizzare la scheda attività
-    url: "/monitor/using-task-tab-to-reboot-grid-node.html"
+    url: "/monitor/using-task-tab.html"
   - title: Visualizzare la scheda bilanciamento del carico
     url: "/monitor/viewing-load-balancer-tab.html"
   - title: Visualizzare la scheda Platform Services (servizi piattaforma)
@@ -97,6 +110,8 @@ entries:
     url: "/monitor/considerations-for-external-syslog-server.html"
   - title: Configurare la gestione dei log
     url: "/monitor/configure-log-management.html"
+- title: Configura il server di posta elettronica
+  url: "/monitor/configure-email-server.html"
 - title: Utilizzare il monitoraggio SNMP
   entries:
   - title: Monitoraggio SNMP
@@ -118,8 +133,6 @@ entries:
     url: "/monitor/reviewing-audit-messages.html"
   - title: Raccogliere i file di log e i dati di sistema
     url: "/monitor/collecting-log-files-and-system-data.html"
-  - title: Attivare manualmente un pacchetto AutoSupport
-    url: "/monitor/manually-triggering-autosupport-message.html"
   - title: Rivedere le metriche di supporto
     url: "/monitor/reviewing-support-metrics.html"
   - title: Modifica la priorità di I/O

@@ -363,9 +363,9 @@ Utilizzare il certificato Grid CA predefinito installato sul sistema operativo p
 
 |===
 --
-.Solo endpoint webhook
+.Endpoint Webhook e Kafka
 --
-Verificare la connessione TLS per gli endpoint webhook.
+Verifica la connessione TLS per gli endpoint webhook o Kafka.
 
 [cols="1a,2a"]
 |===
@@ -397,6 +397,15 @@ La verifica del certificato è disabilitata.  Questa opzione non è sicura.
 USA certificato CA personalizzato
  a| 
 Il certificato CA personalizzato viene utilizzato per verificare l'identità del server durante la connessione all'endpoint.
+
+
+
+ a| 
+Utilizzare il certificato CA del sistema operativo
+ a| 
+Utilizzare il certificato Grid CA predefinito installato sul sistema operativo per proteggere le connessioni.
+
+*Nota*: Gli endpoint Webhook non hanno questa opzione.
 
 |===
 Selezionando *mTLS*, queste opzioni diventano disponibili.
@@ -454,4 +463,5 @@ Dopo aver configurato un endpoint, è possibile utilizzare il relativo URN per c
 * link:configuring-cloudmirror-replication.html["Configurare la replica di CloudMirror"]
 * link:configuring-event-notifications.html["Configurare le notifiche degli eventi"]
 * link:configuring-search-integration-service.html["Configurare il servizio di integrazione della ricerca"]
+* link:../network/external-communications.html["Porte utilizzate per le comunicazioni esterne"]
 

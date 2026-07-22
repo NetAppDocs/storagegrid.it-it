@@ -1,0 +1,53 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, start recovery, non-primary admin node 
+summary: Seleziona Avvia ripristino per configurare il nodo Admin primario durante il ripristino del nodo Admin primario. 
+---
+= Seleziona Avvia ripristino per configurare il nodo Admin primario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver sostituito un nodo Admin primario, devi selezionare Avvia ripristino in Grid Manager per configurare il nuovo nodo come sostituto del nodo guasto.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di manutenzione o di accesso root"].
+* Si dispone della passphrase di provisioning.
+* Il nodo sostitutivo è stato implementato e configurato.
+
+
+.Fasi
+. Dal Grid Manager, seleziona *Manutenzione* > *Attività* > *Ripristino nodo*.
+. Selezionare il nodo della griglia che si desidera ripristinare nell'elenco Pending Nodes (nodi in sospeso).
++
+I nodi vengono visualizzati nell'elenco dopo un errore, ma non è possibile selezionare un nodo fino a quando non è stato reinstallato e pronto per il ripristino.
+
+. Inserisci la *passphrase di provisioning*.
+. Seleziona *Avvia ripristino*.
++
+image:4b_select_recovery_node.png["screenshot che mostra la pagina Maintenance > Recovery"]
+
+. Monitorare l'avanzamento del ripristino nella tabella Recovery Grid Node (nodo griglia di ripristino).
++
+
+NOTE: Durante l'esecuzione della procedura di ripristino, puoi selezionare *Reset* per avviare un nuovo ripristino. Viene visualizzata una finestra di dialogo che indica che il nodo rimarrà in uno stato indeterminato se resetti la procedura.
+
++
+Se si desidera riprovare il ripristino dopo aver reimpostato la procedura, è necessario ripristinare il nodo a uno stato preinstallato, come segue:
+
++
+** *VMware*: Eliminare il nodo virtual grid implementato. Quindi, quando si è pronti per riavviare il ripristino, ridistribuire il nodo.
+** *Linux*: Riavviare il nodo eseguendo questo comando sull'host Linux: `storagegrid node force-recovery _node-name_`
+** *Appliance*: Se si desidera riprovare il ripristino dopo aver reimpostato la procedura, è necessario ripristinare il nodo dell'appliance in uno stato preinstallato eseguendo `sgareinstall` sul nodo. Vedere link:preparing-appliance-for-reinstallation-platform-replacement-only.html["Preparazione dell'appliance per la reinstallazione (solo sostituzione della piattaforma)"].
+
+
+. Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID e il trust della parte di base per il nodo di amministrazione ripristinato è stato configurato per utilizzare il certificato dell'interfaccia di gestione predefinita, aggiornare (o eliminare e ricreare) il trust della parte di base del nodo in Active Directory Federation Services (ad FS). Utilizzare il nuovo certificato server predefinito generato durante il processo di ripristino del nodo di amministrazione.
++
+
+NOTE: Per configurare un trust della parte affidabile, vederelink:../admin/configure-sso.html["Configurare il single sign-on"] .  Per accedere al certificato del server predefinito, accedi alla shell dei comandi del nodo di amministrazione.  Vai al `/var/local/mgmt-api` directory e selezionare la `server.crt` file.
+
+

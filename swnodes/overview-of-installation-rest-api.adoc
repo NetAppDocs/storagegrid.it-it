@@ -31,12 +31,12 @@ Per accedere alla documentazione API, accedere alla pagina Web di installazione 
 
 L'API di installazione di StorageGRID include le seguenti sezioni:
 
-* *Config* -- operazioni relative alla release del prodotto e alle versioni dell'API. È possibile elencare la versione di release del prodotto e le principali versioni dell'API supportate da tale release.
-* *Grid* -- operazioni di configurazione a livello di griglia. È possibile ottenere e aggiornare le impostazioni della griglia, inclusi i dettagli della griglia, le subnet Grid Network, le password della griglia e gli indirizzi IP dei server NTP e DNS.
-* *Nodi* -- operazioni di configurazione a livello di nodo. È possibile recuperare un elenco di nodi griglia, eliminare un nodo griglia, configurare un nodo griglia, visualizzare un nodo griglia e ripristinare la configurazione di un nodo griglia.
-* *Provision* -- operazioni di provisioning. È possibile avviare l'operazione di provisioning e visualizzare lo stato dell'operazione di provisioning.
-* *Recovery* -- operazioni di recovery del nodo di amministrazione principale. È possibile ripristinare le informazioni, caricare il pacchetto di ripristino, avviare il ripristino e visualizzare lo stato dell'operazione di ripristino.
-* *Recovery-package* -- operazioni per scaricare il pacchetto di ripristino.
-* *Siti* -- operazioni di configurazione a livello di sito. È possibile creare, visualizzare, eliminare e modificare un sito.
-* *Temporary-password* -- operazioni sulla password temporanea per proteggere la Mgmt-api durante l'installazione.
+* *config*: Operazioni relative alla release del prodotto e alle versioni dell'API. Puoi elencare la versione della release del prodotto e le versioni principali dell'API supportate da quella release.
+* *griglia*: Operazioni di configurazione a livello di griglia. Puoi ottenere e aggiornare le impostazioni della griglia, inclusi i dettagli della griglia, le subnet della Grid Network, le password della griglia e gli indirizzi IP dei server NTP e DNS server.
+* *nodi*: Operazioni di configurazione a livello di nodo. Puoi recuperare un elenco di nodi della griglia, eliminare un nodo della griglia, configurare un nodo della griglia, visualizzare un nodo della griglia e reimpostare la configurazione di un nodo della griglia.
+* *provision*: Operazioni di provisioning. Puoi avviare l'operazione di provisioning e visualizzarne lo stato.
+* *recovery*: Operazioni di ripristino del nodo Admin primario. Puoi reimpostare le informazioni, caricare il Recovery Package, avviare il ripristino e visualizzare lo stato dell'operazione di ripristino.
+* *recovery-package*: Operazioni per scaricare il pacchetto di ripristino.
+* *siti*: Operazioni di configurazione a livello di sito. Puoi creare, visualizzare, eliminare e modificare un sito.
+* *password temporanea*: Operazioni sulla password temporanea per proteggere la mgmt-api durante l'installazione.
 

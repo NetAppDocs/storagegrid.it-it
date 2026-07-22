@@ -48,9 +48,6 @@ image:nodes_page_network_interfaces.png["Interfacce di rete della pagina Nodes (
 +
 Le tabelle di ricezione e trasmissione mostrano quanti byte e pacchetti sono stati ricevuti e inviati attraverso ciascuna rete, nonché altre metriche di ricezione e trasmissione.
 
-+
-image:nodes_page_network_communication.png["COM. Rete pagina nodi"]
-
 
 
 . Utilizza le metriche associate alle policy di classificazione del traffico per monitorare il traffico di rete.
@@ -62,7 +59,7 @@ Viene visualizzata la pagina Traffic Classification Policies (Criteri di classif
 +
 image:traffic_classification_policies_main_screen_w_examples.png["Esempio di policy sul traffico per il grafico"]
 
-.. Per visualizzare i grafici che mostrano le metriche di rete associate a un criterio, selezionare il pulsante di opzione a sinistra del criterio, quindi fare clic su *metriche*.
+.. Per visualizzare i grafici che mostrano le metriche di rete associate a una policy, seleziona il pulsante di opzione a sinistra della policy e poi seleziona *Metriche*.
 .. Esaminare i grafici per comprendere il traffico di rete associato alla policy.
 +
 Se un criterio di classificazione del traffico è progettato per limitare il traffico di rete, analizzare la frequenza con cui il traffico è limitato e decidere se il criterio continua a soddisfare le proprie esigenze. Di tanto in tanto, link:../admin/managing-traffic-classification-policies.html["modificare ogni policy di classificazione del traffico in base alle esigenze"].

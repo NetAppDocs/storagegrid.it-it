@@ -26,7 +26,7 @@ La gestione delle connessioni a federazione di griglie tra sistemi StorageGRID i
 È possibile modificare una connessione a federazione di griglie effettuando l'accesso al nodo di amministrazione primario su una delle griglie della connessione. Una volta apportate le modifiche alla prima griglia, è necessario scaricare un nuovo file di verifica e caricarlo nell'altra griglia.
 
 
-NOTE: Durante la modifica della connessione, le richieste di replica cross-grid o clone dell'account continueranno a utilizzare le impostazioni di connessione esistenti. Tutte le modifiche apportate alla prima griglia vengono salvate localmente, ma non vengono utilizzate fino a quando non vengono caricate nella seconda griglia, salvate e testate.
+NOTE: Durante la modifica della connessione, le richieste di sincronizzazione dell'account o di replica tra griglie continueranno a utilizzare le impostazioni di connessione esistenti. Devi modificare una connessione alla volta e caricare un file di verifica sulla griglia remota per ciascuna connessione. Le modifiche vengono applicate dopo che sono state caricate sulle griglie remote.
 
 
 
@@ -211,7 +211,7 @@ In generale, utilizzare lo stesso numero di giorni per i certificati su entrambi
 
 È possibile rimuovere una connessione a federazione di griglia da una delle griglie della connessione. Come illustrato nella figura, è necessario eseguire i passaggi necessari su entrambe le griglie per confermare che la connessione non viene utilizzata da alcun tenant su nessuna griglia.
 
-image:grid-federation-remove-connection.png["procedura per la rimozione della connessione a federazione di griglie"]
+image:grid_federation_remove_connection.png["procedura per la rimozione della connessione a federazione di griglie"]
 
 Prima di rimuovere una connessione, tenere presente quanto segue:
 

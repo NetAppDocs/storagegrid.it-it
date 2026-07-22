@@ -18,7 +18,7 @@ Utilizza StorageGRID in una configurazione di cloud ibrido implementando la gest
 [[cloud-storage-pools]]
 == Pool di cloud storage
 
-I pool di cloud storage consentono di memorizzare oggetti all'esterno del sistema StorageGRID. Ad esempio, è possibile spostare gli oggetti con accesso non frequente in uno storage cloud a basso costo, come Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud o il Tier di accesso all'archivio nello storage Microsoft Azure Blob. In alternativa, è possibile mantenere un backup cloud degli oggetti StorageGRID, che può essere utilizzato per ripristinare i dati persi a causa di un guasto di un volume di storage o di un nodo di storage.
+I Cloud Storage Pools ti permettono di archiviare oggetti al di fuori del sistema StorageGRID. Ad esempio, potresti voler spostare oggetti a cui accedi raramente verso cloud storage a basso costo, come Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud o il livello di accesso Archive in Microsoft Azure Blob Storage. Oppure, potresti voler mantenere un backup cloud degli oggetti StorageGRID, che può essere usato per recuperare dati persi a causa di un errore di un volume di archiviazione o di uno Storage Node.
 
 È supportato anche lo storage di partner di terze parti, incluso lo storage su disco e nastro.
 
@@ -34,7 +34,7 @@ I servizi della piattaforma S3 consentono di utilizzare servizi remoti come endp
 
 * Il servizio di replica CloudMirror esegue automaticamente il mirroring di oggetti specifici in un bucket S3 di destinazione, che può essere su Amazon S3 o su un secondo sistema StorageGRID.
 * Il servizio di notifica degli eventi invia messaggi sulle azioni specificate a un endpoint esterno che supporta la ricezione di eventi Simple Notification Service (Amazon SNS).
-* Il servizio di integrazione della ricerca invia i metadati degli oggetti a un servizio esterno di Elasticsearch, consentendo la ricerca, la visualizzazione e l'analisi dei metadati mediante strumenti di terze parti.
+* Il servizio di integrazione della ricerca invia i metadati degli oggetti a un servizio Elasticsearch esterno, consentendo di cercare, visualizzare e analizzare i metadati utilizzando strumenti di terze parti.
 
 
 Ad esempio, è possibile utilizzare la replica di CloudMirror per eseguire il mirroring di record specifici dei clienti in Amazon S3 e sfruttare i servizi AWS per eseguire analisi dei dati.

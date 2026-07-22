@@ -37,12 +37,9 @@ CAUTION: Alcune fasi e fasi di espansione potrebbero richiedere molto tempo per 
 
 
 .Fasi
-. Selezionare *Manutenzione* > *Attività* > *Espansione*.
+. Seleziona *Manutenzione* > *Attività* > *Espansione griglia*.
 +
-Viene visualizzata la pagina Grid Expansion (espansione griglia). La sezione Pending Nodes (nodi in sospeso) elenca i nodi che sono pronti per essere aggiunti.
-
-+
-image:grid_expansion_page.png["Schermata che mostra la pagina Grid Expansion"]
+Viene visualizzata la pagina di espansione della griglia. La sezione Nodi in sospeso elenca i nodi pronti per essere aggiunti.
 
 . Selezionare *Configure Expansion* (Configura espansione).
 +
@@ -166,7 +163,7 @@ NOTE: Se possibile, è necessario approvare tutte le note della griglia in sospe
 
 
 
-. Una volta approvati tutti i nodi della griglia, immettere la *Provisioning Passphrase* e selezionare *Espandi*.
+. Dopo aver approvato tutti i nodi della griglia, inserisci la *passphrase di provisioning* e seleziona *Espandi*.
 +
 Dopo alcuni minuti, questa pagina viene aggiornata per visualizzare lo stato della procedura di espansione. Quando sono in corso attività che influiscono sui singoli nodi della griglia, la sezione Grid Node Status (Stato nodo griglia) elenca lo stato corrente di ciascun nodo della griglia.
 

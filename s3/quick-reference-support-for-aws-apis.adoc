@@ -13,10 +13,10 @@ summary: 'In questa pagina viene riepilogato il modo in cui StorageGRID supporta
 [role="lead"]
 In questa pagina viene riepilogato il modo in cui StorageGRID supporta le API di Amazon Simple Storage Service (S3).
 
-Questa pagina include solo le operazioni S3 supportate da StorageGRID.
+Questa pagina include solo le operazioni S3 supportate da StorageGRID. Qualsiasi operazione S3 non elencata potrebbe restituire  `501 Not Implemented` o causare comportamenti imprevisti.
 
 
-NOTE: Per visualizzare la documentazione AWS relativa a ciascuna operazione, selezionare il collegamento nell'intestazione.
+TIP: Per visualizzare la documentazione AWS relativa a ciascuna operazione, selezionare il collegamento nell'intestazione.
 
 
 
@@ -73,12 +73,20 @@ link:operations-for-multipart-uploads.html["Operazioni per caricamenti multipart
 StorageGRID supporta tutti <<common-params,parametri e intestazioni comuni>> per questa richiesta, oltre a questo parametro di query URI aggiuntivo:
 
 * `uploadId`
+* `x-amz-checksum-crc32`
+* `x-amz-checksum-crc32c`
+* `x-amz-checksum-crc64nvme`
 * `x-amz-checksum-sha256`
+* `x-amz-checksum-type`
+* `x-amz-storage-class`
 
 
 .Tag XML del corpo della richiesta
 StorageGRID supporta questi tag XML del corpo della richiesta:
 
+* `ChecksumCRC32`
+* `ChecksumCRC32C`
+* `ChecksumCRC64NVME`
 * `ChecksumSHA256`
 * `CompleteMultipartUpload`
 * `ETag`
@@ -97,6 +105,7 @@ link:complete-multipart-upload.html["CompleteMultipartUpload"]
 .Parametri di query URI e intestazioni di richiesta
 StorageGRID supporta tutte <<common-params,parametri e intestazioni comuni>>queste richieste, oltre alle seguenti intestazioni aggiuntive:
 
+* `x-amz-checksum-algorithm`
 * `x-amz-copy-source`
 * `x-amz-copy-source-if-match`
 * `x-amz-copy-source-if-modified-since`
@@ -156,6 +165,7 @@ StorageGRID supporta tutte <<common-params,parametri e intestazioni comuni>>ques
 * `Content-Language`
 * `Expires`
 * `x-amz-checksum-algorithm`
+* `x-amz-checksum-type`
 * `x-amz-server-side-encryption`
 * `x-amz-storage-class`
 * `x-amz-server-side-encryption-customer-algorithm`
@@ -898,6 +908,9 @@ StorageGRID supporta tutte <<common-params,parametri e intestazioni comuni>>ques
 * `Content-Encoding`
 * `Content-Language`
 * `Expires`
+* `x-amz-checksum-crc32`
+* `x-amz-checksum-crc32c`
+* `x-amz-checksum-crc64nvme`
 * `x-amz-checksum-sha256`
 * `x-amz-server-side-encryption`
 * `x-amz-storage-class`
@@ -938,10 +951,12 @@ link:use-s3-api-for-s3-object-lock.html["Utilizzare l'API REST S3 per configurar
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectLockConfiguration.html["PutObjectLockConfiguration"^]
 
 .Parametri di query URI e intestazioni di richiesta
-StorageGRID supporta tutti <<common-params,parametri e intestazioni comuni>> per questa richiesta.
+StorageGRID supporta la maggior parte delle <<common-params,parametri e intestazioni comuni>> opzioni per questa richiesta.
 
 .Corpo della richiesta
-StorageGRID supporta tutti i parametri del corpo della richiesta definiti dall'API REST di Amazon S3 al momento dell'implementazione.
+StorageGRID supporta la maggior parte dei parametri del corpo della richiesta definiti dall'API REST di Amazon S3 al momento dell'implementazione, con la seguente eccezione:
+
+Non puoi usare PutObjectLockConfiguration per abilitare S3 Object Lock su un bucket esistente a meno che l'amministratore della griglia non ti abbia dato il permesso.
 
 .Documentazione StorageGRID
 link:use-s3-api-for-s3-object-lock.html["Utilizzare l'API REST S3 per configurare il blocco oggetti S3"]
@@ -1017,6 +1032,9 @@ StorageGRID supporta tutti <<common-params,parametri e intestazioni comuni>> per
 
 E queste intestazioni di richiesta aggiuntive:
 
+* `x-amz-checksum-crc32`
+* `x-amz-checksum-crc32c`
+* `x-amz-checksum-crc64nvme`
 * `x-amz-checksum-sha256`
 * `x-amz-server-side-encryption-customer-algorithm`
 * `x-amz-server-side-encryption-customer-key`

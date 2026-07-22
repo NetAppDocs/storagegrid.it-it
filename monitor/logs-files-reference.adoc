@@ -64,6 +64,11 @@ L'archivio del file di log di StorageGRID contiene i log descritti per ciascuna 
 | Percorso di archiviazione | Descrizione 
 
 
+| acct-tunnel.log  a| 
+Registro per l'helper del tunnel account che funziona con il bilanciatore di carico.
+
+
+
 | audit  a| 
 Messaggi di audit generati durante il normale funzionamento del sistema.
 
@@ -114,6 +119,11 @@ Metriche e registri dei gruppi ad alta disponibilità.
 
 
 
+| internal-access.log  a| 
+Registro interno del traffico proxy HTTP.
+
+
+
 | Arbitro lambda  a| 
 Registri relativi alla richiesta del proxy S3 Select.
 
@@ -126,6 +136,11 @@ Registri del servizio trapelato.
 
 | lumberjack.log  a| 
 Messaggi di debug relativi alla raccolta dei log.
+
+
+
+| manage-audit.log  a| 
+`mgmt-api`accedi ai registri di controllo.
 
 
 
@@ -174,6 +189,10 @@ File e log di configurazione del bilanciamento del carico e della federazione di
 
 
 * `nginx-gw-dns-check.log`: Relativo al nuovo avviso di controllo DNS.
+* stream-access.log: sessioni proxy TCP/TLS stream (livello 4) per il blocco del flusso.
++
+*Nota*: Questo non è un registro delle richieste HTTP.
+
 
 
 
@@ -220,6 +239,16 @@ Log dal cluster Raft utilizzato nei servizi della piattaforma.
 
 
 
+| revision_history.json  a| 
+Cronologia delle revisioni.
+
+
+
+| routed-s3-access.log.gz  a| 
+Registro degli accessi per il traffico di federazione della griglia instradato come S3 (URL di spazio dei nomi globale/federazione).
+
+
+
 | ssh  a| 
 Registri relativi alla configurazione e al servizio SSH.
 
@@ -235,6 +264,11 @@ Dati socket per il debug di rete.
 
 
 
+| system-bucket.log  a| 
+`update-system-bucket-configuration.log`: Log del bucket di sistema.
+
+
+
 | system-commands.txt  a| 
 Output dei comandi del container StorageGRID. Contiene informazioni di sistema, ad esempio le reti e l'utilizzo del disco.
 
@@ -242,5 +276,15 @@ Output dei comandi del container StorageGRID. Contiene informazioni di sistema, 
 
 | pacchetto-ripristino-sincronizzazione  a| 
 Correlato al mantenimento della coerenza del pacchetto di ripristino più recente su tutti i nodi di amministrazione e di archiviazione che ospitano il servizio ADC.
+
+
+
+| update-cipher-configurations.log  a| 
+`update-cors-configurations.log`: Traccia i log relativi alle modifiche di TLS/cifratura e CORS.
+
+
+
+| update-leakd-configurations.log  a| 
+Registro di configurazione del rilevamento degli orfani.
 
 |===

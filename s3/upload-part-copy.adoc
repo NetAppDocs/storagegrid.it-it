@@ -17,6 +17,11 @@ L'operazione UploadPartCopy viene implementata con tutto il comportamento dell'A
 
 Questa richiesta legge e scrive i dati dell'oggetto specificati in nel `x-amz-copy-source-range` sistema StorageGRID.
 
+
+
+[[supported-request-headers]]
+== Intestazioni di richiesta supportate
+
 Sono supportate le seguenti intestazioni di richiesta:
 
 * `x-amz-copy-source-if-match`
@@ -53,3 +58,10 @@ CAUTION: Le chiavi di crittografia fornite non vengono mai memorizzate. Se si pe
 == Versione
 
 Il caricamento multiparte consiste in operazioni separate per l'avvio del caricamento, l'elenco dei caricamenti, il caricamento delle parti, l'assemblaggio delle parti caricate e il completamento del caricamento. Quando si esegue l'operazione CompleteMultipartUpload, gli oggetti vengono creati (e, se applicabile, vengono aggiornati).
+
+
+
+[[s3-checksum-support]]
+== Supporto per il checksum S3
+
+StorageGRID rileva automaticamente se è stato specificato un checksum durante una richiesta CreateMultipartUpload e utilizza questo checksum nell'operazione UploadPartCopy. Non devi specificare un checksum in una richiesta UploadPartCopy. Se una richiesta CreateMultipartUpload non specifica un checksum, StorageGRID non calcola un checksum CRC-64/NVME predefinito per un oggetto. StorageGRID non include un checksum per la parte copiata quando CreateMultipartUpload non ha specificato un checksum.

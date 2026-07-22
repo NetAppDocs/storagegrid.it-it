@@ -23,7 +23,7 @@ summary: 'È possibile disattivare SSO (Single Sign-on) se non si desidera più 
 +
 Viene visualizzata la pagina Single Sign-on (accesso singolo).
 
-. Seleziona *Disabilita SSO*.
+. Seleziona *Disabilita*.
 . Selezionare *Sì*.
 +
 Viene visualizzato un messaggio di avviso che indica che gli utenti locali potranno accedere.

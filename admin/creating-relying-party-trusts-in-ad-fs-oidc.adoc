@@ -1,0 +1,96 @@
+---
+permalink: admin/creating-relying-party-trusts-in-ad-fs-oidc.html 
+sidebar: sidebar 
+keywords: application group, active directory, ad fs, single sign on, sso 
+summary: 'Devi usare Active Directory Federation Services (AD FS) per creare un gruppo di applicazioni per ogni Admin Node nel tuo sistema.' 
+---
+= Crea gruppi di applicazioni in AD FS per OIDC in StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Devi usare Active Directory Federation Services (AD FS) per creare un gruppo di applicazioni per ogni Admin Node per OpenID Connect (OIDC) nel tuo sistema.
+
+.Prima di iniziare
+* Hai il fully qualified domain name (o l'indirizzo IP) e l'identificatore della relying party per ogni Admin Node nel tuo sistema.
++
+
+NOTE: Ogni Admin Node nel tuo sistema StorageGRID deve avere un gruppo di applicazioni. Questo garantisce che gli utenti possano accedere e disconnettersi in modo sicuro da qualsiasi Admin Node. Puoi creare un unico gruppo di applicazioni per tutti gli Admin Node (consigliato) oppure un gruppo di applicazioni diverso per ciascun Admin Node.
+
+* Hai esperienza nella creazione di gruppi di applicazioni in AD FS o hai accesso alla documentazione di Microsoft AD FS.
+* Si sta utilizzando lo snap-in di gestione di ad FS e si appartiene al gruppo Administrators.
+
+
+.A proposito di questa attività
+Queste istruzioni si applicano a Windows Server 2022 AD FS. Se usi una versione diversa di AD FS, noterai lievi differenze nella procedura. Consulta la documentazione di Microsoft AD FS se hai domande.
+
+
+
+[[step-1-create-an-application-group]]
+== Passaggio 1: Crea un gruppo di applicazioni
+
+Puoi usare Windows PowerShell per creare rapidamente un gruppo di applicazioni.
+
+.Fasi
+. Da Gestione server Windows, selezionare *Strumenti* > *Gestione di ad FS*.
+. Seleziona *Gruppi di applicazioni* > *Aggiungi gruppo di applicazioni*
+. Per *Nome*, inserisci l'identificativo della relying party.
+. Nella sezione Modelli, seleziona *Applicazioni client-server* > *Applicazione server che accede a un'API web*.
+. Selezionare *Avanti*.
+. Segna il valore di *Client Identifier*.
+. Nella sezione *URI di reindirizzamento*, inserisci il FQDN (o l'indirizzo IP) `callback` e `logged-out` gli URI per il nodo di amministrazione:
++
+** `https://<FQDN>/api/v4/oidc-callback` o  `https://<IP_address>/api/v4/oidc-callback`
+** `https://<FQDN>/api/v4/oidc-logged-out` o  `https://<IP_address>/api/v4/oidc-logged-out`
+
+
++
+Se usi un unico gruppo di applicazioni per tutti gli Admin Node, inserisci gli URI per ciascun Admin Node. Se usi un gruppo di applicazioni diverso per ogni Admin Node, inserisci solo gli URI relativi al corrispondente Admin Node.
+
+. Selezionare *Aggiungi*.
+. Seleziona *Genera un segreto condiviso*, annota il valore per *Segreto*, quindi seleziona *Avanti*.
+. Inserisci l'identificativo del client per *Identificativo*.
+. Seleziona *Aggiungi*, poi seleziona *Avanti*.
+. Seleziona *Consenti a tutti*.
+. Verifica che l'applicazione server sia selezionata in *Applicazione client (chiamante)*.
+. Nella sezione *Ambiti consentiti*, verifica che siano selezionate solo le seguenti opzioni:
++
+** tutte le rivendicazioni
+** email
+** openid
+** profilo
+
+
+. Seleziona *Avanti* > *Avanti*.
+. Seleziona *Chiudi*.
+
+
+
+
+[[step-2-configure-issuance-transform-rules]]
+== Passaggio 2: Configura le regole di trasformazione dell'emissione
+
+Configura le regole di trasformazione dell'emissione per ciascun gruppo di applicazioni.
+
+.Fasi
+. Nella pagina *Gestione AD FS*, fai clic con il pulsante destro del mouse sul gruppo di applicazioni, quindi seleziona *Proprietà*.
+. Seleziona l'API web creata in precedenza, quindi seleziona *Modifica*.
+. Seleziona *Regole di trasformazione dell'emissione* > *Aggiungi regola ...*.
+. Sotto *Modello di regola di rivendicazione:*, seleziona *Invia attributo LDAP come rivendicazioni*.
+. Selezionare *Avanti*.
+. Inserisci il nome di una regola di claim.
+. Seleziona *Active Directory* come archivio attributi.
+. Aggiungi le mappature degli attributi LDAP ai tipi di claim in uscita:
++
+** `E-Mail Addresses - E-Mail Address`
+** `Token-Groups - Unqualified Names - Group`
+
+
+. Selezionare *fine*.
+. Seleziona *Applica* > *OK* > *OK*.
+
+
+.Cosa c'è dopo
+Dopo aver creato i gruppi di applicazioni, link:configure-sso-oidc.html["Configura SSO tramite OIDC"].

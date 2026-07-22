@@ -77,17 +77,17 @@ NOTE: Per gestire i livelli di archiviazione, gli utenti devono disporre dell'au
 
 Gli utenti devono disporre dell'autorizzazione Maintenance per utilizzare queste opzioni:
 
-* *Configurazione* > *Controllo accessi*:
+* *Configurazione* > *Controllo accessi*
 +
 ** Password di rete
 
 
-* *Configurazione* > *Rete*:
+* *Configurazione* > *Rete*
 +
 ** Nomi di dominio degli endpoint S3
 
 
-* *Manutenzione* > *Attività*:
+* *Manutenzione* > *Attività*
 +
 ** Decommissionare
 ** Espansione
@@ -95,13 +95,13 @@ Gli utenti devono disporre dell'autorizzazione Maintenance per utilizzare queste
 ** Recovery (recupero)
 
 
-* *Manutenzione* > *Sistema*:
+* *Manutenzione* > *Sistema*
 +
 ** Pacchetto di recovery
 ** Aggiornamento del software
 
 
-* *Supporto* > *Strumenti*:
+* *Supporto* > *Strumenti*
 +
 ** Registri
 
@@ -110,29 +110,29 @@ Gli utenti devono disporre dell'autorizzazione Maintenance per utilizzare queste
 
 Gli utenti che non dispongono dell'autorizzazione Maintenance possono visualizzare, ma non modificare, le seguenti pagine:
 
-* *Manutenzione* > *Rete*:
+* *Manutenzione* > *Rete*
 +
 ** Server DNS
 ** Grid Network
 ** Server NTP
 
 
-* *Manutenzione* > *Sistema*:
+* *Manutenzione* > *Sistema*
 +
 ** Licenza
 
 
-* *Configurazione* > *Rete*:
+* *Configurazione* > *Rete*
 +
 ** Nomi di dominio degli endpoint S3
 
 
-* *Configurazione* > *Sicurezza*:
+* *Configurazione* > *Sicurezza*
 +
 ** Certificati
 
 
-* *Configurazione* > *Monitoraggio*:
+* *Configurazione* > *Monitoraggio*
 +
 ** Server syslog e audit
 
@@ -172,18 +172,23 @@ Questa autorizzazione consente di accedere alla pagina *ILM* > *Object metadata 
 
 Questa autorizzazione fornisce l'accesso alle seguenti opzioni aggiuntive di configurazione della griglia:
 
-* *ILM*:
+* *ILM*
 +
 ** Gradi di storage
 
 
-* *Configurazione* > *Sistema*:
-* *Supporto* > *Altro*:
+* *Configurazione* > *Sistema*
+* *Assistenza* > *Altro*
 +
-** Costo del collegamento
+** Priorità I/O
+** Servizi dei nodi
+** Watermark di storage
 
 
 
+
+
+NOTE: Il costo del collegamento richiede l'accesso come root.
 
 
 

@@ -38,7 +38,9 @@ Se è stata eseguita una di queste azioni correttive, è necessario eseguire ult
  a| 
 Nodo amministratore primario
  a| 
-link:configuring-replacement-primary-admin-node.html["Configurare il nodo amministrativo primario sostitutivo"]
+* link:selecting-start-recovery-to-configure-primary-admin-node.html["Seleziona Avvia ripristino per configurare il nodo Admin primario"]
+* link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Recupera il nodo Admin primario usando un nodo Admin non primario"]
+
 
 
 
@@ -74,6 +76,6 @@ Nodo di storage (basato su software):
 * Se, per qualsiasi `<PURPOSE>`, il valore della `BLOCK_DEVICE_<PURPOSE>` variabile del file di configurazione si riferisce a un dispositivo a blocchi che non contiene gli stessi dati che ha fatto prima dell'errore dell'host.
 
  a| 
-link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["Ripristino in seguito a un errore del volume di storage in cui il disco di sistema è intatto"]
+link:reviewing-warnings-about-storage-volume-recovery.html["Ripristino in seguito a un errore del volume di storage in cui il disco di sistema è intatto"]
 
 |===

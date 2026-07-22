@@ -2,7 +2,7 @@
 permalink: maintain/selecting-node-recovery-procedure.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, procedure 
-summary: Selezionare la procedura di ripristino corretta per il tipo di nodo che ha avuto esito negativo. 
+summary: Seleziona la procedura di ripristino corretta per il tipo di nodo che ha avuto un guasto. 
 ---
 = Selezionare la procedura di ripristino del nodo StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Selezionare la procedura di ripristino corretta per il tipo di nodo che
 
 
 [role="lead"]
-Selezionare la procedura di ripristino corretta per il tipo di nodo che ha avuto esito negativo.
+Seleziona la procedura di ripristino corretta per il tipo di nodo che ha avuto un guasto.
 
 [cols="1a,2a"]
 |===
@@ -19,18 +19,9 @@ Selezionare la procedura di ripristino corretta per il tipo di nodo che ha avuto
 
 
  a| 
-Più di un nodo di storage
+Nodo di storage
  a| 
-Contattare il supporto tecnico. Se più di un nodo di storage si è guastato, il supporto tecnico deve fornire assistenza per il ripristino per evitare incoerenze del database che potrebbero causare la perdita di dati. Potrebbe essere necessaria una procedura di ripristino del sito.
-
-link:how-site-recovery-is-performed-by-technical-support.html["Come il supporto tecnico recupera un sito"]
-
-
-
- a| 
-Un singolo nodo di storage
- a| 
-La procedura di recovery di Storage Node dipende dal tipo e dalla durata dell'errore.
+La procedura di ripristino dello Storage Node dipende dal tipo di errore.
 
 link:recovering-from-storage-node-failures.html["Ripristino da guasti del nodo di storage"]
 
@@ -59,4 +50,4 @@ https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-from-archive-n
 
 |===
 
-NOTE: Se un server che ospita più di un nodo della griglia si guasta, è possibile ripristinare i nodi in qualsiasi ordine. Tuttavia, se il server in errore ospita il nodo di amministrazione primario, è necessario prima ripristinare tale nodo. Ripristinando prima il nodo amministrativo primario si evita che altri ripristini dei nodi si interrompano mentre attendono di contattare il nodo amministrativo primario.
+NOTE: Se un server che ospita più di un nodo della griglia si guasta, puoi ripristinare i nodi in qualsiasi ordine. Tuttavia, se il server guasto ospita il nodo di amministrazione primario e non esistono nodi di amministrazione non primari, devi ripristinare prima il nodo di amministrazione primario. Ripristinare prima il nodo di amministrazione primario impedisce che il ripristino degli altri nodi si blocchi mentre cercano di contattare il nodo di amministrazione primario. Se è disponibile un nodo di amministrazione non primario, puoi usarlo per ripristinare gli altri nodi, così quei ripristini possono procedere senza contattare il nodo di amministrazione primario.

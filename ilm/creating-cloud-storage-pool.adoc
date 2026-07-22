@@ -2,7 +2,7 @@
 permalink: ilm/creating-cloud-storage-pool.html 
 sidebar: sidebar 
 keywords: how to create cloud storage pool 
-summary: Un Cloud Storage Pool specifica un singolo bucket esterno Amazon S3 o un altro provider compatibile con S3 o un container di storage BLOB di Azure. 
+summary: Un pool di storage cloud specifica un singolo bucket Amazon S3 esterno o un altro cloud provider compatibile con S3 oppure un container Azure Blob Storage. 
 ---
 = Crea un pool di storage cloud in StorageGRID
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: Un Cloud Storage Pool specifica un singolo bucket esterno Amazon S3 o u
 
 
 [role="lead"]
-Un Cloud Storage Pool specifica un singolo bucket esterno Amazon S3 o un altro provider compatibile con S3 o un container di storage BLOB di Azure.
+Un pool di storage cloud specifica un singolo bucket Amazon S3 esterno o un altro cloud provider compatibile con S3 oppure un container Azure Blob Storage.
 
-Quando crei un pool di storage cloud, specifica il nome e la posizione del bucket o del container esterno che StorageGRID utilizzerà per memorizzare gli oggetti, il tipo di provider cloud (storage Amazon S3/GCP o Azure Blob) e le informazioni StorageGRID necessarie per accedere al bucket o al container esterno.
+Quando crei un Cloud Storage Pool, specifichi il nome e la posizione del bucket o container esterno che StorageGRID userà per archiviare gli oggetti, il tipo di cloud provider (Amazon S3/GCP o Azure Blob Storage) e le informazioni di cui StorageGRID ha bisogno per accedere al bucket o container esterno.
 
 StorageGRID convalida il pool di storage cloud non appena viene salvato, quindi devi assicurarti che il bucket o il container specificato nel pool di storage cloud esista e sia raggiungibile.
 
@@ -227,3 +227,6 @@ Se la convalida del Cloud Storage Pool non riesce, viene visualizzato un messagg
 
 . Se si verifica un errore, consultare la sezione link:troubleshooting-cloud-storage-pools.html["Istruzioni per la risoluzione dei problemi dei Cloud Storage Pools"], risolvere eventuali problemi, quindi provare a salvare nuovamente il Cloud Storage Pool.
 
+
+.Informazioni correlate
+link:../network/external-communications.html["Porte utilizzate per le comunicazioni esterne"]

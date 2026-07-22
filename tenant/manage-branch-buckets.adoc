@@ -23,8 +23,27 @@ Utilizzare Tenant Manager per creare e visualizzare i dettagli dei bucket delle 
 .A proposito di questa attività
 Notare le seguenti informazioni per i bucket di diramazione:
 
-* Le autorizzazioni per impostare le proprietà di blocco degli oggetti S3 di bucket o oggetti possono essere concesse dalink:../s3/use-access-policies.html["policy bucket o policy di gruppo"] .
-* Se si sospende il controllo delle versioni sul bucket di base, il contenuto del bucket di base non sarà più visibile nei relativi bucket rami.
+Limite di profondità del bucket di branch:: Un bucket di diramazione può contenere al massimo 20 bucket di base. Con l'aumentare della profondità del bucket di diramazione, la latenza può aumentare, soprattutto per le chiamate ListObjectVersions S3.
++
+--
+* Se crei un bucket di diramazione da un bucket di base che è un bucket normale (un bucket che è stato inizialmente creato come bucket di base), il nuovo bucket di diramazione ha un solo bucket di base.
+* Se il bucket di base è a sua volta un bucket di diramazione, il nuovo bucket di diramazione eredita tutti i bucket di base di quest'ultimo. Specifichi direttamente un solo bucket di base; i bucket di base ereditati sono impliciti.
+* Il numero totale di bucket di base (espliciti e impliciti) non può superare 20.
++
+Ad esempio, supponi che il bucket *A* sia un bucket normale con la gestione delle versioni abilitata:
+
++
+** Il bucket branch *B*, creato da *A*, ha un bucket di base: *A*.
+** Il bucket di diramazione *C*, creato da *B*, ha due bucket di base: *B* (esplicito) e *A* (implicito).
+** Il bucket di branch *D*, creato da *C*, ha tre bucket di base: *C* (esplicito), *B* (implicito) e *A* (implicito).
+** Questo schema si ripete fino a una profondità massima di 20 bucket di base.
+
+
+
+
+--
+Autorizzazioni S3 Object Lock:: Le autorizzazioni per impostare le proprietà di S3 Object Lock di bucket o oggetti possono essere concesse da link:../tenant/using-s3-object-lock.html["policy bucket o policy di gruppo"].
+Versionamento sospeso:: Se si sospende il controllo delle versioni sul bucket di base, il contenuto del bucket di base non sarà più visibile nei relativi bucket rami.
 
 
 
@@ -85,15 +104,6 @@ La regione del bucket di diramazione deve corrispondere alla regione del bucket 
 
 
  a| 
-Prima del tempo
- a| 
-Tempo limite entro il quale le versioni degli oggetti create nel bucket di base devono essere accessibili dal bucket di diramazione.  Il bucket branch fornisce l'accesso alle versioni degli oggetti create prima del tempo Prima.
-
-Prima del tempo deve esserci una data e un'ora trascorse.  Non può essere una data futura.
-
-
-
- a| 
 Tipo di secchio per rami
  a| 
 ** *Lettura-scrittura*: è possibile aggiungere o eliminare oggetti o versioni di oggetti nel bucket del ramo.
@@ -104,6 +114,24 @@ Tipo di secchio per rami
 
 |===
 . Selezionare *continua*.
+
+
+
+
+[[time-filter]]
+== Filtro temporale
+
+Scegli l'intervallo di tempo da cui includere le versioni degli oggetti dal bucket di base. Per qualsiasi filtro temporale, seleziona una data qualsiasi all'interno del seguente intervallo:
+
+* Data minima: 1° gennaio 2010 (UTC)
+* Data massima: cinque anni dalla data odierna (UTC)
++
+Prima:: Il bucket del ramo ti permette di accedere alle versioni degli oggetti create prima del tempo _Before_.
+Dopo:: Il bucket di ramo fornisce accesso alle versioni degli oggetti create dopo il tempo _After_.
+Fra:: Il bucket di ramo fornisce accesso alle versioni degli oggetti create tra gli orari _From_ e _To_.
+Escludi:: Il bucket di branch non fornisce accesso alle versioni degli oggetti create tra i momenti _Exclude from_ e _Exclude to_.
+
+
 
 
 

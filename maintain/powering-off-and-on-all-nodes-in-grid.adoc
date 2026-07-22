@@ -13,7 +13,7 @@ summary: 'Potrebbe essere necessario spegnere l"intero sistema StorageGRID, ad e
 [role="lead"]
 Potrebbe essere necessario spegnere l'intero sistema StorageGRID, ad esempio, se si sta spostando un data center. Questi passaggi forniscono una panoramica di alto livello della sequenza consigliata per l'esecuzione di uno shutdown e di un startup controllati.
 
-Quando si spengono tutti i nodi di un sito o di una griglia, non sarà possibile accedere agli oggetti acquisiti mentre i nodi di storage sono offline.
+Quando spegni tutti i nodi in un sito o in una griglia, non puoi accedere agli oggetti acquisiti finché i nodi di archiviazione sono offline.
 
 
 
@@ -23,7 +23,7 @@ Quando si spengono tutti i nodi di un sito o di una griglia, non sarà possibile
 Prima di spegnere un sistema StorageGRID, è necessario arrestare tutti i servizi in esecuzione su ciascun nodo di rete e quindi arrestare tutte le macchine virtuali VMware, i motori di container e le appliance StorageGRID.
 
 .A proposito di questa attività
-Arrestare prima i servizi sui nodi Admin e Gateway, quindi arrestare i servizi sui nodi Storage.
+Interrompi prima i servizi sui nodi di amministrazione e sui nodi gateway, poi interrompi i servizi sui nodi di archiviazione.
 
 Questo approccio consente di utilizzare l'Admin Node primario per monitorare lo stato degli altri nodi della griglia il più a lungo possibile.
 
@@ -151,9 +151,6 @@ La griglia StorageGRID è stata chiusa.
 [[start-up-grid-nodes]]
 == Avviare i nodi della griglia
 
-
-CAUTION: Se l'intero grid è stato spento per più di 15 giorni, è necessario contattare il supporto tecnico prima di avviare qualsiasi grid node. Non tentare di eseguire le procedure di ripristino che ricostruiscono i dati Cassandra. Ciò potrebbe causare la perdita di dati.
-
 Se possibile, accendere i nodi della rete in questo ordine:
 
 * Prima di tutto, alimentare i nodi di amministrazione.
@@ -161,13 +158,13 @@ Se possibile, accendere i nodi della rete in questo ordine:
 
 
 
-NOTE: Se un host include più nodi di rete, i nodi torneranno automaticamente in linea all'accensione dell'host.
+NOTE: Se un host include più nodi di griglia, questi tornano online automaticamente quando accendi l'host.
 
 .Fasi
 . Accendere gli host per il nodo di amministrazione primario e tutti i nodi di amministrazione non primari.
 +
 
-NOTE: Non sarà possibile accedere ai nodi di amministrazione fino a quando i nodi di storage non saranno stati riavviati.
+NOTE: Non puoi accedere ai nodi di amministrazione finché i nodi di archiviazione non vengono riavviati.
 
 . Accendere gli host di tutti i nodi di storage.
 +

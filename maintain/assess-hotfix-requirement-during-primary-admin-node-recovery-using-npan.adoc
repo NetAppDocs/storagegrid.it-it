@@ -1,0 +1,31 @@
+---
+permalink: maintain/assess-hotfix-requirement-during-primary-admin-node-recovery-using-npan.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix, primary admin node recovery 
+summary: Determina se è necessario un hotfix durante il ripristino di un nodo Admin primario utilizzando un nodo Admin non primario. 
+---
+= Determina se è necessario un hotfix StorageGRID per il nodo Admin primario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver ripristinato un nodo Admin primario, determina se devi applicare un hotfix.
+
+.Prima di iniziare
+Il ripristino del nodo Admin primario è completo.
+
+.Fasi
+. Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+. Selezionare *Nodi*.
+. Dall'elenco a sinistra, selezionare il nodo di amministrazione principale.
+. Nella scheda Overview (Panoramica), annotare la versione visualizzata nel campo *Software Version* (versione software).
+. Selezionare qualsiasi altro nodo della griglia.
+. Nella scheda Panoramica, nota le versioni visualizzate nel campo *Versione software*.
++
+** Se le versioni visualizzate nei campi *versione software* sono identiche, non è necessario applicare una correzione rapida.
+** Se le versioni visualizzate nei campi *versione software* sono diverse, è necessario link:storagegrid-hotfix-procedure.html["applicare una correzione rapida"]aggiornare il nodo amministrativo primario recuperato alla stessa versione.
+
+
+

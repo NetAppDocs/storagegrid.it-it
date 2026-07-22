@@ -19,7 +19,11 @@ Ogni nodo StorageGRID richiede le seguenti risorse minime:
 * RAM: A seconda della RAM totale disponibile e della quantità di software non StorageGRID in esecuzione sul sistema
 +
 ** In genere, almeno 24 GB per nodo e da 2 a 16 GB in meno rispetto alla RAM totale del sistema
-** Un minimo di 64 GB per ciascun tenant con circa 5.000 bucket
+** Se più tenant hanno ciascuno fino a 5.000 bucket, almeno 64 GB per nodo
++
+
+NOTE: Il sistema StorageGRID supporta un massimo di 20.000 bucket per ogni account tenant S3.
+
 
 
 
@@ -55,7 +59,7 @@ VMware supporta un nodo per macchina virtuale. Assicurarsi che il nodo StorageGR
 --
 ====
 
-CAUTION: Monitorate regolarmente l'utilizzo di CPU e memoria per garantire che queste risorse continuino a soddisfare il vostro carico di lavoro. Ad esempio, raddoppiando l'allocazione di RAM e CPU per i nodi di storage virtuali si fornirebbero risorse simili a quelle fornite per i nodi di appliance StorageGRID. Inoltre, se la quantità di metadati per nodo supera i 500 GB, considerare l'aumento della RAM per nodo a 48 GB o più. Per informazioni sulla gestione dell'archiviazione dei metadati degli oggetti, sull'aumento dell'impostazione spazio riservato metadati e sul monitoraggio dell'utilizzo della CPU e della memoria, vedere le istruzioni per link:../admin/index.html["amministrazione"], link:../monitor/index.html["monitoraggio"]e link:../upgrade/index.html["aggiornamento in corso"]StorageGRID.
+CAUTION: Monitora regolarmente l'utilizzo di CPU e memoria per assicurarti che queste risorse continuino a supportare il tuo carico di lavoro. Ad esempio, raddoppiare l'allocazione di RAM e CPU per i nodi di archiviazione virtuali fornirebbe risorse simili a quelle fornite per i nodi appliance StorageGRID. Inoltre, se la quantità di metadati per nodo supera 500 GB, valuta di aumentare la RAM per nodo a 48 GB o più. Per informazioni sulla gestione dell'archiviazione dei metadati degli oggetti, sull'aumento dell'impostazione Spazio riservato ai metadati e sul monitoraggio dell'utilizzo di CPU e memoria, consulta le istruzioni per link:../admin/index.html["amministrazione"], link:../monitor/index.html["monitoraggio"] e link:../upgrade/index.html["aggiornamento in corso"] StorageGRID.
 
 Se l'hyperthreading è attivato sugli host fisici sottostanti, è possibile fornire 8 core virtuali (4 core fisici) per nodo. Se l'hyperthreading non è attivato sugli host fisici sottostanti, è necessario fornire 8 core fisici per nodo.
 
@@ -63,4 +67,4 @@ Se si utilizzano macchine virtuali come host e si ha il controllo sulle dimensio
 
 (Solo RHEL, Debian e Ubuntu) Per le distribuzioni di produzione, non dovresti eseguire più nodi di archiviazione sullo stesso hardware di archiviazione fisico o host virtuale.  Ogni nodo di archiviazione in una singola distribuzione StorageGRID dovrebbe trovarsi nel proprio dominio di errore isolato.  È possibile massimizzare la durabilità e la disponibilità dei dati degli oggetti se ci si assicura che un singolo guasto hardware possa avere un impatto solo su un singolo nodo di archiviazione.
 
-Vedere anche link:storage-and-performance-requirements.html["Requisiti di storage e performance"].
+Consulta link:storage-and-performance-requirements.html["Requisiti di storage e performance"].

@@ -22,14 +22,14 @@ Prima di aggiungere un sito, esaminare i seguenti requisiti e limitazioni:
 
 * È possibile aggiungere un solo sito per ciascuna operazione di espansione.
 * Non è possibile aggiungere nodi grid a un sito esistente come parte della stessa espansione.
-* Tutti i siti devono includere almeno tre nodi di storage.
-* L'aggiunta di un nuovo sito non aumenta automaticamente il numero di oggetti che è possibile memorizzare. La capacità totale degli oggetti di un grid dipende dalla quantità di storage disponibile, dal criterio ILM e dalla capacità dei metadati di ciascun sito.
+* Tutti i siti devono includere almeno tre Storage Node. Possono essere una qualsiasi combinazione di Storage Node combinati e Storage Node solo metadati. Se sono presenti più di tre Storage Node, possono essere una qualsiasi combinazione di Storage Node combinati, solo metadati e solo dati, purché siano disponibili tre servizi ADC. Per ulteriori informazioni, consulta link:../primer/what-storage-node-is.html#required-storage-nodes-per-grid-and-per-site["Nodi di archiviazione richiesti per griglia e per sito"].
+* Quando aggiungi un nuovo sito, il numero di oggetti che puoi archiviare non aumenta automaticamente. La capacità totale di oggetti di una grid dipende dalla quantità di storage disponibile, dalla policy ILM e dalla capacità dei metadati in ciascun sito.
 * Quando si ridimensiona un nuovo sito, è necessario assicurarsi che includa una capacità di metadati sufficiente.
 +
-StorageGRID conserva una copia di tutti i metadati degli oggetti in ogni sito. Quando si aggiunge un nuovo sito, è necessario assicurarsi che includa una capacità di metadati sufficiente per i metadati degli oggetti esistenti e una capacità di metadati sufficiente per la crescita.
+StorageGRID conserva una copia di tutti i metadati in ogni sito. Quando aggiungi un nuovo sito, assicurati che includa una capacità di metadati sufficiente sia per i metadati degli oggetti esistenti sia per la crescita futura.
 
 +
-Per ulteriori informazioni, vedere quanto segue:
+Per ulteriori informazioni, consulta quanto segue:
 
 +
 ** link:../admin/managing-object-metadata-storage.html["Gestire lo storage dei metadati degli oggetti"]
@@ -37,11 +37,19 @@ Per ulteriori informazioni, vedere quanto segue:
 
 
 * È necessario considerare la larghezza di banda della rete disponibile tra i siti e il livello di latenza della rete. Gli aggiornamenti dei metadati vengono continuamente replicati tra i siti anche se tutti gli oggetti vengono memorizzati solo nel sito in cui vengono acquisiti.
-* Poiché il sistema StorageGRID rimane operativo durante l'espansione, è necessario rivedere le regole ILM prima di avviare la procedura di espansione. È necessario assicurarsi che le copie a oggetti non vengano memorizzate nel nuovo sito fino al completamento della procedura di espansione.
 +
-Ad esempio, prima di iniziare l'espansione, determinare se alcune regole utilizzano il pool di storage predefinito (tutti i nodi di storage). In tal caso, è necessario creare un nuovo pool di storage contenente i nodi di storage esistenti e aggiornare le regole ILM per utilizzare il nuovo pool di storage. In caso contrario, gli oggetti verranno copiati nel nuovo sito non appena il primo nodo del sito diventa attivo.
+Per evitare prestazioni scadenti dovute alla latenza:
 
 +
-Per ulteriori informazioni sulla modifica di ILM durante l'aggiunta di un nuovo sito, vedere la link:../ilm/example-6-changing-ilm-policy.html["Esempio di modifica di un criterio ILM"].
+** La codifica di cancellazione non è raccomandata tra siti con una latenza superiore a 100 ms.
+** I siti nel tuo sistema StorageGRID non dovrebbero estendersi su ampie distanze geografiche, ad esempio su più continenti.
+
+
+* Poiché il sistema StorageGRID rimane operativo durante l'espansione, è necessario rivedere le regole ILM prima di avviare la procedura di espansione. È necessario assicurarsi che le copie a oggetti non vengano memorizzate nel nuovo sito fino al completamento della procedura di espansione.
++
+Ad esempio, prima di iniziare l'espansione, verifica se alcune regole utilizzano il pool di storage predefinito (All Storage Nodes). Se lo fanno, crea un nuovo pool di storage con i nodi di archiviazione esistenti e aggiorna le regole ILM per utilizzare il nuovo pool di storage. Altrimenti, gli oggetti vengono copiati nel nuovo sito non appena il primo nodo di quel sito diventa attivo.
+
++
+Per ulteriori informazioni sulla modifica di una policy ILM durante l'aggiunta di un nuovo sito, consulta la link:../ilm/example-6-changing-ilm-policy.html["Esempio di modifica di un criterio ILM"].
 
 

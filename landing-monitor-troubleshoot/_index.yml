@@ -21,12 +21,14 @@ indexpage:
       url: "../monitor/monitoring-storage-capacity.html"
   - title: Gestire avvisi e notifiche
     links:
+    - title: USA AutoSupport
+      url: "../monitor/what-is-autosupport.html"
     - title: Gestire gli avvisi
       url: "../monitor/managing-alerts.html"
     - title: Creare avvisi personalizzati
       url: "../monitor/creating-custom-alert-rules.html"
-    - title: Gestire le e-mail di avviso
-      url: "../monitor/email-alert-notifications.html"
+    - title: Configura il server di posta elettronica
+      url: "../monitor/configure-email-server.html"
     - title: Utilizzare il monitoraggio SNMP
       url: "../monitor/using-snmp-monitoring.html"
   - title: Utilizzare i messaggi di controllo e altri registri
@@ -41,6 +43,8 @@ indexpage:
       url: "../monitor/logs-files-reference.html"
   - title: Diagnosticare e risolvere i problemi
     links:
+    - title: USA AutoSupport
+      url: "../monitor/what-is-autosupport.html"
     - title: Rivedere le metriche di supporto
       url: "../monitor/reviewing-support-metrics.html"
     - title: Modifica la priorità di I/O

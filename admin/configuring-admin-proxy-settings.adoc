@@ -13,7 +13,7 @@ summary: 'Se si inviano pacchetti AutoSupport utilizzando HTTP o HTTPS, è possi
 [role="lead"]
 Se si inviano pacchetti AutoSupport utilizzando HTTP o HTTPS, è possibile configurare un server proxy non trasparente tra i nodi Admin e il supporto tecnico (AutoSupport).
 
-Per ulteriori informazioni su AutoSupport, vedere link:configure-autosupport-grid-manager.html["Configurare AutoSupport"].
+Per ulteriori informazioni su AutoSupport, vedi link:../monitor/configure-autosupport-grid-manager.html["Configurare AutoSupport"].
 
 .Prima di iniziare
 * Si dispone di link:admin-group-permissions.html["autorizzazioni di accesso specifiche"].

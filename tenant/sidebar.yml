@@ -23,10 +23,8 @@ entries:
     url: "/tenant/protecting-against-cross-site-request-forgery-csrf.html"
 - title: Utilizzare connessioni di federazione di griglie
   entries:
-  - title: Clonare utenti e gruppi tenant
-    url: "/tenant/grid-federation-account-clone.html"
-  - title: Clonare le chiavi di accesso S3 utilizzando l'API
-    url: "/tenant/grid-federation-clone-keys-with-api.html"
+  - title: Sincronizza gruppi di tenant e utenti
+    url: "/tenant/grid-federation-account-sync.html"
   - title: Gestire la replica cross-grid
     url: "/tenant/grid-federation-manage-cross-grid-replication.html"
   - title: Visualizza connessioni di federazione di griglie

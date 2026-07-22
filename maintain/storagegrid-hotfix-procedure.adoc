@@ -36,11 +36,11 @@ Mentre i nodi della griglia vengono aggiornati con la nuova versione di hotfix, 
 [[how-hotfixes-are-applied-for-recovery-and-expansion]]
 == Modalità di applicazione degli hotfix per il ripristino e l'espansione
 
-Una volta applicata una correzione rapida alla griglia, il nodo di amministrazione primario installa automaticamente la stessa versione della correzione rapida su qualsiasi nodo ripristinato mediante operazioni di ripristino o aggiunto in un'espansione.
+Dopo che un hotfix è stato applicato alla tua grid, il nodo Admin primario o un nodo Admin non primario installa automaticamente la stessa versione dell'hotfix su qualsiasi nodo ripristinato tramite operazioni di recovery o aggiunto in un'espansione. Puoi recuperare qualsiasi nodo (incluso il nodo Admin primario) quando hai effettuato l'accesso a un nodo Admin non primario. Se recuperi un nodo da un nodo Admin non primario, quel nodo Admin applica l'hotfix al nodo recuperato.
 
-Tuttavia, se è necessario ripristinare il nodo di amministrazione primario, è necessario installare manualmente la versione corretta di StorageGRID e applicare la correzione rapida. La versione finale di StorageGRID del nodo di amministrazione primario deve corrispondere alla versione degli altri nodi nella griglia.
+Se devi ripristinare il nodo Admin primario dal suo programma di installazione di StorageGRID, devi installare manualmente la versione corretta di StorageGRID e poi applicare l'hotfix. La versione finale di StorageGRID del nodo Admin primario deve corrispondere alla versione degli altri nodi nella grid.
 
-Nell'esempio seguente viene illustrato come applicare una correzione rapida durante il ripristino del nodo di amministrazione primario:
+L'esempio seguente illustra come applicare una hotfix durante il ripristino del nodo Admin primario mentre sei connesso al nodo Admin non primario:
 
 . Si supponga che la griglia stia eseguendo una versione di StorageGRID 11._A.B_ con la correzione rapida più recente. La "versione griglia" è 11._A.B.y_.
 . Si verifica un errore nel nodo di amministrazione primario.
@@ -51,5 +51,3 @@ NOTE: In base alle esigenze della versione grid, è possibile utilizzare una rel
 
 . Quindi, applicare la correzione rapida 11._A.B.y_ al nodo di amministrazione primario.
 
-
-Per ulteriori informazioni, vedere link:configuring-replacement-primary-admin-node.html["Configurare il nodo amministrativo primario sostitutivo"].

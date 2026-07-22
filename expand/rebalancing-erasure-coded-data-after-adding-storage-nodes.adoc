@@ -37,7 +37,7 @@ NOTE: S3 le operazioni API per caricare oggetti (o parti di oggetti) potrebbero 
 * *Condizioni di completamento del lavoro*. La procedura di riequilibrio CE è considerata completa quando si verifica una delle seguenti condizioni:
 +
 ** Impossibile spostare altri dati sottoposti a erasure coding.
-** I dati in tutti i nodi rientrano in una deviazione del 5% della partizione dei dati di destinazione.
+** I dati in tutti i nodi rientrano in una deviazione del 5% rispetto alla partizione di spazio utilizzabile target.
 ** La procedura è in corso da 30 giorni.
 
 
@@ -105,11 +105,11 @@ Per ottenere assistenza sul comando ribilanciamento-dati:
 Vai alla pagina Nodi per valutare la distribuzione dei dati tra i nodi di archiviazione nel sito.
 
 +
-Il processo di riequilibrio EC è considerato completo e si interrompe quando i dati in tutti i nodi rientrano in una deviazione del 5% della partizione dei dati di destinazione.
+Il processo di ribilanciamento EC si considera completato e si interromperà quando lo spazio utilizzabile in tutti i nodi rientrerà in una deviazione del 5% rispetto alla partizione di spazio utilizzabile target.
 
 ** Se `State` è `Success`, in alternativa, <<review_object_storage,esaminare lo storage a oggetti>>per visualizzare i dettagli aggiornati del sito.
 +
-I dati con codifica erasure dovrebbero ora essere più bilanciati tra i nodi di storage del sito.
+Lo spazio utilizzabile dovrebbe ora essere più bilanciato tra i Storage Node nel sito.
 
 ** Se `State` è `Failure`:
 +

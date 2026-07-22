@@ -19,7 +19,7 @@ I passaggi per la creazione di un account tenant variano a seconda chelink:using
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * Si dispone di link:admin-group-permissions.html["Accesso root o autorizzazione account tenant"].
 * Se l'account tenant utilizza l'origine dell'identità configurata per Grid Manager e si desidera concedere l'autorizzazione di accesso root per l'account tenant a un gruppo federato, il gruppo federated è stato importato in Grid Manager. Non è necessario assegnare alcuna autorizzazione Grid Manager a questo gruppo di amministratori. Vedere link:managing-admin-groups.html["Gestire i gruppi di amministratori"].
-* Se si desidera consentire a un tenant S3 di clonare i dati dell'account e replicare gli oggetti bucket in un altro grid utilizzando una connessione a federazione di grid:
+* Se vuoi consentire a un tenant S3 di sincronizzare i dati dell'account e replicare gli oggetti del bucket in un'altra griglia utilizzando una connessione di federazione di griglia:
 +
 ** Si dispone di link:grid-federation-create-connection.html["configurazione della connessione a federazione di griglie"].
 ** Lo stato della connessione è *connesso*.
@@ -141,9 +141,13 @@ Il tenant può emettere richieste API S3 SelectObjectContent per filtrare e recu
  a| 
 Connessione federazione griglia
  a| 
-Il tenant può utilizzare una connessione di federazione di grid, che:
+Il tenant può utilizzare le connessioni di federazione della griglia, che:
 
-** Consente di clonare questo tenant e tutti i gruppi tenant e gli utenti aggiunti all'account da questa griglia (la _griglia di origine_) all'altra griglia della connessione selezionata (la _griglia di destinazione_).
+** Fa sì che questo account tenant e tutti i gruppi tenant, utenti e chiavi di accesso S3 vengano sincronizzati tra questa griglia e le altre griglie nelle connessioni selezionate.
++
+
+TIP: Se necessario per motivi di sicurezza o conformità, puoi deselezionare *Abilita la sincronizzazione della chiave di accesso*.
+
 ** Consente a questo tenant di configurare la replica cross-grid tra i bucket corrispondenti su ogni grid.
 
 
@@ -207,19 +211,10 @@ Viene visualizzato un messaggio di successo e il nuovo tenant viene elencato nel
 
 NOTE: L'applicazione delle impostazioni del tenant sulla griglia potrebbe richiedere 15 minuti o più in base a connettività di rete, stato dei nodi e operazioni Cassandra.
 
-. Se è stata selezionata l'autorizzazione *Usa connessione federazione griglia* per il tenant:
-+
-.. Verificare che un tenant identico sia stato replicato nell'altra griglia della connessione. I tenant di entrambe le griglie avranno lo stesso ID account a 20 cifre, il nome, la descrizione, la quota e le autorizzazioni.
+. Se hai selezionato l'autorizzazione *Usa connessione di federazione griglia* per il tenant, verifica che un tenant identico sia stato replicato sull'altra griglia nella connessione. I tenant su entrambe le griglie avranno lo stesso ID account a 20 cifre, nome, descrizione, quota e autorizzazioni.
 +
 
-NOTE: Se viene visualizzato il messaggio di errore "tenant creato senza clone", fare riferimento alle istruzioni riportate in link:grid-federation-troubleshoot.html["Risolvere i problemi relativi agli errori di federazione della griglia"].
-
-.. Se durante la definizione dell'accesso root è stata fornita una password utente root locale, link:changing-password-for-tenant-local-root-user.html["modificare la password per l'utente root locale"] per il tenant replicato.
-+
-
-TIP: Un utente root locale non può accedere a Tenant Manager nella griglia di destinazione fino a quando la password non viene modificata.
-
-
+NOTE: Se visualizzi un messaggio di errore che indica che il tenant account è stato creato su questa grid ma non è stato sincronizzato con le altre grid, fai riferimento alle istruzioni in link:grid-federation-troubleshoot.html["Risolvere i problemi relativi agli errori di federazione della griglia"].
 
 
 
@@ -331,4 +326,4 @@ Una porta con restrizioni
 [[configure-the-tenant]]
 == Configurare il tenant
 
-Segui le istruzioni in link:../tenant/index.html["Utilizzare un account tenant"] per gestire utenti e gruppi di tenant, chiavi di accesso S3, bucket, servizi della piattaforma e replica tra account clone e grid.
+Segui le istruzioni in link:../tenant/index.html["Utilizzare un account tenant"] per gestire gruppi di tenant e utenti, chiavi di accesso S3, bucket, servizi della piattaforma, sincronizzazione degli account e replica cross-grid.

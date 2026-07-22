@@ -34,25 +34,25 @@ Il nodo sostitutivo deve essere configurato come nodo amministratore primario pe
 ** Se non è stata impostata una password, impostare una password per proteggere il programma di installazione di StorageGRID.
 
 
-. Fare clic su *Recover a failed primary Admin Node* (Ripristina nodo amministratore primario guasto
+. Seleziona *Ripristina un nodo amministratore primario non funzionante*.
 +
 image:install_or_recover_primary_admin_node.png["Installare o ripristinare il nodo di amministrazione primario"]
 
 . Carica il backup più recente del pacchetto di ripristino:
 +
-.. Fare clic su *Sfoglia*.
-.. Individua il file del pacchetto di ripristino più recente per il tuo sistema StorageGRID e fai clic su *Apri*.
+.. Selezionare *Sfoglia*.
+.. Individua il file del pacchetto di ripristino più recente per il tuo sistema StorageGRID e seleziona *Apri*.
 
 
 . Inserire la passphrase di provisioning.
-. Fare clic su *Start Recovery* (Avvia ripristino).
+. Seleziona *Avvia ripristino*.
 +
 Viene avviato il processo di ripristino. Grid Manager potrebbe non essere disponibile per alcuni minuti all'avvio dei servizi richiesti. Al termine del ripristino, viene visualizzata la pagina di accesso.
 
 . Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID e il trust della parte di base per il nodo di amministrazione ripristinato è stato configurato per utilizzare il certificato dell'interfaccia di gestione predefinita, aggiornare (o eliminare e ricreare) il trust della parte di base del nodo in Active Directory Federation Services (ad FS). Utilizzare il nuovo certificato server predefinito generato durante il processo di ripristino del nodo di amministrazione.
 +
 
-NOTE: Per configurare un trust della parte affidabile, vederelink:../admin/configure-sso.html["Configurare il single sign-on"] .  Per accedere al certificato del server predefinito, accedi alla shell dei comandi del nodo di amministrazione.  Vai al `/var/local/mgmt-api` directory e selezionare la `server.crt` file.
+NOTE: Per configurare una relying party trust, consulta la configurazione del single sign-on usando link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] o link:../admin/learn-about-setting-up-sso-saml.html["SAML"]. Per accedere al certificato server predefinito, accedi alla shell dei comandi dell'Admin Node. Vai alla directory  `/var/local/mgmt-api` e seleziona il file  `server.crt`.
 
 
 

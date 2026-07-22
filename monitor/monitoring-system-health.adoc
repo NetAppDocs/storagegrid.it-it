@@ -245,7 +245,7 @@ CAUTION: Prestare attenzione quando si decide di tacitare una regola di avviso. 
 +
 Viene visualizzata una finestra a comparsa che elenca l'espressione Prometheus per ogni severità definita.
 
-.. Per chiudere la finestra a comparsa, fare clic in un punto qualsiasi all'esterno della finestra a comparsa.
+.. Per chiudere la finestra a comparsa, seleziona un punto qualsiasi al di fuori della finestra a comparsa.
 
 
 . Facoltativamente, selezionare *Edit rule* (Modifica regola) per modificare la regola di avviso che ha causato l'attivazione dell'avviso.

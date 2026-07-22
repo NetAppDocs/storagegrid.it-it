@@ -22,31 +22,28 @@ Selezionare Start Recovery (Avvia ripristino) in Grid Manager (Gestione griglia)
 
 
 .Fasi
-. Da Grid Manager, seleziona *Manutenzione* > *Attività* > *Ripristino*.
+. Dal Grid Manager, seleziona *Manutenzione* > *Attività* > *Ripristino nodo*.
 . Selezionare il nodo della griglia che si desidera ripristinare nell'elenco Pending Nodes (nodi in sospeso).
 +
 I nodi vengono visualizzati nell'elenco dopo un errore, ma non è possibile selezionare un nodo fino a quando non è stato reinstallato e pronto per il ripristino.
 
-. Immettere la *Provisioning Passphrase*.
-. Fare clic su *Start Recovery* (Avvia ripristino).
+. Inserisci la *passphrase di provisioning*.
+. Seleziona *Avvia ripristino*.
 +
 image:4b_select_recovery_node.png["screenshot che mostra la pagina Maintenance > Recovery"]
 
 . Monitorare l'avanzamento del ripristino nella tabella Recovery Grid Node (nodo griglia di ripristino).
 +
-Quando il nodo grid raggiunge la fase "in attesa di passaggi manuali", passare all'argomento successivo ed eseguire i passaggi manuali per il rimontaggio e la riformattazione dei volumi di storage dell'appliance.
+** Se il nodo della griglia raggiunge la fase "In attesa di passaggi manuali", devi link:../maintain/remounting-and-reformatting-appliance-storage-volumes.html["rimontare e riformattare manualmente i volumi di storage dell'appliance"].
+** Se il messaggio "In attesa di passaggi manuali" non viene visualizzato, significa che i volumi di archiviazione sono stati rimontati e riformattati automaticamente e puoi link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["ripristinare i dati degli oggetti nei volumi"].
 
-+
-image:recovery_reset_button.gif["schermata che mostra la fase in attesa di passaggi manuali"]
 
-+
 
-NOTE: In qualsiasi momento durante il ripristino, fare clic su *Reset* (Ripristina) per avviare un nuovo ripristino. Viene visualizzata una finestra di dialogo che indica che il nodo viene lasciato in uno stato indeterminato se si ripristina la procedura.
 
-+
-image:recovery_reset_warning.gif["schermata che mostra la finestra di dialogo di avviso di ripristino"]
+[NOTE]
+====
+In qualsiasi momento durante il ripristino, puoi selezionare *Reset* per avviare un nuovo ripristino. Viene visualizzata una finestra di dialogo che indica che il nodo rimarrà in uno stato indeterminato se resetti la procedura.
 
-+
 Se si desidera riprovare il ripristino dopo aver reimpostato la procedura, è necessario ripristinare il nodo dell'appliance in uno stato preinstallato eseguendo `sgareinstall` sul nodo.
 
-
+====

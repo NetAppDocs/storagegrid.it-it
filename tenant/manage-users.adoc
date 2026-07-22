@@ -11,15 +11,15 @@ summary: 'Puoi creare utenti locali e assegnarli a gruppi locali per determinare
 
 
 [role="lead"]
-È possibile creare utenti locali e assegnarli a gruppi locali per determinare a quali funzionalità possono accedere.  È anche possibile importare utenti federati.  Il Tenant Manager include un utente locale predefinito, denominato "root".  Sebbene sia possibile aggiungere e rimuovere utenti locali, non è possibile rimuovere l'utente root.
+Puoi creare utenti locali e assegnarli a gruppi locali per determinare a quali funzionalità questi utenti possono accedere. Puoi anche importare utenti federati. Il Tenant Manager include un utente locale predefinito, chiamato _root_. Anche se puoi aggiungere e rimuovere utenti locali, non puoi rimuovere l'utente root.
 
 
-NOTE: Se è attivato il Single Sign-on (SSO) per il sistema StorageGRID, gli utenti locali non potranno accedere al Gestore tenant o all'API di gestione tenant, anche se possono utilizzare le applicazioni client per accedere alle risorse del tenant, in base alle autorizzazioni di gruppo.
+NOTE: Se il single sign-on (SSO) è abilitato per il tuo sistema StorageGRID, gli utenti locali non potranno accedere al Tenant Manager o all'API di gestione del tenant, anche se possono usare le applicazioni client per accedere alle risorse del tenant, in base alle autorizzazioni di gruppo.
 
 .Prima di iniziare
 * L'utente ha effettuato l'accesso al responsabile del tenant utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * L'utente appartiene a un gruppo di utenti che dispone di link:tenant-management-permissions.html["Autorizzazione di accesso root"].
-* Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, è stato esaminato il flusso di lavoro e le considerazioni relative a link:grid-federation-account-clone.html["clonazione di utenti e gruppi tenant"]e si è effettuato l'accesso alla griglia di origine del tenant.
+* Se il tuo tenant account dispone dell'autorizzazione *Usa connessione di federazione griglia*, hai esaminato il flusso di lavoro e le considerazioni relative a link:grid-federation-account-sync.html["sincronizzazione di gruppi di tenant e utenti"] e hai effettuato l'accesso alla grid di origine del tenant.
 
 
 
@@ -38,12 +38,6 @@ Gli utenti S3 che non appartengono a nessun gruppo non dispongono di autorizzazi
 
 .Fasi
 . Selezionare *Gestione accessi* > *Utenti*.
-+
-Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, un banner blu indica che si tratta della griglia di origine del tenant. Tutti gli utenti locali creati in questa griglia verranno clonati nell'altra griglia della connessione.
-
-+
-image:grid-federation-tenant-user-banner.png["Immagine del banner blu sulla pagina utente se si tratta della griglia di origine del tenant"]
-
 . Selezionare *Crea utente*.
 
 
@@ -109,7 +103,7 @@ Gli utenti che non appartengono a nessun gruppo non disporranno di autorizzazion
 
 . Selezionare *Crea utente*.
 +
-Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e ci si trova nella griglia di origine del tenant, il nuovo utente locale viene clonato nella griglia di destinazione del tenant. *Success* viene visualizzato come *Cloning status* nella sezione Overview della pagina dei dettagli dell'utente.
+Se il tuo tenant account dispone dell'autorizzazione *Usa connessione di federazione griglia* e ti trovi sulla griglia di origine del tenant, il nuovo utente locale viene sincronizzato con la griglia di destinazione del tenant. *Riuscito* appare come *Stato di sincronizzazione* nella sezione Panoramica della pagina dei dettagli dell'utente.
 
 . Selezionare *fine* per tornare alla pagina utenti.
 
@@ -122,14 +116,6 @@ Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione gri
 .Fasi
 . Selezionare *Gestione accessi* > *Utenti*.
 . Consultare le informazioni fornite nella pagina utenti, che elenca le informazioni di base per tutti gli utenti locali e federati per questo account tenant.
-+
-Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si sta visualizzando l'utente nella griglia di origine del tenant:
-
-+
-** Un messaggio banner indica che se si modifica o si rimuove un utente, le modifiche non verranno sincronizzate con l'altra griglia.
-** Se necessario, un messaggio di intestazione indica se gli utenti non sono stati clonati nel tenant sulla griglia di destinazione. È possibile <<clone-users,riprovare un clone utente non riuscito>>.
-
-
 . Se si desidera modificare il nome completo dell'utente:
 +
 .. Selezionare la casella di controllo dell'utente.
@@ -152,12 +138,6 @@ Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione gri
 ** Accesso negato
 ** Modalità di accesso
 ** Appartenenza al gruppo
-** Campi aggiuntivi se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e l'utente viene visualizzato nella griglia di origine del tenant:
-+
-*** Stato di cloning, *Success* o *Failure*
-*** Un banner blu che indica che se modifichi questo utente, le modifiche non verranno sincronizzate con l'altra griglia.
-
-
 
 
 . Modificare le impostazioni utente in base alle esigenze. Vedere <<create-user,Creare un utente locale>> per i dettagli su cosa immettere.
@@ -211,7 +191,7 @@ Dopo aver chiuso la finestra di dialogo *Importa utenti federati*, le informazio
 È possibile duplicare un utente locale per creare un nuovo utente più rapidamente.
 
 
-NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si duplica un utente dalla griglia di origine del tenant, l'utente duplicato verrà clonato nella griglia di destinazione del tenant.
+NOTE: Se il tuo tenant account dispone dell'autorizzazione *Usa connessione di federazione griglia* e duplichi un utente dalla griglia di origine del tenant, l'utente duplicato verrà sincronizzato con la griglia di destinazione del tenant.
 
 .Fasi
 . Selezionare *Gestione accessi* > *Utenti*.
@@ -223,17 +203,22 @@ NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazio
 
 
 
-[[clone-usersretry-user-clone]]
-== [[clone-users]]Riprova clone utente
+[[sync-usersretry-user-sync]]
+== [[sync-users]]Riprova la sincronizzazione utente
 
-Per riprovare un clone non riuscito:
+Se la sincronizzazione di un utente non riesce, nella colonna Stato di sincronizzazione per quell'utente viene visualizzato "Non riuscito". Sopra la tabella viene visualizzato un banner per indicare che uno o più utenti non sono riusciti a sincronizzarsi.
 
-. Selezionare ogni utente che indica _(clonazione non riuscita)_ sotto il nome utente.
-. Selezionare *azioni* > *Clona utenti*.
-. Visualizzare lo stato dell'operazione di clonazione dalla pagina dei dettagli di ciascun utente che si sta clonando.
+.Fasi
+Per riprovare la sincronizzazione:
+
+. Nel banner, seleziona *Riprova sync*. Questa operazione riprova la sincronizzazione per tutti gli utenti che non sono riusciti a sincronizzarsi.
+. Per riprovare a sincronizzare un singolo utente, seleziona il nome utente. Nella pagina dei dettagli dell'utente, seleziona *Riprova sync*.
+. Visualizza lo stato dell'operazione di sincronizzazione dalla pagina dei dettagli di ogni utente che stai sincronizzando.
 
 
-Per ulteriori informazioni, vedere link:grid-federation-account-clone.html["Clonare utenti e gruppi tenant"].
+Se il nuovo tentativo ha esito positivo, nella colonna Stato di sincronizzazione per ciascun utente sincronizzato correttamente compare la dicitura "Riuscito" e il banner scompare.
+
+Per ulteriori informazioni, vedi link:grid-federation-account-sync.html["Sincronizza gruppi di tenant e utenti"].
 
 
 
@@ -243,10 +228,7 @@ Per ulteriori informazioni, vedere link:grid-federation-account-clone.html["Clon
 È possibile eliminare in modo permanente uno o più utenti locali che non hanno più bisogno di accedere all'account tenant StorageGRID.
 
 
-NOTE: Se l'account tenant dispone dell'autorizzazione *Usa connessione federazione griglia* e si elimina un utente locale, StorageGRID non eliminerà l'utente corrispondente sull'altra griglia. Se è necessario mantenere queste informazioni sincronizzate, è necessario eliminare lo stesso utente da entrambe le griglie.
-
-
-NOTE: Per eliminare gli utenti federati, è necessario utilizzare l'origine delle identità federate.
+NOTE: Se il tuo tenant account dispone dell'autorizzazione *Usa connessione di federazione grid* e elimini un utente locale, StorageGRID eliminerà l'utente corrispondente anche sulle altre griglie della connessione, a meno che tale utente non sia un utente federato su una griglia di destinazione. Devi usare l'origine di identità federata per eliminare gli utenti federati.
 
 .Fasi
 . Selezionare *Gestione accessi* > *Utenti*.

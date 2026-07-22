@@ -32,7 +32,7 @@ Di seguito è riportato un esempio della pagina Metrics (metriche):
 +
 image:metrics_page.png["Pagina Metrics (metriche)"]
 
-. Per interrogare i valori correnti delle metriche StorageGRID e visualizzare i grafici dei valori nel tempo, fare clic sul collegamento nella sezione Prometheus.
+. Per interrogare i valori correnti delle metriche StorageGRID e per visualizzare i grafici dei valori nel tempo, seleziona il collegamento nella sezione Prometheus.
 +
 Viene visualizzata l'interfaccia Prometheus. È possibile utilizzare questa interfaccia per eseguire query sulle metriche StorageGRID disponibili e per rappresentare graficamente le metriche StorageGRID nel tempo.
 
@@ -40,7 +40,7 @@ Viene visualizzata l'interfaccia Prometheus. È possibile utilizzare questa inte
 
 NOTE: Le metriche che includono _private_ nei loro nomi sono destinate esclusivamente all'uso interno e sono soggette a modifiche tra le release di StorageGRID senza preavviso.
 
-. Per accedere alle dashboard predefinite contenenti grafici delle metriche StorageGRID nel tempo, fare clic sui collegamenti nella sezione Grafana.
+. Per accedere a dashboard predefinite contenenti grafici delle metriche StorageGRID nel tempo, seleziona i collegamenti nella sezione Grafana.
 +
 Viene visualizzata l'interfaccia Grafana per il collegamento selezionato.
 

@@ -41,7 +41,7 @@ Questo collegamento viene visualizzato solo in caso di problemi con la licenza.
 ** Data di fine della licenza. *N/A* appare per una licenza perpetua.
 ** Data di fine supporto
 +
-Questa data viene letta dal file di licenza corrente e potrebbe non essere aggiornata se si estende o si rinnova il contratto del servizio di supporto dopo aver ottenuto il file di licenza. Per aggiornare questo valore, vedere link:updating-storagegrid-license-information.html["Aggiornare le informazioni sulla licenza StorageGRID"]. È inoltre possibile visualizzare la data di fine effettiva del contratto utilizzando Active IQ.
+Questa data viene letta dal file di licenza corrente e potrebbe non essere aggiornata se hai esteso o rinnovato il contratto di supporto dopo aver ottenuto il file di licenza. Per aggiornare questo valore, consulta link:updating-storagegrid-license-information.html["Aggiornare le informazioni sulla licenza StorageGRID"]. Puoi anche visualizzare la data di fine contratto effettiva utilizzando Digital Advisor.
 
 ** Contenuto del file di testo della licenza
 

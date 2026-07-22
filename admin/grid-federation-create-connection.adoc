@@ -2,7 +2,7 @@
 permalink: admin/grid-federation-create-connection.html 
 sidebar: sidebar 
 keywords: grid federation, create connection, configure connection 
-summary: È possibile creare una connessione a federazione di griglie tra due sistemi StorageGRID se si desidera clonare i dettagli del tenant e replicare i dati degli oggetti. 
+summary: Puoi creare connessioni di federazione di griglia tra sistemi StorageGRID se vuoi sincronizzare i dettagli dei tenant e replicare i dati degli oggetti. 
 ---
 = Creare connessioni di federazione della griglia StorageGRID
 :allow-uri-read: 
@@ -11,11 +11,14 @@ summary: È possibile creare una connessione a federazione di griglie tra due si
 
 
 [role="lead"]
-È possibile creare una connessione a federazione di griglie tra due sistemi StorageGRID se si desidera clonare i dettagli del tenant e replicare i dati degli oggetti.
+Puoi creare connessioni di federazione di griglia tra sistemi StorageGRID se vuoi sincronizzare i dettagli dei tenant e replicare i dati degli oggetti.
 
 Come illustrato nella figura, la creazione di una connessione a federazione di griglie include operazioni su entrambe le griglie. La connessione viene aggiunta su una griglia e completata sull'altra. È possibile iniziare da una delle due griglie.
 
-image:grid-federation-create-connection.png["panoramica grafica dei passaggi per la creazione di una connessione su due griglie"]
+
+TIP: Facoltativamente, puoi link:../admin/grid-federation-automate-connections.html["automatizza la creazione, la modifica e la manutenzione delle connessioni di federazione della griglia"].
+
+image:grid_federation_create_connection.png["panoramica grafica dei passaggi per la creazione di una connessione su due griglie"]
 
 .Prima di iniziare
 * È stata esaminata la link:grid-federation-overview.html["considerazioni e requisiti"] per la configurazione delle connessioni di federazione della griglia.
@@ -35,18 +38,15 @@ Eseguire questa procedura su uno dei due sistemi StorageGRID.
 . Accedere a Grid Manager dal nodo di amministrazione principale su una griglia.
 . Selezionare *Configurazione* > *Sistema* > *Federazione di griglia*.
 . Selezionare *Aggiungi connessione*.
-. Inserire i dettagli della connessione.
-+
+. Inserisci un nome di connessione, ovvero un nome univoco che ti aiuta a riconoscere questa connessione. Ad esempio, `Grid 1-Grid 2`.
+. Se vuoi link:../admin/configure-global-namespace.html["configurare uno spazio dei nomi globale"], seleziona *Abilita spazio dei nomi globale*.
+. Selezionare *continua*.
+. Inserisci i dettagli della griglia come segue:
+
+
 [cols="1a,2a"]
 |===
 | Campo | Descrizione 
-
-
- a| 
-Nome della connessione
- a| 
-Un nome univoco che consente di riconoscere questa connessione, ad esempio "Grid 1-Grid 2".
-
 
 
  a| 
@@ -54,9 +54,9 @@ FQDN o IP per questa griglia
  a| 
 Una delle seguenti opzioni:
 
-** L'FQDN della griglia a cui si è attualmente connessi
-** Indirizzo VIP di un gruppo ha su questa griglia
-** Indirizzo IP di un nodo Admin o di un nodo Gateway in questa griglia. L'IP può trovarsi su qualsiasi rete raggiungibile dalla griglia di destinazione.
+* L'FQDN della griglia a cui si è attualmente connessi
+* Indirizzo VIP di un gruppo ha su questa griglia
+* Indirizzo IP di un nodo Admin o di un nodo Gateway in questa griglia. L'IP può trovarsi su qualsiasi rete raggiungibile dalla griglia di destinazione.
 
 
 
@@ -91,9 +91,9 @@ FQDN o IP per l'altra griglia
  a| 
 Una delle seguenti opzioni:
 
-** L'FQDN della griglia a cui si desidera connettersi
-** Indirizzo VIP di un gruppo ha sull'altra griglia
-** Indirizzo IP di un nodo Admin o di un nodo Gateway nell'altra griglia. L'IP può trovarsi su qualsiasi rete raggiungibile dalla rete di origine.
+* L'FQDN della griglia a cui si desidera connettersi
+* Indirizzo VIP di un gruppo ha sull'altra griglia
+* Indirizzo IP di un nodo Admin o di un nodo Gateway nell'altra griglia. L'IP può trovarsi su qualsiasi rete raggiungibile dalla rete di origine.
 
 
 |===
@@ -155,5 +155,5 @@ Se si modifica questa connessione, viene creato un nuovo file di verifica. Il fi
 * link:creating-tenant-account.html["Creare uno o più nuovi account tenant"], Assegnare l'autorizzazione *Use grid Federation Connection* e selezionare la nuova connessione.
 * link:grid-federation-manage-connection.html["Gestire la connessione"] secondo necessità. È possibile modificare i valori di connessione, verificare una connessione, ruotare i certificati di connessione o rimuovere una connessione.
 * link:../monitor/grid-federation-monitor-connections.html["Monitorare la connessione"] Come parte delle normali attività di monitoraggio StorageGRID.
-* link:grid-federation-troubleshoot.html["Risolvere i problemi di connessione"], compresa la risoluzione di eventuali avvisi ed errori relativi al clone dell'account e alla replica cross-grid.
+* link:grid-federation-troubleshoot.html["Risolvere i problemi di connessione"], compresa la risoluzione di eventuali avvisi ed errori relativi alla sincronizzazione degli account e alla replica cross-grid.
 

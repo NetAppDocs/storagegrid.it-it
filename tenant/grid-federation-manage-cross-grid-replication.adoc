@@ -20,7 +20,7 @@ Se all'account tenant è stata assegnata l'autorizzazione *Usa connessione feder
 
 Il diagramma del flusso di lavoro riassume i passaggi da eseguire per configurare la replica tra griglie tra bucket su due griglie.  Questi passaggi sono descritti più dettagliatamente sotto il diagramma.
 
-image:grid-federation-cgr-workflow.png["Workflow di replica cross-grid"]
+image:grid_federation_cgr_workflow.png["Workflow di replica cross-grid"]
 
 
 
@@ -74,8 +74,6 @@ TIP: Secondo necessità, ogni benna può utilizzare una regione diversa.
 [[enable-cross-grid-replication]]
 === Abilitare la replica cross-grid
 
-È necessario eseguire questi passaggi prima di aggiungere oggetti a uno dei bucket.
-
 .Fasi
 . A partire da una griglia di cui si desidera replicare gli oggetti, attivare link:../admin/grid-federation-what-is-cross-grid-replication.html["replica cross-grid in un'unica direzione"]:
 +
@@ -90,7 +88,7 @@ TIP: Secondo necessità, ogni benna può utilizzare una regione diversa.
 *** *Sì* (impostazione predefinita): Un marcatore di eliminazione viene aggiunto al bucket di origine e replicato nel bucket di destinazione.
 *** *No*: un marcatore di eliminazione viene aggiunto al bucket di origine ma non viene replicato nel bucket di destinazione.
 +
-image:grid-federation-cross-grid-replication-client-deletes.png["immagine che mostra l'eliminazione del client replicato su entrambe le griglie"]
+image:grid_federation_cross_grid_replication_client_deletes.png["immagine che mostra l'eliminazione del client replicato su entrambe le griglie"]
 
 +
 
@@ -107,7 +105,6 @@ Fare riferimento alink:../admin/grid-federation-what-is-cross-grid-replication.h
 *** *Normale*: Sono incluse tutte le richieste di replica cross-grid, il che aumenta significativamente il volume dell'output di controllo.
 
 
-.. Rivedere le selezioni. Non è possibile modificare queste impostazioni a meno che entrambi i bucket non siano vuoti.
 .. Selezionare *Enable (attiva) e test*.
 +
 Dopo qualche istante, verrà visualizzato un messaggio di conferma dell'operazione.  Gli oggetti aggiunti a questo bucket vengono ora replicati automaticamente nell'altra griglia.  *La replica tra griglie* è visualizzata come funzionalità abilitata nella pagina dei dettagli del bucket.
@@ -153,11 +150,6 @@ Prima di disattivare la replica cross-grid, tenere presente quanto segue:
 * La disattivazione della replica tra griglie non rimuove gli oggetti che sono già stati copiati tra le griglie.  Ad esempio, oggetti in `my-bucket` sulla Griglia 1 che sono stati copiati in `my-bucket` sulla Griglia 2 non vengono rimossi se si disabilita la replica tra griglie per quel bucket.  Se si desidera eliminare questi oggetti, è necessario rimuoverli manualmente.
 * Se la replica cross-grid è stata attivata per ciascuno dei bucket (ovvero, se la replica si verifica in entrambe le direzioni), è possibile disattivare la replica cross-grid per uno o entrambi i bucket. Ad esempio, è possibile disattivare la replica degli oggetti da `my-bucket` sulla griglia 1 a `my-bucket` sulla griglia 2, continuando a replicare gli oggetti da `my-bucket` sulla griglia 2 a `my-bucket` sulla griglia 1.
 * È necessario disabilitare la replica tra griglie prima di poter rimuovere l'autorizzazione di un tenant a utilizzare la connessione federata della griglia. Fare riferimento a link:../admin/grid-federation-manage-tenants.html["Gestire i tenant autorizzati"] .
-* Se si disabilita la replica tra griglie per un bucket contenente oggetti, non sarà possibile riabilitarla a meno che non si eliminino tutti gli oggetti sia dal bucket di origine che da quello di destinazione.
-+
-
-CAUTION: Non è possibile riabilitare la replica a meno che entrambi i bucket non siano vuoti.
-
 
 
 .Prima di iniziare

@@ -45,4 +45,6 @@ NOTE: Se si utilizza un'implementazione StorageGRID come destinazione della repl
 Se si utilizza un server proxy non trasparente, è necessario anche link:configuring-storage-proxy-settings.html["configurare le impostazioni del proxy di storage"]consentire l'invio di messaggi a endpoint esterni, ad esempio un endpoint su Internet.
 
 .Informazioni correlate
-link:../tenant/index.html["Utilizzare un account tenant"]
+* link:../tenant/index.html["Utilizzare un account tenant"]
+* link:../network/external-communications.html["Porte utilizzate per le comunicazioni esterne"]
+

@@ -46,3 +46,7 @@ Quando si è collegati come root, il prompt cambia da `$` a `#`.
 . Ripetere questi passaggi su ogni nodo Admin e nodo gateway con porte remapped in conflitto.
 . Se hai consentito l'accesso SSH esterno,link:../admin/manage-external-ssh-access.html["bloccare l'accesso"] una volta terminata la rimozione delle rimappature delle porte.
 
+
+.Informazioni correlate
+* link:../network/external-communications.html["Porte utilizzate per le comunicazioni esterne"]
+

@@ -244,3 +244,6 @@ Gli overlay memberof e refint devono essere attivati. Per ulteriori informazioni
 Inoltre, assicurarsi che i campi indicati nella guida per Nome utente siano indicizzati per ottenere prestazioni ottimali.
 
 Vedere le informazioni sulla manutenzione dell'appartenenza al gruppo inverso nella http://www.openldap.org/doc/admin24/index.html["Documentazione di OpenLDAP: Guida per l'amministratore della versione 2.4"^].
+
+.Informazioni correlate
+link:../network/external-communications.html["Porte utilizzate per le comunicazioni esterne"]

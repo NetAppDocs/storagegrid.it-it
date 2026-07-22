@@ -1,8 +1,8 @@
 ---
 permalink: admin/grid-federation-troubleshoot.html 
 sidebar: sidebar 
-keywords: troubleshoot, grid federation connection, account clone, cross-grid replication, alerts, errors 
-summary: 'Potrebbe essere necessario risolvere gli avvisi e gli errori relativi alle connessioni di federazione di griglie, al clone dell"account e alla replica cross-grid.' 
+keywords: troubleshoot, grid federation connection, account sync, cross-grid replication, alerts, errors 
+summary: Potresti dover risolvere problemi relativi ad avvisi ed errori riguardanti le connessioni di federazione della griglia, la sincronizzazione degli account e la replica tra griglie. 
 ---
 = Risoluzione dei problemi degli errori di federazione della griglia in StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Potrebbe essere necessario risolvere gli avvisi e gli errori relativi 
 
 
 [role="lead"]
-Potrebbe essere necessario risolvere gli avvisi e gli errori relativi alle connessioni di federazione di griglie, al clone dell'account e alla replica cross-grid.
+Potresti dover risolvere problemi relativi ad avvisi ed errori riguardanti le connessioni di federazione della griglia, la sincronizzazione degli account e la replica tra griglie.
 
 
 
@@ -73,32 +73,30 @@ Quando si modifica una connessione a federazione di griglie, StorageGRID tenta d
 
 
 
-[[account-clone-errors]]
-== Errori di cloni dell'account
+[[account-sync-errors]]
+== Errori di sincronizzazione dell'account
 
 
 
-[[cant-sign-in-to-a-cloned-tenant-account]]
-=== Impossibile accedere a un account tenant clonato
+[[cant-sign-in-to-a-synced-tenant-account]]
+=== Impossibile accedere a un account tenant sincronizzato
 
 .Problema
-Impossibile accedere a un account tenant clonato. Il messaggio di errore nella pagina di accesso di Tenant Manager è "le credenziali per questo account non sono valide. Riprovare."
+Non puoi accedere a un account tenant sincronizzato. Il messaggio di errore nella pagina di accesso di Tenant Manager è "Le credenziali per questo account non erano valide. Riprova."
 
 .Dettagli
-Per motivi di sicurezza, quando un account tenant viene clonato dalla griglia di origine del tenant alla griglia di destinazione del tenant, la password impostata per l'utente root locale del tenant non viene clonata. Allo stesso modo, quando un tenant crea utenti locali sulla griglia di origine, le password utente locali non vengono clonate nella griglia di destinazione.
+La password che imposti per l'utente root locale del tenant e per gli altri utenti locali viene sincronizzata automaticamente. Tuttavia, potresti dover cambiare la password per l'utente root locale del tenant sulla griglia di destinazione prima di poter accedere all'account del tenant su quella griglia.
 
 .Azioni consigliate
 Prima che l'utente root possa accedere alla griglia di destinazione del tenant, è necessario che un amministratore della griglia link:changing-password-for-tenant-local-root-user.html["modificare la password per l'utente root locale"]si trovi nella griglia di destinazione.
 
-Prima che un utente locale clonato possa accedere alla griglia di destinazione del tenant, l'utente root del tenant clonato deve aggiungere una password per l'utente sulla griglia di destinazione.  Per le istruzioni, fare riferimento alink:../tenant/manage-users.html["Gestire gli utenti"] nelle istruzioni per l'utilizzo di Tenant Manager.
 
 
-
-[[tenant-created-without-a-clone]]
-=== Tenant creato senza un clone
+[[tenant-created-without-a-sync]]
+=== Tenant creato senza sincronizzazione
 
 .Problema
-Viene visualizzato il messaggio "tenant creato senza clone" dopo aver creato un nuovo tenant con l'autorizzazione *Usa connessione federazione griglia*.
+Vedi il messaggio "Tenant creato senza sincronizzazione" dopo aver creato un nuovo tenant con l'autorizzazione *Use grid federation connection*.
 
 .Dettagli
 Questo problema può verificarsi se gli aggiornamenti allo stato della connessione vengono posticipati, causando l'elenco di una connessione non funzionante come *connessa*.
@@ -107,12 +105,9 @@ Questo problema può verificarsi se gli aggiornamenti allo stato della connessio
 . Esaminare i motivi elencati nel messaggio di errore e risolvere eventuali problemi di rete o di altro tipo che potrebbero impedire il funzionamento della connessione. Vedere <<grid-federation-errors,Avvisi ed errori di connessione Grid Federation>>.
 . Seguire le istruzioni per testare una connessione di federazione della griglia in link:grid-federation-manage-connection.html["Gestire le connessioni a federazione di griglie"] per confermare che il problema è stato risolto.
 . Dalla griglia di origine del tenant, seleziona *Tenant*.
-. Individuare l'account tenant che non è stato clonato.
+. Individua il tenant account che non è stato sincronizzato.
 . Selezionare il nome del tenant per visualizzare la pagina dei dettagli.
-. Selezionare *Retry account clone*.
-+
-image:grid-federation-retry-account-clone.png["Schermata che mostra un messaggio di errore e il pulsante Retry account clone"]Se l'errore è stato risolto, il tenant account verrà ora clonato sull'altra griglia.
-
+. Seleziona *Riprova la sincronizzazione*. Se l'errore è stato risolto, il tenant account verrà ora sincronizzato con l'altra grid.
 
 
 
@@ -128,7 +123,7 @@ image:grid-federation-retry-account-clone.png["Schermata che mostra un messaggio
 .Problema
 Quando link:../monitor/grid-federation-monitor-connections.html["visualizzazione di una connessione a federazione di griglie"] (o quando link:grid-federation-manage-tenants.html["gestione dei tenant consentiti"] per una connessione) si nota un errore nella colonna *ultimo errore* nella pagina dei dettagli della connessione. Ad esempio:
 
-image:grid-federation-last-error.png["Schermata che mostra un messaggio nella colonna Last error (ultimo errore) di una connessione a federazione di griglie"]
+image:grid_federation_last_error.png["Schermata che mostra un messaggio nella colonna Last error (ultimo errore) di una connessione a federazione di griglie"]
 
 .Dettagli
 Per ogni connessione di federazione di griglia, la colonna *Ultimo errore* mostra l'errore più recente verificatosi, se presente, durante la replica dei dati di un tenant sull'altra griglia.  Questa colonna mostra solo l'ultimo errore di replicazione tra griglie verificatosi; gli errori precedenti che potrebbero essersi verificati non vengono mostrati.  Un errore in questa colonna potrebbe verificarsi per uno dei seguenti motivi:
@@ -147,7 +142,10 @@ Per ogni connessione di federazione di griglia, la colonna *Ultimo errore* mostr
 Se nella colonna *ultimo errore* viene visualizzato un messaggio di errore, attenersi alla seguente procedura:
 
 . Rivedere il testo del messaggio.
-. Eseguire le azioni consigliate. Ad esempio, se il controllo delle versioni è stato sospeso nel bucket di destinazione per la replica cross-grid, riabilitare il controllo delle versioni per quel bucket.
+. Esegui tutte le azioni raccomandate.
++
+Ad esempio, se il versioning è stato sospeso sul bucket di destinazione per la replica cross-grid, riattiva il versioning per quel bucket. Oppure, se S3 Object Lock è stato disabilitato sul bucket di destinazione per la replica cross-grid, abilita S3 Object Lock per quel bucket.
+
 . Selezionare la connessione o l'account tenant dalla tabella.
 . Selezionare *Cancella errore*.
 . Selezionare *Sì* per cancellare il messaggio e aggiornare lo stato del sistema.

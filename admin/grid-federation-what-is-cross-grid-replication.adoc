@@ -2,7 +2,7 @@
 permalink: admin/grid-federation-what-is-cross-grid-replication.html 
 sidebar: sidebar 
 keywords: cross-grid replication, cgr, disaster recovery, grid federation 
-summary: 'La replica cross-grid è la replica automatica degli oggetti tra bucket S3 selezionati in due sistemi StorageGRID connessi in una connessione a federazione di griglia. Il clone dell"account è necessario per la replica cross-grid.' 
+summary: La replica cross-grid è la replica automatica di oggetti tra bucket S3 selezionati in due sistemi StorageGRID connessi tramite una connessione di federazione grid. La sincronizzazione degli account è necessaria per la replica cross-grid. 
 ---
 = Scopri la replica cross-grid in StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'La replica cross-grid è la replica automatica degli oggetti tra bucke
 
 
 [role="lead"]
-La replica cross-grid è la replica automatica di oggetti tra bucket S3 selezionati in due sistemi StorageGRID connessi in un link:grid-federation-overview.html["connessione a federazione di griglie"]. link:grid-federation-what-is-account-clone.html["Clone dell'account"] sia necessaria per la replica cross-grid.
+La replica cross-grid è la replica automatica di oggetti tra bucket S3 selezionati in due sistemi StorageGRID connessi in una link:grid-federation-overview.html["connessione a federazione di griglie"]. link:grid-federation-what-is-account-sync.html["Sincronizzazione account"] è richiesta per la replica cross-grid.
 
 
 
@@ -20,22 +20,28 @@ La replica cross-grid è la replica automatica di oggetti tra bucket S3 selezion
 
 Il diagramma del flusso di lavoro riassume i passaggi per configurare la replica tra griglie tra bucket su due griglie.
 
-image:grid-federation-cgr-workflow.png["Workflow di replica cross-grid"]
+image:grid_federation_cgr_workflow.png["Workflow di replica cross-grid"]
 
 
 
 [[requirements-for-cross-grid-replication]]
 == Requisiti per la replica cross-grid
 
-Se un account tenant ha l'autorizzazione *Usa connessione federazione griglia* per utilizzare una o piùlink:grid-federation-overview.html["connessioni a federazione di griglie"] , un utente tenant con autorizzazione di accesso Root può creare bucket negli account tenant corrispondenti su ciascuna griglia.  Questi secchi:
+Se un tenant account ha l'autorizzazione *Usa connessione di federazione griglia* per utilizzare uno o più link:grid-federation-overview.html["connessioni a federazione di griglie"], un tenant con autorizzazione di accesso Root può creare bucket ("source" e "destination" bucket) nei corrispondenti tenant account su ogni griglia. Questi bucket:
 
 * Possono avere nomi diversi l'uno dall'altro
 * Può avere regioni diverse
 * È necessario attivare la versione
-* Deve essere vuoto
+* Devi avere una delle seguenti configurazioni di S3 Object Lock:
++
+** origine: *disabilitato*, destinazione: *disabilitato*
+** origine: *abilitata*, destinazione: *abilitata*
+** origine: *disabilitata*, destinazione: *abilitata*
 
 
-Una volta creati entrambi i bucket, è possibile configurare la replica cross-grid per uno o entrambi i bucket.
+
+
+Dopo aver creato entrambi i bucket, puoi configurare la replica tra griglie per uno o entrambi i bucket.
 
 .Scopri di più
 link:../tenant/grid-federation-manage-cross-grid-replication.html["Gestire la replica cross-grid"]
@@ -54,7 +60,7 @@ link:../tenant/grid-federation-manage-cross-grid-replication.html["Gestire la re
 
 Se si abilita la replica tra griglie per un bucket su una sola griglia, gli oggetti aggiunti a quel bucket (il bucket di origine) vengono replicati nel bucket corrispondente sull'altra griglia (il bucket di destinazione).  Tuttavia, gli oggetti aggiunti al bucket di destinazione non vengono replicati nell'origine.  Nella figura, la replicazione cross-grid è abilitata per `my-bucket` dalla Griglia 1 alla Griglia 2, ma non è abilitato nella direzione opposta.
 
-image:grid-federation-cross-grid-replication-one-direction.png["immagine che mostra la connessione a federazione di griglie in una direzione"]
+image:grid_federation_cross_grid_replication_one_direction.png["immagine che mostra la connessione a federazione di griglie in una direzione"]
 
 
 
@@ -63,7 +69,7 @@ image:grid-federation-cross-grid-replication-one-direction.png["immagine che mos
 
 Se si attiva la replica cross-grid per lo stesso bucket su entrambe le griglie, gli oggetti aggiunti a entrambi i bucket vengono replicati nell'altra griglia. Nella figura, la replica cross-grid è abilitata per `my-bucket` in entrambe le direzioni.
 
-image:grid-federation-cross-grid-replication.png["immagine che mostra la replica in una direzione rispetto alla replica in entrambe le direzioni"]
+image:grid_federation_cross_grid_replication.png["immagine che mostra la replica in una direzione rispetto alla replica in entrambe le direzioni"]
 
 
 
@@ -144,7 +150,7 @@ Quando un client S3 elimina un oggetto da un bucket con la replica cross-grid at
 
 Nella figura, *Replica elimina marcatori* è stato impostato su *Sì* quandolink:../tenant/grid-federation-manage-cross-grid-replication.html["la replica cross-grid è stata attivata"] .  Le richieste di eliminazione per il bucket di origine che includono un ID versione non eliminano gli oggetti dal bucket di destinazione.  Le richieste di eliminazione per il bucket di origine che non includono un ID versione sembrano eliminare gli oggetti nel bucket di destinazione.
 
-image:grid-federation-cross-grid-replication-delete.png["immagine che mostra l'eliminazione del client replicato su entrambe le griglie"]
+image:grid_federation_cross_grid_replication_delete.png["immagine che mostra l'eliminazione del client replicato su entrambe le griglie"]
 
 
 NOTE: Se si desidera mantenere sincronizzate le eliminazioni degli oggetti tra le griglie, creare corrispondenti link:../s3/create-s3-lifecycle-configuration.html["Configurazioni del ciclo di vita S3"] per i bucket su entrambe le griglie.
@@ -210,6 +216,12 @@ Disabili
 Abilitato
 
 |===
+
+CAUTION: Puoi abilitare il blocco degli oggetti S3 sui bucket esistenti, il che potrebbe portare a una configurazione errata in seguito.
+
+
+NOTE: Quando S3 Object Lock è abilitato sul bucket di origine, assicurati che sia abilitato anche sul bucket di destinazione. Se S3 Object Lock è disabilitato sul bucket di destinazione, si verifica un errore durante la replica. Consulta link:../admin/grid-federation-troubleshoot.html#cross-grid-replication-alerts-and-errors["Avvisi ed errori di replica cross-grid"].
+
 Quando S3 Object Lock sul bucket di origine è abilitato:
 
 * Gli oggetti vengono bloccati con le impostazioni di conservazione nella destinazione in questo ordine:

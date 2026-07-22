@@ -24,7 +24,7 @@ I servizi della piattaforma StorageGRID possono aiutarti a implementare una stra
 
 Poiché la posizione di destinazione dei servizi della piattaforma è generalmente esterna all'implementazione di StorageGRID, i servizi della piattaforma offrono la potenza e la flessibilità derivanti dall'utilizzo di risorse di storage esterne, servizi di notifica e servizi di ricerca o analisi per i dati.
 
-È possibile configurare qualsiasi combinazione di servizi di piattaforma per un singolo bucket S3. Ad esempio, è possibile configurare sia il link:../tenant/understanding-cloudmirror-replication-service.html["Servizio CloudMirror"] che link:../tenant/understanding-notifications-for-buckets.html["notifiche"] in un bucket StorageGRID S3 in modo da poter mirrorare oggetti specifici ad Amazon Simple Storage Service (S3), inviando una notifica a un'applicazione di monitoring di terze parti per tenere traccia delle spese AWS.
+È possibile configurare qualsiasi combinazione di servizi della piattaforma per un singolo bucket S3. Ad esempio, puoi configurare sia link:../tenant/understanding-cloudmirror-replication-service.html["Servizio CloudMirror"] sia link:../tenant/understanding-notifications-for-buckets.html["notifiche"] su un bucket S3 di StorageGRID così da poter replicare oggetti specifici su Amazon Simple Storage Service (S3), inviando allo stesso tempo una notifica relativa a ciascun oggetto a un'applicazione di monitoraggio di terze parti per aiutarti a tenere traccia delle spese AWS.
 
 
 TIP: L'utilizzo dei servizi della piattaforma deve essere abilitato per ciascun account tenant da un amministratore StorageGRID utilizzando il gestore di griglia o l'API di gestione del grid.
@@ -139,8 +139,6 @@ Al contrario, le richieste di integrazione della ricerca vengono inviate quando 
  a| 
 Utilizzo degli endpoint Kafka
  a| 
-Per gli endpoint Kafka, il TLS reciproco non è supportato. Di conseguenza, se si è `ssl.client.auth` impostato su `required` nella configurazione del broker Kafka, potrebbero verificarsi problemi di configurazione degli endpoint Kafka.
-
 L'autenticazione degli endpoint Kafka utilizza i seguenti tipi di autenticazione. Questi tipi sono diversi da quelli utilizzati per l'autenticazione di altri endpoint, come Amazon SNS, e richiedono credenziali per nome utente e password.
 
 * SASL/SEMPLICE
@@ -182,7 +180,7 @@ Versioni e ID della versione del bucket
  a| 
 Se il bucket S3 di origine in StorageGRID ha attivato la versione, è necessario attivare anche la versione per il bucket di destinazione.
 
-Quando si utilizza la versione, tenere presente che l'ordinamento delle versioni degli oggetti nel bucket di destinazione è il massimo sforzo e non garantito dal servizio CloudMirror, a causa delle limitazioni del protocollo S3.
+Quando usi il versioning, tieni presente che l'ordine delle versioni degli oggetti nel bucket di destinazione è approssimativo e non garantito dal servizio CloudMirror, a causa delle limitazioni del protocollo S3. Inoltre, i bucket di destinazione manterranno le proprie impostazioni e potrebbero non fornire il versioning.
 
 *Nota*: Gli ID della versione per il bucket di origine in StorageGRID non sono correlati agli ID della versione per il bucket di destinazione.
 
@@ -214,6 +212,8 @@ Il servizio CloudMirror non supporta oggetti crittografati con SSE-C. se si tent
  a| 
 Bucket con blocco oggetti S3 attivato
  a| 
-La replica non è supportata per i bucket di origine o di destinazione con blocco oggetti S3 attivato.
+Se il bucket S3 di origine in StorageGRID ha S3 Object Lock abilitato, dovresti abilitare S3 Object Lock anche per il bucket di destinazione con la conservazione predefinita configurata.
+
+La replica dei _dati oggetto_ è supportata per i bucket di origine e di destinazione con S3 Object Lock abilitato. Tuttavia, i bucket di destinazione manterranno le proprie impostazioni per la conservazione degli oggetti e potrebbero non fornire la conformità o il versioning.
 
 |===

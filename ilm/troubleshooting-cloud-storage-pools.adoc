@@ -38,9 +38,24 @@ Se il problema sottostante è stato risolto, il messaggio di errore non viene pi
 [[error-health-check-failed-error-from-endpoint]]
 == Errore: Controllo dello stato di salute non riuscito. Errore dall'endpoint
 
-Questo errore potrebbe verificarsi quando si attiva S3 Object Lock con conservazione predefinita per il bucket Amazon S3 dopo aver iniziato a utilizzare questo bucket per un Cloud Storage Pool. Questo errore si verifica quando l'operazione PUT non ha un'intestazione HTTP con un valore checksum payload come `Content-MD5` . Questo valore della testata è richiesto da AWS per le operazioni di INSERIMENTO nei bucket con blocco oggetti S3 abilitato.
+Potresti riscontrare questo errore in uno di questi casi:
 
-Per risolvere questo problema, seguire i passaggi descritti in link:editing-cloud-storage-pool.html["Modifica di un pool di storage cloud"] senza apportare modifiche. Questa azione attiva la convalida della configurazione del Cloud Storage Pool che rileva e aggiorna automaticamente il flag blocco oggetto S3 in una configurazione endpoint di Cloud Storage Pool.
+* Quando abiliti S3 Object Lock con conservazione predefinita per il tuo bucket Amazon S3 dopo aver iniziato a usare questo bucket per un Cloud Storage Pool. Questo errore si verifica quando l'operazione PUT non ha un'intestazione HTTP con un valore di checksum del payload, come  `Content-MD5`. Questo valore di intestazione è richiesto da AWS per le operazioni PUT nei bucket con S3 Object Lock abilitato.
++
+Per risolvere questo problema, segui i passaggi in link:../ilm/editing-cloud-storage-pool.html["Modifica di un pool di storage cloud"] senza apportare modifiche. Questa azione attiva la convalida della configurazione del Cloud Storage Pool che rileva e aggiorna automaticamente il flag S3 Object Lock sulla configurazione dell'endpoint del Cloud Storage Pool.
+
+* Quando abiliti S3 Object Lock con conservazione predefinita per il tuo bucket S3 di StorageGRID dopo aver iniziato a usare questo bucket per un Cloud Storage Pool.
++
+Per risolvere questo problema:
+
++
+** Se usi HTTP: i cloud storage pool con S3 Object Lock abilitato non sono supportati. Modifica la connessione dell'endpoint per usare HTTPS.
+** Se stai usando HTTPS: segui i passaggi in link:../ilm/editing-cloud-storage-pool.html["Modifica di un pool di storage cloud"] senza apportare modifiche. Questa azione attiva la convalida della configurazione del Cloud Storage Pool che rileva e aggiorna automaticamente il flag S3 Object Lock sulla configurazione dell'endpoint del Cloud Storage Pool.
+
+
+
+
+Se hai altri problemi, contatta il supporto tecnico.
 
 
 

@@ -1,0 +1,143 @@
+---
+permalink: admin/learn-about-global-namespace.html 
+sidebar: sidebar 
+keywords: global namespace, grid federation, S3 endpoint domain names, default region, grid federation connection, multi-grid 
+summary: 'Uno spazio dei nomi globale consente al tenant di accedere ai bucket su più sistemi StorageGRID. Quando lo spazio dei nomi globale è abilitato sulle connessioni di federazione della griglia, le richieste S3 CreateBucket e ListBuckets destinate all"endpoint dello spazio dei nomi globale possono essere inviate all"endpoint del bilanciatore di carico di qualsiasi griglia e vengono instradate automaticamente alla griglia corretta in base alla regione di firma nella richiesta.' 
+---
+= Scopri lo spazio dei nomi globale per la grid federation
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Uno spazio dei nomi globale consente al tenant di accedere ai bucket su più sistemi StorageGRID. Quando lo spazio dei nomi globale è abilitato sulle connessioni di federazione della griglia, le richieste S3 CreateBucket e ListBuckets destinate all'endpoint dello spazio dei nomi globale possono essere inviate all'endpoint del bilanciatore di carico di qualsiasi griglia e vengono instradate automaticamente alla griglia corretta in base alla regione di firma nella richiesta.
+
+
+
+[[what-is-a-global-namespace]]
+== Che cos'è uno spazio dei nomi globale?
+
+Uno spazio dei nomi globale consente al tenant di accedere ai bucket su più sistemi StorageGRID. Quando lo spazio dei nomi globale è abilitato sulle connessioni di federazione della griglia, le richieste S3 CreateBucket e ListBuckets destinate all'endpoint dello spazio dei nomi globale possono essere inviate all'endpoint del bilanciatore di carico di qualsiasi griglia e vengono instradate automaticamente alla griglia corretta in base alla regione di firma nella richiesta.
+
+
+NOTE: Dovresti configurare un DNS resolver per eseguire la mappatura DNS degli URL dei bucket su una griglia specifica. Se necessario, consulta il tuo amministratore di rete per assicurarti che il DNS resolver sia configurato correttamente. Consulta link:../admin/configure-global-namespace.html#config-dns-resolution["Configura la risoluzione DNS"].
+
+StorageGRID non impone nomi di bucket univoci tra le griglie nello spazio dei nomi globale, quindi bucket con lo stesso nome possono esistere su griglie diverse. La regione di firma nella richiesta viene utilizzata per determinare quale griglia possiede il bucket e deve ricevere la richiesta.
+
+Ad esempio, se Grid A utilizza la regione `us-east-1` e Grid B utilizza la regione `us-west-1`, una richiesta CreateBucket inviata a qualsiasi grid con la regione `us-west-1` viene automaticamente instradata a Grid B.
+
+Per ulteriori informazioni sulla federazione di griglie, consulta link:grid-federation-overview.html["Che cos'è la federazione di griglie?"].
+
+
+
+[[gns-exampleglobal-namespace-example]]
+== [[gns-example]]Esempio di spazio dei nomi globale
+
+.Griglia 1
+* Regione predefinita: `region-1`
+* CNAME predefinito: `s3.region-1.company.com`
+* Endpoint globale: `s3.company.com`
+
+
+.Grid 2
+* Regione predefinita: `region-2`
+* CNAME predefinito: `s3.region-2.company.com`
+* Endpoint globale: `s3.company.com`
+
+
+.Griglia 3
+* Regione predefinita: `region-3`
+* CNAME predefinito: `s3.region-3.company.com`
+* Endpoint globale: `s3.company.com`
+
+
+
+
+[[createbucket-and-listbuckets-operations]]
+=== CreateBucket e ListBuckets operations
+
+Se crei un bucket (`bucket123` con regione di firma  `region-2` e lo indirizzi all'endpoint globale  `s3.company.com`, qualsiasi grid che riceve la richiesta creerà il bucket su Grid 2.
+
+
+
+[[bucket-specific-and-general-object-operations]]
+=== Operazioni specifiche per bucket e operazioni generali sugli oggetti
+
+Dopo che un bucket è stato creato su una determinata griglia, il tuo resolver DNS risolverà l'URL del bucket nel CNAME del bucket e della griglia.
+
+Nel <<gns-example,esempio sopra>>, il DNS resolver dovrebbe risolvere  `bucket123.s3.company.com` in  `bucket123.s3.grid3.company.com` (bucket e CNAME della grid). In altre parole, tutte le richieste vengono inviate direttamente a quella grid senza bisogno di routing aggiuntivo.
+
+.Esempio
+`PutObject to bucket123.s3.company.com` risolve in  `bucket123.s3.grid3.company.com`
+
+
+
+[[s3-behavior-with-global-namespace]]
+== Comportamento S3 con namespace globale
+
+Dopo che lo spazio dei nomi globale è stato completamente configurato, si applica il seguente comportamento S3.
+
+
+
+[[region-enforcement]]
+=== Applicazione della regione
+
+Tutte le richieste S3 all'endpoint dello spazio dei nomi globale, eccetto link:../s3/operations-on-buckets.html["CreateBucket"] e link:../s3/operations-on-the-service.html["ListBucket"], richiedono che la regione di firma nell'intestazione di autenticazione V4 corrisponda alla regione predefinita della grid.
+
+* Se la regione di firma non corrisponde, la richiesta viene rifiutata con il seguente errore:
++
+[listing]
+----
+An error occurred (AuthorizationHeaderMalformed) when calling the <operation> operation: The authorization header is malformed; the region '<signing-region>' is wrong; expecting '<grid-default-region>'
+----
+* L'applicazione delle restrizioni regionali si applica a tutti i bucket della griglia, inclusi quelli creati prima dell'abilitazione dello spazio dei nomi globale.
+* L'applicazione delle restrizioni regionali si applica solo alle richieste di autenticazione V4. Le richieste anonime e V2 non sono soggette all'applicazione delle restrizioni regionali.
+
+
+
+
+[[createbucket-routing]]
+=== Routing CreateBucket
+
+CreateBucket requests inviate all'endpoint dello spazio dei nomi globale (`s3.company.com` possono essere indirizzate all'endpoint del bilanciatore di carico di qualsiasi grid. La richiesta viene automaticamente instradata alla grid la cui regione predefinita corrisponde alla regione di firma nella richiesta.
+
+Ad esempio:
+
+* La griglia A ha regione predefinita `us-east-1` e la griglia B ha regione predefinita `us-west-1`.
+* Un client invia una richiesta CreateBucket a  `s3.company.com` con regione di firma  `us-west-1`.
+* Round-robin DNS indirizza la richiesta alla Grid A.
+* Grid A instrada la richiesta a Grid B.
+* Il bucket viene creato su Grid B.
+
+
+Considerazioni aggiuntive per CreateBucket:
+
+* L' `LocationConstraint`elemento può essere impostato su una qualsiasi delle regioni predefinite o non predefinite della griglia. Questo influisce solo sulla policy ILM, non su quale griglia crea il bucket (a differenza del comportamento di AWS con  `us-east-1`).
+* La regione di firma nella richiesta determina quale grid crea il bucket (la regione di firma deve corrispondere alla regione predefinita della grid di destinazione).
+* Le richieste V4 prefirmate sono supportate.
+* Le richieste anonime e V2 non sono supportate per il routing dello spazio dei nomi globale.
+
+
+
+
+[[listbuckets-routing]]
+=== Routing di ListBuckets
+
+ListBuckets richieste inviate all'endpoint dello spazio dei nomi globale vengono instradate in modo simile alle richieste CreateBucket, utilizzando la regione di firma per determinare la griglia corretta.
+
+Né le risposte di HEAD Bucket né quelle di ListBuckets includono la regione predefinita della griglia. La regione predefinita è implicita nella regione di firma, che viene imposta in modo da corrispondere alla regione predefinita della griglia.
+
+
+
+[[account-and-access-key-management]]
+=== Gestione degli account e delle chiavi di accesso
+
+Gli account tenant e le chiavi di accesso S3 possono essere sincronizzati tra tutte le griglie usando link:grid-federation-what-is-account-sync.html["sincronizzazione account"], ma lo spazio dei nomi globale funziona anche quando ogni griglia ha il proprio set separato di chiavi di accesso. Se usi chiavi di accesso separate, assicurati che il client S3 usi la chiave di accesso corretta quando invia richieste a ciascuna griglia.
+
+
+
+[[whats-next]]
+== E ora?
+
+Ora sei pronto per link:../admin/configure-global-namespace.html["configura lo spazio dei nomi globale"].

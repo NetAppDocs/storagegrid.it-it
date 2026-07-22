@@ -16,9 +16,9 @@ Prima di aggiornare un sistema StorageGRID, verificare che il sistema sia pronto
 .Fasi
 . Accedere a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 . Verificare la presenza di eventuali avvisi attivi e risolverli.
-. Fare riferimento alink:../network/internal-grid-node-communications.html["Comunicazioni interne al nodo di rete"] Elink:../network/external-communications.html["Comunicazioni esterne"] per garantire che tutte le porte richieste per StorageGRID 12.0 siano aperte prima dell'aggiornamento.
+. Consulta link:../network/internal-grid-node-communications.html["Comunicazioni interne al nodo di rete"] e link:../network/external-communications.html["Comunicazioni esterne"] per assicurarti che tutte le porte richieste per StorageGRID 12.1 siano aperte prima di eseguire l'upgrade.
 +
 
-NOTE: Non sono necessarie porte aggiuntive durante l'aggiornamento a StorageGRID 12.0.
+NOTE: Non sono necessarie porte aggiuntive per l'aggiornamento a StorageGRID 12.1.
 
 

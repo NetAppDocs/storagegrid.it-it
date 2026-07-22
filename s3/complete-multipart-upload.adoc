@@ -30,7 +30,21 @@ Le richieste dei client in conflitto, come due client che scrivono sulla stessa 
 
 Sono supportate le seguenti intestazioni di richiesta:
 
-* `x-amz-checksum-sha256`
+* Intestazioni della richiesta di checksum:
++
+--
+** `x-amz-checksum-crc32`
+** `x-amz-checksum-crc32c`
+** `x-amz-checksum-crc64nvme`
+** `x-amz-checksum-sha256`
+** `x-amz-checksum-type`
+
+
+--
++
+
+NOTE: Se una richiesta CreateMultipartUpload non specifica un checksum, StorageGRID non calcola un checksum CRC-64/NVME predefinito per un oggetto.
+
 * `x-amz-storage-class`
 +
 L' `x-amz-storage-class`intestazione influisce sul numero di copie di oggetti create da StorageGRID se la regola ILM corrispondente specifica link:../ilm/data-protection-options-for-ingest.html["Dual commit o opzione di acquisizione bilanciata"].
@@ -64,14 +78,18 @@ Le seguenti intestazioni di richiesta non sono supportate:
 
 * `If-Match`
 +
-Il `If-Match header` è accettato ma non funzionale.
+L' `If-Match`intestazione si comporta in modo diverso a seconda della configurazione di StorageGRID. Fornire questa intestazione potrebbe restituire un messaggio di errore (501 Not Implemented). Se l' `If-Match`intestazione viene accettata ma non è funzionale, potrebbe essere visualizzato un avviso con istruzioni su come abilitare il comportamento di errore più restrittivo 501 Not Implemented.
 
 * `If-None-Match`
 +
-The `If-None-Match header` è accettato ma non funzionale.
+L' `If-None-Match`intestazione si comporta in modo diverso a seconda della configurazione di StorageGRID. Fornire questa intestazione potrebbe restituire un messaggio di errore (501 Not Implemented). Se l' `If-None-Match`intestazione viene accettata ma non è funzionale, potrebbe essere visualizzato un avviso con istruzioni su come abilitare il comportamento di errore più restrittivo 501 Not Implemented.
 
-* `x-amz-sdk-checksum-algorithm`
-* `x-amz-trailer`
+* `x-amz-checksum-md5`
+* `x-amz-checksum-sha1`
+* `x-amz-checksum-sha512`
+* `x-amz-checksum-xxhash3`
+* `x-amz-checksum-xxhash64`
+* `x-amz-checksum-xxhash128`
 
 
 

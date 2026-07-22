@@ -20,12 +20,12 @@ I costi di collegamento consentono di assegnare la priorità al sito del data ce
 
 * I costi di collegamento vengono utilizzati per assegnare la priorità alla copia oggetto utilizzata per soddisfare i recuperi di oggetti.
 * I costi di collegamento vengono utilizzati dall'API di gestione del grid e dall'API di gestione del tenant per determinare i servizi StorageGRID interni da utilizzare.
-* I costi di collegamento vengono utilizzati dal servizio Load Balancer sui nodi Admin e sui nodi Gateway per indirizzare le connessioni client. Vedere link:../admin/managing-load-balancing.html["Considerazioni per il bilanciamento del carico"].
+* I costi di collegamento vengono utilizzati dal servizio Load Balancer sui nodi di amministrazione e sui nodi gateway per indirizzare le connessioni dei client. Consulta link:../admin/managing-load-balancing.html["Considerazioni per il bilanciamento del carico"].
 
 
 Il diagramma mostra una griglia a tre siti con costi di collegamento configurati tra i siti:
 
-image:link_costs.gif["Diagramma concettuale per i costi di collegamento tra i data center"]
+image:link_costs.png["Diagramma concettuale per i costi di collegamento tra i data center"]
 
 * Il servizio Load Balancer sui nodi Admin e Gateway distribuisce in modo uguale le connessioni client a tutti i nodi Storage nello stesso sito del data center e a qualsiasi sito del data center con un costo di collegamento pari a 0.
 +
@@ -70,20 +70,19 @@ Data center logici nello stesso edificio fisico o campus connessi da una LAN.
 
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
-* Tu hai illink:admin-group-permissions.html["Altre autorizzazioni di configurazione della griglia"] .
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di accesso root"].
 
 
 .Fasi
 . Seleziona *Supporto* > *Altro* > *Costo del collegamento*.
-+
-image:configuring_link_costs.png["Costo del collegamento"]
-
-. Selezionare un sito in *link Source* (origine collegamento) e immettere un valore di costo compreso tra 0 e 100 in *link Destination* (destinazione collegamento).
+. Per ogni sito elencato nella colonna Costo sito/link, inserisci un valore di costo da 0 a 100 per gli altri siti.
 +
 Non puoi modificare il costo del collegamento se l'origine è la stessa della destinazione.
 
+. Scarta o salva le modifiche:
 +
-Per annullare le modifiche, seleziona image:nms_revert.gif["icona di annullamento"]*Revert*.
+** Per annullare le modifiche, seleziona *Cancella modifiche*.
+** Per salvare le modifiche, seleziona *Salva*.
 
-. Selezionare *Applica modifiche*.
+
 

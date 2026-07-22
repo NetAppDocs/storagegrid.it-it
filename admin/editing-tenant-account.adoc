@@ -13,9 +13,6 @@ summary: È possibile modificare un account tenant per modificare il nome visual
 [role="lead"]
 È possibile modificare un account tenant per modificare il nome visualizzato, la quota di storage o le autorizzazioni del tenant.
 
-
-TIP: Se un tenant dispone dell'autorizzazione *Usa connessione federazione griglia*, è possibile modificare i dettagli del tenant da una delle griglie della connessione. Tuttavia, qualsiasi modifica apportata su una griglia della connessione non verrà copiata nell'altra griglia. Se si desidera mantenere i dettagli del tenant perfettamente sincronizzati tra le griglie, apportare le stesse modifiche su entrambe le griglie. Vedere link:grid-federation-manage-tenants.html["Gestire i tenant consentiti per la connessione a federazione di grid"].
-
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * Si dispone di link:admin-group-permissions.html["Accesso root o autorizzazione account tenant"].
@@ -62,7 +59,8 @@ Se *utilizza la propria fonte di identità* è:
 ** Selezionare o deselezionare l'autorizzazione *Allow S3 Select* (Consenti selezione S3) in base alle necessità. Vedere link:manage-s3-select-for-tenant-accounts.html["Manage S3 (Gestisci S3): Selezionare per gli account tenant"].
 ** Per rimuovere l'autorizzazione *Use grid Federation Connection*:
 +
-... Selezionare la scheda *federazione griglia*.
+... Seleziona la scheda Grid federation nella pagina dei dettagli del tenant.
+... Seleziona la connessione che vuoi rimuovere.
 ... Selezionare *Rimuovi permesso*.
 
 
@@ -71,6 +69,10 @@ Se *utilizza la propria fonte di identità* è:
 ... Selezionare la scheda *federazione griglia*.
 ... Selezionare la casella di controllo *Usa connessione federazione griglia*.
 ... Facoltativamente, selezionare *Clona utenti e gruppi locali esistenti* per clonarli nella griglia remota. Se si desidera, è possibile interrompere la clonazione in corso o riprovare a eseguire la clonazione se la clonazione di alcuni utenti o gruppi locali non è riuscita una volta completata l'ultima operazione di clonazione.
++
+
+TIP: Se necessario per motivi di sicurezza o conformità, puoi deselezionare *Abilita la sincronizzazione della chiave di accesso*.
+
 
 
 ** Per impostare un periodo di conservazione massimo o consentire la modalità di conformità:

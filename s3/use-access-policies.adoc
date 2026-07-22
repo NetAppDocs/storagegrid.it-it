@@ -66,6 +66,14 @@ Principal/NotPrincipal
  a| 
 È possibile consentire a utenti, gruppi e account di accedere a risorse specifiche ed eseguire azioni specifiche. Se nella richiesta non è inclusa alcuna firma S3, l'accesso anonimo è consentito specificando il carattere jolly (*) come principale. Per impostazione predefinita, solo l'account root ha accesso alle risorse di proprietà dell'account.
 
+Il Principal:
+
+* `"Principal": "*"`corrisponde a tutti, comprese le richieste anonime (non firmate)
+* `"Principal": { "AWS": "*" }`corrisponde a qualsiasi identità o utente autenticato (non corrisponde alle richieste anonime)
+* Si applica solo alle bucket policy
+* Il principal è l'account/gli account/gli utenti a cui vengono concesse o negate le autorizzazioni
+
+
 È sufficiente specificare l'elemento Principal in una policy bucket. Per i criteri di gruppo, il gruppo a cui è associato il criterio è l'elemento Principal implicito.
 
 
@@ -186,7 +194,7 @@ arn:aws:iam::account_id:federated-group/group_name
 Altre considerazioni:
 
 * È possibile utilizzare l'asterisco (*) come carattere jolly per far corrispondere zero o più caratteri all'interno della chiave oggetto.
-* I caratteri internazionali, che possono essere specificati nella chiave oggetto, devono essere codificati utilizzando JSON UTF-8 o le sequenze di escape JSON. La codifica in percentuale non è supportata.
+* I caratteri internazionali, che puoi specificare nella chiave dell'oggetto, devono essere codificati usando JSON UTF-8 o le sequenze di escape JSON \u. La codifica percentuale non è supportata.
 +
 https://www.ietf.org/rfc/rfc2141.txt["Sintassi URN RFC 2141"^]
 
@@ -215,7 +223,7 @@ Nelle istruzioni policy, è possibile utilizzare l'elemento Resource per specifi
 ----
 "Resource": "arn:aws:s3:::mybucket/home/${aws:username}/*"
 ----
-* Il valore della risorsa può specificare un bucket che non esiste ancora quando viene creata una policy di gruppo.
+* Il valore della risorsa può specificare un bucket che non esiste ancora quando viene creato un criterio di gruppo.
 
 
 
@@ -273,7 +281,7 @@ arn:aws:iam::27233906934684427525:user-uuid/de305d54-75b4-431b-adb2-eb6b9e546013
 +
 Ad esempio, supponiamo che Alex abbandoni l'organizzazione e che il nome utente `Alex` venga eliminato. Se un nuovo Alex entra a far parte dell'organizzazione e viene assegnato lo stesso `Alex` nome utente, il nuovo utente potrebbe inavvertitamente ereditare le autorizzazioni concesse all'utente originale.
 
-* Il valore principale può specificare un nome utente/gruppo che non esiste ancora quando viene creata una policy bucket.
+* Il valore principale può specificare un nome di gruppo/utente che non esiste ancora quando viene creata una policy del bucket.
 
 
 
@@ -486,9 +494,10 @@ Sì, per OTTIENI utilizzo storage.
  a| 
 s3:ListBucket
  a| 
-* ListObjects (oggetti elenco)
+* GetObject
 * HeadBucket
-* RestoreObject
+* HeadObject (oggetto intestazione)
+* ListObjects (oggetti elenco)
 
  a| 
 
@@ -498,7 +507,6 @@ s3:ListBucket
 s3:ListBucketMultipartUploads
  a| 
 * ListMultipartUploads
-* RestoreObject
 
  a| 
 
@@ -644,7 +652,6 @@ Sì, separare le autorizzazioni per PUT ed DELETE
 s3:AbortMultipartUpload
  a| 
 * AbortMultipartUpload
-* RestoreObject
 
  a| 
 
@@ -666,7 +673,6 @@ s3:DeleteObject
  a| 
 * DeleteObject (Elimina oggetto)
 * DeleteObjects
-* RestoreObject
 
  a| 
 
@@ -701,7 +707,6 @@ s3:GetObject
  a| 
 * GetObject
 * HeadObject (oggetto intestazione)
-* RestoreObject
 * SelectObjectContent
 
  a| 
@@ -759,7 +764,7 @@ GetObject (una versione specifica dell'oggetto)
  a| 
 s3:ListMultipartUploadParts
  a| 
-ListParts, RestoreObject
+ListParts
  a| 
 
 
@@ -767,11 +772,10 @@ ListParts, RestoreObject
  a| 
 s3:PutObject
  a| 
-* PutObject
 * Oggetto CopyObject
-* RestoreObject
-* CreateMultipartUpload
 * CompleteMultipartUpload
+* CreateMultipartUpload
+* PutObject
 * UploadPart
 * UploadPartCopy
 
@@ -814,11 +818,11 @@ PutObjectTagging (una versione specifica dell'oggetto)
  a| 
 s3:PutOverwriteObject
  a| 
-* PutObject
-* Oggetto CopyObject
-* PutObjectTagging
-* DeleteObjectTagging
 * CompleteMultipartUpload
+* Oggetto CopyObject
+* DeleteObjectTagging
+* PutObject
+* PutObjectTagging
 
  a| 
 Sì
@@ -854,7 +858,7 @@ Le impostazioni possibili per questa autorizzazione includono:
 ** Se non viene trovato un oggetto esistente, questa autorizzazione non ha effetto.
 
 
-* Quando questa autorizzazione non è presente, l'effetto è lo stesso di se Allow è stato impostato.
+* Quando questa autorizzazione non è presente, l'effetto è lo stesso come se fosse impostata l'opzione "Consenti".
 
 
 
@@ -1020,7 +1024,7 @@ Controlla se è presente una chiave di condizione nel contesto della richiesta c
  a| 
 Se esiste
  a| 
-Aggiunto a qualsiasi operatore di condizione, eccetto la condizione Null, per verificare l'assenza di quella chiave di condizione.  Restituisce TRUE se la chiave di condizione non è presente.
+Aggiunto a qualsiasi operatore di condizione, eccetto la condizione Null, per verificare l'assenza di quella chiave di condizione. Restituisce TRUE se la chiave di condizione non è presente.
 
 |===
 
@@ -1038,11 +1042,11 @@ aws: SourceIp
  a| 
 Operatori IP
  a| 
-Viene confrontato con l'indirizzo IP da cui è stata inviata la richiesta. Può essere utilizzato per operazioni bucket o a oggetti.
+Corrisponde all'indirizzo IP da cui è stata inviata la richiesta. Può essere utilizzato per operazioni su bucket o oggetti.
 
-*Nota:* se la richiesta S3 è stata inviata tramite il servizio Load Balancer sui nodi Admin e Gateway, viene confrontato con l'indirizzo IP a monte del servizio Load Balancer.
+*Nota:* Se la richiesta S3 è stata inviata tramite il servizio Load Balancer sui nodi Admin e sui nodi Gateway, questo viene confrontato con l'indirizzo IP a monte del servizio Load Balancer.
 
-*Nota*: Se si utilizza un bilanciamento del carico non trasparente di terze parti, questo viene confrontato con l'indirizzo IP del bilanciamento del carico. Qualsiasi `X-Forwarded-For` intestazione verrà ignorata perché la sua validità non può essere accertata.
+*Nota*: Se viene utilizzato un bilanciatore di carico di terze parti non trasparente, il confronto viene effettuato con l'indirizzo IP di tale bilanciatore di carico. Qualsiasi  `X-Forwarded-For` intestazione viene ignorata perché non è possibile accertarne la validità.
 
 
 
@@ -1051,7 +1055,7 @@ aws:nome utente
  a| 
 Risorsa/identità
  a| 
-Viene confrontato con il nome utente del mittente da cui è stata inviata la richiesta. Può essere utilizzato per operazioni bucket o a oggetti.
+Corrisponde al nome utente del mittente da cui è stata inviata la richiesta. Può essere utilizzato per operazioni su bucket o oggetti.
 
 
 
@@ -1062,7 +1066,7 @@ s3:ListBucket e.
 
 s3:autorizzazioni ListBucketVersions
  a| 
-Verrà eseguito un confronto con il parametro delimitatore specificato in una richiesta ListObjects o ListObjectVersions.
+Confronta con il parametro delimitatore specificato in una richiesta ListObjects o ListObjectVersions.
 
 
 
@@ -1093,7 +1097,7 @@ S3:PutObjectVersionAcl
 
 s3:PutObjectVersionTagging
  a| 
-Richiede che l'oggetto esistente abbia la chiave e il valore tag specifici.
+Richiede che l'oggetto esistente abbia la chiave e il valore del tag specifici.
 
 
 
@@ -1104,7 +1108,7 @@ s3:ListBucket e.
 
 s3:autorizzazioni ListBucketVersions
  a| 
-Verrà eseguito un confronto con il parametro max-keys specificato in una richiesta ListObjects o ListObjectVersions.
+Confronta con il parametro max-keys specificato in una richiesta ListObjects o ListObjectVersions.
 
 
 
@@ -1156,7 +1160,7 @@ s3:ListBucket e.
 
 s3:autorizzazioni ListBucketVersions
  a| 
-Verrà eseguito un confronto con il parametro prefix specificato in una richiesta ListObjects o ListObjectVersions.
+Si confronta con il parametro prefisso specificato in una richiesta ListObjects o ListObjectVersions, oppure con la chiave specificata per GetObject o HeadObject.
 
 
 
@@ -1169,7 +1173,16 @@ s3:PutObjectTagging
 
 s3:PutObjectVersionTagging
  a| 
-Richiede una chiave e un valore tag specifici quando la richiesta dell'oggetto include il tagging.
+Richiede una chiave e un valore di tag specifici quando la richiesta dell'oggetto include il tagging.
+
+
+
+ a| 
+s3:x-amz-copy-source
+ a| 
+s3:PutObject
+ a| 
+Confronta con x-amz-copy-source espanso dall'intestazione della richiesta nelle richieste PutObject e UploadPartCopy.
 
 
 
@@ -1374,7 +1387,7 @@ Il criterio concede a un account non proprietario (inclusi gli account anonimi) 
  a| 
 Bucket
  a| 
-Valido. Gli oggetti sono di proprietà dell'account creatore e la policy bucket non si applica. L'account creatore deve concedere le autorizzazioni di accesso per l'oggetto utilizzando gli ACL a oggetti.
+Valido. Gli oggetti sono di proprietà dell'account creatore e la policy del bucket non si applica. L'account creatore deve concedere le autorizzazioni di accesso per l'oggetto utilizzando gli ACL dell'oggetto.
  a| 
 Valido. Gli oggetti sono di proprietà dell'account proprietario del bucket. Si applica la policy bucket.
 
@@ -1399,7 +1412,7 @@ Per garantire che le sovrascritture vengano sempre negate, è possibile:
 
 
 
-NOTE: L'impostazione di DeleteObject su NEGA in un criterio S3 non impedisce a ILM di eliminare oggetti quando esiste una regola come "zero copie dopo 30 giorni".
+NOTE: Impostare DeleteObject su DENY in una policy S3 non impedisce a ILM di eliminare gli oggetti quando esiste una regola come "zero copie dopo 30 giorni".
 
 
 NOTE: Anche quando tutte queste regole e policy vengono applicate, non si proteggono dalle scritture simultanee (vedi situazione A). Si proteggono dalle sovrascritture sequenziali completate (vedere situazione B).

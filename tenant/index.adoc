@@ -53,7 +53,7 @@ Dopo un link:../admin/creating-tenant-account.html["Viene creato l'account tenan
 
 * Configurare la federazione delle identità (a meno che l'origine delle identità non sia condivisa con la griglia)
 * Gestire gruppi e utenti
-* Utilizza la federazione di grid per il clone dell'account e la replica cross-grid
+* Usa la federazione di griglia per la sincronizzazione degli account e la replica tra griglie
 * Gestire le chiavi di accesso S3
 * Creare e gestire i bucket S3
 * Utilizzare i servizi della piattaforma S3

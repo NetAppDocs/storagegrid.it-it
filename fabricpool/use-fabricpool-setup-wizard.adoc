@@ -69,7 +69,7 @@ Se intendi utilizzare la federazione delle identità o l'accesso singolo (SSO) p
 === Ottenere e configurare i nomi di dominio
 
 * Si conosce il nome di dominio completo (FQDN) da utilizzare per StorageGRID. Le voci DNS (Domain Name Server) associano questo FQDN agli indirizzi IP virtuali (VIP) del gruppo ha creato utilizzando la procedura guidata. Vedere link:../fabricpool/configure-dns-server.html["Configurare il server DNS"].
-* Se si prevede di utilizzare S3 richieste in stile host virtuale, si dispone di link:../admin/configuring-s3-api-endpoint-domain-names.html["Nomi di dominio degli endpoint S3 configurati"]. Per impostazione predefinita, ONTAP utilizza URL di tipo path, ma si consiglia di utilizzare richieste virtuali di tipo hosted.
+* Se prevedi di utilizzare richieste S3 in stile virtual-hosted, hai link:../admin/configuring-s3-api-endpoint-domain-names.html["Nomi di dominio degli endpoint S3 configurati"]. ONTAP utilizza URL in stile percorso per impostazione predefinita, ma è consigliato usare richieste in stile virtual-hosted.
 
 
 

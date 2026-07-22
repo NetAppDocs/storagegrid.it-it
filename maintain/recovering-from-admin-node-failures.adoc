@@ -18,6 +18,7 @@ I passaggi di alto livello per il ripristino di un nodo di amministrazione prima
 Seguire sempre la procedura di ripristino corretta per l'Admin Node che si sta ripristinando. Le procedure hanno lo stesso aspetto ad un livello elevato, ma differiscono nei dettagli.
 
 .Scelte
-* link:recovering-from-primary-admin-node-failures.html["Ripristino da guasti principali del nodo di amministrazione"]
+* link:recovering-from-primary-admin-node-failures.html["Ripristina il nodo Admin primario utilizzando lo stesso nodo Admin primario"]
+* link:recovering-from-primary-admin-node-failures-using-npan.html["Ripristina dai guasti del nodo di amministrazione primario utilizzando un nodo di amministrazione non primario"]
 * link:recovering-from-non-primary-admin-node-failures.html["Ripristino da guasti non primari del nodo di amministrazione"]
 

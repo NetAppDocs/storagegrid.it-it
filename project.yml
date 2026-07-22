@@ -10,8 +10,10 @@ settings:
     harmony_enabled: false
     hide_language_selector: false
   versions:
-  - version-number: '12.0'
+  - version-number: '12.1'
     url: "/storagegrid"
+  - version-number: '12.0'
+    url: "/storagegrid-120"
   - version-number: '11.9'
     url: "/storagegrid-119"
   - version-number: '11.8'
@@ -25,13 +27,13 @@ settings:
   langs: it-it,us-en,de-de,es-es,fr-fr,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: Software StorageGRID 12.0
+  - title: Software StorageGRID 12.1
     url: "/index.html"
   - title: Appliance StorageGRID
     url: "/swnodes/storagegrid-hardware.html"
   - title: Note di rilascio
     entries:
-    - title: Novità di StorageGRID 12.0
+    - title: Novità di StorageGRID 12.1
       url: "/release-notes/whats-new.html"
     - title: Funzionalità e capacità rimosse o deprecate
       url: "/release-notes/removed-or-deprecated-features.html"
@@ -39,6 +41,8 @@ sidebar:
       url: "/release-notes/changes-to-grid-management-api.html"
     - title: Modifiche all'API di gestione del tenant
       url: "/release-notes/changes-to-tenant-management-api.html"
+    - title: Modifiche al supporto dell'API REST di S3
+      url: "/release-notes/changes-to-s3-rest-api.html"
   - title: Inizia subito
     url: "/landing-get-started/index.html"
     entries:
@@ -273,18 +277,16 @@ sidebar:
         - title: Rimontare e riformattare i volumi di storage delle appliance (procedura
             manuale)
           url: "/maintain/remounting-and-reformatting-appliance-storage-volumes.html"
-        - title: Ripristinare i dati dell'oggetto nel volume di storage per l'appliance
+        - title: Ripristina i dati dell'oggetto nel volume di storage dell'appliance
           url: "/maintain/restoring-object-data-to-storage-volume-for-appliance.html"
         - title: Controllare lo stato dello storage dopo il ripristino del nodo di
             storage dell'appliance
           url: "/maintain/checking-storage-state-after-recovering-sga.html"
       - title: Ripristino in seguito a un errore del volume di storage in cui il disco
           di sistema è intatto
+        pdf-filename: Ripristino in seguito a un errore del volume di storage in cui
+          il disco di sistema è intatto
         entries:
-        - title: Attività di ripristino
-          pdf-filename: Ripristino in seguito a un errore del volume di storage in
-            cui il disco di sistema è intatto
-          url: "/maintain/recovering-from-storage-volume-failure-where-system-drive-is-intact.html"
         - title: Avvertenze per il ripristino del volume di archiviazione
           url: "/maintain/reviewing-warnings-about-storage-volume-recovery.html"
         - title: Identificare e smontare i volumi di storage guasti
@@ -292,8 +294,8 @@ sidebar:
         - title: Ripristinare i volumi di storage guasti e ricostruire il database
             Cassandra
           url: "/maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html"
-        - title: Ripristinare i dati degli oggetti nel volume di storage in cui il
-            disco di sistema è intatto
+        - title: Ripristina i dati dell'oggetto nel volume StorageGRID dove l'unità
+            di sistema è intatta
           url: "/maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html"
         - title: Controllare lo stato dello storage dopo il ripristino dei volumi
             di storage
@@ -308,25 +310,23 @@ sidebar:
           url: "/maintain/selecting-start-recovery-to-configure-storage-node.html"
         - title: Rimontare e riformattare i volumi di storage (procedura manuale)
           url: "/maintain/remounting-and-reformatting-storage-volumes-manual-steps.html"
-        - title: Ripristinare i dati dell'oggetto nel volume di storage (errore del
-            disco di sistema)
+        - title: Ripristina i dati dell'oggetto nel volume di archiviazione
           url: "/maintain/restoring-object-data-to-storage-volume.html"
         - title: Controllare lo stato dello storage dopo il ripristino del disco di
             sistema Storage Node
           url: "/maintain/checking-storage-state-after-recovering-storage-node-system-drive.html"
-      - title: Ripristinare i dati degli oggetti utilizzando Grid Manager
-        url: "/maintain/restoring-volume.html"
-      - title: Monitorare i lavori dei dati di riparazione
-        url: "/maintain/monitor-repairs.html"
     - title: Ripristino da errori del nodo di amministrazione
       entries:
       - title: Nodo amministrativo primario o non primario
         pdf-filename: Ripristino da errori del nodo di amministrazione
         url: "/maintain/recovering-from-admin-node-failures.html"
-      - title: Ripristino da guasti principali del nodo di amministrazione
+      - title: Riprendi dai guasti del nodo di amministrazione primario usando lo
+          stesso nodo di amministrazione primario
         entries:
-        - title: Ripristinare il nodo amministrativo primario
-          pdf-filename: Ripristino da guasti principali del nodo di amministrazione
+        - title: Ripristina il nodo Admin primario utilizzando lo stesso nodo Admin
+            primario
+          pdf-filename: Ripristina il nodo Admin primario utilizzando lo stesso nodo
+            Admin primario
           url: "/maintain/recovering-from-primary-admin-node-failures.html"
         - title: Copia i registri di controllo dal nodo di amministrazione primario
             non riuscito
@@ -346,6 +346,27 @@ sidebar:
         - title: Ripristinare le metriche Prometheus durante il ripristino del nodo
             di amministrazione primario
           url: "/maintain/restoring-prometheus-metrics-primary-admin-node.html"
+      - title: Ripristina dai guasti del nodo di amministrazione primario utilizzando
+          un nodo di amministrazione non primario
+        entries:
+        - title: Recupera il nodo Admin primario usando un nodo Admin non primario
+          pdf-filename: Recupera il nodo Admin primario usando un nodo Admin non primario
+          url: "/maintain/recovering-from-primary-admin-node-failures-using-npan.html"
+        - title: Copia i registri di controllo dal nodo di amministrazione primario
+            non riuscito
+          url: "/maintain/copying-audit-logs-from-failed-primary-admin-node-using-npan.html"
+        - title: Sostituire nodo amministratore primario
+          url: "/maintain/replacing-primary-admin-node-using-npan.html"
+        - title: Seleziona Avvia ripristino per configurare il nodo Admin primario
+          url: "/maintain/selecting-start-recovery-to-configure-primary-admin-node.html"
+        - title: Determinare il requisito di hotfix per il nodo amministrativo primario
+          url: "/maintain/assess-hotfix-requirement-during-primary-admin-node-recovery-using-npan.html"
+        - title: Ripristinare il log di audit sul nodo di amministrazione primario
+            recuperato
+          url: "/maintain/restoring-audit-log-on-recovered-primary-admin-node-using-npan.html"
+        - title: Ripristinare le metriche Prometheus durante il ripristino del nodo
+            di amministrazione primario
+          url: "/maintain/restoring-prometheus-metrics-primary-admin-node-using-npan.html"
       - title: Ripristino da guasti non primari del nodo di amministrazione
         entries:
         - title: Ripristinare il nodo amministrativo non primario
@@ -390,8 +411,10 @@ sidebar:
       - title: 'Cosa succederà dopo: Se necessario, eseguire ulteriori passaggi di
           ripristino'
         url: "/maintain/whats-next-performing-additional-recovery-steps-if-required.html"
-    - title: Sostituire il nodo VMware
+    - title: Sostituisci il nodo VMware con un nodo di ripristino
       url: "/maintain/all-node-types-replacing-vmware-node.html"
+    - title: Sostituisci il nodo VMware con SG1000 o SG100
+      url: "/maintain/replace-vmware-node-with-sg1000-sg100.html"
     - title: Sostituire il nodo guasto con l'appliance di servizi
       entries:
       - title: Linee guida per la sostituzione

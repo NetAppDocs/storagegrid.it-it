@@ -36,8 +36,8 @@ La replica CloudMirror crea una copia indipendente di un oggetto in un'infrastru
 Come viene configurato?
  a| 
 . Configurare una connessione a federazione di griglie tra due griglie.
-. Aggiungere nuovi account tenant, che vengono clonati automaticamente nell'altro grid.
-. Aggiungere nuovi gruppi di tenant e utenti, che vengono clonati.
+. Aggiungi nuovi account tenant, che vengono sincronizzati automaticamente con l'altra grid.
+. Aggiungi nuovi gruppi di tenant e utenti, che vengono anch'essi sincronizzati.
 . Creare bucket corrispondenti su ogni griglia e consentire la replica cross-grid in una o entrambe le direzioni.
 
  a| 

@@ -16,7 +16,7 @@ summary: È possibile attivare la replica di CloudMirror per un bucket S3 se si 
 Ad esempio, è possibile utilizzare la replica di CloudMirror per eseguire il mirroring di record specifici dei clienti in Amazon S3 e sfruttare i servizi AWS per eseguire analisi dei dati.
 
 
-NOTE: La replica di CloudMirror non è supportata se il bucket di origine ha attivato il blocco oggetti S3.
+NOTE: CloudMirror replication è supportata solo se il bucket di origine ha S3 Object Lock abilitato e l'endpoint è un bucket S3 di Amazon o StorageGRID. Le impostazioni di Object Lock non vengono replicate nell'endpoint del bucket.
 
 
 

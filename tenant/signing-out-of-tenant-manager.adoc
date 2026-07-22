@@ -15,9 +15,6 @@ Una volta terminato il lavoro con il tenant manager, devi disconnetterti per gar
 
 .Fasi
 . Individuare il menu a discesa Username (Nome utente) nell'angolo in alto a destra dell'interfaccia utente.
-+
-image:tenant_user_sign_out.png["Link di disconnessione"]
-
 . Selezionare il nome utente, quindi selezionare *Disconnetti*.
 +
 ** Se SSO non è in uso:

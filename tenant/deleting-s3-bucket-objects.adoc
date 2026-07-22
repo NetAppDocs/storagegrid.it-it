@@ -82,7 +82,7 @@ Dopo alcuni minuti:
 
 
 +
-image:delete-bucket-objects-in-progress.png["schermata che mostra gli oggetti bucket eliminati"]
+image:delete_bucket_objects_in_progress.png["schermata che mostra gli oggetti bucket eliminati"]
 
 . Quando l'operazione è in esecuzione, selezionare *Stop deleting objects* (Interrompi eliminazione oggetti) per interrompere il processo. Quindi, se si desidera, selezionare *Delete Objects in bucket* (Elimina oggetti nel bucket) per riprendere il processo.
 +
@@ -93,7 +93,7 @@ Quando si seleziona *Stop deleting objects*, il bucket torna alla modalità di s
 Quando il bucket è vuoto, il banner di stato viene aggiornato, ma il bucket rimane di sola lettura.
 
 +
-image:delete-bucket-objects-complete.png["schermata che mostra tutti gli oggetti bucket cancellati"]
+image:delete_bucket_objects_complete.png["schermata che mostra tutti gli oggetti bucket cancellati"]
 
 . Effettuare una delle seguenti operazioni:
 +

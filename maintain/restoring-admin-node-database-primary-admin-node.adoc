@@ -59,7 +59,6 @@ NOTE: La copia del database Admin Node potrebbe richiedere diverse ore. Alcune f
 .. Arrestare il servizio api di gestione: `service mgmt-api stop`
 .. Aggiungere la chiave privata SSH all'agente SSH. Immettere:``ssh-add``
 .. Immettere la password di accesso SSH elencata nel `Passwords.txt` file.
-.. Copiare il database dal nodo amministrativo di origine al nodo amministrativo recuperato: `/usr/local/mi/bin/mi-clone-db.sh Source_Admin_Node_IP`
 .. Quando richiesto, confermare che si desidera sovrascrivere il database MI nel nodo Admin recuperato.
 +
 Il database e i relativi dati storici vengono copiati nel nodo di amministrazione recuperato. Al termine dell'operazione di copia, lo script avvia il nodo Admin recuperato.

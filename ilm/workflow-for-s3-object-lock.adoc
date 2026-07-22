@@ -22,6 +22,7 @@ Amministratore di grid::
 +
 --
 * Attiva l'impostazione blocco oggetti S3 globale per l'intero sistema StorageGRID.
+* Consenti agli utenti di abilitare S3 Object Lock per i bucket esistenti.
 * Assicurarsi che i criteri ILM (Information Lifecycle Management) siano _conformi_, ovvero che soddisfino la link:../ilm/managing-objects-with-s3-object-lock.html["Requisiti dei bucket con blocco oggetti S3 abilitato"].
 * Se necessario, consentire a un tenant di utilizzare la modalità di conservazione Compliance. In caso contrario, è consentita solo la modalità Governance.
 * In base alle necessità, imposta il periodo di conservazione massimo per un tenant.
@@ -32,8 +33,14 @@ Utente tenant::
 +
 --
 * Esaminare le considerazioni per bucket e oggetti con blocco oggetto S3.
-* Se necessario, contattare l'amministratore della griglia per abilitare l'impostazione blocco oggetti S3 globale e impostare le autorizzazioni.
+* Se necessario, contatta un amministratore di grid per abilitare una delle seguenti impostazioni:
++
+** Blocco globale oggetto S3
+** Consenti l'attivazione del blocco oggetti S3 per i bucket esistenti
+
+
 * Crea bucket con blocco oggetti S3 abilitato.
+* Abilita il blocco degli oggetti S3 sui bucket esistenti.
 * Facoltativamente, configurare le impostazioni di conservazione predefinite per un bucket:
 +
 ** Modalità di conservazione predefinita: Governance o conformità, se consentita dall'amministratore della griglia.
@@ -50,3 +57,6 @@ Utente tenant::
 
 --
 
+
+.Informazioni correlate
+Scopri di piùlink:requirements-for-s3-object-lock.html#s3-object-lock-existing-buckets["Requisiti di S3 Object Lock"]

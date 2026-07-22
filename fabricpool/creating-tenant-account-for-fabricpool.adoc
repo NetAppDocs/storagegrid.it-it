@@ -70,7 +70,7 @@ I tenant FabricPool non devono in genere utilizzare servizi di piattaforma, come
 +
 I tenant FabricPool in genere non devono utilizzare S3 Select.
 
-.. In alternativa, selezionare *Usa connessione federazione griglia* per consentire al tenant di utilizzare un link:../admin/grid-federation-overview.html["connessione a federazione di griglie"]clone per account e la replica cross-grid. Quindi, selezionare la connessione a federazione di griglie da utilizzare.
+.. Facoltativamente, seleziona *Usa connessione di federazione griglia* per consentire al tenant di utilizzare una link:../admin/grid-federation-overview.html["connessione a federazione di griglie"] per la sincronizzazione degli account e la replica tra griglie. Quindi, seleziona la connessione di federazione griglia da utilizzare.
 
 
 . Per il passaggio Definisci accesso root, specificare quale utente avrà l'autorizzazione di accesso root iniziale per l'account tenant, in base al fatto che il sistema StorageGRID utilizzilink:../admin/using-identity-federation.html["federazione delle identità"] ,link:../admin/how-sso-works.html["SSO (Single Sign-on)"] , o entrambi.

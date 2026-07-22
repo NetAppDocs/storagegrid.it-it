@@ -35,7 +35,7 @@ File di hotfix StorageGRID
 
 
  a| 
-pacchetto di recupero(`.zip` ) file
+File del pacchetto di ripristino (`.zip`
  a| 
 Prima di applicare un hotfix,link:downloading-recovery-package.html["scarica il file del pacchetto di ripristino più recente"] nel caso in cui si verifichino problemi durante l'hotfix.  Quindi, dopo aver applicato l'hotfix, scaricare una nuova copia del file del pacchetto di ripristino e salvarla in un luogo sicuro.  Il file del pacchetto di ripristino aggiornato consente di ripristinare il sistema in caso di errore.
 

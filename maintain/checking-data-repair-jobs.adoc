@@ -13,47 +13,12 @@ summary: Prima di disattivare un nodo di rete, è necessario confermare che non 
 [role="lead"]
 Prima di dismettere o espandere un nodo della griglia, è necessario confermare che non siano attivi processi di riparazione dei dati.  Se una riparazione non ha avuto successo, è necessario riavviarla e lasciarla completare prima di eseguire la procedura di dismissione.
 
-Fare riferimento alink:../expand/index.html["Tipi di espansione"] per i dettagli su come espandere un nodo della griglia.
-
-.A proposito di questa attività
-Se è necessario dismettere un nodo di archiviazione disconnesso, completare questi passaggi al termine della procedura di dismissione per garantire il completamento del processo di riparazione dei dati.  È necessario assicurarsi che tutti i frammenti con codice di cancellazione presenti sul nodo rimosso siano stati ripristinati.
-
-Questi passaggi si applicano solo ai sistemi che dispongono di oggetti con codifica per la cancellazione.
-
-.Fasi
-. Accedere al nodo di amministrazione principale:
+* Fare riferimento alink:../expand/index.html["Tipi di espansione"] per i dettagli su come espandere un nodo della griglia.
+* Usa Grid Manager per monitorare i processi di ripristino in corso e visualizzare la cronologia dei ripristini. Consulta queste procedure:
 +
-.. Immettere il seguente comando: `ssh admin@_grid_node_IP_`
-.. Immettere la password elencata nel `Passwords.txt` file.
-.. Immettere il seguente comando per passare alla directory principale: `su -`
-.. Immettere la password elencata nel `Passwords.txt` file.
-+
-Quando si è collegati come root, il prompt cambia da `$` a `#`.
-
-
-
-. Controllare le riparazioni in corso: `repair-data show-ec-repair-status`
-+
-** Se non è mai stato eseguito un lavoro di riparazione dati, l'output è `No job found`. Non è necessario riavviare alcun lavoro di riparazione.
-** Se il lavoro di riparazione dei dati è stato eseguito in precedenza o è in esecuzione, l'output elenca le informazioni per la riparazione. Ogni riparazione ha un ID di riparazione univoco.
-+
-image:repair-data-status.png["Stato dei dati di riparazione"]
-
-
-
-+
-
-TIP: In alternativa, è possibile utilizzare Grid Manager per monitorare i processi di ripristino in corso e visualizzare una cronologia di ripristino. Vedere link:../maintain/restoring-volume.html["Ripristinare i dati degli oggetti utilizzando Grid Manager"].
-
-. Se lo Stato per tutte le riparazioni è, non è `Completed` necessario riavviare alcun lavoro di riparazione.
-. Se lo Stato per qualsiasi riparazione è, è `Stopped` necessario riavviare la riparazione.
-+
-.. Ottenere l'ID della riparazione per la riparazione non riuscita dall'output.
-.. Eseguire il `repair-data start-ec-node-repair` comando.
-+
-Utilizzare l' `--repair-id`opzione per specificare l'ID riparazione. Ad esempio, se si desidera riprovare una riparazione con ID riparazione 949292, eseguire questo comando: `repair-data start-ec-node-repair --repair-id 949292`
-
-.. Continuare a tenere traccia dello stato delle riparazioni dei dati EC fino a quando lo Stato per tutte le riparazioni non è `Completed`.
+** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["Ripristinare i dati dell'oggetto nel volume di storage per l'appliance"]
+** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Ripristinare i dati degli oggetti nel volume di storage in cui il disco di sistema è intatto"]
+** link:../maintain/restoring-object-data-to-storage-volume.html["Ripristinare i dati dell'oggetto nel volume di storage (errore del disco di sistema)"]
 
 
 

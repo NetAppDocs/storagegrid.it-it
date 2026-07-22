@@ -20,7 +20,7 @@ NOTE: Questa procedura si applica solo ai nodi di storage basati su software. È
 
 *Linux:* se non si è sicuri che il disco di sistema sia guasto, seguire le istruzioni per sostituire il nodo per determinare quali passaggi di ripristino sono necessari.
 
-[cols="1a,2a"]
+[cols="1a,3a"]
 |===
 | Piattaforma | Procedura 
 

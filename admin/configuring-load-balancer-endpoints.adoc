@@ -86,6 +86,8 @@ La porta StorageGRID che si desidera utilizzare per il bilanciamento del carico.
 
 Se si immette *80* o *8443*, l'endpoint viene configurato solo sui nodi Gateway, a meno che non sia stata liberata la porta 8443. Quindi è possibile utilizzare la porta 8443 come endpoint S3 e la porta verrà configurata su entrambi i nodi Gateway e Admin.
 
+Se stai configurando gli endpoint del bilanciatore di carico per un link:../admin/configure-global-namespace.html["spazio dei nomi globale"], usa la stessa porta per ogni endpoint.
+
 
 
  a| 

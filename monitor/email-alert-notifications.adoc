@@ -16,147 +16,31 @@ Se si desidera che le notifiche e-mail vengano inviate quando si verificano avvi
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
 * Si dispone di link:../admin/admin-group-permissions.html["Gestire gli avvisi o l'autorizzazione di accesso principale"].
+* Hai link:../monitor/configure-email-server.html["hai configurato un server di posta elettronica"].
 
 
 .A proposito di questa attività
-La configurazione dell'e-mail utilizzata per le notifiche di avviso non viene utilizzata per i pacchetti AutoSupport. Tuttavia, è possibile utilizzare lo stesso server di posta elettronica per tutte le notifiche.
-
 Se la distribuzione di StorageGRID include più nodi amministrativi, il nodo amministrativo primario è il mittente preferito per le notifiche di avviso, i pacchetti AutoSupport e le trap SNMP e le informazioni. Se il nodo di amministrazione primario non è più disponibile, le notifiche vengono inviate temporaneamente da altri nodi di amministrazione. Vedere link:../primer/what-admin-node-is.html["Che cos'è un nodo amministratore?"].
 
 .Fasi
-. Selezionare *Avvisi* > *Configurazione e-mail*.
+. Seleziona *Avvisi* > *Email di avviso*.
 +
-Viene visualizzata la pagina Configurazione e-mail.
+Viene visualizzata la pagina delle notifiche e-mail.
 
-. Selezionare la casella di controllo *Enable Email Notifications* (attiva notifiche e-mail) per indicare che si desidera inviare e-mail di notifica quando gli avvisi raggiungono le soglie configurate.
-+
-Vengono visualizzate le sezioni Server e-mail (SMTP), TLS (Transport Layer Security), indirizzi e-mail e filtri.
-
-. Nella sezione Server e-mail (SMTP), immettere le informazioni necessarie per l'accesso al server SMTP da parte di StorageGRID.
-+
-Se il server SMTP richiede l'autenticazione, è necessario fornire sia un nome utente che una password.
-
-+
-[cols="1a,2a"]
-|===
-| Campo | Invio 
-
-
- a| 
-Server di posta
- a| 
-Il nome di dominio completo (FQDN) o l'indirizzo IP del server SMTP.
-
-
-
- a| 
-Porta
- a| 
-Porta utilizzata per accedere al server SMTP. Deve essere compreso tra 1 e 65535.
-
-
-
- a| 
-Nome utente (opzionale)
- a| 
-Se il server SMTP richiede l'autenticazione, immettere il nome utente con cui eseguire l'autenticazione.
-
-
-
- a| 
-Password (opzionale)
- a| 
-Se il server SMTP richiede l'autenticazione, immettere la password con cui eseguire l'autenticazione.
-
-|===
-. Nella sezione indirizzi e-mail, immettere gli indirizzi e-mail per il mittente e per ciascun destinatario.
-+
-.. Per *Sender Email Address*, specificare un indirizzo e-mail valido da utilizzare come indirizzo da per le notifiche degli avvisi.
+. Seleziona la casella di controllo *Abilita email per gli avvisi* per indicare che vuoi che vengano inviate email di notifica quando gli avvisi raggiungono le soglie configurate.
+. Nella sezione *Ricevi email in base alla gravità*, seleziona il pulsante di opzione che indica i tipi di avvisi per cui vuoi ricevere una notifica.
+. Nella sezione Mittente, specifica un indirizzo email valido da usare come indirizzo Da per le notifiche di avviso.
 +
 Ad esempio: `storagegrid-alerts@example.com`
 
++
 .. Nella sezione destinatari, immettere un indirizzo e-mail per ciascun elenco o persona che deve ricevere un'e-mail quando si verifica un avviso.
 +
-Seleziona l'icona più image:icon_plus_sign_black_on_white.gif["icona più"] per aggiungere i destinatari.
-
-
-
-. Se TLS (Transport Layer Security) è richiesto per le comunicazioni con il server SMTP, selezionare *Richiedi TLS* nella sezione Transport Layer Security (TLS).
-+
-.. Nel campo *certificato CA*, fornire il certificato CA che verrà utilizzato per verificare l'identificazione del server SMTP.
-+
-È possibile copiare e incollare il contenuto in questo campo oppure selezionare *Sfoglia* e selezionare il file.
-
-+
-È necessario fornire un singolo file contenente i certificati di ogni autorità di certificazione di emissione intermedia (CA). Il file deve contenere ciascuno dei file di certificato CA con codifica PEM, concatenati in ordine di catena del certificato.
-
-.. Selezionare la casella di controllo *Send Client Certificate* (Invia certificato client) se il server di posta SMTP richiede l'invio di certificati client per l'autenticazione da parte dei mittenti di posta elettronica.
-.. Nel campo *certificato client*, fornire il certificato client con codifica PEM da inviare al server SMTP.
-+
-È possibile copiare e incollare il contenuto in questo campo oppure selezionare *Sfoglia* e selezionare il file.
-
-.. Nel campo *Private Key* (chiave privata), immettere la chiave privata per il certificato client in codifica PEM non crittografata.
-+
-È possibile copiare e incollare il contenuto in questo campo oppure selezionare *Sfoglia* e selezionare il file.
-
-+
-
-NOTE: Se devi modificare le impostazioni dell'email, seleziona l'icona della matita image:icon_edit_tm.png["Icona Edit (Modifica)"] per aggiornare questo campo.
-
-
-
-. Nella sezione filtri, selezionare i livelli di severità degli avvisi che devono generare le notifiche via email, a meno che la regola per uno specifico avviso non sia stata tacitata.
-+
-[cols="1a,2a"]
-|===
-| Severità | Descrizione 
-
-
- a| 
-Minore, maggiore, critico
- a| 
-Viene inviata una notifica via email quando viene soddisfatta la condizione minore, maggiore o critica di una regola di avviso.
-
-
-
- a| 
-Importante, critico
- a| 
-Viene inviata una notifica via email quando viene soddisfatta la condizione principale o critica per una regola di avviso. Le notifiche non vengono inviate per avvisi minori.
-
-
-
- a| 
-Solo critico
- a| 
-Una notifica via email viene inviata solo quando viene soddisfatta la condizione critica per una regola di avviso. Le notifiche non vengono inviate per avvisi minori o maggiori.
-
-|===
-. Quando si è pronti a verificare le impostazioni e-mail, attenersi alla seguente procedura:
-+
-.. Selezionare *Invia email di prova*.
-+
-Viene visualizzato un messaggio di conferma che indica l'invio di un'e-mail di prova.
-
-.. Selezionare le caselle di posta in arrivo di tutti i destinatari e confermare che è stata ricevuta un'e-mail di prova.
-+
-
-NOTE: Se l'e-mail non viene ricevuta entro pochi minuti o se viene attivato l'avviso *errore notifica e-mail*, controllare le impostazioni e riprovare.
-
-.. Accedi a qualsiasi altro nodo Admin e invia un'e-mail di prova per verificare la connettività da tutti i siti.
-+
-
-NOTE: Quando si verificano le notifiche di avviso, è necessario accedere a ogni nodo amministratore per verificare la connettività. Ciò è in contrasto con il test dei pacchetti AutoSupport, in cui tutti i nodi amministrativi inviano l'e-mail di prova.
+Seleziona *Aggiungi destinatario* per aggiungere destinatari.
 
 
 
 . Selezionare *Salva*.
-+
-L'invio di un'e-mail di prova non salva le impostazioni. Selezionare *Salva*.
-
-+
-Le impostazioni e-mail vengono salvate.
-
 
 
 
@@ -164,7 +48,7 @@ Le impostazioni e-mail vengono salvate.
 [[information-included-in-alert-email-notifications]]
 == Informazioni incluse nelle notifiche e-mail di avviso
 
-Dopo aver configurato il server di posta SMTP, le notifiche e-mail vengono inviate ai destinatari designati quando viene attivato un avviso, a meno che la regola di avviso non venga soppressa da un silenzio. Vedere link:silencing-alert-notifications.html["Tacitare le notifiche di avviso"].
+Dopo che hai configurato il server di posta elettronica e abilitato la posta elettronica per gli avvisi, le notifiche email vengono inviate ai destinatari designati quando viene attivato un avviso, a meno che la regola di avviso non sia soppressa da un silenzio. Consulta link:silencing-alert-notifications.html["Tacitare le notifiche di avviso"].
 
 Le notifiche e-mail includono le seguenti informazioni:
 
@@ -192,7 +76,7 @@ La descrizione dell'avviso.
  a| 
 3
  a| 
-Qualsiasi azione consigliata per l'avviso.
+Azioni consigliate per l'avviso.
 
 
 
@@ -283,28 +167,38 @@ StorageGRID continua a inviare notifiche via email ogni 7 giorni fino a quando t
 [[troubleshoot-alert-email-notifications]]
 == Risolvere i problemi relativi alle notifiche email di avviso
 
-Se viene attivato l'avviso *errore notifica email* o non si riesce a ricevere la notifica email di avviso del test, attenersi alla procedura descritta di seguito per risolvere il problema.
+Segui questi passaggi per analizzare e risolvere il problema se viene attivato l'avviso di errore di notifica e-mail e non ricevi:
+
+* Test delle notifiche del server di posta elettronica
+* Email di avviso StorageGRID
+* Email di verifica multi-amministratore (MAV)
+
 
 .Prima di iniziare
 * L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
-* Si dispone di link:../admin/admin-group-permissions.html["Gestire gli avvisi o l'autorizzazione di accesso principale"].
+* Hai l'autorizzazione link:../admin/admin-group-permissions.html["Autorizzazione di accesso root"]. Se hai l'autorizzazione Gestisci avvisi, puoi visualizzare, ma non modificare, la configurazione del server di posta elettronica.
 
 
 .Fasi
-. Verificare le impostazioni.
+. Verifica le impostazioni delle email di avviso.
 +
-.. Selezionare *Avvisi* > *Configurazione e-mail*.
-.. Verificare che le impostazioni del server e-mail (SMTP) siano corrette.
 .. Verificare di aver specificato indirizzi e-mail validi per i destinatari.
+.. Seleziona *Configurazione* > *Server di posta elettronica* e verifica che le impostazioni del server di posta elettronica (SMTP) siano corrette.
 
 
 . Controllare il filtro antispam e assicurarsi che l'e-mail non sia stata inviata a una cartella di posta indesiderata.
 . Chiedi all'amministratore dell'email di confermare che le e-mail dell'indirizzo del mittente non vengono bloccate.
-. Raccogliere un file di log per l'Admin Node, quindi contattare il supporto tecnico.
+. Verifica i seguenti elementi relativi al trasferimento della posta elettronica:
++
+.. Monitoraggio dei log del server di posta elettronica: visualizza i log del server di posta elettronica utilizzato da StorageGRID (*Configuration* > *Email server*). Cerca errori di relay, errori di autenticazione e altri errori corrispondenti al momento in cui StorageGRID ha tentato di inviare un'email.
+.. Segnalazioni di mancata consegna (bounce-back): se le email non vengono ricevute e StorageGRID non segnala alcun errore, il problema potrebbe essere un bounce-back. Configurando l'indirizzo "mittente" con un indirizzo email valido, potrai vedere queste email di risposta ai bounce-back.
+
+
+. Raccogli i file di log dell'Admin Node che sta inviando le email. Esamina i file /var/local/log/prometheus.log e /var/local/log/nms.log per eventuali problemi evidenti che potresti riuscire a correggere. Se non riesci a risolvere il problema, contatta il supporto tecnico.
 +
 Il supporto tecnico può utilizzare le informazioni contenute nei registri per determinare l'errore. Ad esempio, il file prometheus.log potrebbe visualizzare un errore durante la connessione al server specificato.
 
 +
-Vedere link:collecting-log-files-and-system-data.html["Raccogliere i file di log e i dati di sistema"].
+Consulta link:collecting-log-files-and-system-data.html["Raccogliere i file di log e i dati di sistema"].
 
 

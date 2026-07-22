@@ -73,18 +73,18 @@ Per avviare il ciclo di vita, un'applicazione client memorizza un oggetto in Sto
 
 . *Oggetto spostato in Azure Cloud Storage Pool*
 +
-Quando l'oggetto viene associato a una regola ILM che utilizza un Azure Cloud Storage Pool come posizione di posizionamento, StorageGRID sposta l'oggetto nel contenitore di storage BLOB di Azure esterno specificato dal Cloud Storage Pool.
+Quando l'oggetto viene abbinato a una regola ILM che utilizza un Azure Cloud Storage Pool come posizione di collocazione, StorageGRID sposta l'oggetto nel container Azure Blob Storage esterno specificato dal Cloud Storage Pool.
 
 . *Oggetto sottoposto a transizione al Tier di archiviazione (stato non recuperabile)*
 +
-Subito dopo aver spostato l'oggetto nel pool di storage cloud di Azure, StorageGRID passa automaticamente l'oggetto al livello di archiviazione dello storage Blob di Azure.
+Subito dopo aver spostato l'oggetto nel pool di cloud storage di Azure, StorageGRID trasferisce automaticamente l'oggetto al livello Azure Blob Storage Archive.
 
 . *Oggetto ripristinato dal Tier di archiviazione*
 +
 Se un oggetto è stato spostato nel Tier Archive, l'applicazione client può emettere una richiesta S3 RestoreObject per ripristinare una copia recuperabile nell'Azure Cloud Storage Pool.
 
 +
-Quando StorageGRID riceve il RestoreObject, trasferisce temporaneamente l'oggetto al livello di raffreddamento dell'archiviazione BLOB di Azure. Non appena viene raggiunta la data di scadenza nella richiesta RestoreObject, StorageGRID trasferisce nuovamente l'oggetto al livello Archive.
+Quando StorageGRID riceve la RestoreObject, sposta temporaneamente l'oggetto nel livello Cool di Azure Blob Storage. Non appena viene raggiunta la data di scadenza nella richiesta RestoreObject, StorageGRID riporta l'oggetto al livello Archive.
 
 +
 

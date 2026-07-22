@@ -1,0 +1,112 @@
+---
+permalink: admin/configure-multi-admin-verify.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav, mav administrators, mav approval groups 
+summary: 'Gestire un sistema di verifica multi-amministratore (MAV) StorageGRID significa creare e gestire gruppi e utenti amministratori MAV, abilitare la funzione MAV e configurare o selezionare le operazioni protette.' 
+---
+= Configura la verifica multi-amministratore di StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configurare un sistema di verifica multi-amministratore (MAV) StorageGRID significa creare e gestire gruppi e utenti amministratori MAV, abilitare la funzione MAV e selezionare o configurare le operazioni protette.
+
+Gli amministratori di MAV hanno potere di approvazione e di veto per le operazioni protette.
+
+.Prima di iniziare
+* Si dispone di link:../admin/admin-group-permissions.html["Autorizzazione di accesso root"].
+* Hai effettuato l'accesso al Grid Manager dal nodo Admin principale.
+
+
+
+
+[[step-1-create-mav-administrator-groups-and-users]]
+== Passaggio 1: Crea gruppi e utenti amministratori MAV
+
+Puoi aggiungere amministratori esistenti a un gruppo MAV o creare nuovi amministratori.
+
+Puoi configurare gli utenti di Active Directory (AD) come amministratori MAV. L'utente AD deve essere configurato come amministratore di StorageGRID.
+
+.Fasi
+. Per creare un gruppo di amministratori MAV, segui i passaggi per link:../admin/managing-admin-groups.html["crea un gruppo locale o federato"].
+. Per le autorizzazioni di gruppo, seleziona *Accesso root* o *Richieste di verifica multi-amministratore*.
+. Aggiungi utenti locali o federati al gruppo oppure crea nuovi utenti locali e aggiungili al gruppo seguendo i passaggi per link:../admin/managing-users.html#create-a-local-user["crea un utente locale"].
+
+
+
+
+[[step-2-enable-or-disable-mav]]
+== Passaggio 2: Abilita o disabilita MAV
+
+Devi abilitare esplicitamente la verifica multi-amministratore (MAV). Se MAV è abilitata e decidi di disabilitarla quando ci sono richieste MAV in sospeso, una notifica indica che le richieste in sospeso verranno eliminate.
+
+.Fasi
+. Seleziona *Configurazione* > *Controllo accessi* > *Verifica multi-amministratore* > *Impostazioni MAV*.
+. Seleziona la casella di controllo *Abilita MAV* per abilitare la verifica multi-amministratore.
+. La sezione Gruppi di approvazione elenca i gruppi di amministratori MAV e gli approvatori.
+. Nella sezione Operazioni, seleziona le caselle di controllo per le operazioni che vuoi proteggere con MAV.
+. (Facoltativo) Se vuoi usare le notifiche email per avvisare gli amministratori MAV delle richieste di approvazione in sospeso:
++
+.. Se non hai configurato un server di posta elettronica, segui i passaggi per link:../monitor/configure-email-server.html["configurare un server di posta elettronica"].
+.. Inserisci l'indirizzo email del mittente.
+.. Inserisci uno o più destinatari per le notifiche email.
+
+
+. Seleziona *Salva* per salvare le modifiche.
++
+
+NOTE: Se decidi di non configurare le notifiche email, gli amministratori MAV possono visualizzare la dashboard di Grid Manager o controllare la coda di approvazione per le richieste di approvazione in sospeso. Per controllare la coda di approvazione, seleziona *Altre richieste* nella pagina di verifica multi-amministratore.
+
+
+
+
+
+[[step-3-manage-protected-operations]]
+== Passaggio 3: Gestisci le operazioni protette
+
+Dopo che hai abilitato la verifica multi-amministratore, puoi gestire le operazioni protette selezionando o deselezionando le caselle di controllo per le operazioni che vuoi proteggere con MAV.
+
+
+NOTE: Per StorageGRID 12.1, l'unica operazione protetta è l'attivazione della policy ILM. Devi selezionare la casella di controllo per l'attivazione della policy ILM se vuoi abilitare MAV.
+
+Una richiesta MAV può avere uno dei seguenti stati:
+
+* *In sospeso*. Richiesta avviata.
+* *Scaduta*. La richiesta non è stata evasa entro 30 giorni. Oppure un utente con permessi di accesso Root ha disabilitato MAV, il che significa che tutte le richieste in sospeso sono scadute.
+* *Ritirata*. Un utente ha ritirato la propria richiesta.
+* *Approvato*. Un amministratore MAV ha approvato la richiesta in sospeso.
+* *Rifiutata*. Un amministratore MAV ha respinto la richiesta in sospeso.
+
+
+
+
+[[troubleshoot-mav-email-notifications]]
+== Risolvi i problemi delle notifiche email di MAV
+
+Se gli amministratori MAV non ricevono notifiche via e-mail per le richieste in sospeso, segui questi passaggi per risolvere il problema.
+
+.Prima di iniziare
+* L'utente ha effettuato l'accesso a Grid Manager utilizzando un link:../admin/web-browser-requirements.html["browser web supportato"].
+* Si dispone di link:../admin/admin-group-permissions.html["Gestire gli avvisi o l'autorizzazione di accesso principale"].
+
+
+.Fasi
+. Verificare le impostazioni.
++
+.. Seleziona *Configuration* > *Monitoring* > *Email server*.
+.. Verificare che le impostazioni del server e-mail (SMTP) siano corrette.
+.. Verificare di aver specificato indirizzi e-mail validi per i destinatari.
+
+
+. Controllare il filtro antispam e assicurarsi che l'e-mail non sia stata inviata a una cartella di posta indesiderata.
+. Chiedi all'amministratore dell'email di confermare che le e-mail dell'indirizzo del mittente non vengono bloccate.
+. Raccogliere un file di log per l'Admin Node, quindi contattare il supporto tecnico.
++
+Il supporto tecnico può utilizzare le informazioni contenute nei registri per determinare l'errore. Ad esempio, il file prometheus.log potrebbe visualizzare un errore durante la connessione al server specificato.
+
++
+Vedi link:../monitor/collecting-log-files-and-system-data.html["Raccogliere i file di log e i dati di sistema"].
+
+

@@ -1,21 +1,21 @@
 ---
-permalink: admin/creating-relying-party-trusts-in-ad-fs.html 
+permalink: admin/creating-relying-party-trusts-in-ad-fs-saml.html 
 sidebar: sidebar 
 keywords: relying party trust, active directory, ad fs, single sign on, sso 
 summary: 'È necessario utilizzare Active Directory Federation Services (ad FS) per creare un trust di parte per ciascun nodo di amministrazione nel sistema. È possibile creare trust di parti che utilizzano i comandi PowerShell, importando metadati SAML da StorageGRID o immettendo i dati manualmente.' 
 ---
-= Crea trust di relying party in AD FS per StorageGRID
+= Crea trust di relying party in AD FS per SAML in StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-È necessario utilizzare Active Directory Federation Services (ad FS) per creare un trust di parte per ciascun nodo di amministrazione nel sistema. È possibile creare trust di parti che utilizzano i comandi PowerShell, importando metadati SAML da StorageGRID o immettendo i dati manualmente.
+Devi usare Active Directory Federation Services (AD FS) per creare una relying party trust per ogni Admin Node per SAML nel tuo sistema. Puoi creare relying party trust usando i comandi PowerShell, importando i metadati SAML da StorageGRID o inserendo i dati manualmente.
 
 .Prima di iniziare
 * È stato configurato Single Sign-on per StorageGRID ed è stato selezionato *ad FS* come tipo di SSO.
-* Hailink:../admin/configure-sso.html["entrato in modalità sandbox"] in Grid Manager.
+* Hai link:../admin/configure-sso-saml.html["entrato in modalità sandbox"] in Grid Manager.
 * Conosci il nome di dominio completo (o l'indirizzo IP) e l'identificativo della parte affidabile per ciascun nodo di amministrazione nel tuo sistema.  È possibile trovare questi valori nella tabella dei dettagli dei nodi di amministrazione nella pagina Configura SSO StorageGRID .
 +
 
@@ -89,7 +89,7 @@ Se i metadati non sono presenti, verificare che l'indirizzo dei metadati della f
 
 
 . Ripetere questa procedura per configurare un trust per tutti i nodi di amministrazione nel sistema StorageGRID.
-. Al termine, tornare a StorageGRID elink:../admin/configure-sso.html#test-sso["testare tutti i trust delle parti affidanti"] per confermare che siano configurati correttamente.
+. Al termine, torna a StorageGRID e link:../admin/configure-sso-saml.html#test-sso["testare tutti i trust delle parti affidanti"] per verificare che siano configurati correttamente.
 
 
 
@@ -141,7 +141,7 @@ Se i metadati non sono presenti, verificare che l'indirizzo dei metadati della f
 
 
 . Ripetere questa procedura per configurare un trust per tutti i nodi di amministrazione nel sistema StorageGRID.
-. Al termine, tornare a StorageGRID elink:../admin/configure-sso.html#test-sso["testare tutti i trust delle parti affidanti"] per confermare che siano configurati correttamente.
+. Al termine, torna su StorageGRID e link:../admin/configure-sso-saml.html#test-sso["testare tutti i trust delle parti affidanti"] per confermare che siano configurati correttamente.
 
 
 
@@ -236,5 +236,5 @@ Le proprietà della parte di base vengono salvate e chiuse.
 
 
 . Ripetere questa procedura per configurare un trust per tutti i nodi di amministrazione nel sistema StorageGRID.
-. Al termine, tornare a StorageGRID elink:../admin/configure-sso.html#test-sso["testare tutti i trust delle parti affidanti"] per confermare che siano configurati correttamente.
+. Al termine, torna su StorageGRID e link:../admin/configure-sso-saml.html#test-sso["testare tutti i trust delle parti affidanti"] per confermare che siano configurati correttamente.
 

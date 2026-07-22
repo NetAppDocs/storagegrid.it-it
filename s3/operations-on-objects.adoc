@@ -44,10 +44,14 @@ Restrizioni::
 +
 --
 * L'autenticazione multifattore (MFA) e l'intestazione della risposta `x-amz-mfa` non sono supportate.
-* Le  `If-None` e  `If-None-Match` intestazioni sono accettate ma non funzionanti.
+* Le  `If-Match` e  `If-None-Match` intestazioni si comportano in modo diverso a seconda della configurazione di StorageGRID. Fornire queste intestazioni potrebbe restituire un messaggio di errore (501 Not Implemented). Se le  `If-Match` o  `If-None-Match` intestazioni vengono accettate ma non sono funzionanti, potrebbe essere attivato un avviso con istruzioni su come abilitare il comportamento di errore più restrittivo 501 Not Implemented.
 
 
 --
+
+
+L' `x-amz-bypass-governance-retention`intestazione non ha alcun effetto sugli oggetti senza S3 Object Lock.
+
 Versione:: Per rimuovere una versione specifica, il richiedente deve essere il proprietario del bucket e utilizzare la `versionId` sottorisorsa. L'utilizzo di questa sottorisorsa elimina in modo permanente la versione. Se il `versionId` corrisponde a un marcatore di eliminazione, l'intestazione della risposta `x-amz-delete-marker` viene riportata impostata su `true`.
 +
 --
@@ -73,6 +77,8 @@ DeleteObjects
 L'autenticazione multifattore (MFA) e l'intestazione della risposta `x-amz-mfa` non sono supportate.
 
 È possibile eliminare più oggetti nello stesso messaggio di richiesta.
+
+L' `x-amz-bypass-governance-retention`intestazione non ha alcun effetto sugli oggetti senza S3 Object Lock.
 
 Vedere link:../s3/use-s3-api-for-s3-object-lock.html["Utilizzare l'API REST S3 per configurare il blocco oggetti S3"] per informazioni su come eliminare le versioni degli oggetti in modalità GOVERNANCE.
 

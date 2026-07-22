@@ -9,7 +9,7 @@
 
 La funzione blocco oggetti StorageGRID S3 è una soluzione di protezione degli oggetti equivalente a blocco oggetti S3 in Amazon Simple Storage Service (Amazon S3).
 
-Quando l'impostazione blocco oggetto S3 globale è abilitata per un sistema StorageGRID, un account tenant S3 può creare bucket con o senza blocco oggetto S3 abilitato. Se un bucket ha S3 Object Lock attivato, è necessario il controllo della versione del bucket e viene attivato automaticamente.
+Quando l'impostazione globale S3 Object Lock è abilitata per un sistema StorageGRID, un account tenant S3 può creare bucket con o senza S3 Object Lock abilitato. Quando l'impostazione allow S3 Object Lock for existing buckets è abilitata, un account tenant S3 può abilitare S3 Object Lock per un bucket esistente. Se un bucket ha S3 Object Lock abilitato, il versioning del bucket è richiesto e viene abilitato automaticamente. Dopo che un account tenant S3 ha abilitato S3 Object Lock per un bucket nuovo o esistente, non può essere disabilitato.
 
 *Un bucket senza blocco oggetti S3* può avere solo oggetti senza impostazioni di conservazione specificate. Nessun oggetto acquisito avrà impostazioni di conservazione.
 
@@ -57,7 +57,7 @@ Se viene creato un bucket con S3 Object Lock attivato, gli utenti possono utiliz
 NOTE: Se un oggetto è sottoposto a un blocco legale, nessuno può eliminare l'oggetto, indipendentemente dalla modalità di conservazione.
 
 +
-Per informazioni dettagliate sulle impostazioni dell'oggetto, vedere link:../s3/use-s3-api-for-s3-object-lock.html["Utilizzare l'API REST S3 per configurare il blocco oggetti S3"].
+Per i dettagli sulle impostazioni dell'oggetto, fai riferimento a link:../s3/use-s3-api-for-s3-object-lock.html["Utilizzare l'API REST S3 per configurare il blocco oggetti S3"].
 
 
 
@@ -74,4 +74,4 @@ Se viene creato un bucket con S3 Object Lock attivato, gli utenti possono specif
 
 Le impostazioni predefinite del bucket si applicano solo ai nuovi oggetti che non dispongono di proprie impostazioni di conservazione. Gli oggetti bucket esistenti non vengono influenzati quando si aggiungono o si modificano queste impostazioni predefinite.
 
-Vedere link:../tenant/creating-s3-bucket.html["Creare un bucket S3"] e link:../tenant/update-default-retention-settings.html["Aggiorna la conservazione predefinita del blocco oggetti S3"].
+Fai riferimento a link:../tenant/creating-s3-bucket.html["Creare un bucket S3"] e link:../tenant/update-default-retention-settings.html["Aggiorna la conservazione predefinita del blocco oggetti S3"].

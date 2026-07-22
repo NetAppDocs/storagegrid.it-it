@@ -16,13 +16,14 @@ summary: È possibile recuperare i file di registro e i dati di sistema StorageG
 .Prima di iniziare
 * Hai effettuato l'accesso a Grid Manager su qualsiasi nodo di amministrazione utilizzando unlink:../admin/web-browser-requirements.html["browser web supportato"] .
 * Si dispone di link:../admin/admin-group-permissions.html["autorizzazioni di accesso specifiche"].
-* Si dispone della passphrase di provisioning.
 
 
 .A proposito di questa attività
 Utilizzare Grid Manager per raccoglierelink:logs-files-reference.html["file di log"] , dati di sistema e dati di configurazione da qualsiasi nodo della griglia per il periodo di tempo selezionato.  I dati vengono raccolti e archiviati in un `.tar.gz` file che potrai poi scaricare sul tuo computer locale o inviare al supporto tecnico.
 
 Facoltativamente, è possibile modificare la destinazione dei log di controllo e inviare le informazioni di controllo a un server syslog esterno.  I registri locali dei record di controllo continuano a essere generati e archiviati quando viene configurato un server syslog esterno. Vedere link:../monitor/configure-log-management.html["Configurare la gestione dei log e il server syslog esterno"] .
+
+Se il nodo di amministrazione utilizzato per avviare la raccolta dei log va offline durante la raccolta, StorageGRID non conserva i risultati. Devi riavviare il nodo e riavviare la raccolta dei log al termine del riavvio.
 
 .Fasi
 . Selezionare *Supporto* > *Strumenti* > *Raccolta registri*.  Viene visualizzata una tabella di nodi.
@@ -47,7 +48,6 @@ Se si seleziona un periodo di tempo molto lungo o si raccolgono i log da tutti i
 +
 È possibile utilizzare queste note per fornire informazioni di supporto tecnico sul problema che ha richiesto di raccogliere i file di log. Le note vengono aggiunte a un file denominato `info.txt`, insieme ad altre informazioni sulla raccolta di file di registro. Il `info.txt` file viene salvato nel pacchetto di archiviazione del file di registro.
 
-. Nella casella di testo *Passphrase di provisioning*, immettere la passphrase di provisioning per il sistema StorageGRID .
 . Seleziona *Raccogli registri*.
 +
 È possibile utilizzare la pagina Raccolta log per monitorare l'avanzamento della raccolta dei file di log per ciascun nodo della griglia.
@@ -57,9 +57,15 @@ Se viene visualizzato un messaggio di errore relativo alle dimensioni del regist
 
 . Se la raccolta dei log fallisce:
 +
+--
 ** Se viene visualizzato il messaggio "Raccolta log non riuscita", è possibile riprovare la raccolta log o terminare la sessione senza riprovare.
 ** Se viene visualizzato il messaggio "Raccolta log parzialmente fallita", è possibile riprovare la raccolta log, terminare la sessione, scaricare il file di log parziale o inviarlo ad AutoSupport.
 
+
+--
++
+
+NOTE: Puoi lasciare vuoto il campo della passphrase di provisioning per un tentativo standard oppure inserire la passphrase per riprovare tramite SSH.
 
 . Una volta completata la raccolta dei file di registro:
 +

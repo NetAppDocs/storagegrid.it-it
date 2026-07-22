@@ -33,7 +33,14 @@ Le seguenti condizioni e note si applicano a tutte le operazioni di caricamento 
 * Tutte le operazioni di caricamento multiparte supportano StorageGRIDlink:consistency.html["valori di coerenza"] .
 * Quando un oggetto viene acquisito utilizzando il caricamento multiparte, link:../admin/what-object-segmentation-is.html["Soglia di segmentazione degli oggetti (1 GiB)"]non viene applicato.
 * Se necessario, è possibile utilizzare link:using-server-side-encryption.html["crittografia lato server"] con caricamenti multiparte. Per utilizzare SSE (crittografia lato server con chiavi gestite da StorageGRID), è necessario includere l' `x-amz-server-side-encryption`intestazione della richiesta solo nella richiesta CreateMultipartUpload. Per utilizzare SSE-C (crittografia lato server con chiavi fornite dal cliente), specificare le stesse tre intestazioni di richiesta della chiave di crittografia nella richiesta CreateMultipartUpload e in ogni richiesta UploadPart successiva.
-* Un oggetto caricato in più parti è incluso in unlink:../tenant/what-is-branch-bucket.html["secchio di rami"] se l'acquisizione è stata avviata prima del timestamp Before del bucket di base, indipendentemente dal momento in cui viene completato il caricamento.
+* Se un oggetto caricato in più parti è incluso in un link:../tenant/what-is-branch-bucket.html["secchio di rami"] dipende dall'ora in cui è stata avviata l'ingestione e dal filtro temporale per il bucket del ramo:
++
+** *Prima*. Se l'ingestione è stata avviata prima del timestamp _Before_ del bucket del ramo, l'oggetto caricato in più parti viene incluso, indipendentemente da quando il caricamento viene completato.
+** *Dopo*. Se l'ingestione è stata avviata dopo il timestamp _After_ del bucket del ramo, l'oggetto caricato in più parti viene incluso.
+** *Tra*. Se l'ingestione è stata avviata tra i timestamp _From_ e _To_ del bucket del ramo, l'oggetto caricato in più parti viene incluso, indipendentemente da quando il caricamento viene completato.
+** *Escludi*. Se l'ingestione è stata avviata prima dell'ora _Escludi da_ del bucket del ramo o dopo l'ora _Escludi a_, l'oggetto caricato in più parti viene incluso.
+
+
 
 
 [cols="2a,3a"]

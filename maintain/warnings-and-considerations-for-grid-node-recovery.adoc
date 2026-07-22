@@ -39,7 +39,7 @@ Quando si ripristinano i nodi della griglia, si presume che siano presenti tutte
 
 * L'hardware fisico o virtuale guasto è stato sostituito e configurato.
 * La versione del programma di installazione dell'appliance StorageGRID sul dispositivo sostitutivo corrisponde alla versione software del sistema StorageGRID, come descritto in https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/verifying-and-upgrading-storagegrid-appliance-installer-version.html["Verificare e aggiornare la versione del programma di installazione dell'appliance StorageGRID"^].
-* Se si sta ripristinando un nodo della griglia diverso dal nodo di amministrazione primario, esiste connettività tra il nodo della griglia in fase di ripristino e il nodo di amministrazione che gestisce la procedura di ripristino.
+* Se stai ripristinando un nodo della griglia diverso dal nodo amministratore primario, deve esserci connettività tra il nodo della griglia che stai ripristinando e il nodo amministratore che gestisce la procedura di ripristino.
 * Se si sta ripristinando un nodo di archiviazione dell'appliance, è necessario specificare lo stesso tipo di archiviazione dell'appliance originale (combinato, solo metadati o solo dati) durante l'installazione dell'appliance.  Se si specifica un tipo di archiviazione diverso, il ripristino non riuscirà e sarà necessario reinstallare l'appliance con il tipo di archiviazione corretto specificato.
 
 
@@ -48,7 +48,7 @@ Quando si ripristinano i nodi della griglia, si presume che siano presenti tutte
 [[order-of-node-recovery-if-a-server-hosting-more-than-one-grid-node-fails]]
 == Ordine di recovery del nodo in caso di guasto di un server che ospita più di un nodo griglia
 
-Se un server che ospita più di un nodo della griglia si guasta, è possibile ripristinare i nodi in qualsiasi ordine. Tuttavia, se il server in errore ospita il nodo di amministrazione primario, è necessario prima ripristinare tale nodo.
+Se un server che ospita più di un nodo della griglia si guasta, puoi ripristinare i nodi in qualsiasi ordine. Tuttavia, se il server guasto ospita il nodo di amministrazione primario e non esistono nodi di amministrazione non primari, devi ripristinare prima il nodo di amministrazione primario.
 
 
 

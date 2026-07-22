@@ -24,6 +24,14 @@ I criteri del bucket specificano le autorizzazioni di accesso per il bucket a cu
 ----
 
 
+In StorageGRID, il Principal:
+
+* `"Principal": "*"`corrisponde a tutti, comprese le richieste anonime (non firmate)
+* `"Principal": { "AWS": "*" }`corrisponde a qualsiasi identità o utente autenticato (non corrisponde alle richieste anonime)
+* Si applica solo alle bucket policy
+* Il principal è l'account/gli account/gli utenti a cui vengono concesse o negate le autorizzazioni
+
+
 
 
 [[example-allow-everyone-read-only-access-to-a-bucket]]

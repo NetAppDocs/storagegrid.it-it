@@ -180,10 +180,6 @@ NOTE: La password di installazione temporanea viene utilizzata solo durante l'in
 
 .. Nel campo *Primary Admin IP* (Indirizzo amministratore primario), immettere l'indirizzo IP del nodo di amministrazione primario per la rete di rete.
 +
-
-NOTE: Questo passaggio non si applica se il nodo che si sta implementando è il nodo Admin primario.
-
-+
 Se si omette l'indirizzo IP principale del nodo di amministrazione, l'indirizzo IP verrà rilevato automaticamente se il nodo di amministrazione primario, o almeno un altro nodo della griglia con ADMIN_IP configurato, è presente sulla stessa sottorete. Tuttavia, si consiglia di impostare qui l'indirizzo IP del nodo di amministrazione principale.
 
 .. Nella sezione *Admin Network (eth1)*, selezionare STATIC (STATICO), DHCP (DHCP) o DISABLED (DISATTIVATO) per la configurazione *Admin network IP (Indirizzo IP di rete amministratore)*.
@@ -222,7 +218,7 @@ Prendere nota delle seguenti importanti linee guida:
 
 . [[vmware-remap-ports]]se è necessario rimappare le porte utilizzate da questo nodo, procedere come segue.
 +
-Potrebbe essere necessario rimappare una porta se i criteri di rete aziendali limitano l'accesso a una o più porte utilizzate da StorageGRID. Vedere la link:../network/index.html["linee guida per il networking"] per le porte utilizzate da StorageGRID.
+Potresti dover rimappare una porta se le policy di rete aziendali limitano l'accesso a una o più porte utilizzate da StorageGRID. Consulta link:../network/index.html["Linee guida per il networking"] per le porte utilizzate da StorageGRID.
 
 +
 

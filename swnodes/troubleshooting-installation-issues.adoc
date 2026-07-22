@@ -60,7 +60,7 @@ Se si è certi che l'host della macchina virtuale disponga di risorse sufficient
 .. Selezionare *memoria*, quindi utilizzare il dispositivo di scorrimento prenotazione per regolare il MB riservato per questa macchina virtuale.
 
 
-. Fare clic su *OK*.
+. Selezionare *OK*.
 . Ripetere la procedura secondo necessità per altre macchine virtuali ospitate sullo stesso host di macchine virtuali.
 
 

@@ -25,10 +25,7 @@ summary: 'È possibile utilizzare l"installazione guidata S3 per configurare Sto
 
 .Fasi
 . Accedere a Grid Manager utilizzando un link:web-browser-requirements.html["browser web supportato"].
-. Se nella dashboard viene visualizzato il banner *FabricPool and S3 setup wizard*, selezionare il link nel banner. Se il banner non viene più visualizzato, selezionare l'icona della guida dalla barra di intestazione in Gestione griglia e selezionare *Installazione guidata FabricPool and S3*.
-+
-image:help_menu.png["menu guida"]
-
+. Se il banner *FabricPool and S3 setup wizard* appare sulla dashboard, seleziona il collegamento nel banner. Se il banner non appare più, seleziona l'icona di aiuto image:icon_help_menu_bar.png["Icona di aiuto"] dalla barra dell'intestazione in Grid Manager e seleziona *FabricPool and S3 setup wizard*.
 . Nella sezione dell'applicazione S3 della pagina di installazione guidata di FabricPool e S3, selezionare *Configura ora*.
 
 
