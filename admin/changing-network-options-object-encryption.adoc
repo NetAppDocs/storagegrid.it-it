@@ -65,6 +65,10 @@ Vedere link:summary-ip-addresses-and-ports-for-client-connections.html["Riepilog
 . Selezionare *Configurazione* > *Sicurezza* > *Impostazioni di sicurezza*.
 . Selezionare la scheda *rete e oggetti*.
 . Per la crittografia degli oggetti memorizzati, utilizzare l'impostazione *None* (predefinita) se non si desidera crittografare gli oggetti memorizzati oppure selezionare *AES-128* o *AES-256* per crittografare gli oggetti memorizzati.
++
+
+NOTE: A partire da StorageGRID 12.1.0, il supporto per la crittografia AES-128 dei nuovi dati degli oggetti archiviati a riposo è deprecato. Il supporto continua per il recupero degli oggetti archiviati che erano stati originariamente crittografati con AES-128.
+
 . Se si desidera impedire ai client S3 di eseguire richieste specifiche, selezionare *Impedisci modifica client*.
 +
 
