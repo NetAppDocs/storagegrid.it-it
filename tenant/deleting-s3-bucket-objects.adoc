@@ -32,7 +32,7 @@ TIP: Un bucket che utilizza il blocco oggetti S3 rimarrà nello stato *Deleting 
 
 
 * Se in un bucket è attivata la versione oggetto, è possibile rimuovere i marcatori di eliminazione creati in StorageGRID 11,8 o versioni successive utilizzando le operazioni Elimina oggetti nel bucket.
-* Se in un bucket è attivata la versione oggetto, l'operazione di eliminazione degli oggetti non rimuoverà i marcatori di eliminazione creati in StorageGRID 11,7 o versioni precedenti. Vedere le informazioni sull'eliminazione di oggetti in un bucket in link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Modalità di eliminazione degli oggetti con versione S3"].
+* Se per un bucket è abilitato il versioning degli oggetti, l'operazione di eliminazione degli oggetti non rimuoverà i marcatori di eliminazione creati in StorageGRID 11.7 o versioni precedenti. Consulta le informazioni sull'eliminazione degli oggetti in un bucket in link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["Modalità di eliminazione degli oggetti con versione S3"].
 * Se si utilizza link:grid-federation-manage-cross-grid-replication.html["replica cross-grid"], tenere presente quanto segue:
 +
 ** L'utilizzo di questa opzione non elimina alcun oggetto dal bucket dell'altra griglia.

@@ -38,7 +38,7 @@ NOTE: Quando viene configurato un ciclo di vita del bucket S3, le azioni di scad
 
 
 
-Per ulteriori informazioni, vedere link:../ilm/how-objects-are-deleted.html["Modalità di eliminazione degli oggetti"] .
+Consulta link:../ilm/how-objects-and-delete-markers-are-deleted.html["Come vengono eliminati gli oggetti e i marcatori di eliminazione"] per ulteriori informazioni.
 
 
 

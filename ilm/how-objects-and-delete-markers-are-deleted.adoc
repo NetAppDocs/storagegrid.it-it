@@ -1,0 +1,149 @@
+---
+permalink: ilm/how-objects-and-delete-markers-are-deleted.html 
+sidebar: sidebar 
+keywords: ILM deletion, how objects are deleted 
+summary: StorageGRID può eliminare gli oggetti in risposta diretta a una richiesta del client o automaticamente in conseguenza della scadenza di un ciclo di vita del bucket S3 o dei requisiti della policy ILM. La comprensione dei diversi modi in cui è possibile eliminare gli oggetti e del modo in cui StorageGRID gestisce le richieste di eliminazione può aiutare a gestire gli oggetti in modo più efficace. 
+---
+= Come StorageGRID elimina oggetti e indicatori di eliminazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID può eliminare gli oggetti sia in risposta diretta a una richiesta del client sia automaticamente a seguito della scadenza del ciclo di vita di un bucket S3 o dei requisiti della policy ILM. Comprendere i diversi modi in cui gli oggetti possono essere eliminati, come StorageGRID gestisce le richieste di eliminazione e come eliminare i delete marker scaduti può aiutarti a gestire gli oggetti in modo più efficace.
+
+StorageGRID può utilizzare uno dei due metodi per eliminare gli oggetti:
+
+* *Cancellazione sincrona*: Quando StorageGRID riceve una richiesta di eliminazione da un client, tutte le copie dell'oggetto vengono rimosse immediatamente. Il client viene informato che l'eliminazione è avvenuta con successo dopo la rimozione delle copie.
+* *Gli oggetti vengono messi in coda per l'eliminazione*: Quando StorageGRID riceve una richiesta di eliminazione, l'oggetto viene messo in coda per l'eliminazione e il client viene immediatamente informato che l'eliminazione è avvenuta con successo. Le copie degli oggetti vengono rimosse in seguito dall'elaborazione ILM in background.
+
+
+Quando si eliminano gli oggetti, StorageGRID utilizza il metodo che ottimizza le performance di eliminazione, riduce al minimo i potenziali backlog di eliminazione e libera lo spazio più rapidamente.
+
+La tabella riassume quando StorageGRID utilizza ciascun metodo.
+
+[cols="1a,3a"]
+|===
+| Metodo di eliminazione | Se utilizzato 
+
+
+ a| 
+Gli oggetti vengono messi in coda per l'eliminazione
+ a| 
+Quando *una delle seguenti condizioni* è vera:
+
+* L'eliminazione automatica degli oggetti è stata attivata da uno dei seguenti eventi:
++
+** Viene raggiunta la data di scadenza o il numero di giorni nella configurazione del ciclo di vita di un bucket S3.
+** È trascorso l'ultimo periodo di tempo specificato in una regola ILM.
+
+
++
+*Nota:* gli oggetti in un bucket che ha attivato il blocco oggetti S3 non possono essere cancellati se sono in stato di conservazione legale o se è stato specificato un periodo di conservazione fino alla data, ma non ancora soddisfatto.
+
+* Un client S3 richiede l'eliminazione e una o più di queste condizioni sono vere:
++
+** Impossibile eliminare le copie entro 30 secondi perché, ad esempio, una posizione dell'oggetto non è temporaneamente disponibile.
+** Le code di eliminazione in background sono inattive.
+
+
+
+
+
+
+ a| 
+Gli oggetti vengono rimossi immediatamente (eliminazione sincrona)
+ a| 
+Quando un client S3 effettua una richiesta di eliminazione e *tutte* le seguenti condizioni sono soddisfatte:
+
+* Tutte le copie possono essere rimosse entro 30 secondi.
+* Le code di eliminazione in background contengono oggetti da elaborare.
+
+
+|===
+Quando S3 client effettuano richieste di eliminazione, StorageGRID inizia aggiungendo oggetti alla coda di eliminazione. Passa quindi all'eliminazione sincrona. Assicurarsi che la coda di eliminazione in background disponga di oggetti da elaborare consente a StorageGRID di elaborare le eliminazioni in modo più efficiente, in particolare per i client con bassa concorrenza, evitando al contempo i backlog di eliminazione dei client.
+
+
+
+[[time-required-to-delete-objects]]
+== Tempo necessario per eliminare gli oggetti
+
+Il modo in cui StorageGRID elimina gli oggetti può influire sulle prestazioni del sistema:
+
+* Quando StorageGRID esegue l'eliminazione sincrona, StorageGRID può impiegare fino a 30 secondi per restituire un risultato al client. Ciò significa che l'eliminazione può sembrare più lenta, anche se le copie vengono effettivamente rimosse più rapidamente di quanto non lo siano quando StorageGRID mette in coda gli oggetti per l'eliminazione.
+* Se monitori attentamente le prestazioni di eliminazione durante un'eliminazione in blocco, potresti notare che la velocità di eliminazione sembra rallentare dopo che un certo numero di oggetti è stato eliminato. Questo cambiamento si verifica quando StorageGRID passa dall'accodare oggetti per l'eliminazione all'eseguire l'eliminazione sincrona. L'apparente riduzione della velocità di eliminazione non significa che le copie degli oggetti vengano rimosse più lentamente. Al contrario, indica che in media lo spazio viene ora liberato più rapidamente.
+
+
+Se si eliminano grandi quantità di oggetti e la priorità è liberare spazio rapidamente, considerare l'utilizzo di una richiesta client per eliminare gli oggetti piuttosto che eliminarli utilizzando ILM o altri metodi. In generale, lo spazio viene liberato più rapidamente quando l'eliminazione viene eseguita dai client perché StorageGRID può utilizzare l'eliminazione sincrona.
+
+La quantità di tempo necessaria per liberare spazio dopo l'eliminazione di un oggetto dipende da diversi fattori:
+
+* Se le copie degli oggetti vengono rimosse in modo sincrono o messe in coda per la rimozione in un secondo momento (per le richieste di eliminazione del client).
+* Altri fattori, come il numero di oggetti nella griglia o la disponibilità di risorse della griglia quando le copie degli oggetti vengono messe in coda per la rimozione (sia per le eliminazioni dei client che per altri metodi).
+
+
+
+
+[[how-s3-versioned-objects-are-deleted]]
+[[delete-s3-versioned-objects]]
+== Modalità di eliminazione degli oggetti con versione S3
+
+Quando il versioning è abilitato per un bucket S3, StorageGRID segue il comportamento di Amazon S3 quando risponde alle richieste di eliminazione degli oggetti, sia che tali richieste provengano da un client S3, dalla scadenza del ciclo di vita di un bucket S3 o dai requisiti della policy ILM.
+
+
+CAUTION: Eliminare oggetti per liberare spazio di storage è considerato permanente e irreversibile.
+
+È importante capire come StorageGRID gestisce le richieste di eliminazione degli oggetti che specificano un ID di versione, come un <<s3-client-request,richiesta client S3>>, e quelle che non lo specificano. Le richieste di eliminazione degli oggetti senza ID di versione non eliminano la versione corrente dell'oggetto e non liberano spazio di storage. Al contrario, creano un oggetto di zero byte <<s3-delete-markers,marcatore di eliminazione>> come versione corrente dell'oggetto, rendendo la versione precedente "non corrente". Gli oggetti non correnti vengono identificati tramite un ID di versione.
+
+Anche se l'oggetto non è stato rimosso dallo storage, StorageGRID si comporta come se la versione corrente dell'oggetto non fosse più disponibile. Le richieste a tale oggetto restituiscono 404 NotFound. Tuttavia, poiché i dati dell'oggetto non corrente non sono stati rimossi, le richieste che specificano l'ID della versione di un oggetto non corrente possono avere successo.
+
+Se invii una richiesta di eliminazione di un oggetto senza specificare un ID di versione per un oggetto in un bucket con la gestione delle versioni sospesa, StorageGRID crea un indicatore di eliminazione con valore null `versionId` per l'oggetto. Questo sostituisce ed elimina definitivamente la precedente versione null, perché un oggetto può avere solo una versione null.
+
+Se un client elimina una versione di un oggetto con un ID di versione da un link:../tenant/what-is-branch-bucket.html#operations-in-branch-buckets["secchio di rami"], StorageGRID nasconde l'esistenza della versione dell'oggetto ma non crea un delete marker nel branch bucket. Se un client elimina un oggetto senza un ID di versione da un branch bucket, StorageGRID crea un delete marker nel branch bucket secondo il comportamento standard di S3.
+
+Poiché i dati degli oggetti vengono conservati come versioni non correnti, l'eliminazione di un oggetto in un bucket versionato di solito non libera spazio di storage. Per rimuovere definitivamente le versioni non correnti degli oggetti conservate e liberare spazio, usa una delle seguenti opzioni:
+
+[[s3-client-request]]
+* *Richiesta client S3*: specifica l'ID della versione dell'oggetto nella richiesta S3 DELETE Object (`DELETE /object?versionId=ID`). Tieni presente che questa richiesta rimuove solo le copie dell'oggetto per l'ID di versione specificato. Se esistono più versioni non correnti, ripeti per ogni versione non corrente come desideri.
+* *Bucket lifecycle*: Usa l'azione  `NoncurrentVersionExpiration` nella configurazione del ciclo di vita del bucket. Quando viene raggiunto il numero di NoncurrentDays specificato, StorageGRID rimuove definitivamente tutte le copie delle versioni non correnti degli oggetti.
++
+L' `NewerNoncurrentVersions`azione nella configurazione del ciclo di vita del bucket specifica il numero di versioni non correnti mantenute in un bucket S3 versione. Se sono presenti più versioni non correnti di quelle `NewerNoncurrentVersions` specificate, StorageGRID rimuove le versioni precedenti una volta scaduto il valore NoncurrentDays. La `NewerNoncurrentVersions` soglia sovrascrive le regole del ciclo di vita fornite da ILM, il che significa che un oggetto non corrente con una versione compresa nella `NewerNoncurrentVersions` soglia viene mantenuto se ILM richiede la sua eliminazione.
+
+* *ILM*: Configura una regola ILM che utilizza "Tempo non corrente" come tempo di riferimento e si applica solo alle versioni precedenti degli oggetti. Quando il periodo di conservazione specificato scade, StorageGRID rimuove le versioni non correnti degli oggetti corrispondenti. In link:create-ilm-rule-enter-details.html["Fase 1 (immettere i dettagli) della procedura guidata Crea una regola ILM"], seleziona *Sì* alla domanda "Applica questa regola solo alle versioni precedenti degli oggetti (nei bucket S3 con versioning abilitato)?"
+* *Elimina oggetti nel bucket*: Usa il tenant manager per link:../tenant/deleting-s3-bucket-objects.html["elimina tutte le versioni degli oggetti"].
+
+
+
+
+[[how-s3-versioning-expired-delete-markers-are-deleted]]
+[[s3-delete-markers]]
+== Come vengono eliminati i marcatori di eliminazione scaduti del versioning S3
+
+Quando il versioning è abilitato per un bucket S3, le richieste di eliminazione degli oggetti non eliminano la versione corrente dell'oggetto e non liberano spazio di storage. Al contrario, una richiesta di eliminazione crea un marcatore di eliminazione di zero byte come versione corrente dell'oggetto, rendendo la versione precedente dell'oggetto "noncurrent".
+
+Un indicatore di eliminazione diventa un indicatore di eliminazione scaduto quando è la versione corrente e non ci sono versioni non correnti. Gli indicatori di eliminazione scaduti non contengono dati oggetto, ma compaiono negli elenchi dei bucket e nelle metriche e impediscono l'eliminazione del bucket.
+
+Come configuri StorageGRID per eliminare i delete marker scaduti dipende dal fatto che il bucket sia destinato all'uso a lungo termine (con versioning abilitato o sospeso) oppure se lo stai preparando per l'eliminazione:
+
+* *Pulizia automatica dei marcatori di eliminazione scaduti in un bucket esistente*: Per rimuovere automaticamente i marcatori di eliminazione scaduti da un bucket (con versioning abilitato) mantenendo le versioni degli oggetti, devi configurare una regola del ciclo di vita del bucket con l’azione  `Expiration` e la configurazione  `ExpiredObjectDeleteMarker`. Questa azione si applica solo ai marcatori di eliminazione scaduti. Quando un marcatore di eliminazione scade, viene rimosso automaticamente, come mostrato nel link:example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#use-bucket-to-lifecycle-remove-expired-delete-markers["esempio di utilizzo di una regola del ciclo di vita del bucket per rimuovere i marcatori di eliminazione degli oggetti scaduti"].
++
+
+CAUTION: Le policy ILM non sono in grado di distinguere tra le versioni correnti degli oggetti e i marcatori di eliminazione scaduti. Se l'obiettivo è solo rimuovere i marcatori di eliminazione scaduti mantenendo le versioni degli oggetti, usa  `ExpiredObjectDeleteMarker` in un ciclo di vita del bucket invece di una policy ILM.
+
++
+Se invii una richiesta di eliminazione di un oggetto senza un ID di versione per un oggetto in un bucket con versioning sospeso, StorageGRID crea un marcatore di eliminazione per l'oggetto con un ID di versione `NULL`. Questo sostituisce ed elimina definitivamente la precedente versione ID `NULL` perché un oggetto può avere solo una versione nulla. Per eliminare i marcatori di eliminazione con versione nulla scaduti, devi usare `ExpiredObjectDeleteMarker` in un ciclo di vita del bucket, come mostrato in link:example-9-delete-noncurrent-versions-and-expired-delete-markers.html["esempio di eliminazione di versioni non correnti e marcatori di eliminazione scaduti dopo la sospensione del versioning"].
+
+* *Prepara il bucket per l'eliminazione*: Se vuoi eliminare un bucket e sei certo che tutto il contenuto del bucket non sia più necessario, ma i marcatori di scadenza impediscono l'eliminazione, usa il Tenant Manager per link:../tenant/deleting-s3-bucket-objects.html["rimuovi tutte le versioni dell'oggetto, inclusi i marcatori di eliminazione, le versioni correnti e le versioni non correnti"] dal bucket.
+
+
+La rimozione dei marcatori di eliminazione da un bucket dipende dalla versione di StorageGRID che usi:
+
+* I marcatori di eliminazione da un bucket creato in StorageGRID 11,8 o versioni successive possono essere rimossi da ILM, regole del ciclo di vita bucket, Elimina oggetti nelle operazioni bucket o un'eliminazione client S3 esplicita.
+* I marcatori di eliminazione creati in StorageGRID 11.7 o versioni precedenti possono essere rimossi solo tramite richieste client S3. Non vengono rimossi da ILM, dalle regole del ciclo di vita del bucket o dalle operazioni di eliminazione degli oggetti nel bucket.
+
+
+.Informazioni correlate
+* link:../s3/index.html["UTILIZZARE L'API REST S3"]
+* link:example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["Esempio 4: Regole ILM e policy per gli oggetti con versione S3"]
+

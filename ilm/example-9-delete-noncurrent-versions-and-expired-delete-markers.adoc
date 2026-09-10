@@ -1,0 +1,49 @@
+---
+permalink: ilm/example-9-delete-noncurrent-versions-and-expired-delete-markers.html 
+sidebar: sidebar 
+keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
+summary: A seconda della configurazione del ciclo di vita, gli oggetti seguono le impostazioni di conservazione del ciclo di vita del bucket S3 o di un criterio ILM. 
+---
+= Elimina le versioni non correnti e i marcatori di eliminazione scaduti in StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando sospendi il versioning su un bucket, devi configurare il ciclo di vita del bucket per gestire le versioni non correnti e i delete marker con versione nulla scaduti.
+
+Esempio di configurazione del ciclo di vita di un bucket che gestisce le versioni non correnti e i marcatori di eliminazione scaduti:: Questi passaggi vengono eseguiti su un bucket con una policy ILM attiva:
++
+--
+. Abilita il versioning. Quando vengono importati oggetti con lo stesso nome, le versioni precedenti rimangono disponibili come versioni non correnti e le richieste di eliminazione creano marcatori di eliminazione. Le versioni non correnti sono accessibili, ma occupano spazio di storage.
+. Sospendi il controllo delle versioni perché la configurazione desiderata prevede di conservare una sola versione e liberare spazio di storage utilizzato dalle versioni non correnti. Questa impostazione viene configurata nel passaggio successivo.
+. Configura un ciclo di vita per gestire le versioni non correnti e i delete marker che rimangono dopo la sospensione del versioning.
+
+
+--
+Policy ILM::
++
+--
+Regola basata sul riferimento al tempo di acquisizione (impostazione predefinita): Il giorno 0, conservare le copie X per sempre
+
+--
+Ciclo di vita della benna::
++
+--
+`"Filter": {}, "Expiration": {"ExpiredObjectDeleteMarker": true}, "NoncurrentVersionExpiration": {"NoncurrentDays": 1}`
+
+--
+Risultato:: Il ciclo di vita del bucket è configurato per gestire le versioni non correnti e i marcatori di eliminazione scaduti:
++
+--
+. Le versioni che non sono più correnti da più di un giorno vengono eliminate. Solo la versione corrente rimane per sempre.
+. Viene ingerito un oggetto denominato  `draftdoc` e ha l'ID di versione  `NULL`.
+. Se viene ingerito un altro oggetto con lo stesso nome (`draftdoc`, sovrascrive e sostituisce la versione nulla ed elimina immediatamente la versione precedente.
+. Se viene effettuata una richiesta di eliminazione `draftdoc` senza specificare un ID di versione, viene creato un marcatore di eliminazione con versione nulla, che sostituisce ed elimina l'oggetto con versione nulla.
+. Il marcatore di eliminazione con versione nulla è scaduto perché non ci sono versioni non correnti.
+. Poco dopo, il marcatore di eliminazione null-versioned scaduto viene eliminato.
+
+
+--
+

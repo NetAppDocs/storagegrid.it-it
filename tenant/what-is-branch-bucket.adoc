@@ -44,6 +44,7 @@ Si noti le seguenti caratteristiche dei bucket di diramazione:
 
 
 [[operations-on-objects-in-branch-buckets]]
+[[operations-in-branch-buckets]]
 == Operazioni sugli oggetti nei bucket di diramazione
 
 * Un'operazione PUT su un bucket di ramo crea un oggetto nel ramo.
@@ -110,4 +111,4 @@ HEAD/GET restituisce La versione dell'oggetto non esiste
 |===
 
 
-Fare riferimento anche alink:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Modalità di eliminazione degli oggetti con versione S3"] .
+Consultare anche link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["Modalità di eliminazione degli oggetti con versione S3"].

@@ -22,7 +22,7 @@ summary: È possibile utilizzare Tenant Manager per eliminare un bucket S3 vuoto
 .A proposito di questa attività
 Queste istruzioni descrivono come eliminare un bucket S3 utilizzando il Tenant Manager. È inoltre possibile eliminare i bucket S3 utilizzando link:understanding-tenant-management-api.html["API di gestione del tenant"]o link:../s3/operations-on-buckets.html["API REST S3"].
 
-Non è possibile eliminare un bucket S3 se contiene oggetti, versioni di oggetti non correnti o contrassegni di eliminazione. Per informazioni sull'eliminazione degli oggetti con versione S3, vedere link:../ilm/how-objects-are-deleted.html["Modalità di eliminazione degli oggetti"].
+Non puoi eliminare un bucket S3 se contiene oggetti, versioni di oggetti non correnti o marcatori di eliminazione. Per informazioni su come vengono eliminati gli oggetti S3 con versione, consulta link:../ilm/how-objects-and-delete-markers-are-deleted.html["Come vengono eliminati gli oggetti e i marcatori di eliminazione"].
 
 .Fasi
 . Selezionare *View bucket* (Visualizza bucket) dalla dashboard oppure selezionare *STORAGE (S3)* > *Bucket*.

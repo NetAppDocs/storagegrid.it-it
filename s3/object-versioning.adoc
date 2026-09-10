@@ -34,7 +34,19 @@ Per gli oggetti S3 nei bucket abilitati per le versioni, il supporto per le vers
 
 NOTE: Quando si carica una nuova versione di un oggetto utilizzando un'operazione di caricamento multiparte, l'ora non corrente per la versione originale dell'oggetto si riflette quando il caricamento multiparte è stato creato per la nuova versione, non quando il caricamento multiparte è stato completato. In casi limitati, il tempo non corrente per la versione originale potrebbe essere di ore o giorni prima del tempo per la versione corrente.
 
+
+
+[[how-object-versioning-uses-storage-capacity-in-storagegrid]]
+== Come il versioning degli oggetti utilizza la capacità di storage in StorageGRID
+
+La quantità di spazio di storage utilizzata per il versioning degli oggetti dipende dal numero di volte in cui carichi un oggetto, dalle regole dei criteri ILM e dall'accumulo di versioni non correnti:
+
+* Quando il versioning è abilitato su un bucket, ogni versione di un oggetto viene memorizzata come un oggetto completo e separato. Se carichi un file da 1 GB cinque volte, StorageGRID memorizza 5 GB di dati raw (5 x 1 GB) per quell'oggetto.
+* La policy ILM viene valutata per ogni versione dell'oggetto. Ad esempio, se hai una regola ILM di replica a due copie, StorageGRID memorizza due copie replicate di ogni versione dell'oggetto (corrente e non corrente). Quando questa regola ILM viene applicata a un bucket con 10 versioni di un oggetto da 1 GB, vengono utilizzati 20 GB di storage fisico.
+* Senza una policy del ciclo di vita del bucket S3 o una regola ILM che prenda di mira le versioni non correnti, StorageGRID conserva tutte le vecchie versioni a tempo indeterminato e queste continuano a consumare storage. Questa è la causa più comune di una crescita inattesa dello storage nei bucket versionati.
+
+
 .Informazioni correlate
-* link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Modalità di eliminazione degli oggetti con versione S3"]
+* link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["Modalità di eliminazione degli oggetti con versione S3"]
 * link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["Regole e criteri ILM per gli oggetti con versione S3 (esempio 4)"].
 

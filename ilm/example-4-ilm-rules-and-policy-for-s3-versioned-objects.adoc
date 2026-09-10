@@ -138,4 +138,4 @@ Quando si simula il criterio di esempio, si prevede che gli oggetti di test veng
 
 
 .Informazioni correlate
-link:how-objects-are-deleted.html["Modalità di eliminazione degli oggetti"]
+link:how-objects-and-delete-markers-are-deleted.html["Come vengono eliminati gli oggetti e i marcatori di eliminazione"]

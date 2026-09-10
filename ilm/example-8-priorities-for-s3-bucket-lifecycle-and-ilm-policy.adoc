@@ -88,6 +88,7 @@ I marcatori di eliminazione che iniziano con "docs/" vengono rimossi quando dive
 
 
 [[example-of-using-bucket-lifecycle-to-duplicate-ilm-and-clean-up-expired-delete-markers]]
+[[use-bucket-to-lifecycle-remove-expired-delete-markers]]
 == Esempio di utilizzo del ciclo di vita bucket per duplicare ILM e ripulire i marcatori di eliminazione scaduti
 
 Policy ILM::
