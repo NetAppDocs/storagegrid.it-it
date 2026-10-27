@@ -37,9 +37,6 @@ NOTE: Non creare più storage di quanto necessario. Ad esempio, non creare un li
 +
 .. Per ogni livello di storage personalizzato che vuoi aggiungere, seleziona *Inserisci* image:icon_nms_insert.gif["inserire l'icona"] per aggiungere una riga.
 .. Inserire un'etichetta descrittiva.
-+
-image:editing_storage_grades.gif["Pagina Storage Grades"]
-
 .. Selezionare *Applica modifiche*.
 .. Facoltativamente, se devi modificare un'etichetta salvata, seleziona *Modifica* image:icon_nms_edit.gif["icona edit (modifica)"] e seleziona *Applica modifiche*.
 +
@@ -52,9 +49,6 @@ NOTE: Non puoi eliminare i gradi di storage.
 +
 .. Individua il nodo di archiviazione nell'elenco LDR e seleziona la relativa icona *Modifica* image:icon_nms_edit.gif["icona edit (modifica)"].
 .. Selezionare il livello di storage appropriato dall'elenco.
-+
-image:assigning_storage_grades_to_storage_nodes.gif["Pagina Storage Grades"]
-
 +
 
 NOTE: Assegnare un grado di storage a un nodo di storage specifico una sola volta. Un nodo di storage recuperato dal guasto mantiene il livello di storage assegnato in precedenza. Non modificare questa assegnazione dopo l'attivazione della policy ILM. Se l'assegnazione viene modificata, i dati vengono memorizzati in base al nuovo livello di storage.

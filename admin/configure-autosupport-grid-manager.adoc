@@ -133,7 +133,7 @@ Se necessario, è possibile disattivare la verifica degli aggiornamenti software
 [[add-an-additional-autosupport-destination]]
 == Aggiungere una destinazione AutoSupport aggiuntiva
 
-Quando si attiva AutoSupport, i pacchetti di stato e di integrità vengono inviati al supporto tecnico. È possibile specificare una destinazione aggiuntiva per tutti i pacchetti AutoSupport.
+Quando abiliti AutoSupport, i pacchetti relativi a integrità e stato vengono inviati al supporto tecnico. Puoi specificare una destinazione aggiuntiva per tutti i pacchetti AutoSupport.
 
 Per verificare o modificare il protocollo utilizzato per inviare pacchetti AutoSupport, vedere le istruzioni a <<specify-protocol-for-autosupport-packages,Specificare il protocollo per i pacchetti AutoSupport>>.
 
